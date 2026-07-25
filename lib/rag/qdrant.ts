@@ -6,6 +6,7 @@ const QDRANT_API_KEY = process.env.QDRANT_API_KEY || undefined;
 export const qdrantClient = new QdrantClient({
   url: QDRANT_URL,
   apiKey: QDRANT_API_KEY,
+  checkCompatibility: false,
 });
 
 export async function ensureCollection(collectionName: string, vectorSize: number = 1536) {

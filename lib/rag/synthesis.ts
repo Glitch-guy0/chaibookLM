@@ -41,9 +41,18 @@ export async function createGroundedCompletionStream(
 ): Promise<ReadableStream<Uint8Array>> {
   const systemPrompt = formatSystemPrompt(chunks);
 
-  if (!MAIN_MODEL_API_KEY) {
-    // Return mock streaming response if no API key present
-    const mockAnswer = `Based on your uploaded sources, ${chunks.map((_, i) => `[${i + 1}]`).join(" and ")} state that the key finding is well-documented within your workspace. Every statement is grounded and traceable directly to your files.`;
+  const isMock =
+    !MAIN_MODEL_API_KEY ||
+    MAIN_MODEL_API_KEY.includes("your_") ||
+    MAIN_MODEL_API_KEY === "placeholder";
+
+  if (isMock) {
+    // Return mock streaming response if no valid API key present
+    const mockAnswer = `Based on your uploaded sources ${chunks
+      .map((_, i) => `[${i + 1}]`)
+      .join(
+        " and "
+      )}, the key findings and details are well-documented within your workspace. Every claim is grounded and traceable directly to your files.`;
     const encoder = new TextEncoder();
     return new ReadableStream({
       async start(controller) {

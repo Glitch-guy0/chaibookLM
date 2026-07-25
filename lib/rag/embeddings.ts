@@ -5,10 +5,18 @@ const EMBEDDING_MODEL_NAME =
 const EMBEDDING_MODEL_API_KEY =
   process.env.EMBEDDING_MODEL_API_KEY || process.env.MAIN_MODEL_API_KEY || "";
 
+function getFallbackVector(): number[] {
+  return new Array(1536).fill(0).map(() => (Math.random() - 0.5) * 0.1);
+}
+
 export async function generateEmbedding(text: string): Promise<number[]> {
-  if (!EMBEDDING_MODEL_API_KEY) {
-    // Return dummy 1536-dim vector if no API key present for testing
-    return new Array(1536).fill(0).map(() => (Math.random() - 0.5) * 0.1);
+  // If API key is missing or placeholder, use fallback vector
+  if (
+    !EMBEDDING_MODEL_API_KEY ||
+    EMBEDDING_MODEL_API_KEY.includes("your_") ||
+    EMBEDDING_MODEL_API_KEY === "placeholder"
+  ) {
+    return getFallbackVector();
   }
 
   try {
@@ -25,13 +33,20 @@ export async function generateEmbedding(text: string): Promise<number[]> {
     });
 
     if (!res.ok) {
-      throw new Error(`Embedding API error: ${res.statusText}`);
+      console.warn(`Embedding API warning (${res.status}): ${res.statusText}`);
+      return getFallbackVector();
     }
 
     const data = await res.json();
-    return data.data[0].embedding;
+    const vector = data?.data?.[0]?.embedding || data?.embedding;
+
+    if (Array.isArray(vector) && vector.length > 0) {
+      return vector;
+    }
+
+    return getFallbackVector();
   } catch (error) {
     console.error("Embedding generation fallback:", error);
-    return new Array(1536).fill(0).map(() => (Math.random() - 0.5) * 0.1);
+    return getFallbackVector();
   }
 }

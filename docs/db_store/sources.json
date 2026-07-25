@@ -1,0 +1,14 @@
+[
+  {
+    "notebookId": "nb_1784994632076_llcuq",
+    "userId": "user_3H0AT4tFC7AWBn9W0dY8F6pRwuV",
+    "title": "dummy-pdf_2.pdf",
+    "type": "pdf",
+    "urlOrPath": "dummy-pdf_2.pdf",
+    "sizeBytes": 7478,
+    "status": "ready",
+    "contentSnippet": "%PDF-1.4\r%����\r\n15 0 obj\r<</Linearized 1/L 7478/O 17/E 2161/N 1/T 7131/H [ 476 165]>>\rendobj\r                     \r\nxref\r\n15 9\r\n0000000016 00000 n\r\n0000000807 00000 n\r\n0000001080 00000 n\r\n0000001292 00000 n\r\n0000001479 00000 n\r\n0000001841 00000 n\r\n0000002084 00000 n\r\n0000000641 00000 n\r\n0000000476 0",
+    "id": "src_1784994771766_t65s6",
+    "createdAt": "2026-07-25T15:52:51.766Z"
+  }
+]
