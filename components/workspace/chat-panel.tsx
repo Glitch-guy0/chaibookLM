@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { Send, Bot, User, Sparkles, Loader2 } from "lucide-react";
 import { useUser } from "@clerk/nextjs";
 import { Source } from "./sidebar";
+import { MarkdownRenderer } from "./markdown-renderer";
 
 export interface Citation {
   sourceId: string;
@@ -140,53 +141,16 @@ export function ChatPanel({
     }
   };
 
-  // Function to render text with interactive citation chips [1], [2]
+  // Function to render text with markdown and interactive citation chips [1], [2]
   const renderMessageContent = (msg: ChatMessage) => {
-    if (msg.role === "user") {
-      return <p className="whitespace-pre-wrap">{msg.content}</p>;
-    }
-
-    const regex = /\[(\d+)\]/g;
-    const parts = [];
-    let lastIndex = 0;
-    let match;
-
-    while ((match = regex.exec(msg.content)) !== null) {
-      const citationNum = parseInt(match[1], 10);
-      const textBefore = msg.content.substring(lastIndex, match.index);
-      if (textBefore) parts.push(textBefore);
-
-      const citationData = msg.citations?.[citationNum - 1];
-
-      parts.push(
-        <button
-          key={`cit_${match.index}`}
-          onClick={() => citationData && onCitationClick(citationData)}
-          className="inline-flex items-center justify-center mx-0.5 px-1.5 py-0.5 rounded-md bg-accent/20 hover:bg-accent/40 border border-accent/30 text-accent text-mono-sm font-semibold transition-all duration-fast hover:scale-105 active:scale-95 cursor-pointer"
-          title={
-            citationData
-              ? `Click to view source: ${citationData.sourceTitle}`
-              : `Citation ${citationNum}`
-          }
-        >
-          [{citationNum}]
-        </button>
-      );
-
-      lastIndex = regex.lastIndex;
-    }
-
-    if (lastIndex < msg.content.length) {
-      parts.push(msg.content.substring(lastIndex));
-    }
-
     return (
-      <div className="whitespace-pre-wrap leading-relaxed">
-        {parts.length > 0 ? parts : msg.content}
-        {msg.isStreaming && (
-          <span className="inline-block w-2 h-4 bg-primary ml-1 animate-pulse" />
-        )}
-      </div>
+      <MarkdownRenderer
+        content={msg.content}
+        citations={msg.citations}
+        onCitationClick={onCitationClick}
+        isStreaming={msg.isStreaming}
+        role={msg.role}
+      />
     );
   };
 

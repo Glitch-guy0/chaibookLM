@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "install:docling": "node scripts/setup-docling.js",
+    "vercel-build": "npm run install:docling && next build",
+    "postinstall": "npm run install:docling"
   },
   "dependencies": {
     "@clerk/nextjs": "^5.7.5",

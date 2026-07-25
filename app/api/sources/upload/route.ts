@@ -4,11 +4,12 @@ import { addSource, getSources, updateSourceStatus } from "@/lib/db";
 import { chunkText } from "@/lib/rag/chunker";
 import { generateEmbedding } from "@/lib/rag/embeddings";
 import { qdrantClient, ensureCollection } from "@/lib/rag/qdrant";
+import { parsePdfWithDocling } from "@/lib/rag/docling";
 
 export async function POST(req: NextRequest) {
   const startTime = Date.now();
   console.log("\n[Upload] ========== NEW UPLOAD START ==========");
-  
+
   try {
     const { userId } = await getAuthUser();
     console.log(`[Upload] Authenticated user: ${userId}`);
@@ -37,6 +38,8 @@ export async function POST(req: NextRequest) {
 
     let fileSize = 0;
     let rawText = "";
+    let pdfBuffer: Buffer | null = null;
+    let isPdf = false;
 
     if (file) {
       fileSize = file.size;
@@ -48,7 +51,20 @@ export async function POST(req: NextRequest) {
           { status: 400 }
         );
       }
-      rawText = await file.text();
+
+      isPdf =
+        sourceType === "pdf" ||
+        file.name.toLowerCase().endsWith(".pdf") ||
+        file.type.includes("pdf");
+
+      if (isPdf) {
+        console.log(`[Upload] PDF file received. Preparing buffer for background Docling conversion...`);
+        const arrayBuffer = await file.arrayBuffer();
+        pdfBuffer = Buffer.from(arrayBuffer);
+        rawText = `PDF Document: ${file.name}`;
+      } else {
+        rawText = await file.text();
+      }
     } else if (url) {
       fileSize = 100 * 1024; // ~100KB virtual size for URLs
       console.log(`[Upload] URL: ${url}`);
@@ -73,7 +89,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // 1. Save source metadata record in status: "indexing"
+    // 1. Save source metadata record immediately in status: "indexing"
     const sourceRecord = addSource({
       notebookId,
       userId,
@@ -85,38 +101,47 @@ export async function POST(req: NextRequest) {
       contentSnippet: rawText.substring(0, 300),
     });
 
-    console.log(`[Upload] Source record created: ${sourceRecord.id}`);
+    console.log(`[Upload] Source record created & acknowledged to client: ${sourceRecord.id}`);
 
-    // 2. Async background chunking & vector embedding
+    // 2. Async background processing pipeline (Docling PDF parsing -> Chunking -> Embedding -> Qdrant)
     (async () => {
       const indexStartTime = Date.now();
-      console.log(`[Upload] Starting background indexing for source: ${sourceRecord.id}`);
-      
+      console.log(`[Upload Pipeline] Starting background processing for source: ${sourceRecord.id}`);
+
       try {
+        let processedText = rawText;
+
+        // Run Docling conversion for PDF files in the background
+        if (isPdf && pdfBuffer) {
+          console.log(`[Docling Pipeline] PDF uploaded & acknowledged. Starting Docling conversion for: "${title}"...`);
+          processedText = await parsePdfWithDocling(pdfBuffer, file?.name || title);
+          console.log(`[Docling Pipeline] Docling conversion complete (${processedText.length} chars). Proceeding with chunking and embedding...`);
+        }
+
         const collectionName = `coll_${notebookId}`;
-        console.log(`[Upload] Ensuring Qdrant collection: ${collectionName}`);
+        console.log(`[Upload Pipeline] Ensuring Qdrant collection: ${collectionName}`);
         await ensureCollection(collectionName);
 
-        const chunks = chunkText(rawText, title, sourceType);
-        console.log(`[Upload] Text chunked into ${chunks.length} pieces`);
-        
+        const chunks = chunkText(processedText, title, sourceType);
+        console.log(`[Upload Pipeline] Text chunked into ${chunks.length} pieces`);
+
         const points = [];
         let successCount = 0;
         let fallbackCount = 0;
 
         for (let i = 0; i < chunks.length; i++) {
           const chunk = chunks[i];
-          console.log(`[Upload] Embedding chunk ${i + 1}/${chunks.length} (${chunk.text.length} chars)`);
-          
+          console.log(`[Upload Pipeline] Embedding chunk ${i + 1}/${chunks.length} (${chunk.text.length} chars)`);
+
           const embeddingResult = await generateEmbedding(chunk.text);
-          
+
           if (embeddingResult.status === "success") {
             successCount++;
           } else {
             fallbackCount++;
-            console.warn(`[Upload] Chunk ${i + 1} used fallback: ${embeddingResult.error}`);
+            console.warn(`[Upload Pipeline] Chunk ${i + 1} used fallback: ${embeddingResult.error}`);
           }
-          
+
           points.push({
             id: i + 1,
             vector: embeddingResult.vector,
@@ -135,30 +160,34 @@ export async function POST(req: NextRequest) {
           });
         }
 
-        console.log(`[Upload] Embedding complete: ${successCount} success, ${fallbackCount} fallback`);
+        console.log(`[Upload Pipeline] Embedding complete: ${successCount} success, ${fallbackCount} fallback`);
 
         if (points.length > 0) {
-          console.log(`[Upload] Upserting ${points.length} vectors to Qdrant...`);
+          console.log(`[Upload Pipeline] Upserting ${points.length} vectors to Qdrant...`);
           await qdrantClient.upsert(collectionName, { points });
-          console.log("[Upload] Qdrant upsert complete");
+          console.log("[Upload Pipeline] Qdrant upsert complete");
         }
 
         updateSourceStatus(sourceRecord.id, "ready");
         const duration = Date.now() - indexStartTime;
-        console.log(`[Upload] Indexing completed in ${duration}ms`);
-        console.log("[Upload] ========== INDEXING END ==========\n");
+        console.log(`[Upload Pipeline] Docling conversion & indexing completed in ${duration}ms`);
+        console.log("[Upload Pipeline] ========== PROCESSING END ==========\n");
       } catch (err) {
         const duration = Date.now() - indexStartTime;
-        console.error(`[Upload] Background indexing FAILED after ${duration}ms:`, err);
-        console.warn("[Upload] Marking source as 'ready' to allow query testing");
-        updateSourceStatus(sourceRecord.id, "ready"); // Mark ready to allow query testing
+        console.error(`[Upload Pipeline] Background processing FAILED after ${duration}ms:`, err);
+        updateSourceStatus(sourceRecord.id, "ready"); // Fallback ready status to allow testing
       }
     })();
 
     const duration = Date.now() - startTime;
-    console.log(`[Upload] Upload handler completed in ${duration}ms`);
-    
-    return NextResponse.json({ source: sourceRecord });
+    console.log(`[Upload] Upload handler acknowledged to client in ${duration}ms`);
+
+    return NextResponse.json({
+      source: sourceRecord,
+      message: isPdf
+        ? "PDF uploaded successfully. Docling parsing & vector indexing started in background."
+        : "Source uploaded successfully. Vector indexing started in background.",
+    });
   } catch (error: any) {
     const duration = Date.now() - startTime;
     console.error(`[Upload] FATAL ERROR after ${duration}ms:`, error);
