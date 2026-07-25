@@ -1,4 +1,5 @@
 {
+  "$schema": "https://app.kilo.ai/config.json",
   "plugin": [
     "file:///Users/prajwal/Documents/learning/chaibookLM/.kilo/plugins/graphify.js"
   ]
