@@ -68,7 +68,7 @@ export function NewNotebookModal({
             <button
               type="submit"
               disabled={loading || !title.trim()}
-              className="px-5 py-2 rounded-lg bg-primary text-text font-medium text-body-sm hover:brightness-110 active:scale-95 transition-all duration-fast shadow-glow disabled:opacity-50 disabled:pointer-events-none flex items-center gap-2"
+              className="px-5 py-2 rounded-lg bg-primary text-white font-medium text-body-sm hover:brightness-110 active:scale-95 transition-all duration-fast shadow-glow disabled:opacity-50 disabled:pointer-events-none flex items-center gap-2"
             >
               {loading ? (
                 <Loader2 className="w-4 h-4 animate-spin" />

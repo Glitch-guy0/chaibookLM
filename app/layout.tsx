@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Inter, Fraunces, JetBrains_Mono } from "next/font/google";
+import { ThemeProvider } from "@/components/shared/theme-provider";
 import "./globals.css";
 
 const inter = Inter({
@@ -31,11 +32,18 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en" className="dark">
+      <html lang="en" suppressHydrationWarning>
         <body
-          className={`${inter.variable} ${fraunces.variable} ${jetbrainsMono.variable} font-body bg-bg text-text antialiased min-h-screen flex flex-col`}
+          className={`${inter.variable} ${fraunces.variable} ${jetbrainsMono.variable} font-body bg-bg text-text antialiased min-h-screen flex flex-col transition-colors duration-200`}
         >
-          {children}
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>

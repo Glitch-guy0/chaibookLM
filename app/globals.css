@@ -3,50 +3,51 @@
 @tailwind utilities;
 
 :root {
-  /* ---- Brand colors (LIGHT mode) ---- */
-  --primary-h: 38;    --primary-s: 55%;  --primary-l: 62%;   /* warm gold */
-  --secondary-h: 256;  --secondary-s: 45%; --secondary-l: 78%; /* periwinkle */
-  --accent-h: 340;     --accent-s: 40%;   --accent-l: 80%;    /* dusty rose */
+  /* ---- Brand colors (LIGHT mode — cool blue palette) ---- */
+  --primary-h: 217;   --primary-s: 91%;  --primary-l: 60%;   /* cool blue  #3b82f6 */
+  --secondary-h: 262; --secondary-s: 60%; --secondary-l: 65%; /* violet     #8b5cf6 */
+  --accent-h: 175;    --accent-s: 59%;   --accent-l: 51%;    /* teal       #2dd4bf */
 
   /* ---- Surfaces ---- */
-  --bg-h: 35;    --bg-s: 30%;   --bg-l: 97%;
-  --surface-h: 35; --surface-s: 20%; --surface-l: 99%;
+  --bg-h: 210;     --bg-s: 40%;  --bg-l: 97%;   /* near-white #f5f7fa */
+  --surface-h: 0;  --surface-s: 0%;  --surface-l: 100%; /* pure white  #ffffff */
 
   /* ---- Text ---- */
-  --text-h: 30;       --text-s: 20%; --text-l: 15%;
-  --text-muted-h: 30; --text-muted-s: 10%; --text-muted-l: 42%;
+  --text-h: 215;       --text-s: 25%; --text-l: 17%;  /* dark slate  #1e293b */
+  --text-muted-h: 215; --text-muted-s: 16%; --text-muted-l: 47%; /* slate-500 #64748b */
 
   /* ---- Semantic ---- */
-  --success-h: 150; --success-s: 40%; --success-l: 50%;
-  --warning-h: 45;  --warning-s: 75%; --warning-l: 58%;
-  --error-h: 355;   --error-s: 55%;   --error-l: 60%;
+  --success-h: 142; --success-s: 72%; --success-l: 45%;
+  --warning-h: 38;  --warning-s: 92%; --warning-l: 50%;
+  --error-h: 0;     --error-s: 84%;   --error-l: 60%;
 
   /* ---- Glass / elevation ---- */
-  --glass-border: 0 0% 100%;
-  --shadow-color: 30 20% 15%;
+  --glass-border: 215 32% 88%;   /* slate-200 tint */
+  --shadow-color: 215 25% 15%;   /* cool slate shadow */
 
   /* ---- Motion ---- */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
+/* Optional future dark mode — cool dark palette */
 .dark {
-  --primary-h: 40;    --primary-s: 60%;  --primary-l: 68%;
-  --secondary-h: 256;  --secondary-s: 50%; --secondary-l: 75%;
-  --accent-h: 340;     --accent-s: 45%;   --accent-l: 75%;
+  --primary-h: 217;   --primary-s: 85%;  --primary-l: 65%;
+  --secondary-h: 262; --secondary-s: 55%; --secondary-l: 70%;
+  --accent-h: 175;    --accent-s: 55%;   --accent-l: 58%;
 
-  --bg-h: 30;    --bg-s: 14%;  --bg-l: 9%;
-  --surface-h: 30; --surface-s: 12%; --surface-l: 14%;
+  --bg-h: 222;     --bg-s: 47%;  --bg-l: 11%;   /* deep slate  #0f172a */
+  --surface-h: 222; --surface-s: 40%; --surface-l: 16%; /* slate-800 */
 
-  --text-h: 35;       --text-s: 15%; --text-l: 92%;
-  --text-muted-h: 30; --text-muted-s: 8%;  --text-muted-l: 62%;
+  --text-h: 210;       --text-s: 20%; --text-l: 94%;
+  --text-muted-h: 215; --text-muted-s: 14%; --text-muted-l: 62%;
 
-  --success-h: 150; --success-s: 40%; --success-l: 60%;
-  --warning-h: 45;  --warning-s: 70%; --warning-l: 62%;
-  --error-h: 355;   --error-s: 50%;   --error-l: 65%;
+  --success-h: 142; --success-s: 65%; --success-l: 55%;
+  --warning-h: 38;  --warning-s: 88%; --warning-l: 58%;
+  --error-h: 0;     --error-s: 78%;   --error-l: 65%;
 
-  --glass-border: 0 0% 100%;
-  --shadow-color: 30 30% 2%;
+  --glass-border: 215 30% 100%;
+  --shadow-color: 222 50% 4%;
 }
 
 @layer base {
@@ -57,7 +58,8 @@
     @apply bg-bg text-text font-body antialiased;
   }
   ::selection {
-    @apply bg-primary/30 text-text;
+    background: hsl(var(--primary-h) var(--primary-s) var(--primary-l) / 0.15);
+    color: hsl(var(--text-h) var(--text-s) var(--text-l));
   }
   :focus-visible {
     outline: 2px solid hsl(var(--primary-h) var(--primary-s) var(--primary-l));
@@ -66,18 +68,19 @@
 }
 
 @layer utilities {
+  /* Frosted-white glass — works on light cool backgrounds */
   .glass {
-    background: hsl(var(--surface-h) var(--surface-s) var(--surface-l) / 0.6);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid hsl(var(--glass-border) / 0.12);
+    background: hsl(var(--surface-h) var(--surface-s) var(--surface-l) / 0.82);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid hsl(var(--glass-border) / 0.9);
   }
 
   .gradient-signature {
     background: linear-gradient(
       135deg,
       hsl(var(--primary-h) var(--primary-s) var(--primary-l)) 0%,
-      hsl(var(--primary-h) var(--primary-s) var(--primary-l) / 0.6) 45%,
+      hsl(var(--primary-h) var(--primary-s) var(--primary-l) / 0.7) 45%,
       hsl(var(--secondary-h) var(--secondary-s) var(--secondary-l)) 100%
     );
   }
@@ -85,7 +88,7 @@
 
 @keyframes pulse-indexing {
   0%, 100% { opacity: 1; box-shadow: 0 0 0 0 hsl(var(--warning-h) var(--warning-s) var(--warning-l) / 0.5); }
-  50% { opacity: 0.7; box-shadow: 0 0 0 6px hsl(var(--warning-h) var(--warning-s) var(--warning-l) / 0); }
+  50%       { opacity: 0.7; box-shadow: 0 0 0 6px hsl(var(--warning-h) var(--warning-s) var(--warning-l) / 0); }
 }
 
 .animate-indexing {

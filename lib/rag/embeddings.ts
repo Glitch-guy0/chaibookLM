@@ -5,18 +5,29 @@ const EMBEDDING_MODEL_NAME =
 const EMBEDDING_MODEL_API_KEY =
   process.env.EMBEDDING_MODEL_API_KEY || process.env.MAIN_MODEL_API_KEY || "";
 
-function getFallbackVector(): number[] {
-  return new Array(1536).fill(0).map(() => (Math.random() - 0.5) * 0.1);
+function getFallbackVector(dim: number = 1536): number[] {
+  return new Array(dim).fill(0).map(() => (Math.random() - 0.5) * 0.1);
 }
 
-export async function generateEmbedding(text: string): Promise<number[]> {
-  // If API key is missing or placeholder, use fallback vector
+function normalizeDimension(vec: number[], targetDim: number = 1536): number[] {
+  if (vec.length === targetDim) return vec;
+  if (vec.length > targetDim) return vec.slice(0, targetDim);
+  const padded = new Array(targetDim).fill(0);
+  for (let i = 0; i < vec.length; i++) padded[i] = vec[i];
+  return padded;
+}
+
+export async function generateEmbedding(
+  text: string,
+  targetDim: number = 1536
+): Promise<number[]> {
+  // If API key is missing or placeholder, return normalized fallback vector
   if (
     !EMBEDDING_MODEL_API_KEY ||
     EMBEDDING_MODEL_API_KEY.includes("your_") ||
     EMBEDDING_MODEL_API_KEY === "placeholder"
   ) {
-    return getFallbackVector();
+    return getFallbackVector(targetDim);
   }
 
   try {
@@ -34,19 +45,19 @@ export async function generateEmbedding(text: string): Promise<number[]> {
 
     if (!res.ok) {
       console.warn(`Embedding API warning (${res.status}): ${res.statusText}`);
-      return getFallbackVector();
+      return getFallbackVector(targetDim);
     }
 
     const data = await res.json();
-    const vector = data?.data?.[0]?.embedding || data?.embedding;
+    const rawVector = data?.data?.[0]?.embedding || data?.embedding;
 
-    if (Array.isArray(vector) && vector.length > 0) {
-      return vector;
+    if (Array.isArray(rawVector) && rawVector.length > 0) {
+      return normalizeDimension(rawVector, targetDim);
     }
 
-    return getFallbackVector();
+    return getFallbackVector(targetDim);
   } catch (error) {
     console.error("Embedding generation fallback:", error);
-    return getFallbackVector();
+    return getFallbackVector(targetDim);
   }
 }

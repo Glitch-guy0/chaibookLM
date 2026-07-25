@@ -81,7 +81,7 @@ export function Sidebar({
           </h2>
           <button
             onClick={() => setIsAddModalOpen(true)}
-            className="w-full py-2.5 px-4 rounded-xl bg-primary text-text font-medium text-body-sm hover:brightness-110 active:scale-95 transition-all shadow-glow flex items-center justify-center gap-2"
+            className="w-full py-2.5 px-4 rounded-xl bg-primary text-white font-medium text-body-sm hover:brightness-110 active:scale-95 transition-all shadow-glow flex items-center justify-center gap-2"
           >
             <Plus className="w-4 h-4" />
             Add Source

@@ -211,8 +211,8 @@ export function ChatPanel({
               <div
                 className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 shadow-sm ${
                   msg.role === "user"
-                    ? "bg-primary text-text font-bold"
-                    : "gradient-signature text-text"
+                    ? "bg-primary text-white font-bold"
+                    : "gradient-signature text-white"
                 }`}
               >
                 {msg.role === "user" ? (
@@ -265,7 +265,7 @@ export function ChatPanel({
           <button
             type="submit"
             disabled={!input.trim() || isGenerating || sources.length === 0}
-            className="w-9 h-9 rounded-xl bg-primary text-text flex items-center justify-center hover:brightness-110 active:scale-95 transition-all shadow-glow disabled:opacity-40 disabled:pointer-events-none shrink-0 mb-0.5"
+            className="w-9 h-9 rounded-xl bg-primary text-white flex items-center justify-center hover:brightness-110 active:scale-95 transition-all shadow-glow disabled:opacity-40 disabled:pointer-events-none shrink-0 mb-0.5"
           >
             {isGenerating ? (
               <Loader2 className="w-4 h-4 animate-spin" />

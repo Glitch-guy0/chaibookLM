@@ -45,7 +45,7 @@ export default function LandingPage() {
           <div className="flex items-center justify-center gap-4 pt-4">
             <Link
               href="/dashboard"
-              className="px-6 py-3.5 rounded-xl bg-primary text-text font-medium text-body hover:brightness-110 active:scale-95 transition-all shadow-glow flex items-center gap-2"
+              className="px-6 py-3.5 rounded-xl bg-primary text-white font-medium text-body hover:brightness-110 active:scale-95 transition-all shadow-glow flex items-center gap-2"
             >
               Try it free <ArrowRight className="w-4 h-4" />
             </Link>
