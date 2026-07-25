@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* ---- Brand colors (LIGHT mode) ---- */
+  --primary-h: 38;    --primary-s: 55%;  --primary-l: 62%;   /* warm gold */
+  --secondary-h: 256;  --secondary-s: 45%; --secondary-l: 78%; /* periwinkle */
+  --accent-h: 340;     --accent-s: 40%;   --accent-l: 80%;    /* dusty rose */
+
+  /* ---- Surfaces ---- */
+  --bg-h: 35;    --bg-s: 30%;   --bg-l: 97%;
+  --surface-h: 35; --surface-s: 20%; --surface-l: 99%;
+
+  /* ---- Text ---- */
+  --text-h: 30;       --text-s: 20%; --text-l: 15%;
+  --text-muted-h: 30; --text-muted-s: 10%; --text-muted-l: 42%;
+
+  /* ---- Semantic ---- */
+  --success-h: 150; --success-s: 40%; --success-l: 50%;
+  --warning-h: 45;  --warning-s: 75%; --warning-l: 58%;
+  --error-h: 355;   --error-s: 55%;   --error-l: 60%;
+
+  /* ---- Glass / elevation ---- */
+  --glass-border: 0 0% 100%;
+  --shadow-color: 30 20% 15%;
+
+  /* ---- Motion ---- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.dark {
+  --primary-h: 40;    --primary-s: 60%;  --primary-l: 68%;
+  --secondary-h: 256;  --secondary-s: 50%; --secondary-l: 75%;
+  --accent-h: 340;     --accent-s: 45%;   --accent-l: 75%;
+
+  --bg-h: 30;    --bg-s: 14%;  --bg-l: 9%;
+  --surface-h: 30; --surface-s: 12%; --surface-l: 14%;
+
+  --text-h: 35;       --text-s: 15%; --text-l: 92%;
+  --text-muted-h: 30; --text-muted-s: 8%;  --text-muted-l: 62%;
+
+  --success-h: 150; --success-s: 40%; --success-l: 60%;
+  --warning-h: 45;  --warning-s: 70%; --warning-l: 62%;
+  --error-h: 355;   --error-s: 50%;   --error-l: 65%;
+
+  --glass-border: 0 0% 100%;
+  --shadow-color: 30 30% 2%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-bg text-text font-body antialiased;
+  }
+  ::selection {
+    @apply bg-primary/30 text-text;
+  }
+  :focus-visible {
+    outline: 2px solid hsl(var(--primary-h) var(--primary-s) var(--primary-l));
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: hsl(var(--surface-h) var(--surface-s) var(--surface-l) / 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--glass-border) / 0.12);
+  }
+
+  .gradient-signature {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--primary-h) var(--primary-s) var(--primary-l)) 0%,
+      hsl(var(--primary-h) var(--primary-s) var(--primary-l) / 0.6) 45%,
+      hsl(var(--secondary-h) var(--secondary-s) var(--secondary-l)) 100%
+    );
+  }
+}
+
+@keyframes pulse-indexing {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 hsl(var(--warning-h) var(--warning-s) var(--warning-l) / 0.5); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 6px hsl(var(--warning-h) var(--warning-s) var(--warning-l) / 0); }
+}
+
+.animate-indexing {
+  animation: pulse-indexing 1.6s var(--ease-in-out) infinite;
+}

@@ -1,0 +1,1 @@
+{"nodes": [{"id": "bmad_create_epics_and_stories_step_01", "label": "Step 1: Validate Prerequisites", "file_type": "code", "source_file": ".agent/skills/bmad-create-epics-and-stories/steps/step-01-validate-prerequisites.md"}], "edges": [], "hyperedges": []}

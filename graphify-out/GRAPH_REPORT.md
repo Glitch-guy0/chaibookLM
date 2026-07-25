@@ -1,1737 +1,1747 @@
-# Graph Report - chaibookLM  (2026-07-25)
+# Graph Report - .  (2026-07-25)
 
 ## Corpus Check
-- 1663 files · ~1,237,270 words
+- 1712 files · ~1,243,063 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 27327 nodes · 26245 edges · 1807 communities (1747 shown, 60 thin omitted)
-- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 5 edges (avg confidence: 0.5)
-- Token cost: 0 input · 0 output
-
-## Graph Freshness
-- Built from commit: `7ca5ecc4`
-- Run `git rev-parse HEAD` and compare to check if the graph is stale.
-- Run `graphify update .` after code changes (no API cost).
+- 26764 nodes · 25740 edges · 1823 communities (1692 shown, 131 thin omitted)
+- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 16 edges (avg confidence: 0.72)
+- Token cost: 740,230 input · 23,336 output
 
 ## Community Hubs (Navigation)
-- Interactive Prototype Analysis - Dog Week Project
-- Interactive Prototype Analysis - Dog Week Project
-- Scenario [Number]: [Scenario Name] - Prototype Roadmap
-- Scenario [Number]: [Scenario Name] - Prototype Roadmap
-- When to Extract Prototypes to Figma - Decision Guide
-- When to Extract Prototypes to Figma - Decision Guide
-- {{target_name}} - Deep Dive Documentation
-- {{target_name}} - Deep Dive Documentation
-- Saga's Strategic Documentation Guide
-- Step 4: Identify Opportunities
-- Step 4: Identify Opportunities
-- Flow B: Verbal Specification
-- Design Tools Reference for WDS
-- Step 7: Execute Decision
-- Step 8e: Generate Catalog
-- Phase 8: Product Evolution
-- Flow B: Verbal Specification
-- Design Tools Reference for WDS
-- Step 7: Execute Decision
-- Step 8e: Generate Catalog
-- Phase 8: Product Evolution
-- Figma Component Structure for WDS
-- Figma Integration - Summary
-- Figma Integration - Summary
-- Prototype to Figma Workflow
-- Step 5: Identify Risks
-- Prototype to Figma Workflow
-- Step 5: Identify Risks
-- 🎯 Story Context Quality Competition Prompt
-- Figma Designer Guide for WDS
-- 🎯 Story Context Quality Competition Prompt
-- Figma Designer Guide for WDS
-- Step 8c: Update Component
-- 2. Create Design Delivery File
-- Step 8c: Update Component
-- 2. Create Design Delivery File
-- Saga's SEO Strategy Guide
-- Saga's Trigger Mapping Guide
-- Figma MCP Integration for WDS
-- Figma MCP Integration for WDS
-- Project Signoff Document
-- Project Signoff Document
-- Core Principles
-- Step 6: Present Decision
-- Project Signoff Document
-- Project Signoff Document
-- Core Principles
-- Step 6: Present Decision
-- Step 2: Explore and Capture
-- Step 2: Explore and Capture
-- Project Contract
-- Project Contract
-- Sketch Analysis Guide: Reading Text Placeholders
-- Handoff Dialog Scripts
-- Specification Audit Report
-- Project Contract
-- Project Contract
-- Sketch Analysis Guide: Reading Text Placeholders
-- Handoff Dialog Scripts
-- Specification Audit Report
-- Conversational Follow-Up Patterns
-- Service Agreement
-- Service Agreement
-- Nano Banana Prompt Composition Guide
-- Service Agreement
-- Service Agreement
-- Nano Banana Prompt Composition Guide
-- EPIC QUALITY REVIEW PROCESS:
-- Content & Language: {{project_name}}
-- Content & Language: {{project_name}}
-- Interactive Prototypes - Getting Started Guide
-- Step 3: Calculate Similarity
-- Step 8a: Initialize Design System
-- EPIC QUALITY REVIEW PROCESS:
-- Content & Language: {{project_name}}
-- Content & Language: {{project_name}}
-- Interactive Prototypes - Getting Started Guide
-- Step 3: Calculate Similarity
-- Step 8a: Initialize Design System
-- Visual Direction: {{project_name}}
-- Visual Direction: {{project_name}}
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Step 2: Compare Attributes
-- Visual Direction: {{project_name}}
-- Visual Direction: {{project_name}}
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Step 2: Compare Attributes
-- brain.py
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- brain.py
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- test_lint_spine.py
-- Freya's Specification Quality Guide
-- Platform Requirements: {{project_name}}
-- Platform Requirements: {{project_name}}
-- Phase 4 [H] Handover: Design Deliveries
-- Step 2: Gather Context
-- test_lint_spine.py
-- Freya's Specification Quality Guide
-- Platform Requirements: {{project_name}}
-- Platform Requirements: {{project_name}}
-- Phase 4 [H] Handover: Design Deliveries
-- Step 2: Gather Context
-- Freya's Content Creation Guide
-- Freya's Specification Quality Guide
-- Component Boundaries
-- Freya's Design System Guide
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Phase 5: Design System Workflow
-- Freya's Design System Guide
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Phase 5: Design System Workflow
-- Freya's Design System Guide
-- Freya's Meta Content Guide
-- DOCUMENT DISCOVERY PROCESS:
-- Step 3: Generate Epics and Stories
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Step 8d: Add Variant
-- DOCUMENT DISCOVERY PROCESS:
-- Step 3: Generate Epics and Stories
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Step 8d: Add Variant
-- Saga's Discovery Conversation Guide
-- Step 2: Context Rules Generation
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- 1. Validate Each Scenario
-- Cross-Page Consistency Strategy
-- Page Specification Quality Guide
-- Story [Page].[Section]: [Page Name] - [Section Name]
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Step 2: Context Rules Generation
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- 1. Validate Each Scenario
-- Cross-Page Consistency Strategy
-- Page Specification Quality Guide
-- Story [Page].[Section]: [Page Name] - [Section Name]
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- REQUIREMENTS EXTRACTION PROCESS:
-- TestGroupDetail
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Dimension 2: Quality Criteria (7 checks)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- REQUIREMENTS EXTRACTION PROCESS:
-- TestGroupDetail
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Dimension 2: Quality Criteria (7 checks)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- 4. Notebook Workspace
-- Document Project Workflow - Validation Checklist
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Step 7a: Capture Product Concept
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Modular Component Architecture
-- Complexity Router & Decomposition Coach
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Document Project Workflow - Validation Checklist
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Step 7a: Capture Product Concept
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Modular Component Architecture
-- Complexity Router & Decomposition Coach
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- 📚 Hello! I'm Saga, Your WDS Analyst!
-- EPIC DESIGN PROCESS:
-- Market Research Step 6: Research Completion
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- {Feature Name} Feature
-- Step 3: Components & Object IDs
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- EPIC DESIGN PROCESS:
-- Market Research Step 6: Research Completion
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- {Feature Name} Feature
-- Step 3: Components & Object IDs
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- {{project_name}} Documentation Index
-- TestBuildPool
-- {page-number}-{page-name}
-- Step 2: Capture Vision
-- Step 3: Define Positioning
-- Step 12: Create Product Brief
-- Step 13: Initialize Content & Language
-- Step 19: Inspiration Analysis Workshop
-- Step 20: Initialize Visual Direction
-- Step 27: Initialize Platform Requirements
-- Step 28: Technology Stack
-- Validation Step 01: Brief Completeness
-- Validation Step 02: Trigger Map Consistency
-- Validation Step 03: SEO Strategy
-- Step 6: Gap Analysis & Validation
-- Step 8: Workshop 1 - Business Goals
-- Step 9: Workshop 2 - Target Groups
-- Step 10: Workshop 3 - Driving Forces
-- Step 4: Feature Impact Alignment Validation
-- Step 5: Cross-Document Coherence Validation
-- Validation Step 2: Navigation Patterns
-- WDS Specification Pattern
-- 📝 **The Dialog**
-- Step 2: Validate Navigation Structure
-- Step 4: Validate Page Sections
-- Step 5: Validate Section Order & Structure
-- Step 6: Validate Object Registry
-- Step 7: Validate Design System Separation & Unnecessary Information
-- Step Files
-- Acceptance Testing Steps
-- Step 1: Define Question
-- Step 3: Fix
-- Step 1: Identify Target
-- Step 3: Create Issues
-- Step 4: Create Test Report
-- Content Creation Workshop Guide
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Step 1: Scan Existing Components
-- Step 5: Hand Off to BMad
-- {{project_name}} Documentation Index
-- TestBuildPool
-- {page-number}-{page-name}
-- Step 2: Capture Vision
-- Step 3: Define Positioning
-- Step 12: Create Product Brief
-- Step 13: Initialize Content & Language
-- Step 19: Inspiration Analysis Workshop
-- Step 20: Initialize Visual Direction
-- Step 27: Initialize Platform Requirements
-- Step 28: Technology Stack
-- Validation Step 01: Brief Completeness
-- Validation Step 02: Trigger Map Consistency
-- Validation Step 03: SEO Strategy
-- Step 6: Gap Analysis & Validation
-- Step 8: Workshop 1 - Business Goals
-- Step 9: Workshop 2 - Target Groups
-- Step 10: Workshop 3 - Driving Forces
-- Step 4: Feature Impact Alignment Validation
-- Step 5: Cross-Document Coherence Validation
-- Validation Step 2: Navigation Patterns
-- WDS Specification Pattern
-- 📝 **The Dialog**
-- Step 2: Validate Navigation Structure
-- Step 4: Validate Page Sections
-- Step 5: Validate Section Order & Structure
-- Step 6: Validate Object Registry
-- Step 7: Validate Design System Separation & Unnecessary Information
-- Step Files
-- Acceptance Testing Steps
-- Step 1: Define Question
-- Step 3: Fix
-- Step 1: Identify Target
-- Step 3: Create Issues
-- Step 4: Create Test Report
-- Content Creation Workshop Guide
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Step 1: Scan Existing Components
-- Step 5: Hand Off to BMad
-- 🎨 Hello! I'm Freya, Your WDS Designer!
-- properties
-- Domain Research Step 4: Regulatory Focus
-- Domain Research Step 5: Technical Trends
-- Domain Research Step 6: Research Synthesis and Completion
-- resolve_personas.py
-- Technical Research Step 5: Implementation Research
-- Technical Research Step 6: Technical Synthesis and Completion
-- Project Brief: {{project_name}}
-- [Component Name] [[component-id]]
-- Step 10: Capture Constraints
-- Step 35: Update Design Log
-- Project Brief: {{project_name}}
-- Step 15: Generate Feature Impact Document
-- Step 18: Generate Business Goals Document
-- Step 22: Generate Key Insights Document
-- Step 28: Format Driving Forces Nodes
-- Step 29: Create Connections
-- Step 36: Update Design Log
-- Step 1: Target Group Coverage Validation
-- Step 2: Prioritization Integrity Validation
-- Step 3: Persona Consistency Validation
-- Step 8: Update Design Log
-- Step 9: Handover
-- Validation Step 1: Scenario Coverage
-- HTML Tags vs. Visual Text Styles
-- Component File Structure
-- Page Process Workshop
-- Step 1: Review Current Design System
-- Step 2: Define or Update Component
-- Step 3: Validate Component Usage
-- Step 8: Spacing & Typography
-- Step 1: Validate Page Metadata
-- Step 3: Validate Page Overview
-- Step 1: Choose Visual Approach
-- Step 3: Review and Integrate
-- Step 2: Scenario Analysis & Logical View Identification
-- Step 4e: Handle Issue
-- Step 4f: Handle Improvement Suggestion
-- Step 5: Finalization
-- Step 5: Iterate or Approve
-- Step 1: Load Trigger Map Context
-- Step 3: Prepare Specifications
-- Step 4: Generate and Validate
-- Step 3: Select Style
-- Step 4: Generate Icons
-- Step 1: Load Context
-- Step 4: Reference Images
-- Step 5: Generate Images
-- Step 1: Load Context
-- Step 4: Generate Page Designs
-- Step 4: Generate UI Elements
-- Step 3: Select Style
-- Step 4: Generate Motion Content
-- Step 4: Generate Wireframes
-- [Component Name] [[component-id]]
-- Step 1: Identify Opportunity
-- properties
-- Domain Research Step 4: Regulatory Focus
-- Domain Research Step 5: Technical Trends
-- Domain Research Step 6: Research Synthesis and Completion
-- resolve_personas.py
-- Technical Research Step 5: Implementation Research
-- Technical Research Step 6: Technical Synthesis and Completion
-- Project Brief: {{project_name}}
-- [Component Name] [[component-id]]
-- Step 10: Capture Constraints
-- Step 35: Update Design Log
-- Project Brief: {{project_name}}
-- Step 15: Generate Feature Impact Document
-- Step 18: Generate Business Goals Document
-- Step 22: Generate Key Insights Document
-- Step 28: Format Driving Forces Nodes
-- Step 29: Create Connections
-- Step 36: Update Design Log
-- Step 1: Target Group Coverage Validation
-- Step 2: Prioritization Integrity Validation
-- Step 3: Persona Consistency Validation
-- Step 8: Update Design Log
-- Step 9: Handover
-- Validation Step 1: Scenario Coverage
-- HTML Tags vs. Visual Text Styles
-- Component File Structure
-- Page Process Workshop
-- Step 1: Review Current Design System
-- Step 2: Define or Update Component
-- Step 3: Validate Component Usage
-- Step 8: Spacing & Typography
-- Step 1: Validate Page Metadata
-- Step 3: Validate Page Overview
-- Step 1: Choose Visual Approach
-- Step 3: Review and Integrate
-- Step 2: Scenario Analysis & Logical View Identification
-- Step 4e: Handle Issue
-- Step 4f: Handle Improvement Suggestion
-- Step 5: Finalization
-- Step 5: Iterate or Approve
-- Step 1: Load Trigger Map Context
-- Step 3: Prepare Specifications
-- Step 4: Generate and Validate
-- Step 3: Select Style
-- Step 4: Generate Icons
-- Step 1: Load Context
-- Step 4: Reference Images
-- Step 5: Generate Images
-- Step 1: Load Context
-- Step 4: Generate Page Designs
-- Step 4: Generate UI Elements
-- Step 3: Select Style
-- Step 4: Generate Motion Content
-- Step 4: Generate Wireframes
-- [Component Name] [[component-id]]
-- Step 1: Identify Opportunity
-- Project Brief: {{project_name}}
-- Step 4: UX Alignment
-- Domain Research Step 2: Industry Analysis
-- Domain Research Step 3: Competitive Landscape
-- Market Research Step 2: Customer Behavior and Segments
-- Market Research Step 3: Customer Pain Points and Needs
-- Market Research Step 4: Customer Decisions and Journey
-- resolve_party.py
-- QA Generate E2E Tests Workflow
-- Technical Research Step 2: Technology Stack Analysis
-- Technical Research Step 3: Integration Patterns
-- Technical Research Step 4: Architectural Patterns
-- Step 4: Extract Information from Communications
-- Step 6: Explore The Realization
-- Step 13: Explore The Value We'll Create
-- Step 18: Synthesize Alignment Document
-- Step 34: Finalize Contract
-- Step 36: Finalize Signoff Document
-- Step 6: Identify Business Customers (B2B)
-- Step 7: Identify Target Users
-- Step 10A: Define Platform & Device Strategy
-- Step 36: Provide Next Phase Activation
-- Step 1: Documentation Synthesis
-- Step 2: Business Goals Extraction
-- Step 3: Target Groups Extraction
-- Step 4: Driving Forces Extraction
-- Step 7: Trigger Mapping Overview
-- Step 12: Extract Features
-- Step 14: Make Initial Assessment
-- Step 19: Generate Primary Persona
-- Step 20: Generate Secondary Persona
-- Step 21: Generate Tertiary Persona (Optional)
-- Step 23: Quality Check & Verification
-- Step 24: Initialize Diagram Structure
-- Step 25: Format Business Goals Nodes
-- Step 26: Format Platform Node
-- Step 27: Format Target Group Nodes
-- Step 30: Apply Styling
-- Step 1: Load Context & Detect Project State
-- Step 1: Detect Epic Completion
-- Diagnostic Report Template
-- Step 1: Prototype Setup
-- Step 4a: Announce Section & Gather Requirements
-- Step 4b: Create Story File
-- Step 1: Connection Check and Installation
-- Step 1: Load Context
-- Step 2: Asset Inventory
-- Step 2: Asset Inventory
-- Step 3: Select Style
-- Step 2: Asset Inventory
-- Step 3: Select Style
-- Step 1: Load Context
-- Step 2: Asset Inventory
-- Step 3: Select Style
-- Step 1: Load Context
-- Step 2: Asset Inventory
-- Step 1: Load Context
-- Step 3: Select Style
-- Step 4: UX Alignment
-- Domain Research Step 2: Industry Analysis
-- Domain Research Step 3: Competitive Landscape
-- Market Research Step 2: Customer Behavior and Segments
-- Market Research Step 3: Customer Pain Points and Needs
-- Market Research Step 4: Customer Decisions and Journey
-- resolve_party.py
-- QA Generate E2E Tests Workflow
-- Technical Research Step 2: Technology Stack Analysis
-- Technical Research Step 3: Integration Patterns
-- Technical Research Step 4: Architectural Patterns
-- Step 4: Extract Information from Communications
-- Step 6: Explore The Realization
-- Step 13: Explore The Value We'll Create
-- Step 18: Synthesize Alignment Document
-- Step 34: Finalize Contract
-- Step 36: Finalize Signoff Document
-- Step 6: Identify Business Customers (B2B)
-- Step 7: Identify Target Users
-- Step 10A: Define Platform & Device Strategy
-- Step 36: Provide Next Phase Activation
-- Step 1: Documentation Synthesis
-- Step 2: Business Goals Extraction
-- Step 3: Target Groups Extraction
-- Step 4: Driving Forces Extraction
-- Step 7: Trigger Mapping Overview
-- Step 12: Extract Features
-- Step 14: Make Initial Assessment
-- Step 19: Generate Primary Persona
-- Step 20: Generate Secondary Persona
-- Step 21: Generate Tertiary Persona (Optional)
-- Step 23: Quality Check & Verification
-- Step 24: Initialize Diagram Structure
-- Step 25: Format Business Goals Nodes
-- Step 26: Format Platform Node
-- Step 27: Format Target Group Nodes
-- Step 30: Apply Styling
-- Step 1: Load Context & Detect Project State
-- Step 1: Detect Epic Completion
-- Diagnostic Report Template
-- Step 1: Prototype Setup
-- Step 4a: Announce Section & Gather Requirements
-- Step 4b: Create Story File
-- Step 1: Connection Check and Installation
-- Step 1: Load Context
-- Step 2: Asset Inventory
-- Step 2: Asset Inventory
-- Step 3: Select Style
-- Step 2: Asset Inventory
-- Step 3: Select Style
-- Step 1: Load Context
-- Step 2: Asset Inventory
-- Step 3: Select Style
-- Step 1: Load Context
-- Step 2: Asset Inventory
-- Step 1: Load Context
-- Step 3: Select Style
-- memlog.py
-- Freya's Agentic Development Guide
-- PRD ANALYSIS PROCESS:
-- EPIC COVERAGE VALIDATION PROCESS:
-- ScannerTest
-- Step 2: Determine If Alignment & Signoff Is Needed
-- Step 3: Offer to Extract Information from Communications
-- Step 5: Detect Starting Point
-- Step 7: Explore Solution (If Starting with Solution)
-- Step 8: Explore Why It Matters
-- Step 9: Explore How We See It Working
-- Step 10: Explore Paths We Explored
-- Step 12: Explore The Path Forward
-- Step 14: Explore Cost of Inaction
-- Step 15: Explore Our Commitment
-- Step 17: Reflect Back What You've Captured
-- Step 20: Present Alignment Document for Approval
-- Step 21: Offer to Generate Signoff Document
-- Step 22: Determine Business Model
-- Step 27: Build Section 5 - Timeline
-- Step 30: Build Section 8 - Not to Exceed Clause (Conditional)
-- Step 35: Build Internal Signoff Document
-- {scenario-number}-{scenario-name}
-- Step 1: Welcome and Set Expectations
-- Step 33: Analyze Product Brief Completeness
-- Step 34: Create Handover Summary
-- Step 13: Confirm Assessment Approach
-- Step 32: Generate All Trigger Map Documentation
-- Step 33: Add Cross-References
-- Step 34: Final Quality Check
-- Step 35: Create Handover Package
-- Page Specification Workflow
-- Step 1: Sketch Analysis
-- Step 4: Content & Languages
-- Step 6: States
-- Step 7: Validation & Errors
-- Step 8: Page Init - Entry Point
-- Step 0: Nano Banana Setup & Verify
-- {scenario-number}-{scenario-name}
-- Phase 4: UX Design
-- Dev Mode - Usage Guide
-- Step 2: Identify Code to Figma Type
-- Step 2: Asset Inventory
-- Content Creation Workshop - Output
-- PRD ANALYSIS PROCESS:
-- EPIC COVERAGE VALIDATION PROCESS:
-- ScannerTest
-- Step 2: Determine If Alignment & Signoff Is Needed
-- Step 3: Offer to Extract Information from Communications
-- Step 5: Detect Starting Point
-- Step 7: Explore Solution (If Starting with Solution)
-- Step 8: Explore Why It Matters
-- Step 9: Explore How We See It Working
-- Step 12: Explore The Path Forward
-- Step 14: Explore Cost of Inaction
-- Step 15: Explore Our Commitment
-- Step 16: Explore Summary
-- Step 17: Reflect Back What You've Captured
-- Step 20: Present Alignment Document for Approval
-- Step 21: Offer to Generate Signoff Document
-- Step 22: Determine Business Model
-- Step 27: Build Section 5 - Timeline
-- Step 30: Build Section 8 - Not to Exceed Clause (Conditional)
-- Step 35: Build Internal Signoff Document
-- {scenario-number}-{scenario-name}
-- Step 1: Welcome and Set Expectations
-- Step 33: Analyze Product Brief Completeness
-- Step 34: Create Handover Summary
-- Step 13: Confirm Assessment Approach
-- Step 32: Generate All Trigger Map Documentation
-- Step 33: Add Cross-References
-- Step 34: Final Quality Check
-- Step 35: Create Handover Package
-- Page Specification Workflow
-- Step 1: Sketch Analysis
-- Step 4: Content & Languages
-- Step 6: States
-- Step 7: Validation & Errors
-- Step 8: Page Init - Entry Point
-- Step 0: Nano Banana Setup & Verify
-- {scenario-number}-{scenario-name}
-- Phase 4: UX Design
-- Dev Mode - Usage Guide
-- Step 2: Identify Code to Figma Type
-- Step 2: Asset Inventory
-- Content Creation Workshop - Output
-- Step 6: Final Assessment
-- properties
-- {{project_name}} - Source Tree Analysis
-- Editorial Review - Structure
-- Market Research Step 1: Market Research Initialization
-- Market Research Step 5: Competitive Analysis
-- Step 1: Understand Situation
-- Step 23: Build Section 1 - Project Overview
-- Step 24: Build Section 2 - Business Model
-- Step 25: Build Section 3 - Scope of Work
-- Step 26: Build Section 4 - Our Commitment & Payment Terms
-- Step 28: Build Section 6 - Availability (Retainer Only)
-- Step 29: Build Section 7 - Confidentiality Clause
-- Step 31: Build Section 9 - Work Initiation
-- Step 32: Build Section 10 - Terms and Conditions
-- Step 33: Build Section 11 - Approval
-- Document Structure for EACH Persona
-- Format Requirements
-- Step 16: Feature Workshop Wrap-Up
-- Step 37: Provide UX Design Activation
-- Document Structure for EACH Persona
-- Step 6: Generate Scenario Overview
-- Why This Works
-- Quick Reference: Sketch Text Analysis
-- Storyboard Integration
-- Text Detection Priority Rules
-- Step 1: Page Basics
-- Step 2: Layout Sections
-- Step 5: Interactions
-- Step 1: Core Feature
-- Step 2: Entry Point
-- Step 3: Mental State
-- Step 4: Mutual Success
-- Step 5: Shortest Path
-- Step 6: Scenario Name
-- Step 7: Create Structure
-- Step 9: Page Name
-- Step 10: Page Purpose
-- Step 11: Page Entry Point
-- Step 12: Page Mental State
-- Step 13: Desired Outcome
-- Step 14: Page Variants
-- Step 15: Create Page Structure
-- Step 2: Generate Visual Representation
-- Prototype Initiation Dialog
-- Phase 6: Asset Generation
-- Stitch UI Generation
-- Step 6: Final Assessment
-- properties
-- {{project_name}} - Source Tree Analysis
-- Editorial Review - Structure
-- Market Research Step 1: Market Research Initialization
-- Market Research Step 5: Competitive Analysis
-- Step 1: Understand Situation
-- Step 23: Build Section 1 - Project Overview
-- Step 24: Build Section 2 - Business Model
-- Step 25: Build Section 3 - Scope of Work
-- Step 26: Build Section 4 - Our Commitment & Payment Terms
-- Step 28: Build Section 6 - Availability (Retainer Only)
-- Step 29: Build Section 7 - Confidentiality Clause
-- Step 31: Build Section 9 - Work Initiation
-- Step 32: Build Section 10 - Terms and Conditions
-- Step 33: Build Section 11 - Approval
-- Document Structure for EACH Persona
-- Format Requirements
-- Step 16: Feature Workshop Wrap-Up
-- Step 37: Provide UX Design Activation
-- Document Structure for EACH Persona
-- Step 6: Generate Scenario Overview
-- Why This Works
-- Quick Reference: Sketch Text Analysis
-- Storyboard Integration
-- Text Detection Priority Rules
-- Step 1: Page Basics
-- Step 2: Layout Sections
-- Step 5: Interactions
-- Step 1: Core Feature
-- Step 2: Entry Point
-- Step 3: Mental State
-- Step 4: Mutual Success
-- Step 5: Shortest Path
-- Step 6: Scenario Name
-- Step 7: Create Structure
-- Step 9: Page Name
-- Step 10: Page Purpose
-- Step 11: Page Entry Point
-- Step 12: Page Mental State
-- Step 13: Desired Outcome
-- Step 14: Page Variants
-- Step 15: Create Page Structure
-- Step 2: Generate Visual Representation
-- Prototype Initiation Dialog
-- Phase 6: Asset Generation
-- Stitch UI Generation
-- BMad Brainstorming Catalog — Deep Analysis
-- {{project_name}} - Project Overview
-- completed
-- Step 1: Context Discovery & Initialization
-- Step 3: Context Completion & Finalization
-- Alignment & Signoff Workflow
-- Modular Component Architecture
-- Content Placement Guide
-- Page Init (Lightweight)
-- Step 9: Generate Specification Document
-- dev-mode.js
-- BMad Brainstorming Catalog — Deep Analysis
-- {{project_name}} - Project Overview
-- completed
-- Step 1: Context Discovery & Initialization
-- Step 3: Context Completion & Finalization
-- Alignment & Signoff Workflow
-- Modular Component Architecture
-- Content Placement Guide
-- Page Init (Lightweight)
-- Step 9: Generate Specification Document
-- dev-mode.js
-- Step 4: Final Validation
-- On Activation
-- Step 11: Explore Recommended Solution
-- Step 16: Explore Summary
-- Workshop C: Placeholder Pages
-- Step 4: Final Validation
-- On Activation
-- Step 10: Explore Paths We Explored
-- Step 11: Explore Recommended Solution
-- Workshop C: Placeholder Pages
-- lint_spine.py
-- On Activation
-- BMad Spec
-- Quality Check & Verification Checklist
-- Agent-Designer Collaboration in UX Design
-- What Are Storyboards?
-- AVAILABLE OBJECT TYPES
-- Scenario Initialization: From Trigger Map to First Sketch
-- Inline Testing Guide
-- Step 08: Iterate (Kaizen Never Stops)
-- lint_spine.py
-- On Activation
-- BMad Spec
-- Quality Check & Verification Checklist
-- Agent-Designer Collaboration in UX Design
-- What Are Storyboards?
-- AVAILABLE OBJECT TYPES
-- Scenario Initialization: From Trigger Map to First Sketch
-- Inline Testing Guide
-- Step 08: Iterate (Kaizen Never Stops)
-- wds-validate.js
-- On Activation
-- INSTRUCTIONS
-- On Activation
-- Domain Research Step 1: Domain Research Scope Confirmation
-- On Activation
-- Technical Research Step 1: Technical Research Scope Confirmation
-- Trigger Map Poster: {{project_name}}
-- Design System: {{project_name}}
-- Trigger Map Poster: {{project_name}}
-- Step 5: Outline Scenario (One at a Time)
-- Phase 3: UX Scenarios
-- Object Router Flow Diagram
-- The 7 Steps
-- Page Specification Validation Standards
-- Responsive Behavior
-- [D] Dream Up — Agent Creates Autonomously, User Reviews
-- Phase 7: Design System
-- Kaizen Principles
-- On Activation
-- INSTRUCTIONS
-- On Activation
-- Domain Research Step 1: Domain Research Scope Confirmation
-- On Activation
-- Technical Research Step 1: Technical Research Scope Confirmation
-- Trigger Map Poster: {{project_name}}
-- Design System: {{project_name}}
-- Trigger Map Poster: {{project_name}}
-- Step 5: Outline Scenario (One at a Time)
-- Phase 3: UX Scenarios
-- Object Router Flow Diagram
-- The 7 Steps
-- Page Specification Validation Standards
-- Responsive Behavior
-- [D] Dream Up — Agent Creates Autonomously, User Reviews
-- Phase 7: Design System
-- Kaizen Principles
-- resolve_customization.py
-- On Activation
-- On Activation
-- Dev Auto Workflow
-- type
-- On Activation
-- On Activation
-- On Activation
-- On Activation
-- EXECUTION
-- On Activation
-- Drift — Experience Spine
-- SECTION EXPLORATION GUIDE
-- Design Principles (Synthesized)
-- Project Pitch: {{project_name}}
-- Design Principles (Synthesized)
-- Project Pitch: {{project_name}}
-- Phase 1: Product Brief
-- Phase 2: Trigger Mapping
-- Step 2: Analyze Scope & Scale Strategy
-- Step 3: Build Strategic Context
-- Step 4: Suggest Scenarios (USER CHECKPOINT)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Step 07: Monitor Impact
-- On Activation
-- On Activation
-- Dev Auto Workflow
-- type
-- On Activation
-- On Activation
-- On Activation
-- On Activation
-- EXECUTION
-- On Activation
-- Drift — Experience Spine
-- SECTION EXPLORATION GUIDE
-- Design Principles (Synthesized)
-- Project Pitch: {{project_name}}
-- Design Principles (Synthesized)
-- Project Pitch: {{project_name}}
-- Phase 1: Product Brief
-- Phase 2: Trigger Mapping
-- Step 2: Analyze Scope & Scale Strategy
-- Step 3: Build Strategic Context
-- Step 4: Suggest Scenarios (USER CHECKPOINT)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Step 07: Monitor Impact
-- Advanced Elicitation
-- On Activation
-- On Activation
-- On Activation
-- On Activation
-- On Activation
-- On Activation
-- On Activation
-- Story {{epic_num}}.{{story_num}}: {{story_title}}
-- list_customizable_skills.py
-- properties
-- On Activation
-- The seven dimensions
-- Quill — Experience Spine
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Substep 2: Explore Positioning
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Object Type: Heading/Text (with Purpose-Based Organization)
-- Object Type: Text Input
-- page-specification.template.md
-- AFTER COMPLETION
-- Level 1: Critical (Must Pass)
-- SEO Validation Guide
-- Phase 5: Agentic Development
-- Step 8b: Create New Component
-- Phase 8: Product Evolution
-- On Activation
-- On Activation
-- Advanced Elicitation
-- On Activation
-- On Activation
-- On Activation
-- On Activation
-- On Activation
-- On Activation
-- On Activation
-- Story {{epic_num}}.{{story_num}}: {{story_title}}
-- list_customizable_skills.py
-- properties
-- On Activation
-- The seven dimensions
-- Quill — Experience Spine
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Substep 2: Explore Positioning
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Object Type: Heading/Text (with Purpose-Based Organization)
-- Object Type: Text Input
-- page-specification.template.md
-- AFTER COMPLETION
-- Level 1: Critical (Must Pass)
-- SEO Validation Guide
-- Phase 5: Agentic Development
-- Step 8b: Create New Component
-- Phase 8: Product Evolution
-- On Activation
-- On Activation
-- Working with Existing Materials
-- wds-add-spacing.js
-- BMad Architecture
-- On Activation
-- Step 1: Orientation
-- Step 3: Detail Pass
-- Requirements Inventory
-- BMad Customize
-- On Activation
-- required
-- BMad Forge Idea
-- {Headline}
-- Step 1: Welcome & Orientation
-- Step 2: Project Configuration & Structure
-- Instructions
-- Key Insights Document Structure Guide
-- WDS Scenario Validation Standards
-- Step 7: Quality Review
-- workflow.md
-- Instructions
-- Open Questions — Auto-Population Guide
-- SEO Specification Checklist
-- {page-number}-{page-name}
-- EXECUTION-PRINCIPLES.md
-- INLINE-TESTING-GUIDE.md
-- Step 4d: Present Section for Testing
-- Badass Users Principles
-- Button [btn-003]
-- Monitoring Templates
-- BMad Architecture
-- On Activation
-- Step 1: Orientation
-- Step 3: Detail Pass
-- Requirements Inventory
-- BMad Customize
-- On Activation
-- required
-- BMad Forge Idea
-- {Headline}
-- Step 1: Welcome & Orientation
-- Step 2: Project Configuration & Structure
-- Instructions
-- Key Insights Document Structure Guide
-- WDS Scenario Validation Standards
-- Step 7: Quality Review
-- workflow.md
-- Instructions
-- Open Questions — Auto-Population Guide
-- SEO Specification Checklist
-- {page-number}-{page-name}
-- EXECUTION-PRINCIPLES.md
-- INLINE-TESTING-GUIDE.md
-- Step 4d: Present Section for Testing
-- Badass Users Principles
-- Button [btn-003]
-- Monitoring Templates
-- Before You Design Anything
-- Inspiration Analysis Workshop (Product Brief)
-- Artifacts
-- wds-nav.js
-- Activation Behavior
-- Architecture Spine — {name}
-- BMad Brainstorming
-- 2a: Try Sharded Documents First
-- On Activation
-- Adapt-In Menu *(add the clusters the product calls for)*
-- INSTRUCTIONS
-- BMad UX
-- Step 2: Vision Capture
-- Dialog Template Usage
-- Client Profile: {{project_name}}
-- Step 2: Vision Capture
-- Dialog Template Usage
-- Step 5: Hand Off to BMad
-- Object Type: Button
-- Agent Instructions
-- Golden Circle Framework Guide
-- Steps
-- Steps
-- Steps
-- Steps
-- Steps
-- Steps
-- Steps
-- Architecture Spine — {name}
-- BMad Brainstorming
-- 2a: Try Sharded Documents First
-- On Activation
-- Adapt-In Menu *(add the clusters the product calls for)*
-- INSTRUCTIONS
-- BMad UX
-- Step 2: Vision Capture
-- Dialog Template Usage
-- Client Profile: {{project_name}}
-- Step 2: Vision Capture
-- Dialog Template Usage
-- Step 5: Hand Off to BMad
-- Object Type: Button
-- Agent Instructions
-- Golden Circle Framework Guide
-- Steps
-- Steps
-- Steps
-- Steps
-- Steps
-- Steps
-- Steps
-- Scripts
-- wds-add-object.js
-- Activation Behavior
-- Step 2: Walkthrough
-- spec-template.md
-- Project Documentation Index
-- EXECUTION
-- Creating a Party
-- Validate
-- EXECUTION
-- Steps
-- Step 7: Positioning
-- Instructions
-- Substep 3: Reflect & Confirm
-- Substep 4: Synthesize & Document
-- Step 7: Positioning
-- Design Delivery Templates
-- Three-Tier Architecture Overview
-- What This Workflow Checks
-- Specification Audit Workflow
-- Flow
-- Step 6: Continue with Next Flow
-- Form Validation
-- [M] Manage Design System — Define and Update Components
-- Test Result Templates
-- Steps
-- Create Design System
-- Steps
-- Steps
-- Step 2: Walkthrough
-- spec-template.md
-- Project Documentation Index
-- EXECUTION
-- Creating a Party
-- Validate
-- EXECUTION
-- Steps
-- Step 7: Positioning
-- Instructions
-- Substep 3: Reflect & Confirm
-- Substep 4: Synthesize & Document
-- Step 7: Positioning
-- Design Delivery Templates
-- Three-Tier Architecture Overview
-- What This Workflow Checks
-- Specification Audit Workflow
-- Flow
-- Step 6: Continue with Next Flow
-- Form Validation
-- [M] Manage Design System — Define and Update Components
-- Test Result Templates
-- Steps
-- Create Design System
-- Steps
-- Steps
-- Saga's Dream Up Approach Guide
-- For Phase 2 (Trigger Mapping)
-- Step 3: Implement
-- properties
-- STEPS
-- Party Memory
-- BMad PRD
-- Stage 2: The Press Release
-- spec-template.md
-- Step 3: Implement
-- INSTRUCTIONS
-- {Spec Title}
-- design-example-mobile.md
-- design-example-shadcn.md
-- 02-explore-sections-routing.md
-- progress-tracker.md
-- Step 4: Product Concept
-- Component Library Configuration
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- UX Scenarios: {{project_name}}
-- Phase 0: Project Setup
-- Substep 3: Reflect & Confirm
-- Substep 1: Open Conversation
-- progress-tracker.md
-- Step 4: Product Concept
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- 3. The 8-Question Scenario Dialog
-- Complexity Detection
-- Complexity Router Workflow
-- Benefits of Three-Tier Architecture
-- Object Type Router
-- Object Type: Link
-- scenario-init-guide.md
-- The 5 Questions
-- The 5 Questions
-- The 5 Questions
-- Section: {Section Name}
-- Interactive Prototype Creation Guide
-- Response Flow
-- [A] Analysis — Understand Your Own Codebase
-- [D] Development — Write Production Code
+- Prototype Analysis Guide
+- Prototype Analysis Guide (alt)
+- Prototype Roadmap Template
+- Asset Extraction Decision
+- Prototype Roadmap (alt)
+- Asset Extraction (alt)
+- Document Project Templates
+- Document Project (alt)
+- Saga Strategic Docs
+- Design System Components
+- WDS Agentic Development
+- Brainstorming Workflow
 - Figma Integration
-- Component Library Configuration
-- Context Templates
-- Step 3: Implement
-- properties
-- STEPS
-- Party Memory
-- BMad PRD
-- Stage 2: The Press Release
-- spec-template.md
-- Step 3: Implement
-- INSTRUCTIONS
-- {Spec Title}
-- design-example-mobile.md
-- design-example-shadcn.md
-- 02-explore-sections-routing.md
-- progress-tracker.md
-- Step 4: Product Concept
-- Component Library Configuration
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- UX Scenarios: {{project_name}}
-- Phase 0: Project Setup
-- Substep 3: Reflect & Confirm
-- Substep 1: Open Conversation
-- progress-tracker.md
-- Step 4: Product Concept
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- 3. The 8-Question Scenario Dialog
-- Complexity Detection
-- Complexity Router Workflow
-- Benefits of Three-Tier Architecture
-- Object Type Router
-- Object Type: Link
-- scenario-init-guide.md
-- The 5 Questions
-- The 5 Questions
-- The 5 Questions
-- Section: {Section Name}
-- Interactive Prototype Creation Guide
-- Response Flow
-- [A] Analysis — Understand Your Own Codebase
-- [D] Development — Write Production Code
-- Figma Integration
-- Component Library Configuration
-- Context Templates
-- Product Brief: chaiRAG
-- resolve_config.py
-- Self-Review Process
-- Design System Naming Conventions
-- Component State Management
-- My Workflows
-- My Workflows
-- Behavior When Invoked
-- INSTRUCTIONS
-- 🎯 Enhanced Definition of Done Checklist
-- Deep-Dive Documentation Instructions
-- BMad Help
-- Stage 3: Customer FAQ
-- Stage 4: Internal FAQ
-- Overview
-- INSTRUCTIONS
-- design-example-editorial.md
-- Project Info: {{project_name}}
-- Context & Working Relationship
-- Step 3: User Definition
-- Step 6: Inspiration & References
-- Design Log
-- Substep 2: Explore Vision
-- Project Info: {{project_name}}
-- Context & Working Relationship
-- Step 3: User Definition
-- Step 6: Inspiration & References
-- Phase 1 Validation: Product Brief
-- Business Goals Document Template
-- INITIALIZATION
-- workflow.md
-- INITIALIZATION
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Accessibility Specification
-- 🚨 Common Pitfalls to Avoid
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- [E] Evolution — Add Features to Existing Product
-- [P] Prototyping — Build Interactive Prototype from Specs
-- [R] Reverse Engineering — Any Software/Site → Specs & Extraction
-- Design Templates
-- INSTRUCTIONS
-- 🎯 Enhanced Definition of Done Checklist
-- Deep-Dive Documentation Instructions
-- BMad Help
-- Stage 3: Customer FAQ
-- Stage 4: Internal FAQ
-- Overview
-- INSTRUCTIONS
-- design-example-editorial.md
-- Project Info: {{project_name}}
-- Context & Working Relationship
-- Step 3: User Definition
-- Step 6: Inspiration & References
-- Design Log
-- Substep 2: Explore Vision
-- Project Info: {{project_name}}
-- Context & Working Relationship
-- Step 3: User Definition
-- Step 6: Inspiration & References
-- Phase 1 Validation: Product Brief
-- Business Goals Document Template
-- INITIALIZATION
-- workflow.md
-- INITIALIZATION
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Accessibility Specification
-- 🚨 Common Pitfalls to Avoid
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- [E] Evolution — Add Features to Existing Product
-- [P] Prototyping — Build Interactive Prototype from Specs
-- [R] Reverse Engineering — Any Software/Site → Specs & Extraction
-- Design Templates
-- Content Structure Principles (Product Brief)
-- Initial Load: Product Brief (Start of Phase 2)
-- 🎨 Hello! I'm Freya, Your UX Design Partner!
-- 📚 Hello! I'm Saga, Your Strategic Business Analyst!
-- wds-init-page.js
-- wds-init-scenario.js
-- Headless Mode
-- Step 4: Testing
-- scan_level
-- enum
-- Subagent Mode
-- Party Mode
-- Headless Mode JSON Schemas
-- Stage 5: The Verdict
-- Step 1: Clarify and Route
-- EXECUTION
-- Headless Mode JSON Schemas
-- DESIGN.md Spec — Working Reference
-- Validate
-- Product Brief Dialog: {{project_name}}
-- Project Brief: {{project_name}}
-- Product Brief Dialog: {{project_name}}
-- Project Brief: {{project_name}}
-- Crucial Agent Behaviors
-- Content Placement Rules
-- When to Use Storyboards
-- Text vs. Other Elements
-- Question 1: What Feature Delivers the Most Value?
-- Question 2: Where Does the User First Encounter This?
-- Question 3: What's Their Mental State at This Moment?
-- Question 4: What's the End Goal (Mutual Success)?
-- 7. Reference Trigger Map for Scenario
-- Audit Structure
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Data & API Requirements
-- What Changes
-- [V] Validate — Quality Audit
-- Common API Patterns
-- Before Considering Prototype "Done"
-- Execution Principles
-- Level 3: Technical (Verify on Deployment)
-- Issue Templates
-- [T] Acceptance Testing — Design & Run Tests from Spec Criteria
-- Example: Hairdresser Newsletter Signup
-- 3D Render
-- Comic Book
-- Flat Design
-- Hyper-realistic
-- Illustration
-- Isometric
-- Line Art
-- Pencil Sketch
-- Photorealistic
-- Watercolor
-- Brutalist
-- Corporate
-- Editorial
-- Minimal
-- Organic
-- Playful
-- Content Creation
-- Skills
-- Headless Mode
-- Step 4: Testing
-- scan_level
-- enum
-- Subagent Mode
-- Party Mode
-- Headless Mode JSON Schemas
-- Stage 5: The Verdict
-- Step 1: Clarify and Route
-- EXECUTION
-- Headless Mode JSON Schemas
-- DESIGN.md Spec — Working Reference
-- Validate
-- Product Brief Dialog: {{project_name}}
-- Project Brief: {{project_name}}
-- Product Brief Dialog: {{project_name}}
-- Project Brief: {{project_name}}
-- Crucial Agent Behaviors
-- Content Placement Rules
-- When to Use Storyboards
-- Text vs. Other Elements
-- Question 1: What Feature Delivers the Most Value?
-- Question 2: Where Does the User First Encounter This?
-- Question 3: What's Their Mental State at This Moment?
-- Question 4: What's the End Goal (Mutual Success)?
-- 7. Reference Trigger Map for Scenario
-- Audit Structure
-- Sequence of Instructions (Do not deviate, skip, or optimize)
-- Data & API Requirements
-- What Changes
-- [V] Validate — Quality Audit
-- Common API Patterns
-- Before Considering Prototype "Done"
-- Execution Principles
-- Level 3: Technical (Verify on Deployment)
-- Issue Templates
-- [T] Acceptance Testing — Design & Run Tests from Spec Criteria
-- Example: Hairdresser Newsletter Signup
-- 3D Render
-- Comic Book
-- Flat Design
-- Hyper-realistic
-- Illustration
-- Isometric
-- Line Art
-- Pencil Sketch
-- Photorealistic
-- Watercolor
-- Brutalist
-- Corporate
-- Editorial
-- Minimal
-- Organic
-- Playful
-- Content Creation
-- Skills
-- WDS Agent Contracts
-- Step-by-Step Generation
-- WDS Shared Activation Steps
-- Step 5: Wrap-Up
-- Step 1: Gather Context
-- Step 1: Clarify and Route
-- Step 2: Plan
-- items
-- enum
-- last_validated
-- Deep-Dive Documentation Sub-Workflow
-- Full Project Scan Sub-Workflow
-- Headless Mode
-- QA Automate - Validation Checklist
-- Step 2: Plan
-- Core Validation
-- Key Screens Renderer
-- Headless Mode
-- Trigger Map: {{project_name}}
-- Suggested Tone of Voice
-- Level 2: Page-Level Audit
-- {{#each identified_sections}}
-- [C] Discuss — Creative Dialog for Page Design
-- [K] Share Sketches — Interpret User Sketches
-- [P] Specify — Detail a Page Specification
-- [W] Visual Design — Work with Visual Tools
-- 📚 Common Patterns Library
-- Content Purpose Examples
-- Content Generation Instructions
-- Figma Plugin Setup Guide
-- Figma Specification Preparation
-- MCP Server Integration for Prototype-to-Figma Workflow
-- Stitch Prompt Template
-- Icons
-- Images
-- Page Designs
-- UI Elements
-- Videos
-- Wireframes
-- Step 5: Wrap-Up
-- Step 1: Gather Context
-- Step 1: Clarify and Route
-- Step 2: Plan
-- items
-- enum
-- last_validated
-- Deep-Dive Documentation Sub-Workflow
-- Full Project Scan Sub-Workflow
-- Headless Mode
-- QA Automate - Validation Checklist
-- Step 2: Plan
-- Core Validation
-- Key Screens Renderer
-- Headless Mode
-- Trigger Map: {{project_name}}
-- Suggested Tone of Voice
-- Level 2: Page-Level Audit
-- {{#each identified_sections}}
-- [C] Discuss — Creative Dialog for Page Design
-- [K] Share Sketches — Interpret User Sketches
-- [P] Specify — Detail a Page Specification
-- [W] Visual Design — Work with Visual Tools
-- 📚 Common Patterns Library
-- Content Purpose Examples
-- Content Generation Instructions
-- Figma Plugin Setup Guide
-- Figma Specification Preparation
-- MCP Server Integration for Prototype-to-Figma Workflow
-- Stitch Prompt Template
-- Icons
-- Images
-- Page Designs
-- UI Elements
-- Videos
-- Wireframes
-- Tips for Quality Self-Review
-- Form Validation Patterns
-- How Freya Helps You Succeed with UX and Prototyping
-- The WDS Agents — Who Does What
-- How Saga Helps You Succeed with Strategy and Analysis
-- Git — Whiteport Standard
-- Generate Review Trail
-- Step 2: Review
-- Step 3: Triage
-- Compile Epic Context
-- Artifact Analyzer
-- Web Researcher
-- Compile Epic Context
-- Excalidraw Wireframe Renderer
-- Creative Tools
-- WDS Memory — File Backend
-- Feature Impact Analysis: {{project_name}}
-- step-01-welcome.md
-- Product Brief: {{project_name}}
-- Feature Impact Analysis: {{project_name}}
-- Content Placement Decision Tree
-- Common Use Cases
-- Level 3: Component-Level Audit
-- Level 0: Specification Formatting & Standards
-- [H] Handover — Package DD-XXX and Hand Off to BMad
-- 📖 Quick Reference
-- 🌍 Multi-Language Support
-- Figma to Code Workshop
-- Commands
-- Component Selection Strategies
-- 10. Present MENU OPTIONS
-- Delivery Templates
-- Generate Review Trail
-- Step 2: Review
-- Step 3: Triage
-- Compile Epic Context
-- Artifact Analyzer
-- Web Researcher
-- Compile Epic Context
-- Excalidraw Wireframe Renderer
-- Creative Tools
-- WDS Memory — File Backend
-- Feature Impact Analysis: {{project_name}}
-- step-01-welcome.md
-- Product Brief: {{project_name}}
-- Feature Impact Analysis: {{project_name}}
-- Content Placement Decision Tree
-- Common Use Cases
-- Level 3: Component-Level Audit
-- Level 0: Specification Formatting & Standards
-- [H] Handover — Package DD-XXX and Hand Off to BMad
-- 📖 Quick Reference
-- 🌍 Multi-Language Support
-- Figma to Code Workshop
-- Commands
-- Component Selection Strategies
-- 10. Present MENU OPTIONS
-- Delivery Templates
-- Layer 6: Completeness Gate (Dream Mode Only)
-- Explain Concept
-- Mermaid Generate
-- Validate Documentation
-- Write Document
-- Converging: Narrow & Decide
-- Wrap-Up: Synthesis & Artifacts
-- Project Context for AI Agents
-- Sync Sprint Status
-- Headless JSON Response
-- Phase 1: Start & Understand
-- Phase 3: Synthesize & Present
-- Phase 4: Generate Signoff
-- Phase 5: Build External Contract
-- Phase 6: Build Internal Signoff
-- Scenario Outline Template
-- Level 5: Content Audit
-- Audit Levels
-- Related Resources
-- MANDATORY EXECUTION RULES (READ FIRST):
-- MANDATORY EXECUTION RULES (READ FIRST):
-- Action Filter Example: Hairdresser Newsletter
-- Advanced Features
-- Usage
-- Usage
-- Styling
-- MANDATORY EXECUTION RULES (READ FIRST):
-- Identify Next Opportunity
-- Set Up Monitoring
-- Explain Concept
-- Mermaid Generate
-- Validate Documentation
-- Write Document
-- Converging: Narrow & Decide
-- Wrap-Up: Synthesis & Artifacts
-- Project Context for AI Agents
-- Sync Sprint Status
-- Headless JSON Response
-- Phase 1: Start & Understand
-- Phase 3: Synthesize & Present
-- Phase 4: Generate Signoff
-- Phase 5: Build External Contract
-- Phase 6: Build Internal Signoff
-- Scenario Outline Template
-- Level 5: Content Audit
-- Audit Levels
-- Related Resources
-- MANDATORY EXECUTION RULES (READ FIRST):
-- MANDATORY EXECUTION RULES (READ FIRST):
-- Action Filter Example: Hairdresser Newsletter
-- Advanced Features
-- Usage
-- Usage
-- Styling
-- MANDATORY EXECUTION RULES (READ FIRST):
-- Identify Next Opportunity
-- Set Up Monitoring
-- Design System — Implementation Package
-- Layer 3: Domain Research (Ongoing)
-- Set the Tone — Expertise Level & Communication Style
-- DEPRECATED — forwards to bmad-architecture (create intent)
-- DEPRECATED — forwards to bmad-prd (create intent)
-- Research Report: {{research_type}}
-- DEPRECATED — forwards to bmad-prd (update intent)
-- Research Report: {{research_type}}
-- Agent-Team Mode
-- Auto Mode
-- Product Brief Template
-- Research Report: {{research_type}}
-- DEPRECATED — forwards to bmad-prd (validate intent)
-- 13. Present MENU OPTIONS
-- Level 1: Scenario-Level Audit
-- Level 4: Feature-Level Audit
-- 📁 Step 1: Set Up File Structure
-- 📝 Step 2: Create HTML Structure
-- 🎨 Step 3: Write CSS Styles
-- Example: Badass Users Framework Applied to Hairdresser Newsletter
-- Example: Golden Circle Applied to Hairdresser Newsletter
-- Security
-- Architecture
-- Design Token Extraction
-- Performance Considerations
-- Best Practices
-- Error Handling
-- Integration with Existing Figma Workflow
-- MCP Server Configuration
-- Troubleshooting
-- Object ID Mapping
-- Workflow Integration
-- Behavior
-- Behavior
-- Step 4: Create Component File
-- 🚨 SYSTEM SUCCESS/FAILURE METRICS
-- Kaizen vs Kaikaku
-- DEPRECATED — forwards to bmad-architecture (create intent)
-- DEPRECATED — forwards to bmad-prd (create intent)
-- Research Report: {{research_type}}
-- DEPRECATED — forwards to bmad-prd (update intent)
-- Research Report: {{research_type}}
-- Agent-Team Mode
-- Auto Mode
-- Product Brief Template
-- Research Report: {{research_type}}
-- DEPRECATED — forwards to bmad-prd (validate intent)
-- 13. Present MENU OPTIONS
-- Level 1: Scenario-Level Audit
-- Level 4: Feature-Level Audit
-- 📁 Step 1: Set Up File Structure
-- 📝 Step 2: Create HTML Structure
-- 🎨 Step 3: Write CSS Styles
-- Example: Badass Users Framework Applied to Hairdresser Newsletter
-- Example: Golden Circle Applied to Hairdresser Newsletter
-- Security
-- Architecture
-- Design Token Extraction
-- Performance Considerations
-- Best Practices
-- Error Handling
-- Integration with Existing Figma Workflow
-- MCP Server Configuration
-- Troubleshooting
-- Object ID Mapping
-- Workflow Integration
-- Behavior
-- Behavior
-- Step 4: Create Component File
-- 🚨 SYSTEM SUCCESS/FAILURE METRICS
-- Kaizen vs Kaikaku
-- tailwind.config.ts
-- Mode-Specific Presentation
-- graphify.js
-- headless.md
-- reviewer-gate.md
-- in-chat-techniques.md
-- mode-autonomous.md
-- mode-facilitator.md
-- mode-partner.md
-- resume.md
-- readiness-report-template.md
-- checklist.md
-- instructions.md
-- deletion-check.md
-- color-themes.md
-- design-directions.md
-- AGENTS.md
-- graphify.md
-- headless.md
-- reviewer-gate.md
-- in-chat-techniques.md
-- mode-autonomous.md
-- mode-facilitator.md
-- mode-partner.md
-- resume.md
-- readiness-report-template.md
-- checklist.md
-- instructions.md
-- deletion-check.md
-- color-themes.md
-- design-directions.md
-- graphify.md
-- handoff.md
-- wrap.md
-- README.md
+- Code Review Skills
+- Sprint Planning
+- PRD Validation
+- UX Design Workflow
+- Content Generation
+- Architecture Skills
+- Edge Case Analysis
+- Community 20
+- Community 21
+- Community 22
+- Community 23
+- Community 24
+- Community 25
+- Community 26
+- Community 27
+- Community 28
+- Community 29
+- Community 30
+- Community 31
+- Community 32
+- Community 33
+- Community 34
+- Community 35
+- Community 36
+- Community 37
+- Community 38
+- Community 39
+- Community 40
+- Community 41
+- Community 42
+- Community 43
+- Community 44
+- Community 45
+- Community 46
+- Community 47
+- Community 48
+- Community 49
+- Community 50
+- Community 51
+- Community 52
+- Community 53
+- Community 54
+- Community 55
+- Community 56
+- Community 57
+- Community 58
+- Community 59
+- Community 60
+- Community 61
+- Community 62
+- Community 63
+- Community 64
+- Community 65
+- Community 66
+- Community 67
+- Community 68
+- Community 69
+- Community 70
+- Community 71
+- Community 72
+- Community 73
+- Community 74
+- Community 75
+- Community 76
+- Community 77
+- Community 78
+- Community 79
+- Community 80
+- Community 81
+- Community 82
+- Community 83
+- Community 84
+- Community 85
+- Community 86
+- Community 87
+- Community 88
+- Community 89
+- Community 90
+- Community 91
+- Community 92
+- Community 94
+- Community 95
+- Community 96
+- Community 97
+- Community 98
+- Community 99
+- Community 101
+- Community 102
+- Community 103
+- Community 104
+- Community 105
+- Community 106
+- Community 107
+- Community 108
+- Community 109
+- Community 110
+- Community 111
+- Community 112
+- Community 113
+- Community 114
+- Community 115
+- Community 116
+- Community 117
+- Community 118
+- Community 119
+- Community 120
+- Community 121
+- Community 122
+- Community 123
+- Community 124
+- Community 125
+- Community 126
+- Community 127
+- Community 128
+- Community 129
+- Community 130
+- Community 131
+- Community 132
+- Community 133
+- Community 134
+- Community 135
+- Community 136
+- Community 137
+- Community 138
+- Community 139
+- Community 140
+- Community 141
+- Community 142
+- Community 143
+- Community 144
+- Community 145
+- Community 146
+- Community 147
+- Community 148
+- Community 149
+- Community 150
+- Community 151
+- Community 152
+- Community 153
+- Community 154
+- Community 155
+- Community 156
+- Community 157
+- Community 158
+- Community 159
+- Community 160
+- Community 161
+- Community 162
+- Community 163
+- Community 164
+- Community 165
+- Community 166
+- Community 167
+- Community 168
+- Community 169
+- Community 170
+- Community 171
+- Community 172
+- Community 173
+- Community 174
+- Community 175
+- Community 176
+- Community 177
+- Community 178
+- Community 179
+- Community 180
+- Community 181
+- Community 182
+- Community 183
+- Community 184
+- Community 185
+- Community 186
+- Community 187
+- Community 188
+- Community 189
+- Community 190
+- Community 191
+- Community 192
+- Community 193
+- Community 194
+- Community 195
+- Community 196
+- Community 197
+- Community 198
+- Community 199
+- Community 200
+- Community 201
+- Community 202
+- Community 203
+- Community 204
+- Community 205
+- Community 206
+- Community 207
+- Community 208
+- Community 209
+- Community 210
+- Community 211
+- Community 212
+- Community 213
+- Community 214
+- Community 215
+- Community 216
+- Community 217
+- Community 218
+- Community 219
+- Community 220
+- Community 221
+- Community 222
+- Community 223
+- Community 224
+- Community 225
+- Community 226
+- Community 227
+- Community 228
+- Community 229
+- Community 230
+- Community 231
+- Community 232
+- Community 233
+- Community 234
+- Community 235
+- Community 236
+- Community 237
+- Community 238
+- Community 239
+- Community 240
+- Community 241
+- Community 242
+- Community 243
+- Community 244
+- Community 245
+- Community 246
+- Community 247
+- Community 248
+- Community 249
+- Community 250
+- Community 251
+- Community 252
+- Community 253
+- Community 254
+- Community 255
+- Community 256
+- Community 257
+- Community 258
+- Community 259
+- Community 260
+- Community 261
+- Community 262
+- Community 263
+- Community 264
+- Community 265
+- Community 266
+- Community 267
+- Community 268
+- Community 269
+- Community 270
+- Community 271
+- Community 272
+- Community 273
+- Community 274
+- Community 275
+- Community 276
+- Community 277
+- Community 278
+- Community 279
+- Community 280
+- Community 281
+- Community 282
+- Community 283
+- Community 284
+- Community 285
+- Community 286
+- Community 287
+- Community 288
+- Community 289
+- Community 290
+- Community 291
+- Community 292
+- Community 293
+- Community 294
+- Community 295
+- Community 296
+- Community 297
+- Community 298
+- Community 299
+- Community 300
+- Community 301
+- Community 302
+- Community 303
+- Community 304
+- Community 305
+- Community 306
+- Community 307
+- Community 308
+- Community 309
+- Community 310
+- Community 311
+- Community 312
+- Community 313
+- Community 314
+- Community 315
+- Community 316
+- Community 317
+- Community 318
+- Community 319
+- Community 320
+- Community 321
+- Community 322
+- Community 323
+- Community 324
+- Community 325
+- Community 326
+- Community 327
+- Community 328
+- Community 329
+- Community 330
+- Community 331
+- Community 332
+- Community 333
+- Community 334
+- Community 335
+- Community 336
+- Community 337
+- Community 338
+- Community 339
+- Community 340
+- Community 341
+- Community 342
+- Community 343
+- Community 344
+- Community 345
+- Community 346
+- Community 347
+- Community 348
+- Community 349
+- Community 350
+- Community 351
+- Community 352
+- Community 353
+- Community 354
+- Community 355
+- Community 356
+- Community 357
+- Community 358
+- Community 359
+- Community 360
+- Community 361
+- Community 362
+- Community 363
+- Community 364
+- Community 365
+- Community 366
+- Community 367
+- Community 368
+- Community 369
+- Community 370
+- Community 371
+- Community 372
+- Community 373
+- Community 374
+- Community 375
+- Community 376
+- Community 377
+- Community 378
+- Community 379
+- Community 380
+- Community 381
+- Community 382
+- Community 383
+- Community 384
+- Community 385
+- Community 386
+- Community 387
+- Community 388
+- Community 389
+- Community 390
+- Community 391
+- Community 392
+- Community 393
+- Community 394
+- Community 395
+- Community 396
+- Community 397
+- Community 398
+- Community 399
+- Community 400
+- Community 401
+- Community 402
+- Community 403
+- Community 404
+- Community 405
+- Community 406
+- Community 407
+- Community 408
+- Community 409
+- Community 410
+- Community 411
+- Community 412
+- Community 413
+- Community 414
+- Community 415
+- Community 416
+- Community 417
+- Community 418
+- Community 419
+- Community 420
+- Community 421
+- Community 422
+- Community 423
+- Community 424
+- Community 425
+- Community 426
+- Community 427
+- Community 428
+- Community 429
+- Community 430
+- Community 431
+- Community 432
+- Community 433
+- Community 434
+- Community 435
+- Community 436
+- Community 437
+- Community 438
+- Community 439
+- Community 440
+- Community 441
+- Community 442
+- Community 443
+- Community 444
+- Community 445
+- Community 446
+- Community 447
+- Community 448
+- Community 449
+- Community 450
+- Community 451
+- Community 452
+- Community 453
+- Community 454
+- Community 455
+- Community 456
+- Community 457
+- Community 458
+- Community 459
+- Community 460
+- Community 461
+- Community 462
+- Community 463
+- Community 464
+- Community 465
+- Community 466
+- Community 467
+- Community 468
+- Community 469
+- Community 470
+- Community 471
+- Community 472
+- Community 473
+- Community 474
+- Community 475
+- Community 476
+- Community 477
+- Community 478
+- Community 479
+- Community 480
+- Community 481
+- Community 482
+- Community 483
+- Community 484
+- Community 485
+- Community 486
+- Community 487
+- Community 488
+- Community 489
+- Community 490
+- Community 491
+- Community 492
+- Community 493
+- Community 494
+- Community 495
+- Community 496
+- Community 497
+- Community 498
+- Community 499
+- Community 500
+- Community 501
+- Community 502
+- Community 503
+- Community 504
+- Community 505
+- Community 506
+- Community 507
+- Community 508
+- Community 509
+- Community 510
+- Community 511
+- Community 512
+- Community 513
+- Community 514
+- Community 515
+- Community 516
+- Community 517
+- Community 518
+- Community 519
+- Community 520
+- Community 521
+- Community 522
+- Community 523
+- Community 524
+- Community 525
+- Community 526
+- Community 527
+- Community 528
+- Community 529
+- Community 530
+- Community 531
+- Community 532
+- Community 533
+- Community 534
+- Community 535
+- Community 536
+- Community 537
+- Community 538
+- Community 539
+- Community 540
+- Community 541
+- Community 542
+- Community 543
+- Community 544
+- Community 545
+- Community 546
+- Community 547
+- Community 548
+- Community 549
+- Community 550
+- Community 551
+- Community 552
+- Community 553
+- Community 554
+- Community 555
+- Community 556
+- Community 557
+- Community 558
+- Community 559
+- Community 560
+- Community 561
+- Community 562
+- Community 563
+- Community 564
+- Community 565
+- Community 566
+- Community 567
+- Community 568
+- Community 569
+- Community 570
+- Community 571
+- Community 572
+- Community 573
+- Community 574
+- Community 575
+- Community 576
+- Community 577
+- Community 578
+- Community 579
+- Community 580
+- Community 581
+- Community 582
+- Community 583
+- Community 584
+- Community 585
+- Community 586
+- Community 587
+- Community 588
+- Community 589
+- Community 590
+- Community 591
+- Community 592
+- Community 593
+- Community 594
+- Community 595
+- Community 596
+- Community 597
+- Community 598
+- Community 599
+- Community 600
+- Community 601
+- Community 602
+- Community 603
+- Community 604
+- Community 605
+- Community 606
+- Community 607
+- Community 608
+- Community 609
+- Community 610
+- Community 611
+- Community 612
+- Community 613
+- Community 614
+- Community 615
+- Community 616
+- Community 617
+- Community 618
+- Community 619
+- Community 620
+- Community 621
+- Community 622
+- Community 623
+- Community 624
+- Community 625
+- Community 626
+- Community 627
+- Community 628
+- Community 629
+- Community 630
+- Community 631
+- Community 632
+- Community 633
+- Community 634
+- Community 635
+- Community 636
+- Community 637
+- Community 638
+- Community 639
+- Community 640
+- Community 641
+- Community 642
+- Community 643
+- Community 644
+- Community 645
+- Community 646
+- Community 647
+- Community 648
+- Community 649
+- Community 650
+- Community 651
+- Community 652
+- Community 653
+- Community 654
+- Community 655
+- Community 656
+- Community 657
+- Community 658
+- Community 659
+- Community 660
+- Community 661
+- Community 662
+- Community 663
+- Community 664
+- Community 665
+- Community 666
+- Community 667
+- Community 668
+- Community 669
+- Community 670
+- Community 671
+- Community 672
+- Community 673
+- Community 674
+- Community 675
+- Community 676
+- Community 677
+- Community 678
+- Community 679
+- Community 680
+- Community 681
+- Community 682
+- Community 683
+- Community 684
+- Community 685
+- Community 686
+- Community 687
+- Community 688
+- Community 689
+- Community 690
+- Community 691
+- Community 692
+- Community 693
+- Community 694
+- Community 695
+- Community 696
+- Community 697
+- Community 698
+- Community 699
+- Community 700
+- Community 701
+- Community 702
+- Community 703
+- Community 704
+- Community 705
+- Community 706
+- Community 707
+- Community 708
+- Community 709
+- Community 710
+- Community 711
+- Community 712
+- Community 713
+- Community 714
+- Community 715
+- Community 716
+- Community 717
+- Community 718
+- Community 719
+- Community 720
+- Community 721
+- Community 722
+- Community 723
+- Community 724
+- Community 725
+- Community 726
+- Community 727
+- Community 728
+- Community 729
+- Community 730
+- Community 731
+- Community 732
+- Community 733
+- Community 734
+- Community 735
+- Community 736
+- Community 737
+- Community 738
+- Community 739
+- Community 740
+- Community 741
+- Community 742
+- Community 743
+- Community 744
+- Community 745
+- Community 746
+- Community 747
+- Community 748
+- Community 749
+- Community 750
+- Community 751
+- Community 752
+- Community 753
+- Community 754
+- Community 755
+- Community 756
+- Community 757
+- Community 758
+- Community 759
+- Community 760
+- Community 761
+- Community 762
+- Community 763
+- Community 764
+- Community 765
+- Community 766
+- Community 767
+- Community 768
+- Community 769
+- Community 770
+- Community 771
+- Community 772
+- Community 773
+- Community 774
+- Community 775
+- Community 776
+- Community 777
+- Community 778
+- Community 779
+- Community 780
+- Community 781
+- Community 782
+- Community 783
+- Community 784
+- Community 785
+- Community 786
+- Community 787
+- Community 788
+- Community 789
+- Community 790
+- Community 791
+- Community 792
+- Community 793
+- Community 794
+- Community 795
+- Community 796
+- Community 797
+- Community 798
+- Community 799
+- Community 800
+- Community 801
+- Community 802
+- Community 803
+- Community 804
+- Community 805
+- Community 806
+- Community 807
+- Community 808
+- Community 809
+- Community 810
+- Community 811
+- Community 812
+- Community 813
+- Community 814
+- Community 815
+- Community 816
+- Community 817
+- Community 818
+- Community 819
+- Community 820
+- Community 821
+- Community 822
+- Community 823
+- Community 824
+- Community 825
+- Community 826
+- Community 827
+- Community 828
+- Community 829
+- Community 830
+- Community 831
+- Community 832
+- Community 833
+- Community 834
+- Community 835
+- Community 836
+- Community 837
+- Community 838
+- Community 839
+- Community 840
+- Community 841
+- Community 842
+- Community 843
+- Community 844
+- Community 845
+- Community 846
+- Community 847
+- Community 848
+- Community 849
+- Community 850
+- Community 851
+- Community 852
+- Community 853
+- Community 854
+- Community 855
+- Community 856
+- Community 857
+- Community 858
+- Community 859
+- Community 860
+- Community 861
+- Community 862
+- Community 863
+- Community 864
+- Community 865
+- Community 866
+- Community 867
+- Community 868
+- Community 869
+- Community 870
+- Community 871
+- Community 872
+- Community 873
+- Community 874
+- Community 875
+- Community 876
+- Community 877
+- Community 878
+- Community 879
+- Community 880
+- Community 881
+- Community 882
+- Community 883
+- Community 884
+- Community 885
+- Community 886
+- Community 887
+- Community 888
+- Community 889
+- Community 890
+- Community 891
+- Community 892
+- Community 893
+- Community 894
+- Community 895
+- Community 896
+- Community 897
+- Community 898
+- Community 899
+- Community 900
+- Community 901
+- Community 902
+- Community 903
+- Community 904
+- Community 905
+- Community 906
+- Community 907
+- Community 908
+- Community 909
+- Community 910
+- Community 911
+- Community 912
+- Community 913
+- Community 914
+- Community 915
+- Community 916
+- Community 917
+- Community 918
+- Community 919
+- Community 920
+- Community 921
+- Community 922
+- Community 923
+- Community 924
+- Community 925
+- Community 926
+- Community 927
+- Community 928
+- Community 929
+- Community 930
+- Community 931
+- Community 932
+- Community 933
+- Community 934
+- Community 935
+- Community 936
+- Community 937
+- Community 938
+- Community 939
+- Community 940
+- Community 941
+- Community 942
+- Community 943
+- Community 944
+- Community 945
+- Community 946
+- Community 947
+- Community 948
+- Community 949
+- Community 950
+- Community 951
+- Community 952
+- Community 953
+- Community 954
+- Community 955
+- Community 956
+- Community 957
+- Community 958
+- Community 959
+- Community 960
+- Community 961
+- Community 962
+- Community 963
+- Community 964
+- Community 965
+- Community 966
+- Community 967
+- Community 968
+- Community 969
+- Community 970
+- Community 971
+- Community 972
+- Community 973
+- Community 974
+- Community 975
+- Community 976
+- Community 977
+- Community 978
+- Community 979
+- Community 980
+- Community 981
+- Community 982
+- Community 983
+- Community 984
+- Community 985
+- Community 986
+- Community 987
+- Community 988
+- Community 989
+- Community 990
+- Community 991
+- Community 992
+- Community 993
+- Community 994
+- Community 995
+- Community 996
+- Community 997
+- Community 998
+- Community 999
+- Community 1000
+- Community 1001
+- Community 1002
+- Community 1003
+- Community 1004
+- Community 1005
+- Community 1006
+- Community 1007
+- Community 1008
+- Community 1009
+- Community 1010
+- Community 1011
+- Community 1012
+- Community 1013
+- Community 1014
+- Community 1015
+- Community 1016
+- Community 1017
+- Community 1018
+- Community 1019
+- Community 1020
+- Community 1021
+- Community 1022
+- Community 1023
+- Community 1024
+- Community 1025
+- Community 1026
+- Community 1027
+- Community 1028
+- Community 1029
+- Community 1030
+- Community 1031
+- Community 1032
+- Community 1033
+- Community 1034
+- Community 1035
+- Community 1036
+- Community 1037
+- Community 1038
+- Community 1039
+- Community 1040
+- Community 1041
+- Community 1042
+- Community 1043
+- Community 1044
+- Community 1045
+- Community 1046
+- Community 1047
+- Community 1048
+- Community 1049
+- Community 1050
+- Community 1051
+- Community 1052
+- Community 1053
+- Community 1054
+- Community 1055
+- Community 1056
+- Community 1057
+- Community 1058
+- Community 1059
+- Community 1060
+- Community 1061
+- Community 1062
+- Community 1063
+- Community 1064
+- Community 1065
+- Community 1066
+- Community 1067
+- Community 1068
+- Community 1069
+- Community 1070
+- Community 1071
+- Community 1072
+- Community 1074
+- Community 1075
+- Community 1076
+- Community 1077
+- Community 1078
+- Community 1079
+- Community 1080
+- Community 1081
+- Community 1082
+- Community 1083
+- Community 1084
+- Community 1085
+- Community 1086
+- Community 1087
+- Community 1088
+- Community 1089
+- Community 1090
+- Community 1091
+- Community 1092
+- Community 1093
+- Community 1094
+- Community 1095
+- Community 1096
+- Community 1097
+- Community 1098
+- Community 1100
+- Community 1101
+- Community 1102
+- Community 1103
+- Community 1104
+- Community 1105
+- Community 1106
+- Community 1107
+- Community 1108
+- Community 1109
+- Community 1110
+- Community 1111
+- Community 1112
+- Community 1113
+- Community 1114
+- Community 1115
+- Community 1116
+- Community 1117
+- Community 1118
+- Community 1119
+- Community 1120
+- Community 1121
+- Community 1122
+- Community 1123
+- Community 1124
+- Community 1125
+- Community 1126
+- Community 1127
+- Community 1128
+- Community 1129
+- Community 1130
+- Community 1131
+- Community 1132
+- Community 1133
+- Community 1134
+- Community 1135
+- Community 1136
+- Community 1137
+- Community 1138
+- Community 1139
+- Community 1140
+- Community 1141
+- Community 1142
+- Community 1143
+- Community 1144
+- Community 1145
+- Community 1146
+- Community 1147
+- Community 1148
+- Community 1149
+- Community 1150
+- Community 1151
+- Community 1152
+- Community 1153
+- Community 1154
+- Community 1155
+- Community 1156
+- Community 1157
+- Community 1158
+- Community 1159
+- Community 1160
+- Community 1161
+- Community 1162
+- Community 1163
+- Community 1164
+- Community 1165
+- Community 1166
+- Community 1167
+- Community 1168
+- Community 1169
+- Community 1170
+- Community 1171
+- Community 1172
+- Community 1173
+- Community 1174
+- Community 1175
+- Community 1176
+- Community 1177
+- Community 1178
+- Community 1179
+- Community 1180
+- Community 1181
+- Community 1182
+- Community 1183
+- Community 1184
+- Community 1185
+- Community 1186
+- Community 1187
+- Community 1188
+- Community 1189
+- Community 1190
+- Community 1191
+- Community 1192
+- Community 1193
+- Community 1194
+- Community 1195
+- Community 1196
+- Community 1197
+- Community 1198
+- Community 1199
+- Community 1200
+- Community 1201
+- Community 1202
+- Community 1203
+- Community 1204
+- Community 1205
+- Community 1206
+- Community 1207
+- Community 1208
+- Community 1209
+- Community 1210
+- Community 1211
+- Community 1212
+- Community 1213
+- Community 1214
+- Community 1215
+- Community 1216
+- Community 1217
+- Community 1218
+- Community 1219
+- Community 1220
+- Community 1221
+- Community 1222
+- Community 1223
+- Community 1224
+- Community 1225
+- Community 1226
+- Community 1227
+- Community 1228
+- Community 1229
+- Community 1230
+- Community 1231
+- Community 1232
+- Community 1233
+- Community 1234
+- Community 1235
+- Community 1236
+- Community 1237
+- Community 1238
+- Community 1239
+- Community 1240
+- Community 1241
+- Community 1242
+- Community 1243
+- Community 1244
+- Community 1245
+- Community 1246
+- Community 1247
+- Community 1248
+- Community 1249
+- Community 1250
+- Community 1251
+- Community 1252
+- Community 1253
+- Community 1254
+- Community 1255
+- Community 1256
+- Community 1257
+- Community 1258
+- Community 1259
+- Community 1260
+- Community 1261
+- Community 1262
+- Community 1263
+- Community 1264
+- Community 1265
+- Community 1266
+- Community 1267
+- Community 1268
+- Community 1269
+- Community 1270
+- Community 1271
+- Community 1272
+- Community 1273
+- Community 1274
+- Community 1275
+- Community 1276
+- Community 1277
+- Community 1278
+- Community 1279
+- Community 1280
+- Community 1281
+- Community 1282
+- Community 1283
+- Community 1284
+- Community 1285
+- Community 1286
+- Community 1287
+- Community 1288
+- Community 1289
+- Community 1290
+- Community 1291
+- Community 1292
+- Community 1293
+- Community 1294
+- Community 1295
+- Community 1296
+- Community 1297
+- Community 1298
+- Community 1299
+- Community 1300
+- Community 1301
+- Community 1302
+- Community 1303
+- Community 1304
+- Community 1305
+- Community 1306
+- Community 1307
+- Community 1308
+- Community 1309
+- Community 1310
+- Community 1311
+- Community 1312
+- Community 1313
+- Community 1314
+- Community 1315
+- Community 1316
+- Community 1317
+- Community 1318
+- Community 1319
+- Community 1320
+- Community 1321
+- Community 1322
+- Community 1323
+- Community 1324
+- Community 1325
+- Community 1326
+- Community 1327
+- Community 1328
+- Community 1329
+- Community 1330
+- Community 1331
+- Community 1332
+- Community 1333
+- Community 1334
+- Community 1335
+- Community 1336
+- Community 1337
+- Community 1338
+- Community 1339
+- Community 1340
+- Community 1341
+- Community 1342
+- Community 1343
+- Community 1344
+- Community 1345
+- Community 1346
+- Community 1347
+- Community 1348
+- Community 1349
+- Community 1350
+- Community 1351
+- Community 1352
+- Community 1353
+- Community 1354
+- Community 1355
+- Community 1356
+- Community 1357
+- Community 1358
+- Community 1359
+- Community 1360
+- Community 1361
+- Community 1362
+- Community 1363
+- Community 1364
+- Community 1365
+- Community 1366
+- Community 1367
+- Community 1368
+- Community 1369
+- Community 1370
+- Community 1371
+- Community 1372
+- Community 1373
+- Community 1374
+- Community 1375
+- Community 1376
+- Community 1377
+- Community 1378
+- Community 1379
+- Community 1380
+- Community 1381
+- Community 1382
+- Community 1383
+- Community 1384
+- Community 1385
+- Community 1386
+- Community 1387
+- Community 1388
+- Community 1389
+- Community 1390
+- Community 1391
+- Community 1392
+- Community 1393
+- Community 1394
+- Community 1395
+- Community 1396
+- Community 1397
+- Community 1398
+- Community 1399
+- Community 1400
+- Community 1401
+- Community 1402
+- Community 1403
+- Community 1404
+- Community 1405
+- Community 1406
+- Community 1407
+- Community 1408
+- Community 1409
+- Community 1410
+- Community 1411
+- Community 1412
+- Community 1413
+- Community 1414
+- Community 1415
+- Community 1416
+- Community 1417
+- Community 1418
+- Community 1419
+- Community 1420
+- Community 1421
+- Community 1422
+- Community 1423
+- Community 1424
+- Community 1425
+- Community 1426
+- Community 1427
+- Community 1428
+- Community 1429
+- Community 1430
+- Community 1431
+- Community 1432
+- Community 1433
+- Community 1434
+- Community 1435
+- Community 1436
+- Community 1437
+- Community 1438
+- Community 1439
+- Community 1440
+- Community 1441
+- Community 1442
+- Community 1443
+- Community 1444
+- Community 1445
+- Community 1446
+- Community 1447
+- Community 1448
+- Community 1449
+- Community 1450
+- Community 1451
+- Community 1452
+- Community 1453
+- Community 1454
+- Community 1455
+- Community 1456
+- Community 1457
+- Community 1458
+- Community 1459
+- Community 1460
+- Community 1461
+- Community 1462
+- Community 1463
+- Community 1464
+- Community 1465
+- Community 1466
+- Community 1467
+- Community 1468
+- Community 1469
+- Community 1470
+- Community 1471
+- Community 1472
+- Community 1473
+- Community 1474
+- Community 1475
+- Community 1476
+- Community 1477
+- Community 1478
+- Community 1479
+- Community 1480
+- Community 1481
+- Community 1482
+- Community 1483
+- Community 1484
+- Community 1485
+- Community 1486
+- Community 1487
+- Community 1488
+- Community 1489
+- Community 1490
+- Community 1491
+- Community 1492
+- Community 1493
+- Community 1494
+- Community 1495
+- Community 1496
+- Community 1497
+- Community 1498
+- Community 1499
+- Community 1500
+- Community 1501
+- Community 1502
+- Community 1503
+- Community 1504
+- Community 1505
+- Community 1506
+- Community 1507
+- Community 1508
+- Community 1509
+- Community 1510
+- Community 1511
+- Community 1512
+- Community 1513
+- Community 1514
+- Community 1515
+- Community 1516
+- Community 1517
+- Community 1518
+- Community 1519
+- Community 1520
+- Community 1521
+- Community 1522
+- Community 1523
+- Community 1524
+- Community 1525
+- Community 1526
+- Community 1527
+- Community 1528
+- Community 1529
+- Community 1530
+- Community 1531
+- Community 1532
+- Community 1533
+- Community 1534
+- Community 1535
+- Community 1537
+- Community 1538
+- Community 1539
+- Community 1540
+- Community 1541
+- Community 1542
+- Community 1543
+- Community 1544
+- Community 1545
+- Community 1546
+- Community 1547
+- Community 1548
+- Community 1549
+- Community 1550
+- Community 1551
+- Community 1552
+- Community 1553
+- Community 1554
+- Community 1555
+- Community 1556
+- Community 1557
+- Community 1559
+- Community 1560
+- Community 1561
+- Community 1562
+- Community 1563
+- Community 1564
+- Community 1565
+- Community 1566
+- Community 1567
+- Community 1568
+- Community 1569
+- Community 1570
+- Community 1571
+- Community 1572
+- Community 1573
+- Community 1574
+- Community 1575
+- Community 1576
+- Community 1577
+- Community 1578
+- Community 1579
+- Community 1580
+- Community 1581
+- Community 1582
+- Community 1583
+- Community 1584
+- Community 1585
+- Community 1586
+- Community 1587
+- Community 1588
+- Community 1589
+- Community 1590
+- Community 1591
+- Community 1592
+- Community 1593
+- Community 1594
+- Community 1595
+- Community 1596
+- Community 1597
+- Community 1598
+- Community 1599
+- Community 1600
+- Community 1601
+- Community 1602
+- Community 1603
+- Community 1604
+- Community 1605
+- Community 1606
+- Community 1607
+- Community 1608
+- Community 1609
+- Community 1610
+- Community 1611
+- Community 1612
+- Community 1613
+- Community 1614
+- Community 1615
+- Community 1616
+- Community 1617
+- Community 1618
+- Community 1619
+- Community 1620
+- Community 1621
+- Community 1622
+- Community 1623
+- Community 1624
+- Community 1625
+- Community 1626
+- Community 1627
+- Community 1628
+- Community 1629
+- Community 1630
+- Community 1631
+- Community 1632
+- Community 1633
+- Community 1634
+- Community 1635
+- Community 1636
+- Community 1637
+- Community 1638
+- Community 1639
+- Community 1640
+- Community 1641
+- Community 1642
+- Community 1643
+- Community 1644
+- Community 1645
+- Community 1646
+- Community 1647
+- Community 1648
+- Community 1649
+- Community 1650
+- Community 1651
+- Community 1652
+- Community 1653
+- Community 1654
+- Community 1655
+- Community 1656
+- Community 1657
+- Community 1658
+- Community 1659
+- Community 1660
+- Community 1661
+- Community 1662
+- Community 1663
+- Community 1664
+- Community 1665
+- Community 1666
+- Community 1667
+- Community 1668
+- Community 1669
+- Community 1670
+- Community 1671
+- Community 1672
+- Community 1673
+- Community 1674
+- Community 1675
+- Community 1676
+- Community 1678
+- Community 1679
+- Community 1680
+- Community 1681
+- Community 1682
+- Community 1683
+- Community 1684
+- Community 1685
+- Community 1686
+- Community 1687
+- Community 1688
+- Community 1689
+- Community 1690
+- Community 1691
+- Community 1692
+- Community 1693
+- Community 1694
+- Community 1695
+- Community 1716
+- Community 1717
+- Community 1718
+- Community 1719
+- Community 1720
+- Community 1721
+- Community 1722
+- Community 1723
+- Community 1724
+- Community 1726
+- Community 1727
+- Community 1728
+- Community 1729
+- Community 1730
+- Community 1731
+- Community 1732
+- Community 1733
+- Community 1734
+- Community 1735
+- Community 1736
+- Community 1737
+- Community 1738
+- Community 1739
+- Community 1803
+- Community 1804
+- Community 1805
+- Community 1806
+- Community 1807
+- Community 1808
+- Community 1809
+- Community 1810
+- Community 1811
+- Community 1812
+- Community 1813
+- Community 1814
+- Community 1815
+- Community 1816
+- Community 1817
+- Community 1818
+- Community 1819
+- Community 1820
+- Community 1821
+- Community 1822
 
 ## God Nodes (most connected - your core abstractions)
 1. `Step 8e: Generate Catalog` - 24 edges
@@ -1739,6667 +1749,6477 @@
 3. `Document Project Workflow - Validation Checklist` - 21 edges
 4. `Document Project Workflow - Validation Checklist` - 21 edges
 5. `Step 8d: Add Variant` - 20 edges
-6. `Step 8d: Add Variant` - 20 edges
-7. `Step 6: Present Decision` - 19 edges
-8. `Step 6: Present Decision` - 19 edges
-9. `Specification Audit Workflow` - 18 edges
-10. `Scenario [Number]: [Scenario Name] - Prototype Roadmap` - 18 edges
+6. `Step 6: Present Decision` - 19 edges
+7. `Specification Audit Workflow` - 18 edges
+8. `Scenario [Number]: [Scenario Name] - Prototype Roadmap` - 18 edges
+9. `MCP Server Integration for Prototype-to-Figma Workflow` - 18 edges
+10. `Step 2: Compare Attributes` - 18 edges
 
 ## Surprising Connections (you probably didn't know these)
-- None detected - all connections are within the same source files.
+- `BMad Create PRD Skill (Deprecated)` --calls--> `BMad PRD Skill`  [INFERRED]
+  .agent/skills/bmad-create-prd/SKILL.md → bmad-prd/SKILL.md
+- `Step 1: Page Design Dialog` --calls--> `Step 1: Page Basics`  [INFERRED]
+  steps-c/step-01-exploration.md → steps-p/step-01-page-basics.md
+- `BMad PRD Skill` --calls--> `BMad Party Mode Skill`  [INFERRED]
+  bmad-prd/SKILL.md → bmad-party-mode/SKILL.md
+- `Step 05l: Finalize Contract` --references--> `Project Contract Template`  [INFERRED]
+  steps-c/step-05l-finalize-contract.md → resources/wds-1-project-brief/templates/contract.template.md
+- `Step 06b: Finalize Signoff` --references--> `Project Signoff Template`  [INFERRED]
+  steps-c/step-06b-finalize-signoff.md → resources/wds-1-project-brief/templates/signoff.template.md
 
 ## Import Cycles
 - None detected.
 
-## Communities (1807 total, 60 thin omitted)
+## Hyperedges (group relationships)
+- **BMad Agent Roster** — agent_skills_bmad_agent_analyst_skill, agent_skills_bmad_agent_architect_skill, agent_skills_bmad_agent_dev_skill, agent_skills_bmad_agent_pm_skill, agent_skills_bmad_agent_tech_writer_skill, agent_skills_bmad_agent_ux_designer_skill [EXTRACTED 1.00]
+- **BMad Step-File Workflow Architecture** — agent_skills_bmad_create_epics_and_stories_skill, agent_skills_bmad_dev_auto_skill, agent_skills_bmad_document_project_skill, agent_skills_bmad_domain_research_skill [EXTRACTED 1.00]
+- **BMad Implementation Flow** — agent_skills_bmad_create_story_skill, agent_skills_bmad_dev_story_skill, agent_skills_bmad_dev_auto_skill [INFERRED 0.80]
+- **BMad Research Workflow** — bmad_market_research, agent_skills_bmad_domain_research_domain_steps_step_02_domain_analysis, agent_skills_bmad_domain_research_domain_steps_step_03_competitive_landscape, agent_skills_bmad_domain_research_domain_steps_step_04_regulatory_focus, agent_skills_bmad_domain_research_domain_steps_step_05_technical_trends, agent_skills_bmad_domain_research_domain_steps_step_06_research_synthesis [EXTRACTED 1.00]
+- **Page Creation Flow Methods** — data_page_creation_flows_flow_a_sketch, data_page_creation_flows_flow_b_verbal, data_page_creation_flows_flow_c_ascii, data_page_creation_flows_flow_d_reference, data_page_creation_flows_flow_e_html [EXTRACTED]
+- **WDS Object Type Templates** — data_object_types_templates_image, data_object_types_templates_link, data_object_types_templates_text_input [EXTRACTED]
+- **Agentic Development Core Workflow** — data_guides_file_index_structure, data_guides_execution_principles_document_before_acting, data_guides_feedback_protocol_classification, data_guides_session_protocol_steps [EXTRACTED 1.00]
+- **Prototype Creation Standards** — data_guides_creation_guide_testing_checklist, data_guides_creation_guide_common_patterns, data_guides_prototype_analysis_api_layer, data_guides_inline_testing_guide_puppeteer [EXTRACTED 0.95]
+- **Domain Research Workflow** — agent_skills_bmad_domain_research_skill, bmad_domain_research_step_01, bmad_domain_research_step_02, bmad_domain_research_step_03, bmad_domain_research_step_04, bmad_domain_research_step_05, bmad_domain_research_step_06 [EXTRACTED 1.00]
+- **Market Research Workflow** — bmad_market_research_skill, bmad_market_research_step_01, bmad_market_research_step_02, bmad_market_research_step_03, bmad_market_research_step_04, bmad_market_research_step_05, bmad_market_research_step_06 [EXTRACTED 1.00]
+- **Project Context Generation Workflow** — bmad_generate_project_context_skill, bmad_generate_project_context_step_01, bmad_generate_project_context_step_02, bmad_generate_project_context_step_03 [EXTRACTED 1.00]
+- **BMAD Planning & Discovery Flow** — bmad_product_brief_skill, bmad_prfaq_skill, bmad_spec_skill, bmad_technical_research_skill [INFERRED]
+- **BMAD Execution & Tracking Flow** — bmad_sprint_planning_skill, bmad_sprint_status_skill, bmad_quick_dev_skill, bmad_retrospective_skill [INFERRED]
+- **BMAD Review & Validation Suite** — bmad_review_adversarial_general_skill, bmad_review_edge_case_hunter_skill, bmad_qa_generate_e2e_tests_skill [INFERRED]
+- **External Contract Generation Flow** — steps_c_step_04b_determine_business_model, steps_c_step_05a_contract_overview, steps_c_step_05b_contract_business_model, steps_c_step_05c_contract_scope, steps_c_step_05d_contract_payment, steps_c_step_05e_contract_timeline, steps_c_step_05f_contract_availability, steps_c_step_05g_contract_confidentiality, steps_c_step_05h_contract_not_to_exceed, steps_c_step_05i_contract_work_initiation, steps_c_step_05j_contract_terms, steps_c_step_05k_contract_approval, steps_c_step_05l_finalize_contract [EXTRACTED 1.00]
+- **Internal Signoff Generation Flow** — steps_c_step_06a_build_internal_signoff, steps_c_step_06b_finalize_signoff [EXTRACTED 1.00]
+- **Reverse Engineering Workflow** — steps_r_step_01_identify_target, steps_r_step_02_explore_and_capture, steps_r_step_03_generate_specs, steps_r_step_04_extract_design_system [EXTRACTED 1.00]
+- **Acceptance Testing Workflow** — steps_t_step_01_prepare, steps_t_step_02_execute, steps_t_step_03_document_issues, steps_t_step_04_report, steps_t_step_05_iterate [EXTRACTED 1.00]
+- **Asset Generation Suite** — wds_6_asset_generation_workflow_main, wds_6_asset_generation_workflow_content, wds_6_asset_generation_workflow_figma, wds_6_asset_generation_workflow_icons, wds_6_asset_generation_workflow_images, wds_6_asset_generation_workflow_page_designs, wds_6_asset_generation_workflow_stitch, wds_6_asset_generation_workflow_ui_elements, wds_6_asset_generation_workflow_videos, wds_6_asset_generation_workflow_wireframes [EXTRACTED 1.00]
+- **WDS Asset Generation Workflows** — steps_i_step_01_load_context, steps_m_step_01_load_context, steps_p_step_01_load_context, steps_u_step_01_load_context, steps_v_step_01_load_context, steps_w_step_01_load_context [EXTRACTED 1.00]
+- **WDS Design System Management** — wds_7_design_system_workflow_browse, wds_7_design_system_workflow_create, wds_7_design_system_workflow_edit, wds_7_design_system_workflow_import, wds_7_design_system_workflow_view [EXTRACTED 1.00]
+- **Design System Component Assessment Flow** — wds_7_step_01_scan, wds_7_step_02_compare, wds_7_step_03_similarity, wds_7_step_04_opportunities, wds_7_step_05_risks, wds_7_step_06_decision [EXTRACTED 1.00]
+- **Product Evolution (Kaizen) Cycle** — wds_8_workflow_analyze, wds_8_workflow_scope, wds_8_workflow_design, wds_8_workflow_implement, wds_8_workflow_test, wds_8_workflow_deploy [EXTRACTED 1.00]
 
-### Community 0 - "Interactive Prototype Analysis - Dog Week Project"
+## Communities (1823 total, 131 thin omitted)
+
+### Community 0 - "Prototype Analysis Guide"
 Cohesion: 0.04
 Nodes (48): 1. File Organization, 1. Form Validation States, 1. Mode Switching, 1. Multi-Language Support (1.2 Sign In), 1. Object ID System, 2. Async/Await Pattern, 2. HTML Template Structure, 2. Image Upload with Cropping (1.3 Profile Setup, 1.6 Add Dog) (+40 more)
 
-### Community 1 - "Interactive Prototype Analysis - Dog Week Project"
+### Community 1 - "Prototype Analysis Guide (alt)"
 Cohesion: 0.04
 Nodes (48): 1. File Organization, 1. Form Validation States, 1. Mode Switching, 1. Multi-Language Support (1.2 Sign In), 1. Object ID System, 2. Async/Await Pattern, 2. HTML Template Structure, 2. Image Upload with Cropping (1.3 Profile Setup, 1.6 Add Dog) (+40 more)
 
-### Community 2 - "Scenario [Number]: [Scenario Name] - Prototype Roadmap"
+### Community 2 - "Prototype Roadmap Template"
 Cohesion: 0.04
-Nodes (47): 1. Planning Phase, 2. Implementation Phase, 3. Finalization Phase, Browser Testing, 📝 Change Log, Common Patterns, `components/form-validation.js`, `components/image-crop.js` (+39 more)
+Nodes (46): 1. Planning Phase, 2. Implementation Phase, 3. Finalization Phase, Browser Testing, 📝 Change Log, Common Patterns, `components/form-validation.js`, `components/image-crop.js` (+38 more)
 
-### Community 3 - "Scenario [Number]: [Scenario Name] - Prototype Roadmap"
-Cohesion: 0.04
-Nodes (47): 1. Planning Phase, 2. Implementation Phase, 3. Finalization Phase, Browser Testing, 📝 Change Log, Common Patterns, `components/form-validation.js`, `components/image-crop.js` (+39 more)
-
-### Community 4 - "When to Extract Prototypes to Figma - Decision Guide"
+### Community 3 - "Asset Extraction Decision"
 Cohesion: 0.04
 Nodes (46): 🚩 Analysis Paralysis, Benefits of Extracting, Best Practices, Cost-Benefit Analysis, Costs of Extracting, Decision Matrix, Decision Tree, Design System Maturity Levels (+38 more)
 
-### Community 5 - "When to Extract Prototypes to Figma - Decision Guide"
+### Community 4 - "Prototype Roadmap (alt)"
+Cohesion: 0.04
+Nodes (46): 1. Planning Phase, 2. Implementation Phase, 3. Finalization Phase, Browser Testing, 📝 Change Log, Common Patterns, `components/form-validation.js`, `components/image-crop.js` (+38 more)
+
+### Community 5 - "Asset Extraction (alt)"
 Cohesion: 0.04
 Nodes (46): 🚩 Analysis Paralysis, Benefits of Extracting, Best Practices, Cost-Benefit Analysis, Costs of Extracting, Decision Matrix, Decision Tree, Design System Maturity Levels (+38 more)
 
-### Community 6 - "{{target_name}} - Deep Dive Documentation"
+### Community 6 - "Document Project Templates"
 Cohesion: 0.04
 Nodes (45): APIs Consumed, APIs Exposed, Architecture & Design Patterns, Circular Dependencies, Code Organization, Code Quality Observations, Complete File Inventory, Contributor Checklist (+37 more)
 
-### Community 7 - "{{target_name}} - Deep Dive Documentation"
+### Community 7 - "Document Project (alt)"
 Cohesion: 0.04
 Nodes (45): APIs Consumed, APIs Exposed, Architecture & Design Patterns, Circular Dependencies, Code Organization, Code Quality Observations, Complete File Inventory, Contributor Checklist (+37 more)
 
-### Community 8 - "Saga's Strategic Documentation Guide"
+### Community 8 - "Saga Strategic Docs"
 Cohesion: 0.04
 Nodes (45): 10. Constraints, 11. Tone of Voice, 12. Create Product Brief, 1. Vision & Problem Statement, 2. Positioning, 3. Strategic Context (from Trigger Map), 4. Business Model, 5. Business Customers (+37 more)
 
-### Community 9 - "Step 4: Identify Opportunities"
-Cohesion: 0.04
-Nodes (44): 8. Present MENU OPTIONS, Clarity, Consistency, Consistency, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Decision Options, Design System (+36 more)
-
-### Community 10 - "Step 4: Identify Opportunities"
-Cohesion: 0.04
-Nodes (44): 8. Present MENU OPTIONS, Clarity, Consistency, Consistency, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Decision Options, Design System (+36 more)
-
-### Community 11 - "Flow B: Verbal Specification"
+### Community 9 - "Design System Components"
 Cohesion: 0.05
-Nodes (38): Actions, Flow A: Sketch Path, Process, Completion, Flow B: Verbal Specification, Introduction, SUBSTEP B1: Identify Sections, SUBSTEP B2: Section Purposes (+30 more)
+Nodes (44): 10. Present MENU OPTIONS, Accessibility, Animations, Behavior, Best Practices, Button [btn-003], Component List, CONTEXT BOUNDARIES: (+36 more)
 
-### Community 12 - "Design Tools Reference for WDS"
+### Community 10 - "WDS Agentic Development"
 Cohesion: 0.05
-Nodes (43): Accessibility Considerations, Advantages over Manual Upload, Alternative Flow (Manual Upload - Fallback), Area Tag Issues, Area Tag System, Area Tags, Best Practices, Best Practices (+35 more)
+Nodes (43): 10. Present MENU OPTIONS, Accessibility, Animations, Behavior, Best Practices, Button [btn-003], Component List, CONTEXT BOUNDARIES: (+35 more)
 
-### Community 13 - "Step 7: Execute Decision"
-Cohesion: 0.05
-Nodes (43): Before Completing, CONTEXT BOUNDARIES:, Error Handling, Execution Paths, EXECUTION PROTOCOLS:, File References, MANDATORY EXECUTION RULES (READ FIRST):, Notify Designer (+35 more)
-
-### Community 14 - "Step 8e: Generate Catalog"
+### Community 11 - "Brainstorming Workflow"
 Cohesion: 0.05
 Nodes (43): 11. Present MENU OPTIONS, Automation, Best Practices, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, DO ✅, DON'T ❌, Error Handling (+35 more)
 
-### Community 15 - "Phase 8: Product Evolution"
+### Community 12 - "Figma Integration"
 Cohesion: 0.05
 Nodes (43): **Accumulated Changes**, **Business Goals**, **Business Triggers**, **Designer & Developer Partnership**, DO ✅, DON'T ❌, **Entry Point 1: New Product (Phases 1-7) - Greenfield + Kaikaku**, **Entry Point 2: Existing Product (Phase 8) - Brownfield + Kaizen** (+35 more)
 
-### Community 16 - "Flow B: Verbal Specification"
+### Community 13 - "Code Review Skills"
 Cohesion: 0.05
 Nodes (38): Actions, Flow A: Sketch Path, Process, Completion, Flow B: Verbal Specification, Introduction, SUBSTEP B1: Identify Sections, SUBSTEP B2: Section Purposes (+30 more)
 
-### Community 17 - "Design Tools Reference for WDS"
+### Community 14 - "Sprint Planning"
 Cohesion: 0.05
-Nodes (43): Accessibility Considerations, Advantages over Manual Upload, Alternative Flow (Manual Upload - Fallback), Area Tag Issues, Area Tag System, Area Tags, Best Practices, Best Practices (+35 more)
+Nodes (43): 8. Present MENU OPTIONS, Clarity, Consistency, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Decision Options, Design System, Development (+35 more)
 
-### Community 18 - "Step 7: Execute Decision"
-Cohesion: 0.05
-Nodes (43): Before Completing, CONTEXT BOUNDARIES:, Error Handling, Execution Paths, EXECUTION PROTOCOLS:, File References, MANDATORY EXECUTION RULES (READ FIRST):, Notify Designer (+35 more)
-
-### Community 19 - "Step 8e: Generate Catalog"
+### Community 15 - "PRD Validation"
 Cohesion: 0.05
 Nodes (43): 11. Present MENU OPTIONS, Automation, Best Practices, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, DO ✅, DON'T ❌, Error Handling (+35 more)
 
-### Community 20 - "Phase 8: Product Evolution"
+### Community 16 - "UX Design Workflow"
 Cohesion: 0.05
 Nodes (43): **Accumulated Changes**, **Business Goals**, **Business Triggers**, **Designer & Developer Partnership**, DO ✅, DON'T ❌, **Entry Point 1: New Product (Phases 1-7) - Greenfield + Kaikaku**, **Entry Point 2: Existing Product (Phase 8) - Brownfield + Kaizen** (+35 more)
 
-### Community 21 - "Figma Component Structure for WDS"
+### Community 17 - "Content Generation"
 Cohesion: 0.05
-Nodes (43): Auto Layout Best Practices, Button Component in Figma, Common Mistakes to Avoid, Component Creation, Component Description Template, Component Documentation, Component ID System, Component Instances (+35 more)
+Nodes (37): Actions, Flow A: Sketch Path, Process, Completion, Flow B: Verbal Specification, Introduction, SUBSTEP B1: Identify Sections, SUBSTEP B2: Section Purposes (+29 more)
 
-### Community 22 - "Figma Integration - Summary"
-Cohesion: 0.05
-Nodes (42): Area Tag System, Benefits, Bidirectional Workflow, Code to Figma (C2F) Workshop, Contact and Support, Core Concepts, Design System Evolution, Design System Philosophy (+34 more)
-
-### Community 23 - "Figma Integration - Summary"
+### Community 18 - "Architecture Skills"
 Cohesion: 0.05
 Nodes (42): Area Tag System, Benefits, Bidirectional Workflow, Code to Figma (C2F) Workshop, Contact and Support, Core Concepts, Design System Evolution, Design System Philosophy (+34 more)
 
-### Community 24 - "Prototype to Figma Workflow"
+### Community 19 - "Edge Case Analysis"
 Cohesion: 0.05
-Nodes (41): Best Practices, Best Practices, Decision Framework, Design System Updates, Detailed Workflow Steps, DO ✅, DON'T ❌, Don't Extract When: (+33 more)
+Nodes (42): 8. Present MENU OPTIONS, Clarity, Consistency, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Decision Options, Design System, Development (+34 more)
 
-### Community 25 - "Step 5: Identify Risks"
+### Community 20 - "Community 20"
 Cohesion: 0.05
-Nodes (41): 7. Present MENU OPTIONS, Complexity, Confusion, Constraint, CONTEXT BOUNDARIES:, Coupling, CRITICAL STEP COMPLETION NOTE, Divergence (+33 more)
+Nodes (42): Area Tag System, Benefits, Bidirectional Workflow, Code to Figma (C2F) Workshop, Contact and Support, Core Concepts, Design System Evolution, Design System Philosophy (+34 more)
 
-### Community 26 - "Prototype to Figma Workflow"
-Cohesion: 0.05
-Nodes (41): Best Practices, Best Practices, Decision Framework, Design System Updates, Detailed Workflow Steps, DO ✅, DON'T ❌, Don't Extract When: (+33 more)
-
-### Community 27 - "Step 5: Identify Risks"
+### Community 21 - "Community 21"
 Cohesion: 0.05
 Nodes (41): 7. Present MENU OPTIONS, Complexity, Confusion, Constraint, CONTEXT BOUNDARIES:, Coupling, CRITICAL STEP COMPLETION NOTE, Divergence (+33 more)
 
-### Community 28 - "🎯 Story Context Quality Competition Prompt"
+### Community 22 - "Community 22"
+Cohesion: 0.05
+Nodes (41): 7. Present MENU OPTIONS, Complexity, Confusion, Constraint, CONTEXT BOUNDARIES:, Coupling, CRITICAL STEP COMPLETION NOTE, Divergence (+33 more)
+
+### Community 23 - "Community 23"
+Cohesion: 0.05
+Nodes (41): Auto Layout Best Practices, Button Component in Figma, Common Mistakes to Avoid, Component Creation, Component Description Template, Component Documentation, Component ID System, Component Instances (+33 more)
+
+### Community 24 - "Community 24"
 Cohesion: 0.05
 Nodes (40): **2.1 Epics and Stories Analysis**, **2.2 Architecture Deep-Dive**, **2.3 Previous Story Intelligence (if applicable)**, **2.4 Git History Analysis (if available)**, **2.5 Latest Technical Research**, **3.1 Reinvention Prevention Gaps**, **3.2 Technical Specification DISASTERS**, **3.3 File Structure DISASTERS** (+32 more)
 
-### Community 29 - "Figma Designer Guide for WDS"
+### Community 25 - "Community 25"
 Cohesion: 0.05
 Nodes (40): Add Component Description, Adding a Variant to Existing Component, Adjust for Sizes, After Component Creation, Before Creating Component, Best Practices, Checklist, Common Workflows (+32 more)
 
-### Community 30 - "🎯 Story Context Quality Competition Prompt"
+### Community 26 - "Community 26"
 Cohesion: 0.05
-Nodes (40): **2.1 Epics and Stories Analysis**, **2.2 Architecture Deep-Dive**, **2.3 Previous Story Intelligence (if applicable)**, **2.4 Git History Analysis (if available)**, **2.5 Latest Technical Research**, **3.1 Reinvention Prevention Gaps**, **3.2 Technical Specification DISASTERS**, **3.3 File Structure DISASTERS** (+32 more)
+Nodes (39): Add Component Description, Adding a Variant to Existing Component, Adjust for Sizes, After Component Creation, Before Creating Component, Best Practices, Checklist, Common Workflows (+31 more)
 
-### Community 31 - "Figma Designer Guide for WDS"
-Cohesion: 0.05
-Nodes (40): Add Component Description, Adding a Variant to Existing Component, Adjust for Sizes, After Component Creation, Before Creating Component, Best Practices, Checklist, Common Workflows (+32 more)
-
-### Community 32 - "Step 8c: Update Component"
-Cohesion: 0.05
-Nodes (39): Breaking Changes, Compatibility, CONTEXT BOUNDARIES:, Error Handling, EXECUTION PROTOCOLS:, File References, If Breaking Change, If Major Update (+31 more)
-
-### Community 33 - "2. Create Design Delivery File"
+### Community 27 - "Community 27"
 Cohesion: 0.05
 Nodes (39): 1. Design Delivery Format Overview, 2. Create Design Delivery File, 2a. Delivery Metadata, 2b. Improvement Section, 2c. Changes Section, 2d. Design Artifacts Section, 2e. Technical Requirements Section, 2f. Acceptance Criteria Section (+31 more)
 
-### Community 34 - "Step 8c: Update Component"
-Cohesion: 0.05
-Nodes (39): Breaking Changes, Compatibility, CONTEXT BOUNDARIES:, Error Handling, EXECUTION PROTOCOLS:, File References, If Breaking Change, If Major Update (+31 more)
-
-### Community 35 - "2. Create Design Delivery File"
+### Community 28 - "Community 28"
 Cohesion: 0.05
 Nodes (39): 1. Design Delivery Format Overview, 2. Create Design Delivery File, 2a. Delivery Metadata, 2b. Improvement Section, 2c. Changes Section, 2d. Design Artifacts Section, 2e. Technical Requirements Section, 2f. Acceptance Criteria Section (+31 more)
 
-### Community 36 - "Saga's SEO Strategy Guide"
+### Community 29 - "Community 29"
 Cohesion: 0.05
 Nodes (39): 10. Technical SEO Checklist, 1. Keyword Strategy, 2. URL Structure, 3. Heading Hierarchy, 4. Internal Linking Strategy, 5. Local SEO, 6. Multi-Language SEO, 7. Image SEO (+31 more)
 
-### Community 37 - "Saga's Trigger Mapping Guide"
+### Community 30 - "Community 30"
 Cohesion: 0.05
 Nodes (39): Business Goals Layer, Common Trigger Mapping Mistakes, Context-Dependent Goals, Core Principle, Customer Awareness Integration, Detailed Personas, Driving Forces Pattern: WHAT + WHY + WHEN, Driving Forces (The Psychology) (+31 more)
 
-### Community 38 - "Figma MCP Integration for WDS"
+### Community 31 - "Community 31"
+Cohesion: 0.06
+Nodes (38): Best Practices, Decision Framework, Design System Updates, Detailed Workflow Steps, DO ✅, DON'T ❌, Don't Extract When:, Example: Complete Iteration Cycle (+30 more)
+
+### Community 32 - "Community 32"
 Cohesion: 0.05
 Nodes (38): 1. Read Figma Component, 2. Extract Design Tokens, 3. Get Component Node ID, 4. List Components, Best Practices, Command Reference, Component Not Found, Component Specification Generation (+30 more)
 
-### Community 39 - "Figma MCP Integration for WDS"
-Cohesion: 0.05
-Nodes (38): 1. Read Figma Component, 2. Extract Design Tokens, 3. Get Component Node ID, 4. List Components, Best Practices, Command Reference, Component Not Found, Component Specification Generation (+30 more)
+### Community 33 - "Community 33"
+Cohesion: 0.06
+Nodes (38): Best Practices, Decision Framework, Design System Updates, Detailed Workflow Steps, DO ✅, DON'T ❌, Don't Extract When:, Example: Complete Iteration Cycle (+30 more)
 
-### Community 40 - "Project Signoff Document"
+### Community 34 - "Community 34"
+Cohesion: 0.06
+Nodes (38): Before Completing, CONTEXT BOUNDARIES:, Error Handling, Execution Paths, EXECUTION PROTOCOLS:, File References, MANDATORY EXECUTION RULES (READ FIRST):, Notify Designer (+30 more)
+
+### Community 35 - "Community 35"
+Cohesion: 0.07
+Nodes (37): A. Componentization, A. Template Check, A. Text Content, Audit Levels, Audit Report Template, Audit Structure, B. Accessibility Content, B. Cross-Page Duplicate Detection (+29 more)
+
+### Community 36 - "Community 36"
+Cohesion: 0.05
+Nodes (37): 1. Read Figma Component, 2. Extract Design Tokens, 3. Get Component Node ID, 4. List Components, Best Practices, Command Reference, Component Not Found, Component Specification Generation (+29 more)
+
+### Community 37 - "Community 37"
+Cohesion: 0.06
+Nodes (37): Accessibility Considerations, Advantages over Manual Upload, Alternative Flow (Manual Upload - Fallback), Area Tag Issues, Area Tag System, Area Tags, Best Practices, Cost Considerations (+29 more)
+
+### Community 38 - "Community 38"
+Cohesion: 0.06
+Nodes (37): Before Completing, CONTEXT BOUNDARIES:, Error Handling, Execution Paths, EXECUTION PROTOCOLS:, File References, MANDATORY EXECUTION RULES (READ FIRST):, Notify Designer (+29 more)
+
+### Community 39 - "Community 39"
+Cohesion: 0.07
+Nodes (37): A. Componentization, A. Template Check, A. Text Content, Audit Levels, Audit Report Template, Audit Structure, B. Accessibility Content, B. Cross-Page Duplicate Detection (+29 more)
+
+### Community 40 - "Community 40"
+Cohesion: 0.06
+Nodes (37): Accessibility Considerations, Advantages over Manual Upload, Alternative Flow (Manual Upload - Fallback), Area Tag Issues, Area Tag System, Area Tags, Best Practices, Cost Considerations (+29 more)
+
+### Community 41 - "Community 41"
 Cohesion: 0.05
 Nodes (36): 1. Project Overview, 2. Goals and Success Metrics, 3. Budget and Resources, 4. Ownership and Responsibility, 5. Approval and Sign-Off, 6. Timeline and Milestones, 7. Optional Sections, 8. Approval and Signoff (+28 more)
 
-### Community 41 - "Project Signoff Document"
+### Community 42 - "Community 42"
 Cohesion: 0.05
 Nodes (36): 1. Project Overview, 2. Goals and Success Metrics, 3. Budget and Resources, 4. Ownership and Responsibility, 5. Approval and Sign-Off, 6. Timeline and Milestones, 7. Optional Sections, 8. Approval and Signoff (+28 more)
 
-### Community 42 - "Core Principles"
+### Community 43 - "Community 43"
 Cohesion: 0.05
-Nodes (36): 1. Name by PURPOSE, Not Content, 2. Separate Structure from Content, Auth Failed Error, Body, Body EN, Body SE, Core Principles, CTA (+28 more)
+Nodes (36): 1. Project Overview, 2. Goals and Success Metrics, 3. Budget and Resources, 4. Ownership and Responsibility, 5. Approval and Sign-Off, 6. Timeline and Milestones, 7. Optional Sections, 8. Approval and Signoff (+28 more)
 
-### Community 43 - "Step 6: Present Decision"
+### Community 44 - "Community 44"
+Cohesion: 0.05
+Nodes (36): 1. Project Overview, 2. Goals and Success Metrics, 3. Budget and Resources, 4. Ownership and Responsibility, 5. Approval and Sign-Off, 6. Timeline and Milestones, 7. Optional Sections, 8. Approval and Signoff (+28 more)
+
+### Community 45 - "Community 45"
 Cohesion: 0.05
 Nodes (36): 1. Context Summary, 2. The Options, 3. Comparison Table, 4. Recommendation, 5. Designer Choice, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+28 more)
 
-### Community 44 - "Project Signoff Document"
-Cohesion: 0.05
-Nodes (36): 1. Project Overview, 2. Goals and Success Metrics, 3. Budget and Resources, 4. Ownership and Responsibility, 5. Approval and Sign-Off, 6. Timeline and Milestones, 7. Optional Sections, 8. Approval and Signoff (+28 more)
-
-### Community 45 - "Project Signoff Document"
-Cohesion: 0.05
-Nodes (36): 1. Project Overview, 2. Goals and Success Metrics, 3. Budget and Resources, 4. Ownership and Responsibility, 5. Approval and Sign-Off, 6. Timeline and Milestones, 7. Optional Sections, 8. Approval and Signoff (+28 more)
-
-### Community 46 - "Core Principles"
-Cohesion: 0.05
-Nodes (36): 1. Name by PURPOSE, Not Content, 2. Separate Structure from Content, Auth Failed Error, Body, Body EN, Body SE, Core Principles, CTA (+28 more)
-
-### Community 47 - "Step 6: Present Decision"
-Cohesion: 0.05
-Nodes (36): 1. Context Summary, 2. The Options, 3. Comparison Table, 4. Recommendation, 5. Designer Choice, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+28 more)
-
-### Community 48 - "Step 2: Explore and Capture"
+### Community 46 - "Community 46"
 Cohesion: 0.06
 Nodes (35): 1a. Crawl Pages, 1b. Capture Structure, 1c. Note Interactions, 1d. Extract CSS and Design Tokens, 1e. Read Code Structure, 1f. Map Routes, 1g. Analyze Visual Patterns, Color Palette (+27 more)
 
-### Community 49 - "Step 2: Explore and Capture"
+### Community 47 - "Community 47"
+Cohesion: 0.06
+Nodes (35): 1. Context Summary, 2. The Options, 3. Comparison Table, 4. Recommendation, 5. Designer Choice, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+27 more)
+
+### Community 48 - "Community 48"
 Cohesion: 0.06
 Nodes (35): 1a. Crawl Pages, 1b. Capture Structure, 1c. Note Interactions, 1d. Extract CSS and Design Tokens, 1e. Read Code Structure, 1f. Map Routes, 1g. Analyze Visual Patterns, Color Palette (+27 more)
 
-### Community 50 - "Project Contract"
+### Community 49 - "Community 49"
 Cohesion: 0.06
 Nodes (34): 10. Not to Exceed Clause, 11. Terms and Conditions, 12. Approval, 1. Project Overview, 2. Business Model, 3. Scope of Work, 4. Our Commitment, 5. Timeline (+26 more)
 
-### Community 51 - "Project Contract"
+### Community 50 - "Community 50"
 Cohesion: 0.06
 Nodes (34): 10. Not to Exceed Clause, 11. Terms and Conditions, 12. Approval, 1. Project Overview, 2. Business Model, 3. Scope of Work, 4. Our Commitment, 5. Timeline (+26 more)
 
-### Community 52 - "Sketch Analysis Guide: Reading Text Placeholders"
+### Community 51 - "Community 51"
 Cohesion: 0.06
 Nodes (34): 1. Check Previous Pages in Project, 1. Line Thickness → Font Weight (Relative), 2. Distance Between Lines → Font Size (Context-Based), 2. Find UI Anchors in Current Sketch, 2a. Visual Examples: Text vs. Image Confusion, 3. Line Count → Number of Text Lines, 3. Text Alignment → Horizontal Position, 4. Line-Height Calculation (+26 more)
 
-### Community 53 - "Handoff Dialog Scripts"
+### Community 52 - "Community 52"
 Cohesion: 0.06
 Nodes (33): Handoff Dialog Scripts, Handoff Log Template, Phase 10: Confirmation & Next Steps (1 min), Phase 1: Introduction (2 min), Phase 2: User Value (3 min), Phase 3: Scenario Walkthrough (8 min), Phase 4: Technical Requirements (4 min), Phase 5: Design System Components (3 min) (+25 more)
 
-### Community 54 - "Specification Audit Report"
+### Community 53 - "Community 53"
 Cohesion: 0.06
 Nodes (34): Accessibility Content, Area Label Coverage, Area Label Format, Audit Metrics, Before Development Handoff, Componentization, 🔴 Critical Issues (Must Fix Before Development), Design System Integration (+26 more)
 
-### Community 55 - "Project Contract"
+### Community 54 - "Community 54"
 Cohesion: 0.06
 Nodes (34): 10. Not to Exceed Clause, 11. Terms and Conditions, 12. Approval, 1. Project Overview, 2. Business Model, 3. Scope of Work, 4. Our Commitment, 5. Timeline (+26 more)
 
-### Community 56 - "Project Contract"
+### Community 55 - "Community 55"
 Cohesion: 0.06
 Nodes (34): 10. Not to Exceed Clause, 11. Terms and Conditions, 12. Approval, 1. Project Overview, 2. Business Model, 3. Scope of Work, 4. Our Commitment, 5. Timeline (+26 more)
 
-### Community 57 - "Sketch Analysis Guide: Reading Text Placeholders"
+### Community 56 - "Community 56"
 Cohesion: 0.06
 Nodes (34): 1. Check Previous Pages in Project, 1. Line Thickness → Font Weight (Relative), 2. Distance Between Lines → Font Size (Context-Based), 2. Find UI Anchors in Current Sketch, 2a. Visual Examples: Text vs. Image Confusion, 3. Line Count → Number of Text Lines, 3. Text Alignment → Horizontal Position, 4. Line-Height Calculation (+26 more)
 
-### Community 58 - "Handoff Dialog Scripts"
+### Community 57 - "Community 57"
 Cohesion: 0.06
 Nodes (33): Handoff Dialog Scripts, Handoff Log Template, Phase 10: Confirmation & Next Steps (1 min), Phase 1: Introduction (2 min), Phase 2: User Value (3 min), Phase 3: Scenario Walkthrough (8 min), Phase 4: Technical Requirements (4 min), Phase 5: Design System Components (3 min) (+25 more)
 
-### Community 59 - "Specification Audit Report"
+### Community 58 - "Community 58"
 Cohesion: 0.06
 Nodes (34): Accessibility Content, Area Label Coverage, Area Label Format, Audit Metrics, Before Development Handoff, Componentization, 🔴 Critical Issues (Must Fix Before Development), Design System Integration (+26 more)
 
-### Community 60 - "Conversational Follow-Up Patterns"
+### Community 59 - "Community 59"
 Cohesion: 0.06
 Nodes (34): Based on Project Stakes, Based on Project Type, Based on Working Relationship, Context-Aware Questions, Conversational Follow-Up Patterns, Core Philosophy, Enterprise/High Stakes (stakes = high), "Everything is most important" (+26 more)
 
-### Community 61 - "Service Agreement"
-Cohesion: 0.06
-Nodes (33): 10. Not to Exceed Clause, 11. Terms and Conditions, 12. Approval, 1. Project Overview, 2. Scope of Services, 3. Our Commitment, 4. Timeline, 5. Why It Matters (+25 more)
-
-### Community 62 - "Service Agreement"
-Cohesion: 0.06
-Nodes (33): 10. Not to Exceed Clause, 11. Terms and Conditions, 12. Approval, 1. Project Overview, 2. Scope of Services, 3. Our Commitment, 4. Timeline, 5. Why It Matters (+25 more)
-
-### Community 63 - "Nano Banana Prompt Composition Guide"
+### Community 60 - "Community 60"
 Cohesion: 0.06
 Nodes (33): Always Include, Always Skip, Batch Generation: Similar Page Sequences, Critical Rules, Edit Mode, Example: 11 Vehicle Type Pages, Expressive Mode, Faithful Mode (+25 more)
 
-### Community 64 - "Service Agreement"
-Cohesion: 0.06
-Nodes (33): 10. Not to Exceed Clause, 11. Terms and Conditions, 12. Approval, 1. Project Overview, 2. Scope of Services, 3. Our Commitment, 4. Timeline, 5. Why It Matters (+25 more)
+### Community 61 - "Community 61"
+Cohesion: 0.07
+Nodes (33): Breaking Changes, Compatibility, CONTEXT BOUNDARIES:, Error Handling, EXECUTION PROTOCOLS:, File References, If Breaking Change, If Major Update (+25 more)
 
-### Community 65 - "Service Agreement"
-Cohesion: 0.06
-Nodes (33): 10. Not to Exceed Clause, 11. Terms and Conditions, 12. Approval, 1. Project Overview, 2. Scope of Services, 3. Our Commitment, 4. Timeline, 5. Why It Matters (+25 more)
-
-### Community 66 - "Nano Banana Prompt Composition Guide"
+### Community 62 - "Community 62"
 Cohesion: 0.06
 Nodes (33): Always Include, Always Skip, Batch Generation: Similar Page Sequences, Critical Rules, Edit Mode, Example: 11 Vehicle Type Pages, Expressive Mode, Faithful Mode (+25 more)
 
-### Community 67 - "EPIC QUALITY REVIEW PROCESS:"
-Cohesion: 0.06
-Nodes (32): 1. Initialize Best Practices Validation, 2. Epic Structure Validation, 3. Story Quality Assessment, 4. Dependency Analysis, 5. Special Implementation Checks, 6. Best Practices Compliance Checklist, 7. Quality Assessment Documentation, 8. Autonomous Review Execution (+24 more)
+### Community 63 - "Community 63"
+Cohesion: 0.07
+Nodes (33): Breaking Changes, Compatibility, CONTEXT BOUNDARIES:, Error Handling, EXECUTION PROTOCOLS:, File References, If Breaking Change, If Major Update (+25 more)
 
-### Community 68 - "Content & Language: {{project_name}}"
-Cohesion: 0.06
-Nodes (32): Brand Personality, Clarity Level, Content & Language: {{project_name}}, Content Ownership, Content Priorities, Content Structure Principles, Content Types, Core Tone (+24 more)
-
-### Community 69 - "Content & Language: {{project_name}}"
+### Community 64 - "Community 64"
 Cohesion: 0.06
 Nodes (32): Brand Personality, Clarity Level, Content & Language: {{project_name}}, Content Ownership, Content Priorities, Content Structure Principles, Content Types, Core Tone (+24 more)
 
-### Community 70 - "Interactive Prototypes - Getting Started Guide"
+### Community 65 - "Community 65"
+Cohesion: 0.06
+Nodes (32): 10. Not to Exceed Clause, 11. Terms and Conditions, 12. Approval, 1. Project Overview, 2. Scope of Services, 3. Our Commitment, 4. Timeline, 5. Why It Matters (+24 more)
+
+### Community 66 - "Community 66"
+Cohesion: 0.06
+Nodes (32): Brand Personality, Clarity Level, Content & Language: {{project_name}}, Content Ownership, Content Priorities, Content Structure Principles, Content Types, Core Tone (+24 more)
+
+### Community 67 - "Community 67"
+Cohesion: 0.06
+Nodes (32): 10. Not to Exceed Clause, 11. Terms and Conditions, 12. Approval, 1. Project Overview, 2. Scope of Services, 3. Our Commitment, 4. Timeline, 5. Why It Matters (+24 more)
+
+### Community 68 - "Community 68"
 Cohesion: 0.06
 Nodes (32): 1. Tailwind First, 2. Pages in Root, 3. ONE COPY of Shared Code, 4. Self-Contained, 5. Section-by-Section, 6. Just-in-Time Stories, 7. Build in Final Location, 🚀 Benefits (+24 more)
 
-### Community 71 - "Step 3: Calculate Similarity"
-Cohesion: 0.06
-Nodes (32): 6. Present MENU OPTIONS, Calculation Logic, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Edge Cases, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+24 more)
-
-### Community 72 - "Step 8a: Initialize Design System"
+### Community 69 - "Community 69"
 Cohesion: 0.06
 Nodes (32): 9. Present MENU OPTIONS, Component File Structure, Component List, Component Naming Convention, Content Components, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Design System Components (+24 more)
 
-### Community 73 - "EPIC QUALITY REVIEW PROCESS:"
+### Community 70 - "Community 70"
 Cohesion: 0.06
 Nodes (32): 1. Initialize Best Practices Validation, 2. Epic Structure Validation, 3. Story Quality Assessment, 4. Dependency Analysis, 5. Special Implementation Checks, 6. Best Practices Compliance Checklist, 7. Quality Assessment Documentation, 8. Autonomous Review Execution (+24 more)
 
-### Community 74 - "Content & Language: {{project_name}}"
+### Community 71 - "Community 71"
 Cohesion: 0.06
 Nodes (32): Brand Personality, Clarity Level, Content & Language: {{project_name}}, Content Ownership, Content Priorities, Content Structure Principles, Content Types, Core Tone (+24 more)
 
-### Community 75 - "Content & Language: {{project_name}}"
+### Community 72 - "Community 72"
+Cohesion: 0.06
+Nodes (32): 10. Not to Exceed Clause, 11. Terms and Conditions, 12. Approval, 1. Project Overview, 2. Scope of Services, 3. Our Commitment, 4. Timeline, 5. Why It Matters (+24 more)
+
+### Community 73 - "Community 73"
 Cohesion: 0.06
 Nodes (32): Brand Personality, Clarity Level, Content & Language: {{project_name}}, Content Ownership, Content Priorities, Content Structure Principles, Content Types, Core Tone (+24 more)
 
-### Community 76 - "Interactive Prototypes - Getting Started Guide"
+### Community 74 - "Community 74"
+Cohesion: 0.06
+Nodes (32): 10. Not to Exceed Clause, 11. Terms and Conditions, 12. Approval, 1. Project Overview, 2. Scope of Services, 3. Our Commitment, 4. Timeline, 5. Why It Matters (+24 more)
+
+### Community 75 - "Community 75"
 Cohesion: 0.06
 Nodes (32): 1. Tailwind First, 2. Pages in Root, 3. ONE COPY of Shared Code, 4. Self-Contained, 5. Section-by-Section, 6. Just-in-Time Stories, 7. Build in Final Location, 🚀 Benefits (+24 more)
 
-### Community 77 - "Step 3: Calculate Similarity"
+### Community 76 - "Community 76"
 Cohesion: 0.06
 Nodes (32): 6. Present MENU OPTIONS, Calculation Logic, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Edge Cases, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+24 more)
 
-### Community 78 - "Step 8a: Initialize Design System"
+### Community 77 - "Community 77"
 Cohesion: 0.06
 Nodes (32): 9. Present MENU OPTIONS, Component File Structure, Component List, Component Naming Convention, Content Components, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Design System Components (+24 more)
 
-### Community 79 - "Visual Direction: {{project_name}}"
+### Community 78 - "Community 78"
+Cohesion: 0.06
+Nodes (31): 1. Initialize Best Practices Validation, 2. Epic Structure Validation, 3. Story Quality Assessment, 4. Dependency Analysis, 5. Special Implementation Checks, 6. Best Practices Compliance Checklist, 7. Quality Assessment Documentation, 8. Autonomous Review Execution (+23 more)
+
+### Community 79 - "Community 79"
 Cohesion: 0.06
 Nodes (31): Brand Constraints, Color Direction, Color Scheme Type, Color Strategy, Current Assets, Design Aesthetic, Design Constraints, Design Style (+23 more)
 
-### Community 80 - "Visual Direction: {{project_name}}"
+### Community 80 - "Community 80"
 Cohesion: 0.06
 Nodes (31): Brand Constraints, Color Direction, Color Scheme Type, Color Strategy, Current Assets, Design Aesthetic, Design Constraints, Design Style (+23 more)
 
-### Community 81 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 81 - "Community 81"
 Cohesion: 0.06
 Nodes (31): 1. Gather Materials, 2. Set Up Environment, 3. Prepare Test Data, 4. Create Testing Workspace, 5. Review Test Plan, 6. Time Estimate, 7. Verify Checklist, 8. Present MENU OPTIONS (+23 more)
 
-### Community 82 - "Step 2: Compare Attributes"
+### Community 82 - "Community 82"
 Cohesion: 0.06
 Nodes (31): 1. Visual Attributes, 2. Functional Attributes, 3. Behavioral Attributes, 4. Contextual Attributes, 8. Present MENU OPTIONS, Comparison Framework, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+23 more)
 
-### Community 83 - "Visual Direction: {{project_name}}"
+### Community 83 - "Community 83"
+Cohesion: 0.06
+Nodes (31): 6. Present MENU OPTIONS, Calculation Logic, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Edge Cases, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+23 more)
+
+### Community 84 - "Community 84"
 Cohesion: 0.06
 Nodes (31): Brand Constraints, Color Direction, Color Scheme Type, Color Strategy, Current Assets, Design Aesthetic, Design Constraints, Design Style (+23 more)
 
-### Community 84 - "Visual Direction: {{project_name}}"
+### Community 85 - "Community 85"
 Cohesion: 0.06
 Nodes (31): Brand Constraints, Color Direction, Color Scheme Type, Color Strategy, Current Assets, Design Aesthetic, Design Constraints, Design Style (+23 more)
 
-### Community 85 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 86 - "Community 86"
 Cohesion: 0.06
 Nodes (31): 1. Gather Materials, 2. Set Up Environment, 3. Prepare Test Data, 4. Create Testing Workspace, 5. Review Test Plan, 6. Time Estimate, 7. Verify Checklist, 8. Present MENU OPTIONS (+23 more)
 
-### Community 86 - "Step 2: Compare Attributes"
+### Community 87 - "Community 87"
 Cohesion: 0.06
 Nodes (31): 1. Visual Attributes, 2. Functional Attributes, 3. Behavioral Attributes, 4. Contextual Attributes, 8. Present MENU OPTIONS, Comparison Framework, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+23 more)
 
-### Community 87 - "brain.py"
+### Community 88 - "Community 88"
 Cohesion: 0.12
 Nodes (30): _card(), categories(), category_style(), filter_cats(), find(), fmt_categories(), fmt_list(), fmt_show() (+22 more)
 
-### Community 88 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 89 - "Community 89"
 Cohesion: 0.06
 Nodes (30): 1. BMad Notification, 2. Review Test Scenario, 3. Run Tests Systematically, 3a. Test New Functionality (Happy Path), 3b. Test for Regressions, 3c. Test Edge Cases, 3d. Test Accessibility, 4. Document Results (+22 more)
 
-### Community 89 - "brain.py"
+### Community 90 - "Community 90"
 Cohesion: 0.12
 Nodes (30): _card(), categories(), category_style(), filter_cats(), find(), fmt_categories(), fmt_list(), fmt_show() (+22 more)
 
-### Community 90 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 91 - "Community 91"
 Cohesion: 0.06
 Nodes (30): 1. BMad Notification, 2. Review Test Scenario, 3. Run Tests Systematically, 3a. Test New Functionality (Happy Path), 3b. Test for Regressions, 3c. Test Edge Cases, 3d. Test Accessibility, 4. Document Results (+22 more)
 
-### Community 91 - "test_lint_spine.py"
+### Community 92 - "Community 92"
 Cohesion: 0.09
 Nodes (12): cats(), test_duplicate_ad_id_caught(), test_fenced_stack_heading_not_live(), test_fenced_stack_rows_not_parsed(), test_mermaid_braces_not_flagged(), test_no_frontmatter_body_still_scanned(), test_no_stack_section_ok(), test_placeholder_markers_caught() (+4 more)
 
-### Community 93 - "Freya's Specification Quality Guide"
-Cohesion: 0.07
-Nodes (29): Accessibility, Area Label Coverage Checklist, Area Label Structure & Hierarchy, Area Labels, Bad (Content), Clear Component Purpose, Content Completeness, Core Principle (+21 more)
-
-### Community 94 - "Platform Requirements: {{project_name}}"
+### Community 94 - "Community 94"
 Cohesion: 0.07
 Nodes (29): Contact Channels, Contact Strategy, Core Platform, Deployment Process, Development Handoff Notes, Environment Setup, Future: AI Integration, Future Integrations (+21 more)
 
-### Community 95 - "Platform Requirements: {{project_name}}"
+### Community 95 - "Community 95"
 Cohesion: 0.07
 Nodes (29): Contact Channels, Contact Strategy, Core Platform, Deployment Process, Development Handoff Notes, Environment Setup, Future: AI Integration, Future Integrations (+21 more)
 
-### Community 96 - "Phase 4 [H] Handover: Design Deliveries"
+### Community 96 - "Community 96"
 Cohesion: 0.07
 Nodes (29): Before Creating Delivery, Common Patterns, Deliverables, Design Delivery Complete, Design Delivery File, DO ✅, DON'T ❌, Handoff Complete (+21 more)
 
-### Community 97 - "Step 2: Gather Context"
+### Community 97 - "Community 97"
+Cohesion: 0.07
+Nodes (29): 1. Name by PURPOSE, Not Content, 2. Separate Structure from Content, Auth Failed Error, Body, Body EN, Body SE, Core Principles, CTA (+21 more)
+
+### Community 98 - "Community 98"
 Cohesion: 0.07
 Nodes (29): 1. Determine Context Path, 2. Context A: Existing Product Entry Point, 2a. Gather Existing Materials, 2b. Use the Product, 2c. Create Focused Trigger Map, 3. Context B: Continuous Improvement, 3a. Analytics Deep Dive, 3b. User Feedback Analysis (+21 more)
 
-### Community 98 - "test_lint_spine.py"
+### Community 99 - "Community 99"
 Cohesion: 0.09
 Nodes (12): cats(), test_duplicate_ad_id_caught(), test_fenced_stack_heading_not_live(), test_fenced_stack_rows_not_parsed(), test_mermaid_braces_not_flagged(), test_no_frontmatter_body_still_scanned(), test_no_stack_section_ok(), test_placeholder_markers_caught() (+4 more)
 
-### Community 100 - "Freya's Specification Quality Guide"
+### Community 101 - "Community 101"
 Cohesion: 0.07
 Nodes (29): Accessibility, Area Label Coverage Checklist, Area Label Structure & Hierarchy, Area Labels, Bad (Content), Clear Component Purpose, Content Completeness, Core Principle (+21 more)
 
-### Community 101 - "Platform Requirements: {{project_name}}"
+### Community 102 - "Community 102"
 Cohesion: 0.07
 Nodes (29): Contact Channels, Contact Strategy, Core Platform, Deployment Process, Development Handoff Notes, Environment Setup, Future: AI Integration, Future Integrations (+21 more)
 
-### Community 102 - "Platform Requirements: {{project_name}}"
+### Community 103 - "Community 103"
 Cohesion: 0.07
 Nodes (29): Contact Channels, Contact Strategy, Core Platform, Deployment Process, Development Handoff Notes, Environment Setup, Future: AI Integration, Future Integrations (+21 more)
 
-### Community 103 - "Phase 4 [H] Handover: Design Deliveries"
+### Community 104 - "Community 104"
 Cohesion: 0.07
 Nodes (29): Before Creating Delivery, Common Patterns, Deliverables, Design Delivery Complete, Design Delivery File, DO ✅, DON'T ❌, Handoff Complete (+21 more)
 
-### Community 104 - "Step 2: Gather Context"
+### Community 105 - "Community 105"
+Cohesion: 0.07
+Nodes (29): 1. Name by PURPOSE, Not Content, 2. Separate Structure from Content, Auth Failed Error, Body, Body EN, Body SE, Core Principles, CTA (+21 more)
+
+### Community 106 - "Community 106"
 Cohesion: 0.07
 Nodes (29): 1. Determine Context Path, 2. Context A: Existing Product Entry Point, 2a. Gather Existing Materials, 2b. Use the Product, 2c. Create Focused Trigger Map, 3. Context B: Continuous Improvement, 3a. Analytics Deep Dive, 3b. User Feedback Analysis (+21 more)
 
-### Community 105 - "Freya's Content Creation Guide"
+### Community 107 - "Community 107"
 Cohesion: 0.07
 Nodes (29): 1. Content Purpose, 2. Trigger Map, 3. Customer Awareness Cycle, 4. Action Mapping, 5. Kathy Sierra Badass Users, 6. Golden Circle, Bad (Vague), Content Creation Workshop (+21 more)
 
-### Community 106 - "Freya's Specification Quality Guide"
+### Community 108 - "Community 108"
 Cohesion: 0.07
 Nodes (29): Accessibility, Area Label Coverage Checklist, Area Label Structure & Hierarchy, Area Labels, Bad (Content), Clear Component Purpose, Content Completeness, Core Principle (+21 more)
 
-### Community 107 - "Component Boundaries"
+### Community 109 - "Community 109"
 Cohesion: 0.07
 Nodes (29): Common Boundary Questions, Company Customization, Component Boundaries, Composition Patterns, Conditional Complexity, Context-Specific Behavior, Decision Framework, Example 1: Button (+21 more)
 
-### Community 108 - "Freya's Design System Guide"
+### Community 110 - "Community 110"
 Cohesion: 0.07
 Nodes (28): 1. Design Tokens, 1. Initialize Design System, 2. Atomic Design Structure, 2. Create New Component, 3. Add Variant, 4. Update Component, Common Mistakes, Component Operations (+20 more)
 
-### Community 109 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 111 - "Community 111"
+Cohesion: 0.07
+Nodes (28): Accessibility, Area Label Coverage Checklist, Area Label Structure & Hierarchy, Area Labels, Bad (Content), Clear Component Purpose, Content Completeness, Core Principle (+20 more)
+
+### Community 112 - "Community 112"
 Cohesion: 0.07
 Nodes (28): 1. Load Context, 2. Set the Scene, 3. Design Question D1, 4. Design Question D2, 5. Natural Discussion, 6. Present Discussion Summary, 7. Visualization Question, 8. Page Transition (+20 more)
 
-### Community 110 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 113 - "Community 113"
 Cohesion: 0.07
 Nodes (28): 0. Start Generation Log, A. Load Inputs, B. Extract Image Descriptions from Spec, Batch Mode: Multi-Page Generation, C. User Creative Direction, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, D. Choose Generation Scope (+20 more)
 
-### Community 111 - "Phase 5: Design System Workflow"
+### Community 114 - "Community 114"
 Cohesion: 0.07
 Nodes (28): 1. Component Matching, 1. Design System Router, 2. Circular References, 2. Opportunity/Risk Assessment, 3. Component Operations, 3. Sync Problems, 4. Component Boundaries, 4. Output Templates (+20 more)
 
-### Community 112 - "Freya's Design System Guide"
+### Community 115 - "Community 115"
 Cohesion: 0.07
 Nodes (28): 1. Design Tokens, 1. Initialize Design System, 2. Atomic Design Structure, 2. Create New Component, 3. Add Variant, 4. Update Component, Common Mistakes, Component Operations (+20 more)
 
-### Community 113 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 116 - "Community 116"
 Cohesion: 0.07
 Nodes (28): 1. Load Context, 2. Set the Scene, 3. Design Question D1, 4. Design Question D2, 5. Natural Discussion, 6. Present Discussion Summary, 7. Visualization Question, 8. Page Transition (+20 more)
 
-### Community 114 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 117 - "Community 117"
 Cohesion: 0.07
 Nodes (28): 0. Start Generation Log, A. Load Inputs, B. Extract Image Descriptions from Spec, Batch Mode: Multi-Page Generation, C. User Creative Direction, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, D. Choose Generation Scope (+20 more)
 
-### Community 115 - "Phase 5: Design System Workflow"
+### Community 118 - "Community 118"
 Cohesion: 0.07
 Nodes (28): 1. Component Matching, 1. Design System Router, 2. Circular References, 2. Opportunity/Risk Assessment, 3. Component Operations, 3. Sync Problems, 4. Component Boundaries, 4. Output Templates (+20 more)
 
-### Community 116 - "Freya's Design System Guide"
+### Community 119 - "Community 119"
 Cohesion: 0.07
 Nodes (28): 1. Design Tokens, 1. Initialize Design System, 2. Atomic Design Structure, 2. Create New Component, 3. Add Variant, 4. Update Component, Common Mistakes, Component Operations (+20 more)
 
-### Community 117 - "Freya's Meta Content Guide"
+### Community 120 - "Community 120"
 Cohesion: 0.07
 Nodes (28): 1. Page Title (Browser Tab & Search Results), 2. Meta Description (Search Results Preview), 3. Social Media Title, 4. Social Media Description, 5. Social Media Image, Agent Workflow for Public Pages, Common Mistakes to Avoid, Core Principle (+20 more)
 
-### Community 118 - "DOCUMENT DISCOVERY PROCESS:"
+### Community 121 - "Community 121"
 Cohesion: 0.07
 Nodes (27): 1. Initialize Document Discovery, 2. Document Search Patterns, 3. Organize Findings, 4. Identify Critical Issues, 5. Add Initial Report Section, 6. Present Findings and Get Confirmation, 7. Present MENU OPTIONS, A. PRD Documents (+19 more)
 
-### Community 119 - "Step 3: Generate Epics and Stories"
-Cohesion: 0.07
-Nodes (27): 1. Load Approved Epic Structure, 2. Explain Story Creation Approach, 3. Process Epics Sequentially, 4. Epic Completion, 5. Repeat for All Epics, 6. Final Document Completion, 7. Present FINAL MENU OPTIONS, A. Epic Overview (+19 more)
-
-### Community 120 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 122 - "Community 122"
 Cohesion: 0.07
 Nodes (26): Example Microcopy Format, Tone of Voice - Output Template, 1. Analyze Product Context, 2. Suggest Tone of Voice Attributes, 3. Provide Examples, 4. Refine Based on Feedback, 5. Document Final Tone of Voice, 6. Questions to Ask If User Needs Guidance (+18 more)
 
-### Community 121 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 123 - "Community 123"
 Cohesion: 0.07
 Nodes (27): 10. Design Log Update, 1. Gather Existing Keyword Research, 2. Keyword Categories, 3. Translate/Adapt Keywords for Each Language, 4. Create Page-Keyword Map, 5. Define URL Structure, 6. Capture Local SEO Data (for local businesses), 7. Plan Structured Data (+19 more)
 
-### Community 122 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 124 - "Community 124"
 Cohesion: 0.07
 Nodes (27): 1. Extract Design Tokens, 2. Catalog Reusable Components, 3. Document Component Variants and States, 4. Map Token Usage to Components, 5. Output in WDS Design System Format, 6. Verify Checklist, 7. Present MENU OPTIONS, Colors (+19 more)
 
-### Community 123 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 125 - "Community 125"
 Cohesion: 0.07
 Nodes (27): 1. Happy Path Tests, 2. Error State Tests, 3. Edge Case Tests, 4. Design System Validation, 5. Accessibility Tests, 6. Compile Overall Summary, 7. Verify Checklist, 8. Present MENU OPTIONS (+19 more)
 
-### Community 124 - "Step 8d: Add Variant"
-Cohesion: 0.07
-Nodes (27): Add Variant-Specific Styling, CONTEXT BOUNDARIES:, Designer Guidance, Error Handling, EXECUTION PROTOCOLS:, File References, MANDATORY EXECUTION RULES (READ FIRST):, Post-Addition Review (+19 more)
-
-### Community 125 - "DOCUMENT DISCOVERY PROCESS:"
+### Community 126 - "Community 126"
 Cohesion: 0.07
 Nodes (27): 1. Initialize Document Discovery, 2. Document Search Patterns, 3. Organize Findings, 4. Identify Critical Issues, 5. Add Initial Report Section, 6. Present Findings and Get Confirmation, 7. Present MENU OPTIONS, A. PRD Documents (+19 more)
 
-### Community 126 - "Step 3: Generate Epics and Stories"
+### Community 127 - "Community 127"
 Cohesion: 0.07
 Nodes (27): 1. Load Approved Epic Structure, 2. Explain Story Creation Approach, 3. Process Epics Sequentially, 4. Epic Completion, 5. Repeat for All Epics, 6. Final Document Completion, 7. Present FINAL MENU OPTIONS, A. Epic Overview (+19 more)
 
-### Community 127 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 128 - "Community 128"
 Cohesion: 0.07
 Nodes (26): Example Microcopy Format, Tone of Voice - Output Template, 1. Analyze Product Context, 2. Suggest Tone of Voice Attributes, 3. Provide Examples, 4. Refine Based on Feedback, 5. Document Final Tone of Voice, 6. Questions to Ask If User Needs Guidance (+18 more)
 
-### Community 128 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 129 - "Community 129"
 Cohesion: 0.07
 Nodes (27): 10. Design Log Update, 1. Gather Existing Keyword Research, 2. Keyword Categories, 3. Translate/Adapt Keywords for Each Language, 4. Create Page-Keyword Map, 5. Define URL Structure, 6. Capture Local SEO Data (for local businesses), 7. Plan Structured Data (+19 more)
 
-### Community 129 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 130 - "Community 130"
 Cohesion: 0.07
 Nodes (27): 1. Extract Design Tokens, 2. Catalog Reusable Components, 3. Document Component Variants and States, 4. Map Token Usage to Components, 5. Output in WDS Design System Format, 6. Verify Checklist, 7. Present MENU OPTIONS, Colors (+19 more)
 
-### Community 130 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 131 - "Community 131"
 Cohesion: 0.07
 Nodes (27): 1. Happy Path Tests, 2. Error State Tests, 3. Edge Case Tests, 4. Design System Validation, 5. Accessibility Tests, 6. Compile Overall Summary, 7. Verify Checklist, 8. Present MENU OPTIONS (+19 more)
 
-### Community 131 - "Step 8d: Add Variant"
+### Community 132 - "Community 132"
 Cohesion: 0.07
 Nodes (27): Add Variant-Specific Styling, CONTEXT BOUNDARIES:, Designer Guidance, Error Handling, EXECUTION PROTOCOLS:, File References, MANDATORY EXECUTION RULES (READ FIRST):, Post-Addition Review (+19 more)
 
-### Community 132 - "Saga's Discovery Conversation Guide"
+### Community 133 - "Community 133"
 Cohesion: 0.07
 Nodes (27): 1. Listen Deeply, 2. Reflect Back Naturally, 3. Confirm Understanding, 4. Then Explore Solutions, ❌ Bullet List Interrogation, Conversation Patterns to Avoid, Core Principle, Cross-Step Context Awareness (+19 more)
 
-### Community 133 - "Step 2: Context Rules Generation"
+### Community 134 - "Community 134"
 Cohesion: 0.07
 Nodes (26): 10. Handle Menu Selection, 1. Technology Stack & Versions, 2. Language-Specific Rules, 3. Framework-Specific Rules, 4. Testing Rules, 5. Code Quality & Style Rules, 6. Development Workflow Rules, 7. Critical Don't-Miss Rules (+18 more)
 
-### Community 134 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 135 - "Community 135"
 Cohesion: 0.07
 Nodes (26): 0. Data Extraction (MANDATORY BEFORE GENERATION), 1. Generate Header Section, 2. Generate Mermaid Diagram, 3. Generate Summary Section, 4. Generate Detailed Documentation Menu, 5. Generate How to Read Section, 6. Generate Footer, 6b. Cross-Validation Check (+18 more)
 
-### Community 135 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 136 - "Community 136"
 Cohesion: 0.07
 Nodes (26): 10. Present MENU OPTIONS, 1. Configuration & Structure Check, 2. Node Formatting Check, 3. Emoji Usage Check, 4. Driving Forces Check, 5. Connections Check, 6. Styling Check, 7. Content & Syntax Check (+18 more)
 
-### Community 136 - "1. Validate Each Scenario"
+### Community 137 - "Community 137"
 Cohesion: 0.07
 Nodes (26): 1. Validate Each Scenario, 2. Generate Report, 3. Present MENU OPTIONS, Component 1: Scenario Name & ID, Component 2: Core Feature, Component 3: Entry Point, Component 4: Mental State, Component 5: Success Goals (+18 more)
 
-### Community 137 - "Cross-Page Consistency Strategy"
+### Community 138 - "Community 138"
 Cohesion: 0.07
 Nodes (26): Agent Behavior Examples, Automatic Pattern Building, Benefits, Best Practices, Core Principle, Cross-Page Consistency Strategy, Design System Integration, Example 1: Exact Match (+18 more)
 
-### Community 138 - "Page Specification Quality Guide"
+### Community 139 - "Community 139"
 Cohesion: 0.07
 Nodes (27): After Page Updates 🔄, Benefits, Customization, Do:, Don't:, During Page Creation ✨, Example: Standard WDS Pattern, For AI Agents (Freya) (+19 more)
 
-### Community 139 - "Story [Page].[Section]: [Page Name] - [Section Name]"
+### Community 140 - "Community 140"
 Cohesion: 0.07
-Nodes (26): ✅ Acceptance Criteria, Agent-Verifiable (Puppeteer), 📸 Baseline State, 🔄 Changes from Original Plan, 🐛 Common Issues & Fixes, 🔗 Dependencies, 🎨 Design Notes, 🎯 Goal (+18 more)
+Nodes (26): Add Variant-Specific Styling, CONTEXT BOUNDARIES:, Designer Guidance, Error Handling, EXECUTION PROTOCOLS:, File References, MANDATORY EXECUTION RULES (READ FIRST):, Post-Addition Review (+18 more)
 
-### Community 140 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 141 - "Community 141"
 Cohesion: 0.07
 Nodes (26): 1. Kaizen Principle Reminder, 2. Define What's Changing vs What's Staying, 3. Create Update Specifications, 4. Design New/Modified Components (If Needed), 5. Create Before/After Comparison, 6. Design Validation, 6a. Self-Review Checklist, 6b. Hypothesis Validation (+18 more)
 
-### Community 141 - "Step 2: Context Rules Generation"
+### Community 142 - "Community 142"
 Cohesion: 0.07
 Nodes (26): 10. Handle Menu Selection, 1. Technology Stack & Versions, 2. Language-Specific Rules, 3. Framework-Specific Rules, 4. Testing Rules, 5. Code Quality & Style Rules, 6. Development Workflow Rules, 7. Critical Don't-Miss Rules (+18 more)
 
-### Community 142 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 143 - "Community 143"
 Cohesion: 0.07
 Nodes (26): 0. Data Extraction (MANDATORY BEFORE GENERATION), 1. Generate Header Section, 2. Generate Mermaid Diagram, 3. Generate Summary Section, 4. Generate Detailed Documentation Menu, 5. Generate How to Read Section, 6. Generate Footer, 6b. Cross-Validation Check (+18 more)
 
-### Community 143 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 144 - "Community 144"
 Cohesion: 0.07
 Nodes (26): 10. Present MENU OPTIONS, 1. Configuration & Structure Check, 2. Node Formatting Check, 3. Emoji Usage Check, 4. Driving Forces Check, 5. Connections Check, 6. Styling Check, 7. Content & Syntax Check (+18 more)
 
-### Community 144 - "1. Validate Each Scenario"
+### Community 145 - "Community 145"
 Cohesion: 0.07
 Nodes (26): 1. Validate Each Scenario, 2. Generate Report, 3. Present MENU OPTIONS, Component 1: Scenario Name & ID, Component 2: Core Feature, Component 3: Entry Point, Component 4: Mental State, Component 5: Success Goals (+18 more)
 
-### Community 145 - "Cross-Page Consistency Strategy"
+### Community 146 - "Community 146"
 Cohesion: 0.07
 Nodes (26): Agent Behavior Examples, Automatic Pattern Building, Benefits, Best Practices, Core Principle, Cross-Page Consistency Strategy, Design System Integration, Example 1: Exact Match (+18 more)
 
-### Community 146 - "Page Specification Quality Guide"
+### Community 147 - "Community 147"
 Cohesion: 0.07
 Nodes (27): After Page Updates 🔄, Benefits, Customization, Do:, Don't:, During Page Creation ✨, Example: Standard WDS Pattern, For AI Agents (Freya) (+19 more)
 
-### Community 147 - "Story [Page].[Section]: [Page Name] - [Section Name]"
-Cohesion: 0.07
-Nodes (26): ✅ Acceptance Criteria, Agent-Verifiable (Puppeteer), 📸 Baseline State, 🔄 Changes from Original Plan, 🐛 Common Issues & Fixes, 🔗 Dependencies, 🎨 Design Notes, 🎯 Goal (+18 more)
-
-### Community 148 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 148 - "Community 148"
 Cohesion: 0.07
 Nodes (26): 1. Kaizen Principle Reminder, 2. Define What's Changing vs What's Staying, 3. Create Update Specifications, 4. Design New/Modified Components (If Needed), 5. Create Before/After Comparison, 6. Design Validation, 6a. Self-Review Checklist, 6b. Hypothesis Validation (+18 more)
 
-### Community 149 - "REQUIREMENTS EXTRACTION PROCESS:"
-Cohesion: 0.08
-Nodes (25): 10. Present MENU OPTIONS, 1. Welcome and Overview, 2. Document Discovery and Validation, 3. Extract Functional Requirements (FRs), 4. Extract Non-Functional Requirements (NFRs), 5. Extract Additional Requirements from Architecture, 6. Extract UX Design Requirements (if UX document exists), 7. Load and Initialize Template (+17 more)
-
-### Community 150 - "TestGroupDetail"
+### Community 149 - "Community 149"
 Cohesion: 0.08
 Nodes (7): The default room is installed agents only; pure customs stay in the pool., TestAlias, TestBuildCollective, TestGroupDetail, TestGroups, TestInstalledCodesIsDefaultRoom, TestResolveMembers
 
-### Community 151 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 150 - "Community 150"
 Cohesion: 0.08
 Nodes (25): 1. Photography Style Direction, 2. Existing Photography, 3. Photography Needs, 4. Stock Photography Guidelines, 5. Icon and Illustration Style, 6. Image Guidelines, 7. Document in Output, 8. Design Log Update (+17 more)
 
-### Community 152 - "Dimension 2: Quality Criteria (7 checks)"
+### Community 151 - "Community 151"
 Cohesion: 0.08
 Nodes (25): 2.1 Persona Alignment, 2.2 Mental State Richness, 2.3 Mutual Success Clarity, 2.4 Sunshine Path Focus, 2.5 Minimum Viable Steps, 2.6 Entry Point Realism, 2.7 Business Goal Connection, 3.1 Edge Cases in Sunshine Path (+17 more)
 
-### Community 153 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 152 - "Community 152"
 Cohesion: 0.08
 Nodes (25): 1. Initialize Delivery File, 2. Define User Value, 3. List Design Artifacts, 4. Define Technical Requirements, 5. Define Acceptance Criteria, 6. Add Testing Guidance, 7. Estimate Complexity, 8. Validate Delivery File (+17 more)
 
-### Community 154 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 153 - "Community 153"
 Cohesion: 0.08
 Nodes (25): 1. Initialize Test Scenario File, 2. Define Happy Path Tests, 3. Define Error State Tests, 4. Define Edge Case Tests, 5. Define Design System Validation, 6. Define Accessibility Tests, 7. Define Sign-Off Criteria, 8. Validate Test Scenario File (+17 more)
 
-### Community 155 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 154 - "Community 154"
 Cohesion: 0.08
 Nodes (25): 1. Map Component and Module Structure, 2. Trace Data Flow, 3. Identify Layers, 4. Map External Integrations, 5. Document State Management, 6. Create Dependency Graph, 7. Identify Architectural Patterns, 8. Verify Checklist (+17 more)
 
-### Community 156 - "REQUIREMENTS EXTRACTION PROCESS:"
+### Community 155 - "Community 155"
+Cohesion: 0.08
+Nodes (25): ✅ Acceptance Criteria, Agent-Verifiable (Puppeteer), 📸 Baseline State, 🔄 Changes from Original Plan, 🐛 Common Issues & Fixes, 🔗 Dependencies, 🎨 Design Notes, 🎯 Goal (+17 more)
+
+### Community 156 - "Community 156"
 Cohesion: 0.08
 Nodes (25): 10. Present MENU OPTIONS, 1. Welcome and Overview, 2. Document Discovery and Validation, 3. Extract Functional Requirements (FRs), 4. Extract Non-Functional Requirements (NFRs), 5. Extract Additional Requirements from Architecture, 6. Extract UX Design Requirements (if UX document exists), 7. Load and Initialize Template (+17 more)
 
-### Community 157 - "TestGroupDetail"
+### Community 157 - "Community 157"
 Cohesion: 0.08
 Nodes (7): The default room is installed agents only; pure customs stay in the pool., TestAlias, TestBuildCollective, TestGroupDetail, TestGroups, TestInstalledCodesIsDefaultRoom, TestResolveMembers
 
-### Community 158 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 158 - "Community 158"
 Cohesion: 0.08
 Nodes (25): 1. Photography Style Direction, 2. Existing Photography, 3. Photography Needs, 4. Stock Photography Guidelines, 5. Icon and Illustration Style, 6. Image Guidelines, 7. Document in Output, 8. Design Log Update (+17 more)
 
-### Community 159 - "Dimension 2: Quality Criteria (7 checks)"
+### Community 159 - "Community 159"
 Cohesion: 0.08
 Nodes (25): 2.1 Persona Alignment, 2.2 Mental State Richness, 2.3 Mutual Success Clarity, 2.4 Sunshine Path Focus, 2.5 Minimum Viable Steps, 2.6 Entry Point Realism, 2.7 Business Goal Connection, 3.1 Edge Cases in Sunshine Path (+17 more)
 
-### Community 160 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 160 - "Community 160"
 Cohesion: 0.08
 Nodes (25): 1. Initialize Delivery File, 2. Define User Value, 3. List Design Artifacts, 4. Define Technical Requirements, 5. Define Acceptance Criteria, 6. Add Testing Guidance, 7. Estimate Complexity, 8. Validate Delivery File (+17 more)
 
-### Community 161 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 161 - "Community 161"
 Cohesion: 0.08
 Nodes (25): 1. Initialize Test Scenario File, 2. Define Happy Path Tests, 3. Define Error State Tests, 4. Define Edge Case Tests, 5. Define Design System Validation, 6. Define Accessibility Tests, 7. Define Sign-Off Criteria, 8. Validate Test Scenario File (+17 more)
 
-### Community 162 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 162 - "Community 162"
 Cohesion: 0.08
 Nodes (25): 1. Map Component and Module Structure, 2. Trace Data Flow, 3. Identify Layers, 4. Map External Integrations, 5. Document State Management, 6. Create Dependency Graph, 7. Identify Architectural Patterns, 8. Verify Checklist (+17 more)
 
-### Community 163 - "4. Notebook Workspace"
+### Community 163 - "Community 163"
 Cohesion: 0.08
-Nodes (25): 0. Signature element (app-wide), 1. Landing Page, 2. Signup / Login, 3. Notebooks Dashboard, 4. Notebook Workspace, Add Source modal, Chat panel, Copy tone (+17 more)
+Nodes (25): ✅ Acceptance Criteria, Agent-Verifiable (Puppeteer), 📸 Baseline State, 🔄 Changes from Original Plan, 🐛 Common Issues & Fixes, 🔗 Dependencies, 🎨 Design Notes, 🎯 Goal (+17 more)
 
-### Community 164 - "Document Project Workflow - Validation Checklist"
-Cohesion: 0.08
-Nodes (24): Architecture Documentation Quality, Batching Strategy (Deep/Exhaustive Scans), Brownfield PRD Readiness, Codebase Scanning Completeness, Completion Criteria, Content Quality, Critical Issues (must fix before completion), Deep-Dive Mode Validation (if deep-dive was performed) (+16 more)
-
-### Community 165 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
-Cohesion: 0.08
-Nodes (24): 0. Check Prior Context, 1. Organisation, 2. The People, 3. Internal Driver, 4. Working Style, 5. Write Client Profile, 6. Design Log Update, 7. Present MENU OPTIONS (+16 more)
-
-### Community 166 - "Step 7a: Capture Product Concept"
-Cohesion: 0.08
-Nodes (24): 1. Open the Concept Conversation, 2. Explore the Founding Idea, 3. Surface Why This Concept, 4. Reflection Checkpoint, 5. Document the Concept, 6. Design Log Update, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+16 more)
-
-### Community 167 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
-Cohesion: 0.08
-Nodes (24): 1. Open with Alternatives, 2. Explore Each Alternative, 3. Explore Do-Nothing Alternative, 4. Find the Unfair Advantage, 5. Reality Check, 6. Synthesize and Document, 7. Design Log Update, CONTEXT BOUNDARIES: (+16 more)
-
-### Community 168 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
-Cohesion: 0.08
-Nodes (24): 1. Identify Required Languages, 2. Determine Primary Language, 3. Translation Approach, 4. Localization Considerations, 5. Tone Consistency Across Languages, 6. Document in Output, 7. Design Log Update, CONTEXT BOUNDARIES: (+16 more)
-
-### Community 169 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
-Cohesion: 0.08
-Nodes (24): 1. Create Content Type Guidelines, 2. Document Content Ownership, 3. Create Writing Checklist, 4. Present Summary, 5. Confirm and Save, 6. Next Steps Guidance, 7. Design Log Update, CONTEXT BOUNDARIES: (+16 more)
-
-### Community 170 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
-Cohesion: 0.08
-Nodes (24): 1. Request Reference Sites, 2. Probe for Specifics, 3. Industry-Specific References, 4. Negative References, 5. Synthesize Mood Keywords, 6. Document in Output, 7. Design Log Update, CONTEXT BOUNDARIES: (+16 more)
-
-### Community 171 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
-Cohesion: 0.08
-Nodes (24): 1. Hero Section Approach, 2. Content Layout Approach, 3. Navigation Approach, 4. Visual Effects Usage, 5. Performance Considerations, 6. Document in Output, 7. Design Log Update, CONTEXT BOUNDARIES: (+16 more)
-
-### Community 172 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
-Cohesion: 0.08
-Nodes (24): 1. Compile Design Constraints, 2. Create Visual DNA Summary, 3. Review Completeness, 4. Present Summary to User, 5. Validate Key Decisions, 6. Next Steps Guidance, 7. Finalize and Save, CONTEXT BOUNDARIES: (+16 more)
-
-### Community 173 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
-Cohesion: 0.08
-Nodes (24): 1. Identify Primary Contact Method, 2. For Phone-Primary Businesses:, 3. For Form-Based Contact:, 4. AI Integration Opportunity, 5. Document UX Implications, 6. Update Output Document, 7. Design Log Update, CONTEXT BOUNDARIES: (+16 more)
-
-### Community 174 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
-Cohesion: 0.08
-Nodes (24): 0. Prerequisites, 1. Tech Stack, 2. Integrations, 3. Contact Strategy, 4. Multilingual (if applicable), 5. Platform Report, 6. Final Validation Report, CONTEXT BOUNDARIES: (+16 more)
-
-### Community 175 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
-Cohesion: 0.08
-Nodes (24): 1. Introduce Workshop, 2. Prioritize Business Goals, 3. Prioritize Objectives, 4. Prioritize Target Groups, 5. Prioritize Drivers Per Group, 6. Create Focus Statement, 7. Present Workshop Summary, 8. Present MENU OPTIONS (+16 more)
-
-### Community 176 - "Modular Component Architecture"
-Cohesion: 0.08
-Nodes (25): 00. Foundation, 01. Core Concepts, 02. Workflows, 03. Quick References, ARCHITECTURE BENEFITS, DETAILED NAVIGATION, During Page Specification Phase, During Prototype Implementation (+17 more)
-
-### Community 177 - "Complexity Router & Decomposition Coach"
-Cohesion: 0.08
-Nodes (24): 1. Prevents Overwhelming Specs, 2. Clear Handoffs, 3. Prevents Prototype Errors, Calendar Section, COACHING DIALOGUE EXAMPLE, COMPLEXITY DETECTION EXAMPLES, Complexity Router & Decomposition Coach, Content Placement Decision Tree (+16 more)
-
-### Community 178 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
-Cohesion: 0.08
-Nodes (24): 1. Read Project Structure, 2. Identify Tech Stack and Frameworks, 3. Map Entry Points, 4. Read Configuration Files, 5. Identify Build and Deploy Pipeline, 6. Note Patterns Observed, 7. Verify Checklist, 8. Present MENU OPTIONS (+16 more)
-
-### Community 179 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
-Cohesion: 0.08
-Nodes (24): 1. Read the Approved Specification, 2. Inventory All Work Items, 3. Identify Dependencies and Determine Order, 4. Estimate Effort, 5. Create the Branch, 6. List All Acceptance Criteria, 7. Verify Checklist, 8. Present MENU OPTIONS (+16 more)
-
-### Community 180 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
-Cohesion: 0.08
-Nodes (24): 1. Verify Tech Stack Requirements, 2. Install Dependencies, 3. Start the Development Server, 4. Verify Design System Access, 5. Create Project Structure (If Needed), 6. Run Existing Tests to Establish Baseline, 7. Verify Checklist, 8. Present MENU OPTIONS (+16 more)
-
-### Community 181 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
-Cohesion: 0.08
-Nodes (24): 1. Work Through the Plan Item by Item, 2. Follow Existing Codebase Patterns, 3. Reference the Spec for Each Component, 4. Use Design System Tokens, 5. Run Tests After Each Major Change, 6. Commit Incrementally, 7. Verify Checklist, 8. Present MENU OPTIONS (+16 more)
-
-### Community 182 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
-Cohesion: 0.08
-Nodes (24): 1. Walk Through Every Acceptance Criterion, 2. Test All Responsive Breakpoints, 3. Test All Interactive States, 4. Test Accessibility, 5. Cross-Browser Check (If Specified), 6. Compare Implementation to Spec Side by Side, 7. Verify Checklist, 8. Present MENU OPTIONS (+16 more)
-
-### Community 183 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
-Cohesion: 0.08
-Nodes (24): 1. Clean Up Code, 2. Run the Full Test Suite, 3. Document Deviations from Spec, 4. Update Affected Documentation, 5. Prepare PR Description, 6. Suggest Acceptance Testing, 7. Verify Checklist, 8. Present MENU OPTIONS (+16 more)
-
-### Community 184 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
-Cohesion: 0.08
-Nodes (24): 1. Test All New Functionality, 2. Run Regression Suite, 3. Verify Backward Compatibility, 4. Performance Check, 5. Document Changes, 6. Create PR, 7. Verify Checklist, 8. Present MENU OPTIONS (+16 more)
-
-### Community 185 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
-Cohesion: 0.08
-Nodes (24): 1. Synthesize All Context, 2. Generate 2-3 Variations, 3. Gather Initial Reaction, 4. Alignment Check, 5. Refinement, 6. Verify Completeness, 7. Validate Awareness Journey, 8. Document Final Content (+16 more)
-
-### Community 186 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
-Cohesion: 0.08
-Nodes (24): 1. Present Full Icon Set, 2. Consistency Check, 3. Metaphor Clarity Check, 4. User Review, 5. Iterate on Flagged Icons, 6. Generate Size Variants, 7. Save Approved Set, 8. Update Design Log (+16 more)
-
-### Community 187 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
-Cohesion: 0.08
-Nodes (24): 1. Present Image Gallery, 2. Batch Consistency Review, 3. Brand Alignment, 4. Technical Quality, 5. User Review, 6. Iterate Outliers, 7. Save Approved Set, 8. Update Design Log (+16 more)
-
-### Community 188 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
-Cohesion: 0.08
-Nodes (24): 1. Preview All Motion, 2. Motion Consistency, 3. Performance Check, 4. Accessibility Check, 5. User Review, 6. Iterate, 7. Save Approved Set, 8. Update Design Log (+16 more)
-
-### Community 189 - "Document Project Workflow - Validation Checklist"
+### Community 164 - "Community 164"
 Cohesion: 0.08
 Nodes (24): Architecture Documentation Quality, Batching Strategy (Deep/Exhaustive Scans), Brownfield PRD Readiness, Codebase Scanning Completeness, Completion Criteria, Content Quality, Critical Issues (must fix before completion), Deep-Dive Mode Validation (if deep-dive was performed) (+16 more)
 
-### Community 190 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 165 - "Community 165"
 Cohesion: 0.08
 Nodes (24): 0. Check Prior Context, 1. Organisation, 2. The People, 3. Internal Driver, 4. Working Style, 5. Write Client Profile, 6. Design Log Update, 7. Present MENU OPTIONS (+16 more)
 
-### Community 191 - "Step 7a: Capture Product Concept"
+### Community 166 - "Community 166"
 Cohesion: 0.08
 Nodes (24): 1. Open the Concept Conversation, 2. Explore the Founding Idea, 3. Surface Why This Concept, 4. Reflection Checkpoint, 5. Document the Concept, 6. Design Log Update, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+16 more)
 
-### Community 192 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 167 - "Community 167"
 Cohesion: 0.08
 Nodes (24): 1. Open with Alternatives, 2. Explore Each Alternative, 3. Explore Do-Nothing Alternative, 4. Find the Unfair Advantage, 5. Reality Check, 6. Synthesize and Document, 7. Design Log Update, CONTEXT BOUNDARIES: (+16 more)
 
-### Community 193 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 168 - "Community 168"
 Cohesion: 0.08
 Nodes (24): 1. Identify Required Languages, 2. Determine Primary Language, 3. Translation Approach, 4. Localization Considerations, 5. Tone Consistency Across Languages, 6. Document in Output, 7. Design Log Update, CONTEXT BOUNDARIES: (+16 more)
 
-### Community 194 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 169 - "Community 169"
 Cohesion: 0.08
 Nodes (24): 1. Create Content Type Guidelines, 2. Document Content Ownership, 3. Create Writing Checklist, 4. Present Summary, 5. Confirm and Save, 6. Next Steps Guidance, 7. Design Log Update, CONTEXT BOUNDARIES: (+16 more)
 
-### Community 195 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 170 - "Community 170"
 Cohesion: 0.08
 Nodes (24): 1. Request Reference Sites, 2. Probe for Specifics, 3. Industry-Specific References, 4. Negative References, 5. Synthesize Mood Keywords, 6. Document in Output, 7. Design Log Update, CONTEXT BOUNDARIES: (+16 more)
 
-### Community 196 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 171 - "Community 171"
 Cohesion: 0.08
 Nodes (24): 1. Hero Section Approach, 2. Content Layout Approach, 3. Navigation Approach, 4. Visual Effects Usage, 5. Performance Considerations, 6. Document in Output, 7. Design Log Update, CONTEXT BOUNDARIES: (+16 more)
 
-### Community 197 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
-Cohesion: 0.08
-Nodes (24): 1. Compile Design Constraints, 2. Create Visual DNA Summary, 3. Review Completeness, 4. Present Summary to User, 5. Validate Key Decisions, 6. Next Steps Guidance, 7. Finalize and Save, CONTEXT BOUNDARIES: (+16 more)
-
-### Community 198 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 172 - "Community 172"
 Cohesion: 0.08
 Nodes (24): 1. Identify Primary Contact Method, 2. For Phone-Primary Businesses:, 3. For Form-Based Contact:, 4. AI Integration Opportunity, 5. Document UX Implications, 6. Update Output Document, 7. Design Log Update, CONTEXT BOUNDARIES: (+16 more)
 
-### Community 199 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 173 - "Community 173"
 Cohesion: 0.08
 Nodes (24): 0. Prerequisites, 1. Tech Stack, 2. Integrations, 3. Contact Strategy, 4. Multilingual (if applicable), 5. Platform Report, 6. Final Validation Report, CONTEXT BOUNDARIES: (+16 more)
 
-### Community 200 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 174 - "Community 174"
 Cohesion: 0.08
 Nodes (24): 1. Introduce Workshop, 2. Prioritize Business Goals, 3. Prioritize Objectives, 4. Prioritize Target Groups, 5. Prioritize Drivers Per Group, 6. Create Focus Statement, 7. Present Workshop Summary, 8. Present MENU OPTIONS (+16 more)
 
-### Community 201 - "Modular Component Architecture"
+### Community 175 - "Community 175"
 Cohesion: 0.08
 Nodes (25): 00. Foundation, 01. Core Concepts, 02. Workflows, 03. Quick References, ARCHITECTURE BENEFITS, DETAILED NAVIGATION, During Page Specification Phase, During Prototype Implementation (+17 more)
 
-### Community 202 - "Complexity Router & Decomposition Coach"
+### Community 176 - "Community 176"
 Cohesion: 0.08
 Nodes (24): 1. Prevents Overwhelming Specs, 2. Clear Handoffs, 3. Prevents Prototype Errors, Calendar Section, COACHING DIALOGUE EXAMPLE, COMPLEXITY DETECTION EXAMPLES, Complexity Router & Decomposition Coach, Content Placement Decision Tree (+16 more)
 
-### Community 203 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
-Cohesion: 0.08
-Nodes (24): 1. Read Project Structure, 2. Identify Tech Stack and Frameworks, 3. Map Entry Points, 4. Read Configuration Files, 5. Identify Build and Deploy Pipeline, 6. Note Patterns Observed, 7. Verify Checklist, 8. Present MENU OPTIONS (+16 more)
-
-### Community 204 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 177 - "Community 177"
 Cohesion: 0.08
 Nodes (24): 1. Read the Approved Specification, 2. Inventory All Work Items, 3. Identify Dependencies and Determine Order, 4. Estimate Effort, 5. Create the Branch, 6. List All Acceptance Criteria, 7. Verify Checklist, 8. Present MENU OPTIONS (+16 more)
 
-### Community 205 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
-Cohesion: 0.08
-Nodes (24): 1. Verify Tech Stack Requirements, 2. Install Dependencies, 3. Start the Development Server, 4. Verify Design System Access, 5. Create Project Structure (If Needed), 6. Run Existing Tests to Establish Baseline, 7. Verify Checklist, 8. Present MENU OPTIONS (+16 more)
-
-### Community 206 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 178 - "Community 178"
 Cohesion: 0.08
 Nodes (24): 1. Work Through the Plan Item by Item, 2. Follow Existing Codebase Patterns, 3. Reference the Spec for Each Component, 4. Use Design System Tokens, 5. Run Tests After Each Major Change, 6. Commit Incrementally, 7. Verify Checklist, 8. Present MENU OPTIONS (+16 more)
 
-### Community 207 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 179 - "Community 179"
 Cohesion: 0.08
 Nodes (24): 1. Walk Through Every Acceptance Criterion, 2. Test All Responsive Breakpoints, 3. Test All Interactive States, 4. Test Accessibility, 5. Cross-Browser Check (If Specified), 6. Compare Implementation to Spec Side by Side, 7. Verify Checklist, 8. Present MENU OPTIONS (+16 more)
 
-### Community 208 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
-Cohesion: 0.08
-Nodes (24): 1. Clean Up Code, 2. Run the Full Test Suite, 3. Document Deviations from Spec, 4. Update Affected Documentation, 5. Prepare PR Description, 6. Suggest Acceptance Testing, 7. Verify Checklist, 8. Present MENU OPTIONS (+16 more)
-
-### Community 209 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
-Cohesion: 0.08
-Nodes (24): 1. Test All New Functionality, 2. Run Regression Suite, 3. Verify Backward Compatibility, 4. Performance Check, 5. Document Changes, 6. Create PR, 7. Verify Checklist, 8. Present MENU OPTIONS (+16 more)
-
-### Community 210 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 180 - "Community 180"
 Cohesion: 0.08
 Nodes (24): 1. Synthesize All Context, 2. Generate 2-3 Variations, 3. Gather Initial Reaction, 4. Alignment Check, 5. Refinement, 6. Verify Completeness, 7. Validate Awareness Journey, 8. Document Final Content (+16 more)
 
-### Community 211 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 181 - "Community 181"
 Cohesion: 0.08
 Nodes (24): 1. Present Full Icon Set, 2. Consistency Check, 3. Metaphor Clarity Check, 4. User Review, 5. Iterate on Flagged Icons, 6. Generate Size Variants, 7. Save Approved Set, 8. Update Design Log (+16 more)
 
-### Community 212 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 182 - "Community 182"
 Cohesion: 0.08
 Nodes (24): 1. Present Image Gallery, 2. Batch Consistency Review, 3. Brand Alignment, 4. Technical Quality, 5. User Review, 6. Iterate Outliers, 7. Save Approved Set, 8. Update Design Log (+16 more)
 
-### Community 213 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 183 - "Community 183"
 Cohesion: 0.08
 Nodes (24): 1. Preview All Motion, 2. Motion Consistency, 3. Performance Check, 4. Accessibility Check, 5. User Review, 6. Iterate, 7. Save Approved Set, 8. Update Design Log (+16 more)
 
-### Community 214 - "📚 Hello! I'm Saga, Your WDS Analyst!"
+### Community 184 - "Community 184"
+Cohesion: 0.08
+Nodes (24): Architecture Documentation Quality, Batching Strategy (Deep/Exhaustive Scans), Brownfield PRD Readiness, Codebase Scanning Completeness, Completion Criteria, Content Quality, Critical Issues (must fix before completion), Deep-Dive Mode Validation (if deep-dive was performed) (+16 more)
+
+### Community 185 - "Community 185"
+Cohesion: 0.08
+Nodes (24): 0. Check Prior Context, 1. Organisation, 2. The People, 3. Internal Driver, 4. Working Style, 5. Write Client Profile, 6. Design Log Update, 7. Present MENU OPTIONS (+16 more)
+
+### Community 186 - "Community 186"
+Cohesion: 0.08
+Nodes (24): 1. Open the Concept Conversation, 2. Explore the Founding Idea, 3. Surface Why This Concept, 4. Reflection Checkpoint, 5. Document the Concept, 6. Design Log Update, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+16 more)
+
+### Community 187 - "Community 187"
+Cohesion: 0.08
+Nodes (24): 1. Open with Alternatives, 2. Explore Each Alternative, 3. Explore Do-Nothing Alternative, 4. Find the Unfair Advantage, 5. Reality Check, 6. Synthesize and Document, 7. Design Log Update, CONTEXT BOUNDARIES: (+16 more)
+
+### Community 188 - "Community 188"
+Cohesion: 0.08
+Nodes (24): 1. Identify Required Languages, 2. Determine Primary Language, 3. Translation Approach, 4. Localization Considerations, 5. Tone Consistency Across Languages, 6. Document in Output, 7. Design Log Update, CONTEXT BOUNDARIES: (+16 more)
+
+### Community 189 - "Community 189"
+Cohesion: 0.08
+Nodes (24): 1. Create Content Type Guidelines, 2. Document Content Ownership, 3. Create Writing Checklist, 4. Present Summary, 5. Confirm and Save, 6. Next Steps Guidance, 7. Design Log Update, CONTEXT BOUNDARIES: (+16 more)
+
+### Community 190 - "Community 190"
+Cohesion: 0.08
+Nodes (24): 1. Request Reference Sites, 2. Probe for Specifics, 3. Industry-Specific References, 4. Negative References, 5. Synthesize Mood Keywords, 6. Document in Output, 7. Design Log Update, CONTEXT BOUNDARIES: (+16 more)
+
+### Community 191 - "Community 191"
+Cohesion: 0.08
+Nodes (24): 1. Hero Section Approach, 2. Content Layout Approach, 3. Navigation Approach, 4. Visual Effects Usage, 5. Performance Considerations, 6. Document in Output, 7. Design Log Update, CONTEXT BOUNDARIES: (+16 more)
+
+### Community 192 - "Community 192"
+Cohesion: 0.08
+Nodes (24): 1. Compile Design Constraints, 2. Create Visual DNA Summary, 3. Review Completeness, 4. Present Summary to User, 5. Validate Key Decisions, 6. Next Steps Guidance, 7. Finalize and Save, CONTEXT BOUNDARIES: (+16 more)
+
+### Community 193 - "Community 193"
+Cohesion: 0.08
+Nodes (24): 1. Identify Primary Contact Method, 2. For Phone-Primary Businesses:, 3. For Form-Based Contact:, 4. AI Integration Opportunity, 5. Document UX Implications, 6. Update Output Document, 7. Design Log Update, CONTEXT BOUNDARIES: (+16 more)
+
+### Community 194 - "Community 194"
+Cohesion: 0.08
+Nodes (24): 0. Prerequisites, 1. Tech Stack, 2. Integrations, 3. Contact Strategy, 4. Multilingual (if applicable), 5. Platform Report, 6. Final Validation Report, CONTEXT BOUNDARIES: (+16 more)
+
+### Community 195 - "Community 195"
+Cohesion: 0.08
+Nodes (24): 1. Introduce Workshop, 2. Prioritize Business Goals, 3. Prioritize Objectives, 4. Prioritize Target Groups, 5. Prioritize Drivers Per Group, 6. Create Focus Statement, 7. Present Workshop Summary, 8. Present MENU OPTIONS (+16 more)
+
+### Community 196 - "Community 196"
+Cohesion: 0.08
+Nodes (25): 00. Foundation, 01. Core Concepts, 02. Workflows, 03. Quick References, ARCHITECTURE BENEFITS, DETAILED NAVIGATION, During Page Specification Phase, During Prototype Implementation (+17 more)
+
+### Community 197 - "Community 197"
+Cohesion: 0.08
+Nodes (24): 1. Prevents Overwhelming Specs, 2. Clear Handoffs, 3. Prevents Prototype Errors, Calendar Section, COACHING DIALOGUE EXAMPLE, COMPLEXITY DETECTION EXAMPLES, Complexity Router & Decomposition Coach, Content Placement Decision Tree (+16 more)
+
+### Community 198 - "Community 198"
+Cohesion: 0.08
+Nodes (24): 1. Read Project Structure, 2. Identify Tech Stack and Frameworks, 3. Map Entry Points, 4. Read Configuration Files, 5. Identify Build and Deploy Pipeline, 6. Note Patterns Observed, 7. Verify Checklist, 8. Present MENU OPTIONS (+16 more)
+
+### Community 199 - "Community 199"
+Cohesion: 0.08
+Nodes (24): 1. Read the Approved Specification, 2. Inventory All Work Items, 3. Identify Dependencies and Determine Order, 4. Estimate Effort, 5. Create the Branch, 6. List All Acceptance Criteria, 7. Verify Checklist, 8. Present MENU OPTIONS (+16 more)
+
+### Community 200 - "Community 200"
+Cohesion: 0.08
+Nodes (24): 1. Verify Tech Stack Requirements, 2. Install Dependencies, 3. Start the Development Server, 4. Verify Design System Access, 5. Create Project Structure (If Needed), 6. Run Existing Tests to Establish Baseline, 7. Verify Checklist, 8. Present MENU OPTIONS (+16 more)
+
+### Community 201 - "Community 201"
+Cohesion: 0.08
+Nodes (24): 1. Work Through the Plan Item by Item, 2. Follow Existing Codebase Patterns, 3. Reference the Spec for Each Component, 4. Use Design System Tokens, 5. Run Tests After Each Major Change, 6. Commit Incrementally, 7. Verify Checklist, 8. Present MENU OPTIONS (+16 more)
+
+### Community 202 - "Community 202"
+Cohesion: 0.08
+Nodes (24): 1. Walk Through Every Acceptance Criterion, 2. Test All Responsive Breakpoints, 3. Test All Interactive States, 4. Test Accessibility, 5. Cross-Browser Check (If Specified), 6. Compare Implementation to Spec Side by Side, 7. Verify Checklist, 8. Present MENU OPTIONS (+16 more)
+
+### Community 203 - "Community 203"
+Cohesion: 0.08
+Nodes (24): 1. Clean Up Code, 2. Run the Full Test Suite, 3. Document Deviations from Spec, 4. Update Affected Documentation, 5. Prepare PR Description, 6. Suggest Acceptance Testing, 7. Verify Checklist, 8. Present MENU OPTIONS (+16 more)
+
+### Community 204 - "Community 204"
+Cohesion: 0.08
+Nodes (24): 1. Test All New Functionality, 2. Run Regression Suite, 3. Verify Backward Compatibility, 4. Performance Check, 5. Document Changes, 6. Create PR, 7. Verify Checklist, 8. Present MENU OPTIONS (+16 more)
+
+### Community 205 - "Community 205"
+Cohesion: 0.08
+Nodes (24): 1. Synthesize All Context, 2. Generate 2-3 Variations, 3. Gather Initial Reaction, 4. Alignment Check, 5. Refinement, 6. Verify Completeness, 7. Validate Awareness Journey, 8. Document Final Content (+16 more)
+
+### Community 206 - "Community 206"
+Cohesion: 0.08
+Nodes (24): 1. Present Full Icon Set, 2. Consistency Check, 3. Metaphor Clarity Check, 4. User Review, 5. Iterate on Flagged Icons, 6. Generate Size Variants, 7. Save Approved Set, 8. Update Design Log (+16 more)
+
+### Community 207 - "Community 207"
+Cohesion: 0.08
+Nodes (24): 1. Present Image Gallery, 2. Batch Consistency Review, 3. Brand Alignment, 4. Technical Quality, 5. User Review, 6. Iterate Outliers, 7. Save Approved Set, 8. Update Design Log (+16 more)
+
+### Community 208 - "Community 208"
+Cohesion: 0.08
+Nodes (24): 1. Preview All Motion, 2. Motion Consistency, 3. Performance Check, 4. Accessibility Check, 5. User Review, 6. Iterate, 7. Save Approved Set, 8. Update Design Log (+16 more)
+
+### Community 209 - "Community 209"
 Cohesion: 0.08
 Nodes (24): ⚡ **FROM CHAOTIC PLANNING TO SYSTEMATIC EXECUTION**, 💫 **FROM INDIVIDUAL EFFORT TO TEAM COORDINATION**, 🎯 **FROM VAGUE IDEAS TO STRATEGIC CLARITY**, 📚 Hello! I'm Saga, Your WDS Analyst!, ✨ **MY COMMUNICATION EXCELLENCE STANDARDS**, 🔧 **MY DELIVERABLES: What You Get from Saga**, 🎯 **MY ENTRY POINT**: Project Initiation & Strategic Foundation, 🎯 **MY MARKET INTELLIGENCE MASTERY** (+16 more)
 
-### Community 215 - "EPIC DESIGN PROCESS:"
-Cohesion: 0.08
-Nodes (23): 1. Review Extracted Requirements, 2. Explain Epic Design Principles, 3. Design Epic Structure Collaboratively, 4. Present Epic List for Review, 5. Create Requirements Coverage Map, 6. Collaborative Refinement, 7. Get Final Approval, 8. Present MENU OPTIONS (+15 more)
-
-### Community 216 - "Market Research Step 6: Research Completion"
+### Community 210 - "Community 210"
 Cohesion: 0.08
 Nodes (23): 1. Begin Strategic Synthesis, 2. Web Search for Market Entry Strategies, 3. Web Search for Risk Assessment, 4. Generate Complete Market Research Document, 5. Present Complete Market Research Document and Final Option, 6. Handle Complete Selection, APPEND TO DOCUMENT:, Complete Document Structure: (+15 more)
 
-### Community 217 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 211 - "Community 211"
 Cohesion: 0.08
 Nodes (23): 1. Welcome and Set the Stage, 2. Understand the Scope, 3. Identify the Challenge or Opportunity, 4. Define Design Goals, 5. Capture Constraints, 6. Summarize and Create Brief, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 218 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 212 - "Community 212"
 Cohesion: 0.08
 Nodes (23): 1. Open the Conversation, 2. Listen and Explore, 3. Confirm Understanding, 4. Document Decision, 5. Design Log Update, 6. Conditional Routing, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 219 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 213 - "Community 213"
 Cohesion: 0.08
 Nodes (23): 1. Open the Conversation, 2. Explore Success from Multiple Angles, 3. Help Make Criteria SMART, 4. Prioritize if Multiple, 5. Confirm and Document, 6. Design Log Update, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+15 more)
 
-### Community 220 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 214 - "Community 214"
 Cohesion: 0.08
 Nodes (23): 1. Explore Personality Through Questions, 2. Identify 3-5 Personality Attributes, 3. For Each Attribute, Capture:, 4. Reference the Target User, 5. Document in Output, 6. Design Log Update, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+15 more)
 
-### Community 221 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 215 - "Community 215"
 Cohesion: 0.08
 Nodes (23): 1. Explain the Tone Spectrum, 2. For Each Spectrum, Get Position and Example, 3. Create "We Say / We Don't Say" Examples, 4. Validate with the User, 5. Document in Output, 6. Design Log Update, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+15 more)
 
-### Community 222 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 216 - "Community 216"
 Cohesion: 0.08
 Nodes (23): 1. Open the Conversation Naturally, 2. Surface Content Priorities, 3. Capture Navigation Principles, 4. Document Explicit Constraints, 5. Note the Client's Clarity Level, 6. Document in Content-Language.md, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+15 more)
 
-### Community 223 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 217 - "Community 217"
 Cohesion: 0.08
 Nodes (23): 1. Inventory Existing Assets, 2. Assess Partnership/Affiliation Requirements, 3. Determine What to Keep vs. Refresh, 4. Collect Assets, 5. Document in Output, 6. Design Log Update, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+15 more)
 
-### Community 224 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 218 - "Community 218"
 Cohesion: 0.08
 Nodes (23): 1. Determine UI Visual Style, 2. Determine Design Aesthetic, 3. Color Direction, 4. Typography Direction, 5. Document in Output, 6. Design Log Update, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+15 more)
 
-### Community 225 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 219 - "Community 219"
 Cohesion: 0.08
-Nodes (23): 1. Identify Required Integrations, 2. For Each Integration, Capture:, 3. Plugin Stack (if WordPress), 4. Future Integrations, 5. Update Output Document, 6. Design Log Update, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+15 more)
+Nodes (23): 1. Compile Design Constraints, 2. Create Visual DNA Summary, 3. Review Completeness, 4. Present Summary to User, 5. Validate Key Decisions, 6. Next Steps Guidance, 7. Finalize and Save, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 226 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
-Cohesion: 0.08
-Nodes (23): 1. Determine Language Needs, 2. If Multilingual:, 3. SEO Technical Requirements, 4. Performance Targets, 5. Update Output Document, 6. Design Log Update, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+15 more)
-
-### Community 227 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 220 - "Community 220"
 Cohesion: 0.08
 Nodes (23): 1. Review Completeness, 2. Document Maintenance Ownership, 3. Development Handoff Notes, 4. Present Summary, 5. Confirm and Save, 6. Next Steps Guidance, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+15 more)
 
-### Community 228 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 221 - "Community 221"
 Cohesion: 0.08
 Nodes (23): 0. Prerequisites, 1. Brand Personality, 2. Tone of Voice, 3. Language Strategy, 4. Content Guidelines, 5. Report, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+15 more)
 
-### Community 229 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 222 - "Community 222"
 Cohesion: 0.08
 Nodes (23): 0. Prerequisites, 1. Brand Assets, 2. Visual References, 3. Design Style, 4. Imagery Direction, 5. Report, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+15 more)
 
-### Community 230 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 223 - "Community 223"
 Cohesion: 0.08
 Nodes (23): 1. Introduce Prioritization, 2. Check for Priority Signals, 3. Prioritize Target Groups, 4. Prioritize Driving Forces, 5. Create Design Focus Statement, 6. Present Workshop 4 Summary, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 231 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 224 - "Community 224"
 Cohesion: 0.08
 Nodes (23): 1. Shared Page Consistency, 2. Persona Balance, 3. Business Goal Coverage, 4. Scenario Overlap, 5. Scenario Index Verification (00-ux-scenarios.md), 6. Generate Report, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 232 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 225 - "Community 225"
 Cohesion: 0.08
 Nodes (23): 1. Load SEO Keyword Map, 2. Page-Keyword Mapping, 3. Keyword Coverage, 4. URL Slug Alignment, 5. SEO Report, 6. Final Validation Report, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 233 - "{Feature Name} Feature"
-Cohesion: 0.08
-Nodes (23): 1. **State Transition Storyboards**, 2. **Interaction Flow Storyboards**, 3. **Multi-Component Storyboards**, Data Requirements, Error Handling, Example: `walk-booking-logic.feature.md`, Feature File with Storyboard Reference, {Feature Name} Feature (+15 more)
-
-### Community 234 - "Step 3: Components & Object IDs"
+### Community 226 - "Community 226"
 Cohesion: 0.08
 Nodes (23): 1. Identify Components, 2. For Each Section, 3. For Each Object in Section, 4. All Sections Complete, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Design System Check (If Enabled) (+15 more)
 
-### Community 235 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 227 - "Community 227"
 Cohesion: 0.08
 Nodes (23): 1. Heading Structure, 2. Meta Content, 3. Keyword Alignment, 4. URL Structure, 5. Generate SEO Compliance Report, 6. Resolve Issues, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 236 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 228 - "Community 228"
 Cohesion: 0.08
 Nodes (23): 1. Component Usage, 2. Naming Consistency, 3. Cross-Page Consistency, 4. Design System Completeness, 5. Generate Design System Consistency Report, 6. Resolve Issues, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 237 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 229 - "Community 229"
 Cohesion: 0.08
 Nodes (23): 1. Cross-Reference Sections, 2. Verify Sketch Coverage, 3. Validate Internal Links, 4. Check Naming Consistency, 5. Generate Quality Report, 6. Record Final Validation Result, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 238 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 230 - "Community 230"
+Cohesion: 0.08
+Nodes (23): 1. Read Project Structure, 2. Identify Tech Stack and Frameworks, 3. Map Entry Points, 4. Read Configuration Files, 5. Identify Build and Deploy Pipeline, 6. Note Patterns Observed, 7. Verify Checklist, 8. Present MENU OPTIONS (+15 more)
+
+### Community 231 - "Community 231"
 Cohesion: 0.08
 Nodes (23): 1. Create the Architecture Document, 2. Include Diagrams, 3. Document Risks and Tech Debt, 4. Write Recommendations, 5. Save Output, 6. Verify Checklist, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 239 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 232 - "Community 232"
+Cohesion: 0.08
+Nodes (23): 1. Verify Tech Stack Requirements, 2. Install Dependencies, 3. Start the Development Server, 4. Verify Design System Access, 5. Create Project Structure (If Needed), 6. Run Existing Tests to Establish Baseline, 7. Verify Checklist, 8. Present MENU OPTIONS (+15 more)
+
+### Community 233 - "Community 233"
+Cohesion: 0.08
+Nodes (23): 1. Clean Up Code, 2. Run the Full Test Suite, 3. Document Deviations from Spec, 4. Update Affected Documentation, 5. Prepare PR Description, 6. Suggest Acceptance Testing, 7. Verify Checklist, 8. Present MENU OPTIONS (+15 more)
+
+### Community 234 - "Community 234"
 Cohesion: 0.08
 Nodes (23): 1. Load Feature Spec, 2. List All New Functionality, 3. List All Existing Functionality That Must Stay Unchanged, 4. Create Boundary Map, 5. Identify Integration Points, 6. Verify Checklist, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 240 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 235 - "Community 235"
 Cohesion: 0.08
 Nodes (23): 1. Read Code for All Affected Areas, 2. Map Dependencies, 3. Identify Breaking Change Risks, 4. Assess Database/API Impacts, 5. Document What Could Go Wrong, 6. Verify Checklist, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 241 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 236 - "Community 236"
 Cohesion: 0.08
 Nodes (23): 1. Order Changes by Dependency, 2. Determine If Feature Flags Are Needed, 3. Plan Incremental Commits, 4. Define Verification Points, 5. Estimate Effort, 6. Verify Checklist, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 242 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 237 - "Community 237"
 Cohesion: 0.08
 Nodes (23): 1. Create Feature Branch, 2. Implement Incrementally Per Plan, 3. Test After Each Step, 4. Ensure Backward Compatibility at Each Commit, 5. Use Feature Flags if Needed, 6. Verify Checklist, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 243 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 238 - "Community 238"
 Cohesion: 0.08
-Nodes (23): 1. Gather Bug Report Details, 2. Set Up Reproduction Environment, 3. Reproduce the Bug, 4. Confirm Reproducibility, 5. Handle Non-Reproducible Bugs, 6. Verify Checklist, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
+Nodes (23): 1. Test All New Functionality, 2. Run Regression Suite, 3. Verify Backward Compatibility, 4. Performance Check, 5. Document Changes, 6. Create PR, 7. Verify Checklist, 8. Present MENU OPTIONS (+15 more)
 
-### Community 244 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
-Cohesion: 0.08
-Nodes (23): 1. Read the Relevant Code, 2. Trace the Execution Path, 3. Identify Root Cause, 4. Check Wider Impact, 5. Document the Root Cause, 6. Verify Checklist, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
-
-### Community 245 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 239 - "Community 239"
 Cohesion: 0.08
 Nodes (23): 1. Re-Run Reproduction Steps, 2. Run Full Regression Tests, 3. Check Edge Cases, 4. Verify No Side Effects, 5. Cross-Platform Check, 6. Verify Checklist, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 246 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
-Cohesion: 0.08
-Nodes (23): 1. Document What Caused the Bug, 2. Document the Fix Approach, 3. Update Tests, 4. Create PR with Clear Description, 5. Flag Similar Risks, 6. Verify Checklist, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
-
-### Community 247 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 240 - "Community 240"
 Cohesion: 0.08
 Nodes (23): 1. Confirm Logical View Selection, 2. Gather All Specifications, 3. User Confirms Objects, 4. Propose Section Breakdown, 5. User Reviews Section Breakdown, 6. Create Work File, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 248 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 241 - "Community 241"
 Cohesion: 0.08
 Nodes (23): 1. Begin Implementation, 2. Create or Update HTML File, 3. Add HTML Structure, 4. Add JavaScript, 5. Add Placeholder for Remaining Sections, 6. Final Check, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 249 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 242 - "Community 242"
 Cohesion: 0.08
 Nodes (23): 1. Section Approved, 2. Update Story File Status, 3. Update Work File, 4. Check Progress, 5a. If More Sections Remain, 5b. If All Sections Complete, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 250 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 243 - "Community 243"
 Cohesion: 0.08
 Nodes (23): 1. Prioritize Pages, 2. Generate Page Specification for Each Page, 3. Create Scenario Outlines from User Flows, 4. Cross-Reference with Components, 5. Save Output, 6. Verify Checklist, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 251 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 244 - "Community 244"
 Cohesion: 0.08
 Nodes (23): 1. Validate Starting Awareness Level, 2. Clarify Target Awareness Level, 3. Determine Awareness-Appropriate Language, 4. Define Information Priorities, 5. Identify Credibility Requirements, 6. Map Emotional Journey, 7. Document Awareness Strategy, 8. Present MENU OPTIONS (+15 more)
 
-### Community 252 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 245 - "Community 245"
 Cohesion: 0.08
 Nodes (23): 1. Define Current vs. Badass State, 2. Identify the "Aha Moment", 3. Frame Around Capability, 4. Show the Transformation Path, 5. Reduce Cognitive Load, 6. Focus on Skills Over Tools, 7. Document Empowerment Frame, 8. Present MENU OPTIONS (+15 more)
 
-### Community 253 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 246 - "Community 246"
 Cohesion: 0.08
 Nodes (23): 1. Identify the WHY, 2. Identify the HOW, 3. Identify the WHAT, 4. Map Content to Structure, 5. Sequence Within Sections, 6. Validate Persuasive Flow, 7. Document Structural Order, 8. Present MENU OPTIONS (+15 more)
 
-### Community 254 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 247 - "Community 247"
 Cohesion: 0.08
 Nodes (23): 1. Present Design Set, 2. Design System Compliance, 3. Cross-Page Consistency, 4. User Review, 5. Iterate, 6. Save Approved Set, 7. Update Design Log, 8. Present MENU OPTIONS (+15 more)
 
-### Community 255 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 248 - "Community 248"
 Cohesion: 0.08
 Nodes (23): 1. Present Component Library, 2. Design System Compliance, 3. Cross-Component Consistency, 4. Accessibility Check, 5. User Review, 6. Save Approved Set, 7. Update Design Log, 8. Present MENU OPTIONS (+15 more)
 
-### Community 256 - "EPIC DESIGN PROCESS:"
+### Community 249 - "Community 249"
 Cohesion: 0.08
 Nodes (23): 1. Review Extracted Requirements, 2. Explain Epic Design Principles, 3. Design Epic Structure Collaboratively, 4. Present Epic List for Review, 5. Create Requirements Coverage Map, 6. Collaborative Refinement, 7. Get Final Approval, 8. Present MENU OPTIONS (+15 more)
 
-### Community 257 - "Market Research Step 6: Research Completion"
+### Community 250 - "Community 250"
 Cohesion: 0.08
 Nodes (23): 1. Begin Strategic Synthesis, 2. Web Search for Market Entry Strategies, 3. Web Search for Risk Assessment, 4. Generate Complete Market Research Document, 5. Present Complete Market Research Document and Final Option, 6. Handle Complete Selection, APPEND TO DOCUMENT:, Complete Document Structure: (+15 more)
 
-### Community 258 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 251 - "Community 251"
 Cohesion: 0.08
 Nodes (23): 1. Welcome and Set the Stage, 2. Understand the Scope, 3. Identify the Challenge or Opportunity, 4. Define Design Goals, 5. Capture Constraints, 6. Summarize and Create Brief, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 259 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 252 - "Community 252"
 Cohesion: 0.08
 Nodes (23): 1. Open the Conversation, 2. Listen and Explore, 3. Confirm Understanding, 4. Document Decision, 5. Design Log Update, 6. Conditional Routing, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 260 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 253 - "Community 253"
 Cohesion: 0.08
 Nodes (23): 1. Open the Conversation, 2. Explore Success from Multiple Angles, 3. Help Make Criteria SMART, 4. Prioritize if Multiple, 5. Confirm and Document, 6. Design Log Update, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+15 more)
 
-### Community 261 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 254 - "Community 254"
 Cohesion: 0.08
 Nodes (23): 1. Explore Personality Through Questions, 2. Identify 3-5 Personality Attributes, 3. For Each Attribute, Capture:, 4. Reference the Target User, 5. Document in Output, 6. Design Log Update, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+15 more)
 
-### Community 262 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 255 - "Community 255"
 Cohesion: 0.08
 Nodes (23): 1. Explain the Tone Spectrum, 2. For Each Spectrum, Get Position and Example, 3. Create "We Say / We Don't Say" Examples, 4. Validate with the User, 5. Document in Output, 6. Design Log Update, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+15 more)
 
-### Community 263 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 256 - "Community 256"
 Cohesion: 0.08
 Nodes (23): 1. Open the Conversation Naturally, 2. Surface Content Priorities, 3. Capture Navigation Principles, 4. Document Explicit Constraints, 5. Note the Client's Clarity Level, 6. Document in Content-Language.md, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+15 more)
 
-### Community 264 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 257 - "Community 257"
 Cohesion: 0.08
 Nodes (23): 1. Inventory Existing Assets, 2. Assess Partnership/Affiliation Requirements, 3. Determine What to Keep vs. Refresh, 4. Collect Assets, 5. Document in Output, 6. Design Log Update, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+15 more)
 
-### Community 265 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 258 - "Community 258"
 Cohesion: 0.08
 Nodes (23): 1. Determine UI Visual Style, 2. Determine Design Aesthetic, 3. Color Direction, 4. Typography Direction, 5. Document in Output, 6. Design Log Update, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+15 more)
 
-### Community 266 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 259 - "Community 259"
 Cohesion: 0.08
 Nodes (23): 1. Identify Required Integrations, 2. For Each Integration, Capture:, 3. Plugin Stack (if WordPress), 4. Future Integrations, 5. Update Output Document, 6. Design Log Update, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+15 more)
 
-### Community 267 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 260 - "Community 260"
 Cohesion: 0.08
 Nodes (23): 1. Determine Language Needs, 2. If Multilingual:, 3. SEO Technical Requirements, 4. Performance Targets, 5. Update Output Document, 6. Design Log Update, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+15 more)
 
-### Community 268 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 261 - "Community 261"
 Cohesion: 0.08
 Nodes (23): 1. Review Completeness, 2. Document Maintenance Ownership, 3. Development Handoff Notes, 4. Present Summary, 5. Confirm and Save, 6. Next Steps Guidance, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+15 more)
 
-### Community 269 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 262 - "Community 262"
 Cohesion: 0.08
 Nodes (23): 0. Prerequisites, 1. Brand Personality, 2. Tone of Voice, 3. Language Strategy, 4. Content Guidelines, 5. Report, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+15 more)
 
-### Community 270 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 263 - "Community 263"
 Cohesion: 0.08
 Nodes (23): 0. Prerequisites, 1. Brand Assets, 2. Visual References, 3. Design Style, 4. Imagery Direction, 5. Report, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+15 more)
 
-### Community 271 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 264 - "Community 264"
 Cohesion: 0.08
 Nodes (23): 1. Introduce Prioritization, 2. Check for Priority Signals, 3. Prioritize Target Groups, 4. Prioritize Driving Forces, 5. Create Design Focus Statement, 6. Present Workshop 4 Summary, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 272 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 265 - "Community 265"
 Cohesion: 0.08
 Nodes (23): 1. Shared Page Consistency, 2. Persona Balance, 3. Business Goal Coverage, 4. Scenario Overlap, 5. Scenario Index Verification (00-ux-scenarios.md), 6. Generate Report, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 273 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 266 - "Community 266"
 Cohesion: 0.08
 Nodes (23): 1. Load SEO Keyword Map, 2. Page-Keyword Mapping, 3. Keyword Coverage, 4. URL Slug Alignment, 5. SEO Report, 6. Final Validation Report, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 274 - "{Feature Name} Feature"
-Cohesion: 0.08
-Nodes (23): 1. **State Transition Storyboards**, 2. **Interaction Flow Storyboards**, 3. **Multi-Component Storyboards**, Data Requirements, Error Handling, Example: `walk-booking-logic.feature.md`, Feature File with Storyboard Reference, {Feature Name} Feature (+15 more)
-
-### Community 275 - "Step 3: Components & Object IDs"
+### Community 267 - "Community 267"
 Cohesion: 0.08
 Nodes (23): 1. Identify Components, 2. For Each Section, 3. For Each Object in Section, 4. All Sections Complete, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Design System Check (If Enabled) (+15 more)
 
-### Community 276 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 268 - "Community 268"
 Cohesion: 0.08
 Nodes (23): 1. Heading Structure, 2. Meta Content, 3. Keyword Alignment, 4. URL Structure, 5. Generate SEO Compliance Report, 6. Resolve Issues, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 277 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 269 - "Community 269"
 Cohesion: 0.08
 Nodes (23): 1. Component Usage, 2. Naming Consistency, 3. Cross-Page Consistency, 4. Design System Completeness, 5. Generate Design System Consistency Report, 6. Resolve Issues, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 278 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 270 - "Community 270"
 Cohesion: 0.08
 Nodes (23): 1. Cross-Reference Sections, 2. Verify Sketch Coverage, 3. Validate Internal Links, 4. Check Naming Consistency, 5. Generate Quality Report, 6. Record Final Validation Result, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 279 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 271 - "Community 271"
 Cohesion: 0.08
 Nodes (23): 1. Create the Architecture Document, 2. Include Diagrams, 3. Document Risks and Tech Debt, 4. Write Recommendations, 5. Save Output, 6. Verify Checklist, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 280 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 272 - "Community 272"
 Cohesion: 0.08
 Nodes (23): 1. Load Feature Spec, 2. List All New Functionality, 3. List All Existing Functionality That Must Stay Unchanged, 4. Create Boundary Map, 5. Identify Integration Points, 6. Verify Checklist, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 281 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 273 - "Community 273"
 Cohesion: 0.08
 Nodes (23): 1. Read Code for All Affected Areas, 2. Map Dependencies, 3. Identify Breaking Change Risks, 4. Assess Database/API Impacts, 5. Document What Could Go Wrong, 6. Verify Checklist, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 282 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 274 - "Community 274"
 Cohesion: 0.08
 Nodes (23): 1. Order Changes by Dependency, 2. Determine If Feature Flags Are Needed, 3. Plan Incremental Commits, 4. Define Verification Points, 5. Estimate Effort, 6. Verify Checklist, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 283 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 275 - "Community 275"
 Cohesion: 0.08
 Nodes (23): 1. Create Feature Branch, 2. Implement Incrementally Per Plan, 3. Test After Each Step, 4. Ensure Backward Compatibility at Each Commit, 5. Use Feature Flags if Needed, 6. Verify Checklist, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 284 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 276 - "Community 276"
 Cohesion: 0.08
 Nodes (23): 1. Gather Bug Report Details, 2. Set Up Reproduction Environment, 3. Reproduce the Bug, 4. Confirm Reproducibility, 5. Handle Non-Reproducible Bugs, 6. Verify Checklist, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 285 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 277 - "Community 277"
 Cohesion: 0.08
 Nodes (23): 1. Read the Relevant Code, 2. Trace the Execution Path, 3. Identify Root Cause, 4. Check Wider Impact, 5. Document the Root Cause, 6. Verify Checklist, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 286 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 278 - "Community 278"
 Cohesion: 0.08
 Nodes (23): 1. Re-Run Reproduction Steps, 2. Run Full Regression Tests, 3. Check Edge Cases, 4. Verify No Side Effects, 5. Cross-Platform Check, 6. Verify Checklist, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 287 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 279 - "Community 279"
 Cohesion: 0.08
 Nodes (23): 1. Document What Caused the Bug, 2. Document the Fix Approach, 3. Update Tests, 4. Create PR with Clear Description, 5. Flag Similar Risks, 6. Verify Checklist, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 288 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 280 - "Community 280"
 Cohesion: 0.08
 Nodes (23): 1. Confirm Logical View Selection, 2. Gather All Specifications, 3. User Confirms Objects, 4. Propose Section Breakdown, 5. User Reviews Section Breakdown, 6. Create Work File, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 289 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 281 - "Community 281"
 Cohesion: 0.08
 Nodes (23): 1. Begin Implementation, 2. Create or Update HTML File, 3. Add HTML Structure, 4. Add JavaScript, 5. Add Placeholder for Remaining Sections, 6. Final Check, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 290 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 282 - "Community 282"
 Cohesion: 0.08
 Nodes (23): 1. Section Approved, 2. Update Story File Status, 3. Update Work File, 4. Check Progress, 5a. If More Sections Remain, 5b. If All Sections Complete, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 291 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 283 - "Community 283"
 Cohesion: 0.08
 Nodes (23): 1. Prioritize Pages, 2. Generate Page Specification for Each Page, 3. Create Scenario Outlines from User Flows, 4. Cross-Reference with Components, 5. Save Output, 6. Verify Checklist, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+15 more)
 
-### Community 292 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 284 - "Community 284"
 Cohesion: 0.08
 Nodes (23): 1. Validate Starting Awareness Level, 2. Clarify Target Awareness Level, 3. Determine Awareness-Appropriate Language, 4. Define Information Priorities, 5. Identify Credibility Requirements, 6. Map Emotional Journey, 7. Document Awareness Strategy, 8. Present MENU OPTIONS (+15 more)
 
-### Community 293 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 285 - "Community 285"
 Cohesion: 0.08
 Nodes (23): 1. Define Current vs. Badass State, 2. Identify the "Aha Moment", 3. Frame Around Capability, 4. Show the Transformation Path, 5. Reduce Cognitive Load, 6. Focus on Skills Over Tools, 7. Document Empowerment Frame, 8. Present MENU OPTIONS (+15 more)
 
-### Community 294 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 286 - "Community 286"
 Cohesion: 0.08
 Nodes (23): 1. Identify the WHY, 2. Identify the HOW, 3. Identify the WHAT, 4. Map Content to Structure, 5. Sequence Within Sections, 6. Validate Persuasive Flow, 7. Document Structural Order, 8. Present MENU OPTIONS (+15 more)
 
-### Community 295 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 287 - "Community 287"
 Cohesion: 0.08
 Nodes (23): 1. Present Design Set, 2. Design System Compliance, 3. Cross-Page Consistency, 4. User Review, 5. Iterate, 6. Save Approved Set, 7. Update Design Log, 8. Present MENU OPTIONS (+15 more)
 
-### Community 296 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 288 - "Community 288"
 Cohesion: 0.08
 Nodes (23): 1. Present Component Library, 2. Design System Compliance, 3. Cross-Component Consistency, 4. Accessibility Check, 5. User Review, 6. Save Approved Set, 7. Update Design Log, 8. Present MENU OPTIONS (+15 more)
 
-### Community 297 - "{{project_name}} Documentation Index"
+### Community 289 - "Community 289"
 Cohesion: 0.09
-Nodes (22): Core Documentation, Cross-Part Integration, Existing Documentation, For AI-Assisted Development, Generated Documentation, Getting Started, Integration, Optional Documentation (+14 more)
+Nodes (23): 0. Signature element (app-wide), 1. Landing Page, 2. Signup / Login, 3. Notebooks Dashboard, 4. Notebook Workspace, Add Source modal, Chat panel, Copy tone (+15 more)
 
-### Community 298 - "TestBuildPool"
-Cohesion: 0.09
-Nodes (5): When party-mode isn't installed, user override TOMLs are read directly., TestAlias, TestBuildPool, TestOverrideMergeFallback, TestResolveParties
-
-### Community 299 - "{page-number}-{page-name}"
-Cohesion: 0.09
-Nodes (22): Checklist, Conditional Sections, {Group Name} (Container), Layout Structure, {Object in Group}, {Object in Group 2}, {Object Name}, {Object Name 2} (+14 more)
-
-### Community 300 - "Step 2: Capture Vision"
-Cohesion: 0.09
-Nodes (22): 1. Open Conversation (Substep 1), 2. Explore Vision (Substep 2), 3. Reflect & Confirm (Substep 3), 4. Synthesize & Document (Substep 4), 5. State Update, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
-
-### Community 301 - "Step 3: Define Positioning"
-Cohesion: 0.09
-Nodes (22): 1. Open Conversation (Substep 1), 2. Explore Positioning (Substep 2), 3. Reflect & Confirm (Substep 3), 4. Synthesize & Document (Substep 4), 5. Design Log Update, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
-
-### Community 302 - "Step 12: Create Product Brief"
-Cohesion: 0.09
-Nodes (22): 1. Present the Strategic Narrative, 2. Handle Reflection & Adjustments, 3. Generate the Product Brief Document, 4. Present Completion, 5. Update All Dialog Files, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+14 more)
-
-### Community 303 - "Step 13: Initialize Content & Language"
-Cohesion: 0.09
-Nodes (22): 1. Create Output File, 2. Welcome and Contextualize, 3. Quick Context Check, 4. Preview the Process, 5. Design Log Update, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+14 more)
-
-### Community 304 - "Step 19: Inspiration Analysis Workshop"
-Cohesion: 0.09
-Nodes (22): 1. Collect Reference URLs, 2. Analyze Each Site Together, 3. Synthesize Design Principles, 4. Document, 5. Design Log Integration, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+14 more)
-
-### Community 305 - "Step 20: Initialize Visual Direction"
-Cohesion: 0.09
-Nodes (22): 1. Create Output Structure, 2. Welcome and Contextualize, 3. Explain the Approach, 4. Check for Existing Assets, 5. Design Log Update, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+14 more)
-
-### Community 306 - "Step 27: Initialize Platform Requirements"
-Cohesion: 0.09
-Nodes (22): 1. Create Output File, 2. Welcome and Contextualize, 3. Assess Technical Knowledge, 4. Confirm Existing Decisions, 5. Design Log Update, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+14 more)
-
-### Community 307 - "Step 28: Technology Stack"
-Cohesion: 0.09
-Nodes (22): 1. CMS/Framework Selection, 2. Theme/Styling Approach, 3. Document Rationale, 4. Capture in Template, 5. Design Log Update, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+14 more)
-
-### Community 308 - "Validation Step 01: Brief Completeness"
-Cohesion: 0.09
-Nodes (22): 1. Load Product Brief, 2. Required Sections (Complete Brief), 3. Required Sections (Simplified Brief), 4. Section Quality, 5. Report, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+14 more)
-
-### Community 309 - "Validation Step 02: Trigger Map Consistency"
-Cohesion: 0.09
-Nodes (22): 1. Locate Trigger Map Files, 2. Trigger Map Completeness, 3. Chain Validity, 4. Cross-Trigger Map Consistency (if multiple), 5. Report, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+14 more)
-
-### Community 310 - "Validation Step 03: SEO Strategy"
-Cohesion: 0.09
-Nodes (22): 0. Prerequisites, 1. Keyword Map Completeness, 2. Page Assignments, 3. Cross-Phase Readiness, 4. Report, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+14 more)
-
-### Community 311 - "Step 6: Gap Analysis & Validation"
-Cohesion: 0.09
-Nodes (22): 1. Analyze Documentation Strengths, 2. Identify Gaps, 3. Handle Critical Gaps (If Any), 4. Strategic Alignment Check, 5. Present Accomplishment Summary, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
-
-### Community 312 - "Step 8: Workshop 1 - Business Goals"
-Cohesion: 0.09
-Nodes (22): 1. Introduce Workshop, 2. Capture the Vision, 3. Break Down into Objectives, 4. Refine Objectives, 5. Present Workshop Summary, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
-
-### Community 313 - "Step 9: Workshop 2 - Target Groups"
-Cohesion: 0.09
-Nodes (22): 1. Introduce Workshop, 2. Identify User Groups, 3. Select Focus Groups, 4. Build Personas, 5. Present Workshop Summary, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
-
-### Community 314 - "Step 10: Workshop 3 - Driving Forces"
-Cohesion: 0.09
-Nodes (22): 1. Introduce Workshop, 2. Explain the Framework, 3. Explore Driving Forces Per Group, 4. Identify Patterns, 5. Present Workshop Summary, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
-
-### Community 315 - "Step 4: Feature Impact Alignment Validation"
-Cohesion: 0.09
-Nodes (22): 1. Check Prerequisite, 2. Feature-Persona Alignment (if exists), 3. Priority Tier Consistency (if exists), 4. Business Goal Traceability (if exists), 5. Generate Report, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
-
-### Community 316 - "Step 5: Cross-Document Coherence Validation"
-Cohesion: 0.09
-Nodes (22): 1. Terminology Consistency, 2. Narrative Coherence, 3. Cross-References, 4. Mermaid Diagram, 5. Compile Final Validation Report, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
-
-### Community 317 - "Validation Step 2: Navigation Patterns"
-Cohesion: 0.09
-Nodes (22): 1. Page Naming Consistency, 2. Navigation Flow Rules, 3. Cross-Scenario Page Registry, 4. Navigation Conflicts, 5. Generate Report, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
-
-### Community 318 - "WDS Specification Pattern"
-Cohesion: 0.09
-Nodes (22): 1. Purpose-Based Naming, 1. Purpose-Based Object IDs, 2. Grouped Translations, 2. Separated Concerns, 3. Estimated Values from Sketch Analysis, 3. Grouped Translations, 4. Character Capacity Validation, Complete Workflow Integration (+14 more)
-
-### Community 319 - "📝 **The Dialog**"
-Cohesion: 0.09
-Nodes (22): 🤝 **Collaboration Approach**, 📋 **Example Complete Exchange**, Scenario Initialization Dialog, **Step 10: Business Value** (Freya's focus), **Step 11: UX Priorities** (Freya's focus), ✅ **Step 12: Create Scenario Specification**, 🎉 **Step 13: Completion**, **Step 1: Scenario Overview** (+14 more)
-
-### Community 320 - "Step 2: Validate Navigation Structure"
-Cohesion: 0.09
-Nodes (22): 1. Check Navigation Elements, 2. Validate Sketch Embedding, 3. Generate Diagnostic Report, 4. Resolve Issues, 5. Record Validation Result, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
-
-### Community 321 - "Step 4: Validate Page Sections"
-Cohesion: 0.09
-Nodes (22): 1. Check Page Sections Structure, 2. Platform-Specific Validation, 3. Generate Diagnostic Report, 4. Resolve Issues, 5. Record Validation Result, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
-
-### Community 322 - "Step 5: Validate Section Order & Structure"
-Cohesion: 0.09
-Nodes (22): 1. Check Section Order, 2. Check for Duplicates and Redundancies, 3. Generate Diagnostic Report, 4. Resolve Issues, 5. Record Validation Result, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
-
-### Community 323 - "Step 6: Validate Object Registry"
-Cohesion: 0.09
-Nodes (22): 1. Check Object Registry Section, 2. Calculate Coverage, 3. Generate Diagnostic Report, 4. Resolve Issues, 5. Record Validation Result, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
-
-### Community 324 - "Step 7: Validate Design System Separation & Unnecessary Information"
-Cohesion: 0.09
-Nodes (22): 1. Scan for CSS Implementation Details, 2. Scan for Unnecessary Information, 3. Generate Diagnostic Report, 4. Resolve Issues, 5. Record Validation Result, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
-
-### Community 325 - "Step Files"
-Cohesion: 0.09
-Nodes (22): Agentic Development - File Index, `AGENTIC-DEVELOPMENT-GUIDE.md`, 📁 Complete File Structure, Core Documentation, Finishing Page, Implementing Each Section, Starting New Page, Starting New Scenario (+14 more)
-
-### Community 326 - "Acceptance Testing Steps"
-Cohesion: 0.09
-Nodes (22): Acceptance Testing Steps, ISS-001: Button Color Incorrect (HIGH), ISS-002: Transition Too Fast (MEDIUM), Issues Found, Next Steps, Phase 5 [T] Acceptance Testing (Designer Validation), Purpose, Recommendations (+14 more)
-
-### Community 327 - "Step 1: Define Question"
-Cohesion: 0.09
-Nodes (22): 1. Articulate the Question, 2. Define Scope, 3. Define Expected Output, 4. Set Time Box, 5. Verify Checklist, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
-
-### Community 328 - "Step 3: Fix"
-Cohesion: 0.09
-Nodes (22): 1. Create Fix Branch, 2. Write a Test That Catches the Bug, 3. Implement the Minimal Fix, 4. Verify the Fix Resolves the Reproduction Case, 5. Verify Checklist, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
-
-### Community 329 - "Step 1: Identify Target"
-Cohesion: 0.09
-Nodes (22): 1. Define the Target, 2. Determine Access Method, 3. Define Extraction Goals, 4. Document Target Overview, 5. Verify Checklist, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
-
-### Community 330 - "Step 3: Create Issues"
-Cohesion: 0.09
-Nodes (22): 1. Issue Creation Process, 2. Assign Severity Levels, 3. Issue Writing Best Practices, 4. Create Issues Summary, 5. Verify Checklist, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
-
-### Community 331 - "Step 4: Create Test Report"
-Cohesion: 0.09
-Nodes (22): 1. Create Test Report File, 2. Report Sections, 3. Overall Result Determination, 4. Attach Supporting Files, 5. Verify Checklist, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
-
-### Community 332 - "Content Creation Workshop Guide"
-Cohesion: 0.09
-Nodes (22): 0. Content Purpose = The Job To Do, 1. Trigger Map = Strategic Foundation, 2. Customer Awareness Cycle = Content Strategy, 3. Action Mapping = Content Filter, 4. Badass Users = Tone & Frame, 5. Golden Circle = Structural Order, Alpha Status Notice, Content Creation Workshop Guide (+14 more)
-
-### Community 333 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
-Cohesion: 0.09
-Nodes (22): 1. Establish Content Context, 2. Define the Job To Do, 3. Identify Target Audience and State, 4. Establish Success Criteria, 5. Discuss Model Priority Emphasis, 6. Document Purpose Definition, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+14 more)
-
-### Community 334 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
-Cohesion: 0.09
-Nodes (22): 1. Identify the Required Action, 2. Connect Action to Business Goal, 3. Connect Action to Driving Forces, 4. Determine Essential Information, 5. Identify Action Barriers, 6. Document Action Filter, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+14 more)
-
-### Community 335 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
-Cohesion: 0.09
-Nodes (22): 1. Prepare Export Parameters, 2. Execute Export, 3. Verify Export Response, 4. User Verification, 5. Present Success Report, 6. Document Completion, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+14 more)
-
-### Community 336 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
-Cohesion: 0.09
-Nodes (22): 1. Present Full Set, 2. Consistency Check, 3. User Review, 4. Iterate, 5. Save Approved Set, 6. Update Design Log, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+14 more)
-
-### Community 337 - "Step 1: Scan Existing Components"
-Cohesion: 0.09
-Nodes (22): 1. Read Design System Folder, 2. Extract Component Metadata, 3. Build Candidate List, 4. Handle Edge Cases, 5. Pass Data to Next Step, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
-
-### Community 338 - "Step 5: Hand Off to BMad"
-Cohesion: 0.09
-Nodes (22): 1. Determine Handoff Method, 2. Simplified Handoff (< 3 Days), 3. Full Handoff Dialog (> 3 Days), 4. BMad Acknowledges, 5. Update Delivery Status, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
-
-### Community 339 - "{{project_name}} Documentation Index"
-Cohesion: 0.09
-Nodes (22): Core Documentation, Cross-Part Integration, Existing Documentation, For AI-Assisted Development, Generated Documentation, Getting Started, Integration, Optional Documentation (+14 more)
-
-### Community 340 - "TestBuildPool"
+### Community 290 - "Community 290"
 Cohesion: 0.09
 Nodes (5): When party-mode isn't installed, user override TOMLs are read directly., TestAlias, TestBuildPool, TestOverrideMergeFallback, TestResolveParties
 
-### Community 341 - "{page-number}-{page-name}"
-Cohesion: 0.09
-Nodes (22): Checklist, Conditional Sections, {Group Name} (Container), Layout Structure, {Object in Group}, {Object in Group 2}, {Object Name}, {Object Name 2} (+14 more)
-
-### Community 342 - "Step 2: Capture Vision"
+### Community 291 - "Community 291"
 Cohesion: 0.09
 Nodes (22): 1. Open Conversation (Substep 1), 2. Explore Vision (Substep 2), 3. Reflect & Confirm (Substep 3), 4. Synthesize & Document (Substep 4), 5. State Update, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
 
-### Community 343 - "Step 3: Define Positioning"
+### Community 292 - "Community 292"
 Cohesion: 0.09
 Nodes (22): 1. Open Conversation (Substep 1), 2. Explore Positioning (Substep 2), 3. Reflect & Confirm (Substep 3), 4. Synthesize & Document (Substep 4), 5. Design Log Update, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
 
-### Community 344 - "Step 12: Create Product Brief"
+### Community 293 - "Community 293"
 Cohesion: 0.09
 Nodes (22): 1. Present the Strategic Narrative, 2. Handle Reflection & Adjustments, 3. Generate the Product Brief Document, 4. Present Completion, 5. Update All Dialog Files, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+14 more)
 
-### Community 345 - "Step 13: Initialize Content & Language"
+### Community 294 - "Community 294"
 Cohesion: 0.09
 Nodes (22): 1. Create Output File, 2. Welcome and Contextualize, 3. Quick Context Check, 4. Preview the Process, 5. Design Log Update, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+14 more)
 
-### Community 346 - "Step 19: Inspiration Analysis Workshop"
+### Community 295 - "Community 295"
 Cohesion: 0.09
 Nodes (22): 1. Collect Reference URLs, 2. Analyze Each Site Together, 3. Synthesize Design Principles, 4. Document, 5. Design Log Integration, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+14 more)
 
-### Community 347 - "Step 20: Initialize Visual Direction"
+### Community 296 - "Community 296"
 Cohesion: 0.09
 Nodes (22): 1. Create Output Structure, 2. Welcome and Contextualize, 3. Explain the Approach, 4. Check for Existing Assets, 5. Design Log Update, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+14 more)
 
-### Community 348 - "Step 27: Initialize Platform Requirements"
+### Community 297 - "Community 297"
 Cohesion: 0.09
 Nodes (22): 1. Create Output File, 2. Welcome and Contextualize, 3. Assess Technical Knowledge, 4. Confirm Existing Decisions, 5. Design Log Update, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+14 more)
 
-### Community 349 - "Step 28: Technology Stack"
+### Community 298 - "Community 298"
 Cohesion: 0.09
 Nodes (22): 1. CMS/Framework Selection, 2. Theme/Styling Approach, 3. Document Rationale, 4. Capture in Template, 5. Design Log Update, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+14 more)
 
-### Community 350 - "Validation Step 01: Brief Completeness"
+### Community 299 - "Community 299"
+Cohesion: 0.09
+Nodes (22): 1. Identify Required Integrations, 2. For Each Integration, Capture:, 3. Plugin Stack (if WordPress), 4. Future Integrations, 5. Update Output Document, 6. Design Log Update, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
+
+### Community 300 - "Community 300"
+Cohesion: 0.09
+Nodes (22): 1. Determine Language Needs, 2. If Multilingual:, 3. SEO Technical Requirements, 4. Performance Targets, 5. Update Output Document, 6. Design Log Update, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
+
+### Community 301 - "Community 301"
 Cohesion: 0.09
 Nodes (22): 1. Load Product Brief, 2. Required Sections (Complete Brief), 3. Required Sections (Simplified Brief), 4. Section Quality, 5. Report, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+14 more)
 
-### Community 351 - "Validation Step 02: Trigger Map Consistency"
+### Community 302 - "Community 302"
 Cohesion: 0.09
 Nodes (22): 1. Locate Trigger Map Files, 2. Trigger Map Completeness, 3. Chain Validity, 4. Cross-Trigger Map Consistency (if multiple), 5. Report, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+14 more)
 
-### Community 352 - "Validation Step 03: SEO Strategy"
+### Community 303 - "Community 303"
 Cohesion: 0.09
 Nodes (22): 0. Prerequisites, 1. Keyword Map Completeness, 2. Page Assignments, 3. Cross-Phase Readiness, 4. Report, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+14 more)
 
-### Community 353 - "Step 6: Gap Analysis & Validation"
+### Community 304 - "Community 304"
 Cohesion: 0.09
 Nodes (22): 1. Analyze Documentation Strengths, 2. Identify Gaps, 3. Handle Critical Gaps (If Any), 4. Strategic Alignment Check, 5. Present Accomplishment Summary, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
 
-### Community 354 - "Step 8: Workshop 1 - Business Goals"
+### Community 305 - "Community 305"
 Cohesion: 0.09
 Nodes (22): 1. Introduce Workshop, 2. Capture the Vision, 3. Break Down into Objectives, 4. Refine Objectives, 5. Present Workshop Summary, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
 
-### Community 355 - "Step 9: Workshop 2 - Target Groups"
+### Community 306 - "Community 306"
 Cohesion: 0.09
 Nodes (22): 1. Introduce Workshop, 2. Identify User Groups, 3. Select Focus Groups, 4. Build Personas, 5. Present Workshop Summary, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
 
-### Community 356 - "Step 10: Workshop 3 - Driving Forces"
+### Community 307 - "Community 307"
 Cohesion: 0.09
 Nodes (22): 1. Introduce Workshop, 2. Explain the Framework, 3. Explore Driving Forces Per Group, 4. Identify Patterns, 5. Present Workshop Summary, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
 
-### Community 357 - "Step 4: Feature Impact Alignment Validation"
+### Community 308 - "Community 308"
 Cohesion: 0.09
 Nodes (22): 1. Check Prerequisite, 2. Feature-Persona Alignment (if exists), 3. Priority Tier Consistency (if exists), 4. Business Goal Traceability (if exists), 5. Generate Report, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
 
-### Community 358 - "Step 5: Cross-Document Coherence Validation"
+### Community 309 - "Community 309"
 Cohesion: 0.09
 Nodes (22): 1. Terminology Consistency, 2. Narrative Coherence, 3. Cross-References, 4. Mermaid Diagram, 5. Compile Final Validation Report, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
 
-### Community 359 - "Validation Step 2: Navigation Patterns"
+### Community 310 - "Community 310"
 Cohesion: 0.09
 Nodes (22): 1. Page Naming Consistency, 2. Navigation Flow Rules, 3. Cross-Scenario Page Registry, 4. Navigation Conflicts, 5. Generate Report, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
 
-### Community 360 - "WDS Specification Pattern"
+### Community 311 - "Community 311"
 Cohesion: 0.09
 Nodes (22): 1. Purpose-Based Naming, 1. Purpose-Based Object IDs, 2. Grouped Translations, 2. Separated Concerns, 3. Estimated Values from Sketch Analysis, 3. Grouped Translations, 4. Character Capacity Validation, Complete Workflow Integration (+14 more)
 
-### Community 361 - "📝 **The Dialog**"
+### Community 312 - "Community 312"
+Cohesion: 0.09
+Nodes (22): 1. **State Transition Storyboards**, 2. **Interaction Flow Storyboards**, 3. **Multi-Component Storyboards**, Data Requirements, Error Handling, Example: `walk-booking-logic.feature.md`, Feature File with Storyboard Reference, {Feature Name} Feature (+14 more)
+
+### Community 313 - "Community 313"
 Cohesion: 0.09
 Nodes (22): 🤝 **Collaboration Approach**, 📋 **Example Complete Exchange**, Scenario Initialization Dialog, **Step 10: Business Value** (Freya's focus), **Step 11: UX Priorities** (Freya's focus), ✅ **Step 12: Create Scenario Specification**, 🎉 **Step 13: Completion**, **Step 1: Scenario Overview** (+14 more)
 
-### Community 362 - "Step 2: Validate Navigation Structure"
+### Community 314 - "Community 314"
 Cohesion: 0.09
 Nodes (22): 1. Check Navigation Elements, 2. Validate Sketch Embedding, 3. Generate Diagnostic Report, 4. Resolve Issues, 5. Record Validation Result, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
 
-### Community 363 - "Step 4: Validate Page Sections"
+### Community 315 - "Community 315"
 Cohesion: 0.09
 Nodes (22): 1. Check Page Sections Structure, 2. Platform-Specific Validation, 3. Generate Diagnostic Report, 4. Resolve Issues, 5. Record Validation Result, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
 
-### Community 364 - "Step 5: Validate Section Order & Structure"
+### Community 316 - "Community 316"
 Cohesion: 0.09
 Nodes (22): 1. Check Section Order, 2. Check for Duplicates and Redundancies, 3. Generate Diagnostic Report, 4. Resolve Issues, 5. Record Validation Result, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
 
-### Community 365 - "Step 6: Validate Object Registry"
+### Community 317 - "Community 317"
 Cohesion: 0.09
 Nodes (22): 1. Check Object Registry Section, 2. Calculate Coverage, 3. Generate Diagnostic Report, 4. Resolve Issues, 5. Record Validation Result, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
 
-### Community 366 - "Step 7: Validate Design System Separation & Unnecessary Information"
+### Community 318 - "Community 318"
 Cohesion: 0.09
 Nodes (22): 1. Scan for CSS Implementation Details, 2. Scan for Unnecessary Information, 3. Generate Diagnostic Report, 4. Resolve Issues, 5. Record Validation Result, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
 
-### Community 367 - "Step Files"
+### Community 319 - "Community 319"
 Cohesion: 0.09
 Nodes (22): Agentic Development - File Index, `AGENTIC-DEVELOPMENT-GUIDE.md`, 📁 Complete File Structure, Core Documentation, Finishing Page, Implementing Each Section, Starting New Page, Starting New Scenario (+14 more)
 
-### Community 368 - "Acceptance Testing Steps"
+### Community 320 - "Community 320"
 Cohesion: 0.09
 Nodes (22): Acceptance Testing Steps, ISS-001: Button Color Incorrect (HIGH), ISS-002: Transition Too Fast (MEDIUM), Issues Found, Next Steps, Phase 5 [T] Acceptance Testing (Designer Validation), Purpose, Recommendations (+14 more)
 
-### Community 369 - "Step 1: Define Question"
+### Community 321 - "Community 321"
 Cohesion: 0.09
 Nodes (22): 1. Articulate the Question, 2. Define Scope, 3. Define Expected Output, 4. Set Time Box, 5. Verify Checklist, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
 
-### Community 370 - "Step 3: Fix"
+### Community 322 - "Community 322"
+Cohesion: 0.09
+Nodes (22): 1. Gather Bug Report Details, 2. Set Up Reproduction Environment, 3. Reproduce the Bug, 4. Confirm Reproducibility, 5. Handle Non-Reproducible Bugs, 6. Verify Checklist, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+14 more)
+
+### Community 323 - "Community 323"
+Cohesion: 0.09
+Nodes (22): 1. Read the Relevant Code, 2. Trace the Execution Path, 3. Identify Root Cause, 4. Check Wider Impact, 5. Document the Root Cause, 6. Verify Checklist, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+14 more)
+
+### Community 324 - "Community 324"
 Cohesion: 0.09
 Nodes (22): 1. Create Fix Branch, 2. Write a Test That Catches the Bug, 3. Implement the Minimal Fix, 4. Verify the Fix Resolves the Reproduction Case, 5. Verify Checklist, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
 
-### Community 371 - "Step 1: Identify Target"
+### Community 325 - "Community 325"
 Cohesion: 0.09
-Nodes (22): 1. Define the Target, 2. Determine Access Method, 3. Define Extraction Goals, 4. Document Target Overview, 5. Verify Checklist, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
+Nodes (22): 1. Document What Caused the Bug, 2. Document the Fix Approach, 3. Update Tests, 4. Create PR with Clear Description, 5. Flag Similar Risks, 6. Verify Checklist, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+14 more)
 
-### Community 372 - "Step 3: Create Issues"
+### Community 326 - "Community 326"
 Cohesion: 0.09
 Nodes (22): 1. Issue Creation Process, 2. Assign Severity Levels, 3. Issue Writing Best Practices, 4. Create Issues Summary, 5. Verify Checklist, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
 
-### Community 373 - "Step 4: Create Test Report"
+### Community 327 - "Community 327"
 Cohesion: 0.09
 Nodes (22): 1. Create Test Report File, 2. Report Sections, 3. Overall Result Determination, 4. Attach Supporting Files, 5. Verify Checklist, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
 
-### Community 374 - "Content Creation Workshop Guide"
+### Community 328 - "Community 328"
 Cohesion: 0.09
 Nodes (22): 0. Content Purpose = The Job To Do, 1. Trigger Map = Strategic Foundation, 2. Customer Awareness Cycle = Content Strategy, 3. Action Mapping = Content Filter, 4. Badass Users = Tone & Frame, 5. Golden Circle = Structural Order, Alpha Status Notice, Content Creation Workshop Guide (+14 more)
 
-### Community 375 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 329 - "Community 329"
 Cohesion: 0.09
 Nodes (22): 1. Establish Content Context, 2. Define the Job To Do, 3. Identify Target Audience and State, 4. Establish Success Criteria, 5. Discuss Model Priority Emphasis, 6. Document Purpose Definition, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+14 more)
 
-### Community 376 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 330 - "Community 330"
 Cohesion: 0.09
 Nodes (22): 1. Identify the Required Action, 2. Connect Action to Business Goal, 3. Connect Action to Driving Forces, 4. Determine Essential Information, 5. Identify Action Barriers, 6. Document Action Filter, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+14 more)
 
-### Community 377 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 331 - "Community 331"
 Cohesion: 0.09
 Nodes (22): 1. Prepare Export Parameters, 2. Execute Export, 3. Verify Export Response, 4. User Verification, 5. Present Success Report, 6. Document Completion, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+14 more)
 
-### Community 378 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 332 - "Community 332"
 Cohesion: 0.09
 Nodes (22): 1. Present Full Set, 2. Consistency Check, 3. User Review, 4. Iterate, 5. Save Approved Set, 6. Update Design Log, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+14 more)
 
-### Community 379 - "Step 1: Scan Existing Components"
+### Community 333 - "Community 333"
 Cohesion: 0.09
 Nodes (22): 1. Read Design System Folder, 2. Extract Component Metadata, 3. Build Candidate List, 4. Handle Edge Cases, 5. Pass Data to Next Step, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
 
-### Community 380 - "Step 5: Hand Off to BMad"
+### Community 334 - "Community 334"
 Cohesion: 0.09
 Nodes (22): 1. Determine Handoff Method, 2. Simplified Handoff (< 3 Days), 3. Full Handoff Dialog (> 3 Days), 4. BMad Acknowledges, 5. Update Delivery Status, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
 
-### Community 381 - "🎨 Hello! I'm Freya, Your WDS Designer!"
+### Community 335 - "Community 335"
+Cohesion: 0.09
+Nodes (5): When party-mode isn't installed, user override TOMLs are read directly., TestAlias, TestBuildPool, TestOverrideMergeFallback, TestResolveParties
+
+### Community 336 - "Community 336"
+Cohesion: 0.09
+Nodes (22): 1. Open Conversation (Substep 1), 2. Explore Vision (Substep 2), 3. Reflect & Confirm (Substep 3), 4. Synthesize & Document (Substep 4), 5. State Update, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
+
+### Community 337 - "Community 337"
+Cohesion: 0.09
+Nodes (22): 1. Open Conversation (Substep 1), 2. Explore Positioning (Substep 2), 3. Reflect & Confirm (Substep 3), 4. Synthesize & Document (Substep 4), 5. Design Log Update, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
+
+### Community 338 - "Community 338"
+Cohesion: 0.09
+Nodes (22): 1. Present the Strategic Narrative, 2. Handle Reflection & Adjustments, 3. Generate the Product Brief Document, 4. Present Completion, 5. Update All Dialog Files, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+14 more)
+
+### Community 339 - "Community 339"
+Cohesion: 0.09
+Nodes (22): 1. Create Output File, 2. Welcome and Contextualize, 3. Quick Context Check, 4. Preview the Process, 5. Design Log Update, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+14 more)
+
+### Community 340 - "Community 340"
+Cohesion: 0.09
+Nodes (22): 1. Collect Reference URLs, 2. Analyze Each Site Together, 3. Synthesize Design Principles, 4. Document, 5. Design Log Integration, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+14 more)
+
+### Community 341 - "Community 341"
+Cohesion: 0.09
+Nodes (22): 1. Create Output Structure, 2. Welcome and Contextualize, 3. Explain the Approach, 4. Check for Existing Assets, 5. Design Log Update, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+14 more)
+
+### Community 342 - "Community 342"
+Cohesion: 0.09
+Nodes (22): 1. Create Output File, 2. Welcome and Contextualize, 3. Assess Technical Knowledge, 4. Confirm Existing Decisions, 5. Design Log Update, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+14 more)
+
+### Community 343 - "Community 343"
+Cohesion: 0.09
+Nodes (22): 1. CMS/Framework Selection, 2. Theme/Styling Approach, 3. Document Rationale, 4. Capture in Template, 5. Design Log Update, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+14 more)
+
+### Community 344 - "Community 344"
+Cohesion: 0.09
+Nodes (22): 1. Load Product Brief, 2. Required Sections (Complete Brief), 3. Required Sections (Simplified Brief), 4. Section Quality, 5. Report, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+14 more)
+
+### Community 345 - "Community 345"
+Cohesion: 0.09
+Nodes (22): 1. Locate Trigger Map Files, 2. Trigger Map Completeness, 3. Chain Validity, 4. Cross-Trigger Map Consistency (if multiple), 5. Report, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+14 more)
+
+### Community 346 - "Community 346"
+Cohesion: 0.09
+Nodes (22): 0. Prerequisites, 1. Keyword Map Completeness, 2. Page Assignments, 3. Cross-Phase Readiness, 4. Report, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+14 more)
+
+### Community 347 - "Community 347"
+Cohesion: 0.09
+Nodes (22): 1. Analyze Documentation Strengths, 2. Identify Gaps, 3. Handle Critical Gaps (If Any), 4. Strategic Alignment Check, 5. Present Accomplishment Summary, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
+
+### Community 348 - "Community 348"
+Cohesion: 0.09
+Nodes (22): 1. Introduce Workshop, 2. Capture the Vision, 3. Break Down into Objectives, 4. Refine Objectives, 5. Present Workshop Summary, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
+
+### Community 349 - "Community 349"
+Cohesion: 0.09
+Nodes (22): 1. Introduce Workshop, 2. Identify User Groups, 3. Select Focus Groups, 4. Build Personas, 5. Present Workshop Summary, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
+
+### Community 350 - "Community 350"
+Cohesion: 0.09
+Nodes (22): 1. Introduce Workshop, 2. Explain the Framework, 3. Explore Driving Forces Per Group, 4. Identify Patterns, 5. Present Workshop Summary, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
+
+### Community 351 - "Community 351"
+Cohesion: 0.09
+Nodes (22): 1. Check Prerequisite, 2. Feature-Persona Alignment (if exists), 3. Priority Tier Consistency (if exists), 4. Business Goal Traceability (if exists), 5. Generate Report, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
+
+### Community 352 - "Community 352"
+Cohesion: 0.09
+Nodes (22): 1. Terminology Consistency, 2. Narrative Coherence, 3. Cross-References, 4. Mermaid Diagram, 5. Compile Final Validation Report, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
+
+### Community 353 - "Community 353"
+Cohesion: 0.09
+Nodes (22): 1. Page Naming Consistency, 2. Navigation Flow Rules, 3. Cross-Scenario Page Registry, 4. Navigation Conflicts, 5. Generate Report, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
+
+### Community 354 - "Community 354"
+Cohesion: 0.09
+Nodes (22): 1. Purpose-Based Naming, 1. Purpose-Based Object IDs, 2. Grouped Translations, 2. Separated Concerns, 3. Estimated Values from Sketch Analysis, 3. Grouped Translations, 4. Character Capacity Validation, Complete Workflow Integration (+14 more)
+
+### Community 355 - "Community 355"
+Cohesion: 0.09
+Nodes (22): 1. **State Transition Storyboards**, 2. **Interaction Flow Storyboards**, 3. **Multi-Component Storyboards**, Data Requirements, Error Handling, Example: `walk-booking-logic.feature.md`, Feature File with Storyboard Reference, {Feature Name} Feature (+14 more)
+
+### Community 356 - "Community 356"
+Cohesion: 0.09
+Nodes (22): 🤝 **Collaboration Approach**, 📋 **Example Complete Exchange**, Scenario Initialization Dialog, **Step 10: Business Value** (Freya's focus), **Step 11: UX Priorities** (Freya's focus), ✅ **Step 12: Create Scenario Specification**, 🎉 **Step 13: Completion**, **Step 1: Scenario Overview** (+14 more)
+
+### Community 357 - "Community 357"
+Cohesion: 0.09
+Nodes (22): 1. Check Navigation Elements, 2. Validate Sketch Embedding, 3. Generate Diagnostic Report, 4. Resolve Issues, 5. Record Validation Result, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
+
+### Community 358 - "Community 358"
+Cohesion: 0.09
+Nodes (22): 1. Check Page Sections Structure, 2. Platform-Specific Validation, 3. Generate Diagnostic Report, 4. Resolve Issues, 5. Record Validation Result, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
+
+### Community 359 - "Community 359"
+Cohesion: 0.09
+Nodes (22): 1. Check Section Order, 2. Check for Duplicates and Redundancies, 3. Generate Diagnostic Report, 4. Resolve Issues, 5. Record Validation Result, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
+
+### Community 360 - "Community 360"
+Cohesion: 0.09
+Nodes (22): 1. Check Object Registry Section, 2. Calculate Coverage, 3. Generate Diagnostic Report, 4. Resolve Issues, 5. Record Validation Result, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
+
+### Community 361 - "Community 361"
+Cohesion: 0.09
+Nodes (22): 1. Scan for CSS Implementation Details, 2. Scan for Unnecessary Information, 3. Generate Diagnostic Report, 4. Resolve Issues, 5. Record Validation Result, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
+
+### Community 362 - "Community 362"
+Cohesion: 0.09
+Nodes (22): Agentic Development - File Index, `AGENTIC-DEVELOPMENT-GUIDE.md`, 📁 Complete File Structure, Core Documentation, Finishing Page, Implementing Each Section, Starting New Page, Starting New Scenario (+14 more)
+
+### Community 363 - "Community 363"
+Cohesion: 0.09
+Nodes (22): Acceptance Testing Steps, ISS-001: Button Color Incorrect (HIGH), ISS-002: Transition Too Fast (MEDIUM), Issues Found, Next Steps, Phase 5 [T] Acceptance Testing (Designer Validation), Purpose, Recommendations (+14 more)
+
+### Community 364 - "Community 364"
+Cohesion: 0.09
+Nodes (22): 1. Articulate the Question, 2. Define Scope, 3. Define Expected Output, 4. Set Time Box, 5. Verify Checklist, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
+
+### Community 365 - "Community 365"
+Cohesion: 0.09
+Nodes (22): 1. Create Fix Branch, 2. Write a Test That Catches the Bug, 3. Implement the Minimal Fix, 4. Verify the Fix Resolves the Reproduction Case, 5. Verify Checklist, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
+
+### Community 366 - "Community 366"
+Cohesion: 0.09
+Nodes (22): 1. Define the Target, 2. Determine Access Method, 3. Define Extraction Goals, 4. Document Target Overview, 5. Verify Checklist, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
+
+### Community 367 - "Community 367"
+Cohesion: 0.09
+Nodes (22): 1. Issue Creation Process, 2. Assign Severity Levels, 3. Issue Writing Best Practices, 4. Create Issues Summary, 5. Verify Checklist, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
+
+### Community 368 - "Community 368"
+Cohesion: 0.09
+Nodes (22): 1. Create Test Report File, 2. Report Sections, 3. Overall Result Determination, 4. Attach Supporting Files, 5. Verify Checklist, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
+
+### Community 369 - "Community 369"
+Cohesion: 0.09
+Nodes (22): 0. Content Purpose = The Job To Do, 1. Trigger Map = Strategic Foundation, 2. Customer Awareness Cycle = Content Strategy, 3. Action Mapping = Content Filter, 4. Badass Users = Tone & Frame, 5. Golden Circle = Structural Order, Alpha Status Notice, Content Creation Workshop Guide (+14 more)
+
+### Community 370 - "Community 370"
+Cohesion: 0.09
+Nodes (22): 1. Establish Content Context, 2. Define the Job To Do, 3. Identify Target Audience and State, 4. Establish Success Criteria, 5. Discuss Model Priority Emphasis, 6. Document Purpose Definition, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+14 more)
+
+### Community 371 - "Community 371"
+Cohesion: 0.09
+Nodes (22): 1. Identify the Required Action, 2. Connect Action to Business Goal, 3. Connect Action to Driving Forces, 4. Determine Essential Information, 5. Identify Action Barriers, 6. Document Action Filter, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+14 more)
+
+### Community 372 - "Community 372"
+Cohesion: 0.09
+Nodes (22): 1. Prepare Export Parameters, 2. Execute Export, 3. Verify Export Response, 4. User Verification, 5. Present Success Report, 6. Document Completion, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+14 more)
+
+### Community 373 - "Community 373"
+Cohesion: 0.09
+Nodes (22): 1. Present Full Set, 2. Consistency Check, 3. User Review, 4. Iterate, 5. Save Approved Set, 6. Update Design Log, 7. Present MENU OPTIONS, CONTEXT BOUNDARIES: (+14 more)
+
+### Community 374 - "Community 374"
+Cohesion: 0.09
+Nodes (22): 1. Read Design System Folder, 2. Extract Component Metadata, 3. Build Candidate List, 4. Handle Edge Cases, 5. Pass Data to Next Step, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
+
+### Community 375 - "Community 375"
+Cohesion: 0.09
+Nodes (22): 1. Determine Handoff Method, 2. Simplified Handoff (< 3 Days), 3. Full Handoff Dialog (> 3 Days), 4. BMad Acknowledges, 5. Update Delivery Status, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+14 more)
+
+### Community 376 - "Community 376"
 Cohesion: 0.09
 Nodes (22): ⚡ **FROM DESIGN CHAOS TO SYSTEMATIC EXCELLENCE**, 💫 **FROM HANDOFF CONFUSION TO VALIDATED QUALITY**, 🎨 **FROM STRATEGIC CONCEPTS TO EXPERIENCES USERS LOVE**, 🎨 Hello! I'm Freya, Your WDS Designer!, ✨ **MY COMMUNICATION EXCELLENCE STANDARDS**, 🏗️ **MY CREATIVE ARCHITECTURE MASTERY**, 🎯 My Creative Design Mastery, 💎 My Creative Design Tools: From Strategy to Radiant Reality (+14 more)
 
-### Community 382 - "properties"
+### Community 377 - "Community 377"
+Cohesion: 0.10
+Nodes (21): Core Documentation, Cross-Part Integration, Existing Documentation, For AI-Assisted Development, Generated Documentation, Getting Started, Integration, Optional Documentation (+13 more)
+
+### Community 378 - "Community 378"
 Cohesion: 0.09
 Nodes (22): type, properties, type, files_analyzed, files_scanned, output_file, part_id, path (+14 more)
 
-### Community 383 - "Domain Research Step 4: Regulatory Focus"
-Cohesion: 0.09
-Nodes (21): 1. Begin Regulatory Analysis, 2. Web Search for Specific Regulations, 3. Web Search for Industry Standards, 4. Web Search for Data Privacy Requirements, 5. Generate Regulatory Analysis Content, 6. Present Analysis and Continue Option, 7. Handle Continue Selection, APPEND TO DOCUMENT: (+13 more)
-
-### Community 384 - "Domain Research Step 5: Technical Trends"
-Cohesion: 0.09
-Nodes (21): 1. Begin Technical Trends Analysis, 2. Web Search for Emerging Technologies, 3. Web Search for Digital Transformation, 4. Web Search for Future Outlook, 5. Generate Technical Trends Content, 6. Present Analysis and Complete Option, 7. Handle Continue Selection, APPEND TO DOCUMENT: (+13 more)
-
-### Community 385 - "Domain Research Step 6: Research Synthesis and Completion"
-Cohesion: 0.09
-Nodes (21): 1. Document Structure Planning, 2. Generate Compelling Narrative Introduction, 3. Synthesize All Research Sections, 4. Generate Complete Document Content, 5. Present Complete Document and Final Option, 6. Handle Final Completion, APPEND TO DOCUMENT:, COMPREHENSIVE DOCUMENT STANDARDS: (+13 more)
-
-### Community 386 - "resolve_personas.py"
+### Community 379 - "Community 379"
 Cohesion: 0.17
 Nodes (21): _alias(), _brief(), build_pool(), _emit(), find_party_skill(), load_agents(), load_party_overrides(), load_party_workflow() (+13 more)
 
-### Community 387 - "Technical Research Step 5: Implementation Research"
+### Community 380 - "Community 380"
 Cohesion: 0.09
 Nodes (21): 1. Begin Implementation Research, 2. Web Search for Technology Adoption, 3. Web Search for Development Workflows, 4. Web Search for Operational Excellence, 5. Generate Implementation Research Content, 6. Present Analysis and Continue Option, 7. Handle Continue Selection, APPEND TO DOCUMENT: (+13 more)
 
-### Community 388 - "Technical Research Step 6: Technical Synthesis and Completion"
+### Community 381 - "Community 381"
 Cohesion: 0.09
 Nodes (21): 1. Technical Document Structure Planning, 2. Generate Compelling Technical Introduction, 3. Synthesize All Technical Research Sections, 4. Generate Complete Technical Document Content, 5. Present Complete Technical Document and Final Option, 6. Handle Final Technical Completion, APPEND TO DOCUMENT:, COMPREHENSIVE TECHNICAL DOCUMENT STANDARDS: (+13 more)
 
-### Community 389 - "Project Brief: {{project_name}}"
+### Community 382 - "Community 382"
 Cohesion: 0.09
 Nodes (21): Additional Context, Business Context, Business Customer Profile (B2B), Business Model, Buying Roles, Competitive Landscape, Constraints, Examples (+13 more)
 
-### Community 390 - "[Component Name] [[component-id]]"
+### Community 383 - "Community 383"
+Cohesion: 0.09
+Nodes (21): Checklist, Conditional Sections, {Group Name} (Container), Layout Structure, {Object in Group}, {Object in Group 2}, {Object Name}, {Object Name 2} (+13 more)
+
+### Community 384 - "Community 384"
 Cohesion: 0.09
 Nodes (21): Accessibility, Animations, Behavior, Best Practices, [Component Name] [[component-id]], Design Tokens, Figma Reference, Interactions (+13 more)
 
-### Community 391 - "Step 10: Capture Constraints"
+### Community 385 - "Community 385"
 Cohesion: 0.09
 Nodes (21): 1. Frame Positively, 2. Categories, 3. Flexibility, 4. Document, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+13 more)
 
-### Community 392 - "Step 35: Update Design Log"
+### Community 386 - "Community 386"
 Cohesion: 0.09
 Nodes (21): 1. Read the Current Log, 2. Append Progress Entry, 3. Record Key Decisions, 4. Verify, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+13 more)
 
-### Community 393 - "Project Brief: {{project_name}}"
+### Community 387 - "Community 387"
 Cohesion: 0.09
 Nodes (21): Additional Context, Business Context, Business Customer Profile (B2B), Business Model, Buying Roles, Competitive Landscape, Constraints, Examples (+13 more)
 
-### Community 394 - "Step 15: Generate Feature Impact Document"
+### Community 388 - "Community 388"
 Cohesion: 0.09
 Nodes (21): 1. Generate Document, 2. Save Document, 3. Present Summary, 4. Handle Feedback, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 395 - "Step 18: Generate Business Goals Document"
+### Community 389 - "Community 389"
 Cohesion: 0.09
 Nodes (21): 1. Reference Template, 2. Generate Document Sections, 3. Save and Confirm, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Data References, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 396 - "Step 22: Generate Key Insights Document"
+### Community 390 - "Community 390"
 Cohesion: 0.09
 Nodes (21): 1. Reference Structure, 2. Generate All 9 Sections, 3. Save and Confirm, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Data References, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 397 - "Step 28: Format Driving Forces Nodes"
+### Community 391 - "Community 391"
 Cohesion: 0.09
 Nodes (21): 1. Format Each Driving Forces Node, 2. Critical Emoji Rules, 3. Driver Formatting, 4. Verify Rules Checklist, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 398 - "Step 29: Create Connections"
+### Community 392 - "Community 392"
 Cohesion: 0.09
 Nodes (21): 1. Business Goals to Platform, 2. Platform to Target Groups, 3. Target Groups to Driving Forces, 4. Verify Connection Count, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 399 - "Step 36: Update Design Log"
+### Community 393 - "Community 393"
 Cohesion: 0.09
 Nodes (21): 1. Read Current Log, 2. Append Progress Entry, 3. Record Key Decisions, 4. Verify, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 400 - "Step 1: Target Group Coverage Validation"
+### Community 394 - "Community 394"
 Cohesion: 0.09
 Nodes (21): 1. Load Trigger Map Hub, 2. Load Persona Documents, 3. Verify Per Group, 4. Generate Report, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 401 - "Step 2: Prioritization Integrity Validation"
+### Community 395 - "Community 395"
 Cohesion: 0.09
 Nodes (21): 1. Priority Tier Consistency, 2. Driving Force Rankings, 3. Focus Statement, 4. Generate Report, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 402 - "Step 3: Persona Consistency Validation"
+### Community 396 - "Community 396"
 Cohesion: 0.09
 Nodes (21): 1. Hub to Persona Document Alignment, 2. Persona Document Completeness, 3. Cross-Persona Distinctness, 4. Generate Report, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 403 - "Step 8: Update Design Log"
+### Community 397 - "Community 397"
 Cohesion: 0.09
 Nodes (21): 1. Read the Current Log, 2. Append Progress Entry, 3. Record Key Decisions, 4. Verify, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 404 - "Step 9: Handover"
+### Community 398 - "Community 398"
 Cohesion: 0.09
 Nodes (21): 1. Present Completion Summary, 2. Design Intent Selection, 3. What Comes Next, 4. Update Design Log (If Exists), 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 405 - "Validation Step 1: Scenario Coverage"
+### Community 399 - "Community 399"
 Cohesion: 0.09
 Nodes (21): 1. Load Trigger Map Data, 2. Load All Scenario Files, 3. Cross-Reference, 4. Generate Report, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 406 - "HTML Tags vs. Visual Text Styles"
+### Community 400 - "Community 400"
 Cohesion: 0.09
 Nodes (21): Bad Visual Style Names, Benefits of This Approach, Common Patterns, Complete Example, Design System Visual Style Naming, Example 1: Landing Page vs. Article Page, Example 2: Same Visual Style, Different Semantics, Good Visual Style Names (Descriptive & Purpose-Based) (+13 more)
 
-### Community 407 - "Component File Structure"
-Cohesion: 0.09
-Nodes (21): 1. Page Files (`Pages/*.md`), 2. Component Files (`Components/*.md`), 3. Feature Files (`Features/*.md`), API Endpoints, Component File Structure, Configuration Options, Data Models, Data Requirements (+13 more)
-
-### Community 408 - "Page Process Workshop"
+### Community 401 - "Community 401"
 Cohesion: 0.09
 Nodes (20): Change Detection Output Template, Detailed Comparison Template, Menu Options, Page Process Workshop Templates, Update Summary Template, CONTEXT, ✅ **Flexible Control**, ✅ **Incremental Updates** (+12 more)
 
-### Community 409 - "Step 1: Review Current Design System"
+### Community 402 - "Community 402"
 Cohesion: 0.09
 Nodes (21): 1. Load Design System, 2. Inventory, 3. Identify Gaps, 4. Present Status, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 410 - "Step 2: Define or Update Component"
+### Community 403 - "Community 403"
 Cohesion: 0.09
 Nodes (21): 1. Component Context, 2. Define Component, 3. Complexity Assessment, 4. Save, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 411 - "Step 3: Validate Component Usage"
+### Community 404 - "Community 404"
 Cohesion: 0.09
 Nodes (21): 1. Scan Page Specifications, 2. Cross-Reference, 3. Report, 4. Resolve, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 412 - "Step 8: Spacing & Typography"
+### Community 405 - "Community 405"
 Cohesion: 0.09
 Nodes (21): 1. Define Section-to-Section Spacing, 2. Define Typography Tokens, 3. Review, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+13 more)
 
-### Community 413 - "Step 1: Validate Page Metadata"
+### Community 406 - "Community 406"
 Cohesion: 0.09
 Nodes (21): 1. Check Page Metadata Section, 2. Generate Diagnostic Report, 3. Resolve Issues, 4. Record Validation Result, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 414 - "Step 3: Validate Page Overview"
+### Community 407 - "Community 407"
 Cohesion: 0.09
 Nodes (21): 1. Check Page Overview Sections, 2. Generate Diagnostic Report, 3. Resolve Issues, 4. Record Validation Result, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 415 - "Step 1: Choose Visual Approach"
+### Community 408 - "Community 408"
 Cohesion: 0.09
 Nodes (21): 1. Review Page Specification, 2. Present Tool Options, 3. Setup Gate (Nano Banana only), 4. Capture Choice, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 416 - "Step 3: Review and Integrate"
+### Community 409 - "Community 409"
 Cohesion: 0.09
 Nodes (21): 1. Present Visual Result, 2. Collect Feedback, 3. Integrate, 4. Save, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 417 - "Step 2: Scenario Analysis & Logical View Identification"
+### Community 410 - "Community 410"
+Cohesion: 0.10
+Nodes (15): Document Before Acting, Dynamic Planning After Step Completion, Execution Principles, Handoff Always References Dialog, Plan-then-Execute Pattern, Sketch Fidelity, Sub-Steps During Execution, [A] Analysis — Understand Your Own Codebase (+7 more)
+
+### Community 411 - "Community 411"
 Cohesion: 0.09
 Nodes (21): 1. Read All Scenario Step Specifications, 2. Identify Logical Views, 3. User Reviews & Confirms Mapping, 4. Create Logical View Map Document, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 418 - "Step 4e: Handle Issue"
+### Community 412 - "Community 412"
 Cohesion: 0.09
 Nodes (21): 1. Acknowledge Issue, 2. Fix the Issue, 3.5. Re-Verify with Puppeteer, 3. Update Story File with Learning, 4. Re-present for Testing, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+13 more)
 
-### Community 419 - "Step 4f: Handle Improvement Suggestion"
+### Community 413 - "Community 413"
 Cohesion: 0.09
 Nodes (21): 1. Acknowledge Improvement, 2. Implement Improvement, 3. Update Story File with Improvement, 4. Consider Specification Update, 5. Re-present for Testing, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+13 more)
 
-### Community 420 - "Step 5: Finalization"
+### Community 414 - "Community 414"
 Cohesion: 0.09
 Nodes (21): 1. Announce Completion, 2. Integration Test Instructions, 3. Handle Final Issues or Approve, 4. Scenario Completion Check, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 421 - "Step 5: Iterate or Approve"
+### Community 415 - "Community 415"
+Cohesion: 0.09
+Nodes (21): 1. Define the Target, 2. Determine Access Method, 3. Define Extraction Goals, 4. Document Target Overview, 5. Verify Checklist, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+13 more)
+
+### Community 416 - "Community 416"
 Cohesion: 0.09
 Nodes (21): CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, Iteration Limits, MANDATORY EXECUTION RULES (READ FIRST):, Menu Handling Logic: (+13 more)
 
-### Community 422 - "Step 1: Load Trigger Map Context"
+### Community 417 - "Community 417"
 Cohesion: 0.09
 Nodes (21): 1. Load the Trigger Map, 2. Identify the Relevant Context, 3. Present and Confirm Context, 4. Handle Missing Trigger Map, 5. Document Context, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+13 more)
 
-### Community 423 - "Step 3: Prepare Specifications"
-Cohesion: 0.09
-Nodes (21): 1. Search for Specification Documents, 2. Handle Found Specifications, 3. Handle Missing Specifications, 4. Validate Coverage, 5. Resolve Gaps, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+13 more)
-
-### Community 424 - "Step 4: Generate and Validate"
+### Community 418 - "Community 418"
 Cohesion: 0.09
 Nodes (21): 1. Generate HTML Structure, 2. Apply Styling Requirements, 3. Run Validation Checks, 4. Present Validation Report, 5. Handle Validation Failures, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+13 more)
 
-### Community 425 - "Step 3: Select Style"
+### Community 419 - "Community 419"
 Cohesion: 0.09
 Nodes (21): 1. Select Icon Style, 2. Configure Style Parameters, 3. Define Grid and Alignment, 4. Select Color Treatment, 5. Confirm Style, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+13 more)
 
-### Community 426 - "Step 4: Generate Icons"
+### Community 420 - "Community 420"
 Cohesion: 0.09
 Nodes (21): 1. Build Icon Prompt Template, 2. Generate by Group, 3. Select Service, 4. Optimize SVG Output, 5. Track Progress, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+13 more)
 
-### Community 427 - "Step 1: Load Context"
+### Community 421 - "Community 421"
 Cohesion: 0.09
 Nodes (21): 1. Load Page Specifications, 2. Load Visual Direction, 3. Load Design System, 4. Check Existing Images, 5. Present Context Summary, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+13 more)
 
-### Community 428 - "Step 4: Reference Images"
+### Community 422 - "Community 422"
 Cohesion: 0.09
 Nodes (21): 1. Gather Reference Images, 2. Categorize References, 3. Assign Per Batch, 4. Define Reference Chaining Strategy, 5. Confirm References, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+13 more)
 
-### Community 429 - "Step 5: Generate Images"
+### Community 423 - "Community 423"
 Cohesion: 0.09
 Nodes (21): 1. Build Image Prompt, 2. Process Batches, 3. Select Service, 4. Handle Variations, 5. Track Progress, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+13 more)
 
-### Community 430 - "Step 1: Load Context"
+### Community 424 - "Community 424"
 Cohesion: 0.09
 Nodes (21): 1. Load Page Specifications, 2. Load Design System, 3. Load Visual Direction, 4. Load Wireframes, 5. Present Context Summary, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+13 more)
 
-### Community 431 - "Step 4: Generate Page Designs"
+### Community 425 - "Community 425"
 Cohesion: 0.09
 Nodes (21): 1. Build Page Design Prompt, 2. Include Wireframe Reference, 3. Select Service, 4. Generate Sequentially, 5. Track Progress, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+13 more)
 
-### Community 432 - "Step 4: Generate UI Elements"
+### Community 426 - "Community 426"
 Cohesion: 0.09
 Nodes (21): 1. Build Component Prompt Template, 2. Generate by Component Group, 3. Apply Batch Strategy, 4. Select Service, 5. Track Progress, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+13 more)
 
-### Community 433 - "Step 3: Select Style"
+### Community 427 - "Community 427"
 Cohesion: 0.09
 Nodes (21): 1. Select Motion Personality, 2. Configure Timing Parameters, 3. Select Video Treatment (for produced/generated video), 4. Define Color and Lighting, 5. Confirm Style, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+13 more)
 
-### Community 434 - "Step 4: Generate Motion Content"
+### Community 428 - "Community 428"
 Cohesion: 0.09
 Nodes (21): 1. Route by Complexity, 2. Build Prompts (AI Generated), 3. Select Service, 4. Generate and Preview, 5. Track Progress, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+13 more)
 
-### Community 435 - "Step 4: Generate Wireframes"
+### Community 429 - "Community 429"
 Cohesion: 0.09
 Nodes (21): 1. Craft Prompt Template, 2. Customize Per Page, 3. Select Service, 4. Execute Generation, 5. Track Progress, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+13 more)
 
-### Community 436 - "[Component Name] [[component-id]]"
+### Community 430 - "Community 430"
 Cohesion: 0.09
 Nodes (21): Accessibility, Animations, Behavior, Best Practices, [Component Name] [[component-id]], Design Tokens, Figma Reference, Interactions (+13 more)
 
-### Community 437 - "Step 1: Identify Opportunity"
+### Community 431 - "Community 431"
 Cohesion: 0.09
 Nodes (21): 1. Determine Context, 2. Context A: Existing Product Entry Point, 3. Context B: Continuous Improvement, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Data References, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 438 - "properties"
+### Community 432 - "Community 432"
+Cohesion: 0.10
+Nodes (21): Core Documentation, Cross-Part Integration, Existing Documentation, For AI-Assisted Development, Generated Documentation, Getting Started, Integration, Optional Documentation (+13 more)
+
+### Community 433 - "Community 433"
 Cohesion: 0.09
 Nodes (22): type, properties, type, files_analyzed, files_scanned, output_file, part_id, path (+14 more)
 
-### Community 439 - "Domain Research Step 4: Regulatory Focus"
+### Community 434 - "Community 434"
 Cohesion: 0.09
 Nodes (21): 1. Begin Regulatory Analysis, 2. Web Search for Specific Regulations, 3. Web Search for Industry Standards, 4. Web Search for Data Privacy Requirements, 5. Generate Regulatory Analysis Content, 6. Present Analysis and Continue Option, 7. Handle Continue Selection, APPEND TO DOCUMENT: (+13 more)
 
-### Community 440 - "Domain Research Step 5: Technical Trends"
+### Community 435 - "Community 435"
 Cohesion: 0.09
 Nodes (21): 1. Begin Technical Trends Analysis, 2. Web Search for Emerging Technologies, 3. Web Search for Digital Transformation, 4. Web Search for Future Outlook, 5. Generate Technical Trends Content, 6. Present Analysis and Complete Option, 7. Handle Continue Selection, APPEND TO DOCUMENT: (+13 more)
 
-### Community 441 - "Domain Research Step 6: Research Synthesis and Completion"
+### Community 436 - "Community 436"
 Cohesion: 0.09
 Nodes (21): 1. Document Structure Planning, 2. Generate Compelling Narrative Introduction, 3. Synthesize All Research Sections, 4. Generate Complete Document Content, 5. Present Complete Document and Final Option, 6. Handle Final Completion, APPEND TO DOCUMENT:, COMPREHENSIVE DOCUMENT STANDARDS: (+13 more)
 
-### Community 442 - "resolve_personas.py"
+### Community 437 - "Community 437"
 Cohesion: 0.17
 Nodes (21): _alias(), _brief(), build_pool(), _emit(), find_party_skill(), load_agents(), load_party_overrides(), load_party_workflow() (+13 more)
 
-### Community 443 - "Technical Research Step 5: Implementation Research"
+### Community 438 - "Community 438"
 Cohesion: 0.09
 Nodes (21): 1. Begin Implementation Research, 2. Web Search for Technology Adoption, 3. Web Search for Development Workflows, 4. Web Search for Operational Excellence, 5. Generate Implementation Research Content, 6. Present Analysis and Continue Option, 7. Handle Continue Selection, APPEND TO DOCUMENT: (+13 more)
 
-### Community 444 - "Technical Research Step 6: Technical Synthesis and Completion"
+### Community 439 - "Community 439"
 Cohesion: 0.09
 Nodes (21): 1. Technical Document Structure Planning, 2. Generate Compelling Technical Introduction, 3. Synthesize All Technical Research Sections, 4. Generate Complete Technical Document Content, 5. Present Complete Technical Document and Final Option, 6. Handle Final Technical Completion, APPEND TO DOCUMENT:, COMPREHENSIVE TECHNICAL DOCUMENT STANDARDS: (+13 more)
 
-### Community 445 - "Project Brief: {{project_name}}"
+### Community 440 - "Community 440"
 Cohesion: 0.09
 Nodes (21): Additional Context, Business Context, Business Customer Profile (B2B), Business Model, Buying Roles, Competitive Landscape, Constraints, Examples (+13 more)
 
-### Community 446 - "[Component Name] [[component-id]]"
+### Community 441 - "Community 441"
+Cohesion: 0.09
+Nodes (21): Checklist, Conditional Sections, {Group Name} (Container), Layout Structure, {Object in Group}, {Object in Group 2}, {Object Name}, {Object Name 2} (+13 more)
+
+### Community 442 - "Community 442"
 Cohesion: 0.09
 Nodes (21): Accessibility, Animations, Behavior, Best Practices, [Component Name] [[component-id]], Design Tokens, Figma Reference, Interactions (+13 more)
 
-### Community 447 - "Step 10: Capture Constraints"
+### Community 443 - "Community 443"
 Cohesion: 0.09
 Nodes (21): 1. Frame Positively, 2. Categories, 3. Flexibility, 4. Document, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+13 more)
 
-### Community 448 - "Step 35: Update Design Log"
+### Community 444 - "Community 444"
 Cohesion: 0.09
 Nodes (21): 1. Read the Current Log, 2. Append Progress Entry, 3. Record Key Decisions, 4. Verify, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+13 more)
 
-### Community 449 - "Project Brief: {{project_name}}"
+### Community 445 - "Community 445"
 Cohesion: 0.09
 Nodes (21): Additional Context, Business Context, Business Customer Profile (B2B), Business Model, Buying Roles, Competitive Landscape, Constraints, Examples (+13 more)
 
-### Community 450 - "Step 15: Generate Feature Impact Document"
+### Community 446 - "Community 446"
 Cohesion: 0.09
 Nodes (21): 1. Generate Document, 2. Save Document, 3. Present Summary, 4. Handle Feedback, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 451 - "Step 18: Generate Business Goals Document"
+### Community 447 - "Community 447"
 Cohesion: 0.09
 Nodes (21): 1. Reference Template, 2. Generate Document Sections, 3. Save and Confirm, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Data References, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 452 - "Step 22: Generate Key Insights Document"
+### Community 448 - "Community 448"
 Cohesion: 0.09
 Nodes (21): 1. Reference Structure, 2. Generate All 9 Sections, 3. Save and Confirm, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Data References, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 453 - "Step 28: Format Driving Forces Nodes"
+### Community 449 - "Community 449"
 Cohesion: 0.09
 Nodes (21): 1. Format Each Driving Forces Node, 2. Critical Emoji Rules, 3. Driver Formatting, 4. Verify Rules Checklist, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 454 - "Step 29: Create Connections"
+### Community 450 - "Community 450"
 Cohesion: 0.09
 Nodes (21): 1. Business Goals to Platform, 2. Platform to Target Groups, 3. Target Groups to Driving Forces, 4. Verify Connection Count, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 455 - "Step 36: Update Design Log"
+### Community 451 - "Community 451"
 Cohesion: 0.09
 Nodes (21): 1. Read Current Log, 2. Append Progress Entry, 3. Record Key Decisions, 4. Verify, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 456 - "Step 1: Target Group Coverage Validation"
+### Community 452 - "Community 452"
 Cohesion: 0.09
 Nodes (21): 1. Load Trigger Map Hub, 2. Load Persona Documents, 3. Verify Per Group, 4. Generate Report, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 457 - "Step 2: Prioritization Integrity Validation"
+### Community 453 - "Community 453"
 Cohesion: 0.09
 Nodes (21): 1. Priority Tier Consistency, 2. Driving Force Rankings, 3. Focus Statement, 4. Generate Report, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 458 - "Step 3: Persona Consistency Validation"
+### Community 454 - "Community 454"
 Cohesion: 0.09
 Nodes (21): 1. Hub to Persona Document Alignment, 2. Persona Document Completeness, 3. Cross-Persona Distinctness, 4. Generate Report, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 459 - "Step 8: Update Design Log"
+### Community 455 - "Community 455"
 Cohesion: 0.09
 Nodes (21): 1. Read the Current Log, 2. Append Progress Entry, 3. Record Key Decisions, 4. Verify, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 460 - "Step 9: Handover"
+### Community 456 - "Community 456"
 Cohesion: 0.09
 Nodes (21): 1. Present Completion Summary, 2. Design Intent Selection, 3. What Comes Next, 4. Update Design Log (If Exists), 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 461 - "Validation Step 1: Scenario Coverage"
+### Community 457 - "Community 457"
 Cohesion: 0.09
 Nodes (21): 1. Load Trigger Map Data, 2. Load All Scenario Files, 3. Cross-Reference, 4. Generate Report, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 462 - "HTML Tags vs. Visual Text Styles"
+### Community 458 - "Community 458"
 Cohesion: 0.09
 Nodes (21): Bad Visual Style Names, Benefits of This Approach, Common Patterns, Complete Example, Design System Visual Style Naming, Example 1: Landing Page vs. Article Page, Example 2: Same Visual Style, Different Semantics, Good Visual Style Names (Descriptive & Purpose-Based) (+13 more)
 
-### Community 463 - "Component File Structure"
-Cohesion: 0.09
-Nodes (21): 1. Page Files (`Pages/*.md`), 2. Component Files (`Components/*.md`), 3. Feature Files (`Features/*.md`), API Endpoints, Component File Structure, Configuration Options, Data Models, Data Requirements (+13 more)
-
-### Community 464 - "Page Process Workshop"
+### Community 459 - "Community 459"
 Cohesion: 0.09
 Nodes (20): Change Detection Output Template, Detailed Comparison Template, Menu Options, Page Process Workshop Templates, Update Summary Template, CONTEXT, ✅ **Flexible Control**, ✅ **Incremental Updates** (+12 more)
 
-### Community 465 - "Step 1: Review Current Design System"
+### Community 460 - "Community 460"
 Cohesion: 0.09
 Nodes (21): 1. Load Design System, 2. Inventory, 3. Identify Gaps, 4. Present Status, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 466 - "Step 2: Define or Update Component"
+### Community 461 - "Community 461"
 Cohesion: 0.09
 Nodes (21): 1. Component Context, 2. Define Component, 3. Complexity Assessment, 4. Save, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 467 - "Step 3: Validate Component Usage"
+### Community 462 - "Community 462"
 Cohesion: 0.09
 Nodes (21): 1. Scan Page Specifications, 2. Cross-Reference, 3. Report, 4. Resolve, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 468 - "Step 8: Spacing & Typography"
+### Community 463 - "Community 463"
 Cohesion: 0.09
 Nodes (21): 1. Define Section-to-Section Spacing, 2. Define Typography Tokens, 3. Review, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+13 more)
 
-### Community 469 - "Step 1: Validate Page Metadata"
+### Community 464 - "Community 464"
 Cohesion: 0.09
 Nodes (21): 1. Check Page Metadata Section, 2. Generate Diagnostic Report, 3. Resolve Issues, 4. Record Validation Result, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 470 - "Step 3: Validate Page Overview"
+### Community 465 - "Community 465"
 Cohesion: 0.09
 Nodes (21): 1. Check Page Overview Sections, 2. Generate Diagnostic Report, 3. Resolve Issues, 4. Record Validation Result, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 471 - "Step 1: Choose Visual Approach"
+### Community 466 - "Community 466"
 Cohesion: 0.09
 Nodes (21): 1. Review Page Specification, 2. Present Tool Options, 3. Setup Gate (Nano Banana only), 4. Capture Choice, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 472 - "Step 3: Review and Integrate"
+### Community 467 - "Community 467"
 Cohesion: 0.09
 Nodes (21): 1. Present Visual Result, 2. Collect Feedback, 3. Integrate, 4. Save, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 473 - "Step 2: Scenario Analysis & Logical View Identification"
+### Community 468 - "Community 468"
+Cohesion: 0.10
+Nodes (15): Document Before Acting, Dynamic Planning After Step Completion, Execution Principles, Handoff Always References Dialog, Plan-then-Execute Pattern, Sketch Fidelity, Sub-Steps During Execution, [A] Analysis — Understand Your Own Codebase (+7 more)
+
+### Community 469 - "Community 469"
 Cohesion: 0.09
 Nodes (21): 1. Read All Scenario Step Specifications, 2. Identify Logical Views, 3. User Reviews & Confirms Mapping, 4. Create Logical View Map Document, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 474 - "Step 4e: Handle Issue"
+### Community 470 - "Community 470"
 Cohesion: 0.09
 Nodes (21): 1. Acknowledge Issue, 2. Fix the Issue, 3.5. Re-Verify with Puppeteer, 3. Update Story File with Learning, 4. Re-present for Testing, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+13 more)
 
-### Community 475 - "Step 4f: Handle Improvement Suggestion"
+### Community 471 - "Community 471"
 Cohesion: 0.09
 Nodes (21): 1. Acknowledge Improvement, 2. Implement Improvement, 3. Update Story File with Improvement, 4. Consider Specification Update, 5. Re-present for Testing, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+13 more)
 
-### Community 476 - "Step 5: Finalization"
+### Community 472 - "Community 472"
 Cohesion: 0.09
 Nodes (21): 1. Announce Completion, 2. Integration Test Instructions, 3. Handle Final Issues or Approve, 4. Scenario Completion Check, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 477 - "Step 5: Iterate or Approve"
+### Community 473 - "Community 473"
 Cohesion: 0.09
 Nodes (21): CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, Iteration Limits, MANDATORY EXECUTION RULES (READ FIRST):, Menu Handling Logic: (+13 more)
 
-### Community 478 - "Step 1: Load Trigger Map Context"
+### Community 474 - "Community 474"
 Cohesion: 0.09
 Nodes (21): 1. Load the Trigger Map, 2. Identify the Relevant Context, 3. Present and Confirm Context, 4. Handle Missing Trigger Map, 5. Document Context, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+13 more)
 
-### Community 479 - "Step 3: Prepare Specifications"
+### Community 475 - "Community 475"
 Cohesion: 0.09
 Nodes (21): 1. Search for Specification Documents, 2. Handle Found Specifications, 3. Handle Missing Specifications, 4. Validate Coverage, 5. Resolve Gaps, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+13 more)
 
-### Community 480 - "Step 4: Generate and Validate"
+### Community 476 - "Community 476"
 Cohesion: 0.09
 Nodes (21): 1. Generate HTML Structure, 2. Apply Styling Requirements, 3. Run Validation Checks, 4. Present Validation Report, 5. Handle Validation Failures, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+13 more)
 
-### Community 481 - "Step 3: Select Style"
+### Community 477 - "Community 477"
 Cohesion: 0.09
 Nodes (21): 1. Select Icon Style, 2. Configure Style Parameters, 3. Define Grid and Alignment, 4. Select Color Treatment, 5. Confirm Style, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+13 more)
 
-### Community 482 - "Step 4: Generate Icons"
+### Community 478 - "Community 478"
 Cohesion: 0.09
 Nodes (21): 1. Build Icon Prompt Template, 2. Generate by Group, 3. Select Service, 4. Optimize SVG Output, 5. Track Progress, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+13 more)
 
-### Community 483 - "Step 1: Load Context"
+### Community 479 - "Community 479"
 Cohesion: 0.09
 Nodes (21): 1. Load Page Specifications, 2. Load Visual Direction, 3. Load Design System, 4. Check Existing Images, 5. Present Context Summary, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+13 more)
 
-### Community 484 - "Step 4: Reference Images"
+### Community 480 - "Community 480"
 Cohesion: 0.09
 Nodes (21): 1. Gather Reference Images, 2. Categorize References, 3. Assign Per Batch, 4. Define Reference Chaining Strategy, 5. Confirm References, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+13 more)
 
-### Community 485 - "Step 5: Generate Images"
+### Community 481 - "Community 481"
 Cohesion: 0.09
 Nodes (21): 1. Build Image Prompt, 2. Process Batches, 3. Select Service, 4. Handle Variations, 5. Track Progress, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+13 more)
 
-### Community 486 - "Step 1: Load Context"
+### Community 482 - "Community 482"
 Cohesion: 0.09
 Nodes (21): 1. Load Page Specifications, 2. Load Design System, 3. Load Visual Direction, 4. Load Wireframes, 5. Present Context Summary, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+13 more)
 
-### Community 487 - "Step 4: Generate Page Designs"
+### Community 483 - "Community 483"
 Cohesion: 0.09
 Nodes (21): 1. Build Page Design Prompt, 2. Include Wireframe Reference, 3. Select Service, 4. Generate Sequentially, 5. Track Progress, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+13 more)
 
-### Community 488 - "Step 4: Generate UI Elements"
+### Community 484 - "Community 484"
 Cohesion: 0.09
 Nodes (21): 1. Build Component Prompt Template, 2. Generate by Component Group, 3. Apply Batch Strategy, 4. Select Service, 5. Track Progress, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+13 more)
 
-### Community 489 - "Step 3: Select Style"
+### Community 485 - "Community 485"
 Cohesion: 0.09
 Nodes (21): 1. Select Motion Personality, 2. Configure Timing Parameters, 3. Select Video Treatment (for produced/generated video), 4. Define Color and Lighting, 5. Confirm Style, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+13 more)
 
-### Community 490 - "Step 4: Generate Motion Content"
+### Community 486 - "Community 486"
 Cohesion: 0.09
 Nodes (21): 1. Route by Complexity, 2. Build Prompts (AI Generated), 3. Select Service, 4. Generate and Preview, 5. Track Progress, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+13 more)
 
-### Community 491 - "Step 4: Generate Wireframes"
+### Community 487 - "Community 487"
 Cohesion: 0.09
 Nodes (21): 1. Craft Prompt Template, 2. Customize Per Page, 3. Select Service, 4. Execute Generation, 5. Track Progress, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+13 more)
 
-### Community 492 - "[Component Name] [[component-id]]"
+### Community 488 - "Community 488"
 Cohesion: 0.09
 Nodes (21): Accessibility, Animations, Behavior, Best Practices, [Component Name] [[component-id]], Design Tokens, Figma Reference, Interactions (+13 more)
 
-### Community 493 - "Step 1: Identify Opportunity"
+### Community 489 - "Community 489"
 Cohesion: 0.09
 Nodes (21): 1. Determine Context, 2. Context A: Existing Product Entry Point, 3. Context B: Continuous Improvement, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Data References, EXECUTION PROTOCOLS: (+13 more)
 
-### Community 494 - "Project Brief: {{project_name}}"
+### Community 490 - "Community 490"
 Cohesion: 0.09
 Nodes (21): Additional Context, Business Context, Business Customer Profile (B2B), Business Model, Buying Roles, Competitive Landscape, Constraints, Examples (+13 more)
 
-### Community 495 - "Step 4: UX Alignment"
+### Community 491 - "Community 491"
 Cohesion: 0.10
 Nodes (20): 1. Initialize UX Validation, 2. Search for UX Documentation, 3. If UX Document Exists, 4. If No UX Document, 5. Add Findings to Report, 6. Auto-Proceed to Next Step, A. UX ↔ PRD Alignment, B. UX ↔ Architecture Alignment (+12 more)
 
-### Community 496 - "Domain Research Step 2: Industry Analysis"
-Cohesion: 0.10
-Nodes (20): 1. Begin Industry Analysis, 2. Parallel Industry Research Execution, 3. Analyze and Aggregate Results, 4. Generate Industry Analysis Content, 5. Present Analysis and Continue Option, 6. Handle Continue Selection, APPEND TO DOCUMENT:, Content Structure: (+12 more)
-
-### Community 497 - "Domain Research Step 3: Competitive Landscape"
-Cohesion: 0.10
-Nodes (20): 1. Begin Competitive Landscape Analysis, 2. Parallel Competitive Research Execution, 3. Analyze and Aggregate Results, 4. Generate Competitive Landscape Content, 5. Present Analysis and Continue Option, 6. Handle Continue Selection, APPEND TO DOCUMENT:, COMPETITIVE ANALYSIS STANDARDS: (+12 more)
-
-### Community 498 - "Market Research Step 2: Customer Behavior and Segments"
+### Community 492 - "Community 492"
 Cohesion: 0.10
 Nodes (20): 1. Begin Customer Behavior Analysis, 2. Parallel Customer Behavior Research Execution, 3. Analyze and Aggregate Results, 4. Generate Customer Behavior Content, 5. Present Analysis and Continue Option, 6. Handle Continue Selection, APPEND TO DOCUMENT:, BEHAVIOR ANALYSIS STANDARDS: (+12 more)
 
-### Community 499 - "Market Research Step 3: Customer Pain Points and Needs"
+### Community 493 - "Community 493"
 Cohesion: 0.10
 Nodes (20): 1. Begin Customer Pain Points Analysis, 2. Parallel Pain Points Research Execution, 3. Analyze and Aggregate Results, 4. Generate Customer Pain Points Content, 5. Present Analysis and Continue Option, 6. Handle Continue Selection, APPEND TO DOCUMENT:, Content Structure: (+12 more)
 
-### Community 500 - "Market Research Step 4: Customer Decisions and Journey"
+### Community 494 - "Community 494"
 Cohesion: 0.10
 Nodes (20): 1. Begin Customer Decisions Analysis, 2. Parallel Decisions Research Execution, 3. Analyze and Aggregate Results, 4. Generate Customer Decisions Content, 5. Present Analysis and Continue Option, 6. Handle Continue Selection, APPEND TO DOCUMENT:, Content Structure: (+12 more)
 
-### Community 501 - "resolve_party.py"
+### Community 495 - "Community 495"
 Cohesion: 0.15
 Nodes (20): _alias(), build_collective(), _emit(), find_group(), group_detail(), group_menu(), load_agents(), load_workflow() (+12 more)
 
-### Community 502 - "QA Generate E2E Tests Workflow"
+### Community 496 - "Community 496"
 Cohesion: 0.10
 Nodes (20): Conventions, Execution, Keep It Simple, On Activation, On Complete, Output, Paths, QA Generate E2E Tests Workflow (+12 more)
 
-### Community 503 - "Technical Research Step 2: Technology Stack Analysis"
-Cohesion: 0.10
-Nodes (20): 1. Begin Technology Stack Analysis, 2. Parallel Technology Stack Research Execution, 3. Analyze and Aggregate Results, 4. Generate Technology Stack Content, 5. Present Analysis and Continue Option, 6. Handle Continue Selection, APPEND TO DOCUMENT:, Content Structure: (+12 more)
-
-### Community 504 - "Technical Research Step 3: Integration Patterns"
+### Community 497 - "Community 497"
 Cohesion: 0.10
 Nodes (20): 1. Begin Integration Patterns Analysis, 2. Parallel Integration Patterns Research Execution, 3. Analyze and Aggregate Results, 4. Generate Integration Patterns Content, 5. Present Analysis and Continue Option, 6. Handle Continue Selection, APPEND TO DOCUMENT:, Content Structure: (+12 more)
 
-### Community 505 - "Technical Research Step 4: Architectural Patterns"
+### Community 498 - "Community 498"
 Cohesion: 0.10
 Nodes (20): 1. Begin Architectural Patterns Analysis, 2. Web Search for System Architecture Patterns, 3. Web Search for Design Principles, 4. Web Search for Scalability Patterns, 5. Generate Architectural Patterns Content, 6. Present Analysis and Continue Option, 7. Handle Continue Selection, APPEND TO DOCUMENT: (+12 more)
 
-### Community 506 - "Step 4: Extract Information from Communications"
+### Community 499 - "Community 499"
 Cohesion: 0.10
 Nodes (20): 1. Extract Relevant Information from Communications/Documents, 2. Map Extracted Information to Alignment Sections, 3. Apply Extraction Guardrails, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 507 - "Step 6: Explore The Realization"
+### Community 500 - "Community 500"
 Cohesion: 0.10
 Nodes (20): 1. Explore the Realization, 2. Confirm the Realization with Evidence, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Data References, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 508 - "Step 13: Explore The Value We'll Create"
+### Community 501 - "Community 501"
 Cohesion: 0.10
 Nodes (20): 1. Explore the Value We'll Create, 2. Frame as Positive Assumption with Success Metrics, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Data References, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 509 - "Step 18: Synthesize Alignment Document"
+### Community 502 - "Community 502"
 Cohesion: 0.10
 Nodes (20): 1. Crystallize into a Compelling Narrative, 2. Framework Check, 3. Create Alignment Document, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 510 - "Step 34: Finalize Contract"
+### Community 503 - "Community 503"
 Cohesion: 0.10
 Nodes (20): 1. Review the Contract, 2. Handle Post-Signing, 3. Update State, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 511 - "Step 36: Finalize Signoff Document"
+### Community 504 - "Community 504"
 Cohesion: 0.10
 Nodes (20): 1. Present the Signoff Document, 2. Handle Post-Approval, 3. Update State, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 512 - "Step 6: Identify Business Customers (B2B)"
+### Community 505 - "Community 505"
 Cohesion: 0.10
 Nodes (20): 1. Guide Business Customer Definition, 2. Design Log Update, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CONTEXT CARRY-FORWARD (READ BEFORE ASKING QUESTIONS):, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 513 - "Step 7: Identify Target Users"
+### Community 506 - "Community 506"
 Cohesion: 0.10
 Nodes (20): 1. Guide User Description, 2. Design Log Update, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CONTEXT CARRY-FORWARD (READ BEFORE ASKING QUESTIONS):, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 514 - "Step 10A: Define Platform & Device Strategy"
+### Community 507 - "Community 507"
 Cohesion: 0.10
 Nodes (20): 1. Guide Platform Strategy Definition, 2. Capture and Validate, 3. Design Log Update, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, FAILURE: (+12 more)
 
-### Community 515 - "Step 36: Provide Next Phase Activation"
+### Community 508 - "Community 508"
 Cohesion: 0.10
 Nodes (20): 1. Present Activation Options, 2. Set Expectations, 3. Ask About Next Steps, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, FAILURE: (+12 more)
 
-### Community 516 - "Step 1: Documentation Synthesis"
+### Community 509 - "Community 509"
 Cohesion: 0.10
 Nodes (20): 1. Present Documentation Synthesis Workshop Introduction, 2. Receive and Analyze Documentation, 3. Present Analysis Summary, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 517 - "Step 2: Business Goals Extraction"
+### Community 510 - "Community 510"
 Cohesion: 0.10
 Nodes (20): 1. Extract Vision Statement, 2. Extract Strategic Objectives, 3. Present Workshop 1 Summary, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 518 - "Step 3: Target Groups Extraction"
+### Community 511 - "Community 511"
 Cohesion: 0.10
 Nodes (20): 1. Extract Target Groups, 2. Create Detailed Personas, 3. Present Workshop 2 Summary, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 519 - "Step 4: Driving Forces Extraction"
+### Community 512 - "Community 512"
 Cohesion: 0.10
 Nodes (20): 1. Introduce Driving Forces Framework, 2. For Each Persona, Extract Driving Forces, 3. Present Workshop 3 Summary, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 520 - "Step 7: Trigger Mapping Overview"
+### Community 513 - "Community 513"
 Cohesion: 0.10
 Nodes (20): 1. Present Phase 2 Overview, 2. Offer Engagement Mode, 3. Route Based on Selection, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 521 - "Step 12: Extract Features"
+### Community 514 - "Community 514"
 Cohesion: 0.10
 Nodes (20): 1. Read and Extract Features, 2. Present Extracted Features, 3. Wait for User Confirmation, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 522 - "Step 14: Make Initial Assessment"
+### Community 515 - "Community 515"
 Cohesion: 0.10
 Nodes (20): 1. Run Assessment, 2. Present Results, 3. Iterate on Feedback, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 523 - "Step 19: Generate Primary Persona"
+### Community 516 - "Community 516"
 Cohesion: 0.10
 Nodes (20): 1. Gather Input, 2. Generate Document, 3. Save and Confirm, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 524 - "Step 20: Generate Secondary Persona"
+### Community 517 - "Community 517"
 Cohesion: 0.10
 Nodes (20): 1. Gather Input, 2. Generate Document, 3. Save and Confirm, 4. Route to Next Step, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 525 - "Step 21: Generate Tertiary Persona (Optional)"
+### Community 518 - "Community 518"
 Cohesion: 0.10
 Nodes (20): 1. Gather Input, 2. Generate Document, 3. Save and Confirm, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 526 - "Step 23: Quality Check & Verification"
+### Community 519 - "Community 519"
 Cohesion: 0.10
 Nodes (20): 1. Run Quality Verification, 2. Present Verification Results, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Data References, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 527 - "Step 24: Initialize Diagram Structure"
+### Community 520 - "Community 520"
 Cohesion: 0.10
 Nodes (20): 1. Start with Mermaid Configuration, 2. Add Section Comments, 3. Determine Node IDs, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 528 - "Step 25: Format Business Goals Nodes"
+### Community 521 - "Community 521"
 Cohesion: 0.10
 Nodes (20): 1. Format Each Business Goal Node, 2. Choose Appropriate Emoji, 3. Verify Rules Checklist, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 529 - "Step 26: Format Platform Node"
+### Community 522 - "Community 522"
 Cohesion: 0.10
 Nodes (20): 1. Format Platform Node, 2. Craft Transformation Statement, 3. Verify Rules Checklist, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 530 - "Step 27: Format Target Group Nodes"
+### Community 523 - "Community 523"
 Cohesion: 0.10
 Nodes (20): 1. Format Each Target Group Node, 2. Choose and Record Persona Emojis, 3. Verify Rules Checklist, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 531 - "Step 30: Apply Styling"
+### Community 524 - "Community 524"
 Cohesion: 0.10
 Nodes (20): 1. Define Style Classes, 2. Apply Classes to Nodes, 3. Verify Rules Checklist, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 532 - "Step 1: Load Context & Detect Project State"
+### Community 525 - "Community 525"
 Cohesion: 0.10
 Nodes (21): 1. Read Configuration, 2. Read Product Brief, 3. Read Trigger Map, 4. Check for Existing Work, 5. Present Context Summary, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+13 more)
 
-### Community 533 - "Step 1: Detect Epic Completion"
+### Community 526 - "Community 526"
 Cohesion: 0.10
 Nodes (20): 1. Phase 4: UX Design Complete?, 2. Phase 5: Design System Complete?, 3. Flow Completeness, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 534 - "Diagnostic Report Template"
+### Community 527 - "Community 527"
 Cohesion: 0.10
 Nodes (20): Common Issue Types, Complex Fix, ❌ CRITICAL, Design System Violation, Diagnostic Report Template, Example Complete Report, Final Validation Report Format, Incomplete Coverage (+12 more)
 
-### Community 535 - "Step 1: Prototype Setup"
+### Community 528 - "Community 528"
 Cohesion: 0.10
 Nodes (20): 1. User Requests Scenario Setup, 2. Run Initiation Dialog, 3. Create Prototype Folder Structure, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 536 - "Step 4a: Announce Section & Gather Requirements"
+### Community 529 - "Community 529"
 Cohesion: 0.10
 Nodes (20): 1. Announce Section, 2. Read Relevant Specifications, 3. Gather Requirements Summary, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 537 - "Step 4b: Create Story File"
+### Community 530 - "Community 530"
 Cohesion: 0.10
 Nodes (20): 1. Create Story File, 2. Present Story to User, 3. Handle User Response, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 538 - "Step 1: Connection Check and Installation"
+### Community 531 - "Community 531"
 Cohesion: 0.10
 Nodes (20): 1. Check MCP Tool Availability, 2. Guide Setup (If Needed), 3. Verify After Setup, 4. Execute Test Export, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+12 more)
 
-### Community 539 - "Step 1: Load Context"
+### Community 532 - "Community 532"
+Cohesion: 0.10
+Nodes (20): 1. Search for Specification Documents, 2. Handle Found Specifications, 3. Handle Missing Specifications, 4. Validate Coverage, 5. Resolve Gaps, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+12 more)
+
+### Community 533 - "Community 533"
 Cohesion: 0.10
 Nodes (20): 1. Load Icon Requirements, 2. Load Design System Icon Tokens, 3. Check Existing Icons, 4. Present Context Summary, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+12 more)
 
-### Community 540 - "Step 2: Asset Inventory"
+### Community 534 - "Community 534"
 Cohesion: 0.10
 Nodes (20): 1. Build Icon Catalog, 2. Deduplicate, 3. Estimate Batch Size, 4. Present Inventory with Scope Options, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+12 more)
 
-### Community 541 - "Step 2: Asset Inventory"
+### Community 535 - "Community 535"
 Cohesion: 0.10
 Nodes (20): 1. Catalog All Image Placements, 2. Group by Type, 3. Identify Batch Opportunities, 4. Present Inventory, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+12 more)
 
-### Community 542 - "Step 3: Select Style"
+### Community 536 - "Community 536"
 Cohesion: 0.10
 Nodes (20): 1. Load Content Styles, 2. Assign Style Per Batch, 3. Configure Visual Parameters, 4. Confirm Style, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+12 more)
 
-### Community 543 - "Step 2: Asset Inventory"
+### Community 537 - "Community 537"
 Cohesion: 0.10
 Nodes (20): 1. List All Pages, 2. Assess Readiness, 3. Flag Dependencies, 4. Present Inventory, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+12 more)
 
-### Community 544 - "Step 3: Select Style"
+### Community 538 - "Community 538"
 Cohesion: 0.10
 Nodes (20): 1. Load Design Styles, 2. Load Content Styles, 3. Combine with Design System, 4. Confirm Style Selection, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+12 more)
 
-### Community 545 - "Step 1: Load Context"
+### Community 539 - "Community 539"
 Cohesion: 0.10
 Nodes (20): 1. Load Design System Components, 2. Load Design Tokens, 3. Load Page Context, 4. Present Context Summary, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+12 more)
 
-### Community 546 - "Step 2: Asset Inventory"
+### Community 540 - "Community 540"
 Cohesion: 0.10
 Nodes (20): 1. List Component Types, 2. Prioritize, 3. Check Existing Assets, 4. Present Inventory, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+12 more)
 
-### Community 547 - "Step 3: Select Style"
+### Community 541 - "Community 541"
 Cohesion: 0.10
 Nodes (20): 1. Select Rendering Approach, 2. Select State Visualization, 3. Apply Design System Tokens, 4. Confirm Style, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+12 more)
 
-### Community 548 - "Step 1: Load Context"
+### Community 542 - "Community 542"
 Cohesion: 0.10
 Nodes (20): 1. Load Motion Requirements, 2. Load Motion Tokens, 3. Load Visual Assets, 4. Present Context Summary, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+12 more)
 
-### Community 549 - "Step 2: Asset Inventory"
+### Community 543 - "Community 543"
 Cohesion: 0.10
 Nodes (20): 1. Build Motion Asset Catalog, 2. Categorize by Complexity, 3. Document Technical Requirements, 4. Present Inventory with Scope Options, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+12 more)
 
-### Community 550 - "Step 1: Load Context"
+### Community 544 - "Community 544"
 Cohesion: 0.10
 Nodes (20): 1. Load Page Specifications, 2. Load Design System, 3. Check Existing Wireframes, 4. Present Context Summary, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+12 more)
 
-### Community 551 - "Step 3: Select Style"
+### Community 545 - "Community 545"
 Cohesion: 0.10
 Nodes (20): 1. Select Fidelity Level, 2. Load Design Style Influence, 3. Select Annotation Options, 4. Confirm Style, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+12 more)
 
-### Community 552 - "Step 4: UX Alignment"
+### Community 546 - "Community 546"
 Cohesion: 0.10
 Nodes (20): 1. Initialize UX Validation, 2. Search for UX Documentation, 3. If UX Document Exists, 4. If No UX Document, 5. Add Findings to Report, 6. Auto-Proceed to Next Step, A. UX ↔ PRD Alignment, B. UX ↔ Architecture Alignment (+12 more)
 
-### Community 553 - "Domain Research Step 2: Industry Analysis"
+### Community 547 - "Community 547"
 Cohesion: 0.10
 Nodes (20): 1. Begin Industry Analysis, 2. Parallel Industry Research Execution, 3. Analyze and Aggregate Results, 4. Generate Industry Analysis Content, 5. Present Analysis and Continue Option, 6. Handle Continue Selection, APPEND TO DOCUMENT:, Content Structure: (+12 more)
 
-### Community 554 - "Domain Research Step 3: Competitive Landscape"
+### Community 548 - "Community 548"
 Cohesion: 0.10
 Nodes (20): 1. Begin Competitive Landscape Analysis, 2. Parallel Competitive Research Execution, 3. Analyze and Aggregate Results, 4. Generate Competitive Landscape Content, 5. Present Analysis and Continue Option, 6. Handle Continue Selection, APPEND TO DOCUMENT:, COMPETITIVE ANALYSIS STANDARDS: (+12 more)
 
-### Community 555 - "Market Research Step 2: Customer Behavior and Segments"
+### Community 549 - "Community 549"
 Cohesion: 0.10
 Nodes (20): 1. Begin Customer Behavior Analysis, 2. Parallel Customer Behavior Research Execution, 3. Analyze and Aggregate Results, 4. Generate Customer Behavior Content, 5. Present Analysis and Continue Option, 6. Handle Continue Selection, APPEND TO DOCUMENT:, BEHAVIOR ANALYSIS STANDARDS: (+12 more)
 
-### Community 556 - "Market Research Step 3: Customer Pain Points and Needs"
+### Community 550 - "Community 550"
 Cohesion: 0.10
 Nodes (20): 1. Begin Customer Pain Points Analysis, 2. Parallel Pain Points Research Execution, 3. Analyze and Aggregate Results, 4. Generate Customer Pain Points Content, 5. Present Analysis and Continue Option, 6. Handle Continue Selection, APPEND TO DOCUMENT:, Content Structure: (+12 more)
 
-### Community 557 - "Market Research Step 4: Customer Decisions and Journey"
+### Community 551 - "Community 551"
 Cohesion: 0.10
 Nodes (20): 1. Begin Customer Decisions Analysis, 2. Parallel Decisions Research Execution, 3. Analyze and Aggregate Results, 4. Generate Customer Decisions Content, 5. Present Analysis and Continue Option, 6. Handle Continue Selection, APPEND TO DOCUMENT:, Content Structure: (+12 more)
 
-### Community 558 - "resolve_party.py"
+### Community 552 - "Community 552"
 Cohesion: 0.15
 Nodes (20): _alias(), build_collective(), _emit(), find_group(), group_detail(), group_menu(), load_agents(), load_workflow() (+12 more)
 
-### Community 559 - "QA Generate E2E Tests Workflow"
+### Community 553 - "Community 553"
 Cohesion: 0.10
 Nodes (20): Conventions, Execution, Keep It Simple, On Activation, On Complete, Output, Paths, QA Generate E2E Tests Workflow (+12 more)
 
-### Community 560 - "Technical Research Step 2: Technology Stack Analysis"
+### Community 554 - "Community 554"
 Cohesion: 0.10
 Nodes (20): 1. Begin Technology Stack Analysis, 2. Parallel Technology Stack Research Execution, 3. Analyze and Aggregate Results, 4. Generate Technology Stack Content, 5. Present Analysis and Continue Option, 6. Handle Continue Selection, APPEND TO DOCUMENT:, Content Structure: (+12 more)
 
-### Community 561 - "Technical Research Step 3: Integration Patterns"
+### Community 555 - "Community 555"
 Cohesion: 0.10
 Nodes (20): 1. Begin Integration Patterns Analysis, 2. Parallel Integration Patterns Research Execution, 3. Analyze and Aggregate Results, 4. Generate Integration Patterns Content, 5. Present Analysis and Continue Option, 6. Handle Continue Selection, APPEND TO DOCUMENT:, Content Structure: (+12 more)
 
-### Community 562 - "Technical Research Step 4: Architectural Patterns"
+### Community 556 - "Community 556"
 Cohesion: 0.10
 Nodes (20): 1. Begin Architectural Patterns Analysis, 2. Web Search for System Architecture Patterns, 3. Web Search for Design Principles, 4. Web Search for Scalability Patterns, 5. Generate Architectural Patterns Content, 6. Present Analysis and Continue Option, 7. Handle Continue Selection, APPEND TO DOCUMENT: (+12 more)
 
-### Community 563 - "Step 4: Extract Information from Communications"
+### Community 557 - "Community 557"
 Cohesion: 0.10
 Nodes (20): 1. Extract Relevant Information from Communications/Documents, 2. Map Extracted Information to Alignment Sections, 3. Apply Extraction Guardrails, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 564 - "Step 6: Explore The Realization"
-Cohesion: 0.10
-Nodes (20): 1. Explore the Realization, 2. Confirm the Realization with Evidence, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Data References, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
-
-### Community 565 - "Step 13: Explore The Value We'll Create"
+### Community 558 - "Community 558"
 Cohesion: 0.10
 Nodes (20): 1. Explore the Value We'll Create, 2. Frame as Positive Assumption with Success Metrics, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Data References, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 566 - "Step 18: Synthesize Alignment Document"
+### Community 559 - "Community 559"
 Cohesion: 0.10
 Nodes (20): 1. Crystallize into a Compelling Narrative, 2. Framework Check, 3. Create Alignment Document, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 567 - "Step 34: Finalize Contract"
+### Community 560 - "Community 560"
 Cohesion: 0.10
 Nodes (20): 1. Review the Contract, 2. Handle Post-Signing, 3. Update State, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 568 - "Step 36: Finalize Signoff Document"
+### Community 561 - "Community 561"
 Cohesion: 0.10
 Nodes (20): 1. Present the Signoff Document, 2. Handle Post-Approval, 3. Update State, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 569 - "Step 6: Identify Business Customers (B2B)"
+### Community 562 - "Community 562"
 Cohesion: 0.10
 Nodes (20): 1. Guide Business Customer Definition, 2. Design Log Update, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CONTEXT CARRY-FORWARD (READ BEFORE ASKING QUESTIONS):, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 570 - "Step 7: Identify Target Users"
+### Community 563 - "Community 563"
 Cohesion: 0.10
 Nodes (20): 1. Guide User Description, 2. Design Log Update, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CONTEXT CARRY-FORWARD (READ BEFORE ASKING QUESTIONS):, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 571 - "Step 10A: Define Platform & Device Strategy"
+### Community 564 - "Community 564"
 Cohesion: 0.10
 Nodes (20): 1. Guide Platform Strategy Definition, 2. Capture and Validate, 3. Design Log Update, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, FAILURE: (+12 more)
 
-### Community 572 - "Step 36: Provide Next Phase Activation"
+### Community 565 - "Community 565"
 Cohesion: 0.10
 Nodes (20): 1. Present Activation Options, 2. Set Expectations, 3. Ask About Next Steps, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, FAILURE: (+12 more)
 
-### Community 573 - "Step 1: Documentation Synthesis"
+### Community 566 - "Community 566"
 Cohesion: 0.10
 Nodes (20): 1. Present Documentation Synthesis Workshop Introduction, 2. Receive and Analyze Documentation, 3. Present Analysis Summary, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 574 - "Step 2: Business Goals Extraction"
+### Community 567 - "Community 567"
 Cohesion: 0.10
 Nodes (20): 1. Extract Vision Statement, 2. Extract Strategic Objectives, 3. Present Workshop 1 Summary, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 575 - "Step 3: Target Groups Extraction"
+### Community 568 - "Community 568"
 Cohesion: 0.10
 Nodes (20): 1. Extract Target Groups, 2. Create Detailed Personas, 3. Present Workshop 2 Summary, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 576 - "Step 4: Driving Forces Extraction"
+### Community 569 - "Community 569"
 Cohesion: 0.10
 Nodes (20): 1. Introduce Driving Forces Framework, 2. For Each Persona, Extract Driving Forces, 3. Present Workshop 3 Summary, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 577 - "Step 7: Trigger Mapping Overview"
+### Community 570 - "Community 570"
 Cohesion: 0.10
 Nodes (20): 1. Present Phase 2 Overview, 2. Offer Engagement Mode, 3. Route Based on Selection, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 578 - "Step 12: Extract Features"
+### Community 571 - "Community 571"
 Cohesion: 0.10
 Nodes (20): 1. Read and Extract Features, 2. Present Extracted Features, 3. Wait for User Confirmation, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 579 - "Step 14: Make Initial Assessment"
+### Community 572 - "Community 572"
 Cohesion: 0.10
 Nodes (20): 1. Run Assessment, 2. Present Results, 3. Iterate on Feedback, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 580 - "Step 19: Generate Primary Persona"
+### Community 573 - "Community 573"
 Cohesion: 0.10
 Nodes (20): 1. Gather Input, 2. Generate Document, 3. Save and Confirm, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 581 - "Step 20: Generate Secondary Persona"
+### Community 574 - "Community 574"
 Cohesion: 0.10
 Nodes (20): 1. Gather Input, 2. Generate Document, 3. Save and Confirm, 4. Route to Next Step, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 582 - "Step 21: Generate Tertiary Persona (Optional)"
+### Community 575 - "Community 575"
 Cohesion: 0.10
 Nodes (20): 1. Gather Input, 2. Generate Document, 3. Save and Confirm, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 583 - "Step 23: Quality Check & Verification"
+### Community 576 - "Community 576"
 Cohesion: 0.10
 Nodes (20): 1. Run Quality Verification, 2. Present Verification Results, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Data References, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 584 - "Step 24: Initialize Diagram Structure"
+### Community 577 - "Community 577"
 Cohesion: 0.10
 Nodes (20): 1. Start with Mermaid Configuration, 2. Add Section Comments, 3. Determine Node IDs, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 585 - "Step 25: Format Business Goals Nodes"
+### Community 578 - "Community 578"
 Cohesion: 0.10
 Nodes (20): 1. Format Each Business Goal Node, 2. Choose Appropriate Emoji, 3. Verify Rules Checklist, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 586 - "Step 26: Format Platform Node"
+### Community 579 - "Community 579"
 Cohesion: 0.10
 Nodes (20): 1. Format Platform Node, 2. Craft Transformation Statement, 3. Verify Rules Checklist, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 587 - "Step 27: Format Target Group Nodes"
+### Community 580 - "Community 580"
 Cohesion: 0.10
 Nodes (20): 1. Format Each Target Group Node, 2. Choose and Record Persona Emojis, 3. Verify Rules Checklist, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 588 - "Step 30: Apply Styling"
+### Community 581 - "Community 581"
 Cohesion: 0.10
 Nodes (20): 1. Define Style Classes, 2. Apply Classes to Nodes, 3. Verify Rules Checklist, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 589 - "Step 1: Load Context & Detect Project State"
+### Community 582 - "Community 582"
 Cohesion: 0.10
 Nodes (21): 1. Read Configuration, 2. Read Product Brief, 3. Read Trigger Map, 4. Check for Existing Work, 5. Present Context Summary, 6. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE (+13 more)
 
-### Community 590 - "Step 1: Detect Epic Completion"
+### Community 583 - "Community 583"
+Cohesion: 0.10
+Nodes (20): 1. Create Overview File, 2. Document Structure, 3. Verify Links, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
+
+### Community 584 - "Community 584"
 Cohesion: 0.10
 Nodes (20): 1. Phase 4: UX Design Complete?, 2. Phase 5: Design System Complete?, 3. Flow Completeness, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 591 - "Diagnostic Report Template"
+### Community 585 - "Community 585"
 Cohesion: 0.10
 Nodes (20): Common Issue Types, Complex Fix, ❌ CRITICAL, Design System Violation, Diagnostic Report Template, Example Complete Report, Final Validation Report Format, Incomplete Coverage (+12 more)
 
-### Community 592 - "Step 1: Prototype Setup"
+### Community 586 - "Community 586"
 Cohesion: 0.10
 Nodes (20): 1. User Requests Scenario Setup, 2. Run Initiation Dialog, 3. Create Prototype Folder Structure, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 593 - "Step 4a: Announce Section & Gather Requirements"
+### Community 587 - "Community 587"
 Cohesion: 0.10
 Nodes (20): 1. Announce Section, 2. Read Relevant Specifications, 3. Gather Requirements Summary, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 594 - "Step 4b: Create Story File"
+### Community 588 - "Community 588"
 Cohesion: 0.10
 Nodes (20): 1. Create Story File, 2. Present Story to User, 3. Handle User Response, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+12 more)
 
-### Community 595 - "Step 1: Connection Check and Installation"
+### Community 589 - "Community 589"
 Cohesion: 0.10
 Nodes (20): 1. Check MCP Tool Availability, 2. Guide Setup (If Needed), 3. Verify After Setup, 4. Execute Test Export, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+12 more)
 
-### Community 596 - "Step 1: Load Context"
+### Community 590 - "Community 590"
 Cohesion: 0.10
 Nodes (20): 1. Load Icon Requirements, 2. Load Design System Icon Tokens, 3. Check Existing Icons, 4. Present Context Summary, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+12 more)
 
-### Community 597 - "Step 2: Asset Inventory"
+### Community 591 - "Community 591"
 Cohesion: 0.10
 Nodes (20): 1. Build Icon Catalog, 2. Deduplicate, 3. Estimate Batch Size, 4. Present Inventory with Scope Options, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+12 more)
 
-### Community 598 - "Step 2: Asset Inventory"
+### Community 592 - "Community 592"
 Cohesion: 0.10
 Nodes (20): 1. Catalog All Image Placements, 2. Group by Type, 3. Identify Batch Opportunities, 4. Present Inventory, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+12 more)
 
-### Community 599 - "Step 3: Select Style"
+### Community 593 - "Community 593"
 Cohesion: 0.10
 Nodes (20): 1. Load Content Styles, 2. Assign Style Per Batch, 3. Configure Visual Parameters, 4. Confirm Style, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+12 more)
 
-### Community 600 - "Step 2: Asset Inventory"
+### Community 594 - "Community 594"
 Cohesion: 0.10
 Nodes (20): 1. List All Pages, 2. Assess Readiness, 3. Flag Dependencies, 4. Present Inventory, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+12 more)
 
-### Community 601 - "Step 3: Select Style"
+### Community 595 - "Community 595"
 Cohesion: 0.10
 Nodes (20): 1. Load Design Styles, 2. Load Content Styles, 3. Combine with Design System, 4. Confirm Style Selection, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+12 more)
 
-### Community 602 - "Step 1: Load Context"
+### Community 596 - "Community 596"
 Cohesion: 0.10
 Nodes (20): 1. Load Design System Components, 2. Load Design Tokens, 3. Load Page Context, 4. Present Context Summary, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+12 more)
 
-### Community 603 - "Step 2: Asset Inventory"
+### Community 597 - "Community 597"
 Cohesion: 0.10
 Nodes (20): 1. List Component Types, 2. Prioritize, 3. Check Existing Assets, 4. Present Inventory, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+12 more)
 
-### Community 604 - "Step 3: Select Style"
+### Community 598 - "Community 598"
 Cohesion: 0.10
 Nodes (20): 1. Select Rendering Approach, 2. Select State Visualization, 3. Apply Design System Tokens, 4. Confirm Style, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+12 more)
 
-### Community 605 - "Step 1: Load Context"
+### Community 599 - "Community 599"
 Cohesion: 0.10
 Nodes (20): 1. Load Motion Requirements, 2. Load Motion Tokens, 3. Load Visual Assets, 4. Present Context Summary, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+12 more)
 
-### Community 606 - "Step 2: Asset Inventory"
+### Community 600 - "Community 600"
 Cohesion: 0.10
 Nodes (20): 1. Build Motion Asset Catalog, 2. Categorize by Complexity, 3. Document Technical Requirements, 4. Present Inventory with Scope Options, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+12 more)
 
-### Community 607 - "Step 1: Load Context"
+### Community 601 - "Community 601"
 Cohesion: 0.10
 Nodes (20): 1. Load Page Specifications, 2. Load Design System, 3. Check Existing Wireframes, 4. Present Context Summary, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+12 more)
 
-### Community 608 - "Step 3: Select Style"
+### Community 602 - "Community 602"
 Cohesion: 0.10
 Nodes (20): 1. Select Fidelity Level, 2. Load Design Style Influence, 3. Select Annotation Options, 4. Confirm Style, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+12 more)
 
-### Community 609 - "memlog.py"
+### Community 603 - "Community 603"
 Cohesion: 0.22
 Nodes (20): ack(), add_target(), cmd_append(), cmd_init(), cmd_set(), entry_count(), main(), now() (+12 more)
 
-### Community 610 - "Freya's Agentic Development Guide"
+### Community 604 - "Community 604"
 Cohesion: 0.10
 Nodes (20): Agent Startup Protocol, Best Practices, Core Principle, Design Log, Execution, Feedback Protocol, Fidelity Levels, Freya's Agentic Development Guide (+12 more)
 
-### Community 611 - "PRD ANALYSIS PROCESS:"
+### Community 605 - "Community 605"
 Cohesion: 0.10
 Nodes (19): 1. Initialize PRD Analysis, 2. Load and Read PRD, 3. Extract Functional Requirements (FRs), 4. Extract Non-Functional Requirements (NFRs), 5. Document Additional Requirements, 6. Add to Assessment Report, 7. Auto-Proceed to Next Step, EXECUTION PROTOCOLS: (+11 more)
 
-### Community 612 - "EPIC COVERAGE VALIDATION PROCESS:"
+### Community 606 - "Community 606"
 Cohesion: 0.10
 Nodes (19): 1. Initialize Coverage Validation, 2. Load Epics Document, 3. Extract Epic FR Coverage, 4. Compare Coverage Against PRD, 5. Document Missing Coverage, 6. Add to Assessment Report, 7. Auto-Proceed to Next Step, EPIC COVERAGE VALIDATION PROCESS: (+11 more)
 
-### Community 613 - "ScannerTest"
+### Community 607 - "Community 607"
 Cohesion: 0.16
 Nodes (3): _make_skill(), Path, ScannerTest
 
-### Community 614 - "Step 2: Determine If Alignment & Signoff Is Needed"
+### Community 608 - "Community 608"
+Cohesion: 0.10
+Nodes (19): 1. Begin Technology Stack Analysis, 2. Parallel Technology Stack Research Execution, 3. Analyze and Aggregate Results, 4. Generate Technology Stack Content, 5. Present Analysis and Continue Option, 6. Handle Continue Selection, APPEND TO DOCUMENT:, Content Structure: (+11 more)
+
+### Community 609 - "Community 609"
 Cohesion: 0.10
 Nodes (19): 1. Determine the Path Based on User's Situation, 2. Handle Decision Point, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 615 - "Step 3: Offer to Extract Information from Communications"
+### Community 610 - "Community 610"
 Cohesion: 0.10
 Nodes (19): 1. Ask If They Have Relevant Communications or Documents, 2. Handle Decision Point, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 616 - "Step 5: Detect Starting Point"
+### Community 611 - "Community 611"
 Cohesion: 0.10
 Nodes (19): 1. Ask Where They Would Like to Start, 2. Handle Decision Point, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 617 - "Step 7: Explore Solution (If Starting with Solution)"
+### Community 612 - "Community 612"
 Cohesion: 0.10
 Nodes (20): 1. Capture the Solution, 2. Explore the Underlying Realization, 3. Connect to Why It Matters, 4. Explore Other Approaches, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+12 more)
 
-### Community 618 - "Step 8: Explore Why It Matters"
+### Community 613 - "Community 613"
 Cohesion: 0.10
 Nodes (19): 1. Explore Why It Matters and Who We Help, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Data References, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 619 - "Step 9: Explore How We See It Working"
+### Community 614 - "Community 614"
 Cohesion: 0.10
 Nodes (19): 1. Explore How They See It Working, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Data References, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 620 - "Step 10: Explore Paths We Explored"
+### Community 615 - "Community 615"
 Cohesion: 0.10
 Nodes (19): 1. Explore Paths They Explored, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Data References, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 621 - "Step 12: Explore The Path Forward"
+### Community 616 - "Community 616"
 Cohesion: 0.10
 Nodes (19): 1. Explore the Path Forward, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Data References, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 622 - "Step 14: Explore Cost of Inaction"
+### Community 617 - "Community 617"
 Cohesion: 0.10
 Nodes (19): 1. Explore Cost of Inaction, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Data References, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 623 - "Step 15: Explore Our Commitment"
-Cohesion: 0.10
-Nodes (19): 1. Explore Our Commitment, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Data References, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
-
-### Community 624 - "Step 17: Reflect Back What You've Captured"
-Cohesion: 0.10
-Nodes (19): 1. Reflect Back What You've Captured, 2. Handle Adjustments, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
-
-### Community 625 - "Step 20: Present Alignment Document for Approval"
-Cohesion: 0.10
-Nodes (19): 1. Present the Alignment Document, 2. Handle Decision Point, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
-
-### Community 626 - "Step 21: Offer to Generate Signoff Document"
-Cohesion: 0.10
-Nodes (19): 1. Offer Signoff Document Options, 2. Handle Decision Point, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
-
-### Community 627 - "Step 22: Determine Business Model"
-Cohesion: 0.10
-Nodes (19): 1. Present Business Model Options, 2. Confirm Understanding, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
-
-### Community 628 - "Step 27: Build Section 5 - Timeline"
-Cohesion: 0.10
-Nodes (19): 1. Build Section 5: Timeline, 2. Route Based on Business Model, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
-
-### Community 629 - "Step 30: Build Section 8 - Not to Exceed Clause (Conditional)"
-Cohesion: 0.10
-Nodes (19): 1. Determine Applicability, 2. Build Section If Applicable, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
-
-### Community 630 - "Step 35: Build Internal Signoff Document"
-Cohesion: 0.10
-Nodes (19): 1. Build Internal Signoff Document, 2. Company Signoff Format (Optional), 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
-
-### Community 631 - "{scenario-number}-{scenario-name}"
-Cohesion: 0.10
-Nodes (19): API Endpoints Used, Data Flow, Design Assets, Development Notes, Edge Cases & Error Handling, Negative Drivers Avoided, Pages in This Scenario, Positive Drivers Addressed (+11 more)
-
-### Community 632 - "Step 1: Welcome and Set Expectations"
-Cohesion: 0.10
-Nodes (19): 1. Welcome the User, 2. Design Log Update, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
-
-### Community 633 - "Step 33: Analyze Product Brief Completeness"
-Cohesion: 0.10
-Nodes (19): 1. What to Extract, 2. Analysis, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, FAILURE:, File References (+11 more)
-
-### Community 634 - "Step 34: Create Handover Summary"
-Cohesion: 0.10
-Nodes (19): 1. Present Handover Package, 2. Explain What Comes Next, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, FAILURE:, File References (+11 more)
-
-### Community 635 - "Step 13: Confirm Assessment Approach"
-Cohesion: 0.10
-Nodes (19): 1. Explain Assessment Approach, 2. Wait for User Confirmation, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
-
-### Community 636 - "Step 32: Generate All Trigger Map Documentation"
-Cohesion: 0.10
-Nodes (19): 1. Execute Document Generation, 2. Confirm Generation Complete (Completeness Gate), 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
-
-### Community 637 - "Step 33: Add Cross-References"
-Cohesion: 0.10
-Nodes (19): 1. Add Links to Each Document, 2. Verify Navigation, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
-
-### Community 638 - "Step 34: Final Quality Check"
-Cohesion: 0.10
-Nodes (19): 1. Run Verification, 2. Fix Any Issues, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
-
-### Community 639 - "Step 35: Create Handover Package"
-Cohesion: 0.10
-Nodes (19): 1. Present Completion Summary, 2. Present Handover Summary, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
-
-### Community 640 - "Page Specification Workflow"
-Cohesion: 0.10
-Nodes (20): Benefits, Designer Control Points, Detail Level, Detailed Page Spec, Example: TaskFlow Calendar Page, Feedback Loop, Full Workflow, Next Steps (+12 more)
-
-### Community 641 - "Step 1: Sketch Analysis"
-Cohesion: 0.10
-Nodes (20): 1. Holistic Sketch Reading, 5. Batch Specification Generation, 6. Present MENU OPTIONS, <action>Store confirmed content for this object</action>, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, {{#each text_objects}}, EXECUTION PROTOCOLS: (+12 more)
-
-### Community 642 - "Step 4: Content & Languages"
-Cohesion: 0.10
-Nodes (19): 1. Identify Languages, 2. Gather Content, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
-
-### Community 643 - "Step 6: States"
-Cohesion: 0.10
-Nodes (19): 1. Define Page-Level States, 2. Define Component States, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
-
-### Community 644 - "Step 7: Validation & Errors"
-Cohesion: 0.10
-Nodes (19): 1. Define Validation Rules, 2. Define Error Messages, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
-
-### Community 645 - "Step 8: Page Init - Entry Point"
-Cohesion: 0.10
-Nodes (19): 1. Route to Page Creation, 2. Philosophy, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
-
-### Community 646 - "Step 0: Nano Banana Setup & Verify"
-Cohesion: 0.10
-Nodes (19): 1. Check Connection, 2. Verify Output Directory, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
-
-### Community 647 - "{scenario-number}-{scenario-name}"
-Cohesion: 0.10
-Nodes (19): API Endpoints Used, Data Flow, Design Assets, Development Notes, Edge Cases & Error Handling, Negative Drivers Avoided, Pages in This Scenario, Positive Drivers Addressed (+11 more)
-
-### Community 648 - "Phase 4: UX Design"
-Cohesion: 0.10
-Nodes (19): 1. Configuration Loading, 2. Design Log Loading, 3. Mode Determination, 4. Adaptive Dashboard, 4a. Build Status Overview, 4b. Suggest Where to Continue, 4c. Design Log Updates, 4d. Agent Experiences (+11 more)
-
-### Community 649 - "Dev Mode - Usage Guide"
-Cohesion: 0.10
-Nodes (19): 🎓 Best Practices, Designer's Perspective:, Dev Mode - Usage Guide, 📋 Example Workflow, ❓ FAQs, For Designers:, 🔧 For Developers, For Testers: (+11 more)
-
-### Community 650 - "Step 2: Identify Code to Figma Type"
-Cohesion: 0.10
-Nodes (19): 1. Analyze User Request, 2. Apply Decision Tree, 3. Confirm with User, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+11 more)
-
-### Community 651 - "Step 2: Asset Inventory"
-Cohesion: 0.10
-Nodes (19): 1. List All Pages, 2. Check What Exists, 3. Present Inventory, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+11 more)
-
-### Community 652 - "Content Creation Workshop - Output"
-Cohesion: 0.10
-Nodes (19): Content Creation Workshop - Output, Content Filtering, Content Framing, Content Strategy, Content Structure, Final Content, FINAL CONTENT (Implementation-Ready), Implementation Notes (+11 more)
-
-### Community 653 - "PRD ANALYSIS PROCESS:"
-Cohesion: 0.10
-Nodes (19): 1. Initialize PRD Analysis, 2. Load and Read PRD, 3. Extract Functional Requirements (FRs), 4. Extract Non-Functional Requirements (NFRs), 5. Document Additional Requirements, 6. Add to Assessment Report, 7. Auto-Proceed to Next Step, EXECUTION PROTOCOLS: (+11 more)
-
-### Community 654 - "EPIC COVERAGE VALIDATION PROCESS:"
-Cohesion: 0.10
-Nodes (19): 1. Initialize Coverage Validation, 2. Load Epics Document, 3. Extract Epic FR Coverage, 4. Compare Coverage Against PRD, 5. Document Missing Coverage, 6. Add to Assessment Report, 7. Auto-Proceed to Next Step, EPIC COVERAGE VALIDATION PROCESS: (+11 more)
-
-### Community 655 - "ScannerTest"
-Cohesion: 0.16
-Nodes (3): _make_skill(), Path, ScannerTest
-
-### Community 656 - "Step 2: Determine If Alignment & Signoff Is Needed"
-Cohesion: 0.10
-Nodes (19): 1. Determine the Path Based on User's Situation, 2. Handle Decision Point, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
-
-### Community 657 - "Step 3: Offer to Extract Information from Communications"
-Cohesion: 0.10
-Nodes (19): 1. Ask If They Have Relevant Communications or Documents, 2. Handle Decision Point, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
-
-### Community 658 - "Step 5: Detect Starting Point"
-Cohesion: 0.10
-Nodes (19): 1. Ask Where They Would Like to Start, 2. Handle Decision Point, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
-
-### Community 659 - "Step 7: Explore Solution (If Starting with Solution)"
-Cohesion: 0.10
-Nodes (20): 1. Capture the Solution, 2. Explore the Underlying Realization, 3. Connect to Why It Matters, 4. Explore Other Approaches, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+12 more)
-
-### Community 660 - "Step 8: Explore Why It Matters"
-Cohesion: 0.10
-Nodes (19): 1. Explore Why It Matters and Who We Help, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Data References, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
-
-### Community 661 - "Step 9: Explore How We See It Working"
-Cohesion: 0.10
-Nodes (19): 1. Explore How They See It Working, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Data References, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
-
-### Community 662 - "Step 12: Explore The Path Forward"
-Cohesion: 0.10
-Nodes (19): 1. Explore the Path Forward, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Data References, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
-
-### Community 663 - "Step 14: Explore Cost of Inaction"
-Cohesion: 0.10
-Nodes (19): 1. Explore Cost of Inaction, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Data References, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
-
-### Community 664 - "Step 15: Explore Our Commitment"
-Cohesion: 0.10
-Nodes (19): 1. Explore Our Commitment, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Data References, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
-
-### Community 665 - "Step 16: Explore Summary"
+### Community 618 - "Community 618"
 Cohesion: 0.10
 Nodes (19): 1. Explore the Summary, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Data References, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 666 - "Step 17: Reflect Back What You've Captured"
+### Community 619 - "Community 619"
 Cohesion: 0.10
 Nodes (19): 1. Reflect Back What You've Captured, 2. Handle Adjustments, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 667 - "Step 20: Present Alignment Document for Approval"
+### Community 620 - "Community 620"
 Cohesion: 0.10
 Nodes (19): 1. Present the Alignment Document, 2. Handle Decision Point, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 668 - "Step 21: Offer to Generate Signoff Document"
+### Community 621 - "Community 621"
 Cohesion: 0.10
 Nodes (19): 1. Offer Signoff Document Options, 2. Handle Decision Point, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 669 - "Step 22: Determine Business Model"
+### Community 622 - "Community 622"
 Cohesion: 0.10
 Nodes (19): 1. Present Business Model Options, 2. Confirm Understanding, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 670 - "Step 27: Build Section 5 - Timeline"
+### Community 623 - "Community 623"
 Cohesion: 0.10
 Nodes (19): 1. Build Section 5: Timeline, 2. Route Based on Business Model, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 671 - "Step 30: Build Section 8 - Not to Exceed Clause (Conditional)"
+### Community 624 - "Community 624"
 Cohesion: 0.10
 Nodes (19): 1. Determine Applicability, 2. Build Section If Applicable, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 672 - "Step 35: Build Internal Signoff Document"
+### Community 625 - "Community 625"
 Cohesion: 0.10
 Nodes (19): 1. Build Internal Signoff Document, 2. Company Signoff Format (Optional), 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 673 - "{scenario-number}-{scenario-name}"
+### Community 626 - "Community 626"
 Cohesion: 0.10
 Nodes (19): API Endpoints Used, Data Flow, Design Assets, Development Notes, Edge Cases & Error Handling, Negative Drivers Avoided, Pages in This Scenario, Positive Drivers Addressed (+11 more)
 
-### Community 674 - "Step 1: Welcome and Set Expectations"
+### Community 627 - "Community 627"
 Cohesion: 0.10
 Nodes (19): 1. Welcome the User, 2. Design Log Update, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 675 - "Step 33: Analyze Product Brief Completeness"
+### Community 628 - "Community 628"
 Cohesion: 0.10
 Nodes (19): 1. What to Extract, 2. Analysis, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, FAILURE:, File References (+11 more)
 
-### Community 676 - "Step 34: Create Handover Summary"
+### Community 629 - "Community 629"
 Cohesion: 0.10
 Nodes (19): 1. Present Handover Package, 2. Explain What Comes Next, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, FAILURE:, File References (+11 more)
 
-### Community 677 - "Step 13: Confirm Assessment Approach"
+### Community 630 - "Community 630"
 Cohesion: 0.10
 Nodes (19): 1. Explain Assessment Approach, 2. Wait for User Confirmation, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 678 - "Step 32: Generate All Trigger Map Documentation"
+### Community 631 - "Community 631"
 Cohesion: 0.10
 Nodes (19): 1. Execute Document Generation, 2. Confirm Generation Complete (Completeness Gate), 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 679 - "Step 33: Add Cross-References"
+### Community 632 - "Community 632"
 Cohesion: 0.10
 Nodes (19): 1. Add Links to Each Document, 2. Verify Navigation, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 680 - "Step 34: Final Quality Check"
+### Community 633 - "Community 633"
 Cohesion: 0.10
 Nodes (19): 1. Run Verification, 2. Fix Any Issues, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 681 - "Step 35: Create Handover Package"
+### Community 634 - "Community 634"
 Cohesion: 0.10
 Nodes (19): 1. Present Completion Summary, 2. Present Handover Summary, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 682 - "Page Specification Workflow"
+### Community 635 - "Community 635"
 Cohesion: 0.10
 Nodes (20): Benefits, Designer Control Points, Detail Level, Detailed Page Spec, Example: TaskFlow Calendar Page, Feedback Loop, Full Workflow, Next Steps (+12 more)
 
-### Community 683 - "Step 1: Sketch Analysis"
+### Community 636 - "Community 636"
+Cohesion: 0.10
+Nodes (19): 1. Page Files (`Pages/*.md`), 2. Component Files (`Components/*.md`), 3. Feature Files (`Features/*.md`), API Endpoints, Component File Structure, Configuration Options, Data Models, Data Requirements (+11 more)
+
+### Community 637 - "Community 637"
 Cohesion: 0.10
 Nodes (20): 1. Holistic Sketch Reading, 5. Batch Specification Generation, 6. Present MENU OPTIONS, <action>Store confirmed content for this object</action>, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, {{#each text_objects}}, EXECUTION PROTOCOLS: (+12 more)
 
-### Community 684 - "Step 4: Content & Languages"
-Cohesion: 0.10
-Nodes (19): 1. Identify Languages, 2. Gather Content, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
-
-### Community 685 - "Step 6: States"
+### Community 638 - "Community 638"
 Cohesion: 0.10
 Nodes (19): 1. Define Page-Level States, 2. Define Component States, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 686 - "Step 7: Validation & Errors"
+### Community 639 - "Community 639"
 Cohesion: 0.10
 Nodes (19): 1. Define Validation Rules, 2. Define Error Messages, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 687 - "Step 8: Page Init - Entry Point"
+### Community 640 - "Community 640"
 Cohesion: 0.10
 Nodes (19): 1. Route to Page Creation, 2. Philosophy, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 688 - "Step 0: Nano Banana Setup & Verify"
+### Community 641 - "Community 641"
 Cohesion: 0.10
 Nodes (19): 1. Check Connection, 2. Verify Output Directory, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 689 - "{scenario-number}-{scenario-name}"
+### Community 642 - "Community 642"
 Cohesion: 0.10
 Nodes (19): API Endpoints Used, Data Flow, Design Assets, Development Notes, Edge Cases & Error Handling, Negative Drivers Avoided, Pages in This Scenario, Positive Drivers Addressed (+11 more)
 
-### Community 690 - "Phase 4: UX Design"
+### Community 643 - "Community 643"
 Cohesion: 0.10
 Nodes (19): 1. Configuration Loading, 2. Design Log Loading, 3. Mode Determination, 4. Adaptive Dashboard, 4a. Build Status Overview, 4b. Suggest Where to Continue, 4c. Design Log Updates, 4d. Agent Experiences (+11 more)
 
-### Community 691 - "Dev Mode - Usage Guide"
+### Community 644 - "Community 644"
 Cohesion: 0.10
 Nodes (19): 🎓 Best Practices, Designer's Perspective:, Dev Mode - Usage Guide, 📋 Example Workflow, ❓ FAQs, For Designers:, 🔧 For Developers, For Testers: (+11 more)
 
-### Community 692 - "Step 2: Identify Code to Figma Type"
+### Community 645 - "Community 645"
 Cohesion: 0.10
 Nodes (19): 1. Analyze User Request, 2. Apply Decision Tree, 3. Confirm with User, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+11 more)
 
-### Community 693 - "Step 2: Asset Inventory"
+### Community 646 - "Community 646"
 Cohesion: 0.10
 Nodes (19): 1. List All Pages, 2. Check What Exists, 3. Present Inventory, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+11 more)
 
-### Community 694 - "Content Creation Workshop - Output"
+### Community 647 - "Community 647"
 Cohesion: 0.10
 Nodes (19): Content Creation Workshop - Output, Content Filtering, Content Framing, Content Strategy, Content Structure, Final Content, FINAL CONTENT (Implementation-Ready), Implementation Notes (+11 more)
 
-### Community 695 - "Step 6: Final Assessment"
-Cohesion: 0.11
-Nodes (18): 1. Initialize Final Assessment, 2. Review Previous Findings, 3. Add Final Assessment Section, 4. Complete the Report, 5. Present Completion, EXECUTION PROTOCOLS:, FINAL ASSESSMENT PROCESS:, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+### Community 648 - "Community 648"
+Cohesion: 0.10
+Nodes (19): 1. Initialize PRD Analysis, 2. Load and Read PRD, 3. Extract Functional Requirements (FRs), 4. Extract Non-Functional Requirements (NFRs), 5. Document Additional Requirements, 6. Add to Assessment Report, 7. Auto-Proceed to Next Step, EXECUTION PROTOCOLS: (+11 more)
 
-### Community 696 - "properties"
-Cohesion: 0.11
-Nodes (19): description, type, description, type, description, type, properties, current_step (+11 more)
+### Community 649 - "Community 649"
+Cohesion: 0.10
+Nodes (19): 1. Initialize Coverage Validation, 2. Load Epics Document, 3. Extract Epic FR Coverage, 4. Compare Coverage Against PRD, 5. Document Missing Coverage, 6. Add to Assessment Report, 7. Auto-Proceed to Next Step, EPIC COVERAGE VALIDATION PROCESS: (+11 more)
 
-### Community 697 - "{{project_name}} - Source Tree Analysis"
-Cohesion: 0.11
-Nodes (18): Asset Locations, Complete Directory Structure, Configuration Files, Critical Directories, Entry Points, File Organization Patterns, {{file_type}}, `{{folder_path}}` (+10 more)
+### Community 650 - "Community 650"
+Cohesion: 0.16
+Nodes (3): _make_skill(), Path, ScannerTest
 
-### Community 698 - "Editorial Review - Structure"
-Cohesion: 0.11
-Nodes (18): Editorial Review - Structure, Explanation (Conceptual), HALT CONDITIONS, Human-Reader Principles, LLM-Reader Principles, Principles, Prompt/Task Definition (Functional), Reference/Database (+10 more)
+### Community 651 - "Community 651"
+Cohesion: 0.10
+Nodes (19): 1. Determine the Path Based on User's Situation, 2. Handle Decision Point, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 699 - "Market Research Step 1: Market Research Initialization"
-Cohesion: 0.11
-Nodes (18): 1. Confirm Research Understanding, 2. Refine Research Scope, 3. Document Initial Scope, 4. Present Confirmation and Continue Option, 5. Handle User Response, CONTEXT BOUNDARIES:, EXECUTION PROTOCOLS:, FAILURE MODES: (+10 more)
+### Community 652 - "Community 652"
+Cohesion: 0.10
+Nodes (19): 1. Ask If They Have Relevant Communications or Documents, 2. Handle Decision Point, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 700 - "Market Research Step 5: Competitive Analysis"
-Cohesion: 0.11
-Nodes (18): 1. Begin Competitive Analysis, 2. Generate Competitive Analysis Content, 3. Present Analysis and Complete Option, 4. Handle Complete Selection, APPEND TO DOCUMENT:, COMPETITIVE ANALYSIS SEQUENCE:, COMPETITIVE RESEARCH PROTOCOLS:, Content Structure: (+10 more)
+### Community 653 - "Community 653"
+Cohesion: 0.10
+Nodes (19): 1. Ask Where They Would Like to Start, 2. Handle Decision Point, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 701 - "Step 1: Understand Situation"
-Cohesion: 0.11
-Nodes (18): 1. Ask the User to Clarify Their Situation, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+### Community 654 - "Community 654"
+Cohesion: 0.10
+Nodes (20): 1. Capture the Solution, 2. Explore the Underlying Realization, 3. Connect to Why It Matters, 4. Explore Other Approaches, 5. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS: (+12 more)
 
-### Community 702 - "Step 23: Build Section 1 - Project Overview"
-Cohesion: 0.11
-Nodes (18): 1. Build Section 1: Project Overview, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+### Community 655 - "Community 655"
+Cohesion: 0.10
+Nodes (19): 1. Explore Why It Matters and Who We Help, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Data References, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 703 - "Step 24: Build Section 2 - Business Model"
-Cohesion: 0.11
-Nodes (18): 1. Build Section 2: Business Model, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+### Community 656 - "Community 656"
+Cohesion: 0.10
+Nodes (19): 1. Explore How They See It Working, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Data References, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 704 - "Step 25: Build Section 3 - Scope of Work"
-Cohesion: 0.11
-Nodes (18): 1. Build Section 3: Scope of Work, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+### Community 657 - "Community 657"
+Cohesion: 0.10
+Nodes (19): 1. Explore Paths They Explored, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Data References, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 705 - "Step 26: Build Section 4 - Our Commitment & Payment Terms"
-Cohesion: 0.11
-Nodes (18): 1. Build Section 4: Our Commitment & Payment Terms, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+### Community 658 - "Community 658"
+Cohesion: 0.10
+Nodes (19): 1. Explore the Path Forward, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Data References, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 706 - "Step 28: Build Section 6 - Availability (Retainer Only)"
-Cohesion: 0.11
-Nodes (18): 1. Build Section 6: Availability (Only for Retainer model), 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+### Community 659 - "Community 659"
+Cohesion: 0.10
+Nodes (19): 1. Explore Cost of Inaction, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Data References, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 707 - "Step 29: Build Section 7 - Confidentiality Clause"
-Cohesion: 0.11
-Nodes (18): 1. Build Section 7: Confidentiality Clause, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+### Community 660 - "Community 660"
+Cohesion: 0.10
+Nodes (19): 1. Explore Our Commitment, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Data References, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 708 - "Step 31: Build Section 9 - Work Initiation"
-Cohesion: 0.11
-Nodes (18): 1. Build Section 9: Work Initiation, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+### Community 661 - "Community 661"
+Cohesion: 0.10
+Nodes (19): 1. Explore the Summary, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Data References, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 709 - "Step 32: Build Section 10 - Terms and Conditions"
-Cohesion: 0.11
-Nodes (18): 1. Build Section 10: Terms and Conditions, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+### Community 662 - "Community 662"
+Cohesion: 0.10
+Nodes (19): 1. Reflect Back What You've Captured, 2. Handle Adjustments, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 710 - "Step 33: Build Section 11 - Approval"
-Cohesion: 0.11
-Nodes (18): 1. Build Section 11: Approval, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+### Community 663 - "Community 663"
+Cohesion: 0.10
+Nodes (19): 1. Present the Alignment Document, 2. Handle Decision Point, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 711 - "Document Structure for EACH Persona"
-Cohesion: 0.11
-Nodes (18): 10. Impact on Business Goals, 11. Success Metrics (PRIMARY especially), 12. Transformation Journey (PRIMARY persona especially), 13. Related Documents Footer, 1. Header, 2. Profile Summary, 2a. Visual Representation, 3. Background (+10 more)
+### Community 664 - "Community 664"
+Cohesion: 0.10
+Nodes (19): 1. Offer Signoff Document Options, 2. Handle Decision Point, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 712 - "Format Requirements"
-Cohesion: 0.11
-Nodes (18): 1. Mermaid Configuration, 2. Flowchart Direction, 3. Node Content Formatting, 4. Business Goals Nodes (Left Column), 5. Platform Node (Center), 6. Target Group Nodes, 7. Driving Forces Nodes, 8. Connections (+10 more)
+### Community 665 - "Community 665"
+Cohesion: 0.10
+Nodes (19): 1. Present Business Model Options, 2. Confirm Understanding, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 713 - "Step 16: Feature Workshop Wrap-Up"
-Cohesion: 0.11
-Nodes (18): 1. Present Completion Summary, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+### Community 666 - "Community 666"
+Cohesion: 0.10
+Nodes (19): 1. Build Section 5: Timeline, 2. Route Based on Business Model, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 714 - "Step 37: Provide UX Design Activation"
-Cohesion: 0.11
-Nodes (18): 1. Present Activation Instructions, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+### Community 667 - "Community 667"
+Cohesion: 0.10
+Nodes (19): 1. Determine Applicability, 2. Build Section If Applicable, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 715 - "Document Structure for EACH Persona"
-Cohesion: 0.11
-Nodes (18): 10. Impact on Business Goals, 11. Success Metrics (PRIMARY especially), 12. Transformation Journey (PRIMARY persona especially), 13. Related Documents Footer, 1. Header, 2. Profile Summary, 2a. Visual Representation, 3. Background (+10 more)
+### Community 668 - "Community 668"
+Cohesion: 0.10
+Nodes (19): 1. Build Internal Signoff Document, 2. Company Signoff Format (Optional), 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 716 - "Step 6: Generate Scenario Overview"
-Cohesion: 0.11
-Nodes (19): 1. Create Overview File, 2. Document Structure, 3. Verify Links, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+11 more)
+### Community 669 - "Community 669"
+Cohesion: 0.10
+Nodes (19): API Endpoints Used, Data Flow, Design Assets, Development Notes, Edge Cases & Error Handling, Negative Drivers Avoided, Pages in This Scenario, Positive Drivers Addressed (+11 more)
 
-### Community 717 - "Why This Works"
-Cohesion: 0.11
-Nodes (18): Browser review catches what wireframes can't, Communication During Refinement, Conversation resolves the hard questions first, Excalidraw is the right fidelity, Export = approval, Overview, Pattern recognition — reflect, don't interrogate, Short jump to code (+10 more)
+### Community 670 - "Community 670"
+Cohesion: 0.10
+Nodes (19): 1. Welcome the User, 2. Design Log Update, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 718 - "Quick Reference: Sketch Text Analysis"
-Cohesion: 0.11
-Nodes (18): 1. Line Thickness = Font Weight (Relative), 2. Vertical Spacing = Font Size (Context-Based), Body Text (Paragraph), Common Patterns, Complete Analysis Pattern, ⚠️ Confusion Warning, Cross-Page Reference Strategy, Example: Hero Headline (+10 more)
+### Community 671 - "Community 671"
+Cohesion: 0.10
+Nodes (19): 1. What to Extract, 2. Analysis, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, FAILURE:, File References (+11 more)
 
-### Community 719 - "Storyboard Integration"
-Cohesion: 0.11
-Nodes (19): [Annotation Best Practices](annotation-guide.md), Benefits, Core Concepts (01-), Creation Guidelines, Examples, [File Structure](02-file-structure.md), [How to Create Storyboards](creation-guide.md), Integration (+11 more)
+### Community 672 - "Community 672"
+Cohesion: 0.10
+Nodes (19): 1. Present Handover Package, 2. Explain What Comes Next, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, FAILURE:, File References (+11 more)
 
-### Community 720 - "Text Detection Priority Rules"
-Cohesion: 0.11
-Nodes (18): Analysis Rules (See guides/SKETCH-TEXT-ANALYSIS-GUIDE.md), Critical Rule: Text Markers = PAIRS of Lines, Detection Algorithm (Pseudo-code), Detection Logic, Detection Rules (This File), Example 1: Hero Headline, Example 2: Supporting Paragraph, Example 3: Divider Line (NOT TEXT) (+10 more)
+### Community 673 - "Community 673"
+Cohesion: 0.10
+Nodes (19): 1. Explain Assessment Approach, 2. Wait for User Confirmation, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 721 - "Step 1: Page Basics"
-Cohesion: 0.11
-Nodes (18): 1. Gather Page Basics, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+### Community 674 - "Community 674"
+Cohesion: 0.10
+Nodes (19): 1. Execute Document Generation, 2. Confirm Generation Complete (Completeness Gate), 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 722 - "Step 2: Layout Sections"
-Cohesion: 0.11
-Nodes (18): 1. Define Layout Sections, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+### Community 675 - "Community 675"
+Cohesion: 0.10
+Nodes (19): 1. Add Links to Each Document, 2. Verify Navigation, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 723 - "Step 5: Interactions"
-Cohesion: 0.11
-Nodes (18): 1. Define Interactions, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+### Community 676 - "Community 676"
+Cohesion: 0.10
+Nodes (19): 1. Run Verification, 2. Fix Any Issues, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 724 - "Step 1: Core Feature"
-Cohesion: 0.11
-Nodes (18): 1. Identify Core Feature, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+### Community 677 - "Community 677"
+Cohesion: 0.10
+Nodes (19): 1. Present Completion Summary, 2. Present Handover Summary, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 725 - "Step 2: Entry Point"
-Cohesion: 0.11
-Nodes (18): 1. Identify Entry Point, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+### Community 678 - "Community 678"
+Cohesion: 0.10
+Nodes (20): Benefits, Designer Control Points, Detail Level, Detailed Page Spec, Example: TaskFlow Calendar Page, Feedback Loop, Full Workflow, Next Steps (+12 more)
 
-### Community 726 - "Step 3: Mental State"
-Cohesion: 0.11
-Nodes (18): 1. Identify Mental State, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+### Community 679 - "Community 679"
+Cohesion: 0.10
+Nodes (19): 1. Page Files (`Pages/*.md`), 2. Component Files (`Components/*.md`), 3. Feature Files (`Features/*.md`), API Endpoints, Component File Structure, Configuration Options, Data Models, Data Requirements (+11 more)
 
-### Community 727 - "Step 4: Mutual Success"
-Cohesion: 0.11
-Nodes (18): 1. Define Mutual Success, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+### Community 680 - "Community 680"
+Cohesion: 0.10
+Nodes (20): 1. Holistic Sketch Reading, 5. Batch Specification Generation, 6. Present MENU OPTIONS, <action>Store confirmed content for this object</action>, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, {{#each text_objects}}, EXECUTION PROTOCOLS: (+12 more)
 
-### Community 728 - "Step 5: Shortest Path"
-Cohesion: 0.11
-Nodes (18): 1. Map Shortest Path, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+### Community 681 - "Community 681"
+Cohesion: 0.10
+Nodes (19): 1. Identify Languages, 2. Gather Content, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 729 - "Step 6: Scenario Name"
-Cohesion: 0.11
-Nodes (18): 1. Name the Scenario, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+### Community 682 - "Community 682"
+Cohesion: 0.10
+Nodes (19): 1. Define Page-Level States, 2. Define Component States, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 730 - "Step 7: Create Structure"
-Cohesion: 0.11
-Nodes (18): 1. Create Scenario Structure, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+### Community 683 - "Community 683"
+Cohesion: 0.10
+Nodes (19): 1. Define Validation Rules, 2. Define Error Messages, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 731 - "Step 9: Page Name"
-Cohesion: 0.11
-Nodes (18): 1. Get Page Name, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+### Community 684 - "Community 684"
+Cohesion: 0.10
+Nodes (19): 1. Route to Page Creation, 2. Philosophy, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 732 - "Step 10: Page Purpose"
-Cohesion: 0.11
-Nodes (18): 1. Define Page Purpose, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+### Community 685 - "Community 685"
+Cohesion: 0.10
+Nodes (19): 1. Check Connection, 2. Verify Output Directory, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+11 more)
 
-### Community 733 - "Step 11: Page Entry Point"
-Cohesion: 0.11
-Nodes (18): 1. Define Page Entry Points, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+### Community 686 - "Community 686"
+Cohesion: 0.10
+Nodes (19): API Endpoints Used, Data Flow, Design Assets, Development Notes, Edge Cases & Error Handling, Negative Drivers Avoided, Pages in This Scenario, Positive Drivers Addressed (+11 more)
 
-### Community 734 - "Step 12: Page Mental State"
-Cohesion: 0.11
-Nodes (18): 1. Define Page Mental State, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+### Community 687 - "Community 687"
+Cohesion: 0.10
+Nodes (19): 1. Configuration Loading, 2. Design Log Loading, 3. Mode Determination, 4. Adaptive Dashboard, 4a. Build Status Overview, 4b. Suggest Where to Continue, 4c. Design Log Updates, 4d. Agent Experiences (+11 more)
 
-### Community 735 - "Step 13: Desired Outcome"
-Cohesion: 0.11
-Nodes (18): 1. Define Desired Outcome, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+### Community 688 - "Community 688"
+Cohesion: 0.10
+Nodes (19): 🎓 Best Practices, Designer's Perspective:, Dev Mode - Usage Guide, 📋 Example Workflow, ❓ FAQs, For Designers:, 🔧 For Developers, For Testers: (+11 more)
 
-### Community 736 - "Step 14: Page Variants"
-Cohesion: 0.11
-Nodes (18): 1. Check for Variants, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+### Community 689 - "Community 689"
+Cohesion: 0.10
+Nodes (19): 1. Analyze User Request, 2. Apply Decision Tree, 3. Confirm with User, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+11 more)
 
-### Community 737 - "Step 15: Create Page Structure"
-Cohesion: 0.11
-Nodes (18): 1. Create Page Structure, 2. Two-Option Transition, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+### Community 690 - "Community 690"
+Cohesion: 0.10
+Nodes (19): 1. List All Pages, 2. Check What Exists, 3. Present Inventory, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+11 more)
 
-### Community 738 - "Step 2: Generate Visual Representation"
-Cohesion: 0.11
-Nodes (18): 1. Route by Tool, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+### Community 691 - "Community 691"
+Cohesion: 0.10
+Nodes (19): Content Creation Workshop - Output, Content Filtering, Content Framing, Content Strategy, Content Structure, Final Content, FINAL CONTENT (Implementation-Ready), Implementation Notes (+11 more)
 
-### Community 739 - "Prototype Initiation Dialog"
-Cohesion: 0.11
-Nodes (18): 🔄 **After Work File Creation**, 🎯 Conversation Flow, 📋 **Example Complete Exchange**, 📄 **Initiation Complete - Summary**, 📝 **Notes for Freya**, **Opening**, **Part 1: Scenario Initiation** (one-time setup), **Part 2: Page Selection** (+10 more)
-
-### Community 740 - "Phase 6: Asset Generation"
-Cohesion: 0.11
-Nodes (18): 1. Configuration Loading, 2. Design Log, 3. Activity Menu, Activity Routing, AFTER COMPLETION, Batch Mode, Content Styles, Core Principles (+10 more)
-
-### Community 741 - "Stitch UI Generation"
-Cohesion: 0.11
-Nodes (18): AFTER COMPLETION, Design Log, INITIALIZATION, OVERVIEW, PREREQUISITES, PROMPT TIPS, Step 1: Create Generation Log, Step 2: Pre-Generation Questions (+10 more)
-
-### Community 742 - "Step 6: Final Assessment"
-Cohesion: 0.11
-Nodes (18): 1. Initialize Final Assessment, 2. Review Previous Findings, 3. Add Final Assessment Section, 4. Complete the Report, 5. Present Completion, EXECUTION PROTOCOLS:, FINAL ASSESSMENT PROCESS:, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
-
-### Community 743 - "properties"
+### Community 692 - "Community 692"
 Cohesion: 0.11
 Nodes (19): description, type, description, type, description, type, properties, current_step (+11 more)
 
-### Community 744 - "{{project_name}} - Source Tree Analysis"
+### Community 693 - "Community 693"
 Cohesion: 0.11
 Nodes (18): Asset Locations, Complete Directory Structure, Configuration Files, Critical Directories, Entry Points, File Organization Patterns, {{file_type}}, `{{folder_path}}` (+10 more)
 
-### Community 745 - "Editorial Review - Structure"
-Cohesion: 0.11
-Nodes (18): Editorial Review - Structure, Explanation (Conceptual), HALT CONDITIONS, Human-Reader Principles, LLM-Reader Principles, Principles, Prompt/Task Definition (Functional), Reference/Database (+10 more)
-
-### Community 746 - "Market Research Step 1: Market Research Initialization"
+### Community 694 - "Community 694"
 Cohesion: 0.11
 Nodes (18): 1. Confirm Research Understanding, 2. Refine Research Scope, 3. Document Initial Scope, 4. Present Confirmation and Continue Option, 5. Handle User Response, CONTEXT BOUNDARIES:, EXECUTION PROTOCOLS:, FAILURE MODES: (+10 more)
 
-### Community 747 - "Market Research Step 5: Competitive Analysis"
+### Community 695 - "Community 695"
 Cohesion: 0.11
 Nodes (18): 1. Begin Competitive Analysis, 2. Generate Competitive Analysis Content, 3. Present Analysis and Complete Option, 4. Handle Complete Selection, APPEND TO DOCUMENT:, COMPETITIVE ANALYSIS SEQUENCE:, COMPETITIVE RESEARCH PROTOCOLS:, Content Structure: (+10 more)
 
-### Community 748 - "Step 1: Understand Situation"
+### Community 696 - "Community 696"
 Cohesion: 0.11
 Nodes (18): 1. Ask the User to Clarify Their Situation, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
 
-### Community 749 - "Step 23: Build Section 1 - Project Overview"
+### Community 697 - "Community 697"
 Cohesion: 0.11
 Nodes (18): 1. Build Section 1: Project Overview, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
 
-### Community 750 - "Step 24: Build Section 2 - Business Model"
+### Community 698 - "Community 698"
 Cohesion: 0.11
 Nodes (18): 1. Build Section 2: Business Model, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
 
-### Community 751 - "Step 25: Build Section 3 - Scope of Work"
+### Community 699 - "Community 699"
 Cohesion: 0.11
 Nodes (18): 1. Build Section 3: Scope of Work, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
 
-### Community 752 - "Step 26: Build Section 4 - Our Commitment & Payment Terms"
+### Community 700 - "Community 700"
 Cohesion: 0.11
 Nodes (18): 1. Build Section 4: Our Commitment & Payment Terms, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
 
-### Community 753 - "Step 28: Build Section 6 - Availability (Retainer Only)"
+### Community 701 - "Community 701"
 Cohesion: 0.11
 Nodes (18): 1. Build Section 6: Availability (Only for Retainer model), 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
 
-### Community 754 - "Step 29: Build Section 7 - Confidentiality Clause"
+### Community 702 - "Community 702"
 Cohesion: 0.11
 Nodes (18): 1. Build Section 7: Confidentiality Clause, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
 
-### Community 755 - "Step 31: Build Section 9 - Work Initiation"
+### Community 703 - "Community 703"
 Cohesion: 0.11
 Nodes (18): 1. Build Section 9: Work Initiation, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
 
-### Community 756 - "Step 32: Build Section 10 - Terms and Conditions"
+### Community 704 - "Community 704"
 Cohesion: 0.11
 Nodes (18): 1. Build Section 10: Terms and Conditions, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
 
-### Community 757 - "Step 33: Build Section 11 - Approval"
+### Community 705 - "Community 705"
 Cohesion: 0.11
 Nodes (18): 1. Build Section 11: Approval, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
 
-### Community 758 - "Document Structure for EACH Persona"
+### Community 706 - "Community 706"
 Cohesion: 0.11
 Nodes (18): 10. Impact on Business Goals, 11. Success Metrics (PRIMARY especially), 12. Transformation Journey (PRIMARY persona especially), 13. Related Documents Footer, 1. Header, 2. Profile Summary, 2a. Visual Representation, 3. Background (+10 more)
 
-### Community 759 - "Format Requirements"
+### Community 707 - "Community 707"
 Cohesion: 0.11
 Nodes (18): 1. Mermaid Configuration, 2. Flowchart Direction, 3. Node Content Formatting, 4. Business Goals Nodes (Left Column), 5. Platform Node (Center), 6. Target Group Nodes, 7. Driving Forces Nodes, 8. Connections (+10 more)
 
-### Community 760 - "Step 16: Feature Workshop Wrap-Up"
+### Community 708 - "Community 708"
 Cohesion: 0.11
 Nodes (18): 1. Present Completion Summary, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
 
-### Community 761 - "Step 37: Provide UX Design Activation"
+### Community 709 - "Community 709"
 Cohesion: 0.11
 Nodes (18): 1. Present Activation Instructions, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
 
-### Community 762 - "Document Structure for EACH Persona"
+### Community 710 - "Community 710"
 Cohesion: 0.11
 Nodes (18): 10. Impact on Business Goals, 11. Success Metrics (PRIMARY especially), 12. Transformation Journey (PRIMARY persona especially), 13. Related Documents Footer, 1. Header, 2. Profile Summary, 2a. Visual Representation, 3. Background (+10 more)
 
-### Community 763 - "Step 6: Generate Scenario Overview"
+### Community 711 - "Community 711"
 Cohesion: 0.11
 Nodes (19): 1. Create Overview File, 2. Document Structure, 3. Verify Links, 4. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES: (+11 more)
 
-### Community 764 - "Why This Works"
+### Community 712 - "Community 712"
 Cohesion: 0.11
 Nodes (18): Browser review catches what wireframes can't, Communication During Refinement, Conversation resolves the hard questions first, Excalidraw is the right fidelity, Export = approval, Overview, Pattern recognition — reflect, don't interrogate, Short jump to code (+10 more)
 
-### Community 765 - "Quick Reference: Sketch Text Analysis"
+### Community 713 - "Community 713"
 Cohesion: 0.11
 Nodes (18): 1. Line Thickness = Font Weight (Relative), 2. Vertical Spacing = Font Size (Context-Based), Body Text (Paragraph), Common Patterns, Complete Analysis Pattern, ⚠️ Confusion Warning, Cross-Page Reference Strategy, Example: Hero Headline (+10 more)
 
-### Community 766 - "Storyboard Integration"
+### Community 714 - "Community 714"
 Cohesion: 0.11
 Nodes (19): [Annotation Best Practices](annotation-guide.md), Benefits, Core Concepts (01-), Creation Guidelines, Examples, [File Structure](02-file-structure.md), [How to Create Storyboards](creation-guide.md), Integration (+11 more)
 
-### Community 767 - "Text Detection Priority Rules"
+### Community 715 - "Community 715"
 Cohesion: 0.11
 Nodes (18): Analysis Rules (See guides/SKETCH-TEXT-ANALYSIS-GUIDE.md), Critical Rule: Text Markers = PAIRS of Lines, Detection Algorithm (Pseudo-code), Detection Logic, Detection Rules (This File), Example 1: Hero Headline, Example 2: Supporting Paragraph, Example 3: Divider Line (NOT TEXT) (+10 more)
 
-### Community 768 - "Step 1: Page Basics"
+### Community 716 - "Community 716"
 Cohesion: 0.11
 Nodes (18): 1. Gather Page Basics, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
 
-### Community 769 - "Step 2: Layout Sections"
+### Community 717 - "Community 717"
 Cohesion: 0.11
 Nodes (18): 1. Define Layout Sections, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
 
-### Community 770 - "Step 5: Interactions"
+### Community 718 - "Community 718"
+Cohesion: 0.11
+Nodes (18): 1. Identify Languages, 2. Gather Content, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References (+10 more)
+
+### Community 719 - "Community 719"
 Cohesion: 0.11
 Nodes (18): 1. Define Interactions, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
 
-### Community 771 - "Step 1: Core Feature"
+### Community 720 - "Community 720"
 Cohesion: 0.11
 Nodes (18): 1. Identify Core Feature, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
 
-### Community 772 - "Step 2: Entry Point"
+### Community 721 - "Community 721"
 Cohesion: 0.11
 Nodes (18): 1. Identify Entry Point, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
 
-### Community 773 - "Step 3: Mental State"
+### Community 722 - "Community 722"
 Cohesion: 0.11
 Nodes (18): 1. Identify Mental State, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
 
-### Community 774 - "Step 4: Mutual Success"
+### Community 723 - "Community 723"
 Cohesion: 0.11
 Nodes (18): 1. Define Mutual Success, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
 
-### Community 775 - "Step 5: Shortest Path"
+### Community 724 - "Community 724"
 Cohesion: 0.11
 Nodes (18): 1. Map Shortest Path, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
 
-### Community 776 - "Step 6: Scenario Name"
+### Community 725 - "Community 725"
 Cohesion: 0.11
 Nodes (18): 1. Name the Scenario, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
 
-### Community 777 - "Step 7: Create Structure"
+### Community 726 - "Community 726"
 Cohesion: 0.11
 Nodes (18): 1. Create Scenario Structure, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
 
-### Community 778 - "Step 9: Page Name"
+### Community 727 - "Community 727"
 Cohesion: 0.11
 Nodes (18): 1. Get Page Name, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
 
-### Community 779 - "Step 10: Page Purpose"
+### Community 728 - "Community 728"
 Cohesion: 0.11
 Nodes (18): 1. Define Page Purpose, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
 
-### Community 780 - "Step 11: Page Entry Point"
+### Community 729 - "Community 729"
 Cohesion: 0.11
 Nodes (18): 1. Define Page Entry Points, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
 
-### Community 781 - "Step 12: Page Mental State"
+### Community 730 - "Community 730"
 Cohesion: 0.11
 Nodes (18): 1. Define Page Mental State, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
 
-### Community 782 - "Step 13: Desired Outcome"
+### Community 731 - "Community 731"
 Cohesion: 0.11
 Nodes (18): 1. Define Desired Outcome, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
 
-### Community 783 - "Step 14: Page Variants"
+### Community 732 - "Community 732"
 Cohesion: 0.11
 Nodes (18): 1. Check for Variants, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
 
-### Community 784 - "Step 15: Create Page Structure"
+### Community 733 - "Community 733"
 Cohesion: 0.11
 Nodes (18): 1. Create Page Structure, 2. Two-Option Transition, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
 
-### Community 785 - "Step 2: Generate Visual Representation"
+### Community 734 - "Community 734"
 Cohesion: 0.11
 Nodes (18): 1. Route by Tool, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
 
-### Community 786 - "Prototype Initiation Dialog"
+### Community 735 - "Community 735"
 Cohesion: 0.11
 Nodes (18): 🔄 **After Work File Creation**, 🎯 Conversation Flow, 📋 **Example Complete Exchange**, 📄 **Initiation Complete - Summary**, 📝 **Notes for Freya**, **Opening**, **Part 1: Scenario Initiation** (one-time setup), **Part 2: Page Selection** (+10 more)
 
-### Community 787 - "Phase 6: Asset Generation"
+### Community 736 - "Community 736"
 Cohesion: 0.11
 Nodes (18): 1. Configuration Loading, 2. Design Log, 3. Activity Menu, Activity Routing, AFTER COMPLETION, Batch Mode, Content Styles, Core Principles (+10 more)
 
-### Community 788 - "Stitch UI Generation"
+### Community 737 - "Community 737"
 Cohesion: 0.11
 Nodes (18): AFTER COMPLETION, Design Log, INITIALIZATION, OVERVIEW, PREREQUISITES, PROMPT TIPS, Step 1: Create Generation Log, Step 2: Pre-Generation Questions (+10 more)
 
-### Community 789 - "BMad Brainstorming Catalog — Deep Analysis"
+### Community 738 - "Community 738"
+Cohesion: 0.11
+Nodes (18): 1. Initialize Final Assessment, 2. Review Previous Findings, 3. Add Final Assessment Section, 4. Complete the Report, 5. Present Completion, EXECUTION PROTOCOLS:, FINAL ASSESSMENT PROCESS:, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+
+### Community 739 - "Community 739"
+Cohesion: 0.11
+Nodes (19): description, type, description, type, description, type, properties, current_step (+11 more)
+
+### Community 740 - "Community 740"
+Cohesion: 0.11
+Nodes (18): Asset Locations, Complete Directory Structure, Configuration Files, Critical Directories, Entry Points, File Organization Patterns, {{file_type}}, `{{folder_path}}` (+10 more)
+
+### Community 741 - "Community 741"
+Cohesion: 0.11
+Nodes (18): Editorial Review - Structure, Explanation (Conceptual), HALT CONDITIONS, Human-Reader Principles, LLM-Reader Principles, Principles, Prompt/Task Definition (Functional), Reference/Database (+10 more)
+
+### Community 742 - "Community 742"
+Cohesion: 0.11
+Nodes (18): 1. Confirm Research Understanding, 2. Refine Research Scope, 3. Document Initial Scope, 4. Present Confirmation and Continue Option, 5. Handle User Response, CONTEXT BOUNDARIES:, EXECUTION PROTOCOLS:, FAILURE MODES: (+10 more)
+
+### Community 743 - "Community 743"
+Cohesion: 0.11
+Nodes (18): 1. Begin Competitive Analysis, 2. Generate Competitive Analysis Content, 3. Present Analysis and Complete Option, 4. Handle Complete Selection, APPEND TO DOCUMENT:, COMPETITIVE ANALYSIS SEQUENCE:, COMPETITIVE RESEARCH PROTOCOLS:, Content Structure: (+10 more)
+
+### Community 744 - "Community 744"
+Cohesion: 0.11
+Nodes (18): 1. Ask the User to Clarify Their Situation, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+
+### Community 745 - "Community 745"
+Cohesion: 0.11
+Nodes (18): 1. Build Section 1: Project Overview, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+
+### Community 746 - "Community 746"
+Cohesion: 0.11
+Nodes (18): 1. Build Section 2: Business Model, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+
+### Community 747 - "Community 747"
+Cohesion: 0.11
+Nodes (18): 1. Build Section 3: Scope of Work, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+
+### Community 748 - "Community 748"
+Cohesion: 0.11
+Nodes (18): 1. Build Section 4: Our Commitment & Payment Terms, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+
+### Community 749 - "Community 749"
+Cohesion: 0.11
+Nodes (18): 1. Build Section 6: Availability (Only for Retainer model), 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+
+### Community 750 - "Community 750"
+Cohesion: 0.11
+Nodes (18): 1. Build Section 7: Confidentiality Clause, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+
+### Community 751 - "Community 751"
+Cohesion: 0.11
+Nodes (18): 1. Build Section 9: Work Initiation, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+
+### Community 752 - "Community 752"
+Cohesion: 0.11
+Nodes (18): 1. Build Section 10: Terms and Conditions, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+
+### Community 753 - "Community 753"
+Cohesion: 0.11
+Nodes (18): 1. Build Section 11: Approval, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+
+### Community 754 - "Community 754"
+Cohesion: 0.11
+Nodes (18): 10. Impact on Business Goals, 11. Success Metrics (PRIMARY especially), 12. Transformation Journey (PRIMARY persona especially), 13. Related Documents Footer, 1. Header, 2. Profile Summary, 2a. Visual Representation, 3. Background (+10 more)
+
+### Community 755 - "Community 755"
+Cohesion: 0.11
+Nodes (18): 1. Mermaid Configuration, 2. Flowchart Direction, 3. Node Content Formatting, 4. Business Goals Nodes (Left Column), 5. Platform Node (Center), 6. Target Group Nodes, 7. Driving Forces Nodes, 8. Connections (+10 more)
+
+### Community 756 - "Community 756"
+Cohesion: 0.11
+Nodes (18): 1. Present Completion Summary, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+
+### Community 757 - "Community 757"
+Cohesion: 0.11
+Nodes (18): 1. Present Activation Instructions, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+
+### Community 758 - "Community 758"
+Cohesion: 0.11
+Nodes (18): 10. Impact on Business Goals, 11. Success Metrics (PRIMARY especially), 12. Transformation Journey (PRIMARY persona especially), 13. Related Documents Footer, 1. Header, 2. Profile Summary, 2a. Visual Representation, 3. Background (+10 more)
+
+### Community 759 - "Community 759"
+Cohesion: 0.11
+Nodes (18): Browser review catches what wireframes can't, Communication During Refinement, Conversation resolves the hard questions first, Excalidraw is the right fidelity, Export = approval, Overview, Pattern recognition — reflect, don't interrogate, Short jump to code (+10 more)
+
+### Community 760 - "Community 760"
+Cohesion: 0.11
+Nodes (18): 1. Line Thickness = Font Weight (Relative), 2. Vertical Spacing = Font Size (Context-Based), Body Text (Paragraph), Common Patterns, Complete Analysis Pattern, ⚠️ Confusion Warning, Cross-Page Reference Strategy, Example: Hero Headline (+10 more)
+
+### Community 761 - "Community 761"
+Cohesion: 0.11
+Nodes (19): [Annotation Best Practices](annotation-guide.md), Benefits, Core Concepts (01-), Creation Guidelines, Examples, [File Structure](02-file-structure.md), [How to Create Storyboards](creation-guide.md), Integration (+11 more)
+
+### Community 762 - "Community 762"
+Cohesion: 0.11
+Nodes (18): Analysis Rules (See guides/SKETCH-TEXT-ANALYSIS-GUIDE.md), Critical Rule: Text Markers = PAIRS of Lines, Detection Algorithm (Pseudo-code), Detection Logic, Detection Rules (This File), Example 1: Hero Headline, Example 2: Supporting Paragraph, Example 3: Divider Line (NOT TEXT) (+10 more)
+
+### Community 763 - "Community 763"
+Cohesion: 0.11
+Nodes (18): 1. Gather Page Basics, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+
+### Community 764 - "Community 764"
+Cohesion: 0.11
+Nodes (18): 1. Define Layout Sections, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+
+### Community 765 - "Community 765"
+Cohesion: 0.11
+Nodes (18): 1. Define Interactions, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+
+### Community 766 - "Community 766"
+Cohesion: 0.11
+Nodes (18): 1. Identify Core Feature, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+
+### Community 767 - "Community 767"
+Cohesion: 0.11
+Nodes (18): 1. Identify Entry Point, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+
+### Community 768 - "Community 768"
+Cohesion: 0.11
+Nodes (18): 1. Identify Mental State, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+
+### Community 769 - "Community 769"
+Cohesion: 0.11
+Nodes (18): 1. Define Mutual Success, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+
+### Community 770 - "Community 770"
+Cohesion: 0.11
+Nodes (18): 1. Map Shortest Path, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+
+### Community 771 - "Community 771"
+Cohesion: 0.11
+Nodes (18): 1. Name the Scenario, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+
+### Community 772 - "Community 772"
+Cohesion: 0.11
+Nodes (18): 1. Create Scenario Structure, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+
+### Community 773 - "Community 773"
+Cohesion: 0.11
+Nodes (18): 1. Get Page Name, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+
+### Community 774 - "Community 774"
+Cohesion: 0.11
+Nodes (18): 1. Define Page Purpose, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+
+### Community 775 - "Community 775"
+Cohesion: 0.11
+Nodes (18): 1. Define Page Entry Points, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+
+### Community 776 - "Community 776"
+Cohesion: 0.11
+Nodes (18): 1. Define Page Mental State, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+
+### Community 777 - "Community 777"
+Cohesion: 0.11
+Nodes (18): 1. Define Desired Outcome, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+
+### Community 778 - "Community 778"
+Cohesion: 0.11
+Nodes (18): 1. Check for Variants, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+
+### Community 779 - "Community 779"
+Cohesion: 0.11
+Nodes (18): 1. Create Page Structure, 2. Two-Option Transition, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+
+### Community 780 - "Community 780"
+Cohesion: 0.11
+Nodes (18): 1. Route by Tool, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+
+### Community 781 - "Community 781"
+Cohesion: 0.11
+Nodes (18): 🔄 **After Work File Creation**, 🎯 Conversation Flow, 📋 **Example Complete Exchange**, 📄 **Initiation Complete - Summary**, 📝 **Notes for Freya**, **Opening**, **Part 1: Scenario Initiation** (one-time setup), **Part 2: Page Selection** (+10 more)
+
+### Community 782 - "Community 782"
+Cohesion: 0.11
+Nodes (18): 1. Configuration Loading, 2. Design Log, 3. Activity Menu, Activity Routing, AFTER COMPLETION, Batch Mode, Content Styles, Core Principles (+10 more)
+
+### Community 783 - "Community 783"
+Cohesion: 0.11
+Nodes (18): AFTER COMPLETION, Design Log, INITIALIZATION, OVERVIEW, PREREQUISITES, PROMPT TIPS, Step 1: Create Generation Log, Step 2: Pre-Generation Questions (+10 more)
+
+### Community 784 - "Community 784"
 Cohesion: 0.11
 Nodes (17): 10. Revised convergence architecture (per BMad direction), 11. Researched gap-filling additions (real, established methods), 1. TL;DR, 2. Method — how this was analyzed, 3. Findings, 3a. Provenance — the "proven & professional" set exists, but is scattered, 3b. Mechanism — the catalog has four over-served "spines", 3c. Goal affinity — the headline missing capability (+9 more)
 
-### Community 790 - "{{project_name}} - Project Overview"
+### Community 785 - "Community 785"
 Cohesion: 0.11
-Nodes (17): Architecture Highlights, Development Overview, Documentation Map, Executive Summary, Getting Started, How Parts Integrate, Key Commands, Key Features (+9 more)
+Nodes (17): 1. Initialize Final Assessment, 2. Review Previous Findings, 3. Add Final Assessment Section, 4. Complete the Report, 5. Present Completion, EXECUTION PROTOCOLS:, FINAL ASSESSMENT PROCESS:, MANDATORY EXECUTION RULES (READ FIRST): (+9 more)
 
-### Community 791 - "completed"
+### Community 786 - "Community 786"
 Cohesion: 0.11
 Nodes (18): description, format, type, last_updated, started, description, format, type (+10 more)
 
-### Community 792 - "Step 1: Context Discovery & Initialization"
+### Community 787 - "Community 787"
 Cohesion: 0.11
 Nodes (17): 1. Check for Existing Project Context, 2. Discover Project Technology Stack, 3. Identify Existing Code Patterns, 4. Extract Critical Implementation Rules, 5. Initialize Project Context Document, 6. Present Discovery Summary, A. Fresh Document Setup (if no existing context), B. Existing Document Update (+9 more)
 
-### Community 793 - "Step 3: Context Completion & Finalization"
+### Community 788 - "Community 788"
 Cohesion: 0.11
 Nodes (17): 1. Review Complete Context File, 2. Optimize for LLM Context, 3. Final Content Structure, 4. Present Completion Summary, 5. Final File Updates, 6. Completion Validation, 7. Completion Message, COMPLETION SEQUENCE: (+9 more)
 
-### Community 794 - "Alignment & Signoff Workflow"
+### Community 789 - "Community 789"
 Cohesion: 0.11
 Nodes (17): 1. Configuration Loading, 2. Design Log, 3. Start, AFTER COMPLETION, Alignment & Signoff Workflow, INITIALIZATION, OUTPUT, Phase 1: Start & Understand (step-01*) (+9 more)
 
-### Community 795 - "Modular Component Architecture"
+### Community 790 - "Community 790"
 Cohesion: 0.11
 Nodes (18): [Agent-Designer Collaboration](00-foundation/agent-designer-collaboration.md), [Benefits Summary](03-quick-refs/benefits.md), [Complex Component Example](examples/complex-calendar.md), [Complexity Detection](01-core-concepts/complexity-detection.md), [Complexity Router Workflow](02-workflows/complexity-router-workflow.md), [Content Placement Rules](01-core-concepts/content-placement-rules.md), Core Concepts (01-), [Decision Tree](03-quick-refs/decision-tree.md) (+10 more)
 
-### Community 796 - "Content Placement Guide"
+### Community 791 - "Community 791"
 Cohesion: 0.11
 Nodes (17): 1. Page File (WHERE), 2. Component File (HOW IT LOOKS), 3. Feature File (WHAT IT DOES), Common Mistakes, Content Placement Examples, Content Placement Guide, Decision Matrix, Example 1: Hero Section (+9 more)
 
-### Community 797 - "Page Init (Lightweight)"
+### Community 792 - "Community 792"
 Cohesion: 0.11
 Nodes (16): File Location, Key Principles, Lightweight Page Template, ✅ **Navigation is Critical**, ✅ **Open Questions Ready**, Template, CONTEXT, Page Init (Lightweight) (+8 more)
 
-### Community 798 - "Step 9: Generate Specification Document"
+### Community 793 - "Community 793"
 Cohesion: 0.11
 Nodes (17): 1. Generate Specification, 2. Update Design Log, 3. Return to Calling Step, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+9 more)
 
-### Community 799 - "dev-mode.js"
+### Community 794 - "Community 794"
 Cohesion: 0.24
 Nodes (17): clearHighlight(), copyToClipboard(), fallbackCopy(), findElementWithId(), highlightElement(), initDevMode(), isFormElement(), isSystemElement() (+9 more)
 
-### Community 800 - "BMad Brainstorming Catalog — Deep Analysis"
+### Community 795 - "Community 795"
 Cohesion: 0.11
 Nodes (17): 10. Revised convergence architecture (per BMad direction), 11. Researched gap-filling additions (real, established methods), 1. TL;DR, 2. Method — how this was analyzed, 3. Findings, 3a. Provenance — the "proven & professional" set exists, but is scattered, 3b. Mechanism — the catalog has four over-served "spines", 3c. Goal affinity — the headline missing capability (+9 more)
 
-### Community 801 - "{{project_name}} - Project Overview"
-Cohesion: 0.11
-Nodes (17): Architecture Highlights, Development Overview, Documentation Map, Executive Summary, Getting Started, How Parts Integrate, Key Commands, Key Features (+9 more)
-
-### Community 802 - "completed"
+### Community 796 - "Community 796"
 Cohesion: 0.11
 Nodes (18): description, format, type, last_updated, started, description, format, type (+10 more)
 
-### Community 803 - "Step 1: Context Discovery & Initialization"
+### Community 797 - "Community 797"
 Cohesion: 0.11
 Nodes (17): 1. Check for Existing Project Context, 2. Discover Project Technology Stack, 3. Identify Existing Code Patterns, 4. Extract Critical Implementation Rules, 5. Initialize Project Context Document, 6. Present Discovery Summary, A. Fresh Document Setup (if no existing context), B. Existing Document Update (+9 more)
 
-### Community 804 - "Step 3: Context Completion & Finalization"
+### Community 798 - "Community 798"
 Cohesion: 0.11
 Nodes (17): 1. Review Complete Context File, 2. Optimize for LLM Context, 3. Final Content Structure, 4. Present Completion Summary, 5. Final File Updates, 6. Completion Validation, 7. Completion Message, COMPLETION SEQUENCE: (+9 more)
 
-### Community 805 - "Alignment & Signoff Workflow"
+### Community 799 - "Community 799"
+Cohesion: 0.11
+Nodes (18): 1. Explore the Realization, 2. Confirm the Realization with Evidence, 3. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, MANDATORY EXECUTION RULES (READ FIRST): (+10 more)
+
+### Community 800 - "Community 800"
 Cohesion: 0.11
 Nodes (17): 1. Configuration Loading, 2. Design Log, 3. Start, AFTER COMPLETION, Alignment & Signoff Workflow, INITIALIZATION, OUTPUT, Phase 1: Start & Understand (step-01*) (+9 more)
 
-### Community 806 - "Modular Component Architecture"
+### Community 801 - "Community 801"
 Cohesion: 0.11
 Nodes (18): [Agent-Designer Collaboration](00-foundation/agent-designer-collaboration.md), [Benefits Summary](03-quick-refs/benefits.md), [Complex Component Example](examples/complex-calendar.md), [Complexity Detection](01-core-concepts/complexity-detection.md), [Complexity Router Workflow](02-workflows/complexity-router-workflow.md), [Content Placement Rules](01-core-concepts/content-placement-rules.md), Core Concepts (01-), [Decision Tree](03-quick-refs/decision-tree.md) (+10 more)
 
-### Community 807 - "Content Placement Guide"
+### Community 802 - "Community 802"
 Cohesion: 0.11
 Nodes (17): 1. Page File (WHERE), 2. Component File (HOW IT LOOKS), 3. Feature File (WHAT IT DOES), Common Mistakes, Content Placement Examples, Content Placement Guide, Decision Matrix, Example 1: Hero Section (+9 more)
 
-### Community 808 - "Page Init (Lightweight)"
+### Community 803 - "Community 803"
 Cohesion: 0.11
 Nodes (16): File Location, Key Principles, Lightweight Page Template, ✅ **Navigation is Critical**, ✅ **Open Questions Ready**, Template, CONTEXT, Page Init (Lightweight) (+8 more)
 
-### Community 809 - "Step 9: Generate Specification Document"
+### Community 804 - "Community 804"
 Cohesion: 0.11
 Nodes (17): 1. Generate Specification, 2. Update Design Log, 3. Return to Calling Step, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, File References, MANDATORY EXECUTION RULES (READ FIRST): (+9 more)
 
-### Community 810 - "dev-mode.js"
+### Community 805 - "Community 805"
 Cohesion: 0.24
 Nodes (17): clearHighlight(), copyToClipboard(), fallbackCopy(), findElementWithId(), highlightElement(), initDevMode(), isFormElement(), isSystemElement() (+9 more)
 
-### Community 811 - "Step 4: Final Validation"
+### Community 806 - "Community 806"
 Cohesion: 0.12
-Nodes (16): 1. FR Coverage Validation, 2. Architecture Implementation Validation, 3. Story Quality Validation, 4. Epic Structure Validation, 5. Dependency Validation (CRITICAL), 6. Complete and Save, CONTEXT BOUNDARIES:, EXECUTION PROTOCOLS: (+8 more)
+Nodes (16): Architecture Highlights, Development Overview, Documentation Map, Executive Summary, Getting Started, How Parts Integrate, Key Commands, Key Features (+8 more)
 
-### Community 812 - "On Activation"
-Cohesion: 0.12
-Nodes (16): Additional Documentation, Conventions, Document Discovery - Full Epic Loading, Execution, Guidelines, Input Files, On Activation, Paths (+8 more)
-
-### Community 813 - "Step 11: Explore Recommended Solution"
-Cohesion: 0.12
-Nodes (17): 1. Explore the Recommended Solution, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, MANDATORY EXECUTION RULES (READ FIRST):, Menu Handling Logic: (+9 more)
-
-### Community 814 - "Step 16: Explore Summary"
-Cohesion: 0.12
-Nodes (17): 1. Explore the Summary, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, MANDATORY EXECUTION RULES (READ FIRST):, Menu Handling Logic: (+9 more)
-
-### Community 815 - "Workshop C: Placeholder Pages"
-Cohesion: 0.12
-Nodes (15): Page Placeholder Document Template, Placeholder Page Templates, Scenario Overview Template, Scenario Tracking Template, When to Use Placeholders, PHASE 1: TRIGGER DETECTION, PHASE 2: SCENARIO CONTEXT, PHASE 3: FLOW MAPPING (+7 more)
-
-### Community 816 - "Step 4: Final Validation"
-Cohesion: 0.12
-Nodes (16): 1. FR Coverage Validation, 2. Architecture Implementation Validation, 3. Story Quality Validation, 4. Epic Structure Validation, 5. Dependency Validation (CRITICAL), 6. Complete and Save, CONTEXT BOUNDARIES:, EXECUTION PROTOCOLS: (+8 more)
-
-### Community 817 - "On Activation"
+### Community 807 - "Community 807"
 Cohesion: 0.12
 Nodes (16): Additional Documentation, Conventions, Document Discovery - Full Epic Loading, Execution, Guidelines, Input Files, On Activation, Paths (+8 more)
 
-### Community 818 - "Step 10: Explore Paths We Explored"
-Cohesion: 0.12
-Nodes (17): 1. Explore Paths They Explored, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, MANDATORY EXECUTION RULES (READ FIRST):, Menu Handling Logic: (+9 more)
-
-### Community 819 - "Step 11: Explore Recommended Solution"
+### Community 808 - "Community 808"
 Cohesion: 0.12
 Nodes (17): 1. Explore the Recommended Solution, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, MANDATORY EXECUTION RULES (READ FIRST):, Menu Handling Logic: (+9 more)
 
-### Community 820 - "Workshop C: Placeholder Pages"
+### Community 809 - "Community 809"
+Cohesion: 0.12
+Nodes (17): 1. Explore Our Commitment, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, MANDATORY EXECUTION RULES (READ FIRST):, Menu Handling Logic: (+9 more)
+
+### Community 810 - "Community 810"
 Cohesion: 0.12
 Nodes (15): Page Placeholder Document Template, Placeholder Page Templates, Scenario Overview Template, Scenario Tracking Template, When to Use Placeholders, PHASE 1: TRIGGER DETECTION, PHASE 2: SCENARIO CONTEXT, PHASE 3: FLOW MAPPING (+7 more)
 
-### Community 821 - "lint_spine.py"
+### Community 811 - "Community 811"
+Cohesion: 0.12
+Nodes (16): 1. FR Coverage Validation, 2. Architecture Implementation Validation, 3. Story Quality Validation, 4. Epic Structure Validation, 5. Dependency Validation (CRITICAL), 6. Complete and Save, CONTEXT BOUNDARIES:, EXECUTION PROTOCOLS: (+8 more)
+
+### Community 812 - "Community 812"
+Cohesion: 0.12
+Nodes (16): Architecture Highlights, Development Overview, Documentation Map, Executive Summary, Getting Started, How Parts Integrate, Key Commands, Key Features (+8 more)
+
+### Community 813 - "Community 813"
+Cohesion: 0.12
+Nodes (16): Additional Documentation, Conventions, Document Discovery - Full Epic Loading, Execution, Guidelines, Input Files, On Activation, Paths (+8 more)
+
+### Community 814 - "Community 814"
+Cohesion: 0.12
+Nodes (17): 1. Explore the Recommended Solution, 2. Present MENU OPTIONS, CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, EXECUTION RULES:, MANDATORY EXECUTION RULES (READ FIRST):, Menu Handling Logic: (+9 more)
+
+### Community 815 - "Community 815"
+Cohesion: 0.12
+Nodes (15): Page Placeholder Document Template, Placeholder Page Templates, Scenario Overview Template, Scenario Tracking Template, When to Use Placeholders, PHASE 1: TRIGGER DETECTION, PHASE 2: SCENARIO CONTEXT, PHASE 3: FLOW MAPPING (+7 more)
+
+### Community 816 - "Community 816"
 Cohesion: 0.23
 Nodes (15): blank_fences(), find_ad_issues(), find_frontmatter_placeholders(), find_placeholders(), find_unpinned_stack(), line_of(), lint(), main() (+7 more)
 
-### Community 822 - "On Activation"
+### Community 817 - "Community 817"
 Cohesion: 0.12
 Nodes (15): Conventions, Critical Rules (NO EXCEPTIONS), FIRST STEP, On Activation, Quick Dev New Preview Workflow, READY FOR DEVELOPMENT STANDARD, SCOPE STANDARD, Step 1: Resolve the Workflow Block (+7 more)
 
-### Community 823 - "BMad Spec"
+### Community 818 - "Community 818"
 Cohesion: 0.12
 Nodes (15): After Spec is Output, BMad Spec, Companions, Conventions, Frontmatter conventions, Load-bearing, Memory and derivation, On Activation (+7 more)
 
-### Community 824 - "Quality Check & Verification Checklist"
+### Community 819 - "Community 819"
 Cohesion: 0.12
 Nodes (15): 10. Feature Impact Document (06) Completeness (If Exists), 11. Priority Tier Consistency, 12. Driving Forces Quality, 13. Formatting Check, 1. File Structure Check, 2. Mermaid Diagram Quality, 3. Content Consistency, 4. Language Check (+7 more)
 
-### Community 825 - "Agent-Designer Collaboration in UX Design"
+### Community 820 - "Community 820"
 Cohesion: 0.12
 Nodes (16): Agent-Designer Collaboration in UX Design, Conceptual Specifications, Designer Benefits, Phase 1: Designer Thinks, Phase 2: Agent Guides Decomposition, Phase 3: Designer Provides Creative Input, Phase 4: Agent Ensures Consistency, Phase 5: Designer Makes Final Decisions (+8 more)
 
-### Community 826 - "What Are Storyboards?"
+### Community 821 - "Community 821"
 Cohesion: 0.13
 Nodes (12): Definition, Format, Next Steps, Purpose, What Are Storyboards?, Why Visual?, Next Steps, Reference Pattern (+4 more)
 
-### Community 827 - "AVAILABLE OBJECT TYPES"
+### Community 822 - "Community 822"
 Cohesion: 0.12
 Nodes (16): AVAILABLE OBJECT TYPES, Container Elements, Custom Components, FILES REFERENCE, Interactive Elements, INTERPRETATION APPROACH, Navigation Elements, Object Type Router (+8 more)
 
-### Community 828 - "Scenario Initialization: From Trigger Map to First Sketch"
+### Community 823 - "Community 823"
 Cohesion: 0.12
 Nodes (15): 1. What Feature Delivers the Most Value?, 2. Where Does the User First Encounter This?, 3. What's Their Mental State at This Moment?, 4. What's the End Goal (Mutual Success)?, 5. What's the Shortest Path?, Agent's Job: Help You Find the Journey, Example 1: E-commerce (Sales Goal), Example 2: SaaS (Subscription Goal) (+7 more)
 
-### Community 829 - "Inline Testing Guide"
+### Community 824 - "Community 824"
 Cohesion: 0.12
 Nodes (16): Agent-Verifiable (Puppeteer), Anti-Patterns, Baseline Capture, Core Principle, Distinction from Phase 7 Testing, Inline Testing Guide, Integration with Phase 4 Flow, Puppeteer Verification Process (+8 more)
 
-### Community 830 - "Step 08: Iterate (Kaizen Never Stops)"
+### Community 825 - "Community 825"
 Cohesion: 0.12
 Nodes (16): Before You Start, Completion, Failure Modes, From Impact Report, Next Steps, Path A: Continue Kaizen Cycle, Path B: New Product Feature, Prioritize Next Cycle (+8 more)
 
-### Community 831 - "lint_spine.py"
+### Community 826 - "Community 826"
 Cohesion: 0.23
 Nodes (15): blank_fences(), find_ad_issues(), find_frontmatter_placeholders(), find_placeholders(), find_unpinned_stack(), line_of(), lint(), main() (+7 more)
 
-### Community 832 - "On Activation"
+### Community 827 - "Community 827"
 Cohesion: 0.12
 Nodes (15): Conventions, Critical Rules (NO EXCEPTIONS), FIRST STEP, On Activation, Quick Dev New Preview Workflow, READY FOR DEVELOPMENT STANDARD, SCOPE STANDARD, Step 1: Resolve the Workflow Block (+7 more)
 
-### Community 833 - "BMad Spec"
+### Community 828 - "Community 828"
 Cohesion: 0.12
 Nodes (15): After Spec is Output, BMad Spec, Companions, Conventions, Frontmatter conventions, Load-bearing, Memory and derivation, On Activation (+7 more)
 
-### Community 834 - "Quality Check & Verification Checklist"
+### Community 829 - "Community 829"
 Cohesion: 0.12
 Nodes (15): 10. Feature Impact Document (06) Completeness (If Exists), 11. Priority Tier Consistency, 12. Driving Forces Quality, 13. Formatting Check, 1. File Structure Check, 2. Mermaid Diagram Quality, 3. Content Consistency, 4. Language Check (+7 more)
 
-### Community 835 - "Agent-Designer Collaboration in UX Design"
+### Community 830 - "Community 830"
 Cohesion: 0.12
 Nodes (16): Agent-Designer Collaboration in UX Design, Conceptual Specifications, Designer Benefits, Phase 1: Designer Thinks, Phase 2: Agent Guides Decomposition, Phase 3: Designer Provides Creative Input, Phase 4: Agent Ensures Consistency, Phase 5: Designer Makes Final Decisions (+8 more)
 
-### Community 836 - "What Are Storyboards?"
+### Community 831 - "Community 831"
 Cohesion: 0.13
 Nodes (12): Definition, Format, Next Steps, Purpose, What Are Storyboards?, Why Visual?, Next Steps, Reference Pattern (+4 more)
 
-### Community 837 - "AVAILABLE OBJECT TYPES"
+### Community 832 - "Community 832"
 Cohesion: 0.12
 Nodes (16): AVAILABLE OBJECT TYPES, Container Elements, Custom Components, FILES REFERENCE, Interactive Elements, INTERPRETATION APPROACH, Navigation Elements, Object Type Router (+8 more)
 
-### Community 838 - "Scenario Initialization: From Trigger Map to First Sketch"
+### Community 833 - "Community 833"
 Cohesion: 0.12
 Nodes (15): 1. What Feature Delivers the Most Value?, 2. Where Does the User First Encounter This?, 3. What's Their Mental State at This Moment?, 4. What's the End Goal (Mutual Success)?, 5. What's the Shortest Path?, Agent's Job: Help You Find the Journey, Example 1: E-commerce (Sales Goal), Example 2: SaaS (Subscription Goal) (+7 more)
 
-### Community 839 - "Inline Testing Guide"
+### Community 834 - "Community 834"
 Cohesion: 0.12
 Nodes (16): Agent-Verifiable (Puppeteer), Anti-Patterns, Baseline Capture, Core Principle, Distinction from Phase 7 Testing, Inline Testing Guide, Integration with Phase 4 Flow, Puppeteer Verification Process (+8 more)
 
-### Community 840 - "Step 08: Iterate (Kaizen Never Stops)"
+### Community 835 - "Community 835"
 Cohesion: 0.12
 Nodes (16): Before You Start, Completion, Failure Modes, From Impact Report, Next Steps, Path A: Continue Kaizen Cycle, Path B: New Product Feature, Prioritize Next Cycle (+8 more)
 
-### Community 841 - "wds-validate.js"
+### Community 836 - "Community 836"
 Cohesion: 0.21
 Nodes (15): checkObjectContent(), countNavRows(), extractObjectIds(), extractSpacingIds(), formatResult(), fs, getPageFiles(), main() (+7 more)
 
-### Community 842 - "On Activation"
-Cohesion: 0.13
-Nodes (14): Conventions, Core Principles, Critical Rules (NO EXCEPTIONS), Execution, Implementation Readiness, On Activation, Step 1: Resolve the Workflow Block, Step 2: Execute Prepend Steps (+6 more)
-
-### Community 843 - "INSTRUCTIONS"
+### Community 837 - "Community 837"
 Cohesion: 0.13
 Nodes (14): 1. Clean review shortcut, 2. Write findings to the story file, 3. Present summary, 4. Resolve decision-needed findings, 5. Handle `patch` findings, 6. Update story status and sync sprint tracking, 7. Next steps, Completion summary (+6 more)
 
-### Community 844 - "On Activation"
-Cohesion: 0.13
-Nodes (14): Conventions, Core Principles, Create Epics and Stories, Critical Rules (NO EXCEPTIONS), Execution, On Activation, Step 1: Resolve the Workflow Block, Step 2: Execute Prepend Steps (+6 more)
-
-### Community 845 - "Domain Research Step 1: Domain Research Scope Confirmation"
-Cohesion: 0.13
-Nodes (14): 1. Begin Scope Confirmation, 2. Scope Confirmation, 3. Handle Continue Selection, APPEND TO DOCUMENT:, CONTEXT BOUNDARIES:, Domain Research Step 1: Domain Research Scope Confirmation, DOMAIN SCOPE CONFIRMATION:, EXECUTION PROTOCOLS: (+6 more)
-
-### Community 846 - "On Activation"
+### Community 838 - "Community 838"
 Cohesion: 0.13
 Nodes (14): Conventions, Execution, Input Files, On Activation, Paths, Sprint Status, Sprint Status Workflow, Step 1: Resolve the Workflow Block (+6 more)
 
-### Community 847 - "Technical Research Step 1: Technical Research Scope Confirmation"
+### Community 839 - "Community 839"
 Cohesion: 0.13
 Nodes (14): 1. Begin Scope Confirmation, 2. Scope Confirmation, 3. Handle Continue Selection, APPEND TO DOCUMENT:, CONTEXT BOUNDARIES:, EXECUTION PROTOCOLS:, FAILURE MODES:, If 'C' (Continue): (+6 more)
 
-### Community 848 - "Trigger Map Poster: {{project_name}}"
+### Community 840 - "Community 840"
 Cohesion: 0.13
 Nodes (14): Business Objectives, Cross-Group Patterns, Design Focus Statement, {{@index + 1}}. {{this.name}}, Next Steps, Objective {{@index + 1}}: {{this.statement}}, Potential Tensions, Shared Drivers (+6 more)
 
-### Community 849 - "Design System: {{project_name}}"
-Cohesion: 0.13
-Nodes (14): Components, Design System: {{project_name}}, Folder Structure, For Agents, Optical adjustments, Option A: Use your existing design system, Option A: Use your existing type system, Option B: WDS default scale (+6 more)
-
-### Community 850 - "Trigger Map Poster: {{project_name}}"
+### Community 841 - "Community 841"
 Cohesion: 0.13
 Nodes (14): Business Objectives, Cross-Group Patterns, Design Focus Statement, {{@index + 1}}. {{this.name}}, Next Steps, Objective {{@index + 1}}: {{this.statement}}, Potential Tensions, Shared Drivers (+6 more)
 
-### Community 851 - "Step 5: Outline Scenario (One at a Time)"
+### Community 842 - "Community 842"
 Cohesion: 0.13
 Nodes (14): CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Data References, EXECUTION PROTOCOLS:, File References, MANDATORY EXECUTION RULES (READ FIRST):, Role Reinforcement:, Step 5: Outline Scenario (One at a Time) (+6 more)
 
-### Community 852 - "Phase 3: UX Scenarios"
+### Community 843 - "Community 843"
 Cohesion: 0.13
 Nodes (15): 1. Configuration Loading, 2. Design Log, 3. Mode Determination, 4. First Step, AFTER COMPLETION, Core Principles, Critical Rules (NO EXCEPTIONS), INITIALIZATION (+7 more)
 
-### Community 853 - "Object Router Flow Diagram"
+### Community 844 - "Community 844"
 Cohesion: 0.13
 Nodes (14): 1. Efficiency, 2. Accuracy, 3. Completeness, 4. Intelligence, Benefits, Complete Flow, Example Scenarios, Key Changes (+6 more)
 
-### Community 854 - "The 7 Steps"
+### Community 845 - "Community 845"
 Cohesion: 0.13
 Nodes (15): [1. Confirm Platform Strategy](01-platform-confirmation.md), [2. What Feature Delivers Value?](02-feature-selection.md), [3. Where Do They Encounter It?](03-entry-point.md), [4. What's Their Mental State?](04-mental-state.md), [5. What's Mutual Success?](05-mutual-success.md), [6. What's the Shortest Path?](06-shortest-path.md), [7. Reference Trigger Map](07-reference-trigger-map.md), [E-commerce Example](examples/ecommerce-example.md) (+7 more)
 
-### Community 855 - "Page Specification Validation Standards"
+### Community 846 - "Community 846"
 Cohesion: 0.13
 Nodes (14): Design System Separation, File Size Limits, Mandatory, Navigation Structure, Object ID Format, Object Registry Requirements, Optional, Page Metadata Requirements (+6 more)
 
-### Community 856 - "Responsive Behavior"
-Cohesion: 0.13
-Nodes (14): Adaptations, Breakpoints, Component Breakpoint Behavior, Desktop (> 1024px), Enhancements, Full Layout, Hidden Elements, Layout Changes (+6 more)
-
-### Community 857 - "[D] Dream Up — Agent Creates Autonomously, User Reviews"
+### Community 847 - "Community 847"
 Cohesion: 0.13
 Nodes (14): AFTER COMPLETION, Agent Behavior, Autonomous Mode (all pages at once), Component Extraction (Dream Mode), [D] Dream Up — Agent Creates Autonomously, User Reviews, DESIGN LOG REPORTING, Entry, Execution Rules (+6 more)
 
-### Community 858 - "Phase 7: Design System"
+### Community 848 - "Community 848"
 Cohesion: 0.13
 Nodes (14): 1. Configuration Loading, 2. Design Log, 3. Activity Menu, Activity Routing, AFTER COMPLETION, BROWSE DESIGN SYSTEM, Core Principles, CREATE DESIGN SYSTEM (+6 more)
 
-### Community 859 - "Kaizen Principles"
+### Community 849 - "Community 849"
 Cohesion: 0.13
 Nodes (15): 1. Major Strategic Shift, 2. Team Capacity, 3. Measurement Period, Kaizen Metrics Dashboard Example, Kaizen Principle 1: Focus on Process, Not Just Results, Kaizen Principle 2: Eliminate Waste (Muda 無駄), Kaizen Principle 3: Respect People and Their Insights, Kaizen Principle 4: Standardize, Then Improve (+7 more)
 
-### Community 860 - "On Activation"
+### Community 850 - "Community 850"
 Cohesion: 0.13
 Nodes (14): Conventions, Core Principles, Critical Rules (NO EXCEPTIONS), Execution, Implementation Readiness, On Activation, Step 1: Resolve the Workflow Block, Step 2: Execute Prepend Steps (+6 more)
 
-### Community 861 - "INSTRUCTIONS"
+### Community 851 - "Community 851"
 Cohesion: 0.13
 Nodes (14): 1. Clean review shortcut, 2. Write findings to the story file, 3. Present summary, 4. Resolve decision-needed findings, 5. Handle `patch` findings, 6. Update story status and sync sprint tracking, 7. Next steps, Completion summary (+6 more)
 
-### Community 862 - "On Activation"
+### Community 852 - "Community 852"
 Cohesion: 0.13
 Nodes (14): Conventions, Core Principles, Create Epics and Stories, Critical Rules (NO EXCEPTIONS), Execution, On Activation, Step 1: Resolve the Workflow Block, Step 2: Execute Prepend Steps (+6 more)
 
-### Community 863 - "Domain Research Step 1: Domain Research Scope Confirmation"
+### Community 853 - "Community 853"
 Cohesion: 0.13
 Nodes (14): 1. Begin Scope Confirmation, 2. Scope Confirmation, 3. Handle Continue Selection, APPEND TO DOCUMENT:, CONTEXT BOUNDARIES:, Domain Research Step 1: Domain Research Scope Confirmation, DOMAIN SCOPE CONFIRMATION:, EXECUTION PROTOCOLS: (+6 more)
 
-### Community 864 - "On Activation"
+### Community 854 - "Community 854"
 Cohesion: 0.13
 Nodes (14): Conventions, Execution, Input Files, On Activation, Paths, Sprint Status, Sprint Status Workflow, Step 1: Resolve the Workflow Block (+6 more)
 
-### Community 865 - "Technical Research Step 1: Technical Research Scope Confirmation"
+### Community 855 - "Community 855"
 Cohesion: 0.13
 Nodes (14): 1. Begin Scope Confirmation, 2. Scope Confirmation, 3. Handle Continue Selection, APPEND TO DOCUMENT:, CONTEXT BOUNDARIES:, EXECUTION PROTOCOLS:, FAILURE MODES:, If 'C' (Continue): (+6 more)
 
-### Community 866 - "Trigger Map Poster: {{project_name}}"
+### Community 856 - "Community 856"
 Cohesion: 0.13
 Nodes (14): Business Objectives, Cross-Group Patterns, Design Focus Statement, {{@index + 1}}. {{this.name}}, Next Steps, Objective {{@index + 1}}: {{this.statement}}, Potential Tensions, Shared Drivers (+6 more)
 
-### Community 867 - "Design System: {{project_name}}"
-Cohesion: 0.13
-Nodes (14): Components, Design System: {{project_name}}, Folder Structure, For Agents, Optical adjustments, Option A: Use your existing design system, Option A: Use your existing type system, Option B: WDS default scale (+6 more)
-
-### Community 868 - "Trigger Map Poster: {{project_name}}"
+### Community 857 - "Community 857"
 Cohesion: 0.13
 Nodes (14): Business Objectives, Cross-Group Patterns, Design Focus Statement, {{@index + 1}}. {{this.name}}, Next Steps, Objective {{@index + 1}}: {{this.statement}}, Potential Tensions, Shared Drivers (+6 more)
 
-### Community 869 - "Step 5: Outline Scenario (One at a Time)"
-Cohesion: 0.13
-Nodes (14): CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, Data References, EXECUTION PROTOCOLS:, File References, MANDATORY EXECUTION RULES (READ FIRST):, Role Reinforcement:, Step 5: Outline Scenario (One at a Time) (+6 more)
-
-### Community 870 - "Phase 3: UX Scenarios"
+### Community 858 - "Community 858"
 Cohesion: 0.13
 Nodes (15): 1. Configuration Loading, 2. Design Log, 3. Mode Determination, 4. First Step, AFTER COMPLETION, Core Principles, Critical Rules (NO EXCEPTIONS), INITIALIZATION (+7 more)
 
-### Community 871 - "Object Router Flow Diagram"
+### Community 859 - "Community 859"
 Cohesion: 0.13
 Nodes (14): 1. Efficiency, 2. Accuracy, 3. Completeness, 4. Intelligence, Benefits, Complete Flow, Example Scenarios, Key Changes (+6 more)
 
-### Community 872 - "The 7 Steps"
+### Community 860 - "Community 860"
 Cohesion: 0.13
 Nodes (15): [1. Confirm Platform Strategy](01-platform-confirmation.md), [2. What Feature Delivers Value?](02-feature-selection.md), [3. Where Do They Encounter It?](03-entry-point.md), [4. What's Their Mental State?](04-mental-state.md), [5. What's Mutual Success?](05-mutual-success.md), [6. What's the Shortest Path?](06-shortest-path.md), [7. Reference Trigger Map](07-reference-trigger-map.md), [E-commerce Example](examples/ecommerce-example.md) (+7 more)
 
-### Community 873 - "Page Specification Validation Standards"
+### Community 861 - "Community 861"
 Cohesion: 0.13
 Nodes (14): Design System Separation, File Size Limits, Mandatory, Navigation Structure, Object ID Format, Object Registry Requirements, Optional, Page Metadata Requirements (+6 more)
 
-### Community 874 - "Responsive Behavior"
-Cohesion: 0.13
-Nodes (14): Adaptations, Breakpoints, Component Breakpoint Behavior, Desktop (> 1024px), Enhancements, Full Layout, Hidden Elements, Layout Changes (+6 more)
-
-### Community 875 - "[D] Dream Up — Agent Creates Autonomously, User Reviews"
+### Community 862 - "Community 862"
 Cohesion: 0.13
 Nodes (14): AFTER COMPLETION, Agent Behavior, Autonomous Mode (all pages at once), Component Extraction (Dream Mode), [D] Dream Up — Agent Creates Autonomously, User Reviews, DESIGN LOG REPORTING, Entry, Execution Rules (+6 more)
 
-### Community 876 - "Phase 7: Design System"
+### Community 863 - "Community 863"
 Cohesion: 0.13
 Nodes (14): 1. Configuration Loading, 2. Design Log, 3. Activity Menu, Activity Routing, AFTER COMPLETION, BROWSE DESIGN SYSTEM, Core Principles, CREATE DESIGN SYSTEM (+6 more)
 
-### Community 877 - "Kaizen Principles"
+### Community 864 - "Community 864"
 Cohesion: 0.13
 Nodes (15): 1. Major Strategic Shift, 2. Team Capacity, 3. Measurement Period, Kaizen Metrics Dashboard Example, Kaizen Principle 1: Focus on Process, Not Just Results, Kaizen Principle 2: Eliminate Waste (Muda 無駄), Kaizen Principle 3: Respect People and Their Insights, Kaizen Principle 4: Standardize, Then Improve (+7 more)
 
-### Community 878 - "resolve_customization.py"
+### Community 865 - "Community 865"
 Cohesion: 0.23
 Nodes (14): deep_merge(), _detect_keyed_merge_field(), extract_key(), find_project_root(), load_toml(), main(), _merge_arrays(), _merge_by_key() (+6 more)
 
-### Community 879 - "On Activation"
-Cohesion: 0.14
-Nodes (13): Code Review Workflow, Conventions, Critical Rules (NO EXCEPTIONS), FIRST STEP, On Activation, Step 1: Resolve the Workflow Block, Step 2: Execute Prepend Steps, Step 3: Load Persistent Facts (+5 more)
-
-### Community 880 - "On Activation"
-Cohesion: 0.14
-Nodes (13): Conventions, Correct Course - Sprint Change Management Workflow, Document Discovery - Loading Project Artifacts, Execution, Input Files, On Activation, Paths, Step 1: Resolve the Workflow Block (+5 more)
-
-### Community 881 - "Dev Auto Workflow"
-Cohesion: 0.14
-Nodes (13): Conventions, Dev Auto Workflow, First workflow step, HALT, On Activation, READY FOR DEVELOPMENT STANDARD, Step 1: Resolve the Workflow Block, Step 2: Execute Prepend Steps (+5 more)
-
-### Community 882 - "type"
+### Community 866 - "Community 866"
 Cohesion: 0.14
 Nodes (14): description, items, type, type, description, description, items, type (+6 more)
 
-### Community 883 - "On Activation"
-Cohesion: 0.14
-Nodes (13): Conventions, Domain Research Workflow, On Activation, PREREQUISITE, QUICK TOPIC DISCOVERY, ROUTE TO DOMAIN RESEARCH STEPS, Step 1: Resolve the Workflow Block, Step 2: Execute Prepend Steps (+5 more)
-
-### Community 884 - "On Activation"
-Cohesion: 0.14
-Nodes (13): Conventions, Market Research Workflow, On Activation, PREREQUISITE, QUICK TOPIC DISCOVERY, ROUTE TO MARKET RESEARCH STEPS, Step 1: Resolve the Workflow Block, Step 2: Execute Prepend Steps (+5 more)
-
-### Community 885 - "On Activation"
-Cohesion: 0.14
-Nodes (13): Conventions, On Activation, Overview, Pre-workflow Setup, Stage 1: Ignition, Stages, Step 1: Resolve the Workflow Block, Step 2: Execute Prepend Steps (+5 more)
-
-### Community 886 - "On Activation"
+### Community 867 - "Community 867"
 Cohesion: 0.14
 Nodes (13): Conventions, Execution, Input Files, On Activation, Paths, Required Inputs, Retrospective Workflow, Step 1: Resolve the Workflow Block (+5 more)
 
-### Community 887 - "EXECUTION"
+### Community 868 - "Community 868"
 Cohesion: 0.14
 Nodes (13): CRITICAL RULES, EXECUTION, HALT CONDITIONS, If user selects `d` (delete), If user selects `k` (keep), If user selects `m` (move), Shard Document, Step 1: Get Source Document (+5 more)
 
-### Community 888 - "On Activation"
+### Community 869 - "Community 869"
 Cohesion: 0.14
 Nodes (13): Conventions, On Activation, PREREQUISITE, QUICK TOPIC DISCOVERY, ROUTE TO TECHNICAL RESEARCH STEPS, Step 1: Resolve the Workflow Block, Step 2: Execute Prepend Steps, Step 3: Load Persistent Facts (+5 more)
 
-### Community 889 - "Drift — Experience Spine"
+### Community 870 - "Community 870"
 Cohesion: 0.14
 Nodes (13): Accessibility Floor, Component Patterns, Drift — Experience Spine, Flow 1 — Morning focus (Sarah, solo founder, 8:45am Tuesday), Flow 2 — Async handoff (Devon and Mara, small remote team, mid-afternoon), Foundation, Information Architecture, Inspiration & Anti-patterns (+5 more)
 
-### Community 890 - "SECTION EXPLORATION GUIDE"
+### Community 871 - "Community 871"
 Cohesion: 0.14
 Nodes (14): 10. Summary, 1. The Realization, 2. Why It Matters, 3. How We See It Working, 4. Paths We Explored, 5. Recommended Solution, 6. The Path Forward, 7. The Value We'll Create (+6 more)
 
-### Community 891 - "Design Principles (Synthesized)"
-Cohesion: 0.14
-Nodes (13): Adaptations Needed, Content Hierarchy, Design Principles (Synthesized), How to Use This Document, Inspiration Analysis: {{project_name}}, Layout, Principles Extracted, Sites Analyzed (+5 more)
-
-### Community 892 - "Project Pitch: {{project_name}}"
+### Community 872 - "Community 872"
 Cohesion: 0.14
 Nodes (13): 10. Summary, 1. The Realization, 2. Why It Matters, 3. How We See It Working, 4. Paths We Explored, 5. Recommended Solution, 6. The Path Forward, 7. The Value We'll Create (+5 more)
 
-### Community 893 - "Design Principles (Synthesized)"
+### Community 873 - "Community 873"
+Cohesion: 0.15
+Nodes (13): Components, Design System: {{project_name}}, Folder Structure, For Agents, Optical adjustments, Option A: Use your existing design system, Option A: Use your existing type system, Option B: WDS default scale (+5 more)
+
+### Community 874 - "Community 874"
 Cohesion: 0.14
 Nodes (13): Adaptations Needed, Content Hierarchy, Design Principles (Synthesized), How to Use This Document, Inspiration Analysis: {{project_name}}, Layout, Principles Extracted, Sites Analyzed (+5 more)
 
-### Community 894 - "Project Pitch: {{project_name}}"
+### Community 875 - "Community 875"
 Cohesion: 0.14
 Nodes (13): 10. Summary, 1. The Realization, 2. Why It Matters, 3. How We See It Working, 4. Paths We Explored, 5. Recommended Solution, 6. The Path Forward, 7. The Value We'll Create (+5 more)
 
-### Community 895 - "Phase 1: Product Brief"
+### Community 876 - "Community 876"
 Cohesion: 0.14
 Nodes (13): 1. Configuration Loading, 2. Design Log, 3. Mode Determination, 4. Brief Level Routing, AFTER COMPLETION, Complete Brief Flow, INITIALIZATION, OUTPUT (+5 more)
 
-### Community 896 - "Phase 2: Trigger Mapping"
+### Community 877 - "Community 877"
 Cohesion: 0.14
 Nodes (13): 1. Configuration Loading, 2. Design Log, 3. Mode Determination, AFTER COMPLETION, Critical Rules (NO EXCEPTIONS), INITIALIZATION, OUTPUT, Phase 2: Trigger Mapping (+5 more)
 
-### Community 897 - "Step 2: Analyze Scope & Scale Strategy"
+### Community 878 - "Community 878"
 Cohesion: 0.14
 Nodes (13): CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, File References, MANDATORY EXECUTION RULES (READ FIRST):, Role Reinforcement:, Step 2: Analyze Scope & Scale Strategy, STEP GOAL: (+5 more)
 
-### Community 898 - "Step 3: Build Strategic Context"
+### Community 879 - "Community 879"
 Cohesion: 0.14
 Nodes (13): CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, File References, MANDATORY EXECUTION RULES (READ FIRST):, Role Reinforcement:, Step 3: Build Strategic Context, STEP GOAL: (+5 more)
 
-### Community 899 - "Step 4: Suggest Scenarios (USER CHECKPOINT)"
+### Community 880 - "Community 880"
 Cohesion: 0.14
 Nodes (13): CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, File References, MANDATORY EXECUTION RULES (READ FIRST):, Role Reinforcement:, Step 4: Suggest Scenarios (USER CHECKPOINT), STEP GOAL: (+5 more)
 
-### Community 900 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 881 - "Community 881"
 Cohesion: 0.14
 Nodes (14): 1. Determine Which Scenario, 2. Load Template, 4. Name the Scenario, 5. Quality Gates (Check Before Moving On), 6. Create the Scenario File, 7. After Scenario Creation — Outline Scenario Steps, Automatic First Step, EXECUTION RULES: (+6 more)
 
-### Community 901 - "Step 07: Monitor Impact"
+### Community 882 - "Community 882"
+Cohesion: 0.15
+Nodes (13): Adaptations, Breakpoints, Component Breakpoint Behavior, Desktop (> 1024px), Enhancements, Full Layout, Hidden Elements, Layout Changes (+5 more)
+
+### Community 883 - "Community 883"
 Cohesion: 0.14
 Nodes (14): After Measurement Period, Analyze Results, Before You Start, DO ✅, DON'T ❌, Failure Modes, Next Step, Share Results (+6 more)
 
-### Community 902 - "On Activation"
+### Community 884 - "Community 884"
 Cohesion: 0.14
 Nodes (13): Code Review Workflow, Conventions, Critical Rules (NO EXCEPTIONS), FIRST STEP, On Activation, Step 1: Resolve the Workflow Block, Step 2: Execute Prepend Steps, Step 3: Load Persistent Facts (+5 more)
 
-### Community 903 - "On Activation"
+### Community 885 - "Community 885"
 Cohesion: 0.14
 Nodes (13): Conventions, Correct Course - Sprint Change Management Workflow, Document Discovery - Loading Project Artifacts, Execution, Input Files, On Activation, Paths, Step 1: Resolve the Workflow Block (+5 more)
 
-### Community 904 - "Dev Auto Workflow"
+### Community 886 - "Community 886"
 Cohesion: 0.14
 Nodes (13): Conventions, Dev Auto Workflow, First workflow step, HALT, On Activation, READY FOR DEVELOPMENT STANDARD, Step 1: Resolve the Workflow Block, Step 2: Execute Prepend Steps (+5 more)
 
-### Community 905 - "type"
+### Community 887 - "Community 887"
 Cohesion: 0.14
 Nodes (14): description, items, type, type, description, description, items, type (+6 more)
 
-### Community 906 - "On Activation"
+### Community 888 - "Community 888"
 Cohesion: 0.14
 Nodes (13): Conventions, Domain Research Workflow, On Activation, PREREQUISITE, QUICK TOPIC DISCOVERY, ROUTE TO DOMAIN RESEARCH STEPS, Step 1: Resolve the Workflow Block, Step 2: Execute Prepend Steps (+5 more)
 
-### Community 907 - "On Activation"
+### Community 889 - "Community 889"
 Cohesion: 0.14
 Nodes (13): Conventions, Market Research Workflow, On Activation, PREREQUISITE, QUICK TOPIC DISCOVERY, ROUTE TO MARKET RESEARCH STEPS, Step 1: Resolve the Workflow Block, Step 2: Execute Prepend Steps (+5 more)
 
-### Community 908 - "On Activation"
+### Community 890 - "Community 890"
 Cohesion: 0.14
 Nodes (13): Conventions, On Activation, Overview, Pre-workflow Setup, Stage 1: Ignition, Stages, Step 1: Resolve the Workflow Block, Step 2: Execute Prepend Steps (+5 more)
 
-### Community 909 - "On Activation"
+### Community 891 - "Community 891"
 Cohesion: 0.14
 Nodes (13): Conventions, Execution, Input Files, On Activation, Paths, Required Inputs, Retrospective Workflow, Step 1: Resolve the Workflow Block (+5 more)
 
-### Community 910 - "EXECUTION"
+### Community 892 - "Community 892"
 Cohesion: 0.14
 Nodes (13): CRITICAL RULES, EXECUTION, HALT CONDITIONS, If user selects `d` (delete), If user selects `k` (keep), If user selects `m` (move), Shard Document, Step 1: Get Source Document (+5 more)
 
-### Community 911 - "On Activation"
+### Community 893 - "Community 893"
 Cohesion: 0.14
 Nodes (13): Conventions, On Activation, PREREQUISITE, QUICK TOPIC DISCOVERY, ROUTE TO TECHNICAL RESEARCH STEPS, Step 1: Resolve the Workflow Block, Step 2: Execute Prepend Steps, Step 3: Load Persistent Facts (+5 more)
 
-### Community 912 - "Drift — Experience Spine"
+### Community 894 - "Community 894"
 Cohesion: 0.14
 Nodes (13): Accessibility Floor, Component Patterns, Drift — Experience Spine, Flow 1 — Morning focus (Sarah, solo founder, 8:45am Tuesday), Flow 2 — Async handoff (Devon and Mara, small remote team, mid-afternoon), Foundation, Information Architecture, Inspiration & Anti-patterns (+5 more)
 
-### Community 913 - "SECTION EXPLORATION GUIDE"
+### Community 895 - "Community 895"
 Cohesion: 0.14
 Nodes (14): 10. Summary, 1. The Realization, 2. Why It Matters, 3. How We See It Working, 4. Paths We Explored, 5. Recommended Solution, 6. The Path Forward, 7. The Value We'll Create (+6 more)
 
-### Community 914 - "Design Principles (Synthesized)"
+### Community 896 - "Community 896"
 Cohesion: 0.14
 Nodes (13): Adaptations Needed, Content Hierarchy, Design Principles (Synthesized), How to Use This Document, Inspiration Analysis: {{project_name}}, Layout, Principles Extracted, Sites Analyzed (+5 more)
 
-### Community 915 - "Project Pitch: {{project_name}}"
+### Community 897 - "Community 897"
 Cohesion: 0.14
 Nodes (13): 10. Summary, 1. The Realization, 2. Why It Matters, 3. How We See It Working, 4. Paths We Explored, 5. Recommended Solution, 6. The Path Forward, 7. The Value We'll Create (+5 more)
 
-### Community 916 - "Design Principles (Synthesized)"
+### Community 898 - "Community 898"
+Cohesion: 0.15
+Nodes (13): Components, Design System: {{project_name}}, Folder Structure, For Agents, Optical adjustments, Option A: Use your existing design system, Option A: Use your existing type system, Option B: WDS default scale (+5 more)
+
+### Community 899 - "Community 899"
 Cohesion: 0.14
 Nodes (13): Adaptations Needed, Content Hierarchy, Design Principles (Synthesized), How to Use This Document, Inspiration Analysis: {{project_name}}, Layout, Principles Extracted, Sites Analyzed (+5 more)
 
-### Community 917 - "Project Pitch: {{project_name}}"
+### Community 900 - "Community 900"
 Cohesion: 0.14
 Nodes (13): 10. Summary, 1. The Realization, 2. Why It Matters, 3. How We See It Working, 4. Paths We Explored, 5. Recommended Solution, 6. The Path Forward, 7. The Value We'll Create (+5 more)
 
-### Community 918 - "Phase 1: Product Brief"
+### Community 901 - "Community 901"
 Cohesion: 0.14
 Nodes (13): 1. Configuration Loading, 2. Design Log, 3. Mode Determination, 4. Brief Level Routing, AFTER COMPLETION, Complete Brief Flow, INITIALIZATION, OUTPUT (+5 more)
 
-### Community 919 - "Phase 2: Trigger Mapping"
+### Community 902 - "Community 902"
 Cohesion: 0.14
 Nodes (13): 1. Configuration Loading, 2. Design Log, 3. Mode Determination, AFTER COMPLETION, Critical Rules (NO EXCEPTIONS), INITIALIZATION, OUTPUT, Phase 2: Trigger Mapping (+5 more)
 
-### Community 920 - "Step 2: Analyze Scope & Scale Strategy"
+### Community 903 - "Community 903"
 Cohesion: 0.14
 Nodes (13): CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, File References, MANDATORY EXECUTION RULES (READ FIRST):, Role Reinforcement:, Step 2: Analyze Scope & Scale Strategy, STEP GOAL: (+5 more)
 
-### Community 921 - "Step 3: Build Strategic Context"
+### Community 904 - "Community 904"
 Cohesion: 0.14
 Nodes (13): CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, File References, MANDATORY EXECUTION RULES (READ FIRST):, Role Reinforcement:, Step 3: Build Strategic Context, STEP GOAL: (+5 more)
 
-### Community 922 - "Step 4: Suggest Scenarios (USER CHECKPOINT)"
+### Community 905 - "Community 905"
 Cohesion: 0.14
 Nodes (13): CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, File References, MANDATORY EXECUTION RULES (READ FIRST):, Role Reinforcement:, Step 4: Suggest Scenarios (USER CHECKPOINT), STEP GOAL: (+5 more)
 
-### Community 923 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 906 - "Community 906"
 Cohesion: 0.14
 Nodes (14): 1. Determine Which Scenario, 2. Load Template, 4. Name the Scenario, 5. Quality Gates (Check Before Moving On), 6. Create the Scenario File, 7. After Scenario Creation — Outline Scenario Steps, Automatic First Step, EXECUTION RULES: (+6 more)
 
-### Community 924 - "Step 07: Monitor Impact"
+### Community 907 - "Community 907"
+Cohesion: 0.14
+Nodes (13): Hero Object, Object Type: Heading/Text (with Purpose-Based Organization), Primary CTA Button, Primary Headline, STEP 1: PURPOSE-BASED NAMING, STEP 2: OBJECT ID (Based on Purpose), STEP 3: DESIGN SYSTEM COMPONENT, STEP 4: TEXT TYPE & POSITIONING (+5 more)
+
+### Community 908 - "Community 908"
+Cohesion: 0.15
+Nodes (13): Adaptations, Breakpoints, Component Breakpoint Behavior, Desktop (> 1024px), Enhancements, Full Layout, Hidden Elements, Layout Changes (+5 more)
+
+### Community 909 - "Community 909"
 Cohesion: 0.14
 Nodes (14): After Measurement Period, Analyze Results, Before You Start, DO ✅, DON'T ❌, Failure Modes, Next Step, Share Results (+6 more)
 
-### Community 925 - "Advanced Elicitation"
-Cohesion: 0.15
-Nodes (12): Advanced Elicitation, Context Analysis, CRITICAL LLM INSTRUCTIONS, CSV Structure, Display Format, FLOW, INTEGRATION (When Invoked Indirectly), Response Handling (+4 more)
+### Community 910 - "Community 910"
+Cohesion: 0.16
+Nodes (14): Project Contract Template, Step 04b: Determine Business Model, Step 05a: Contract Overview, Step 05b: Contract Business Model, Step 05c: Contract Scope, Step 05d: Contract Payment, Step 05e: Contract Timeline, Step 05f: Contract Availability (+6 more)
 
-### Community 926 - "On Activation"
-Cohesion: 0.15
-Nodes (12): Conventions, Mary — Business Analyst, On Activation, Overview, Step 1: Resolve the Agent Block, Step 2: Execute Prepend Steps, Step 3: Adopt Persona, Step 4: Load Persistent Facts (+4 more)
-
-### Community 927 - "On Activation"
-Cohesion: 0.15
-Nodes (12): Conventions, On Activation, Overview, Step 1: Resolve the Agent Block, Step 2: Execute Prepend Steps, Step 3: Adopt Persona, Step 4: Load Persistent Facts, Step 5: Load Config (+4 more)
-
-### Community 928 - "On Activation"
-Cohesion: 0.15
-Nodes (12): Amelia — Senior Software Engineer, Conventions, On Activation, Overview, Step 1: Resolve the Agent Block, Step 2: Execute Prepend Steps, Step 3: Adopt Persona, Step 4: Load Persistent Facts (+4 more)
-
-### Community 929 - "On Activation"
-Cohesion: 0.15
-Nodes (12): Conventions, John — Product Manager, On Activation, Overview, Step 1: Resolve the Agent Block, Step 2: Execute Prepend Steps, Step 3: Adopt Persona, Step 4: Load Persistent Facts (+4 more)
-
-### Community 930 - "On Activation"
-Cohesion: 0.15
-Nodes (12): Conventions, On Activation, Overview, Paige — Technical Writer, Step 1: Resolve the Agent Block, Step 2: Execute Prepend Steps, Step 3: Adopt Persona, Step 4: Load Persistent Facts (+4 more)
-
-### Community 931 - "On Activation"
-Cohesion: 0.15
-Nodes (12): Conventions, On Activation, Overview, Sally — UX Designer, Step 1: Resolve the Agent Block, Step 2: Execute Prepend Steps, Step 3: Adopt Persona, Step 4: Load Persistent Facts (+4 more)
-
-### Community 932 - "On Activation"
-Cohesion: 0.15
-Nodes (12): Conventions, Create Story Workflow, Execution, Input Files, On Activation, Paths, Step 1: Resolve the Workflow Block, Step 2: Execute Prepend Steps (+4 more)
-
-### Community 933 - "Story {{epic_num}}.{{story_num}}: {{story_title}}"
-Cohesion: 0.15
-Nodes (12): Acceptance Criteria, Agent Model Used, Completion Notes List, Debug Log References, Dev Agent Record, Dev Notes, File List, Project Structure Notes (+4 more)
-
-### Community 934 - "list_customizable_skills.py"
+### Community 911 - "Community 911"
 Cohesion: 0.27
 Nodes (12): default_skills_root(), load_customize(), main(), parse_args(), Namespace, Path, Derive the skills root from this script's location.      Layout assumption: {ski, Extract the `description:` value from a SKILL.md YAML frontmatter block.      Re (+4 more)
 
-### Community 935 - "properties"
+### Community 912 - "Community 912"
 Cohesion: 0.15
 Nodes (13): description, items, type, description, properties, type, type, batches_completed (+5 more)
 
-### Community 936 - "On Activation"
-Cohesion: 0.15
-Nodes (12): Conventions, Execution, Generate Project Context Workflow, On Activation, Paths, Step 1: Resolve the Workflow Block, Step 2: Execute Prepend Steps, Step 3: Load Persistent Facts (+4 more)
-
-### Community 937 - "The seven dimensions"
+### Community 913 - "Community 913"
 Cohesion: 0.15
 Nodes (12): 1. Decision-readiness, 2. Substance over theater, 3. Strategic coherence, 4. Done-ness clarity, 5. Scope honesty, 6. Downstream usability, 7. Shape fit, How to use this rubric (+4 more)
 
-### Community 938 - "Quill — Experience Spine"
+### Community 914 - "Community 914"
 Cohesion: 0.15
 Nodes (12): Accessibility Floor, Component Patterns, Flow 1 — Daily write (Mira, late evening, after work), Flow 2 — Recall past entry (Mira, three weeks later, looking for what she wrote about her mother), Foundation, Information Architecture, Inspiration & Anti-patterns, Interaction Primitives (+4 more)
 
-### Community 939 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 915 - "Community 915"
+Cohesion: 0.15
+Nodes (12): Adaptations Needed, Content Hierarchy, Design Principles (Synthesized), How to Use This Document, Inspiration Analysis: {{project_name}}, Layout, Principles Extracted, Sites Analyzed (+4 more)
+
+### Community 916 - "Community 916"
 Cohesion: 0.15
 Nodes (13): 10. Create Structure & Outline, 11. Summary & Next Steps, 12. Routing, 1. Project Name, 2. What Are You Building?, 3. Tech Stack (Optional), 4. Component Library (Optional), 5. Root Folder Name (+5 more)
 
-### Community 940 - "Substep 2: Explore Positioning"
+### Community 917 - "Community 917"
 Cohesion: 0.15
 Nodes (12): Conversational Follow-Up Patterns, Example, If They Mention a PROBLEM or NEED, If They Mention ALTERNATIVES, If They Mention DIFFERENTIATION, If They Mention TARGET CUSTOMERS, If They're VAGUE, Know When to Stop (+4 more)
 
-### Community 941 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 918 - "Community 918"
 Cohesion: 0.15
 Nodes (13): 1. Load Checklist, 2. Review Each Scenario, 3. Check Thresholds, 4. Fix Failing Items, 5. Present Review Summary, 6. Present MENU OPTIONS, Dimension 1: Completeness (7 components), Dimension 2: Quality Criteria (7 checks) (+5 more)
 
-### Community 942 - "Object Type: Heading/Text (with Purpose-Based Organization)"
+### Community 919 - "Community 919"
 Cohesion: 0.15
 Nodes (13): Hero Object, Object Type: Heading/Text (with Purpose-Based Organization), Primary CTA Button, Primary Headline, STEP 1: PURPOSE-BASED NAMING, STEP 2: OBJECT ID (Based on Purpose), STEP 3: DESIGN SYSTEM COMPONENT, STEP 4: TEXT TYPE & POSITIONING (+5 more)
 
-### Community 943 - "Object Type: Text Input"
+### Community 920 - "Community 920"
 Cohesion: 0.15
 Nodes (13): DESIGN SYSTEM COMPONENT, ERROR MESSAGES, EXAMPLE OUTPUT, GENERATE INPUT SPECIFICATION, INPUT CONTENT, INPUT IDENTIFICATION, INPUT INTERACTION, INPUT PROPERTIES (+5 more)
 
-### Community 944 - "page-specification.template.md"
-Cohesion: 0.17
-Nodes (7): File References, Agent Questions, Meta Content & Social Sharing, Meta Description, Page Title, Social Sharing, {page-number}-{page-name}
-
-### Community 945 - "AFTER COMPLETION"
+### Community 921 - "Community 921"
 Cohesion: 0.15
 Nodes (12): AFTER COMPLETION, Design Log Update, Entry, Execution Rules, INITIALIZATION, Page Creation (per page), Phase 3 Handover Context, [S] Suggest — Agent Proposes, User Confirms Each Step (+4 more)
 
-### Community 946 - "Level 1: Critical (Must Pass)"
+### Community 922 - "Community 922"
 Cohesion: 0.15
 Nodes (13): 1.1 Page Title Tag, 1.2 Meta Description, 1.3 H1 Heading, 1.4 Heading Hierarchy, 1.5 Image Alt Text, 2.1 Open Graph / Social Sharing, 2.2 Structured Data (Schema.org), 2.3 Internal Links (+5 more)
 
-### Community 947 - "SEO Validation Guide"
+### Community 923 - "Community 923"
 Cohesion: 0.15
 Nodes (13): Anti-Patterns, Automated SEO Check Script Pattern, Common Fixes (From 44 Real-World Audits), Core Principle, Integration with Acceptance Testing, Integration with Phase 5 Flow, Narration Pattern, Reference Documents (+5 more)
 
-### Community 948 - "Phase 5: Agentic Development"
+### Community 924 - "Community 924"
 Cohesion: 0.15
 Nodes (12): 1. Configuration Loading, 2. Design Log, 3. Activity Menu, Activity Routing, AFTER COMPLETION, Core Principles, INITIALIZATION, OUTPUT (+4 more)
 
-### Community 949 - "Step 8b: Create New Component"
-Cohesion: 0.15
-Nodes (13): Accessibility, CONTEXT BOUNDARIES:, EXECUTION PROTOCOLS:, Notes, Related Components, Sequence of Instructions (Do not deviate, skip, or optimize), Step 1: Generate Component ID, Step 2: Determine Component Category (+5 more)
-
-### Community 950 - "Phase 8: Product Evolution"
+### Community 925 - "Community 925"
 Cohesion: 0.15
 Nodes (12): 1. Configuration Loading, 2. Design Log, 3. Activity Menu, Activity Routing, AFTER COMPLETION, Core Principles, INITIALIZATION, OUTPUT (+4 more)
 
-### Community 951 - "On Activation"
+### Community 926 - "Community 926"
 Cohesion: 0.15
 Nodes (12): Conventions, Freya — WDS Designer, On Activation, Overview, Step 1: Resolve the Agent Block, Step 2: Execute Prepend Steps, Step 3: Adopt Persona, Step 4: Load Persistent Facts (+4 more)
 
-### Community 952 - "On Activation"
+### Community 927 - "Community 927"
 Cohesion: 0.15
 Nodes (12): Conventions, On Activation, Overview, Saga — WDS Analyst, Step 1: Resolve the Agent Block, Step 2: Execute Prepend Steps, Step 3: Adopt Persona, Step 4: Load Persistent Facts (+4 more)
 
-### Community 953 - "Advanced Elicitation"
+### Community 928 - "Community 928"
 Cohesion: 0.15
 Nodes (12): Advanced Elicitation, Context Analysis, CRITICAL LLM INSTRUCTIONS, CSV Structure, Display Format, FLOW, INTEGRATION (When Invoked Indirectly), Response Handling (+4 more)
 
-### Community 954 - "On Activation"
+### Community 929 - "Community 929"
 Cohesion: 0.15
 Nodes (12): Conventions, Mary — Business Analyst, On Activation, Overview, Step 1: Resolve the Agent Block, Step 2: Execute Prepend Steps, Step 3: Adopt Persona, Step 4: Load Persistent Facts (+4 more)
 
-### Community 955 - "On Activation"
+### Community 930 - "Community 930"
 Cohesion: 0.15
 Nodes (12): Conventions, On Activation, Overview, Step 1: Resolve the Agent Block, Step 2: Execute Prepend Steps, Step 3: Adopt Persona, Step 4: Load Persistent Facts, Step 5: Load Config (+4 more)
 
-### Community 956 - "On Activation"
+### Community 931 - "Community 931"
 Cohesion: 0.15
 Nodes (12): Amelia — Senior Software Engineer, Conventions, On Activation, Overview, Step 1: Resolve the Agent Block, Step 2: Execute Prepend Steps, Step 3: Adopt Persona, Step 4: Load Persistent Facts (+4 more)
 
-### Community 957 - "On Activation"
+### Community 932 - "Community 932"
 Cohesion: 0.15
 Nodes (12): Conventions, John — Product Manager, On Activation, Overview, Step 1: Resolve the Agent Block, Step 2: Execute Prepend Steps, Step 3: Adopt Persona, Step 4: Load Persistent Facts (+4 more)
 
-### Community 958 - "On Activation"
+### Community 933 - "Community 933"
 Cohesion: 0.15
 Nodes (12): Conventions, On Activation, Overview, Paige — Technical Writer, Step 1: Resolve the Agent Block, Step 2: Execute Prepend Steps, Step 3: Adopt Persona, Step 4: Load Persistent Facts (+4 more)
 
-### Community 959 - "On Activation"
+### Community 934 - "Community 934"
 Cohesion: 0.15
 Nodes (12): Conventions, On Activation, Overview, Sally — UX Designer, Step 1: Resolve the Agent Block, Step 2: Execute Prepend Steps, Step 3: Adopt Persona, Step 4: Load Persistent Facts (+4 more)
 
-### Community 960 - "On Activation"
+### Community 935 - "Community 935"
 Cohesion: 0.15
 Nodes (12): Conventions, Create Story Workflow, Execution, Input Files, On Activation, Paths, Step 1: Resolve the Workflow Block, Step 2: Execute Prepend Steps (+4 more)
 
-### Community 961 - "Story {{epic_num}}.{{story_num}}: {{story_title}}"
+### Community 936 - "Community 936"
 Cohesion: 0.15
 Nodes (12): Acceptance Criteria, Agent Model Used, Completion Notes List, Debug Log References, Dev Agent Record, Dev Notes, File List, Project Structure Notes (+4 more)
 
-### Community 962 - "list_customizable_skills.py"
+### Community 937 - "Community 937"
 Cohesion: 0.27
 Nodes (12): default_skills_root(), load_customize(), main(), parse_args(), Namespace, Path, Derive the skills root from this script's location.      Layout assumption: {ski, Extract the `description:` value from a SKILL.md YAML frontmatter block.      Re (+4 more)
 
-### Community 963 - "properties"
+### Community 938 - "Community 938"
 Cohesion: 0.15
 Nodes (13): description, items, type, description, properties, type, type, batches_completed (+5 more)
 
-### Community 964 - "On Activation"
+### Community 939 - "Community 939"
 Cohesion: 0.15
 Nodes (12): Conventions, Execution, Generate Project Context Workflow, On Activation, Paths, Step 1: Resolve the Workflow Block, Step 2: Execute Prepend Steps, Step 3: Load Persistent Facts (+4 more)
 
-### Community 965 - "The seven dimensions"
+### Community 940 - "Community 940"
 Cohesion: 0.15
 Nodes (12): 1. Decision-readiness, 2. Substance over theater, 3. Strategic coherence, 4. Done-ness clarity, 5. Scope honesty, 6. Downstream usability, 7. Shape fit, How to use this rubric (+4 more)
 
-### Community 966 - "Quill — Experience Spine"
+### Community 941 - "Community 941"
 Cohesion: 0.15
 Nodes (12): Accessibility Floor, Component Patterns, Flow 1 — Daily write (Mira, late evening, after work), Flow 2 — Recall past entry (Mira, three weeks later, looking for what she wrote about her mother), Foundation, Information Architecture, Inspiration & Anti-patterns, Interaction Primitives (+4 more)
 
-### Community 967 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 942 - "Community 942"
 Cohesion: 0.15
 Nodes (13): 10. Create Structure & Outline, 11. Summary & Next Steps, 12. Routing, 1. Project Name, 2. What Are You Building?, 3. Tech Stack (Optional), 4. Component Library (Optional), 5. Root Folder Name (+5 more)
 
-### Community 968 - "Substep 2: Explore Positioning"
+### Community 943 - "Community 943"
 Cohesion: 0.15
 Nodes (12): Conversational Follow-Up Patterns, Example, If They Mention a PROBLEM or NEED, If They Mention ALTERNATIVES, If They Mention DIFFERENTIATION, If They Mention TARGET CUSTOMERS, If They're VAGUE, Know When to Stop (+4 more)
 
-### Community 969 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 944 - "Community 944"
 Cohesion: 0.15
 Nodes (13): 1. Load Checklist, 2. Review Each Scenario, 3. Check Thresholds, 4. Fix Failing Items, 5. Present Review Summary, 6. Present MENU OPTIONS, Dimension 1: Completeness (7 components), Dimension 2: Quality Criteria (7 checks) (+5 more)
 
-### Community 970 - "Object Type: Heading/Text (with Purpose-Based Organization)"
-Cohesion: 0.15
-Nodes (13): Hero Object, Object Type: Heading/Text (with Purpose-Based Organization), Primary CTA Button, Primary Headline, STEP 1: PURPOSE-BASED NAMING, STEP 2: OBJECT ID (Based on Purpose), STEP 3: DESIGN SYSTEM COMPONENT, STEP 4: TEXT TYPE & POSITIONING (+5 more)
-
-### Community 971 - "Object Type: Text Input"
+### Community 945 - "Community 945"
 Cohesion: 0.15
 Nodes (13): DESIGN SYSTEM COMPONENT, ERROR MESSAGES, EXAMPLE OUTPUT, GENERATE INPUT SPECIFICATION, INPUT CONTENT, INPUT IDENTIFICATION, INPUT INTERACTION, INPUT PROPERTIES (+5 more)
 
-### Community 972 - "page-specification.template.md"
-Cohesion: 0.17
-Nodes (7): File References, Agent Questions, Meta Content & Social Sharing, Meta Description, Page Title, Social Sharing, {page-number}-{page-name}
-
-### Community 973 - "AFTER COMPLETION"
+### Community 946 - "Community 946"
 Cohesion: 0.15
 Nodes (12): AFTER COMPLETION, Design Log Update, Entry, Execution Rules, INITIALIZATION, Page Creation (per page), Phase 3 Handover Context, [S] Suggest — Agent Proposes, User Confirms Each Step (+4 more)
 
-### Community 974 - "Level 1: Critical (Must Pass)"
+### Community 947 - "Community 947"
 Cohesion: 0.15
 Nodes (13): 1.1 Page Title Tag, 1.2 Meta Description, 1.3 H1 Heading, 1.4 Heading Hierarchy, 1.5 Image Alt Text, 2.1 Open Graph / Social Sharing, 2.2 Structured Data (Schema.org), 2.3 Internal Links (+5 more)
 
-### Community 975 - "SEO Validation Guide"
+### Community 948 - "Community 948"
 Cohesion: 0.15
 Nodes (13): Anti-Patterns, Automated SEO Check Script Pattern, Common Fixes (From 44 Real-World Audits), Core Principle, Integration with Acceptance Testing, Integration with Phase 5 Flow, Narration Pattern, Reference Documents (+5 more)
 
-### Community 976 - "Phase 5: Agentic Development"
+### Community 949 - "Community 949"
 Cohesion: 0.15
 Nodes (12): 1. Configuration Loading, 2. Design Log, 3. Activity Menu, Activity Routing, AFTER COMPLETION, Core Principles, INITIALIZATION, OUTPUT (+4 more)
 
-### Community 977 - "Step 8b: Create New Component"
-Cohesion: 0.15
-Nodes (13): Accessibility, CONTEXT BOUNDARIES:, EXECUTION PROTOCOLS:, Notes, Related Components, Sequence of Instructions (Do not deviate, skip, or optimize), Step 1: Generate Component ID, Step 2: Determine Component Category (+5 more)
-
-### Community 978 - "Phase 8: Product Evolution"
+### Community 950 - "Community 950"
 Cohesion: 0.15
 Nodes (12): 1. Configuration Loading, 2. Design Log, 3. Activity Menu, Activity Routing, AFTER COMPLETION, Core Principles, INITIALIZATION, OUTPUT (+4 more)
 
-### Community 979 - "On Activation"
+### Community 951 - "Community 951"
 Cohesion: 0.15
 Nodes (12): Conventions, Freya — WDS Designer, On Activation, Overview, Step 1: Resolve the Agent Block, Step 2: Execute Prepend Steps, Step 3: Adopt Persona, Step 4: Load Persistent Facts (+4 more)
 
-### Community 980 - "On Activation"
+### Community 952 - "Community 952"
 Cohesion: 0.15
 Nodes (12): Conventions, On Activation, Overview, Saga — WDS Analyst, Step 1: Resolve the Agent Block, Step 2: Execute Prepend Steps, Step 3: Adopt Persona, Step 4: Load Persistent Facts (+4 more)
 
-### Community 981 - "Working with Existing Materials"
+### Community 953 - "Community 953"
+Cohesion: 0.19
+Nodes (13): Compile Epic Context, bmad-quick-dev Skill, Quick Dev Spec Template, Step 1: Clarify and Route, Step 2: Plan, Step 3: Implement, Step 4: Review, Step 5: Present (+5 more)
+
+### Community 954 - "Community 954"
 Cohesion: 0.15
 Nodes (12): Adaptation Pattern, Benefits, Checking for Materials, Common Scenarios, Core Principles, Dialog Documentation, Follow-Up Patterns, Opening Adaptation (+4 more)
 
-### Community 982 - "wds-add-spacing.js"
+### Community 955 - "Community 955"
 Cohesion: 0.27
 Nodes (12): appendToSpacingSection(), buildSpacingBlock(), fs, main(), pagePrefix(), pageSlugFromPath(), parseArgs(), path (+4 more)
 
-### Community 983 - "BMad Architecture"
-Cohesion: 0.17
-Nodes (11): BMad Architecture, Finalize, How a run works, How you work, On Activation, Overview, Read the input to know the job, Resolution rules (+3 more)
-
-### Community 984 - "On Activation"
-Cohesion: 0.17
-Nodes (11): Checkpoint Review Workflow, Conventions, FIRST STEP, Global Step Rules (apply to every step), On Activation, Step 1: Resolve the Workflow Block, Step 2: Execute Prepend Steps, Step 3: Load Persistent Facts (+3 more)
-
-### Community 985 - "Step 1: Orientation"
+### Community 956 - "Community 956"
 Cohesion: 0.17
 Nodes (11): DETERMINE WHAT YOU HAVE, ENRICH, FALLBACK TRAIL GENERATION, FIND THE CHANGE, Follow Global Step Rules in SKILL.md, Intent Summary, NEXT, Present (+3 more)
 
-### Community 986 - "Step 3: Detail Pass"
-Cohesion: 0.17
-Nodes (11): Closing menu, EARLY EXIT, Follow Global Step Rules in SKILL.md, IDENTIFY RISK SPOTS, Machine Hardening (only if findings exist), NEXT, PRESENT, Risk Spots (+3 more)
-
-### Community 987 - "Requirements Inventory"
-Cohesion: 0.17
-Nodes (11): Additional Requirements, Epic List, Epic {{N}}: {{epic_title_N}}, FR Coverage Map, Functional Requirements, NonFunctional Requirements, Overview, {{project_name}} - Epic Breakdown (+3 more)
-
-### Community 988 - "BMad Customize"
-Cohesion: 0.17
-Nodes (11): Activation, BMad Customize, Complete when, Preflight, Step 1: Classify intent, Step 2: Discovery, Step 3: Determine the right surface, Step 4: Compose the override (+3 more)
-
-### Community 989 - "On Activation"
-Cohesion: 0.17
-Nodes (11): Conventions, Dev Story Workflow, Execution, On Activation, Paths, Step 1: Resolve the Workflow Block, Step 2: Execute Prepend Steps, Step 3: Load Persistent Facts (+3 more)
-
-### Community 990 - "required"
+### Community 957 - "Community 957"
 Cohesion: 0.17
 Nodes (11): description, completed_steps, current_step, mode, scan_level, timestamps, workflow_version, required (+3 more)
 
-### Community 991 - "BMad Forge Idea"
-Cohesion: 0.17
-Nodes (11): BMad Forge Idea, Conventions, Discover intent, Exits, On Activation, Open the session, Overview, Set up the session (+3 more)
-
-### Community 992 - "{Headline}"
-Cohesion: 0.17
-Nodes (11): Customer FAQ, Getting Started, {Headline}, How It Works, Internal FAQ, Q: {Hardest customer question first}, Q: {Hardest internal question first}, Q: {Next question} (+3 more)
-
-### Community 993 - "Step 1: Welcome & Orientation"
+### Community 958 - "Community 958"
 Cohesion: 0.17
 Nodes (12): CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, MANDATORY EXECUTION RULES (READ FIRST):, Role Reinforcement:, Step 1: Welcome & Orientation, STEP GOAL:, Step-Specific Rules: (+4 more)
 
-### Community 994 - "Step 2: Project Configuration & Structure"
+### Community 959 - "Community 959"
 Cohesion: 0.17
 Nodes (12): CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, MANDATORY EXECUTION RULES (READ FIRST):, Role Reinforcement:, Step 2: Project Configuration & Structure, STEP GOAL:, Step-Specific Rules: (+4 more)
 
-### Community 995 - "Instructions"
+### Community 960 - "Community 960"
 Cohesion: 0.17
 Nodes (11): 1. Create Positioning Statement, 2. Present to User, 3. Document with Context, 4. Update Design Log, 5. Mark Progress, Design Log Update, Example, Instructions (+3 more)
 
-### Community 996 - "Key Insights Document Structure Guide"
+### Community 961 - "Community 961"
 Cohesion: 0.17
 Nodes (11): 1. Header, 2. The Flywheel Section, 3. Primary Development Focus, 4. Critical Success Factors, 5. Design Implications, 6. Emotional Transformation Goals, 7. Design Focus Statement, 8. Development Phases (+3 more)
 
-### Community 997 - "WDS Scenario Validation Standards"
+### Community 962 - "Community 962"
 Cohesion: 0.17
 Nodes (11): Flow Rules, Minimum Requirements (must pass), Page Naming, Phase 1 → Phase 3 Connection, Quality Thresholds, SEO Integration, Shared Pages, Validation Severity Levels (+3 more)
 
-### Community 998 - "Step 7: Quality Review"
+### Community 963 - "Community 963"
 Cohesion: 0.17
 Nodes (12): CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, MANDATORY EXECUTION RULES (READ FIRST):, Role Reinforcement:, Step 7: Quality Review, STEP GOAL:, Step-Specific Rules: (+4 more)
 
-### Community 999 - "workflow.md"
+### Community 964 - "Community 964"
 Cohesion: 0.17
 Nodes (7): DESIGN SYSTEM COMPONENT, GENERATE SPECIFICATION, IMAGE IDENTIFICATION, IMAGE PROPERTIES, IMAGE STATES, OBJECT ID, Object Type: Image
 
-### Community 1000 - "Instructions"
+### Community 965 - "Community 965"
+Cohesion: 0.18
+Nodes (6): File References, Agent Questions, Meta Content & Social Sharing, Meta Description, Page Title, Social Sharing
+
+### Community 966 - "Community 966"
 Cohesion: 0.17
 Nodes (11): 1. Load Platform Strategy from Product Brief, 2. Present Platform Strategy, 3. Ask Scenario-Specific Platform Questions, 4. Document Scenario Platform Strategy, 5. Confirm Understanding, Context for Agent, Instructions, Next Step (+3 more)
 
-### Community 1001 - "Open Questions — Auto-Population Guide"
+### Community 967 - "Community 967"
 Cohesion: 0.17
 Nodes (12): Accessibility, Example Open Questions Section, Form Interactions, How to Use, Integration Checklist, Loading & Error States, Navigation & Flow, Open Questions — Auto-Population Guide (+4 more)
 
-### Community 1002 - "SEO Specification Checklist"
+### Community 968 - "Community 968"
 Cohesion: 0.17
 Nodes (12): 1. URL Slug, 2. Heading Hierarchy, 3. Internal Links, 4. Image SEO, 5. Meta Content, 6. Structured Data, Purpose, Related (+4 more)
 
-### Community 1003 - "{page-number}-{page-name}"
+### Community 969 - "Community 969"
 Cohesion: 0.17
 Nodes (12): Checklist, Conditional Sections, Layout Structure, Open Questions, Overview, Page Metadata, {page-number}-{page-name}, Page States (+4 more)
 
-### Community 1004 - "EXECUTION-PRINCIPLES.md"
-Cohesion: 0.20
-Nodes (6): 1. Read the Dialog Document, 2. Verify Plan Against Reality, 3. Present Current Status, 4. Before Implementing a Step, Session Start Protocol, Why This Matters
-
-### Community 1005 - "INLINE-TESTING-GUIDE.md"
+### Community 970 - "Community 970"
 Cohesion: 0.17
 Nodes (8): AFTER COMPLETION, CORE PRINCIPLES, Critical Rules, Design Log, Essential Guides, [F] Bugfixing — Fix Bugs in Existing Code, INITIALIZATION, STEPS
 
-### Community 1006 - "Step 4d: Present Section for Testing"
+### Community 971 - "Community 971"
 Cohesion: 0.17
 Nodes (12): CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, MANDATORY EXECUTION RULES (READ FIRST):, Role Reinforcement:, Step 4d: Present Section for Testing, STEP GOAL:, Step-Specific Rules: (+4 more)
 
-### Community 1007 - "Badass Users Principles"
+### Community 972 - "Community 972"
 Cohesion: 0.17
 Nodes (11): 1. Make Them Better, Not Your Product Better, 2. Show The Transformation, 3. Create "Aha Moments", 4. Reduce Cognitive Load, 5. Focus on Skills, Not Tools, Application Framework, Badass Users Principles, Common Mistakes (+3 more)
 
-### Community 1008 - "Button [btn-003]"
-Cohesion: 0.17
-Nodes (11): Accessibility, Button [btn-003], CRITICAL STEP COMPLETION NOTE, File References, Notes, Overview, Related Components, States (+3 more)
-
-### Community 1009 - "Monitoring Templates"
+### Community 973 - "Community 973"
 Cohesion: 0.17
 Nodes (12): Address New Problem, Apply Pattern to Similar Feature, Impact Report Template, Iterate on Current Update, Kaizen Cycle Log Template, Kaizen Prioritization Template, Learnings Documentation Template, Metrics Tracking Dashboard (+4 more)
 
-### Community 1010 - "BMad Architecture"
+### Community 974 - "Community 974"
 Cohesion: 0.17
 Nodes (11): BMad Architecture, Finalize, How a run works, How you work, On Activation, Overview, Read the input to know the job, Resolution rules (+3 more)
 
-### Community 1011 - "On Activation"
+### Community 975 - "Community 975"
 Cohesion: 0.17
 Nodes (11): Checkpoint Review Workflow, Conventions, FIRST STEP, Global Step Rules (apply to every step), On Activation, Step 1: Resolve the Workflow Block, Step 2: Execute Prepend Steps, Step 3: Load Persistent Facts (+3 more)
 
-### Community 1012 - "Step 1: Orientation"
+### Community 976 - "Community 976"
 Cohesion: 0.17
 Nodes (11): DETERMINE WHAT YOU HAVE, ENRICH, FALLBACK TRAIL GENERATION, FIND THE CHANGE, Follow Global Step Rules in SKILL.md, Intent Summary, NEXT, Present (+3 more)
 
-### Community 1013 - "Step 3: Detail Pass"
+### Community 977 - "Community 977"
 Cohesion: 0.17
 Nodes (11): Closing menu, EARLY EXIT, Follow Global Step Rules in SKILL.md, IDENTIFY RISK SPOTS, Machine Hardening (only if findings exist), NEXT, PRESENT, Risk Spots (+3 more)
 
-### Community 1014 - "Requirements Inventory"
+### Community 978 - "Community 978"
 Cohesion: 0.17
 Nodes (11): Additional Requirements, Epic List, Epic {{N}}: {{epic_title_N}}, FR Coverage Map, Functional Requirements, NonFunctional Requirements, Overview, {{project_name}} - Epic Breakdown (+3 more)
 
-### Community 1015 - "BMad Customize"
+### Community 979 - "Community 979"
 Cohesion: 0.17
 Nodes (11): Activation, BMad Customize, Complete when, Preflight, Step 1: Classify intent, Step 2: Discovery, Step 3: Determine the right surface, Step 4: Compose the override (+3 more)
 
-### Community 1016 - "On Activation"
+### Community 980 - "Community 980"
 Cohesion: 0.17
 Nodes (11): Conventions, Dev Story Workflow, Execution, On Activation, Paths, Step 1: Resolve the Workflow Block, Step 2: Execute Prepend Steps, Step 3: Load Persistent Facts (+3 more)
 
-### Community 1017 - "required"
+### Community 981 - "Community 981"
 Cohesion: 0.17
 Nodes (11): description, completed_steps, current_step, mode, scan_level, timestamps, workflow_version, required (+3 more)
 
-### Community 1018 - "BMad Forge Idea"
+### Community 982 - "Community 982"
 Cohesion: 0.17
 Nodes (11): BMad Forge Idea, Conventions, Discover intent, Exits, On Activation, Open the session, Overview, Set up the session (+3 more)
 
-### Community 1019 - "{Headline}"
-Cohesion: 0.17
-Nodes (11): Customer FAQ, Getting Started, {Headline}, How It Works, Internal FAQ, Q: {Hardest customer question first}, Q: {Hardest internal question first}, Q: {Next question} (+3 more)
-
-### Community 1020 - "Step 1: Welcome & Orientation"
+### Community 983 - "Community 983"
 Cohesion: 0.17
 Nodes (12): CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, MANDATORY EXECUTION RULES (READ FIRST):, Role Reinforcement:, Step 1: Welcome & Orientation, STEP GOAL:, Step-Specific Rules: (+4 more)
 
-### Community 1021 - "Step 2: Project Configuration & Structure"
+### Community 984 - "Community 984"
 Cohesion: 0.17
 Nodes (12): CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, MANDATORY EXECUTION RULES (READ FIRST):, Role Reinforcement:, Step 2: Project Configuration & Structure, STEP GOAL:, Step-Specific Rules: (+4 more)
 
-### Community 1022 - "Instructions"
+### Community 985 - "Community 985"
 Cohesion: 0.17
 Nodes (11): 1. Create Positioning Statement, 2. Present to User, 3. Document with Context, 4. Update Design Log, 5. Mark Progress, Design Log Update, Example, Instructions (+3 more)
 
-### Community 1023 - "Key Insights Document Structure Guide"
+### Community 986 - "Community 986"
 Cohesion: 0.17
 Nodes (11): 1. Header, 2. The Flywheel Section, 3. Primary Development Focus, 4. Critical Success Factors, 5. Design Implications, 6. Emotional Transformation Goals, 7. Design Focus Statement, 8. Development Phases (+3 more)
 
-### Community 1024 - "WDS Scenario Validation Standards"
+### Community 987 - "Community 987"
 Cohesion: 0.17
 Nodes (11): Flow Rules, Minimum Requirements (must pass), Page Naming, Phase 1 → Phase 3 Connection, Quality Thresholds, SEO Integration, Shared Pages, Validation Severity Levels (+3 more)
 
-### Community 1025 - "Step 7: Quality Review"
+### Community 988 - "Community 988"
+Cohesion: 0.17
+Nodes (12): CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, MANDATORY EXECUTION RULES (READ FIRST):, Role Reinforcement:, Step 5: Outline Scenario (One at a Time), STEP GOAL:, Step-Specific Rules: (+4 more)
+
+### Community 989 - "Community 989"
 Cohesion: 0.17
 Nodes (12): CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, MANDATORY EXECUTION RULES (READ FIRST):, Role Reinforcement:, Step 7: Quality Review, STEP GOAL:, Step-Specific Rules: (+4 more)
 
-### Community 1026 - "workflow.md"
+### Community 990 - "Community 990"
 Cohesion: 0.17
 Nodes (7): DESIGN SYSTEM COMPONENT, GENERATE SPECIFICATION, IMAGE IDENTIFICATION, IMAGE PROPERTIES, IMAGE STATES, OBJECT ID, Object Type: Image
 
-### Community 1027 - "Instructions"
+### Community 991 - "Community 991"
+Cohesion: 0.18
+Nodes (6): File References, Agent Questions, Meta Content & Social Sharing, Meta Description, Page Title, Social Sharing
+
+### Community 992 - "Community 992"
 Cohesion: 0.17
 Nodes (11): 1. Load Platform Strategy from Product Brief, 2. Present Platform Strategy, 3. Ask Scenario-Specific Platform Questions, 4. Document Scenario Platform Strategy, 5. Confirm Understanding, Context for Agent, Instructions, Next Step (+3 more)
 
-### Community 1028 - "Open Questions — Auto-Population Guide"
+### Community 993 - "Community 993"
 Cohesion: 0.17
 Nodes (12): Accessibility, Example Open Questions Section, Form Interactions, How to Use, Integration Checklist, Loading & Error States, Navigation & Flow, Open Questions — Auto-Population Guide (+4 more)
 
-### Community 1029 - "SEO Specification Checklist"
+### Community 994 - "Community 994"
 Cohesion: 0.17
 Nodes (12): 1. URL Slug, 2. Heading Hierarchy, 3. Internal Links, 4. Image SEO, 5. Meta Content, 6. Structured Data, Purpose, Related (+4 more)
 
-### Community 1030 - "{page-number}-{page-name}"
+### Community 995 - "Community 995"
 Cohesion: 0.17
 Nodes (12): Checklist, Conditional Sections, Layout Structure, Open Questions, Overview, Page Metadata, {page-number}-{page-name}, Page States (+4 more)
 
-### Community 1031 - "EXECUTION-PRINCIPLES.md"
-Cohesion: 0.20
-Nodes (6): 1. Read the Dialog Document, 2. Verify Plan Against Reality, 3. Present Current Status, 4. Before Implementing a Step, Session Start Protocol, Why This Matters
-
-### Community 1032 - "INLINE-TESTING-GUIDE.md"
+### Community 996 - "Community 996"
 Cohesion: 0.17
 Nodes (8): AFTER COMPLETION, CORE PRINCIPLES, Critical Rules, Design Log, Essential Guides, [F] Bugfixing — Fix Bugs in Existing Code, INITIALIZATION, STEPS
 
-### Community 1033 - "Step 4d: Present Section for Testing"
+### Community 997 - "Community 997"
 Cohesion: 0.17
 Nodes (12): CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, MANDATORY EXECUTION RULES (READ FIRST):, Role Reinforcement:, Step 4d: Present Section for Testing, STEP GOAL:, Step-Specific Rules: (+4 more)
 
-### Community 1034 - "Badass Users Principles"
+### Community 998 - "Community 998"
 Cohesion: 0.17
 Nodes (11): 1. Make Them Better, Not Your Product Better, 2. Show The Transformation, 3. Create "Aha Moments", 4. Reduce Cognitive Load, 5. Focus on Skills, Not Tools, Application Framework, Badass Users Principles, Common Mistakes (+3 more)
 
-### Community 1035 - "Button [btn-003]"
-Cohesion: 0.17
-Nodes (11): Accessibility, Button [btn-003], CRITICAL STEP COMPLETION NOTE, File References, Notes, Overview, Related Components, States (+3 more)
-
-### Community 1036 - "Monitoring Templates"
+### Community 999 - "Community 999"
 Cohesion: 0.17
 Nodes (12): Address New Problem, Apply Pattern to Similar Feature, Impact Report Template, Iterate on Current Update, Kaizen Cycle Log Template, Kaizen Prioritization Template, Learnings Documentation Template, Metrics Tracking Dashboard (+4 more)
 
-### Community 1037 - "Before You Design Anything"
+### Community 1000 - "Community 1000"
 Cohesion: 0.17
 Nodes (11): 1. Load Strategic Context, 2. Connect to Business Goals, 3. Identify User Driving Forces, 4. Customer Awareness Stage, 5. Content Hierarchy (Golden Circle), Before You Design Anything, Core Principle, Freya's Strategic Design Guide (+3 more)
 
-### Community 1038 - "Inspiration Analysis Workshop (Product Brief)"
+### Community 1001 - "Community 1001"
 Cohesion: 0.17
 Nodes (11): Analyzing Each Site, Getting URLs, Inspiration Analysis Workshop (Product Brief), Red Flags, Success Criteria, Synthesizing, The Process, Types of Information to Surface (+3 more)
 
-### Community 1039 - "Artifacts"
+### Community 1002 - "Community 1002"
 Cohesion: 0.17
 Nodes (11): Artifacts, Design (Phases 3–4), Development (Phase 5), Model Selection, Output Folder Structure, Patterns, Phases, Progress (machine-local) (+3 more)
 
-### Community 1040 - "wds-nav.js"
+### Community 1003 - "Community 1003"
 Cohesion: 0.29
 Nodes (11): buildNavRow(), fs, getPageFolders(), main(), parseArgs(), path, printUsage(), processScenario() (+3 more)
 
-### Community 1041 - "Activation Behavior"
+### Community 1004 - "Community 1004"
 Cohesion: 0.17
 Nodes (11): 0. Check for Session State, 1. Introduction, 2. Context Scan, 3. Status Report, 4. Offer Next Steps, Activation Behavior, Agent Persona, Available Commands (+3 more)
 
-### Community 1042 - "Architecture Spine — {name}"
+### Community 1005 - "Community 1005"
+Cohesion: 0.17
+Nodes (12): Flow A: Sketch Path, Flow B: Verbal Specification, Flow C: ASCII Layout, Flow D: Reference Page, Flow E: HTML Prototype, Lightweight Page Template, Page Init (Lightweight), Workshop: Page Creation (+4 more)
+
+### Community 1006 - "Community 1006"
+Cohesion: 0.17
+Nodes (12): Step 1: Scan Existing Components, Step 2: Compare Attributes, Step 3: Calculate Similarity, Step 4: Identify Opportunities, Step 5: Identify Risks, Step 6: Present Decision, Step 7: Execute Decision, Step 8a: Initialize Design System (+4 more)
+
+### Community 1007 - "Community 1007"
 Cohesion: 0.18
 Nodes (10): AD-1 — {decision}, Architecture Spine — {name}, Capability → Architecture Map, Consistency Conventions, Deferred, Design Paradigm, Inherited Invariants, Invariants & Rules (+2 more)
 
-### Community 1043 - "BMad Brainstorming"
+### Community 1008 - "Community 1008"
 Cohesion: 0.18
-Nodes (10): BMad Brainstorming, Choosing Techniques, Conventions, Converging, Framing — hold this the whole run, On Activation, Overview, Resuming (+2 more)
+Nodes (10): Closing menu, EARLY EXIT, Follow Global Step Rules in SKILL.md, IDENTIFY RISK SPOTS, Machine Hardening (only if findings exist), NEXT, PRESENT, Risk Spots (+2 more)
 
-### Community 1044 - "2a: Try Sharded Documents First"
+### Community 1009 - "Community 1009"
 Cohesion: 0.18
-Nodes (10): 2a: Try Sharded Documents First, 2b: Try Whole Document if No Sharded Found, 2c: Handle Not Found, Discover Inputs Protocol, FULL_LOAD Strategy, INDEX_GUIDED Strategy, SELECTIVE_LOAD Strategy, Step 1: Parse Input File Patterns (+2 more)
+Nodes (11): BMad Create PRD Skill (Deprecated), BMad Edit PRD Skill (Deprecated), BMad Generate Project Context Skill, Project Context Step 1: Discover, Project Context Step 2: Generate, Project Context Step 3: Complete, Party Mode: Create Party, Party Mode: Memory (+3 more)
 
-### Community 1045 - "On Activation"
-Cohesion: 0.18
-Nodes (10): Conventions, Document Project Workflow, Execution, On Activation, Step 1: Resolve the Workflow Block, Step 2: Execute Prepend Steps, Step 3: Load Persistent Facts, Step 4: Load Config (+2 more)
-
-### Community 1046 - "Adapt-In Menu *(add the clusters the product calls for)*"
+### Community 1010 - "Community 1010"
 Cohesion: 0.18
 Nodes (10): Adapt-In Menu *(add the clusters the product calls for)*, Consumer / branded products, Cross-cutting quality and shape *(most non-trivial PRDs)*, Developer products (libraries, APIs, CLIs, SDKs), Embedded / hardware, Enterprise initiatives, Essential Spine *(almost always present)*, PRD Template (+2 more)
 
-### Community 1047 - "INSTRUCTIONS"
+### Community 1011 - "Community 1011"
+Cohesion: 0.20
+Nodes (10): Customer FAQ, Getting Started, {Headline}, How It Works, Internal FAQ, Q: {Hardest customer question first}, Q: {Hardest internal question first}, Q: {Next question} (+2 more)
+
+### Community 1012 - "Community 1012"
 Cohesion: 0.18
 Nodes (10): Classify, Commit, Generate Spec Trace, Implement, INSTRUCTIONS, On Complete, Present, Review (+2 more)
 
-### Community 1048 - "BMad UX"
+### Community 1013 - "Community 1013"
 Cohesion: 0.18
 Nodes (10): BMad UX, Discovery, Finalize, Modes, On Activation, Overview, Reviewer Gate, Sources (+2 more)
 
-### Community 1049 - "Step 2: Vision Capture"
+### Community 1014 - "Community 1014"
 Cohesion: 0.18
 Nodes (11): Conversation Flow Summary, Conversation Highlights, Example Context (if applicable), Key Exchange 1, Key Exchange 2, Key Exchange 3, Key Insights Captured, Opening Question (+3 more)
 
-### Community 1050 - "Dialog Template Usage"
+### Community 1015 - "Community 1015"
 Cohesion: 0.18
 Nodes (10): Design Log (Meta-Level), Dialog Template Usage, DO:, DON'T:, File Sizes, Integration with Steps, Mandatory Checkpoints, Purpose (+2 more)
 
-### Community 1051 - "Client Profile: {{project_name}}"
+### Community 1016 - "Community 1016"
 Cohesion: 0.18
 Nodes (10): Champion (if different), Client Profile: {{project_name}}, Decision Culture, Internal Driver, Organisation, Other Stakeholders, People, Primary Contact — {{primary_contact_name}} (+2 more)
 
-### Community 1052 - "Step 2: Vision Capture"
+### Community 1017 - "Community 1017"
 Cohesion: 0.18
 Nodes (11): Conversation Flow Summary, Conversation Highlights, Example Context (if applicable), Key Exchange 1, Key Exchange 2, Key Exchange 3, Key Insights Captured, Opening Question (+3 more)
 
-### Community 1053 - "Dialog Template Usage"
+### Community 1018 - "Community 1018"
 Cohesion: 0.18
 Nodes (10): Design Log (Meta-Level), Dialog Template Usage, DO:, DON'T:, File Sizes, Integration with Steps, Mandatory Checkpoints, Purpose (+2 more)
 
-### Community 1054 - "Step 5: Hand Off to BMad"
+### Community 1019 - "Community 1019"
 Cohesion: 0.18
 Nodes (9): CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, File References, Step 5: Hand Off to BMad, STEP GOAL:, ✅ SUCCESS:, ❌ SYSTEM FAILURE: (+1 more)
 
-### Community 1055 - "Object Type: Button"
+### Community 1020 - "Community 1020"
 Cohesion: 0.18
 Nodes (11): BUTTON CONTENT, BUTTON IDENTIFICATION, BUTTON INTERACTION, BUTTON STATES, BUTTON TYPE, DESIGN SYSTEM COMPONENT, EXAMPLE OUTPUT, GENERATE BUTTON SPECIFICATION (+3 more)
 
-### Community 1056 - "Agent Instructions"
+### Community 1021 - "Community 1021"
 Cohesion: 0.18
 Nodes (10): Accessibility Audit Workflow, Agent Instructions, Agent Prompts, How This Works, Quick Reference for Agent, Step 1: Analyze Color Contrast, Step 2: Analyze Keyboard Navigation, Step 3: Analyze Screen Reader Experience (+2 more)
 
-### Community 1057 - "Golden Circle Framework Guide"
+### Community 1022 - "Community 1022"
 Cohesion: 0.18
 Nodes (10): Application Notes, Common Mistakes, Golden Circle Framework Guide, HOW - The Process, Approach, Differentiator, Key Insights, Sequencing Within Sections, The Golden Circle Model, The Three Levels (+2 more)
 
-### Community 1058 - "Steps"
+### Community 1023 - "Community 1023"
 Cohesion: 0.18
 Nodes (10): AFTER COMPLETION, Design Log, Edit Components, INITIALIZATION, Step 1: Select Components, Step 2: Prepare for Figma, Step 3: User Edits in Figma, Step 4: Sync Changes Back (+2 more)
 
-### Community 1059 - "Steps"
+### Community 1024 - "Community 1024"
 Cohesion: 0.18
 Nodes (10): AFTER COMPLETION, Design Log, Import Design System, INITIALIZATION, Step 1: Identify Source, Step 2: Extract Tokens, Step 3: Extract Components, Step 4: Generate Design System Files (+2 more)
 
-### Community 1060 - "Steps"
+### Community 1025 - "Community 1025"
 Cohesion: 0.18
 Nodes (10): AFTER COMPLETION, Deploy, Design Log, INITIALIZATION, Step 1: Pre-Deploy Checklist, Step 2: Create Pull Request, Step 3: Package Delivery Context, Step 4: Notify Team (+2 more)
 
-### Community 1061 - "Steps"
+### Community 1026 - "Community 1026"
 Cohesion: 0.18
 Nodes (10): AFTER COMPLETION, Design Log, Design Solution, INITIALIZATION, Step 1: Load Scenario, Step 2: Choose Design Approach, Step 3: Design the Change, Step 4: Write Specification (+2 more)
 
-### Community 1062 - "Steps"
+### Community 1027 - "Community 1027"
 Cohesion: 0.18
 Nodes (10): AFTER COMPLETION, Design Log, Implement, INITIALIZATION, Step 1: Load Specification, Step 2: Create Branch, Step 3: Understand Current Code, Step 4: Implement Changes (+2 more)
 
-### Community 1063 - "Steps"
+### Community 1028 - "Community 1028"
 Cohesion: 0.18
 Nodes (10): AFTER COMPLETION, Design Log, INITIALIZATION, Scope Improvement, Step 1: Load Analysis, Step 2: Define the Change, Step 3: Map the User Journey, Step 4: Estimate Scope (+2 more)
 
-### Community 1064 - "Steps"
+### Community 1029 - "Community 1029"
 Cohesion: 0.18
 Nodes (10): Acceptance Test, AFTER COMPLETION, Design Log, INITIALIZATION, Step 1: Load Test Context, Step 2: Prepare Test Environment, Step 3: Execute Tests, Step 4: Document Results (+2 more)
 
-### Community 1065 - "Architecture Spine — {name}"
+### Community 1030 - "Community 1030"
 Cohesion: 0.18
 Nodes (10): AD-1 — {decision}, Architecture Spine — {name}, Capability → Architecture Map, Consistency Conventions, Deferred, Design Paradigm, Inherited Invariants, Invariants & Rules (+2 more)
 
-### Community 1066 - "BMad Brainstorming"
+### Community 1031 - "Community 1031"
 Cohesion: 0.18
 Nodes (10): BMad Brainstorming, Choosing Techniques, Conventions, Converging, Framing — hold this the whole run, On Activation, Overview, Resuming (+2 more)
 
-### Community 1067 - "2a: Try Sharded Documents First"
+### Community 1032 - "Community 1032"
 Cohesion: 0.18
 Nodes (10): 2a: Try Sharded Documents First, 2b: Try Whole Document if No Sharded Found, 2c: Handle Not Found, Discover Inputs Protocol, FULL_LOAD Strategy, INDEX_GUIDED Strategy, SELECTIVE_LOAD Strategy, Step 1: Parse Input File Patterns (+2 more)
 
-### Community 1068 - "On Activation"
+### Community 1033 - "Community 1033"
 Cohesion: 0.18
 Nodes (10): Conventions, Document Project Workflow, Execution, On Activation, Step 1: Resolve the Workflow Block, Step 2: Execute Prepend Steps, Step 3: Load Persistent Facts, Step 4: Load Config (+2 more)
 
-### Community 1069 - "Adapt-In Menu *(add the clusters the product calls for)*"
+### Community 1034 - "Community 1034"
 Cohesion: 0.18
 Nodes (10): Adapt-In Menu *(add the clusters the product calls for)*, Consumer / branded products, Cross-cutting quality and shape *(most non-trivial PRDs)*, Developer products (libraries, APIs, CLIs, SDKs), Embedded / hardware, Enterprise initiatives, Essential Spine *(almost always present)*, PRD Template (+2 more)
 
-### Community 1070 - "INSTRUCTIONS"
+### Community 1035 - "Community 1035"
+Cohesion: 0.20
+Nodes (10): Customer FAQ, Getting Started, {Headline}, How It Works, Internal FAQ, Q: {Hardest customer question first}, Q: {Hardest internal question first}, Q: {Next question} (+2 more)
+
+### Community 1036 - "Community 1036"
 Cohesion: 0.18
 Nodes (10): Classify, Commit, Generate Spec Trace, Implement, INSTRUCTIONS, On Complete, Present, Review (+2 more)
 
-### Community 1071 - "BMad UX"
+### Community 1037 - "Community 1037"
 Cohesion: 0.18
 Nodes (10): BMad UX, Discovery, Finalize, Modes, On Activation, Overview, Reviewer Gate, Sources (+2 more)
 
-### Community 1072 - "Step 2: Vision Capture"
+### Community 1038 - "Community 1038"
 Cohesion: 0.18
 Nodes (11): Conversation Flow Summary, Conversation Highlights, Example Context (if applicable), Key Exchange 1, Key Exchange 2, Key Exchange 3, Key Insights Captured, Opening Question (+3 more)
 
-### Community 1073 - "Dialog Template Usage"
+### Community 1039 - "Community 1039"
 Cohesion: 0.18
 Nodes (10): Design Log (Meta-Level), Dialog Template Usage, DO:, DON'T:, File Sizes, Integration with Steps, Mandatory Checkpoints, Purpose (+2 more)
 
-### Community 1074 - "Client Profile: {{project_name}}"
+### Community 1040 - "Community 1040"
 Cohesion: 0.18
 Nodes (10): Champion (if different), Client Profile: {{project_name}}, Decision Culture, Internal Driver, Organisation, Other Stakeholders, People, Primary Contact — {{primary_contact_name}} (+2 more)
 
-### Community 1075 - "Step 2: Vision Capture"
+### Community 1041 - "Community 1041"
 Cohesion: 0.18
 Nodes (11): Conversation Flow Summary, Conversation Highlights, Example Context (if applicable), Key Exchange 1, Key Exchange 2, Key Exchange 3, Key Insights Captured, Opening Question (+3 more)
 
-### Community 1076 - "Dialog Template Usage"
+### Community 1042 - "Community 1042"
 Cohesion: 0.18
 Nodes (10): Design Log (Meta-Level), Dialog Template Usage, DO:, DON'T:, File Sizes, Integration with Steps, Mandatory Checkpoints, Purpose (+2 more)
 
-### Community 1077 - "Step 5: Hand Off to BMad"
+### Community 1043 - "Community 1043"
 Cohesion: 0.18
 Nodes (9): CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, File References, Step 5: Hand Off to BMad, STEP GOAL:, ✅ SUCCESS:, ❌ SYSTEM FAILURE: (+1 more)
 
-### Community 1078 - "Object Type: Button"
+### Community 1044 - "Community 1044"
 Cohesion: 0.18
 Nodes (11): BUTTON CONTENT, BUTTON IDENTIFICATION, BUTTON INTERACTION, BUTTON STATES, BUTTON TYPE, DESIGN SYSTEM COMPONENT, EXAMPLE OUTPUT, GENERATE BUTTON SPECIFICATION (+3 more)
 
-### Community 1079 - "Agent Instructions"
+### Community 1045 - "Community 1045"
 Cohesion: 0.18
 Nodes (10): Accessibility Audit Workflow, Agent Instructions, Agent Prompts, How This Works, Quick Reference for Agent, Step 1: Analyze Color Contrast, Step 2: Analyze Keyboard Navigation, Step 3: Analyze Screen Reader Experience (+2 more)
 
-### Community 1080 - "Golden Circle Framework Guide"
+### Community 1046 - "Community 1046"
 Cohesion: 0.18
 Nodes (10): Application Notes, Common Mistakes, Golden Circle Framework Guide, HOW - The Process, Approach, Differentiator, Key Insights, Sequencing Within Sections, The Golden Circle Model, The Three Levels (+2 more)
 
-### Community 1081 - "Steps"
+### Community 1047 - "Community 1047"
 Cohesion: 0.18
 Nodes (10): AFTER COMPLETION, Design Log, Edit Components, INITIALIZATION, Step 1: Select Components, Step 2: Prepare for Figma, Step 3: User Edits in Figma, Step 4: Sync Changes Back (+2 more)
 
-### Community 1082 - "Steps"
+### Community 1048 - "Community 1048"
 Cohesion: 0.18
 Nodes (10): AFTER COMPLETION, Design Log, Import Design System, INITIALIZATION, Step 1: Identify Source, Step 2: Extract Tokens, Step 3: Extract Components, Step 4: Generate Design System Files (+2 more)
 
-### Community 1083 - "Steps"
+### Community 1049 - "Community 1049"
 Cohesion: 0.18
 Nodes (10): AFTER COMPLETION, Deploy, Design Log, INITIALIZATION, Step 1: Pre-Deploy Checklist, Step 2: Create Pull Request, Step 3: Package Delivery Context, Step 4: Notify Team (+2 more)
 
-### Community 1084 - "Steps"
+### Community 1050 - "Community 1050"
 Cohesion: 0.18
 Nodes (10): AFTER COMPLETION, Design Log, Design Solution, INITIALIZATION, Step 1: Load Scenario, Step 2: Choose Design Approach, Step 3: Design the Change, Step 4: Write Specification (+2 more)
 
-### Community 1085 - "Steps"
+### Community 1051 - "Community 1051"
 Cohesion: 0.18
 Nodes (10): AFTER COMPLETION, Design Log, Implement, INITIALIZATION, Step 1: Load Specification, Step 2: Create Branch, Step 3: Understand Current Code, Step 4: Implement Changes (+2 more)
 
-### Community 1086 - "Steps"
+### Community 1052 - "Community 1052"
 Cohesion: 0.18
 Nodes (10): AFTER COMPLETION, Design Log, INITIALIZATION, Scope Improvement, Step 1: Load Analysis, Step 2: Define the Change, Step 3: Map the User Journey, Step 4: Estimate Scope (+2 more)
 
-### Community 1087 - "Steps"
+### Community 1053 - "Community 1053"
 Cohesion: 0.18
 Nodes (10): Acceptance Test, AFTER COMPLETION, Design Log, INITIALIZATION, Step 1: Load Test Context, Step 2: Prepare Test Environment, Step 3: Execute Tests, Step 4: Document Results (+2 more)
 
-### Community 1088 - "Scripts"
+### Community 1054 - "Community 1054"
+Cohesion: 0.22
+Nodes (11): Best Practices, Common Mistakes to Avoid, For Phase 2 (Trigger Mapping), For Phase 3 (Scenarios), Layer 1: Learn WDS Form (Static), Layer 3: Domain Research (Ongoing), Quality Criteria (7 standards), Quality Criteria (from quality-checklist.md) (+3 more)
+
+### Community 1055 - "Community 1055"
 Cohesion: 0.18
 Nodes (10): File location convention, How agents use these scripts, Scripts, `wds-add-object.js` — Append an object spec, `wds-add-spacing.js` — Append a spacing object, `wds-init-page.js` — Initialize a page spec, `wds-init-scenario.js` — Initialize a scenario, `wds-nav.js` — Update navigation links (+2 more)
 
-### Community 1089 - "wds-add-object.js"
+### Community 1056 - "Community 1056"
 Cohesion: 0.31
 Nodes (10): buildObjectBlock(), deriveObjectId(), fs, insertUnderSection(), main(), pageSlugFromPath(), parseArgs(), path (+2 more)
 
-### Community 1090 - "Activation Behavior"
+### Community 1057 - "Community 1057"
 Cohesion: 0.18
 Nodes (10): 0. Check for Session State, 1. Introduction, 2. Context Scan, 3. Status Report, 4. Offer Next Steps, Activation Behavior, Agent Persona, Available Commands (+2 more)
 
-### Community 1091 - "Step 2: Walkthrough"
+### Community 1058 - "Community 1058"
+Cohesion: 0.18
+Nodes (10): Executive Summary, Explicitly Out for v1:, Included in v1:, Platform Requirements & Technical Constraints, Product Brief: chaibookLM (chaiRAG), Scope (v1), Success Criteria, Target Audience & User Goals (+2 more)
+
+### Community 1059 - "Community 1059"
+Cohesion: 0.18
+Nodes (10): 1. Executive Summary, 2.1 Notebook Management (FR-1), 2.2 Multi-Format Source Ingestion (FR-2), 2.3 RAG Retrieval & Generation (FR-3), 2.4 Citation & Source Viewer UX (FR-4), 2.5 Authentication & User Identity (FR-5), 2. Core Functional Requirements, 3. Non-Functional Requirements (NFR) (+2 more)
+
+### Community 1060 - "Community 1060"
+Cohesion: 0.18
+Nodes (10): 2026-07-25 — Phase 1 & Design Package Integrated, 2026-07-25 — Phase 2: Trigger Mapping Completed, 2026-07-25 — Phase 3: PRD & Technical Architecture Completed, 2026-07-25 — Project initialized (Phase 0), About This Folder, Backlog, Current, Design Log (+2 more)
+
+### Community 1061 - "Community 1061"
 Cohesion: 0.20
 Nodes (9): BUILD THE WALKTHROUGH, EARLY EXIT, Follow Global Step Rules in SKILL.md, Identify Concerns, NEXT, Order for Comprehension, PRESENT, Step 2: Walkthrough (+1 more)
 
-### Community 1092 - "spec-template.md"
-Cohesion: 0.20
-Nodes (9): Boundaries & Constraints, Code Map, Design Notes, I/O & Edge-Case Matrix, Intent, Review Triage Log, Spec Change Log, Tasks & Acceptance (+1 more)
-
-### Community 1093 - "Project Documentation Index"
+### Community 1062 - "Community 1062"
 Cohesion: 0.20
 Nodes (9): Existing Documentation, Full Project Scan Instructions, Generated Documentation, Getting Started, {{part_name}} ({{part_id}}), Project Documentation Complete! ✓, Project Documentation Index, Project Overview (+1 more)
 
-### Community 1094 - "EXECUTION"
-Cohesion: 0.20
-Nodes (9): EXECUTION, HALT CONDITIONS, Index Docs, OUTPUT FORMAT, Step 1: Scan Directory, Step 2: Group Content, Step 3: Generate Descriptions, Step 4: Create/Update Index (+1 more)
-
-### Community 1095 - "Creating a Party"
+### Community 1063 - "Community 1063"
 Cohesion: 0.20
 Nodes (9): Close it out, Creating a Party, Distill from source data (when provided), Editing an existing party, Find the shape, Flesh out each persona, Keeping new faces from a session, What you're producing (+1 more)
 
-### Community 1096 - "Validate"
+### Community 1064 - "Community 1064"
 Cohesion: 0.20
 Nodes (9): Close, Inputs, Markdown twin format, Orient, Rubric-walker pipeline, Run the Reviewer Gate, Synthesis pipeline, Validate (+1 more)
 
-### Community 1097 - "EXECUTION"
+### Community 1065 - "Community 1065"
 Cohesion: 0.20
 Nodes (9): Edge Case Hunter Review, EXECUTION, HALT CONDITIONS, OUTPUT FORMAT, Step 1: Receive Content, Step 2: Exhaustive Path Analysis, Step 3: Validate Completeness, Step 4: Deletion Check (+1 more)
 
-### Community 1098 - "Steps"
+### Community 1066 - "Community 1066"
 Cohesion: 0.20
 Nodes (9): 1 — Locate project installation, 2 — Detect home directory, 3 — Check sync state, 4 — First time: ask user, 5 — Sync files, 6 — Report, Entry points, Steps (+1 more)
 
-### Community 1099 - "Step 7: Positioning"
+### Community 1067 - "Community 1067"
 Cohesion: 0.20
 Nodes (9): Differentiation, Key Exchanges, Market Context, Positioning Exploration, Positioning Statement, Reflection Checkpoint, Step 7: Positioning, Supporting Evidence (+1 more)
 
-### Community 1100 - "Instructions"
+### Community 1068 - "Community 1068"
 Cohesion: 0.20
 Nodes (9): 1. Adapt Opening to Context, 2. Opening Question (Choose Based on Context), 3. Listen for Entry Point, 4. Set Conversational Tone, Example, Instructions, Next, Substep 1: Open Conversation (+1 more)
 
-### Community 1101 - "Substep 3: Reflect & Confirm"
+### Community 1069 - "Community 1069"
 Cohesion: 0.20
 Nodes (9): 1. Synthesize Conversation, 2. Present to User, 3. Wait for Response, Example, Example: Correction Needed, Instructions, Next, Substep 3: Reflect & Confirm (+1 more)
 
-### Community 1102 - "Substep 4: Synthesize & Document"
+### Community 1070 - "Community 1070"
 Cohesion: 0.20
 Nodes (9): 1. Craft Vision Statement, 2. Document in Product Brief, 3. Update Design Log, Examples by Stakes, Full Example (Källa), Instructions, Next, Substep 4: Synthesize & Document (+1 more)
 
-### Community 1103 - "Step 7: Positioning"
+### Community 1071 - "Community 1071"
 Cohesion: 0.20
 Nodes (9): Differentiation, Key Exchanges, Market Context, Positioning Exploration, Positioning Statement, Reflection Checkpoint, Step 7: Positioning, Supporting Evidence (+1 more)
 
-### Community 1104 - "Design Delivery Templates"
+### Community 1072 - "Community 1072"
 Cohesion: 0.20
 Nodes (10): Communication Tips, Design Deliveries Tracker Template, Design Delivery Templates, DO ✅, DON'T ❌, Handoff Notification Template, Iteration Cadence, Parallel Work Strategy (+2 more)
 
-### Community 1106 - "Three-Tier Architecture Overview"
+### Community 1074 - "Community 1074"
 Cohesion: 0.20
 Nodes (10): 1. Pages/ (WHERE), 2. Components/ (HOW IT LOOKS), 3. Features/ (WHAT IT DOES), After (Modular), Before (Monolithic), Handoff Strategy, Next Steps, The Three File Types (+2 more)
 
-### Community 1107 - "What This Workflow Checks"
+### Community 1075 - "Community 1075"
 Cohesion: 0.20
 Nodes (10): ✅ Step 1: Page Metadata, ✅ Step 2: Navigation Structure, ✅ Step 3: Page Overview, ✅ Step 4: Page Sections, ✅ Step 5: Section Order & Structure, ✅ Step 6: Object Registry, ✅ Step 7 (continued): Unnecessary Information Detection, ✅ Step 7: Design System Separation (+2 more)
 
-### Community 1108 - "Specification Audit Workflow"
-Cohesion: 0.20
-Nodes (9): Audit Report Template, Complete Audit Checklist, Integration with WDS, Object Hierarchy Check, Quick Audit Checklist, Specification Audit Workflow, Standard Audit Checklist, Template Router (+1 more)
-
-### Community 1109 - "Flow"
+### Community 1076 - "Community 1076"
 Cohesion: 0.20
 Nodes (9): Flow, Key Design Principles, Multiple Scenarios Projects, page-init/, scenario-init/, Single Page Projects, Single Scenario Projects, Step 02 Substeps: Reusable Workshops (+1 more)
 
-### Community 1110 - "Step 6: Continue with Next Flow"
+### Community 1077 - "Community 1077"
 Cohesion: 0.20
 Nodes (9): CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, File References, Step 6: Continue with Next Flow, STEP GOAL:, ✅ SUCCESS:, ❌ SYSTEM FAILURE: (+1 more)
 
-### Community 1111 - "Form Validation"
+### Community 1078 - "Community 1078"
 Cohesion: 0.20
 Nodes (9): Error Messages, {Field Name}, Field Specifications, Form States, Form Validation, Invalid State, Submitting State, Valid State (+1 more)
 
-### Community 1112 - "[M] Manage Design System — Define and Update Components"
+### Community 1079 - "Community 1079"
 Cohesion: 0.20
 Nodes (9): AFTER COMPLETION, Component Extraction Check, Entry, Extraction Rules, INITIALIZATION, [M] Manage Design System — Define and Update Components, Objects: Extract on Second Use, Spacing: Extract Immediately on First Use (+1 more)
 
-### Community 1113 - "Test Result Templates"
+### Community 1080 - "Community 1080"
 Cohesion: 0.20
 Nodes (9): Accessibility Results Template, Design System Validation Template, Edge Case Results Template, Error State Results Template, Happy Path Results Template, Overall Test Summary Template, Screenshot Naming Convention, Test Result Templates (+1 more)
 
-### Community 1114 - "Steps"
+### Community 1081 - "Community 1081"
 Cohesion: 0.20
 Nodes (9): AFTER COMPLETION, Browse Design System, Design Log, INITIALIZATION, Step 1: Load Design System Data, Step 2: Generate Browser Application, Step 3: Serve and Interact, Step 4: Capture Actions (+1 more)
 
-### Community 1115 - "Create Design System"
+### Community 1082 - "Community 1082"
 Cohesion: 0.20
 Nodes (9): AFTER COMPLETION, Create Design System, Design Log, ENTRY ROUTING, INITIALIZATION, Step 1: Initialize Design System, Step 2: Duplicate Detection (Assessment), Step 3: Component Operations (+1 more)
 
-### Community 1116 - "Steps"
+### Community 1083 - "Community 1083"
 Cohesion: 0.20
 Nodes (9): AFTER COMPLETION, Design Log, INITIALIZATION, Step 1: Select Components, Step 2: Generate Preview App, Step 3: Interactive Review, Step 4: Capture Feedback, Steps (+1 more)
 
-### Community 1117 - "Steps"
+### Community 1084 - "Community 1084"
 Cohesion: 0.20
 Nodes (9): AFTER COMPLETION, Analyze Product, Design Log, INITIALIZATION, Step 1: Load Product Context, Step 2: Identify Improvement Targets, Step 3: Select Target, Step 4: Document Analysis (+1 more)
 
-### Community 1118 - "Step 2: Walkthrough"
+### Community 1085 - "Community 1085"
 Cohesion: 0.20
 Nodes (9): BUILD THE WALKTHROUGH, EARLY EXIT, Follow Global Step Rules in SKILL.md, Identify Concerns, NEXT, Order for Comprehension, PRESENT, Step 2: Walkthrough (+1 more)
 
-### Community 1119 - "spec-template.md"
+### Community 1086 - "Community 1086"
 Cohesion: 0.20
 Nodes (9): Boundaries & Constraints, Code Map, Design Notes, I/O & Edge-Case Matrix, Intent, Review Triage Log, Spec Change Log, Tasks & Acceptance (+1 more)
 
-### Community 1120 - "Project Documentation Index"
+### Community 1087 - "Community 1087"
 Cohesion: 0.20
 Nodes (9): Existing Documentation, Full Project Scan Instructions, Generated Documentation, Getting Started, {{part_name}} ({{part_id}}), Project Documentation Complete! ✓, Project Documentation Index, Project Overview (+1 more)
 
-### Community 1121 - "EXECUTION"
+### Community 1088 - "Community 1088"
 Cohesion: 0.20
 Nodes (9): EXECUTION, HALT CONDITIONS, Index Docs, OUTPUT FORMAT, Step 1: Scan Directory, Step 2: Group Content, Step 3: Generate Descriptions, Step 4: Create/Update Index (+1 more)
 
-### Community 1122 - "Creating a Party"
+### Community 1089 - "Community 1089"
 Cohesion: 0.20
 Nodes (9): Close it out, Creating a Party, Distill from source data (when provided), Editing an existing party, Find the shape, Flesh out each persona, Keeping new faces from a session, What you're producing (+1 more)
 
-### Community 1123 - "Validate"
+### Community 1090 - "Community 1090"
 Cohesion: 0.20
 Nodes (9): Close, Inputs, Markdown twin format, Orient, Rubric-walker pipeline, Run the Reviewer Gate, Synthesis pipeline, Validate (+1 more)
 
-### Community 1124 - "EXECUTION"
+### Community 1091 - "Community 1091"
 Cohesion: 0.20
 Nodes (9): Edge Case Hunter Review, EXECUTION, HALT CONDITIONS, OUTPUT FORMAT, Step 1: Receive Content, Step 2: Exhaustive Path Analysis, Step 3: Validate Completeness, Step 4: Deletion Check (+1 more)
 
-### Community 1125 - "Steps"
+### Community 1092 - "Community 1092"
 Cohesion: 0.20
 Nodes (9): 1 — Locate project installation, 2 — Detect home directory, 3 — Check sync state, 4 — First time: ask user, 5 — Sync files, 6 — Report, Entry points, Steps (+1 more)
 
-### Community 1126 - "Step 7: Positioning"
+### Community 1093 - "Community 1093"
 Cohesion: 0.20
 Nodes (9): Differentiation, Key Exchanges, Market Context, Positioning Exploration, Positioning Statement, Reflection Checkpoint, Step 7: Positioning, Supporting Evidence (+1 more)
 
-### Community 1127 - "Instructions"
+### Community 1094 - "Community 1094"
 Cohesion: 0.20
 Nodes (9): 1. Adapt Opening to Context, 2. Opening Question (Choose Based on Context), 3. Listen for Entry Point, 4. Set Conversational Tone, Example, Instructions, Next, Substep 1: Open Conversation (+1 more)
 
-### Community 1128 - "Substep 3: Reflect & Confirm"
+### Community 1095 - "Community 1095"
 Cohesion: 0.20
 Nodes (9): 1. Synthesize Conversation, 2. Present to User, 3. Wait for Response, Example, Example: Correction Needed, Instructions, Next, Substep 3: Reflect & Confirm (+1 more)
 
-### Community 1129 - "Substep 4: Synthesize & Document"
+### Community 1096 - "Community 1096"
 Cohesion: 0.20
 Nodes (9): 1. Craft Vision Statement, 2. Document in Product Brief, 3. Update Design Log, Examples by Stakes, Full Example (Källa), Instructions, Next, Substep 4: Synthesize & Document (+1 more)
 
-### Community 1130 - "Step 7: Positioning"
+### Community 1097 - "Community 1097"
 Cohesion: 0.20
 Nodes (9): Differentiation, Key Exchanges, Market Context, Positioning Exploration, Positioning Statement, Reflection Checkpoint, Step 7: Positioning, Supporting Evidence (+1 more)
 
-### Community 1131 - "Design Delivery Templates"
+### Community 1098 - "Community 1098"
 Cohesion: 0.20
 Nodes (10): Communication Tips, Design Deliveries Tracker Template, Design Delivery Templates, DO ✅, DON'T ❌, Handoff Notification Template, Iteration Cadence, Parallel Work Strategy (+2 more)
 
-### Community 1133 - "Three-Tier Architecture Overview"
+### Community 1100 - "Community 1100"
 Cohesion: 0.20
 Nodes (10): 1. Pages/ (WHERE), 2. Components/ (HOW IT LOOKS), 3. Features/ (WHAT IT DOES), After (Modular), Before (Monolithic), Handoff Strategy, Next Steps, The Three File Types (+2 more)
 
-### Community 1134 - "What This Workflow Checks"
+### Community 1101 - "Community 1101"
 Cohesion: 0.20
 Nodes (10): ✅ Step 1: Page Metadata, ✅ Step 2: Navigation Structure, ✅ Step 3: Page Overview, ✅ Step 4: Page Sections, ✅ Step 5: Section Order & Structure, ✅ Step 6: Object Registry, ✅ Step 7 (continued): Unnecessary Information Detection, ✅ Step 7: Design System Separation (+2 more)
 
-### Community 1135 - "Specification Audit Workflow"
-Cohesion: 0.20
-Nodes (9): Audit Report Template, Complete Audit Checklist, Integration with WDS, Object Hierarchy Check, Quick Audit Checklist, Specification Audit Workflow, Standard Audit Checklist, Template Router (+1 more)
-
-### Community 1136 - "Flow"
+### Community 1102 - "Community 1102"
 Cohesion: 0.20
 Nodes (9): Flow, Key Design Principles, Multiple Scenarios Projects, page-init/, scenario-init/, Single Page Projects, Single Scenario Projects, Step 02 Substeps: Reusable Workshops (+1 more)
 
-### Community 1137 - "Step 6: Continue with Next Flow"
+### Community 1103 - "Community 1103"
 Cohesion: 0.20
 Nodes (9): CONTEXT BOUNDARIES:, CRITICAL STEP COMPLETION NOTE, EXECUTION PROTOCOLS:, File References, Step 6: Continue with Next Flow, STEP GOAL:, ✅ SUCCESS:, ❌ SYSTEM FAILURE: (+1 more)
 
-### Community 1138 - "Form Validation"
+### Community 1104 - "Community 1104"
 Cohesion: 0.20
 Nodes (9): Error Messages, {Field Name}, Field Specifications, Form States, Form Validation, Invalid State, Submitting State, Valid State (+1 more)
 
-### Community 1139 - "[M] Manage Design System — Define and Update Components"
+### Community 1105 - "Community 1105"
 Cohesion: 0.20
 Nodes (9): AFTER COMPLETION, Component Extraction Check, Entry, Extraction Rules, INITIALIZATION, [M] Manage Design System — Define and Update Components, Objects: Extract on Second Use, Spacing: Extract Immediately on First Use (+1 more)
 
-### Community 1140 - "Test Result Templates"
+### Community 1106 - "Community 1106"
 Cohesion: 0.20
 Nodes (9): Accessibility Results Template, Design System Validation Template, Edge Case Results Template, Error State Results Template, Happy Path Results Template, Overall Test Summary Template, Screenshot Naming Convention, Test Result Templates (+1 more)
 
-### Community 1141 - "Steps"
+### Community 1107 - "Community 1107"
 Cohesion: 0.20
 Nodes (9): AFTER COMPLETION, Browse Design System, Design Log, INITIALIZATION, Step 1: Load Design System Data, Step 2: Generate Browser Application, Step 3: Serve and Interact, Step 4: Capture Actions (+1 more)
 
-### Community 1142 - "Create Design System"
+### Community 1108 - "Community 1108"
 Cohesion: 0.20
 Nodes (9): AFTER COMPLETION, Create Design System, Design Log, ENTRY ROUTING, INITIALIZATION, Step 1: Initialize Design System, Step 2: Duplicate Detection (Assessment), Step 3: Component Operations (+1 more)
 
-### Community 1143 - "Steps"
+### Community 1109 - "Community 1109"
 Cohesion: 0.20
 Nodes (9): AFTER COMPLETION, Design Log, INITIALIZATION, Step 1: Select Components, Step 2: Generate Preview App, Step 3: Interactive Review, Step 4: Capture Feedback, Steps (+1 more)
 
-### Community 1144 - "Steps"
+### Community 1110 - "Community 1110"
 Cohesion: 0.20
 Nodes (9): AFTER COMPLETION, Analyze Product, Design Log, INITIALIZATION, Step 1: Load Product Context, Step 2: Identify Improvement Targets, Step 3: Select Target, Step 4: Document Analysis (+1 more)
 
-### Community 1145 - "Saga's Dream Up Approach Guide"
+### Community 1111 - "Community 1111"
 Cohesion: 0.20
 Nodes (9): Core Architecture: 5 Layers, Design Log Documentation, Don't Offer When:, Final Output Presentation, Mode Selection Dialog, Offer When:, Saga's Dream Up Approach Guide, Switching to Workshop Mode (+1 more)
 
-### Community 1146 - "For Phase 2 (Trigger Mapping)"
+### Community 1112 - "Community 1112"
 Cohesion: 0.20
-Nodes (10): Best Practices, Common Mistakes to Avoid, Common Mistakes to Avoid, For Phase 2 (Trigger Mapping), For Phase 3 (Scenarios), Layer 1: Learn WDS Form (Static), Quality Criteria (7 standards), Quality Criteria (from quality-checklist.md) (+2 more)
+Nodes (9): 1. Business Goals & Vision, 2. Target Personas & Driving Forces, 3. Feature Impact Matrix, 4. Strategic Design Focus Statement, Persona 1: Rachel the Researcher (Primary Knowledge Worker), Persona 2: Devon the Developer (Full-Stack / AI Evaluator), SMART Objectives, Trigger Map: chaibookLM (chaiRAG) (+1 more)
 
-### Community 1147 - "Step 3: Implement"
-Cohesion: 0.22
-Nodes (8): Baseline, Implement, INSTRUCTIONS, NEXT, PRECONDITION, RULES, Step 3: Implement, Tasks & Acceptance Verification
+### Community 1113 - "Community 1113"
+Cohesion: 0.20
+Nodes (10): WDS-6 Asset Generation Skill, Content Creation Workflow, Figma Integration Workflow, Icons Workflow, Images Workflow, Asset Generation Main Workflow, Page Designs Workflow, UI Elements Workflow (+2 more)
 
-### Community 1148 - "properties"
-Cohesion: 0.22
-Nodes (9): type, type, type, properties, architecture_type, parts_count, primary_language, repository_type (+1 more)
-
-### Community 1149 - "STEPS"
-Cohesion: 0.22
-Nodes (8): Editorial Review - Prose, HALT CONDITIONS, PRINCIPLES, Step 1: Validate Input, Step 2: Analyze Style, Step 3: Editorial Review (CRITICAL), Step 4: Output Results, STEPS
-
-### Community 1150 - "Party Memory"
-Cohesion: 0.22
-Nodes (8): Forget, New faces, Party Memory, Read it on entry — distill, don't dump, What's worth remembering, When to write, Where it lives, Write it
-
-### Community 1151 - "BMad PRD"
-Cohesion: 0.22
-Nodes (8): BMad PRD, Conventions, Discovery, Finalize, Intent Modes, On Activation, PRD Discipline, Reviewer Gate
-
-### Community 1152 - "Stage 2: The Press Release"
-Cohesion: 0.22
-Nodes (8): Coaching Approach, Coaching Notes Capture, Headless Mode, Quality Bars, Stage 2: The Press Release, Stage Complete, The Forge, Updating the Document
-
-### Community 1153 - "spec-template.md"
-Cohesion: 0.22
-Nodes (8): Boundaries & Constraints, Code Map, Design Notes, I/O & Edge-Case Matrix, Intent, Spec Change Log, Tasks & Acceptance, Verification
-
-### Community 1154 - "Step 3: Implement"
-Cohesion: 0.22
-Nodes (8): Baseline, Implement, INSTRUCTIONS, NEXT, PRECONDITION, RULES, Step 3: Implement, Tasks & Acceptance Verification
-
-### Community 1155 - "INSTRUCTIONS"
-Cohesion: 0.22
-Nodes (8): Commit and Open, Display Summary, Generate Suggested Review Order, INSTRUCTIONS, Mark Spec Done, On Complete, RULES, Step 5: Present
-
-### Community 1156 - "{Spec Title}"
-Cohesion: 0.22
-Nodes (8): Assumptions, Capabilities, Constraints, Non-goals, Open Questions, {Spec Title}, Success signal, Why
-
-### Community 1157 - "design-example-mobile.md"
-Cohesion: 0.22
-Nodes (8): Brand & Style, Colors, Components, Do's and Don'ts, Elevation & Depth, Layout & Spacing, Shapes, Typography
-
-### Community 1158 - "design-example-shadcn.md"
-Cohesion: 0.22
-Nodes (8): Brand & Style, Colors, Components, Do's and Don'ts, Elevation & Depth, Layout & Spacing, Shapes, Typography
-
-### Community 1159 - "02-explore-sections-routing.md"
-Cohesion: 0.22
-Nodes (5): File References, Data References, File References, Data References, File References
-
-### Community 1160 - "progress-tracker.md"
-Cohesion: 0.22
-Nodes (4): Decision 1: {{decision_topic}}, Decision 2: {{decision_topic}}, Decision 3: {{decision_topic}}, Key Decisions Log
-
-### Community 1161 - "Step 4: Product Concept"
-Cohesion: 0.22
-Nodes (9): Concept Documentation, Concept Exploration, Core Structural Idea, Deep Dive, Purpose, Reflection Checkpoint, Related Features, Step 4: Product Concept (+1 more)
-
-### Community 1162 - "Component Library Configuration"
-Cohesion: 0.22
-Nodes (8): Component Library Configuration, Component Mappings, Customizations, Form Components, Installation, Interactive Components, Library Documentation, Theme Configuration
-
-### Community 1163 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
-Cohesion: 0.22
-Nodes (9): 1. Present WDS Introduction, 2. Ask Project Type, 3. Ask Alignment Requirement, 4. Handle Routing, 5. Completion Output, 6. Present MENU OPTIONS, EXECUTION RULES:, Menu Handling Logic: (+1 more)
-
-### Community 1164 - "UX Scenarios: {{project_name}}"
-Cohesion: 0.22
-Nodes (8): For Agents, Page Index, Page Specifications (Freya), Scenario Outline (Saga), Scenarios, Specification Audit (Freya), UX Scenarios: {{project_name}}, What Belongs Here
-
-### Community 1165 - "Phase 0: Project Setup"
-Cohesion: 0.22
-Nodes (9): Configuration Options, Entry Point, Phase 0: Project Setup, Purpose, Steps, The Flow, When to Skip Phase 0, When to Use Phase 0 (+1 more)
-
-### Community 1166 - "Substep 3: Reflect & Confirm"
-Cohesion: 0.22
-Nodes (8): 1. Synthesize Your Understanding, 2. Handle User Response, 3. Document What Was Misunderstood, Example, Instructions, Next, Substep 3: Reflect & Confirm, Task
-
-### Community 1167 - "Substep 1: Open Conversation"
-Cohesion: 0.22
-Nodes (8): 1. Check Project Context, 2. Adapt Opening Question, 3. Set Expectation, Example, Instructions, Next, Substep 1: Open Conversation, Task
-
-### Community 1168 - "progress-tracker.md"
-Cohesion: 0.22
-Nodes (4): Decision 1: {{decision_topic}}, Decision 2: {{decision_topic}}, Decision 3: {{decision_topic}}, Key Decisions Log
-
-### Community 1169 - "Step 4: Product Concept"
-Cohesion: 0.22
-Nodes (9): Concept Documentation, Concept Exploration, Core Structural Idea, Deep Dive, Purpose, Reflection Checkpoint, Related Features, Step 4: Product Concept (+1 more)
-
-### Community 1170 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
-Cohesion: 0.22
-Nodes (9): 1. Site Type Detection, 2. List All Pages/Views, 3. Scale Assessment, 4. Page Documentation Strategy, 5. Present Analysis (USER CHECKPOINT), 6. Present MENU OPTIONS, EXECUTION RULES:, Menu Handling Logic: (+1 more)
-
-### Community 1171 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
-Cohesion: 0.22
-Nodes (9): 1. Build Strategic Context Chains, 2. Assign Pages to Scenario Chains, 3. Prioritize, 4. Coverage Check, 5. Present Scenario Chain List, 6. Present MENU OPTIONS, EXECUTION RULES:, Menu Handling Logic: (+1 more)
-
-### Community 1172 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
-Cohesion: 0.22
-Nodes (9): 1. Format the Scenario Plan, 2. Naming Rules, 3. Scenario ID Convention, 4. Wait for Approval, 5. Record Approved Plan, 6. Present MENU OPTIONS, EXECUTION RULES:, Menu Handling Logic: (+1 more)
-
-### Community 1173 - "3. The 8-Question Scenario Dialog"
-Cohesion: 0.22
-Nodes (9): 3. The 8-Question Scenario Dialog, Q1: "What transaction do we need to get really right?", Q2: "If this transaction succeeds, which business goal does it add value to?", Q3: "Which user experiences this most, and in what real-life situation?", Q4: "What do they want and what do they fear going into this interaction?", Q5: "What device are they on?", Q6: "What's the natural starting point — how do they actually arrive?", Q7: "What does the best possible outcome look like — for both sides?" (+1 more)
-
-### Community 1174 - "Complexity Detection"
-Cohesion: 0.22
-Nodes (9): Complex Component Indicators, Complexity Detection, Detection Examples, Example 1: Simple Button, Example 2: Search Bar, Example 3: Calendar Widget, Next Steps, Simple Component Indicators (+1 more)
-
-### Community 1175 - "Complexity Router Workflow"
-Cohesion: 0.22
-Nodes (9): Benefits, Complexity Router Workflow, Example Dialogue, Next Steps, Output: Three Files, Overview, Step 1: Page Context (WHERE), Step 2: Visual Design (HOW) (+1 more)
-
-### Community 1176 - "Benefits of Three-Tier Architecture"
-Cohesion: 0.22
-Nodes (9): 1. Prevents Overwhelming Specs, 2. Clean Handoffs, 3. Nothing Gets Missed, 4. Easy to Update, 5. Reusability, 6. Team Collaboration, 7. Design System Integrity, Benefits of Three-Tier Architecture (+1 more)
-
-### Community 1177 - "Object Type Router"
-Cohesion: 0.22
-Nodes (8): AFTER OBJECT DOCUMENTATION, HANDLE USER RESPONSE, INTERPRETATION EXAMPLES, KEY PRINCIPLES, Object Type Router, STEP 1: TEXT ELEMENT DETECTION, STEP 2: OTHER OBJECT ANALYSIS, STEP 3: ROUTE TO OBJECT-SPECIFIC INSTRUCTIONS
-
-### Community 1178 - "Object Type: Link"
-Cohesion: 0.22
-Nodes (8): DESIGN SYSTEM COMPONENT, GENERATE SPECIFICATION, LINK CONTENT & TARGET, LINK IDENTIFICATION, LINK STATES & STYLING, LINK TYPE, OBJECT ID, Object Type: Link
-
-### Community 1179 - "scenario-init-guide.md"
-Cohesion: 0.25
-Nodes (6): Example: Dog Week, Next Step, Question 5: What's the Shortest Path?, The Question, What Agent Captures, Why This Matters
-
-### Community 1180 - "The 5 Questions"
-Cohesion: 0.22
-Nodes (8): 1. Core Feature, 2. Entry Point, 3. Mental State, 4. Mutual Success, 5. Shortest Path, Example: Service Booking (Appointment Goal), Scenario Captured, The 5 Questions
-
-### Community 1181 - "The 5 Questions"
-Cohesion: 0.22
-Nodes (8): 1. Core Feature, 2. Entry Point, 3. Mental State, 4. Mutual Success, 5. Shortest Path, Example: E-commerce (Sales Goal), Scenario Captured, The 5 Questions
-
-### Community 1182 - "The 5 Questions"
-Cohesion: 0.22
-Nodes (8): 1. Core Feature, 2. Entry Point, 3. Mental State, 4. Mutual Success, 5. Shortest Path, Example: SaaS (Subscription Goal), Scenario Captured, The 5 Questions
-
-### Community 1183 - "Section: {Section Name}"
-Cohesion: 0.22
-Nodes (9): {Group Name} (Container), {Object in Group}, {Object in Group 2}, {Object Name}, {Object Name 2}, ↕ `{page-name}-{group-name}-{obj1}-{obj2}-gap` — {spacing token}, Page Sections, ↕ `{page}-{v|h}-{type}-{size}` — {reason} (+1 more)
-
-### Community 1184 - "Interactive Prototype Creation Guide"
-Cohesion: 0.22
-Nodes (8): ✨ Final Tips, For New Prototype Creators, Interactive Prototype Creation Guide, JavaScript Best Practices, JavaScript Template, 🎓 Learning Path, ⚙️ Step 4: Write JavaScript Logic, 🎯 When to Create Interactive Prototypes
-
-### Community 1185 - "Response Flow"
-Cohesion: 0.22
-Nodes (9): Addition (Add to Plan), Anti-Pattern, Bug/Issue (Document First, Then Fix), Change Request (Document for Later), Feedback Types, Quick Adjustment (Fix Now), Response Flow, The 2-Minute Rule (GTD) (+1 more)
-
-### Community 1186 - "[A] Analysis — Understand Your Own Codebase"
-Cohesion: 0.22
-Nodes (8): [A] Analysis — Understand Your Own Codebase, AFTER COMPLETION, CORE PRINCIPLES, Critical Rules, Design Log, Essential Guides, INITIALIZATION, STEPS
-
-### Community 1187 - "[D] Development — Write Production Code"
-Cohesion: 0.22
-Nodes (8): AFTER COMPLETION, CORE PRINCIPLES, [D] Development — Write Production Code, Design Log, DESIGN LOG REPORTING POINTS, INITIALIZATION, REFERENCE MATERIAL, STEPS
-
-### Community 1188 - "Figma Integration"
-Cohesion: 0.22
-Nodes (8): AFTER COMPLETION, Design Log, Figma Integration, INITIALIZATION, REFERENCE CONTENT, STEP PROCESSING RULES, STEPS, WHEN TO USE
-
-### Community 1189 - "Component Library Configuration"
-Cohesion: 0.22
-Nodes (8): Component Library Configuration, Component Mappings, Customizations, Form Components, Installation, Interactive Components, Library Documentation, Theme Configuration
-
-### Community 1190 - "Context Templates"
-Cohesion: 0.22
-Nodes (8): Analytics Deep Dive Template, Context Synthesis Template, Context Templates, First Impressions Template, Focused Trigger Map Template, Improvement Opportunity Template, Limited Project Brief Template, User Feedback Analysis Template
-
-### Community 1191 - "Step 3: Implement"
-Cohesion: 0.22
-Nodes (8): Baseline, Implement, INSTRUCTIONS, NEXT, PRECONDITION, RULES, Step 3: Implement, Tasks & Acceptance Verification
-
-### Community 1192 - "properties"
+### Community 1114 - "Community 1114"
 Cohesion: 0.22
 Nodes (9): type, type, type, properties, architecture_type, parts_count, primary_language, repository_type (+1 more)
 
-### Community 1193 - "STEPS"
-Cohesion: 0.22
-Nodes (8): Editorial Review - Prose, HALT CONDITIONS, PRINCIPLES, Step 1: Validate Input, Step 2: Analyze Style, Step 3: Editorial Review (CRITICAL), Step 4: Output Results, STEPS
-
-### Community 1194 - "Party Memory"
+### Community 1115 - "Community 1115"
 Cohesion: 0.22
 Nodes (8): Forget, New faces, Party Memory, Read it on entry — distill, don't dump, What's worth remembering, When to write, Where it lives, Write it
 
-### Community 1195 - "BMad PRD"
-Cohesion: 0.22
-Nodes (8): BMad PRD, Conventions, Discovery, Finalize, Intent Modes, On Activation, PRD Discipline, Reviewer Gate
-
-### Community 1196 - "Stage 2: The Press Release"
+### Community 1116 - "Community 1116"
 Cohesion: 0.22
 Nodes (8): Coaching Approach, Coaching Notes Capture, Headless Mode, Quality Bars, Stage 2: The Press Release, Stage Complete, The Forge, Updating the Document
 
-### Community 1197 - "spec-template.md"
+### Community 1117 - "Community 1117"
 Cohesion: 0.22
 Nodes (8): Boundaries & Constraints, Code Map, Design Notes, I/O & Edge-Case Matrix, Intent, Spec Change Log, Tasks & Acceptance, Verification
 
-### Community 1198 - "Step 3: Implement"
+### Community 1118 - "Community 1118"
 Cohesion: 0.22
 Nodes (8): Baseline, Implement, INSTRUCTIONS, NEXT, PRECONDITION, RULES, Step 3: Implement, Tasks & Acceptance Verification
 
-### Community 1199 - "INSTRUCTIONS"
+### Community 1119 - "Community 1119"
 Cohesion: 0.22
 Nodes (8): Commit and Open, Display Summary, Generate Suggested Review Order, INSTRUCTIONS, Mark Spec Done, On Complete, RULES, Step 5: Present
 
-### Community 1200 - "{Spec Title}"
+### Community 1120 - "Community 1120"
 Cohesion: 0.22
 Nodes (8): Assumptions, Capabilities, Constraints, Non-goals, Open Questions, {Spec Title}, Success signal, Why
 
-### Community 1201 - "design-example-mobile.md"
+### Community 1121 - "Community 1121"
 Cohesion: 0.22
 Nodes (8): Brand & Style, Colors, Components, Do's and Don'ts, Elevation & Depth, Layout & Spacing, Shapes, Typography
 
-### Community 1202 - "design-example-shadcn.md"
+### Community 1122 - "Community 1122"
 Cohesion: 0.22
 Nodes (8): Brand & Style, Colors, Components, Do's and Don'ts, Elevation & Depth, Layout & Spacing, Shapes, Typography
 
-### Community 1203 - "02-explore-sections-routing.md"
+### Community 1123 - "Community 1123"
 Cohesion: 0.22
 Nodes (5): File References, Data References, File References, Data References, File References
 
-### Community 1204 - "progress-tracker.md"
+### Community 1124 - "Community 1124"
 Cohesion: 0.22
 Nodes (4): Decision 1: {{decision_topic}}, Decision 2: {{decision_topic}}, Decision 3: {{decision_topic}}, Key Decisions Log
 
-### Community 1205 - "Step 4: Product Concept"
+### Community 1125 - "Community 1125"
 Cohesion: 0.22
 Nodes (9): Concept Documentation, Concept Exploration, Core Structural Idea, Deep Dive, Purpose, Reflection Checkpoint, Related Features, Step 4: Product Concept (+1 more)
 
-### Community 1206 - "Component Library Configuration"
+### Community 1126 - "Community 1126"
 Cohesion: 0.22
 Nodes (8): Component Library Configuration, Component Mappings, Customizations, Form Components, Installation, Interactive Components, Library Documentation, Theme Configuration
 
-### Community 1207 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 1127 - "Community 1127"
 Cohesion: 0.22
 Nodes (9): 1. Present WDS Introduction, 2. Ask Project Type, 3. Ask Alignment Requirement, 4. Handle Routing, 5. Completion Output, 6. Present MENU OPTIONS, EXECUTION RULES:, Menu Handling Logic: (+1 more)
 
-### Community 1208 - "UX Scenarios: {{project_name}}"
+### Community 1128 - "Community 1128"
 Cohesion: 0.22
 Nodes (8): For Agents, Page Index, Page Specifications (Freya), Scenario Outline (Saga), Scenarios, Specification Audit (Freya), UX Scenarios: {{project_name}}, What Belongs Here
 
-### Community 1209 - "Phase 0: Project Setup"
+### Community 1129 - "Community 1129"
 Cohesion: 0.22
 Nodes (9): Configuration Options, Entry Point, Phase 0: Project Setup, Purpose, Steps, The Flow, When to Skip Phase 0, When to Use Phase 0 (+1 more)
 
-### Community 1210 - "Substep 3: Reflect & Confirm"
+### Community 1130 - "Community 1130"
 Cohesion: 0.22
 Nodes (8): 1. Synthesize Your Understanding, 2. Handle User Response, 3. Document What Was Misunderstood, Example, Instructions, Next, Substep 3: Reflect & Confirm, Task
 
-### Community 1211 - "Substep 1: Open Conversation"
+### Community 1131 - "Community 1131"
 Cohesion: 0.22
 Nodes (8): 1. Check Project Context, 2. Adapt Opening Question, 3. Set Expectation, Example, Instructions, Next, Substep 1: Open Conversation, Task
 
-### Community 1212 - "progress-tracker.md"
+### Community 1132 - "Community 1132"
 Cohesion: 0.22
 Nodes (4): Decision 1: {{decision_topic}}, Decision 2: {{decision_topic}}, Decision 3: {{decision_topic}}, Key Decisions Log
 
-### Community 1213 - "Step 4: Product Concept"
+### Community 1133 - "Community 1133"
 Cohesion: 0.22
 Nodes (9): Concept Documentation, Concept Exploration, Core Structural Idea, Deep Dive, Purpose, Reflection Checkpoint, Related Features, Step 4: Product Concept (+1 more)
 
-### Community 1214 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 1134 - "Community 1134"
 Cohesion: 0.22
 Nodes (9): 1. Site Type Detection, 2. List All Pages/Views, 3. Scale Assessment, 4. Page Documentation Strategy, 5. Present Analysis (USER CHECKPOINT), 6. Present MENU OPTIONS, EXECUTION RULES:, Menu Handling Logic: (+1 more)
 
-### Community 1215 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 1135 - "Community 1135"
 Cohesion: 0.22
 Nodes (9): 1. Build Strategic Context Chains, 2. Assign Pages to Scenario Chains, 3. Prioritize, 4. Coverage Check, 5. Present Scenario Chain List, 6. Present MENU OPTIONS, EXECUTION RULES:, Menu Handling Logic: (+1 more)
 
-### Community 1216 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 1136 - "Community 1136"
 Cohesion: 0.22
 Nodes (9): 1. Format the Scenario Plan, 2. Naming Rules, 3. Scenario ID Convention, 4. Wait for Approval, 5. Record Approved Plan, 6. Present MENU OPTIONS, EXECUTION RULES:, Menu Handling Logic: (+1 more)
 
-### Community 1217 - "3. The 8-Question Scenario Dialog"
+### Community 1137 - "Community 1137"
 Cohesion: 0.22
 Nodes (9): 3. The 8-Question Scenario Dialog, Q1: "What transaction do we need to get really right?", Q2: "If this transaction succeeds, which business goal does it add value to?", Q3: "Which user experiences this most, and in what real-life situation?", Q4: "What do they want and what do they fear going into this interaction?", Q5: "What device are they on?", Q6: "What's the natural starting point — how do they actually arrive?", Q7: "What does the best possible outcome look like — for both sides?" (+1 more)
 
-### Community 1218 - "Complexity Detection"
+### Community 1138 - "Community 1138"
 Cohesion: 0.22
 Nodes (9): Complex Component Indicators, Complexity Detection, Detection Examples, Example 1: Simple Button, Example 2: Search Bar, Example 3: Calendar Widget, Next Steps, Simple Component Indicators (+1 more)
 
-### Community 1219 - "Complexity Router Workflow"
+### Community 1139 - "Community 1139"
 Cohesion: 0.22
 Nodes (9): Benefits, Complexity Router Workflow, Example Dialogue, Next Steps, Output: Three Files, Overview, Step 1: Page Context (WHERE), Step 2: Visual Design (HOW) (+1 more)
 
-### Community 1220 - "Benefits of Three-Tier Architecture"
+### Community 1140 - "Community 1140"
 Cohesion: 0.22
 Nodes (9): 1. Prevents Overwhelming Specs, 2. Clean Handoffs, 3. Nothing Gets Missed, 4. Easy to Update, 5. Reusability, 6. Team Collaboration, 7. Design System Integrity, Benefits of Three-Tier Architecture (+1 more)
 
-### Community 1221 - "Object Type Router"
+### Community 1141 - "Community 1141"
 Cohesion: 0.22
 Nodes (8): AFTER OBJECT DOCUMENTATION, HANDLE USER RESPONSE, INTERPRETATION EXAMPLES, KEY PRINCIPLES, Object Type Router, STEP 1: TEXT ELEMENT DETECTION, STEP 2: OTHER OBJECT ANALYSIS, STEP 3: ROUTE TO OBJECT-SPECIFIC INSTRUCTIONS
 
-### Community 1222 - "Object Type: Link"
+### Community 1142 - "Community 1142"
 Cohesion: 0.22
 Nodes (8): DESIGN SYSTEM COMPONENT, GENERATE SPECIFICATION, LINK CONTENT & TARGET, LINK IDENTIFICATION, LINK STATES & STYLING, LINK TYPE, OBJECT ID, Object Type: Link
 
-### Community 1223 - "scenario-init-guide.md"
+### Community 1143 - "Community 1143"
 Cohesion: 0.25
 Nodes (6): Example: Dog Week, Next Step, Question 5: What's the Shortest Path?, The Question, What Agent Captures, Why This Matters
 
-### Community 1224 - "The 5 Questions"
+### Community 1144 - "Community 1144"
 Cohesion: 0.22
 Nodes (8): 1. Core Feature, 2. Entry Point, 3. Mental State, 4. Mutual Success, 5. Shortest Path, Example: Service Booking (Appointment Goal), Scenario Captured, The 5 Questions
 
-### Community 1225 - "The 5 Questions"
+### Community 1145 - "Community 1145"
 Cohesion: 0.22
 Nodes (8): 1. Core Feature, 2. Entry Point, 3. Mental State, 4. Mutual Success, 5. Shortest Path, Example: E-commerce (Sales Goal), Scenario Captured, The 5 Questions
 
-### Community 1226 - "The 5 Questions"
+### Community 1146 - "Community 1146"
 Cohesion: 0.22
 Nodes (8): 1. Core Feature, 2. Entry Point, 3. Mental State, 4. Mutual Success, 5. Shortest Path, Example: SaaS (Subscription Goal), Scenario Captured, The 5 Questions
 
-### Community 1227 - "Section: {Section Name}"
+### Community 1147 - "Community 1147"
 Cohesion: 0.22
 Nodes (9): {Group Name} (Container), {Object in Group}, {Object in Group 2}, {Object Name}, {Object Name 2}, ↕ `{page-name}-{group-name}-{obj1}-{obj2}-gap` — {spacing token}, Page Sections, ↕ `{page}-{v|h}-{type}-{size}` — {reason} (+1 more)
 
-### Community 1228 - "Interactive Prototype Creation Guide"
+### Community 1148 - "Community 1148"
 Cohesion: 0.22
 Nodes (8): ✨ Final Tips, For New Prototype Creators, Interactive Prototype Creation Guide, JavaScript Best Practices, JavaScript Template, 🎓 Learning Path, ⚙️ Step 4: Write JavaScript Logic, 🎯 When to Create Interactive Prototypes
 
-### Community 1229 - "Response Flow"
+### Community 1149 - "Community 1149"
 Cohesion: 0.22
 Nodes (9): Addition (Add to Plan), Anti-Pattern, Bug/Issue (Document First, Then Fix), Change Request (Document for Later), Feedback Types, Quick Adjustment (Fix Now), Response Flow, The 2-Minute Rule (GTD) (+1 more)
 
-### Community 1230 - "[A] Analysis — Understand Your Own Codebase"
-Cohesion: 0.22
-Nodes (8): [A] Analysis — Understand Your Own Codebase, AFTER COMPLETION, CORE PRINCIPLES, Critical Rules, Design Log, Essential Guides, INITIALIZATION, STEPS
-
-### Community 1231 - "[D] Development — Write Production Code"
+### Community 1150 - "Community 1150"
 Cohesion: 0.22
 Nodes (8): AFTER COMPLETION, CORE PRINCIPLES, [D] Development — Write Production Code, Design Log, DESIGN LOG REPORTING POINTS, INITIALIZATION, REFERENCE MATERIAL, STEPS
 
-### Community 1232 - "Figma Integration"
+### Community 1151 - "Community 1151"
 Cohesion: 0.22
 Nodes (8): AFTER COMPLETION, Design Log, Figma Integration, INITIALIZATION, REFERENCE CONTENT, STEP PROCESSING RULES, STEPS, WHEN TO USE
 
-### Community 1233 - "Component Library Configuration"
+### Community 1152 - "Community 1152"
 Cohesion: 0.22
 Nodes (8): Component Library Configuration, Component Mappings, Customizations, Form Components, Installation, Interactive Components, Library Documentation, Theme Configuration
 
-### Community 1234 - "Context Templates"
+### Community 1153 - "Community 1153"
 Cohesion: 0.22
 Nodes (8): Analytics Deep Dive Template, Context Synthesis Template, Context Templates, First Impressions Template, Focused Trigger Map Template, Improvement Opportunity Template, Limited Project Brief Template, User Feedback Analysis Template
 
-### Community 1235 - "Product Brief: chaiRAG"
+### Community 1154 - "Community 1154"
+Cohesion: 0.22
+Nodes (8): Baseline, Implement, INSTRUCTIONS, NEXT, PRECONDITION, RULES, Step 3: Implement, Tasks & Acceptance Verification
+
+### Community 1155 - "Community 1155"
+Cohesion: 0.22
+Nodes (9): type, type, type, properties, architecture_type, parts_count, primary_language, repository_type (+1 more)
+
+### Community 1156 - "Community 1156"
+Cohesion: 0.22
+Nodes (8): Editorial Review - Prose, HALT CONDITIONS, PRINCIPLES, Step 1: Validate Input, Step 2: Analyze Style, Step 3: Editorial Review (CRITICAL), Step 4: Output Results, STEPS
+
+### Community 1157 - "Community 1157"
+Cohesion: 0.22
+Nodes (8): Forget, New faces, Party Memory, Read it on entry — distill, don't dump, What's worth remembering, When to write, Where it lives, Write it
+
+### Community 1158 - "Community 1158"
+Cohesion: 0.22
+Nodes (8): BMad PRD, Conventions, Discovery, Finalize, Intent Modes, On Activation, PRD Discipline, Reviewer Gate
+
+### Community 1159 - "Community 1159"
+Cohesion: 0.22
+Nodes (8): Coaching Approach, Coaching Notes Capture, Headless Mode, Quality Bars, Stage 2: The Press Release, Stage Complete, The Forge, Updating the Document
+
+### Community 1160 - "Community 1160"
+Cohesion: 0.22
+Nodes (8): Boundaries & Constraints, Code Map, Design Notes, I/O & Edge-Case Matrix, Intent, Spec Change Log, Tasks & Acceptance, Verification
+
+### Community 1161 - "Community 1161"
+Cohesion: 0.22
+Nodes (8): Baseline, Implement, INSTRUCTIONS, NEXT, PRECONDITION, RULES, Step 3: Implement, Tasks & Acceptance Verification
+
+### Community 1162 - "Community 1162"
+Cohesion: 0.22
+Nodes (8): Commit and Open, Display Summary, Generate Suggested Review Order, INSTRUCTIONS, Mark Spec Done, On Complete, RULES, Step 5: Present
+
+### Community 1163 - "Community 1163"
+Cohesion: 0.22
+Nodes (8): Assumptions, Capabilities, Constraints, Non-goals, Open Questions, {Spec Title}, Success signal, Why
+
+### Community 1164 - "Community 1164"
+Cohesion: 0.22
+Nodes (8): Brand & Style, Colors, Components, Do's and Don'ts, Elevation & Depth, Layout & Spacing, Shapes, Typography
+
+### Community 1165 - "Community 1165"
+Cohesion: 0.22
+Nodes (8): Brand & Style, Colors, Components, Do's and Don'ts, Elevation & Depth, Layout & Spacing, Shapes, Typography
+
+### Community 1166 - "Community 1166"
+Cohesion: 0.22
+Nodes (5): Data References, File References, File References, Data References, File References
+
+### Community 1167 - "Community 1167"
+Cohesion: 0.22
+Nodes (4): Decision 1: {{decision_topic}}, Decision 2: {{decision_topic}}, Decision 3: {{decision_topic}}, Key Decisions Log
+
+### Community 1168 - "Community 1168"
+Cohesion: 0.22
+Nodes (9): Concept Documentation, Concept Exploration, Core Structural Idea, Deep Dive, Purpose, Reflection Checkpoint, Related Features, Step 4: Product Concept (+1 more)
+
+### Community 1169 - "Community 1169"
+Cohesion: 0.22
+Nodes (8): Component Library Configuration, Component Mappings, Customizations, Form Components, Installation, Interactive Components, Library Documentation, Theme Configuration
+
+### Community 1170 - "Community 1170"
+Cohesion: 0.22
+Nodes (9): 1. Present WDS Introduction, 2. Ask Project Type, 3. Ask Alignment Requirement, 4. Handle Routing, 5. Completion Output, 6. Present MENU OPTIONS, EXECUTION RULES:, Menu Handling Logic: (+1 more)
+
+### Community 1171 - "Community 1171"
+Cohesion: 0.22
+Nodes (8): For Agents, Page Index, Page Specifications (Freya), Scenario Outline (Saga), Scenarios, Specification Audit (Freya), UX Scenarios: {{project_name}}, What Belongs Here
+
+### Community 1172 - "Community 1172"
+Cohesion: 0.22
+Nodes (9): Configuration Options, Entry Point, Phase 0: Project Setup, Purpose, Steps, The Flow, When to Skip Phase 0, When to Use Phase 0 (+1 more)
+
+### Community 1173 - "Community 1173"
+Cohesion: 0.22
+Nodes (8): 1. Synthesize Your Understanding, 2. Handle User Response, 3. Document What Was Misunderstood, Example, Instructions, Next, Substep 3: Reflect & Confirm, Task
+
+### Community 1174 - "Community 1174"
+Cohesion: 0.22
+Nodes (8): 1. Check Project Context, 2. Adapt Opening Question, 3. Set Expectation, Example, Instructions, Next, Substep 1: Open Conversation, Task
+
+### Community 1175 - "Community 1175"
+Cohesion: 0.22
+Nodes (4): Decision 1: {{decision_topic}}, Decision 2: {{decision_topic}}, Decision 3: {{decision_topic}}, Key Decisions Log
+
+### Community 1176 - "Community 1176"
+Cohesion: 0.22
+Nodes (9): Concept Documentation, Concept Exploration, Core Structural Idea, Deep Dive, Purpose, Reflection Checkpoint, Related Features, Step 4: Product Concept (+1 more)
+
+### Community 1177 - "Community 1177"
+Cohesion: 0.22
+Nodes (5): File References, Data References, File References, Data References, File References
+
+### Community 1178 - "Community 1178"
+Cohesion: 0.22
+Nodes (9): 1. Site Type Detection, 2. List All Pages/Views, 3. Scale Assessment, 4. Page Documentation Strategy, 5. Present Analysis (USER CHECKPOINT), 6. Present MENU OPTIONS, EXECUTION RULES:, Menu Handling Logic: (+1 more)
+
+### Community 1179 - "Community 1179"
+Cohesion: 0.22
+Nodes (9): 1. Build Strategic Context Chains, 2. Assign Pages to Scenario Chains, 3. Prioritize, 4. Coverage Check, 5. Present Scenario Chain List, 6. Present MENU OPTIONS, EXECUTION RULES:, Menu Handling Logic: (+1 more)
+
+### Community 1180 - "Community 1180"
+Cohesion: 0.22
+Nodes (9): 1. Format the Scenario Plan, 2. Naming Rules, 3. Scenario ID Convention, 4. Wait for Approval, 5. Record Approved Plan, 6. Present MENU OPTIONS, EXECUTION RULES:, Menu Handling Logic: (+1 more)
+
+### Community 1181 - "Community 1181"
+Cohesion: 0.22
+Nodes (9): 3. The 8-Question Scenario Dialog, Q1: "What transaction do we need to get really right?", Q2: "If this transaction succeeds, which business goal does it add value to?", Q3: "Which user experiences this most, and in what real-life situation?", Q4: "What do they want and what do they fear going into this interaction?", Q5: "What device are they on?", Q6: "What's the natural starting point — how do they actually arrive?", Q7: "What does the best possible outcome look like — for both sides?" (+1 more)
+
+### Community 1182 - "Community 1182"
+Cohesion: 0.22
+Nodes (9): Complex Component Indicators, Complexity Detection, Detection Examples, Example 1: Simple Button, Example 2: Search Bar, Example 3: Calendar Widget, Next Steps, Simple Component Indicators (+1 more)
+
+### Community 1183 - "Community 1183"
+Cohesion: 0.22
+Nodes (9): Benefits, Complexity Router Workflow, Example Dialogue, Next Steps, Output: Three Files, Overview, Step 1: Page Context (WHERE), Step 2: Visual Design (HOW) (+1 more)
+
+### Community 1184 - "Community 1184"
+Cohesion: 0.22
+Nodes (9): 1. Prevents Overwhelming Specs, 2. Clean Handoffs, 3. Nothing Gets Missed, 4. Easy to Update, 5. Reusability, 6. Team Collaboration, 7. Design System Integrity, Benefits of Three-Tier Architecture (+1 more)
+
+### Community 1185 - "Community 1185"
+Cohesion: 0.22
+Nodes (8): DESIGN SYSTEM COMPONENT, GENERATE SPECIFICATION, LINK CONTENT & TARGET, LINK IDENTIFICATION, LINK STATES & STYLING, LINK TYPE, OBJECT ID, Object Type: Link
+
+### Community 1186 - "Community 1186"
+Cohesion: 0.25
+Nodes (6): Example: Dog Week, Next Step, Question 5: What's the Shortest Path?, The Question, What Agent Captures, Why This Matters
+
+### Community 1187 - "Community 1187"
+Cohesion: 0.22
+Nodes (8): 1. Core Feature, 2. Entry Point, 3. Mental State, 4. Mutual Success, 5. Shortest Path, Example: Service Booking (Appointment Goal), Scenario Captured, The 5 Questions
+
+### Community 1188 - "Community 1188"
+Cohesion: 0.22
+Nodes (8): 1. Core Feature, 2. Entry Point, 3. Mental State, 4. Mutual Success, 5. Shortest Path, Example: E-commerce (Sales Goal), Scenario Captured, The 5 Questions
+
+### Community 1189 - "Community 1189"
+Cohesion: 0.22
+Nodes (8): 1. Core Feature, 2. Entry Point, 3. Mental State, 4. Mutual Success, 5. Shortest Path, Example: SaaS (Subscription Goal), Scenario Captured, The 5 Questions
+
+### Community 1190 - "Community 1190"
+Cohesion: 0.22
+Nodes (9): {Group Name} (Container), {Object in Group}, {Object in Group 2}, {Object Name}, {Object Name 2}, ↕ `{page-name}-{group-name}-{obj1}-{obj2}-gap` — {spacing token}, Page Sections, ↕ `{page}-{v|h}-{type}-{size}` — {reason} (+1 more)
+
+### Community 1191 - "Community 1191"
+Cohesion: 0.22
+Nodes (8): ✨ Final Tips, For New Prototype Creators, Interactive Prototype Creation Guide, JavaScript Best Practices, JavaScript Template, 🎓 Learning Path, ⚙️ Step 4: Write JavaScript Logic, 🎯 When to Create Interactive Prototypes
+
+### Community 1192 - "Community 1192"
+Cohesion: 0.22
+Nodes (9): Addition (Add to Plan), Anti-Pattern, Bug/Issue (Document First, Then Fix), Change Request (Document for Later), Feedback Types, Quick Adjustment (Fix Now), Response Flow, The 2-Minute Rule (GTD) (+1 more)
+
+### Community 1193 - "Community 1193"
+Cohesion: 0.22
+Nodes (8): AFTER COMPLETION, CORE PRINCIPLES, [D] Development — Write Production Code, Design Log, DESIGN LOG REPORTING POINTS, INITIALIZATION, REFERENCE MATERIAL, STEPS
+
+### Community 1194 - "Community 1194"
+Cohesion: 0.22
+Nodes (8): AFTER COMPLETION, Design Log, Figma Integration, INITIALIZATION, REFERENCE CONTENT, STEP PROCESSING RULES, STEPS, WHEN TO USE
+
+### Community 1195 - "Community 1195"
+Cohesion: 0.22
+Nodes (8): Component Library Configuration, Component Mappings, Customizations, Form Components, Installation, Interactive Components, Library Documentation, Theme Configuration
+
+### Community 1196 - "Community 1196"
+Cohesion: 0.22
+Nodes (8): Analytics Deep Dive Template, Context Synthesis Template, Context Templates, First Impressions Template, Focused Trigger Map Template, Improvement Opportunity Template, Limited Project Brief Template, User Feedback Analysis Template
+
+### Community 1197 - "Community 1197"
 Cohesion: 0.22
 Nodes (8): Executive Summary, Product Brief: chaiRAG, Scope, Success Criteria, Technical Execution, The Problem, The Solution, What Makes This Different
 
-### Community 1236 - "resolve_config.py"
+### Community 1198 - "Community 1198"
 Cohesion: 0.42
 Nodes (8): deep_merge(), _detect_keyed_merge_field(), extract_key(), load_toml(), main(), _merge_arrays(), _merge_by_key(), Path
 
-### Community 1237 - "Self-Review Process"
+### Community 1199 - "Community 1199"
 Cohesion: 0.22
 Nodes (9): Best Practices Check (5 min), Common Mistakes Check (5 min), Completeness Check (5 min), Layer 5: Self-Review Against Standards, Overall Assessment, Quality Criteria Check (10 min), Refinement Planning (If Needed), Self-Review for Phase 3 (Scenarios) (+1 more)
 
-### Community 1238 - "Design System Naming Conventions"
+### Community 1200 - "Community 1200"
 Cohesion: 0.22
 Nodes (8): Component IDs, Component Names, Design System Naming Conventions, Design Token Names, File Names, Folder Names, State Names, Variant Names
 
-### Community 1239 - "Component State Management"
+### Community 1201 - "Community 1201"
 Cohesion: 0.22
 Nodes (8): Component State Management, Feedback Components (Alerts, Toasts), Form Components (Inputs, Selects), Interactive Components (Buttons, Links), Standard States, State Naming, State Transitions, Visual Indicators
 
-### Community 1240 - "My Workflows"
+### Community 1202 - "Community 1202"
 Cohesion: 0.22
 Nodes (8): 1. UX Design, 2. Visual Design, 3. Design System, 4. Agentic Development, 5. Software Testing, 6. Design Delivery, Freya's Workflows — What I Can Do, My Workflows
 
-### Community 1241 - "My Workflows"
+### Community 1203 - "Community 1203"
 Cohesion: 0.22
 Nodes (8): 1. Alignment & Signoff, 2. Product Brief, 3. Trigger Mapping, 4. Brainstorm Project, 5. Research, 6. Document Project, My Workflows, Saga's Workflows — What I Can Do
 
-### Community 1242 - "Behavior When Invoked"
+### Community 1204 - "Community 1204"
 Cohesion: 0.22
 Nodes (8): 1. Load Project Index, 2. Detect Session State, 3. If State Found, 4. If No State Found, Behavior When Invoked, Notes, Purpose, /start — Session Resume Skill
 
-### Community 1243 - "INSTRUCTIONS"
-Cohesion: 0.25
-Nodes (7): Classify, Construct Diff, Finalize, INSTRUCTIONS, Review, RULES, Step 4: Review
+### Community 1205 - "Community 1205"
+Cohesion: 0.22
+Nodes (8): 1. Project Working Overview Diagram, 2. Requirement Diagram, 3. Sequence Diagram (Source Ingestion & Citation Querying), 4. Class Diagram, 5. State Machine Diagram (Source Lifecycle), 6. Entity Relationship (ER) Diagram, 7. Activity Diagram (Query & Source Viewer Navigation), Comprehensive UML Diagrams: chaibookLM
 
-### Community 1244 - "🎯 Enhanced Definition of Done Checklist"
-Cohesion: 0.25
-Nodes (7): 📋 Context & Requirements Validation, 📝 Documentation & Tracking, 🎯 Enhanced Definition of Done Checklist, 🔚 Final Status Verification, 🎯 Final Validation Output, ✅ Implementation Completion, 🧪 Testing & Quality Assurance
-
-### Community 1245 - "Deep-Dive Documentation Instructions"
+### Community 1206 - "Community 1206"
 Cohesion: 0.25
 Nodes (7): API Routes ({{api_route_count}} endpoints found), Deep-Dive Documentation, Deep-Dive Documentation Complete! ✓, Deep-Dive Documentation Instructions, Feature Modules ({{feature_count}} features), Services/Business Logic, UI Component Areas
 
-### Community 1246 - "BMad Help"
+### Community 1207 - "Community 1207"
 Cohesion: 0.25
-Nodes (7): BMad Help, Constraints, CSV Interpretation, Data Sources, Desired Outcomes, Purpose, Response Format
+Nodes (8): BMad Domain Research Skill, Step 1: Scope Confirmation, Domain Research Step 2: Industry Analysis, Domain Research Step 3: Competitive Landscape, Domain Research Step 4: Regulatory Focus, Domain Research Step 5: Technical Trends, Domain Research Step 6: Synthesis, Domain Research Template
 
-### Community 1247 - "Stage 3: Customer FAQ"
+### Community 1208 - "Community 1208"
 Cohesion: 0.25
 Nodes (7): Coaching Notes Capture, Coaching the Answers, Headless Mode, Stage 3: Customer FAQ, Stage Complete, The Devil's Advocate, Updating the Document
 
-### Community 1248 - "Stage 4: Internal FAQ"
+### Community 1209 - "Community 1209"
 Cohesion: 0.25
 Nodes (7): Coaching Notes Capture, Coaching the Answers, Headless Mode, Stage 4: Internal FAQ, Stage Complete, The Skeptical Stakeholder, Updating the Document
 
-### Community 1249 - "Overview"
+### Community 1210 - "Community 1210"
 Cohesion: 0.25
 Nodes (7): Constraints, Discovery, Finalize, Headless Mode, Intent Operating Modes, On Activation, Overview
 
-### Community 1250 - "INSTRUCTIONS"
+### Community 1211 - "Community 1211"
 Cohesion: 0.25
 Nodes (7): Classify, Construct Diff, INSTRUCTIONS, NEXT, Review, RULES, Step 4: Review
 
-### Community 1251 - "design-example-editorial.md"
+### Community 1212 - "Community 1212"
 Cohesion: 0.25
 Nodes (7): Brand & Style, Colors, Components, Elevation & Depth, Layout & Spacing, Shapes, Typography
 
-### Community 1252 - "Project Info: {{project_name}}"
+### Community 1213 - "Community 1213"
 Cohesion: 0.25
 Nodes (7): Project Configuration, Project Info: {{project_name}}, Project Timeline, Quick Navigation, Team, Technical Stack, WDS Agents
 
-### Community 1253 - "Context & Working Relationship"
+### Community 1214 - "Community 1214"
 Cohesion: 0.25
 Nodes (7): Collaboration Style, Context & Working Relationship, Documentation Approach, Project Configuration, Project Metadata, Stakes, Working Relationship Context
 
-### Community 1254 - "Step 3: User Definition"
+### Community 1215 - "Community 1215"
 Cohesion: 0.25
 Nodes (8): Opening Question, Primary User Definition, Primary User Discovery, Reflection Checkpoint, Secondary Users (if applicable), Step 3: User Definition, User Exploration, User Scenarios Captured
 
-### Community 1255 - "Step 6: Inspiration & References"
+### Community 1216 - "Community 1216"
 Cohesion: 0.25
 Nodes (7): Competitor Analysis (if discussed), Reference Material Collected, Step 6: Inspiration & References, Style Preferences, Visual Preference Exploration, What User Dislikes, What User Likes
 
-### Community 1256 - "Design Log"
+### Community 1217 - "Community 1217"
 Cohesion: 0.25
 Nodes (7): About This Folder, Backlog, Current, {{date}} — Project initialized (Phase 0), Design Log, Design Loop Status, Log
 
-### Community 1257 - "Substep 2: Explore Vision"
+### Community 1218 - "Community 1218"
 Cohesion: 0.25
 Nodes (7): 1. Use Conversational Follow-Up Patterns, 2. Know When to Stop, Example, Instructions, Next, Substep 2: Explore Vision, Task
 
-### Community 1258 - "Project Info: {{project_name}}"
+### Community 1219 - "Community 1219"
 Cohesion: 0.25
 Nodes (7): Project Configuration, Project Info: {{project_name}}, Project Timeline, Quick Navigation, Team, Technical Stack, WDS Agents
 
-### Community 1259 - "Context & Working Relationship"
+### Community 1220 - "Community 1220"
 Cohesion: 0.25
 Nodes (7): Collaboration Style, Context & Working Relationship, Documentation Approach, Project Configuration, Project Metadata, Stakes, Working Relationship Context
 
-### Community 1260 - "Step 3: User Definition"
+### Community 1221 - "Community 1221"
 Cohesion: 0.25
 Nodes (8): Opening Question, Primary User Definition, Primary User Discovery, Reflection Checkpoint, Secondary Users (if applicable), Step 3: User Definition, User Exploration, User Scenarios Captured
 
-### Community 1261 - "Step 6: Inspiration & References"
+### Community 1222 - "Community 1222"
 Cohesion: 0.25
 Nodes (7): Competitor Analysis (if discussed), Reference Material Collected, Step 6: Inspiration & References, Style Preferences, Visual Preference Exploration, What User Dislikes, What User Likes
 
-### Community 1262 - "Phase 1 Validation: Product Brief"
+### Community 1223 - "Community 1223"
 Cohesion: 0.25
 Nodes (7): AFTER COMPLETION, Configuration Loading, Design Log, Final Output, INITIALIZATION, Phase 1 Validation: Product Brief, Validation Sequence
 
-### Community 1263 - "Business Goals Document Template"
+### Community 1224 - "Community 1224"
 Cohesion: 0.25
 Nodes (7): 1. Header, 2. Vision Statement, 3. Business Objectives (3 Priority Tiers), 4. The Flywheel Section, 5. Success Metrics Alignment, 6. Related Documents Footer, Business Goals Document Template
 
-### Community 1264 - "INITIALIZATION"
+### Community 1225 - "Community 1225"
 Cohesion: 0.25
 Nodes (7): AFTER COMPLETION, Configuration Loading, Design Log, INITIALIZATION, Load Trigger Map Data, Route to Validation, Validate Trigger Map
 
-### Community 1265 - "workflow.md"
+### Community 1226 - "Community 1226"
 Cohesion: 0.25
 Nodes (4): File References, File References, Data References, File References
 
-### Community 1266 - "INITIALIZATION"
+### Community 1227 - "Community 1227"
 Cohesion: 0.25
 Nodes (7): AFTER COMPLETION, Configuration Loading, Design Log, INITIALIZATION, Load Scenario Files, Route to Validation, Validate UX Scenarios
 
-### Community 1267 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 1228 - "Community 1228"
 Cohesion: 0.25
 Nodes (8): 1. Verify All Artifacts, 2. Notify BMad, 3. Update Project Status, 4. Set Up Monitoring, 5. Present MENU OPTIONS, EXECUTION RULES:, Menu Handling Logic:, Sequence of Instructions (Do not deviate, skip, or optimize)
 
-### Community 1268 - "Accessibility Specification"
+### Community 1229 - "Community 1229"
 Cohesion: 0.25
 Nodes (7): Accessibility Specification, Color Independence, Dynamic Content, For Each Interactive Element, Form Errors, Quick Checks, Tab Order
 
-### Community 1269 - "🚨 Common Pitfalls to Avoid"
+### Community 1230 - "Community 1230"
 Cohesion: 0.25
 Nodes (8): 1. Forgetting Object IDs, 2. Not Handling Loading States, 3. Hardcoded Values, 4. No Error Handling, 5. Desktop-Only Design, 6. Missing Validation Feedback, 7. No Console Logging, 🚨 Common Pitfalls to Avoid
 
-### Community 1270 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 1231 - "Community 1231"
 Cohesion: 0.25
 Nodes (8): 0. Agent Self-Verification (Before Presenting), 1. Present Implementation, 2. Present Verification Results & Request Qualitative Review, 3. Wait for User Feedback, 4. Present MENU OPTIONS, EXECUTION RULES:, Menu Handling Logic:, Sequence of Instructions (Do not deviate, skip, or optimize)
 
-### Community 1271 - "[E] Evolution — Add Features to Existing Product"
+### Community 1232 - "Community 1232"
 Cohesion: 0.25
 Nodes (8): AFTER COMPLETION, CORE PRINCIPLES, Critical Rules, Design Log, [E] Evolution — Add Features to Existing Product, Essential Guides, INITIALIZATION, STEPS
 
-### Community 1272 - "[P] Prototyping — Build Interactive Prototype from Specs"
+### Community 1233 - "Community 1233"
 Cohesion: 0.25
 Nodes (8): AFTER COMPLETION, Critical Rules, Design Log, DESIGN LOG REPORTING POINTS, Essential Guides, INITIALIZATION, [P] Prototyping — Build Interactive Prototype from Specs, STEPS
 
-### Community 1273 - "[R] Reverse Engineering — Any Software/Site → Specs & Extraction"
+### Community 1234 - "Community 1234"
 Cohesion: 0.25
 Nodes (8): AFTER COMPLETION, CORE PRINCIPLES, Critical Rules, Design Log, Essential Guides, INITIALIZATION, [R] Reverse Engineering — Any Software/Site → Specs & Extraction, STEPS
 
-### Community 1274 - "Design Templates"
+### Community 1235 - "Community 1235"
 Cohesion: 0.25
 Nodes (7): Before/After Comparison Template, Change Scope Template, Design Self-Review Checklist, Design Templates, Hypothesis Validation Template, New Component Template, Update Specification Template
 
-### Community 1275 - "INSTRUCTIONS"
+### Community 1236 - "Community 1236"
 Cohesion: 0.25
 Nodes (7): Classify, Construct Diff, Finalize, INSTRUCTIONS, Review, RULES, Step 4: Review
 
-### Community 1276 - "🎯 Enhanced Definition of Done Checklist"
+### Community 1237 - "Community 1237"
 Cohesion: 0.25
 Nodes (7): 📋 Context & Requirements Validation, 📝 Documentation & Tracking, 🎯 Enhanced Definition of Done Checklist, 🔚 Final Status Verification, 🎯 Final Validation Output, ✅ Implementation Completion, 🧪 Testing & Quality Assurance
 
-### Community 1277 - "Deep-Dive Documentation Instructions"
+### Community 1238 - "Community 1238"
 Cohesion: 0.25
 Nodes (7): API Routes ({{api_route_count}} endpoints found), Deep-Dive Documentation, Deep-Dive Documentation Complete! ✓, Deep-Dive Documentation Instructions, Feature Modules ({{feature_count}} features), Services/Business Logic, UI Component Areas
 
-### Community 1278 - "BMad Help"
+### Community 1239 - "Community 1239"
 Cohesion: 0.25
 Nodes (7): BMad Help, Constraints, CSV Interpretation, Data Sources, Desired Outcomes, Purpose, Response Format
 
-### Community 1279 - "Stage 3: Customer FAQ"
+### Community 1240 - "Community 1240"
 Cohesion: 0.25
 Nodes (7): Coaching Notes Capture, Coaching the Answers, Headless Mode, Stage 3: Customer FAQ, Stage Complete, The Devil's Advocate, Updating the Document
 
-### Community 1280 - "Stage 4: Internal FAQ"
+### Community 1241 - "Community 1241"
 Cohesion: 0.25
 Nodes (7): Coaching Notes Capture, Coaching the Answers, Headless Mode, Stage 4: Internal FAQ, Stage Complete, The Skeptical Stakeholder, Updating the Document
 
-### Community 1281 - "Overview"
+### Community 1242 - "Community 1242"
 Cohesion: 0.25
 Nodes (7): Constraints, Discovery, Finalize, Headless Mode, Intent Operating Modes, On Activation, Overview
 
-### Community 1282 - "INSTRUCTIONS"
+### Community 1243 - "Community 1243"
 Cohesion: 0.25
 Nodes (7): Classify, Construct Diff, INSTRUCTIONS, NEXT, Review, RULES, Step 4: Review
 
-### Community 1283 - "design-example-editorial.md"
+### Community 1244 - "Community 1244"
 Cohesion: 0.25
 Nodes (7): Brand & Style, Colors, Components, Elevation & Depth, Layout & Spacing, Shapes, Typography
 
-### Community 1284 - "Project Info: {{project_name}}"
+### Community 1245 - "Community 1245"
 Cohesion: 0.25
 Nodes (7): Project Configuration, Project Info: {{project_name}}, Project Timeline, Quick Navigation, Team, Technical Stack, WDS Agents
 
-### Community 1285 - "Context & Working Relationship"
+### Community 1246 - "Community 1246"
 Cohesion: 0.25
 Nodes (7): Collaboration Style, Context & Working Relationship, Documentation Approach, Project Configuration, Project Metadata, Stakes, Working Relationship Context
 
-### Community 1286 - "Step 3: User Definition"
+### Community 1247 - "Community 1247"
 Cohesion: 0.25
 Nodes (8): Opening Question, Primary User Definition, Primary User Discovery, Reflection Checkpoint, Secondary Users (if applicable), Step 3: User Definition, User Exploration, User Scenarios Captured
 
-### Community 1287 - "Step 6: Inspiration & References"
+### Community 1248 - "Community 1248"
 Cohesion: 0.25
 Nodes (7): Competitor Analysis (if discussed), Reference Material Collected, Step 6: Inspiration & References, Style Preferences, Visual Preference Exploration, What User Dislikes, What User Likes
 
-### Community 1288 - "Design Log"
+### Community 1249 - "Community 1249"
 Cohesion: 0.25
 Nodes (7): About This Folder, Backlog, Current, {{date}} — Project initialized (Phase 0), Design Log, Design Loop Status, Log
 
-### Community 1289 - "Substep 2: Explore Vision"
+### Community 1250 - "Community 1250"
 Cohesion: 0.25
 Nodes (7): 1. Use Conversational Follow-Up Patterns, 2. Know When to Stop, Example, Instructions, Next, Substep 2: Explore Vision, Task
 
-### Community 1290 - "Project Info: {{project_name}}"
+### Community 1251 - "Community 1251"
 Cohesion: 0.25
 Nodes (7): Project Configuration, Project Info: {{project_name}}, Project Timeline, Quick Navigation, Team, Technical Stack, WDS Agents
 
-### Community 1291 - "Context & Working Relationship"
+### Community 1252 - "Community 1252"
 Cohesion: 0.25
 Nodes (7): Collaboration Style, Context & Working Relationship, Documentation Approach, Project Configuration, Project Metadata, Stakes, Working Relationship Context
 
-### Community 1292 - "Step 3: User Definition"
+### Community 1253 - "Community 1253"
 Cohesion: 0.25
 Nodes (8): Opening Question, Primary User Definition, Primary User Discovery, Reflection Checkpoint, Secondary Users (if applicable), Step 3: User Definition, User Exploration, User Scenarios Captured
 
-### Community 1293 - "Step 6: Inspiration & References"
+### Community 1254 - "Community 1254"
 Cohesion: 0.25
 Nodes (7): Competitor Analysis (if discussed), Reference Material Collected, Step 6: Inspiration & References, Style Preferences, Visual Preference Exploration, What User Dislikes, What User Likes
 
-### Community 1294 - "Phase 1 Validation: Product Brief"
+### Community 1255 - "Community 1255"
 Cohesion: 0.25
 Nodes (7): AFTER COMPLETION, Configuration Loading, Design Log, Final Output, INITIALIZATION, Phase 1 Validation: Product Brief, Validation Sequence
 
-### Community 1295 - "Business Goals Document Template"
+### Community 1256 - "Community 1256"
 Cohesion: 0.25
 Nodes (7): 1. Header, 2. Vision Statement, 3. Business Objectives (3 Priority Tiers), 4. The Flywheel Section, 5. Success Metrics Alignment, 6. Related Documents Footer, Business Goals Document Template
 
-### Community 1296 - "INITIALIZATION"
+### Community 1257 - "Community 1257"
 Cohesion: 0.25
 Nodes (7): AFTER COMPLETION, Configuration Loading, Design Log, INITIALIZATION, Load Trigger Map Data, Route to Validation, Validate Trigger Map
 
-### Community 1297 - "workflow.md"
-Cohesion: 0.25
-Nodes (4): File References, File References, Data References, File References
-
-### Community 1298 - "INITIALIZATION"
+### Community 1258 - "Community 1258"
 Cohesion: 0.25
 Nodes (7): AFTER COMPLETION, Configuration Loading, Design Log, INITIALIZATION, Load Scenario Files, Route to Validation, Validate UX Scenarios
 
-### Community 1299 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 1259 - "Community 1259"
+Cohesion: 0.25
+Nodes (8): AFTER OBJECT DOCUMENTATION, HANDLE USER RESPONSE, INTERPRETATION EXAMPLES, KEY PRINCIPLES, Object Type Router, STEP 1: TEXT ELEMENT DETECTION, STEP 2: OTHER OBJECT ANALYSIS, STEP 3: ROUTE TO OBJECT-SPECIFIC INSTRUCTIONS
+
+### Community 1260 - "Community 1260"
 Cohesion: 0.25
 Nodes (8): 1. Verify All Artifacts, 2. Notify BMad, 3. Update Project Status, 4. Set Up Monitoring, 5. Present MENU OPTIONS, EXECUTION RULES:, Menu Handling Logic:, Sequence of Instructions (Do not deviate, skip, or optimize)
 
-### Community 1300 - "Accessibility Specification"
+### Community 1261 - "Community 1261"
 Cohesion: 0.25
 Nodes (7): Accessibility Specification, Color Independence, Dynamic Content, For Each Interactive Element, Form Errors, Quick Checks, Tab Order
 
-### Community 1301 - "🚨 Common Pitfalls to Avoid"
+### Community 1262 - "Community 1262"
 Cohesion: 0.25
 Nodes (8): 1. Forgetting Object IDs, 2. Not Handling Loading States, 3. Hardcoded Values, 4. No Error Handling, 5. Desktop-Only Design, 6. Missing Validation Feedback, 7. No Console Logging, 🚨 Common Pitfalls to Avoid
 
-### Community 1302 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 1263 - "Community 1263"
 Cohesion: 0.25
 Nodes (8): 0. Agent Self-Verification (Before Presenting), 1. Present Implementation, 2. Present Verification Results & Request Qualitative Review, 3. Wait for User Feedback, 4. Present MENU OPTIONS, EXECUTION RULES:, Menu Handling Logic:, Sequence of Instructions (Do not deviate, skip, or optimize)
 
-### Community 1303 - "[E] Evolution — Add Features to Existing Product"
+### Community 1264 - "Community 1264"
 Cohesion: 0.25
 Nodes (8): AFTER COMPLETION, CORE PRINCIPLES, Critical Rules, Design Log, [E] Evolution — Add Features to Existing Product, Essential Guides, INITIALIZATION, STEPS
 
-### Community 1304 - "[P] Prototyping — Build Interactive Prototype from Specs"
+### Community 1265 - "Community 1265"
 Cohesion: 0.25
 Nodes (8): AFTER COMPLETION, Critical Rules, Design Log, DESIGN LOG REPORTING POINTS, Essential Guides, INITIALIZATION, [P] Prototyping — Build Interactive Prototype from Specs, STEPS
 
-### Community 1305 - "[R] Reverse Engineering — Any Software/Site → Specs & Extraction"
+### Community 1266 - "Community 1266"
 Cohesion: 0.25
 Nodes (8): AFTER COMPLETION, CORE PRINCIPLES, Critical Rules, Design Log, Essential Guides, INITIALIZATION, [R] Reverse Engineering — Any Software/Site → Specs & Extraction, STEPS
 
-### Community 1306 - "Design Templates"
+### Community 1267 - "Community 1267"
 Cohesion: 0.25
 Nodes (7): Before/After Comparison Template, Change Scope Template, Design Self-Review Checklist, Design Templates, Hypothesis Validation Template, New Component Template, Update Specification Template
 
-### Community 1307 - "Content Structure Principles (Product Brief)"
-Cohesion: 0.25
-Nodes (7): Adaptive Depth, Content Structure Principles (Product Brief), Documenting the Outcome, Red Flags, Types of Information to Surface, What We Need to Know, Why This Matters
+### Community 1268 - "Community 1268"
+Cohesion: 0.32
+Nodes (8): BMad Advanced Elicitation, BMad Edit PRD (Shim), BMad Forge Idea, Generate Project Context Workflow, Market Research Workflow, Party Mode, BMad PRD, Working Backwards: The PRFAQ Challenge
 
-### Community 1308 - "Initial Load: Product Brief (Start of Phase 2)"
+### Community 1269 - "Community 1269"
+Cohesion: 0.25
+Nodes (8): Artifact Analyzer Agent, Web Researcher Agent, PRFAQ Template, Stage 3: Customer FAQ, Stage 4: Internal FAQ, Stage 2: The Press Release, Stage 5: The Verdict, bmad-prfaq Skill
+
+### Community 1270 - "Community 1270"
 Cohesion: 0.25
 Nodes (8): Business Context, Constraints, Cumulative Growth: Add After Each Step, For Phase 3: Cumulative Context Growth, Initial Load: Product Brief (Start of Phase 2), Layer 2: Project Context (Cumulative), Strategic Direction, User Archetypes (from Product Brief)
 
-### Community 1309 - "🎨 Hello! I'm Freya, Your UX Design Partner!"
+### Community 1271 - "Community 1271"
 Cohesion: 0.25
 Nodes (7): Freya WDS Designer Agent - Presentation, 🎨 Hello! I'm Freya, Your UX Design Partner!, ✨ Let's Create Something Amazing!, 💎 My Design Philosophy, 🎨 My Design Workshop, 🌟 My Expertise, 🤝 Team Collaboration
 
-### Community 1310 - "📚 Hello! I'm Saga, Your Strategic Business Analyst!"
+### Community 1272 - "Community 1272"
 Cohesion: 0.25
 Nodes (7): 📚 Hello! I'm Saga, Your Strategic Business Analyst!, ✨ Let's Build Your Foundation!, 🌟 My Expertise, 💎 My Strategic Philosophy, 📚 My Strategy Workshop, Saga WDS Analyst Agent - Presentation, 🤝 Team Collaboration
 
-### Community 1311 - "wds-init-page.js"
+### Community 1273 - "Community 1273"
 Cohesion: 0.39
 Nodes (7): buildTemplate(), fs, main(), parseArgs(), path, printUsage(), toSlug()
 
-### Community 1312 - "wds-init-scenario.js"
+### Community 1274 - "Community 1274"
 Cohesion: 0.39
 Nodes (7): buildReadme(), fs, main(), parseArgs(), path, printUsage(), toSlug()
 
-### Community 1313 - "Headless Mode"
+### Community 1275 - "Community 1275"
 Cohesion: 0.29
 Nodes (6): Detection, Headless Mode, Inputs the caller is expected to provide, Return, Run, The inversion
 
-### Community 1314 - "Step 4: Testing"
+### Community 1276 - "Community 1276"
 Cohesion: 0.29
 Nodes (6): Closing, Follow Global Step Rules in SKILL.md, IDENTIFY OBSERVABLE BEHAVIOR, NEXT, PRESENT, Step 4: Testing
 
-### Community 1315 - "scan_level"
+### Community 1277 - "Community 1277"
+Cohesion: 0.29
+Nodes (7): Compile Epic Context, BMad Dev Auto Skill, Dev Auto Spec Template, Step 1: Clarify and Route, Step 2: Plan, Step 3: Implement, Step 4: Review
+
+### Community 1278 - "Community 1278"
 Cohesion: 0.29
 Nodes (7): deep, exhaustive, quick, scan_level, description, enum, type
 
-### Community 1316 - "enum"
+### Community 1279 - "Community 1279"
 Cohesion: 0.29
 Nodes (7): deep_dive, full_rescan, initial_scan, description, enum, type, mode
 
-### Community 1317 - "Subagent Mode"
+### Community 1280 - "Community 1280"
 Cohesion: 0.29
 Nodes (6): Lifecycle, Model choice, One shared room, Spawning, Subagent Mode, Weave the replies into one conversation
 
-### Community 1318 - "Party Mode"
-Cohesion: 0.29
-Nodes (6): Conventions, How It Runs, Keep It Feeling Like a Party, On Activation, Party Mode, Wrapping Up
-
-### Community 1319 - "Headless Mode JSON Schemas"
+### Community 1281 - "Community 1281"
 Cohesion: 0.29
 Nodes (6): Blocked, Common fields, Create, Headless Mode JSON Schemas, Update, Validate
 
-### Community 1320 - "Stage 5: The Verdict"
+### Community 1282 - "Community 1282"
 Cohesion: 0.29
 Nodes (6): Finalize the Document, Present Completion, Produce the Distillate, Stage 5: The Verdict, Stage Complete, The Assessment
 
-### Community 1321 - "Step 1: Clarify and Route"
+### Community 1283 - "Community 1283"
 Cohesion: 0.29
 Nodes (6): INSTRUCTIONS, Intent check (do this first), NEXT, RULES, Step 1: Clarify and Route, Story-key resolution
 
-### Community 1322 - "EXECUTION"
+### Community 1284 - "Community 1284"
 Cohesion: 0.29
 Nodes (6): Adversarial Review (General), EXECUTION, HALT CONDITIONS, Step 1: Receive Content, Step 2: Adversarial Analysis, Step 3: Present Findings
 
-### Community 1323 - "Headless Mode JSON Schemas"
+### Community 1285 - "Community 1285"
 Cohesion: 0.29
 Nodes (6): Blocked, Common fields, Create, Headless Mode JSON Schemas, Update, Validate
 
-### Community 1324 - "DESIGN.md Spec — Working Reference"
+### Community 1286 - "Community 1286"
 Cohesion: 0.29
 Nodes (6): Body sections (omittable, order-locked when present), Common patterns, Cross-reference syntax, DESIGN.md Spec — Working Reference, Frontmatter tokens, Structure
 
-### Community 1325 - "Validate"
+### Community 1287 - "Community 1287"
 Cohesion: 0.29
 Nodes (6): Close, Markdown twin shape, Orient, Reviewer Gate, Synthesis pipeline, Validate
 
-### Community 1326 - "Product Brief Dialog: {{project_name}}"
+### Community 1288 - "Community 1288"
 Cohesion: 0.29
 Nodes (7): About This Dialog, Dialog Artifacts, Key Decisions, Product Brief Dialog: {{project_name}}, Progress Tracker, Project Context, Reflection Quality
 
-### Community 1327 - "Project Brief: {{project_name}}"
+### Community 1289 - "Community 1289"
 Cohesion: 0.29
 Nodes (6): Challenge / Opportunity, Constraints, Design Goals, Next Steps, Project Brief: {{project_name}}, Project Scope
 
-### Community 1328 - "Product Brief Dialog: {{project_name}}"
+### Community 1290 - "Community 1290"
 Cohesion: 0.29
 Nodes (7): About This Dialog, Dialog Artifacts, Key Decisions, Product Brief Dialog: {{project_name}}, Progress Tracker, Project Context, Reflection Quality
 
-### Community 1329 - "Project Brief: {{project_name}}"
+### Community 1291 - "Community 1291"
 Cohesion: 0.29
 Nodes (6): Challenge / Opportunity, Constraints, Design Goals, Next Steps, Project Brief: {{project_name}}, Project Scope
 
-### Community 1330 - "Crucial Agent Behaviors"
+### Community 1292 - "Community 1292"
 Cohesion: 0.29
 Nodes (7): 1. Ask, Don't Assume, 2. Provide Context, Not Just Questions, 3. Explain WHY Questions Matter, 4. Learn Designer Preferences, 5. Catch Inconsistencies Gently, 6. Ask "Why" Questions That Reveal Insights, Crucial Agent Behaviors
 
-### Community 1331 - "Content Placement Rules"
+### Community 1293 - "Community 1293"
 Cohesion: 0.29
 Nodes (7): Component File Content, Content Placement Rules, Decision Matrix, Examples, Feature File Content, Page File Content, The Core Question
 
-### Community 1332 - "When to Use Storyboards"
+### Community 1294 - "Community 1294"
 Cohesion: 0.29
 Nodes (7): Create Storyboards For:, Don't Need Storyboard:, Don't Need Storyboards For:, Examples, Need Storyboard:, Next Steps, When to Use Storyboards
 
-### Community 1333 - "Text vs. Other Elements"
+### Community 1295 - "Community 1295"
 Cohesion: 0.29
 Nodes (7): ❌ NOT Text - Button, ❌ NOT Text - Decorative Line (SINGLE), ❌ NOT Text - Image, ❌ NOT Text - Input Field, ❌ NOT Text - Link (Often With Text), ✅ Text Element (Horizontal Line PAIRS), Text vs. Other Elements
 
-### Community 1334 - "Question 1: What Feature Delivers the Most Value?"
+### Community 1296 - "Community 1296"
 Cohesion: 0.29
 Nodes (6): Example: Dog Week, Next Question, Question 1: What Feature Delivers the Most Value?, The Question, What Agent Captures, Why This Matters
 
-### Community 1335 - "Question 2: Where Does the User First Encounter This?"
+### Community 1297 - "Community 1297"
 Cohesion: 0.29
 Nodes (6): Example: Dog Week, Next Question, Question 2: Where Does the User First Encounter This?, The Question, What Agent Captures, Why This Matters
 
-### Community 1336 - "Question 3: What's Their Mental State at This Moment?"
+### Community 1298 - "Community 1298"
 Cohesion: 0.29
 Nodes (6): Example: Dog Week, Next Question, Question 3: What's Their Mental State at This Moment?, The Question, What Agent Captures, Why This Matters
 
-### Community 1337 - "Question 4: What's the End Goal (Mutual Success)?"
+### Community 1299 - "Community 1299"
 Cohesion: 0.29
 Nodes (6): Example: Dog Week, Next Question, Question 4: What's the End Goal (Mutual Success)?, The Question, What Agent Captures, Why This Matters
 
-### Community 1338 - "7. Reference Trigger Map for Scenario"
+### Community 1300 - "Community 1300"
 Cohesion: 0.29
 Nodes (7): 7. Reference Trigger Map for Scenario, Agent Instructions, If No Trigger Map Exists, Next Step, Process, Save Context, Why Now?
 
-### Community 1339 - "Audit Structure"
-Cohesion: 0.29
-Nodes (7): Audit Structure, Level 0: Specification Formatting & Standards, Level 1: Scenario-Level Audit, Level 2: Page-Level Audit, Level 3: Component-Level Audit, Level 4: Feature-Level Audit, Level 5: Content Audit
-
-### Community 1340 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 1301 - "Community 1301"
 Cohesion: 0.29
 Nodes (7): 1. Identify Next Flow, 2. Plan Parallel Work, 3. Balancing Design and Validation, 4. Present MENU OPTIONS, EXECUTION RULES:, Menu Handling Logic:, Sequence of Instructions (Do not deviate, skip, or optimize)
 
-### Community 1341 - "Data & API Requirements"
+### Community 1302 - "Community 1302"
 Cohesion: 0.29
 Nodes (6): API Endpoints, Caching Strategy, Data & API Requirements, Data Sources, {Endpoint Name}, Loading States
 
-### Community 1342 - "What Changes"
+### Community 1303 - "Community 1303"
 Cohesion: 0.29
 Nodes (6): 1. Add State Flow Overview (before Page Sections), 2. State 1 = Normal Page Specification, 3. States 2+ = Differences Only, Key Principles, Storyboard Extension, What Changes
 
-### Community 1343 - "[V] Validate — Quality Audit"
+### Community 1304 - "Community 1304"
 Cohesion: 0.29
 Nodes (6): AFTER COMPLETION, Configuration Loading, Final Output, INITIALIZATION, [V] Validate — Quality Audit, Validation Sequence
 
-### Community 1344 - "Common API Patterns"
+### Community 1305 - "Community 1305"
 Cohesion: 0.29
 Nodes (7): 1. Get Current User, 2. Create/Update User Profile, 3. Create Family, 4. Add Dog, 5. Get Family Data, Common API Patterns, 🔌 Step 5: Integrate with Prototype API
 
-### Community 1345 - "Before Considering Prototype "Done""
+### Community 1306 - "Community 1306"
 Cohesion: 0.29
 Nodes (7): Accessibility, Before Considering Prototype "Done", Code Quality, Documentation, Functionality Testing, Mobile Testing, ✅ Step 6: Testing Checklist
 
-### Community 1346 - "Execution Principles"
-Cohesion: 0.29
-Nodes (7): Document Before Acting, Dynamic Planning After Step Completion, Execution Principles, Handoff Always References Dialog, Plan-then-Execute Pattern, Sketch Fidelity, Sub-Steps During Execution
-
-### Community 1347 - "Level 3: Technical (Verify on Deployment)"
+### Community 1307 - "Community 1307"
 Cohesion: 0.29
 Nodes (7): 3.1 Performance, 3.2 robots.txt, 3.3 XML Sitemap, 3.4 hreflang Tags (Multilingual), 3.5 Security Headers, 3.6 Favicon, Level 3: Technical (Verify on Deployment)
 
-### Community 1348 - "Issue Templates"
+### Community 1308 - "Community 1308"
 Cohesion: 0.29
 Nodes (6): Issue File Template, Issue Templates, Retest Report Template, Severity Levels, Sign-Off Document Template, Test Report Template
 
-### Community 1349 - "[T] Acceptance Testing — Design & Run Tests from Spec Criteria"
+### Community 1309 - "Community 1309"
 Cohesion: 0.29
 Nodes (6): AFTER COMPLETION, Design Log, DESIGN LOG REPORTING POINT, INITIALIZATION, STEPS, [T] Acceptance Testing — Design & Run Tests from Spec Criteria
 
-### Community 1350 - "Example: Hairdresser Newsletter Signup"
+### Community 1310 - "Community 1310"
 Cohesion: 0.29
 Nodes (6): Example: Hairdresser Newsletter Signup, FINAL CONTENT, Refinement Process, Variation A: Wish-Focused (Become the Authority), Variation B: Fear-Focused (Stop Falling Behind), Variation C: Balanced (Recognition + Aspiration)
 
-### Community 1351 - "3D Render"
+### Community 1311 - "Community 1311"
 Cohesion: 0.29
 Nodes (6): 3D Render, Best For, Dimensions Guide, Overview, Prompt Keywords, Rendering Characteristics
 
-### Community 1352 - "Comic Book"
+### Community 1312 - "Community 1312"
 Cohesion: 0.29
 Nodes (6): Best For, Comic Book, Dimensions Guide, Overview, Prompt Keywords, Rendering Characteristics
 
-### Community 1353 - "Flat Design"
+### Community 1313 - "Community 1313"
 Cohesion: 0.29
 Nodes (6): Best For, Dimensions Guide, Flat Design, Overview, Prompt Keywords, Rendering Characteristics
 
-### Community 1354 - "Hyper-realistic"
+### Community 1314 - "Community 1314"
 Cohesion: 0.29
 Nodes (6): Best For, Dimensions Guide, Hyper-realistic, Overview, Prompt Keywords, Rendering Characteristics
 
-### Community 1355 - "Illustration"
+### Community 1315 - "Community 1315"
 Cohesion: 0.29
 Nodes (6): Best For, Dimensions Guide, Illustration, Overview, Prompt Keywords, Rendering Characteristics
 
-### Community 1356 - "Isometric"
+### Community 1316 - "Community 1316"
 Cohesion: 0.29
 Nodes (6): Best For, Dimensions Guide, Isometric, Overview, Prompt Keywords, Rendering Characteristics
 
-### Community 1357 - "Line Art"
+### Community 1317 - "Community 1317"
 Cohesion: 0.29
 Nodes (6): Best For, Dimensions Guide, Line Art, Overview, Prompt Keywords, Rendering Characteristics
 
-### Community 1358 - "Pencil Sketch"
+### Community 1318 - "Community 1318"
 Cohesion: 0.29
 Nodes (6): Best For, Dimensions Guide, Overview, Pencil Sketch, Prompt Keywords, Rendering Characteristics
 
-### Community 1359 - "Photorealistic"
+### Community 1319 - "Community 1319"
 Cohesion: 0.29
 Nodes (6): Best For, Dimensions Guide, Overview, Photorealistic, Prompt Keywords, Rendering Characteristics
 
-### Community 1360 - "Watercolor"
+### Community 1320 - "Community 1320"
 Cohesion: 0.29
 Nodes (6): Best For, Dimensions Guide, Overview, Prompt Keywords, Rendering Characteristics, Watercolor
 
-### Community 1361 - "Brutalist"
+### Community 1321 - "Community 1321"
 Cohesion: 0.29
 Nodes (6): Avoid, Best For, Brutalist, Overview, Prompt Keywords, Visual Characteristics
 
-### Community 1362 - "Corporate"
+### Community 1322 - "Community 1322"
 Cohesion: 0.29
 Nodes (6): Avoid, Best For, Corporate, Overview, Prompt Keywords, Visual Characteristics
 
-### Community 1363 - "Editorial"
+### Community 1323 - "Community 1323"
 Cohesion: 0.29
 Nodes (6): Avoid, Best For, Editorial, Overview, Prompt Keywords, Visual Characteristics
 
-### Community 1364 - "Minimal"
+### Community 1324 - "Community 1324"
 Cohesion: 0.29
 Nodes (6): Avoid, Best For, Minimal, Overview, Prompt Keywords, Visual Characteristics
 
-### Community 1365 - "Organic"
+### Community 1325 - "Community 1325"
 Cohesion: 0.29
 Nodes (6): Avoid, Best For, Organic, Overview, Prompt Keywords, Visual Characteristics
 
-### Community 1366 - "Playful"
+### Community 1326 - "Community 1326"
 Cohesion: 0.29
 Nodes (6): Avoid, Best For, Overview, Playful, Prompt Keywords, Visual Characteristics
 
-### Community 1367 - "Content Creation"
+### Community 1327 - "Community 1327"
 Cohesion: 0.29
 Nodes (6): AFTER COMPLETION, Content Creation, Design Log, INITIALIZATION, Steps, The Five-Model Framework
 
-### Community 1368 - "Skills"
+### Community 1328 - "Community 1328"
 Cohesion: 0.29
 Nodes (6): Activation, `/BU` — Build, Mimir — WDS Builder, `/PR` — PRD, Skills, `/TA` — Tech Audit
 
-### Community 1369 - "Headless Mode"
+### Community 1329 - "Community 1329"
 Cohesion: 0.29
 Nodes (6): Detection, Headless Mode, Inputs the caller is expected to provide, Return, Run, The inversion
 
-### Community 1370 - "Step 4: Testing"
+### Community 1330 - "Community 1330"
 Cohesion: 0.29
 Nodes (6): Closing, Follow Global Step Rules in SKILL.md, IDENTIFY OBSERVABLE BEHAVIOR, NEXT, PRESENT, Step 4: Testing
 
-### Community 1371 - "scan_level"
+### Community 1331 - "Community 1331"
 Cohesion: 0.29
 Nodes (7): deep, exhaustive, quick, scan_level, description, enum, type
 
-### Community 1372 - "enum"
+### Community 1332 - "Community 1332"
 Cohesion: 0.29
 Nodes (7): deep_dive, full_rescan, initial_scan, description, enum, type, mode
 
-### Community 1373 - "Subagent Mode"
+### Community 1333 - "Community 1333"
 Cohesion: 0.29
 Nodes (6): Lifecycle, Model choice, One shared room, Spawning, Subagent Mode, Weave the replies into one conversation
 
-### Community 1374 - "Party Mode"
+### Community 1334 - "Community 1334"
 Cohesion: 0.29
 Nodes (6): Conventions, How It Runs, Keep It Feeling Like a Party, On Activation, Party Mode, Wrapping Up
 
-### Community 1375 - "Headless Mode JSON Schemas"
+### Community 1335 - "Community 1335"
 Cohesion: 0.29
 Nodes (6): Blocked, Common fields, Create, Headless Mode JSON Schemas, Update, Validate
 
-### Community 1376 - "Stage 5: The Verdict"
+### Community 1336 - "Community 1336"
 Cohesion: 0.29
 Nodes (6): Finalize the Document, Present Completion, Produce the Distillate, Stage 5: The Verdict, Stage Complete, The Assessment
 
-### Community 1377 - "Step 1: Clarify and Route"
+### Community 1337 - "Community 1337"
 Cohesion: 0.29
 Nodes (6): INSTRUCTIONS, Intent check (do this first), NEXT, RULES, Step 1: Clarify and Route, Story-key resolution
 
-### Community 1378 - "EXECUTION"
+### Community 1338 - "Community 1338"
 Cohesion: 0.29
 Nodes (6): Adversarial Review (General), EXECUTION, HALT CONDITIONS, Step 1: Receive Content, Step 2: Adversarial Analysis, Step 3: Present Findings
 
-### Community 1379 - "Headless Mode JSON Schemas"
+### Community 1339 - "Community 1339"
 Cohesion: 0.29
 Nodes (6): Blocked, Common fields, Create, Headless Mode JSON Schemas, Update, Validate
 
-### Community 1380 - "DESIGN.md Spec — Working Reference"
+### Community 1340 - "Community 1340"
 Cohesion: 0.29
 Nodes (6): Body sections (omittable, order-locked when present), Common patterns, Cross-reference syntax, DESIGN.md Spec — Working Reference, Frontmatter tokens, Structure
 
-### Community 1381 - "Validate"
+### Community 1341 - "Community 1341"
 Cohesion: 0.29
 Nodes (6): Close, Markdown twin shape, Orient, Reviewer Gate, Synthesis pipeline, Validate
 
-### Community 1382 - "Product Brief Dialog: {{project_name}}"
+### Community 1342 - "Community 1342"
 Cohesion: 0.29
 Nodes (7): About This Dialog, Dialog Artifacts, Key Decisions, Product Brief Dialog: {{project_name}}, Progress Tracker, Project Context, Reflection Quality
 
-### Community 1383 - "Project Brief: {{project_name}}"
+### Community 1343 - "Community 1343"
 Cohesion: 0.29
 Nodes (6): Challenge / Opportunity, Constraints, Design Goals, Next Steps, Project Brief: {{project_name}}, Project Scope
 
-### Community 1384 - "Product Brief Dialog: {{project_name}}"
+### Community 1344 - "Community 1344"
 Cohesion: 0.29
 Nodes (7): About This Dialog, Dialog Artifacts, Key Decisions, Product Brief Dialog: {{project_name}}, Progress Tracker, Project Context, Reflection Quality
 
-### Community 1385 - "Project Brief: {{project_name}}"
+### Community 1345 - "Community 1345"
 Cohesion: 0.29
 Nodes (6): Challenge / Opportunity, Constraints, Design Goals, Next Steps, Project Brief: {{project_name}}, Project Scope
 
-### Community 1386 - "Crucial Agent Behaviors"
+### Community 1346 - "Community 1346"
 Cohesion: 0.29
 Nodes (7): 1. Ask, Don't Assume, 2. Provide Context, Not Just Questions, 3. Explain WHY Questions Matter, 4. Learn Designer Preferences, 5. Catch Inconsistencies Gently, 6. Ask "Why" Questions That Reveal Insights, Crucial Agent Behaviors
 
-### Community 1387 - "Content Placement Rules"
+### Community 1347 - "Community 1347"
 Cohesion: 0.29
 Nodes (7): Component File Content, Content Placement Rules, Decision Matrix, Examples, Feature File Content, Page File Content, The Core Question
 
-### Community 1388 - "When to Use Storyboards"
+### Community 1348 - "Community 1348"
 Cohesion: 0.29
 Nodes (7): Create Storyboards For:, Don't Need Storyboard:, Don't Need Storyboards For:, Examples, Need Storyboard:, Next Steps, When to Use Storyboards
 
-### Community 1389 - "Text vs. Other Elements"
+### Community 1349 - "Community 1349"
 Cohesion: 0.29
 Nodes (7): ❌ NOT Text - Button, ❌ NOT Text - Decorative Line (SINGLE), ❌ NOT Text - Image, ❌ NOT Text - Input Field, ❌ NOT Text - Link (Often With Text), ✅ Text Element (Horizontal Line PAIRS), Text vs. Other Elements
 
-### Community 1390 - "Question 1: What Feature Delivers the Most Value?"
+### Community 1350 - "Community 1350"
 Cohesion: 0.29
 Nodes (6): Example: Dog Week, Next Question, Question 1: What Feature Delivers the Most Value?, The Question, What Agent Captures, Why This Matters
 
-### Community 1391 - "Question 2: Where Does the User First Encounter This?"
+### Community 1351 - "Community 1351"
 Cohesion: 0.29
 Nodes (6): Example: Dog Week, Next Question, Question 2: Where Does the User First Encounter This?, The Question, What Agent Captures, Why This Matters
 
-### Community 1392 - "Question 3: What's Their Mental State at This Moment?"
+### Community 1352 - "Community 1352"
 Cohesion: 0.29
 Nodes (6): Example: Dog Week, Next Question, Question 3: What's Their Mental State at This Moment?, The Question, What Agent Captures, Why This Matters
 
-### Community 1393 - "Question 4: What's the End Goal (Mutual Success)?"
+### Community 1353 - "Community 1353"
 Cohesion: 0.29
 Nodes (6): Example: Dog Week, Next Question, Question 4: What's the End Goal (Mutual Success)?, The Question, What Agent Captures, Why This Matters
 
-### Community 1394 - "7. Reference Trigger Map for Scenario"
+### Community 1354 - "Community 1354"
 Cohesion: 0.29
 Nodes (7): 7. Reference Trigger Map for Scenario, Agent Instructions, If No Trigger Map Exists, Next Step, Process, Save Context, Why Now?
 
-### Community 1395 - "Audit Structure"
-Cohesion: 0.29
-Nodes (7): Audit Structure, Level 0: Specification Formatting & Standards, Level 1: Scenario-Level Audit, Level 2: Page-Level Audit, Level 3: Component-Level Audit, Level 4: Feature-Level Audit, Level 5: Content Audit
-
-### Community 1396 - "Sequence of Instructions (Do not deviate, skip, or optimize)"
+### Community 1355 - "Community 1355"
 Cohesion: 0.29
 Nodes (7): 1. Identify Next Flow, 2. Plan Parallel Work, 3. Balancing Design and Validation, 4. Present MENU OPTIONS, EXECUTION RULES:, Menu Handling Logic:, Sequence of Instructions (Do not deviate, skip, or optimize)
 
-### Community 1397 - "Data & API Requirements"
+### Community 1356 - "Community 1356"
 Cohesion: 0.29
 Nodes (6): API Endpoints, Caching Strategy, Data & API Requirements, Data Sources, {Endpoint Name}, Loading States
 
-### Community 1398 - "What Changes"
+### Community 1357 - "Community 1357"
 Cohesion: 0.29
 Nodes (6): 1. Add State Flow Overview (before Page Sections), 2. State 1 = Normal Page Specification, 3. States 2+ = Differences Only, Key Principles, Storyboard Extension, What Changes
 
-### Community 1399 - "[V] Validate — Quality Audit"
+### Community 1358 - "Community 1358"
 Cohesion: 0.29
 Nodes (6): AFTER COMPLETION, Configuration Loading, Final Output, INITIALIZATION, [V] Validate — Quality Audit, Validation Sequence
 
-### Community 1400 - "Common API Patterns"
+### Community 1359 - "Community 1359"
 Cohesion: 0.29
 Nodes (7): 1. Get Current User, 2. Create/Update User Profile, 3. Create Family, 4. Add Dog, 5. Get Family Data, Common API Patterns, 🔌 Step 5: Integrate with Prototype API
 
-### Community 1401 - "Before Considering Prototype "Done""
+### Community 1360 - "Community 1360"
 Cohesion: 0.29
 Nodes (7): Accessibility, Before Considering Prototype "Done", Code Quality, Documentation, Functionality Testing, Mobile Testing, ✅ Step 6: Testing Checklist
 
-### Community 1402 - "Execution Principles"
-Cohesion: 0.29
-Nodes (7): Document Before Acting, Dynamic Planning After Step Completion, Execution Principles, Handoff Always References Dialog, Plan-then-Execute Pattern, Sketch Fidelity, Sub-Steps During Execution
-
-### Community 1403 - "Level 3: Technical (Verify on Deployment)"
+### Community 1361 - "Community 1361"
 Cohesion: 0.29
 Nodes (7): 3.1 Performance, 3.2 robots.txt, 3.3 XML Sitemap, 3.4 hreflang Tags (Multilingual), 3.5 Security Headers, 3.6 Favicon, Level 3: Technical (Verify on Deployment)
 
-### Community 1404 - "Issue Templates"
+### Community 1362 - "Community 1362"
 Cohesion: 0.29
 Nodes (6): Issue File Template, Issue Templates, Retest Report Template, Severity Levels, Sign-Off Document Template, Test Report Template
 
-### Community 1405 - "[T] Acceptance Testing — Design & Run Tests from Spec Criteria"
+### Community 1363 - "Community 1363"
 Cohesion: 0.29
 Nodes (6): AFTER COMPLETION, Design Log, DESIGN LOG REPORTING POINT, INITIALIZATION, STEPS, [T] Acceptance Testing — Design & Run Tests from Spec Criteria
 
-### Community 1406 - "Example: Hairdresser Newsletter Signup"
+### Community 1364 - "Community 1364"
 Cohesion: 0.29
 Nodes (6): Example: Hairdresser Newsletter Signup, FINAL CONTENT, Refinement Process, Variation A: Wish-Focused (Become the Authority), Variation B: Fear-Focused (Stop Falling Behind), Variation C: Balanced (Recognition + Aspiration)
 
-### Community 1407 - "3D Render"
+### Community 1365 - "Community 1365"
 Cohesion: 0.29
 Nodes (6): 3D Render, Best For, Dimensions Guide, Overview, Prompt Keywords, Rendering Characteristics
 
-### Community 1408 - "Comic Book"
+### Community 1366 - "Community 1366"
 Cohesion: 0.29
 Nodes (6): Best For, Comic Book, Dimensions Guide, Overview, Prompt Keywords, Rendering Characteristics
 
-### Community 1409 - "Flat Design"
+### Community 1367 - "Community 1367"
 Cohesion: 0.29
 Nodes (6): Best For, Dimensions Guide, Flat Design, Overview, Prompt Keywords, Rendering Characteristics
 
-### Community 1410 - "Hyper-realistic"
+### Community 1368 - "Community 1368"
 Cohesion: 0.29
 Nodes (6): Best For, Dimensions Guide, Hyper-realistic, Overview, Prompt Keywords, Rendering Characteristics
 
-### Community 1411 - "Illustration"
+### Community 1369 - "Community 1369"
 Cohesion: 0.29
 Nodes (6): Best For, Dimensions Guide, Illustration, Overview, Prompt Keywords, Rendering Characteristics
 
-### Community 1412 - "Isometric"
+### Community 1370 - "Community 1370"
 Cohesion: 0.29
 Nodes (6): Best For, Dimensions Guide, Isometric, Overview, Prompt Keywords, Rendering Characteristics
 
-### Community 1413 - "Line Art"
+### Community 1371 - "Community 1371"
 Cohesion: 0.29
 Nodes (6): Best For, Dimensions Guide, Line Art, Overview, Prompt Keywords, Rendering Characteristics
 
-### Community 1414 - "Pencil Sketch"
+### Community 1372 - "Community 1372"
 Cohesion: 0.29
 Nodes (6): Best For, Dimensions Guide, Overview, Pencil Sketch, Prompt Keywords, Rendering Characteristics
 
-### Community 1415 - "Photorealistic"
+### Community 1373 - "Community 1373"
 Cohesion: 0.29
 Nodes (6): Best For, Dimensions Guide, Overview, Photorealistic, Prompt Keywords, Rendering Characteristics
 
-### Community 1416 - "Watercolor"
+### Community 1374 - "Community 1374"
 Cohesion: 0.29
 Nodes (6): Best For, Dimensions Guide, Overview, Prompt Keywords, Rendering Characteristics, Watercolor
 
-### Community 1417 - "Brutalist"
+### Community 1375 - "Community 1375"
 Cohesion: 0.29
 Nodes (6): Avoid, Best For, Brutalist, Overview, Prompt Keywords, Visual Characteristics
 
-### Community 1418 - "Corporate"
+### Community 1376 - "Community 1376"
 Cohesion: 0.29
 Nodes (6): Avoid, Best For, Corporate, Overview, Prompt Keywords, Visual Characteristics
 
-### Community 1419 - "Editorial"
+### Community 1377 - "Community 1377"
 Cohesion: 0.29
 Nodes (6): Avoid, Best For, Editorial, Overview, Prompt Keywords, Visual Characteristics
 
-### Community 1420 - "Minimal"
+### Community 1378 - "Community 1378"
 Cohesion: 0.29
 Nodes (6): Avoid, Best For, Minimal, Overview, Prompt Keywords, Visual Characteristics
 
-### Community 1421 - "Organic"
+### Community 1379 - "Community 1379"
 Cohesion: 0.29
 Nodes (6): Avoid, Best For, Organic, Overview, Prompt Keywords, Visual Characteristics
 
-### Community 1422 - "Playful"
+### Community 1380 - "Community 1380"
 Cohesion: 0.29
 Nodes (6): Avoid, Best For, Overview, Playful, Prompt Keywords, Visual Characteristics
 
-### Community 1423 - "Content Creation"
+### Community 1381 - "Community 1381"
 Cohesion: 0.29
 Nodes (6): AFTER COMPLETION, Content Creation, Design Log, INITIALIZATION, Steps, The Five-Model Framework
 
-### Community 1424 - "Skills"
+### Community 1382 - "Community 1382"
 Cohesion: 0.29
 Nodes (6): Activation, `/BU` — Build, Mimir — WDS Builder, `/PR` — PRD, Skills, `/TA` — Tech Audit
 
-### Community 1425 - "WDS Agent Contracts"
+### Community 1383 - "Community 1383"
+Cohesion: 0.29
+Nodes (7): BMad Market Research Skill, Market Research Step 1: Init, Market Research Step 2: Customer Behavior, Market Research Step 3: Pain Points, Market Research Step 4: Decisions, Market Research Step 5: Competitive Analysis, Market Research Step 6: Completion
+
+### Community 1384 - "Community 1384"
 Cohesion: 0.29
 Nodes (6): Domain Boundaries, Handoff Rules, Out-of-Scope (explicit), Prerequisites, Quality Rules (all agents), WDS Agent Contracts
 
-### Community 1426 - "Step-by-Step Generation"
+### Community 1385 - "Community 1385"
+Cohesion: 0.29
+Nodes (6): Adaptive Depth, Documenting the Outcome, Red Flags, Types of Information to Surface, What We Need to Know, Why This Matters
+
+### Community 1386 - "Community 1386"
 Cohesion: 0.29
 Nodes (7): Generation Process, Layer 4: Generate Artifact, Step 1: Business Goals, Step 2: Target Groups, Step 3: Driving Forces, Step 4: Prioritization, Step-by-Step Generation
 
-### Community 1427 - "WDS Shared Activation Steps"
+### Community 1387 - "Community 1387"
 Cohesion: 0.29
 Nodes (6): Step: brownfield-detect, Step: scan, Step: select, Step: state, Step: sync, WDS Shared Activation Steps
 
-### Community 1428 - "Step 5: Wrap-Up"
+### Community 1388 - "Community 1388"
+Cohesion: 0.29
+Nodes (6): 0. Signature Element (App-Wide), 1. Landing Page, 2. Signup / Login (Clerk-Managed), 3. Notebooks Dashboard, 4. Notebook Workspace (Core 3-Column Interface), Page Specifications: chaibookLM
+
+### Community 1389 - "Community 1389"
+Cohesion: 0.29
+Nodes (7): Phase 8: Product Evolution Workflow, Analyze Product, Deploy Improvement, Design Solution, Implement Improvement, Scope Improvement, Acceptance Test
+
+### Community 1390 - "Community 1390"
 Cohesion: 0.33
 Nodes (5): ACT ON DECISION, Follow Global Step Rules in SKILL.md, On Complete, PROMPT FOR DECISION, Step 5: Wrap-Up
 
-### Community 1429 - "Step 1: Gather Context"
+### Community 1391 - "Community 1391"
 Cohesion: 0.33
 Nodes (5): CHECKPOINT, INSTRUCTIONS, NEXT, RULES, Step 1: Gather Context
 
-### Community 1430 - "Step 1: Clarify and Route"
+### Community 1392 - "Community 1392"
 Cohesion: 0.33
-Nodes (5): INSTRUCTIONS, Intent check (do this first), NEXT, RULES, Step 1: Clarify and Route
+Nodes (6): BMad Create Epics and Stories Skill, Step 1: Validate Prerequisites, Step 2: Design Epic List, Step 3: Generate Epics and Stories, Step 4: Final Validation, Epics Template
 
-### Community 1431 - "Step 2: Plan"
-Cohesion: 0.33
-Nodes (5): INSTRUCTIONS, NEXT, READY-FOR-DEVELOPMENT GATE, RULES, Step 2: Plan
-
-### Community 1432 - "items"
+### Community 1393 - "Community 1393"
 Cohesion: 0.33
 Nodes (6): items, type, required, status, step, completed_steps
 
-### Community 1433 - "enum"
+### Community 1394 - "Community 1394"
 Cohesion: 0.33
 Nodes (6): completed, failed, partial, status, enum, type
 
-### Community 1434 - "last_validated"
+### Community 1395 - "Community 1395"
 Cohesion: 0.33
 Nodes (6): format, type, last_validated, validation_errors, type, properties
 
-### Community 1435 - "Deep-Dive Documentation Sub-Workflow"
-Cohesion: 0.33
-Nodes (5): Configuration Loading, Deep-Dive Documentation Sub-Workflow, EXECUTION, INITIALIZATION, Runtime Inputs
-
-### Community 1436 - "Full Project Scan Sub-Workflow"
-Cohesion: 0.33
-Nodes (5): Configuration Loading, EXECUTION, Full Project Scan Sub-Workflow, INITIALIZATION, Runtime Inputs
-
-### Community 1437 - "Headless Mode"
+### Community 1396 - "Community 1396"
 Cohesion: 0.33
 Nodes (5): Detection, General, Headless Mode, Inputs the caller is expected to provide, Mode-specific overrides
 
-### Community 1438 - "QA Automate - Validation Checklist"
+### Community 1397 - "Community 1397"
 Cohesion: 0.33
 Nodes (5): Output, QA Automate - Validation Checklist, Test Generation, Test Quality, Validation
 
-### Community 1439 - "Step 2: Plan"
+### Community 1398 - "Community 1398"
 Cohesion: 0.33
 Nodes (5): CHECKPOINT 1, INSTRUCTIONS, NEXT, RULES, Step 2: Plan
 
-### Community 1440 - "Core Validation"
+### Community 1399 - "Community 1399"
 Cohesion: 0.33
 Nodes (5): Complete Coverage Check, Core Validation, Final Check, Parsing Verification, Sprint Planning Validation Checklist
 
-### Community 1441 - "Key Screens Renderer"
+### Community 1400 - "Community 1400"
 Cohesion: 0.33
 Nodes (5): Anti-patterns, Inputs, Key Screens Renderer, What to render, What to return
 
-### Community 1442 - "Headless Mode"
+### Community 1401 - "Community 1401"
 Cohesion: 0.33
 Nodes (5): Behavior, Detection, Headless Mode, Inputs, Mode-specific overrides
 
-### Community 1443 - "Trigger Map: {{project_name}}"
+### Community 1402 - "Community 1402"
 Cohesion: 0.33
 Nodes (5): Documents, For Agents, Trigger Map: {{project_name}}, Trigger Map Visualization, What Belongs Here
 
-### Community 1444 - "Suggested Tone of Voice"
+### Community 1403 - "Community 1403"
 Cohesion: 0.33
 Nodes (5): Analysis, Examples, Suggested Tone of Voice, Tone Attributes, Tone of Voice Example: SaaS Onboarding Tool
 
-### Community 1445 - "Level 2: Page-Level Audit"
-Cohesion: 0.33
-Nodes (6): A. Template Check, B. Structure & Organization, C. Visual-Spec Alignment, D. Area Label Coverage, Level 2: Page-Level Audit, Output
-
-### Community 1446 - "{{#each identified_sections}}"
+### Community 1404 - "Community 1404"
 Cohesion: 0.33
 Nodes (6): 2. Component Identification, 3. Section-by-Section AI Interpretation, 3A: AI Reads & Interprets Section (Recursive), 3B: User Refinement Dialog, 4. Content & Translation Gathering, {{#each identified_sections}}
 
-### Community 1447 - "[C] Discuss — Creative Dialog for Page Design"
+### Community 1405 - "Community 1405"
 Cohesion: 0.33
 Nodes (5): AFTER COMPLETION, [C] Discuss — Creative Dialog for Page Design, Entry, INITIALIZATION, Steps
 
-### Community 1448 - "[K] Share Sketches — Interpret User Sketches"
+### Community 1406 - "Community 1406"
 Cohesion: 0.33
 Nodes (5): AFTER COMPLETION, Entry, INITIALIZATION, [K] Share Sketches — Interpret User Sketches, Steps
 
-### Community 1449 - "[P] Specify — Detail a Page Specification"
+### Community 1407 - "Community 1407"
 Cohesion: 0.33
 Nodes (5): AFTER COMPLETION, Entry, INITIALIZATION, [P] Specify — Detail a Page Specification, Steps
 
-### Community 1450 - "[W] Visual Design — Work with Visual Tools"
+### Community 1408 - "Community 1408"
 Cohesion: 0.33
 Nodes (5): AFTER COMPLETION, Entry, INITIALIZATION, Steps, [W] Visual Design — Work with Visual Tools
 
-### Community 1451 - "📚 Common Patterns Library"
+### Community 1409 - "Community 1409"
 Cohesion: 0.33
 Nodes (6): 📚 Common Patterns Library, Pattern 1: Image Upload with Crop, Pattern 2: Searchable Dropdown (Combobox), Pattern 3: Multi-Language Toggle, Pattern 4: Loading State, Pattern 5: Toast Notification
 
-### Community 1452 - "Content Purpose Examples"
+### Community 1410 - "Community 1410"
+Cohesion: 0.33
+Nodes (6): 1. Read the Dialog Document, 2. Verify Plan Against Reality, 3. Present Current Status, 4. Before Implementing a Step, Session Start Protocol, Why This Matters
+
+### Community 1411 - "Community 1411"
 Cohesion: 0.33
 Nodes (5): Content Purpose Examples, Example 1: Landing Page Hero, Example 2: Error Message, Example 3: Product Comparison Feature, Quick Reference: Purpose Templates
 
-### Community 1453 - "Content Generation Instructions"
+### Community 1412 - "Community 1412"
 Cohesion: 0.33
 Nodes (5): 1. Synthesize All Context, 2. Generate Multiple Variations, 3. Presentation Format, 4. Explain Strategic Choices, Content Generation Instructions
 
-### Community 1454 - "Figma Plugin Setup Guide"
+### Community 1413 - "Community 1413"
 Cohesion: 0.33
 Nodes (5): 1. Plugin Installation, 2. Activate Plugin, 3. Verify MCP Configuration, Figma Plugin Setup Guide, Troubleshooting
 
-### Community 1455 - "Figma Specification Preparation"
+### Community 1414 - "Community 1414"
 Cohesion: 0.33
 Nodes (5): 1. Analyze Code, 2. Generate OBJECT IDs, 3. Create Specification Document, 4. Review with User, Figma Specification Preparation
 
-### Community 1456 - "MCP Server Integration for Prototype-to-Figma Workflow"
+### Community 1415 - "Community 1415"
 Cohesion: 0.33
 Nodes (5): Figma File Organization, MCP Server Integration for Prototype-to-Figma Workflow, Overview, Recommended Structure, Summary
 
-### Community 1457 - "Stitch Prompt Template"
+### Community 1416 - "Community 1416"
 Cohesion: 0.33
 Nodes (5): Checklist Before Pasting to Stitch, Example: Dog Week Sign-In, How to Use, Stitch Prompt Template, Template Structure
 
-### Community 1458 - "Icons"
+### Community 1417 - "Community 1417"
 Cohesion: 0.33
 Nodes (5): AFTER COMPLETION, Design Log, Icons, INITIALIZATION, Steps
 
-### Community 1459 - "Images"
+### Community 1418 - "Community 1418"
 Cohesion: 0.33
 Nodes (5): AFTER COMPLETION, Design Log, Images, INITIALIZATION, Steps
 
-### Community 1460 - "Page Designs"
+### Community 1419 - "Community 1419"
 Cohesion: 0.33
 Nodes (5): AFTER COMPLETION, Design Log, INITIALIZATION, Page Designs, Steps
 
-### Community 1461 - "UI Elements"
+### Community 1420 - "Community 1420"
 Cohesion: 0.33
 Nodes (5): AFTER COMPLETION, Design Log, INITIALIZATION, Steps, UI Elements
 
-### Community 1462 - "Videos"
+### Community 1421 - "Community 1421"
 Cohesion: 0.33
 Nodes (5): AFTER COMPLETION, Design Log, INITIALIZATION, Steps, Videos
 
-### Community 1463 - "Wireframes"
+### Community 1422 - "Community 1422"
 Cohesion: 0.33
 Nodes (5): AFTER COMPLETION, Design Log, INITIALIZATION, Steps, Wireframes
 
-### Community 1464 - "Step 5: Wrap-Up"
+### Community 1423 - "Community 1423"
 Cohesion: 0.33
 Nodes (5): ACT ON DECISION, Follow Global Step Rules in SKILL.md, On Complete, PROMPT FOR DECISION, Step 5: Wrap-Up
 
-### Community 1465 - "Step 1: Gather Context"
+### Community 1424 - "Community 1424"
 Cohesion: 0.33
 Nodes (5): CHECKPOINT, INSTRUCTIONS, NEXT, RULES, Step 1: Gather Context
 
-### Community 1466 - "Step 1: Clarify and Route"
+### Community 1425 - "Community 1425"
 Cohesion: 0.33
 Nodes (5): INSTRUCTIONS, Intent check (do this first), NEXT, RULES, Step 1: Clarify and Route
 
-### Community 1467 - "Step 2: Plan"
+### Community 1426 - "Community 1426"
 Cohesion: 0.33
 Nodes (5): INSTRUCTIONS, NEXT, READY-FOR-DEVELOPMENT GATE, RULES, Step 2: Plan
 
-### Community 1468 - "items"
+### Community 1427 - "Community 1427"
 Cohesion: 0.33
 Nodes (6): items, type, required, status, step, completed_steps
 
-### Community 1469 - "enum"
+### Community 1428 - "Community 1428"
 Cohesion: 0.33
 Nodes (6): completed, failed, partial, status, enum, type
 
-### Community 1470 - "last_validated"
+### Community 1429 - "Community 1429"
 Cohesion: 0.33
 Nodes (6): format, type, last_validated, validation_errors, type, properties
 
-### Community 1471 - "Deep-Dive Documentation Sub-Workflow"
+### Community 1430 - "Community 1430"
 Cohesion: 0.33
 Nodes (5): Configuration Loading, Deep-Dive Documentation Sub-Workflow, EXECUTION, INITIALIZATION, Runtime Inputs
 
-### Community 1472 - "Full Project Scan Sub-Workflow"
+### Community 1431 - "Community 1431"
 Cohesion: 0.33
 Nodes (5): Configuration Loading, EXECUTION, Full Project Scan Sub-Workflow, INITIALIZATION, Runtime Inputs
 
-### Community 1473 - "Headless Mode"
+### Community 1432 - "Community 1432"
 Cohesion: 0.33
 Nodes (5): Detection, General, Headless Mode, Inputs the caller is expected to provide, Mode-specific overrides
 
-### Community 1474 - "QA Automate - Validation Checklist"
+### Community 1433 - "Community 1433"
 Cohesion: 0.33
 Nodes (5): Output, QA Automate - Validation Checklist, Test Generation, Test Quality, Validation
 
-### Community 1475 - "Step 2: Plan"
+### Community 1434 - "Community 1434"
 Cohesion: 0.33
 Nodes (5): CHECKPOINT 1, INSTRUCTIONS, NEXT, RULES, Step 2: Plan
 
-### Community 1476 - "Core Validation"
+### Community 1435 - "Community 1435"
 Cohesion: 0.33
 Nodes (5): Complete Coverage Check, Core Validation, Final Check, Parsing Verification, Sprint Planning Validation Checklist
 
-### Community 1477 - "Key Screens Renderer"
+### Community 1436 - "Community 1436"
 Cohesion: 0.33
 Nodes (5): Anti-patterns, Inputs, Key Screens Renderer, What to render, What to return
 
-### Community 1478 - "Headless Mode"
+### Community 1437 - "Community 1437"
 Cohesion: 0.33
 Nodes (5): Behavior, Detection, Headless Mode, Inputs, Mode-specific overrides
 
-### Community 1479 - "Trigger Map: {{project_name}}"
+### Community 1438 - "Community 1438"
 Cohesion: 0.33
 Nodes (5): Documents, For Agents, Trigger Map: {{project_name}}, Trigger Map Visualization, What Belongs Here
 
-### Community 1480 - "Suggested Tone of Voice"
+### Community 1439 - "Community 1439"
 Cohesion: 0.33
 Nodes (5): Analysis, Examples, Suggested Tone of Voice, Tone Attributes, Tone of Voice Example: SaaS Onboarding Tool
 
-### Community 1481 - "Level 2: Page-Level Audit"
-Cohesion: 0.33
-Nodes (6): A. Template Check, B. Structure & Organization, C. Visual-Spec Alignment, D. Area Label Coverage, Level 2: Page-Level Audit, Output
-
-### Community 1482 - "{{#each identified_sections}}"
+### Community 1440 - "Community 1440"
 Cohesion: 0.33
 Nodes (6): 2. Component Identification, 3. Section-by-Section AI Interpretation, 3A: AI Reads & Interprets Section (Recursive), 3B: User Refinement Dialog, 4. Content & Translation Gathering, {{#each identified_sections}}
 
-### Community 1483 - "[C] Discuss — Creative Dialog for Page Design"
+### Community 1441 - "Community 1441"
 Cohesion: 0.33
 Nodes (5): AFTER COMPLETION, [C] Discuss — Creative Dialog for Page Design, Entry, INITIALIZATION, Steps
 
-### Community 1484 - "[K] Share Sketches — Interpret User Sketches"
+### Community 1442 - "Community 1442"
 Cohesion: 0.33
 Nodes (5): AFTER COMPLETION, Entry, INITIALIZATION, [K] Share Sketches — Interpret User Sketches, Steps
 
-### Community 1485 - "[P] Specify — Detail a Page Specification"
+### Community 1443 - "Community 1443"
 Cohesion: 0.33
 Nodes (5): AFTER COMPLETION, Entry, INITIALIZATION, [P] Specify — Detail a Page Specification, Steps
 
-### Community 1486 - "[W] Visual Design — Work with Visual Tools"
+### Community 1444 - "Community 1444"
 Cohesion: 0.33
 Nodes (5): AFTER COMPLETION, Entry, INITIALIZATION, Steps, [W] Visual Design — Work with Visual Tools
 
-### Community 1487 - "📚 Common Patterns Library"
+### Community 1445 - "Community 1445"
 Cohesion: 0.33
 Nodes (6): 📚 Common Patterns Library, Pattern 1: Image Upload with Crop, Pattern 2: Searchable Dropdown (Combobox), Pattern 3: Multi-Language Toggle, Pattern 4: Loading State, Pattern 5: Toast Notification
 
-### Community 1488 - "Content Purpose Examples"
+### Community 1446 - "Community 1446"
+Cohesion: 0.33
+Nodes (6): 1. Read the Dialog Document, 2. Verify Plan Against Reality, 3. Present Current Status, 4. Before Implementing a Step, Session Start Protocol, Why This Matters
+
+### Community 1447 - "Community 1447"
 Cohesion: 0.33
 Nodes (5): Content Purpose Examples, Example 1: Landing Page Hero, Example 2: Error Message, Example 3: Product Comparison Feature, Quick Reference: Purpose Templates
 
-### Community 1489 - "Content Generation Instructions"
+### Community 1448 - "Community 1448"
 Cohesion: 0.33
 Nodes (5): 1. Synthesize All Context, 2. Generate Multiple Variations, 3. Presentation Format, 4. Explain Strategic Choices, Content Generation Instructions
 
-### Community 1490 - "Figma Plugin Setup Guide"
+### Community 1449 - "Community 1449"
 Cohesion: 0.33
 Nodes (5): 1. Plugin Installation, 2. Activate Plugin, 3. Verify MCP Configuration, Figma Plugin Setup Guide, Troubleshooting
 
-### Community 1491 - "Figma Specification Preparation"
+### Community 1450 - "Community 1450"
 Cohesion: 0.33
 Nodes (5): 1. Analyze Code, 2. Generate OBJECT IDs, 3. Create Specification Document, 4. Review with User, Figma Specification Preparation
 
-### Community 1492 - "MCP Server Integration for Prototype-to-Figma Workflow"
+### Community 1451 - "Community 1451"
 Cohesion: 0.33
 Nodes (5): Figma File Organization, MCP Server Integration for Prototype-to-Figma Workflow, Overview, Recommended Structure, Summary
 
-### Community 1493 - "Stitch Prompt Template"
+### Community 1452 - "Community 1452"
 Cohesion: 0.33
 Nodes (5): Checklist Before Pasting to Stitch, Example: Dog Week Sign-In, How to Use, Stitch Prompt Template, Template Structure
 
-### Community 1494 - "Icons"
+### Community 1453 - "Community 1453"
 Cohesion: 0.33
 Nodes (5): AFTER COMPLETION, Design Log, Icons, INITIALIZATION, Steps
 
-### Community 1495 - "Images"
+### Community 1454 - "Community 1454"
 Cohesion: 0.33
 Nodes (5): AFTER COMPLETION, Design Log, Images, INITIALIZATION, Steps
 
-### Community 1496 - "Page Designs"
+### Community 1455 - "Community 1455"
 Cohesion: 0.33
 Nodes (5): AFTER COMPLETION, Design Log, INITIALIZATION, Page Designs, Steps
 
-### Community 1497 - "UI Elements"
+### Community 1456 - "Community 1456"
 Cohesion: 0.33
 Nodes (5): AFTER COMPLETION, Design Log, INITIALIZATION, Steps, UI Elements
 
-### Community 1498 - "Videos"
+### Community 1457 - "Community 1457"
 Cohesion: 0.33
 Nodes (5): AFTER COMPLETION, Design Log, INITIALIZATION, Steps, Videos
 
-### Community 1499 - "Wireframes"
+### Community 1458 - "Community 1458"
 Cohesion: 0.33
 Nodes (5): AFTER COMPLETION, Design Log, INITIALIZATION, Steps, Wireframes
 
-### Community 1500 - "Tips for Quality Self-Review"
+### Community 1459 - "Community 1459"
 Cohesion: 0.33
 Nodes (6): Actionability Test, Be Honest, Not Optimistic, Context is King, Psychology Over Demographics, Tips for Quality Self-Review, Use Rubric Examples Directly
 
-### Community 1501 - "Form Validation Patterns"
+### Community 1460 - "Community 1460"
 Cohesion: 0.33
 Nodes (5): Client-Side Validation, Error States, Form Validation Patterns, Success States, Validation Types
 
-### Community 1502 - "How Freya Helps You Succeed with UX and Prototyping"
+### Community 1461 - "Community 1461"
 Cohesion: 0.33
 Nodes (5): How Freya Helps You Succeed with UX and Prototyping, Step 1: What I Do, Step 2: How I Work, Step 3: What I Need from You, Step 4: What You Get
 
-### Community 1503 - "The WDS Agents — Who Does What"
+### Community 1462 - "Community 1462"
 Cohesion: 0.33
 Nodes (5): Freya — WDS Designer Agent, How They Work Together, Saga — WDS Analyst Agent, The Team, The WDS Agents — Who Does What
 
-### Community 1504 - "How Saga Helps You Succeed with Strategy and Analysis"
+### Community 1463 - "Community 1463"
 Cohesion: 0.33
 Nodes (5): How Saga Helps You Succeed with Strategy and Analysis, Step 1: What I Do, Step 2: How I Work, Step 3: What I Need from You, Step 4: What You Get
 
-### Community 1505 - "Git — Whiteport Standard"
+### Community 1464 - "Community 1464"
 Cohesion: 0.33
 Nodes (5): Branches, Commits, Frequency, Git — Whiteport Standard, Never
 
-### Community 1506 - "Generate Review Trail"
+### Community 1465 - "Community 1465"
+Cohesion: 0.33
+Nodes (5): 1. `docker-compose.yml` Specification, 2. Infrastructure Operations, Access Qdrant Web Dashboard, Infrastructure & Docker Setup: chaibookLM, Start Infrastructure
+
+### Community 1466 - "Community 1466"
 Cohesion: 0.40
 Nodes (4): Follow Global Step Rules in SKILL.md, Generate Review Trail, INSTRUCTIONS, PRESENT
 
-### Community 1507 - "Step 2: Review"
+### Community 1467 - "Community 1467"
 Cohesion: 0.40
 Nodes (4): INSTRUCTIONS, NEXT, RULES, Step 2: Review
 
-### Community 1508 - "Step 3: Triage"
+### Community 1468 - "Community 1468"
 Cohesion: 0.40
 Nodes (4): INSTRUCTIONS, NEXT, RULES, Step 3: Triage
 
-### Community 1509 - "Compile Epic Context"
+### Community 1469 - "Community 1469"
 Cohesion: 0.40
-Nodes (4): Compile Epic Context, Error handling, Exact Output Format, Rules
+Nodes (5): Domain Research Step 2: Industry Analysis, Domain Research Step 3: Competitive Landscape, Domain Research Step 4: Regulatory Focus, Domain Research Step 5: Technical Trends, Domain Research Step 6: Research Synthesis and Completion
 
-### Community 1510 - "Artifact Analyzer"
+### Community 1470 - "Community 1470"
 Cohesion: 0.40
 Nodes (4): Artifact Analyzer, Input, Output, Process
 
-### Community 1511 - "Web Researcher"
+### Community 1471 - "Community 1471"
 Cohesion: 0.40
 Nodes (4): Input, Output, Process, Web Researcher
 
-### Community 1512 - "Compile Epic Context"
+### Community 1472 - "Community 1472"
 Cohesion: 0.40
 Nodes (4): Compile Epic Context, Error handling, Exact Output Format, Rules
 
-### Community 1513 - "Excalidraw Wireframe Renderer"
-Cohesion: 0.40
-Nodes (4): Content, CRITICAL: two-character `index` fields only, Excalidraw Wireframe Renderer, Shape
-
-### Community 1514 - "Creative Tools"
+### Community 1473 - "Community 1473"
 Cohesion: 0.40
 Nodes (4): Artifact handling, Creative Tools, Renderer contract, When to invoke
 
-### Community 1515 - "WDS Memory — File Backend"
+### Community 1474 - "Community 1474"
 Cohesion: 0.40
 Nodes (4): load, Notes, save, WDS Memory — File Backend
 
-### Community 1516 - "Feature Impact Analysis: {{project_name}}"
+### Community 1475 - "Community 1475"
 Cohesion: 0.40
 Nodes (4): Decisions, Feature Impact Analysis: {{project_name}}, Prioritized Features, Scoring
 
-### Community 1518 - "Product Brief: {{project_name}}"
+### Community 1477 - "Community 1477"
 Cohesion: 0.40
 Nodes (4): Documents, For Agents, Product Brief: {{project_name}}, What Belongs Here
 
-### Community 1519 - "Feature Impact Analysis: {{project_name}}"
+### Community 1478 - "Community 1478"
 Cohesion: 0.40
 Nodes (4): Decisions, Feature Impact Analysis: {{project_name}}, Prioritized Features, Scoring
 
-### Community 1520 - "Content Placement Decision Tree"
+### Community 1479 - "Community 1479"
 Cohesion: 0.40
 Nodes (5): Content Placement Decision Tree, Examples, Quick Rule, The Decision Tree, Visual Design?
 
-### Community 1521 - "Common Use Cases"
+### Community 1480 - "Community 1480"
 Cohesion: 0.40
 Nodes (5): Common Use Cases, Use Case 1: New Page from Sketch, Use Case 2: Updated Sketch, Use Case 3: Quality Audit Before Handoff, Use Case 4: Fixing Legacy Spec
 
-### Community 1522 - "Level 3: Component-Level Audit"
-Cohesion: 0.40
-Nodes (5): A. Componentization, B. Cross-Page Duplicate Detection, C. Design System Integration (if enabled), Level 3: Component-Level Audit, Output
-
-### Community 1523 - "Level 0: Specification Formatting & Standards"
-Cohesion: 0.40
-Nodes (5): Checklist, Common Formatting Violations, Level 0: Specification Formatting & Standards, Navigation Best Practice, Output
-
-### Community 1524 - "[H] Handover — Package DD-XXX and Hand Off to BMad"
+### Community 1481 - "Community 1481"
 Cohesion: 0.40
 Nodes (4): AFTER COMPLETION, [H] Handover — Package DD-XXX and Hand Off to BMad, INITIALIZATION, STEPS
 
-### Community 1525 - "📖 Quick Reference"
+### Community 1482 - "Community 1482"
 Cohesion: 0.40
 Nodes (5): File Naming Convention, Minimum Touch Target Size, Object ID Naming Convention, 📖 Quick Reference, Required Meta Tag
 
-### Community 1526 - "🌍 Multi-Language Support"
+### Community 1483 - "Community 1483"
 Cohesion: 0.40
 Nodes (5): Hardcoded Translations (Recommended for Prototypes), HTML with Language Support, 🌍 Multi-Language Support, Simple Language Switcher, When to Include Language Switching
 
-### Community 1527 - "Figma to Code Workshop"
+### Community 1484 - "Community 1484"
 Cohesion: 0.40
 Nodes (4): Figma to Code Workshop, Overview, Planned Workflow, When to Use Figma to Code
 
-### Community 1528 - "Commands"
+### Community 1485 - "Community 1485"
 Cohesion: 0.40
 Nodes (5): Batch Operations, Commands, Extract Component to Figma, Extract Section to Figma, Read Refined Component from Figma
 
-### Community 1529 - "Component Selection Strategies"
+### Community 1486 - "Community 1486"
 Cohesion: 0.40
 Nodes (5): Component Selection Strategies, Strategy 1: Individual Components, Strategy 2: Component Groups, Strategy 3: Section-Based, Strategy 4: Iterative Refinement
 
-### Community 1530 - "10. Present MENU OPTIONS"
-Cohesion: 0.40
-Nodes (5): 10. Present MENU OPTIONS, Component List, EXECUTION RULES:, Interactive Components, Menu Handling Logic:
-
-### Community 1531 - "Delivery Templates"
+### Community 1487 - "Community 1487"
 Cohesion: 0.40
 Nodes (4): Delivery Templates, Design Delivery Template (Small Scope), Test Scenario Template (Incremental Improvement), Validation Report Template
 
-### Community 1532 - "Generate Review Trail"
+### Community 1488 - "Community 1488"
 Cohesion: 0.40
 Nodes (4): Follow Global Step Rules in SKILL.md, Generate Review Trail, INSTRUCTIONS, PRESENT
 
-### Community 1533 - "Step 2: Review"
+### Community 1489 - "Community 1489"
 Cohesion: 0.40
 Nodes (4): INSTRUCTIONS, NEXT, RULES, Step 2: Review
 
-### Community 1534 - "Step 3: Triage"
+### Community 1490 - "Community 1490"
 Cohesion: 0.40
 Nodes (4): INSTRUCTIONS, NEXT, RULES, Step 3: Triage
 
-### Community 1535 - "Compile Epic Context"
+### Community 1491 - "Community 1491"
 Cohesion: 0.40
 Nodes (4): Compile Epic Context, Error handling, Exact Output Format, Rules
 
-### Community 1536 - "Artifact Analyzer"
+### Community 1492 - "Community 1492"
 Cohesion: 0.40
 Nodes (4): Artifact Analyzer, Input, Output, Process
 
-### Community 1537 - "Web Researcher"
+### Community 1493 - "Community 1493"
 Cohesion: 0.40
 Nodes (4): Input, Output, Process, Web Researcher
 
-### Community 1538 - "Compile Epic Context"
+### Community 1494 - "Community 1494"
 Cohesion: 0.40
 Nodes (4): Compile Epic Context, Error handling, Exact Output Format, Rules
 
-### Community 1539 - "Excalidraw Wireframe Renderer"
+### Community 1495 - "Community 1495"
 Cohesion: 0.40
 Nodes (4): Content, CRITICAL: two-character `index` fields only, Excalidraw Wireframe Renderer, Shape
 
-### Community 1540 - "Creative Tools"
+### Community 1496 - "Community 1496"
 Cohesion: 0.40
 Nodes (4): Artifact handling, Creative Tools, Renderer contract, When to invoke
 
-### Community 1541 - "WDS Memory — File Backend"
+### Community 1497 - "Community 1497"
 Cohesion: 0.40
 Nodes (4): load, Notes, save, WDS Memory — File Backend
 
-### Community 1542 - "Feature Impact Analysis: {{project_name}}"
+### Community 1498 - "Community 1498"
 Cohesion: 0.40
 Nodes (4): Decisions, Feature Impact Analysis: {{project_name}}, Prioritized Features, Scoring
 
-### Community 1544 - "Product Brief: {{project_name}}"
+### Community 1500 - "Community 1500"
 Cohesion: 0.40
 Nodes (4): Documents, For Agents, Product Brief: {{project_name}}, What Belongs Here
 
-### Community 1545 - "Feature Impact Analysis: {{project_name}}"
+### Community 1501 - "Community 1501"
 Cohesion: 0.40
 Nodes (4): Decisions, Feature Impact Analysis: {{project_name}}, Prioritized Features, Scoring
 
-### Community 1546 - "Content Placement Decision Tree"
+### Community 1502 - "Community 1502"
 Cohesion: 0.40
 Nodes (5): Content Placement Decision Tree, Examples, Quick Rule, The Decision Tree, Visual Design?
 
-### Community 1547 - "Common Use Cases"
+### Community 1503 - "Community 1503"
 Cohesion: 0.40
 Nodes (5): Common Use Cases, Use Case 1: New Page from Sketch, Use Case 2: Updated Sketch, Use Case 3: Quality Audit Before Handoff, Use Case 4: Fixing Legacy Spec
 
-### Community 1548 - "Level 3: Component-Level Audit"
-Cohesion: 0.40
-Nodes (5): A. Componentization, B. Cross-Page Duplicate Detection, C. Design System Integration (if enabled), Level 3: Component-Level Audit, Output
-
-### Community 1549 - "Level 0: Specification Formatting & Standards"
-Cohesion: 0.40
-Nodes (5): Checklist, Common Formatting Violations, Level 0: Specification Formatting & Standards, Navigation Best Practice, Output
-
-### Community 1550 - "[H] Handover — Package DD-XXX and Hand Off to BMad"
+### Community 1504 - "Community 1504"
 Cohesion: 0.40
 Nodes (4): AFTER COMPLETION, [H] Handover — Package DD-XXX and Hand Off to BMad, INITIALIZATION, STEPS
 
-### Community 1551 - "📖 Quick Reference"
+### Community 1505 - "Community 1505"
 Cohesion: 0.40
 Nodes (5): File Naming Convention, Minimum Touch Target Size, Object ID Naming Convention, 📖 Quick Reference, Required Meta Tag
 
-### Community 1552 - "🌍 Multi-Language Support"
+### Community 1506 - "Community 1506"
 Cohesion: 0.40
 Nodes (5): Hardcoded Translations (Recommended for Prototypes), HTML with Language Support, 🌍 Multi-Language Support, Simple Language Switcher, When to Include Language Switching
 
-### Community 1553 - "Figma to Code Workshop"
+### Community 1507 - "Community 1507"
 Cohesion: 0.40
 Nodes (4): Figma to Code Workshop, Overview, Planned Workflow, When to Use Figma to Code
 
-### Community 1554 - "Commands"
+### Community 1508 - "Community 1508"
 Cohesion: 0.40
 Nodes (5): Batch Operations, Commands, Extract Component to Figma, Extract Section to Figma, Read Refined Component from Figma
 
-### Community 1555 - "Component Selection Strategies"
+### Community 1509 - "Community 1509"
 Cohesion: 0.40
 Nodes (5): Component Selection Strategies, Strategy 1: Individual Components, Strategy 2: Component Groups, Strategy 3: Section-Based, Strategy 4: Iterative Refinement
 
-### Community 1556 - "10. Present MENU OPTIONS"
-Cohesion: 0.40
-Nodes (5): 10. Present MENU OPTIONS, Component List, EXECUTION RULES:, Interactive Components, Menu Handling Logic:
-
-### Community 1557 - "Delivery Templates"
+### Community 1510 - "Community 1510"
 Cohesion: 0.40
 Nodes (4): Delivery Templates, Design Delivery Template (Small Scope), Test Scenario Template (Incremental Improvement), Validation Report Template
 
-### Community 1558 - "Layer 6: Completeness Gate (Dream Mode Only)"
+### Community 1511 - "Community 1511"
 Cohesion: 0.40
 Nodes (5): IF 3 retries fail for any file:, IF any file missing or empty:, Layer 6: Completeness Gate (Dream Mode Only), Required Documents Checklist, Validation Rules:
 
-### Community 1559 - "Explain Concept"
+### Community 1512 - "Community 1512"
+Cohesion: 0.40
+Nodes (4): 1. System Technology Stack, 2. Directory & Package Structure, 3. Environment Variables Configuration (`.env.example`), Architecture & Package Structure: chaibookLM
+
+### Community 1513 - "Community 1513"
+Cohesion: 0.40
+Nodes (5): Step 1: Prepare for Acceptance Testing, Step 2: Run Test Scenarios, Step 3: Create Issues, Step 4: Create Test Report, Step 5: Iterate or Approve
+
+### Community 1514 - "Community 1514"
 Cohesion: 0.50
 Nodes (3): Explain Concept, Output, Process
 
-### Community 1560 - "Mermaid Generate"
+### Community 1515 - "Community 1515"
 Cohesion: 0.50
 Nodes (3): Mermaid Generate, Output, Process
 
-### Community 1561 - "Validate Documentation"
+### Community 1516 - "Community 1516"
 Cohesion: 0.50
 Nodes (3): Output, Process, Validate Documentation
 
-### Community 1562 - "Write Document"
+### Community 1517 - "Community 1517"
 Cohesion: 0.50
 Nodes (3): Output, Process, Write Document
 
-### Community 1563 - "Converging: Narrow & Decide"
+### Community 1518 - "Community 1518"
 Cohesion: 0.50
 Nodes (3): Converging: Narrow & Decide, How to run it, Then finalize
 
-### Community 1564 - "Wrap-Up: Synthesis & Artifacts"
+### Community 1519 - "Community 1519"
 Cohesion: 0.50
 Nodes (3): Artifacts, Synthesis, Wrap-Up: Synthesis & Artifacts
 
-### Community 1565 - "Project Context for AI Agents"
+### Community 1520 - "Community 1520"
+Cohesion: 0.50
+Nodes (4): Story Context Quality Checklist, Discover Inputs Protocol, BMad Create Story Skill, Story Template
+
+### Community 1521 - "Community 1521"
+Cohesion: 0.50
+Nodes (4): Document Project Instructions, BMad Document Project Skill, Deep-Dive Workflow, Full Scan Workflow
+
+### Community 1522 - "Community 1522"
 Cohesion: 0.50
 Nodes (3): Critical Implementation Rules, Project Context for AI Agents, Technology Stack & Versions
 
-### Community 1566 - "Sync Sprint Status"
+### Community 1523 - "Community 1523"
 Cohesion: 0.50
 Nodes (3): Instructions, Preconditions, Sync Sprint Status
 
-### Community 1567 - "Headless JSON Response"
+### Community 1524 - "Community 1524"
 Cohesion: 0.50
 Nodes (3): Blocked, Headless JSON Response, Success
 
-### Community 1568 - "Phase 1: Start & Understand"
+### Community 1525 - "Community 1525"
+Cohesion: 0.50
+Nodes (3): Content, CRITICAL: two-character `index` fields only, Shape
+
+### Community 1526 - "Community 1526"
 Cohesion: 0.50
 Nodes (3): INITIALIZATION, Phase 1: Start & Understand, Steps
 
-### Community 1569 - "Phase 3: Synthesize & Present"
+### Community 1527 - "Community 1527"
 Cohesion: 0.50
 Nodes (3): INITIALIZATION, Phase 3: Synthesize & Present, Steps
 
-### Community 1570 - "Phase 4: Generate Signoff"
+### Community 1528 - "Community 1528"
 Cohesion: 0.50
 Nodes (3): INITIALIZATION, Phase 4: Generate Signoff, Steps
 
-### Community 1571 - "Phase 5: Build External Contract"
+### Community 1529 - "Community 1529"
 Cohesion: 0.50
 Nodes (3): INITIALIZATION, Phase 5: Build External Contract, Steps
 
-### Community 1572 - "Phase 6: Build Internal Signoff"
+### Community 1530 - "Community 1530"
 Cohesion: 0.50
 Nodes (3): INITIALIZATION, Phase 6: Build Internal Signoff, Steps
 
-### Community 1573 - "Scenario Outline Template"
+### Community 1531 - "Community 1531"
 Cohesion: 0.50
 Nodes (3): Quality Reminders, Scenario Outline Template, Template
 
-### Community 1574 - "Level 5: Content Audit"
-Cohesion: 0.50
-Nodes (4): A. Text Content, B. Accessibility Content, Level 5: Content Audit, Output
-
-### Community 1575 - "Audit Levels"
-Cohesion: 0.50
-Nodes (4): Audit Levels, Complete Audit (2-4 hours), Quick Audit (15-30 minutes), Standard Audit (1-2 hours)
-
-### Community 1576 - "Related Resources"
-Cohesion: 0.50
-Nodes (4): Guides, Micro-Instructions (conditional sections), Related Resources, Templates
-
-### Community 1577 - "MANDATORY EXECUTION RULES (READ FIRST):"
+### Community 1532 - "Community 1532"
 Cohesion: 0.50
 Nodes (4): MANDATORY EXECUTION RULES (READ FIRST):, Role Reinforcement:, Step-Specific Rules:, Universal Rules:
 
-### Community 1578 - "MANDATORY EXECUTION RULES (READ FIRST):"
+### Community 1533 - "Community 1533"
 Cohesion: 0.50
 Nodes (4): MANDATORY EXECUTION RULES (READ FIRST):, Role Reinforcement:, Step-Specific Rules:, Universal Rules:
 
-### Community 1579 - "Action Filter Example: Hairdresser Newsletter"
+### Community 1534 - "Community 1534"
 Cohesion: 0.50
 Nodes (3): Action Filter Example: Hairdresser Newsletter, Analysis, Key Insights
 
-### Community 1580 - "Advanced Features"
+### Community 1535 - "Community 1535"
 Cohesion: 0.50
 Nodes (4): Advanced Features, Responsive Constraints, State Extraction, Variant Detection
 
-### Community 1581 - "Usage"
-Cohesion: 0.50
-Nodes (4): Best Practices, Usage, When Not to Use, When to Use
-
-### Community 1582 - "Usage"
-Cohesion: 0.50
-Nodes (4): Best Practices, Usage, When Not to Use, When to Use
-
-### Community 1583 - "Styling"
-Cohesion: 0.50
-Nodes (4): Design Tokens, Library Component, Styling, Visual Properties
-
-### Community 1584 - "MANDATORY EXECUTION RULES (READ FIRST):"
-Cohesion: 0.50
-Nodes (4): MANDATORY EXECUTION RULES (READ FIRST):, Role Reinforcement:, Step-Specific Rules:, Universal Rules:
-
-### Community 1586 - "Identify Next Opportunity"
+### Community 1537 - "Community 1537"
 Cohesion: 0.50
 Nodes (4): 1. Iterate on Current Update, 2. Apply Pattern to Similar Feature, 3. Address New Problem, Identify Next Opportunity
 
-### Community 1587 - "Set Up Monitoring"
+### Community 1538 - "Community 1538"
 Cohesion: 0.50
 Nodes (4): 1. Define Measurement Period, 2. Track Key Metrics, 3. Gather Qualitative Feedback, Set Up Monitoring
 
-### Community 1588 - "Explain Concept"
+### Community 1539 - "Community 1539"
 Cohesion: 0.50
 Nodes (3): Explain Concept, Output, Process
 
-### Community 1589 - "Mermaid Generate"
+### Community 1540 - "Community 1540"
 Cohesion: 0.50
 Nodes (3): Mermaid Generate, Output, Process
 
-### Community 1590 - "Validate Documentation"
+### Community 1541 - "Community 1541"
 Cohesion: 0.50
 Nodes (3): Output, Process, Validate Documentation
 
-### Community 1591 - "Write Document"
+### Community 1542 - "Community 1542"
 Cohesion: 0.50
 Nodes (3): Output, Process, Write Document
 
-### Community 1592 - "Converging: Narrow & Decide"
+### Community 1543 - "Community 1543"
 Cohesion: 0.50
 Nodes (3): Converging: Narrow & Decide, How to run it, Then finalize
 
-### Community 1593 - "Wrap-Up: Synthesis & Artifacts"
+### Community 1544 - "Community 1544"
 Cohesion: 0.50
 Nodes (3): Artifacts, Synthesis, Wrap-Up: Synthesis & Artifacts
 
-### Community 1594 - "Project Context for AI Agents"
+### Community 1545 - "Community 1545"
 Cohesion: 0.50
 Nodes (3): Critical Implementation Rules, Project Context for AI Agents, Technology Stack & Versions
 
-### Community 1595 - "Sync Sprint Status"
+### Community 1546 - "Community 1546"
 Cohesion: 0.50
 Nodes (3): Instructions, Preconditions, Sync Sprint Status
 
-### Community 1596 - "Headless JSON Response"
+### Community 1547 - "Community 1547"
 Cohesion: 0.50
 Nodes (3): Blocked, Headless JSON Response, Success
 
-### Community 1597 - "Phase 1: Start & Understand"
+### Community 1548 - "Community 1548"
 Cohesion: 0.50
 Nodes (3): INITIALIZATION, Phase 1: Start & Understand, Steps
 
-### Community 1598 - "Phase 3: Synthesize & Present"
+### Community 1549 - "Community 1549"
 Cohesion: 0.50
 Nodes (3): INITIALIZATION, Phase 3: Synthesize & Present, Steps
 
-### Community 1599 - "Phase 4: Generate Signoff"
+### Community 1550 - "Community 1550"
 Cohesion: 0.50
 Nodes (3): INITIALIZATION, Phase 4: Generate Signoff, Steps
 
-### Community 1600 - "Phase 5: Build External Contract"
+### Community 1551 - "Community 1551"
 Cohesion: 0.50
 Nodes (3): INITIALIZATION, Phase 5: Build External Contract, Steps
 
-### Community 1601 - "Phase 6: Build Internal Signoff"
+### Community 1552 - "Community 1552"
 Cohesion: 0.50
 Nodes (3): INITIALIZATION, Phase 6: Build Internal Signoff, Steps
 
-### Community 1602 - "Scenario Outline Template"
+### Community 1553 - "Community 1553"
 Cohesion: 0.50
 Nodes (3): Quality Reminders, Scenario Outline Template, Template
 
-### Community 1603 - "Level 5: Content Audit"
-Cohesion: 0.50
-Nodes (4): A. Text Content, B. Accessibility Content, Level 5: Content Audit, Output
-
-### Community 1604 - "Audit Levels"
-Cohesion: 0.50
-Nodes (4): Audit Levels, Complete Audit (2-4 hours), Quick Audit (15-30 minutes), Standard Audit (1-2 hours)
-
-### Community 1605 - "Related Resources"
-Cohesion: 0.50
-Nodes (4): Guides, Micro-Instructions (conditional sections), Related Resources, Templates
-
-### Community 1606 - "MANDATORY EXECUTION RULES (READ FIRST):"
+### Community 1554 - "Community 1554"
 Cohesion: 0.50
 Nodes (4): MANDATORY EXECUTION RULES (READ FIRST):, Role Reinforcement:, Step-Specific Rules:, Universal Rules:
 
-### Community 1607 - "MANDATORY EXECUTION RULES (READ FIRST):"
+### Community 1555 - "Community 1555"
 Cohesion: 0.50
 Nodes (4): MANDATORY EXECUTION RULES (READ FIRST):, Role Reinforcement:, Step-Specific Rules:, Universal Rules:
 
-### Community 1608 - "Action Filter Example: Hairdresser Newsletter"
+### Community 1556 - "Community 1556"
 Cohesion: 0.50
 Nodes (3): Action Filter Example: Hairdresser Newsletter, Analysis, Key Insights
 
-### Community 1609 - "Advanced Features"
+### Community 1557 - "Community 1557"
 Cohesion: 0.50
 Nodes (4): Advanced Features, Responsive Constraints, State Extraction, Variant Detection
 
-### Community 1610 - "Usage"
-Cohesion: 0.50
-Nodes (4): Best Practices, Usage, When Not to Use, When to Use
-
-### Community 1611 - "Usage"
-Cohesion: 0.50
-Nodes (4): Best Practices, Usage, When Not to Use, When to Use
-
-### Community 1612 - "Styling"
-Cohesion: 0.50
-Nodes (4): Design Tokens, Library Component, Styling, Visual Properties
-
-### Community 1613 - "MANDATORY EXECUTION RULES (READ FIRST):"
-Cohesion: 0.50
-Nodes (4): MANDATORY EXECUTION RULES (READ FIRST):, Role Reinforcement:, Step-Specific Rules:, Universal Rules:
-
-### Community 1615 - "Identify Next Opportunity"
+### Community 1559 - "Community 1559"
 Cohesion: 0.50
 Nodes (4): 1. Iterate on Current Update, 2. Apply Pattern to Similar Feature, 3. Address New Problem, Identify Next Opportunity
 
-### Community 1616 - "Set Up Monitoring"
+### Community 1560 - "Community 1560"
 Cohesion: 0.50
 Nodes (4): 1. Define Measurement Period, 2. Track Key Metrics, 3. Gather Qualitative Feedback, Set Up Monitoring
 
-### Community 1617 - "Design System — Implementation Package"
+### Community 1561 - "Community 1561"
+Cohesion: 0.50
+Nodes (4): PRD Quality Rubric, PRD Validation Report Template, Headless Mode Reference, Validate Intent Playbook
+
+### Community 1562 - "Community 1562"
 Cohesion: 0.50
 Nodes (3): Design System — Implementation Package, Stack assumed, The one thing to enforce in code review
 
-### Community 1618 - "Layer 3: Domain Research (Ongoing)"
-Cohesion: 0.50
-Nodes (4): For Phase 3 (Scenarios), Layer 3: Domain Research (Ongoing), Research Documentation, Research Per Step
-
-### Community 1619 - "Set the Tone — Expertise Level & Communication Style"
+### Community 1563 - "Community 1563"
 Cohesion: 0.50
 Nodes (3): After Selection, Choose Your Expertise Level, Set the Tone — Expertise Level & Communication Style
 
-### Community 1630 - "13. Present MENU OPTIONS"
+### Community 1564 - "Community 1564"
+Cohesion: 0.50
+Nodes (3): Documents, Product Brief: chaibookLM, What Belongs Here
+
+### Community 1565 - "Community 1565"
+Cohesion: 0.50
+Nodes (3): Documents, Trigger Map: chaibookLM, What Belongs Here
+
+### Community 1566 - "Community 1566"
+Cohesion: 0.50
+Nodes (3): Scenarios, UX Scenarios: chaibookLM, What Belongs Here
+
+### Community 1567 - "Community 1567"
+Cohesion: 0.50
+Nodes (3): Design System: chaibookLM, Folder Structure, What Belongs Here
+
+### Community 1568 - "Community 1568"
+Cohesion: 0.50
+Nodes (3): plugin, $schema, file:///Users/prajwal/Documents/learning/chaibookLM/.kilo/plugins/graphify.js
+
+### Community 1569 - "Community 1569"
+Cohesion: 0.50
+Nodes (3): plugin, $schema, .opencode/plugins/graphify.js
+
+### Community 1570 - "Community 1570"
+Cohesion: 0.50
+Nodes (4): Step 1: Identify Target, Step 2: Explore and Capture, Step 3: Generate Specs, Step 4: Extract Design System
+
+### Community 1578 - "Community 1578"
 Cohesion: 0.67
 Nodes (3): 13. Present MENU OPTIONS, EXECUTION RULES:, Menu Handling Logic:
 
-### Community 1631 - "Level 1: Scenario-Level Audit"
-Cohesion: 0.67
-Nodes (3): Checklist, Level 1: Scenario-Level Audit, Output
-
-### Community 1632 - "Level 4: Feature-Level Audit"
-Cohesion: 0.67
-Nodes (3): Checklist, Level 4: Feature-Level Audit, Output
-
-### Community 1633 - "📁 Step 1: Set Up File Structure"
+### Community 1579 - "Community 1579"
 Cohesion: 0.67
 Nodes (3): Create Folder Structure, Example (Add Dog page):, 📁 Step 1: Set Up File Structure
 
-### Community 1634 - "📝 Step 2: Create HTML Structure"
+### Community 1580 - "Community 1580"
 Cohesion: 0.67
 Nodes (3): Critical HTML Rules, HTML Template, 📝 Step 2: Create HTML Structure
 
-### Community 1635 - "🎨 Step 3: Write CSS Styles"
+### Community 1581 - "Community 1581"
 Cohesion: 0.67
 Nodes (3): CSS Best Practices, CSS Template, 🎨 Step 3: Write CSS Styles
 
-### Community 1638 - "Security"
+### Community 1584 - "Community 1584"
 Cohesion: 0.67
 Nodes (3): Access Control, API Token Management, Security
 
-### Community 1639 - "Architecture"
+### Community 1585 - "Community 1585"
 Cohesion: 0.67
 Nodes (3): Architecture, Component Flow, MCP Server Role
 
-### Community 1640 - "Design Token Extraction"
+### Community 1586 - "Community 1586"
 Cohesion: 0.67
 Nodes (3): Automatic Token Detection, Design Token Extraction, Token Mapping
 
-### Community 1641 - "Performance Considerations"
+### Community 1587 - "Community 1587"
 Cohesion: 0.67
 Nodes (3): Batch Processing, Caching, Performance Considerations
 
-### Community 1642 - "Best Practices"
+### Community 1588 - "Community 1588"
 Cohesion: 0.67
 Nodes (3): Best Practices, DO ✅, DON'T ❌
 
-### Community 1643 - "Error Handling"
+### Community 1589 - "Community 1589"
 Cohesion: 0.67
 Nodes (3): Common Issues, Conflict Resolution, Error Handling
 
-### Community 1644 - "Integration with Existing Figma Workflow"
+### Community 1590 - "Community 1590"
 Cohesion: 0.67
 Nodes (3): Compatibility, Integration with Existing Figma Workflow, Unified Design System
 
-### Community 1645 - "MCP Server Configuration"
+### Community 1591 - "Community 1591"
 Cohesion: 0.67
 Nodes (3): Configuration File, MCP Server Configuration, Setup
 
-### Community 1646 - "Troubleshooting"
+### Community 1592 - "Community 1592"
 Cohesion: 0.67
 Nodes (3): Debug Mode, Troubleshooting, Validation
 
-### Community 1647 - "Object ID Mapping"
+### Community 1593 - "Community 1593"
 Cohesion: 0.67
 Nodes (3): Object ID Mapping, Preservation Strategy, Traceability
 
-### Community 1648 - "Workflow Integration"
+### Community 1594 - "Community 1594"
 Cohesion: 0.67
 Nodes (3): Phase 4D: After Prototype Creation, Phase 5: Reading Refined Components, Workflow Integration
 
-### Community 1649 - "Behavior"
-Cohesion: 0.67
-Nodes (3): Animations, Behavior, Interactions
-
-### Community 1650 - "Behavior"
-Cohesion: 0.67
-Nodes (3): Animations, Behavior, Interactions
-
-### Community 1651 - "Step 4: Create Component File"
-Cohesion: 0.67
-Nodes (3): Figma Reference, Library Component, Step 4: Create Component File
-
-### Community 1652 - "🚨 SYSTEM SUCCESS/FAILURE METRICS"
-Cohesion: 0.67
-Nodes (3): ✅ SUCCESS:, ❌ SYSTEM FAILURE:, 🚨 SYSTEM SUCCESS/FAILURE METRICS
-
-### Community 1653 - "Kaizen vs Kaikaku"
+### Community 1595 - "Community 1595"
 Cohesion: 0.67
 Nodes (3): Kaikaku (改革) - Revolutionary Change, Kaizen vs Kaikaku, Kaizen (改善) - What You're Doing Now
 
-### Community 1664 - "13. Present MENU OPTIONS"
+### Community 1607 - "Community 1607"
 Cohesion: 0.67
 Nodes (3): 13. Present MENU OPTIONS, EXECUTION RULES:, Menu Handling Logic:
 
-### Community 1665 - "Level 1: Scenario-Level Audit"
-Cohesion: 0.67
-Nodes (3): Checklist, Level 1: Scenario-Level Audit, Output
-
-### Community 1666 - "Level 4: Feature-Level Audit"
-Cohesion: 0.67
-Nodes (3): Checklist, Level 4: Feature-Level Audit, Output
-
-### Community 1667 - "📁 Step 1: Set Up File Structure"
+### Community 1608 - "Community 1608"
 Cohesion: 0.67
 Nodes (3): Create Folder Structure, Example (Add Dog page):, 📁 Step 1: Set Up File Structure
 
-### Community 1668 - "📝 Step 2: Create HTML Structure"
+### Community 1609 - "Community 1609"
 Cohesion: 0.67
 Nodes (3): Critical HTML Rules, HTML Template, 📝 Step 2: Create HTML Structure
 
-### Community 1669 - "🎨 Step 3: Write CSS Styles"
+### Community 1610 - "Community 1610"
 Cohesion: 0.67
 Nodes (3): CSS Best Practices, CSS Template, 🎨 Step 3: Write CSS Styles
 
-### Community 1672 - "Security"
+### Community 1613 - "Community 1613"
 Cohesion: 0.67
 Nodes (3): Access Control, API Token Management, Security
 
-### Community 1673 - "Architecture"
+### Community 1614 - "Community 1614"
 Cohesion: 0.67
 Nodes (3): Architecture, Component Flow, MCP Server Role
 
-### Community 1674 - "Design Token Extraction"
+### Community 1615 - "Community 1615"
 Cohesion: 0.67
 Nodes (3): Automatic Token Detection, Design Token Extraction, Token Mapping
 
-### Community 1675 - "Performance Considerations"
+### Community 1616 - "Community 1616"
 Cohesion: 0.67
 Nodes (3): Batch Processing, Caching, Performance Considerations
 
-### Community 1676 - "Best Practices"
+### Community 1617 - "Community 1617"
 Cohesion: 0.67
 Nodes (3): Best Practices, DO ✅, DON'T ❌
 
-### Community 1677 - "Error Handling"
+### Community 1618 - "Community 1618"
 Cohesion: 0.67
 Nodes (3): Common Issues, Conflict Resolution, Error Handling
 
-### Community 1678 - "Integration with Existing Figma Workflow"
+### Community 1619 - "Community 1619"
 Cohesion: 0.67
 Nodes (3): Compatibility, Integration with Existing Figma Workflow, Unified Design System
 
-### Community 1679 - "MCP Server Configuration"
+### Community 1620 - "Community 1620"
 Cohesion: 0.67
 Nodes (3): Configuration File, MCP Server Configuration, Setup
 
-### Community 1680 - "Troubleshooting"
+### Community 1621 - "Community 1621"
 Cohesion: 0.67
 Nodes (3): Debug Mode, Troubleshooting, Validation
 
-### Community 1681 - "Object ID Mapping"
+### Community 1622 - "Community 1622"
 Cohesion: 0.67
 Nodes (3): Object ID Mapping, Preservation Strategy, Traceability
 
-### Community 1682 - "Workflow Integration"
+### Community 1623 - "Community 1623"
 Cohesion: 0.67
 Nodes (3): Phase 4D: After Prototype Creation, Phase 5: Reading Refined Components, Workflow Integration
 
-### Community 1683 - "Behavior"
-Cohesion: 0.67
-Nodes (3): Animations, Behavior, Interactions
-
-### Community 1684 - "Behavior"
-Cohesion: 0.67
-Nodes (3): Animations, Behavior, Interactions
-
-### Community 1685 - "Step 4: Create Component File"
-Cohesion: 0.67
-Nodes (3): Figma Reference, Library Component, Step 4: Create Component File
-
-### Community 1686 - "🚨 SYSTEM SUCCESS/FAILURE METRICS"
-Cohesion: 0.67
-Nodes (3): ✅ SUCCESS:, ❌ SYSTEM FAILURE:, 🚨 SYSTEM SUCCESS/FAILURE METRICS
-
-### Community 1687 - "Kaizen vs Kaikaku"
+### Community 1624 - "Community 1624"
 Cohesion: 0.67
 Nodes (3): Kaikaku (改革) - Revolutionary Change, Kaizen vs Kaikaku, Kaizen (改善) - What You're Doing Now
 
-### Community 1689 - "Mode-Specific Presentation"
+### Community 1626 - "Community 1626"
+Cohesion: 0.67
+Nodes (3): Headless JSON Response Schema, Spec Template, bmad-spec Skill
+
+### Community 1627 - "Community 1627"
+Cohesion: 0.67
+Nodes (3): Sprint Planning Validation Checklist, bmad-sprint-planning Skill, Sprint Status Template
+
+### Community 1628 - "Community 1628"
 Cohesion: 0.67
 Nodes (3): Dream Mode: Autonomous Progress, Mode-Specific Presentation, Suggest Mode: User Checkpoints
 
+### Community 1629 - "Community 1629"
+Cohesion: 0.67
+Nodes (3): Document Before Acting, Feedback Classification Protocol, Session Start Protocol
+
+### Community 1630 - "Community 1630"
+Cohesion: 0.67
+Nodes (3): Dev Mode Component, html.to.design (Alternative Method), MCP Server (Primary Method)
+
+### Community 1633 - "Community 1633"
+Cohesion: 0.67
+Nodes (3): Project Signoff Template, Step 06a: Build Internal Signoff, Step 06b: Finalize Signoff
+
 ## Knowledge Gaps
-- **19287 isolated node(s):** `$schema`, `title`, `description`, `type`, `workflow_version` (+19282 more)
+- **18770 isolated node(s):** `Process`, `Output`, `Process`, `Output`, `Process` (+18765 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **60 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **131 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Step 3: Build Strategic Context` connect `Step 3: Build Strategic Context` to `Sequence of Instructions (Do not deviate, skip, or optimize)`?**
+- **Why does `Step 5: Outline Scenario (One at a Time)` connect `Community 988` to `Community 1177`, `Community 906`?**
   _High betweenness centrality (0.000) - this node is a cross-community bridge._
-- **What connects `$schema`, `title`, `description` to the rest of the system?**
-  _19287 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `Interactive Prototype Analysis - Dog Week Project` be split into smaller, more focused modules?**
+- **What connects `Process`, `Output`, `Process` to the rest of the system?**
+  _18770 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `Prototype Analysis Guide` be split into smaller, more focused modules?**
   _Cohesion score 0.04081632653061224 - nodes in this community are weakly interconnected._
-- **Should `Interactive Prototype Analysis - Dog Week Project` be split into smaller, more focused modules?**
+- **Should `Prototype Analysis Guide (alt)` be split into smaller, more focused modules?**
   _Cohesion score 0.04081632653061224 - nodes in this community are weakly interconnected._
-- **Should `Scenario [Number]: [Scenario Name] - Prototype Roadmap` be split into smaller, more focused modules?**
-  _Cohesion score 0.041666666666666664 - nodes in this community are weakly interconnected._
-- **Should `Scenario [Number]: [Scenario Name] - Prototype Roadmap` be split into smaller, more focused modules?**
-  _Cohesion score 0.041666666666666664 - nodes in this community are weakly interconnected._
-- **Should `When to Extract Prototypes to Figma - Decision Guide` be split into smaller, more focused modules?**
+- **Should `Prototype Roadmap Template` be split into smaller, more focused modules?**
+  _Cohesion score 0.0425531914893617 - nodes in this community are weakly interconnected._
+- **Should `Asset Extraction Decision` be split into smaller, more focused modules?**
+  _Cohesion score 0.0425531914893617 - nodes in this community are weakly interconnected._
+- **Should `Prototype Roadmap (alt)` be split into smaller, more focused modules?**
   _Cohesion score 0.0425531914893617 - nodes in this community are weakly interconnected._
