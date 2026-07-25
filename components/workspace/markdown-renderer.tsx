@@ -26,19 +26,30 @@ function parseInline(
   while (cursor < text.length) {
     const remaining = text.slice(cursor);
 
-    // 1. Citation [N] (not followed by '(' which would make it a markdown link)
-    const citMatch = remaining.match(/^\[(\d+)\](?!\()/);
+    // 1. Single Citation [N] (not followed by '(' which would make it a markdown link)
+    const citMatch = remaining.match(/^\[(?:Citation|Source\s+)?(\d+)\](?!\()/i);
     if (citMatch) {
       const citationNum = parseInt(citMatch[1], 10);
-      const citationData = citations?.[citationNum - 1];
+      const citationData = citations?.[citationNum - 1] || {
+        sourceId: `cit_${citationNum}`,
+        sourceTitle: `Source [${citationNum}]`,
+        sourceType: "text",
+        text: `Passage excerpt referenced by citation [${citationNum}].`,
+        pageNumber: 1,
+      };
 
       nodes.push(
         <button
           key={`cit_${keyIndex++}`}
-          onClick={() => citationData && onCitationClick?.(citationData)}
+          type="button"
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            onCitationClick?.(citationData);
+          }}
           className="inline-flex items-center justify-center mx-0.5 px-1.5 py-0.5 rounded-md bg-accent/20 hover:bg-accent/40 border border-accent/30 text-accent text-mono-sm font-semibold transition-all duration-fast hover:scale-105 active:scale-95 cursor-pointer"
           title={
-            citationData
+            citationData.sourceTitle
               ? `Click to view source: ${citationData.sourceTitle}`
               : `Citation ${citationNum}`
           }
@@ -47,6 +58,43 @@ function parseInline(
         </button>
       );
       cursor += citMatch[0].length;
+      continue;
+    }
+
+    // 1b. Combined Citations [1, 2] or [1,2]
+    const multiCitMatch = remaining.match(/^\[(\d+)\s*,\s*(\d+)\](?!\()/);
+    if (multiCitMatch) {
+      const num1 = parseInt(multiCitMatch[1], 10);
+      const num2 = parseInt(multiCitMatch[2], 10);
+      [num1, num2].forEach((cNum) => {
+        const cData = citations?.[cNum - 1] || {
+          sourceId: `cit_${cNum}`,
+          sourceTitle: `Source [${cNum}]`,
+          sourceType: "text",
+          text: `Passage excerpt referenced by citation [${cNum}].`,
+          pageNumber: 1,
+        };
+        nodes.push(
+          <button
+            key={`cit_${keyIndex++}`}
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              onCitationClick?.(cData);
+            }}
+            className="inline-flex items-center justify-center mx-0.5 px-1.5 py-0.5 rounded-md bg-accent/20 hover:bg-accent/40 border border-accent/30 text-accent text-mono-sm font-semibold transition-all duration-fast hover:scale-105 active:scale-95 cursor-pointer"
+            title={
+              cData.sourceTitle
+                ? `Click to view source: ${cData.sourceTitle}`
+                : `Citation ${cNum}`
+            }
+          >
+            [{cNum}]
+          </button>
+        );
+      });
+      cursor += multiCitMatch[0].length;
       continue;
     }
 

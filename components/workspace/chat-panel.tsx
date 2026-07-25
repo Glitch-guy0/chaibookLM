@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Send, Bot, User, Sparkles, Loader2 } from "lucide-react";
+import { Send, Bot, User, Sparkles, Loader2, BookOpen } from "lucide-react";
 import { useUser } from "@clerk/nextjs";
 import { Source } from "./sidebar";
 import { MarkdownRenderer } from "./markdown-renderer";
@@ -210,6 +210,40 @@ export function ChatPanel({
                 }`}
               >
                 {renderMessageContent(msg)}
+
+                {msg.role === "assistant" && msg.citations && msg.citations.length > 0 && (
+                  <div className="mt-3.5 pt-3 border-t border-[hsl(215_25%_22%/0.4)] flex flex-wrap items-center gap-2">
+                    <span className="text-xs font-mono text-text-muted flex items-center gap-1 font-medium mr-1">
+                      <BookOpen className="w-3.5 h-3.5 text-accent" />
+                      Sources ({msg.citations.length}):
+                    </span>
+                    {msg.citations.map((cit, idx) => (
+                      <button
+                        key={`cit_footer_${idx}`}
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          onCitationClick(cit);
+                        }}
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-accent/15 hover:bg-accent/30 border border-accent/30 text-accent text-xs font-medium transition-all duration-fast hover:scale-105 active:scale-95 cursor-pointer shadow-sm"
+                        title={`Click to view source: ${cit.sourceTitle}`}
+                      >
+                        <span className="font-mono font-bold text-[10px] px-1 py-0.5 rounded bg-accent/20">
+                          [{idx + 1}]
+                        </span>
+                        <span className="truncate max-w-[150px] text-text font-medium">
+                          {cit.sourceTitle}
+                        </span>
+                        {cit.pageNumber ? (
+                          <span className="text-[10px] text-text-muted">
+                            p.{cit.pageNumber}
+                          </span>
+                        ) : null}
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           ))

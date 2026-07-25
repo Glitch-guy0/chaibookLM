@@ -84,12 +84,12 @@ export default function WorkspacePage({ params }: { params: { notebookId: string
 
   const handleCitationClick = (citation: Citation) => {
     setActiveSource(null);
-    setActiveCitation(citation);
+    setActiveCitation({ ...citation });
   };
 
   const handleSourceSelect = (source: Source) => {
     setActiveCitation(null);
-    setActiveSource(source);
+    setActiveSource({ ...source });
   };
 
   return (
@@ -125,6 +125,13 @@ export default function WorkspacePage({ params }: { params: { notebookId: string
 
         {/* Right Column: Source Preview Panel (opens on demand) */}
         <PreviewPanel
+          key={
+            activeCitation
+              ? `cit_${activeCitation.sourceId}_${activeCitation.chunkIndex ?? 0}_${Date.now()}`
+              : activeSource
+              ? `src_${activeSource.id}`
+              : "panel_closed"
+          }
           activeCitation={activeCitation}
           activeSource={activeSource}
           onClose={() => {

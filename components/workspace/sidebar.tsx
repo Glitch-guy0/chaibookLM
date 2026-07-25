@@ -75,7 +75,7 @@ export function Sidebar({
   };
 
   return (
-    <aside className="w-80 glass border-r border-border/40 flex flex-col justify-between h-full select-none">
+    <aside className="w-80 shrink-0 glass border-r border-border/40 flex flex-col justify-between h-full select-none">
       <div className="p-4 flex flex-col gap-4 overflow-y-auto">
         {/* Notebook Title & Add Source Button */}
         <div>
