@@ -71,10 +71,9 @@ export async function generateEmbedding(
       console.log(`[Embeddings] Text truncated: ${text.length} -> ${truncatedText.length} chars`);
     }
 
-    // const endpointUrl = EMBEDDING_MODEL_BASE_URL.endsWith("/embeddings")
-    //   ? EMBEDDING_MODEL_BASE_URL
-    //   : `${EMBEDDING_MODEL_BASE_URL.replace(/\/+$/, "")}/embeddings`;
-    const endpointUrl = `${EMBEDDING_MODEL_BASE_URL}/chat/completions`
+    const endpointUrl = EMBEDDING_MODEL_BASE_URL.endsWith("/embeddings")
+      ? EMBEDDING_MODEL_BASE_URL
+      : `${EMBEDDING_MODEL_BASE_URL.replace(/\/+$/, "")}/embeddings`;
 
     console.log(`[Embeddings] Calling API: ${endpointUrl}`);
     

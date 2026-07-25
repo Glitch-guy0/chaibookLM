@@ -12,6 +12,7 @@ import {
   CheckCircle2,
   Clock,
   Sparkles,
+  Loader2,
 } from "lucide-react";
 import { AddSourceModal } from "./add-source-modal";
 
@@ -33,6 +34,7 @@ interface SidebarProps {
   onRefresh: () => void;
   onSelectSource: (source: Source) => void;
   activeSourceId?: string;
+  recentlyIndexedId?: string | null;
 }
 
 export function Sidebar({
@@ -42,6 +44,7 @@ export function Sidebar({
   onRefresh,
   onSelectSource,
   activeSourceId,
+  recentlyIndexedId,
 }: SidebarProps) {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
 
@@ -72,7 +75,7 @@ export function Sidebar({
   };
 
   return (
-    <aside className="w-72 glass border-r border-border/40 flex flex-col justify-between h-full select-none">
+    <aside className="w-80 glass border-r border-border/40 flex flex-col justify-between h-full select-none">
       <div className="p-4 flex flex-col gap-4 overflow-y-auto">
         {/* Notebook Title & Add Source Button */}
         <div>
@@ -104,43 +107,60 @@ export function Sidebar({
               </p>
             </div>
           ) : (
-            <div className="space-y-1.5">
+            <div className="space-y-2">
               {sources.map((src) => {
                 const isActive = activeSourceId === src.id;
+                const isJustCompleted = recentlyIndexedId === src.id;
+                const isIndexing =
+                  src.status === "indexing" || src.status === "uploading";
+                const isReady = src.status === "ready";
+
                 return (
                   <div
                     key={src.id}
                     onClick={() => onSelectSource(src)}
-                    className={`group flex items-center justify-between p-2.5 rounded-xl border cursor-pointer transition-all duration-fast ${
-                      isActive
+                    className={`group flex items-center justify-between p-3 rounded-xl border cursor-pointer transition-all duration-300 ${
+                      isJustCompleted
+                        ? "bg-success/10 border-success shadow-glow"
+                        : isActive
                         ? "bg-surface border-primary shadow-sm"
                         : "bg-surface/30 hover:bg-surface border-border/40 hover:border-border"
                     }`}
                   >
                     <div className="flex items-center gap-2.5 truncate min-w-0 pr-2">
                       {getSourceIcon(src.type)}
-                      <span className="text-body-sm font-medium text-text truncate">
-                        {src.title}
-                      </span>
+                      <div className="truncate">
+                        <span className="text-body-sm font-medium text-text truncate block">
+                          {src.title}
+                        </span>
+                        <span className="text-mono-sm text-text-muted capitalize">
+                          {src.type}
+                        </span>
+                      </div>
                     </div>
 
                     <div className="flex items-center gap-2 shrink-0">
-                      {/* Status Dot: yellow pulse during indexing -> green settle when ready */}
-                      {src.status === "indexing" || src.status === "uploading" ? (
+                      {/* Status Indicator Badge */}
+                      {isIndexing ? (
+                        <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-warning/15 text-warning border border-warning/30 text-mono-sm font-medium animate-pulse">
+                          <Loader2 className="w-3 h-3 animate-spin" />
+                          <span>Indexing</span>
+                        </div>
+                      ) : isReady ? (
                         <div
-                          className="w-2.5 h-2.5 rounded-full bg-warning animate-indexing"
-                          title="Indexing source..."
-                        />
-                      ) : src.status === "ready" ? (
-                        <div
-                          className="w-2.5 h-2.5 rounded-full bg-success transition-all scale-100"
-                          title="Ready & queryable"
-                        />
+                          className={`flex items-center gap-1 px-2 py-0.5 rounded-full border text-mono-sm font-medium transition-all ${
+                            isJustCompleted
+                              ? "bg-success text-white border-success scale-105"
+                              : "bg-success/15 text-success border-success/30"
+                          }`}
+                        >
+                          <CheckCircle2 className="w-3 h-3" />
+                          <span>Ready</span>
+                        </div>
                       ) : (
-                        <div
-                          className="w-2.5 h-2.5 rounded-full bg-error"
-                          title="Indexing failed"
-                        />
+                        <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-error/15 text-error border border-error/30 text-mono-sm font-medium">
+                          <span>Failed</span>
+                        </div>
                       )}
 
                       <button

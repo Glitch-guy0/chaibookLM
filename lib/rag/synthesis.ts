@@ -87,5 +87,63 @@ export async function createGroundedCompletionStream(
     throw new Error(`Completion API error: ${response.statusText}`);
   }
 
-  return response.body;
+  const rawStream = response.body;
+  const encoder = new TextEncoder();
+  const decoder = new TextDecoder();
+
+  let buffer = "";
+
+  return new ReadableStream({
+    async start(controller) {
+      const reader = rawStream.getReader();
+
+      try {
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+
+          buffer += decoder.decode(value, { stream: true });
+          const lines = buffer.split("\n");
+          buffer = lines.pop() || "";
+
+          for (const line of lines) {
+            const trimmed = line.trim();
+            if (!trimmed || trimmed.startsWith(":")) continue;
+            if (trimmed === "data: [DONE]") continue;
+
+            if (trimmed.startsWith("data: ")) {
+              const jsonStr = trimmed.slice(6);
+              try {
+                const parsed = JSON.parse(jsonStr);
+                const content = parsed?.choices?.[0]?.delta?.content;
+                if (content) {
+                  controller.enqueue(encoder.encode(content));
+                }
+              } catch (err) {
+                // Ignore parse errors for incomplete chunks
+              }
+            } else {
+              // Plain text token fallback
+              controller.enqueue(encoder.encode(trimmed));
+            }
+          }
+        }
+
+        if (buffer.trim().startsWith("data: ")) {
+          const jsonStr = buffer.trim().slice(6);
+          try {
+            const parsed = JSON.parse(jsonStr);
+            const content = parsed?.choices?.[0]?.delta?.content;
+            if (content) {
+              controller.enqueue(encoder.encode(content));
+            }
+          } catch {}
+        }
+      } catch (err) {
+        controller.error(err);
+      } finally {
+        controller.close();
+      }
+    },
+  });
 }
