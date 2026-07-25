@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { Send, Bot, User, Sparkles, Loader2 } from "lucide-react";
+import { useUser } from "@clerk/nextjs";
 import { Source } from "./sidebar";
 
 export interface Citation {
@@ -11,6 +12,8 @@ export interface Citation {
   pageNumber?: number;
   timestampStart?: number;
   text: string;
+  chunkIndex?: number;
+  totalChunks?: number;
 }
 
 export interface ChatMessage {
@@ -36,6 +39,7 @@ export function ChatPanel({
   const [input, setInput] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
+  const { user } = useUser();
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -213,14 +217,22 @@ export function ChatPanel({
               }`}
             >
               <div
-                className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 shadow-sm ${
+                className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 shadow-sm overflow-hidden ${
                   msg.role === "user"
                     ? "bg-primary text-white font-bold"
                     : "gradient-signature text-white"
                 }`}
               >
                 {msg.role === "user" ? (
-                  <User className="w-4 h-4" />
+                  user?.imageUrl ? (
+                    <img
+                      src={user.imageUrl}
+                      alt={user.fullName || "User"}
+                      className="w-8 h-8 rounded-full object-cover"
+                    />
+                  ) : (
+                    <User className="w-4 h-4" />
+                  )
                 ) : (
                   <Bot className="w-4 h-4" />
                 )}

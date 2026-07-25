@@ -46,14 +46,11 @@
   --warning-h: 38;  --warning-s: 88%; --warning-l: 58%;
   --error-h: 0;     --error-s: 78%;   --error-l: 65%;
 
-  --glass-border: 215 30% 100%;
+  --glass-border: 215 25% 22%;  /* dark slate-700 equivalent — NO white borders */
   --shadow-color: 222 50% 4%;
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
   body {
     @apply bg-bg text-text font-body antialiased;
   }

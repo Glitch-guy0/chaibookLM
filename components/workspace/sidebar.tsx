@@ -182,7 +182,6 @@ export function Sidebar({
       {/* Footer Info */}
       <div className="p-4 border-t border-border/30 text-mono-sm text-text-muted/70 flex items-center justify-between">
         <span>Capacity: {sources.length}/50</span>
-        <span>Qdrant Isolated</span>
       </div>
 
       <AddSourceModal

@@ -78,6 +78,8 @@ export async function POST(req: NextRequest) {
           sourceType: (hit.payload?.sourceType as string) || "text",
           pageNumber: (hit.payload?.pageNumber as number) || 1,
           timestampStart: (hit.payload?.timestampStart as number) || 0,
+          chunkIndex: (hit.payload?.chunkIndex as number) ?? undefined,
+          totalChunks: (hit.payload?.totalChunks as number) ?? undefined,
         }));
       } catch (err) {
         console.error("[RAG Query] Vector search failed:", err);

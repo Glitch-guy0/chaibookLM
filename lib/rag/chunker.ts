@@ -8,6 +8,7 @@ export interface DocumentChunk {
     sectionTitle?: string;
     sourceTitle: string;
     sourceType: string;
+    totalChunks?: number;
   };
 }
 
@@ -37,6 +38,12 @@ export function chunkText(
         timestampStart: Math.floor((i / 150) * 10),
       },
     });
+  }
+
+  // Annotate each chunk with totalChunks now that we know the count
+  const totalChunks = chunks.length;
+  for (const chunk of chunks) {
+    chunk.metadata.totalChunks = totalChunks;
   }
 
   return chunks;

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { Navbar } from "@/components/shared/navbar";
+import { WorkspaceHeader } from "@/components/shared/workspace-header";
 import { Sidebar, Source } from "@/components/workspace/sidebar";
 import { ChatPanel, Citation } from "@/components/workspace/chat-panel";
 import { PreviewPanel } from "@/components/workspace/preview-panel";
@@ -25,7 +25,7 @@ export default function WorkspacePage({ params }: { params: { notebookId: string
       if (res.ok) {
         const data = await res.json();
         const newSources: Source[] = data.sources || [];
-        
+
         if (!isFirstLoadRef.current) {
           // Detect any source that transitioned from indexing -> ready
           const prevSources = prevSourcesRef.current;
@@ -94,11 +94,11 @@ export default function WorkspacePage({ params }: { params: { notebookId: string
 
   return (
     <div className="h-screen flex flex-col bg-bg overflow-hidden relative">
-      <Navbar />
+      <WorkspaceHeader notebookTitle={notebookTitle} />
 
       {/* Floating Status Toast Notification */}
       {statusToast && (
-        <div className="absolute top-16 right-6 z-50 p-4 px-5 rounded-2xl bg-success text-white font-medium text-body-sm shadow-2xl flex items-center gap-3 animate-fade-up border border-white/20">
+        <div className="absolute top-14 right-6 z-50 p-4 px-5 rounded-2xl bg-success text-white font-medium text-body-sm shadow-2xl flex items-center gap-3 animate-fade-up border border-white/20">
           <CheckCircle2 className="w-5 h-5 shrink-0" />
           <span>{statusToast}</span>
         </div>

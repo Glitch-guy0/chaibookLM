@@ -38,6 +38,11 @@
 | 2. Auth | 2.1 | Signup / Login | `built` | 2026-07-25 |
 | 3. Dashboard | 3.1 | Notebooks Dashboard | `built` | 2026-07-25 |
 | 4. Workspace | 4.1 | Notebook Workspace | `built` | 2026-07-25 |
+| 5. Source Mgmt | 5.1 | Left Sidebar Status | `outlined` | 2026-07-25 |
+| 6. Citations | 6.1 | Preview Panel (highlight) | `built` | 2026-07-25 |
+| 7. Notebook CRUD | 7.1 | Dashboard Create/Delete | `outlined` | 2026-07-25 |
+| 8. Multi-Source | 8.1 | Power User Workspace | `outlined` | 2026-07-25 |
+| 9. Dev Inspection | 9.1 | End-to-End Tour | `outlined` | 2026-07-25 |
 
 ---
 
@@ -64,6 +69,13 @@
 
 ### 2026-07-25 — Phase 5: Agentic Development Finalized
 - Full application built: Next.js 14 App Router, Clerk Authentication middleware, Qdrant client, parsers (PDF, YouTube, Web, Text, VTT), 500t/50t chunker, streaming RAG synthesis API, Dashboard, 3-column Workspace, and Landing Page with interactive live mini-demo.
+
+### 2026-07-25 — Milestone 2: UX Scenarios + UI Fixes + Citation Feature
+- **WDS-3 Scenarios:** 5 new scenario outlines added (05–09): Source Management, Citation Verification, Notebook CRUD, Multi-Source Session, Developer Inspection.
+- **UI Fix 1:** Fixed `--glass-border` dark mode value (was pure white `100%` → now dark slate `22%`). Removed global `* { border-border }` base rule causing white borders on all elements.
+- **UI Fix 2:** Added Clerk user avatar next to user messages in chat (falls back to User icon if no imageUrl).
+- **UI Fix 3:** Created `(workspace)` route group with dedicated `WorkspaceHeader` (logo + ← Dashboard + UserButton) — marketing nav no longer appears on `/notebook/*` pages.
+- **Citation Feature:** Extended `chunkIndex` + `totalChunks` through chunker → Qdrant payload → RAG query response → Citation interface → Preview Panel. Panel now shows full document viewer with cited passage highlighted using gradient left-border accent block and contextual surrounding text.
 
 ---
 

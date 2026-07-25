@@ -2,25 +2,13 @@
   {
     "notebookId": "nb_1784994632076_llcuq",
     "userId": "user_3H0AT4tFC7AWBn9W0dY8F6pRwuV",
-    "title": "dummy-pdf_2.pdf",
+    "title": "Mind Over Mood, Second Edition -- Dennis Greenberger PhD & Christine A_ Padesky PhD -- 2015 -- The Guilford Press -- b5e8447dc7f95825f04acb411e5da85e -- Anna’s Archive.pdf",
     "type": "pdf",
-    "urlOrPath": "dummy-pdf_2.pdf",
-    "sizeBytes": 7478,
+    "urlOrPath": "Mind Over Mood, Second Edition -- Dennis Greenberger PhD & Christine A_ Padesky PhD -- 2015 -- The Guilford Press -- b5e8447dc7f95825f04acb411e5da85e -- Anna’s Archive.pdf",
+    "sizeBytes": 1627981,
     "status": "ready",
-    "contentSnippet": "%PDF-1.4\r%����\r\n15 0 obj\r<</Linearized 1/L 7478/O 17/E 2161/N 1/T 7131/H [ 476 165]>>\rendobj\r                     \r\nxref\r\n15 9\r\n0000000016 00000 n\r\n0000000807 00000 n\r\n0000001080 00000 n\r\n0000001292 00000 n\r\n0000001479 00000 n\r\n0000001841 00000 n\r\n0000002084 00000 n\r\n0000000641 00000 n\r\n0000000476 0",
-    "id": "src_1785000777928_f14x6",
-    "createdAt": "2026-07-25T17:32:57.928Z"
-  },
-  {
-    "notebookId": "nb_1784994632076_llcuq",
-    "userId": "user_3H0AT4tFC7AWBn9W0dY8F6pRwuV",
-    "title": "Uploaded Source",
-    "type": "text",
-    "urlOrPath": "text_input",
-    "sizeBytes": 4005,
-    "status": "ready",
-    "contentSnippet": "You have hit on a classic architectural dilemma in production RAG systems! You are absolutely right: **if you need to strictly verify the final output against a schema, check for hallucinations, or run policy filters, you generally need to wait for the entire response to generate, which breaks real-",
-    "id": "src_1785000875791_31y8s",
-    "createdAt": "2026-07-25T17:34:35.791Z"
+    "contentSnippet": "%PDF-1.4\n%����\n1 0 obj<</Author(��\u0000D\u0000e\u0000n\u0000n\u0000i\u0000s\u0000 \u0000G\u0000r\u0000e\u0000e\u0000n\u0000b\u0000e\u0000r\u0000g\u0000e\u0000r\u0000 \u0000P\u0000h\u0000D\u0000 \u0000&\u0000 \u0000C\u0000h\u0000r\u0000i\u0000s\u0000t\u0000i\u0000n\u0000e\u0000 \u0000A\u0000.\u0000 \u0000P\u0000a\u0000d\u0000e\u0000s\u0000k\u0000y\u0000 \u0000P\u0000h\u0000D)/CreationDate(D:20220506202410+00'00')/Creator(��\u0000c\u0000a\u0000l\u0000i\u0000b\u0000r\u0000e\u0000 \u0000\\(\u00002\u0000.\u00005\u00004\u0000.\u00000\u0000\\)\u0000 \u0000[\u0000h\u0000t\u0000t\u0000p\u0000:\u0000/\u0000/\u0000c\u0000a\u0000l\u0000i\u0000b\u0000r\u0000e\u0000-\u0000e\u0000b\u0000o\u0000o\u0000k\u0000.\u0000c\u0000o\u0000m\u0000])/ModDate(D:20220507012410+05'",
+    "id": "src_1785003670699_vhg7z",
+    "createdAt": "2026-07-25T18:21:10.699Z"
   }
 ]

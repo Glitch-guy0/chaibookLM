@@ -129,6 +129,8 @@ export async function POST(req: NextRequest) {
               sourceType,
               pageNumber: chunk.metadata.pageNumber,
               timestampStart: chunk.metadata.timestampStart,
+              chunkIndex: chunk.chunkIndex,
+              totalChunks: chunk.metadata.totalChunks,
             },
           });
         }
