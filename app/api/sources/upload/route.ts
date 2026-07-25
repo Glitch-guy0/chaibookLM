@@ -6,8 +6,13 @@ import { generateEmbedding } from "@/lib/rag/embeddings";
 import { qdrantClient, ensureCollection } from "@/lib/rag/qdrant";
 
 export async function POST(req: NextRequest) {
+  const startTime = Date.now();
+  console.log("\n[Upload] ========== NEW UPLOAD START ==========");
+  
   try {
     const { userId } = await getAuthUser();
+    console.log(`[Upload] Authenticated user: ${userId}`);
+
     const formData = await req.formData();
 
     const notebookId = formData.get("notebookId") as string;
@@ -17,7 +22,12 @@ export async function POST(req: NextRequest) {
     const url = formData.get("url") as string | null;
     const textContent = formData.get("textContent") as string | null;
 
+    console.log(`[Upload] Notebook: ${notebookId}`);
+    console.log(`[Upload] Source type: ${sourceType}`);
+    console.log(`[Upload] Title: ${title}`);
+
     if (!notebookId) {
+      console.error("[Upload] ERROR: Missing notebook ID");
       return NextResponse.json({ error: "Notebook ID required" }, { status: 400 });
     }
 
@@ -30,7 +40,9 @@ export async function POST(req: NextRequest) {
 
     if (file) {
       fileSize = file.size;
+      console.log(`[Upload] File: ${file.name} (${(fileSize / 1024).toFixed(1)}KB)`);
       if (fileSize > 5 * 1024 * 1024) {
+        console.error("[Upload] ERROR: File exceeds 5MB limit");
         return NextResponse.json(
           { error: "File exceeds maximum size limit of 5MB" },
           { status: 400 }
@@ -39,15 +51,22 @@ export async function POST(req: NextRequest) {
       rawText = await file.text();
     } else if (url) {
       fileSize = 100 * 1024; // ~100KB virtual size for URLs
+      console.log(`[Upload] URL: ${url}`);
       rawText = `Contents from URL (${url}): Extracted Web / YouTube information.`;
     } else if (textContent) {
       fileSize = new Blob([textContent]).size;
+      console.log(`[Upload] Text content: ${textContent.length} chars`);
       rawText = textContent;
     } else {
+      console.error("[Upload] ERROR: No source content provided");
       return NextResponse.json({ error: "No source content provided" }, { status: 400 });
     }
 
+    console.log(`[Upload] Current notebook size: ${(currentTotalSize / 1024).toFixed(1)}KB`);
+    console.log(`[Upload] New content size: ${(fileSize / 1024).toFixed(1)}KB`);
+
     if (currentTotalSize + fileSize > 50 * 1024 * 1024) {
+      console.error("[Upload] ERROR: Notebook capacity limit exceeded");
       return NextResponse.json(
         { error: "Notebook capacity limit exceeded (max 50MB per notebook)" },
         { status: 400 }
@@ -66,21 +85,41 @@ export async function POST(req: NextRequest) {
       contentSnippet: rawText.substring(0, 300),
     });
 
+    console.log(`[Upload] Source record created: ${sourceRecord.id}`);
+
     // 2. Async background chunking & vector embedding
     (async () => {
+      const indexStartTime = Date.now();
+      console.log(`[Upload] Starting background indexing for source: ${sourceRecord.id}`);
+      
       try {
         const collectionName = `coll_${notebookId}`;
+        console.log(`[Upload] Ensuring Qdrant collection: ${collectionName}`);
         await ensureCollection(collectionName);
 
         const chunks = chunkText(rawText, title, sourceType);
+        console.log(`[Upload] Text chunked into ${chunks.length} pieces`);
+        
         const points = [];
+        let successCount = 0;
+        let fallbackCount = 0;
 
         for (let i = 0; i < chunks.length; i++) {
           const chunk = chunks[i];
-          const vector = await generateEmbedding(chunk.text);
+          console.log(`[Upload] Embedding chunk ${i + 1}/${chunks.length} (${chunk.text.length} chars)`);
+          
+          const embeddingResult = await generateEmbedding(chunk.text);
+          
+          if (embeddingResult.status === "success") {
+            successCount++;
+          } else {
+            fallbackCount++;
+            console.warn(`[Upload] Chunk ${i + 1} used fallback: ${embeddingResult.error}`);
+          }
+          
           points.push({
             id: i + 1,
-            vector,
+            vector: embeddingResult.vector,
             payload: {
               sourceId: sourceRecord.id,
               userId,
@@ -94,19 +133,34 @@ export async function POST(req: NextRequest) {
           });
         }
 
+        console.log(`[Upload] Embedding complete: ${successCount} success, ${fallbackCount} fallback`);
+
         if (points.length > 0) {
+          console.log(`[Upload] Upserting ${points.length} vectors to Qdrant...`);
           await qdrantClient.upsert(collectionName, { points });
+          console.log("[Upload] Qdrant upsert complete");
         }
 
         updateSourceStatus(sourceRecord.id, "ready");
+        const duration = Date.now() - indexStartTime;
+        console.log(`[Upload] Indexing completed in ${duration}ms`);
+        console.log("[Upload] ========== INDEXING END ==========\n");
       } catch (err) {
-        console.error("Background indexing error:", err);
+        const duration = Date.now() - indexStartTime;
+        console.error(`[Upload] Background indexing FAILED after ${duration}ms:`, err);
+        console.warn("[Upload] Marking source as 'ready' to allow query testing");
         updateSourceStatus(sourceRecord.id, "ready"); // Mark ready to allow query testing
       }
     })();
 
+    const duration = Date.now() - startTime;
+    console.log(`[Upload] Upload handler completed in ${duration}ms`);
+    
     return NextResponse.json({ source: sourceRecord });
   } catch (error: any) {
+    const duration = Date.now() - startTime;
+    console.error(`[Upload] FATAL ERROR after ${duration}ms:`, error);
+    console.error("[Upload] ========== UPLOAD FAILED ==========\n");
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

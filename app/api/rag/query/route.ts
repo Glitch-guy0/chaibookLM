@@ -9,12 +9,21 @@ import {
 } from "@/lib/rag/synthesis";
 
 export async function POST(req: NextRequest) {
+  const startTime = Date.now();
+  console.log("\n[RAG Query] ========== NEW QUERY START ==========");
+  
   try {
     const { userId } = await getAuthUser();
+    console.log(`[RAG Query] Authenticated user: ${userId}`);
+
     const body = await req.json();
     const { notebookId, question } = body;
 
+    console.log(`[RAG Query] Notebook ID: ${notebookId}`);
+    console.log(`[RAG Query] Question: "${question?.substring(0, 100)}${question?.length > 100 ? "..." : ""}"`);
+
     if (!notebookId || !question) {
+      console.error("[RAG Query] ERROR: Missing required fields");
       return NextResponse.json(
         { error: "Notebook ID and question required" },
         { status: 400 }
@@ -22,16 +31,44 @@ export async function POST(req: NextRequest) {
     }
 
     const sources = getSources(notebookId, userId);
+    console.log(`[RAG Query] Found ${sources.length} sources in notebook`);
+
     let retrievedChunks: RetrievedChunk[] = [];
+    let embeddingStatus: string = "not_attempted";
 
     if (sources.length > 0) {
       const collectionName = `coll_${notebookId}`;
+      console.log(`[RAG Query] Using Qdrant collection: ${collectionName}`);
+      
       try {
-        const queryVector = await generateEmbedding(question);
+        console.log("[RAG Query] Generating embedding for question...");
+        const embeddingResult = await generateEmbedding(question);
+        
+        embeddingStatus = embeddingResult.status;
+        console.log(`[RAG Query] Embedding status: ${embeddingResult.status}`);
+        
+        if (embeddingResult.status !== "success") {
+          console.warn(`[RAG Query] WARNING: Embedding fallback triggered - ${embeddingResult.error}`);
+        }
+        
+        if (embeddingResult.model) {
+          console.log(`[RAG Query] Embedding model: ${embeddingResult.model}, dimensions: ${embeddingResult.dimensions}`);
+        }
+
+        console.log("[RAG Query] Searching Qdrant for similar vectors...");
         const searchResults = await qdrantClient.search(collectionName, {
-          vector: queryVector,
+          vector: embeddingResult.vector,
           limit: 5,
         });
+
+        console.log(`[RAG Query] Qdrant returned ${searchResults.length} results`);
+        
+        if (searchResults.length > 0) {
+          console.log("[RAG Query] Top scores:");
+          searchResults.slice(0, 3).forEach((hit, i) => {
+            console.log(`  ${i + 1}. score: ${hit.score.toFixed(4)}, source: ${hit.payload?.sourceTitle}`);
+          });
+        }
 
         retrievedChunks = searchResults.map((hit) => ({
           score: hit.score,
@@ -43,12 +80,14 @@ export async function POST(req: NextRequest) {
           timestampStart: (hit.payload?.timestampStart as number) || 0,
         }));
       } catch (err) {
-        console.error("Vector search fallback to local sources:", err);
+        console.error("[RAG Query] Vector search failed:", err);
+        console.warn("[RAG Query] Falling back to local sources...");
       }
     }
 
     // Fallback if Qdrant search returned 0 or wasn't populated yet
     if (retrievedChunks.length === 0 && sources.length > 0) {
+      console.log("[RAG Query] Using fallback: source metadata snippets");
       retrievedChunks = sources.map((s, idx) => ({
         score: 0.95 - idx * 0.05,
         text:
@@ -62,20 +101,31 @@ export async function POST(req: NextRequest) {
       }));
     }
 
+    console.log(`[RAG Query] Final context: ${retrievedChunks.length} chunks`);
+    console.log(`[RAG Query] Embedding status: ${embeddingStatus}`);
+
     const stream = await createGroundedCompletionStream(
       question,
       retrievedChunks
     );
+
+    const duration = Date.now() - startTime;
+    console.log(`[RAG Query] Query completed in ${duration}ms`);
+    console.log("[RAG Query] ========== QUERY END ==========\n");
 
     return new Response(stream, {
       headers: {
         "Content-Type": "text/event-stream; charset=utf-8",
         "Cache-Control": "no-cache",
         Connection: "keep-alive",
-        "X-Citations-Json": JSON.stringify(retrievedChunks),
+        "X-Citations-Json": encodeURIComponent(JSON.stringify(retrievedChunks)),
+        "X-Embedding-Status": embeddingStatus,
       },
     });
   } catch (error: any) {
+    const duration = Date.now() - startTime;
+    console.error(`[RAG Query] FATAL ERROR after ${duration}ms:`, error);
+    console.error("[RAG Query] ========== QUERY FAILED ==========\n");
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

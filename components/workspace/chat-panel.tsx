@@ -78,8 +78,12 @@ export function ChatPanel({
       let parsedCitations: Citation[] = [];
       if (citationsHeader) {
         try {
-          parsedCitations = JSON.parse(citationsHeader);
-        } catch {}
+          parsedCitations = JSON.parse(decodeURIComponent(citationsHeader));
+        } catch {
+          try {
+            parsedCitations = JSON.parse(citationsHeader);
+          } catch {}
+        }
       }
 
       const reader = res.body?.getReader();
