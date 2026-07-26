@@ -25,7 +25,7 @@ The one recurring motif: a **thin animated gradient border** (`gradient-signatur
 │   Upload a PDF, paste a link, drop a transcript —   │
 │   ask it anything.                                  │
 │                                                      │
-│   [ Try it free → ]   [ Watch 60s demo ]            │
+│   [ Try it free → ]                                  │
 │                                                      │
 │   ┌──────────────────────────────────┐              │
 │   │  live interactive demo (see below) │  ← signature│

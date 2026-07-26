@@ -49,12 +49,6 @@ export default function LandingPage() {
             >
               Try it free <ArrowRight className="w-4 h-4" />
             </Link>
-            <a
-              href="#demo"
-              className="px-6 py-3.5 rounded-xl glass border border-border text-text font-medium text-body hover:bg-surface transition-all"
-            >
-              Watch 60s demo
-            </a>
           </div>
 
           {/* Signature Interactive Mini-Demo Card */}
