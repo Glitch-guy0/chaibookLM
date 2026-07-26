@@ -5,6 +5,7 @@ import { chunkText } from "@/lib/rag/chunker";
 import { generateEmbedding } from "@/lib/rag/embeddings";
 import { qdrantClient, ensureCollection } from "@/lib/rag/qdrant";
 import { parsePdfWithDocling } from "@/lib/rag/docling";
+import { uploadFileToStorage } from "@/lib/supabase/storage";
 
 export async function POST(req: NextRequest) {
   const startTime = Date.now();
@@ -40,6 +41,7 @@ export async function POST(req: NextRequest) {
     let rawText = "";
     let pdfBuffer: Buffer | null = null;
     let isPdf = false;
+    let storedFileUrl: string | null = null;
 
     if (file) {
       fileSize = file.size;
@@ -57,18 +59,36 @@ export async function POST(req: NextRequest) {
         file.name.toLowerCase().endsWith(".pdf") ||
         file.type.includes("pdf");
 
+      const arrayBuffer = await file.arrayBuffer();
+      const fileBuffer = Buffer.from(arrayBuffer);
+
       if (isPdf) {
-        console.log(`[Upload] PDF file received. Preparing buffer for background Docling conversion...`);
-        const arrayBuffer = await file.arrayBuffer();
-        pdfBuffer = Buffer.from(arrayBuffer);
+        console.log(`[Upload] PDF file received. Uploading to Supabase Storage...`);
+        pdfBuffer = fileBuffer;
         rawText = `PDF Document: ${file.name}`;
       } else {
-        rawText = await file.text();
+        rawText = fileBuffer.toString("utf-8");
+      }
+
+      // Upload all file types to Supabase Storage
+      try {
+        storedFileUrl = await uploadFileToStorage(
+          fileBuffer,
+          file.name,
+          userId,
+          notebookId,
+          file.type || "application/octet-stream"
+        );
+        console.log(`[Upload] File stored in Supabase Storage: ${storedFileUrl}`);
+      } catch (storageErr: any) {
+        console.error("[Upload] Supabase Storage upload failed:", storageErr.message);
+        // Non-fatal: we still process in-memory
       }
     } else if (url) {
       fileSize = 100 * 1024; // ~100KB virtual size for URLs
       console.log(`[Upload] URL: ${url}`);
       rawText = `Contents from URL (${url}): Extracted Web / YouTube information.`;
+      storedFileUrl = url;
     } else if (textContent) {
       fileSize = new Blob([textContent]).size;
       console.log(`[Upload] Text content: ${textContent.length} chars`);
@@ -95,7 +115,8 @@ export async function POST(req: NextRequest) {
       userId,
       title,
       type: sourceType,
-      urlOrPath: url || file?.name || "text_input",
+      // Store Supabase Storage URL or original URL/filename
+      urlOrPath: storedFileUrl || url || file?.name || "text_input",
       sizeBytes: fileSize,
       status: "indexing",
       contentSnippet: rawText.substring(0, 300),
@@ -152,6 +173,8 @@ export async function POST(req: NextRequest) {
               text: chunk.text,
               sourceTitle: title,
               sourceType,
+              // Include the Supabase Storage URL in every chunk for provenance
+              storageUrl: storedFileUrl || null,
               pageNumber: chunk.metadata.pageNumber,
               timestampStart: chunk.metadata.timestampStart,
               chunkIndex: chunk.chunkIndex,
@@ -185,7 +208,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({
       source: sourceRecord,
       message: isPdf
-        ? "PDF uploaded successfully. Docling parsing & vector indexing started in background."
+        ? "PDF uploaded to Supabase Storage. Docling parsing & vector indexing started in background."
         : "Source uploaded successfully. Vector indexing started in background.",
     });
   } catch (error: any) {
