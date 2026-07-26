@@ -34,7 +34,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Check Notebook capacity limits (5MB file cap, 50MB notebook total cap)
-    const existingSources = getSources(notebookId, userId);
+    const existingSources = await getSources(notebookId, userId);
     const currentTotalSize = existingSources.reduce((sum, s) => sum + s.sizeBytes, 0);
 
     let fileSize = 0;
@@ -110,7 +110,7 @@ export async function POST(req: NextRequest) {
     }
 
     // 1. Save source metadata record immediately in status: "indexing"
-    const sourceRecord = addSource({
+    const sourceRecord = await addSource({
       notebookId,
       userId,
       title,

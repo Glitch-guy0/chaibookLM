@@ -30,7 +30,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const sources = getSources(notebookId, userId);
+    const sources = await getSources(notebookId, userId);
     console.log(`[RAG Query] Found ${sources.length} sources in notebook`);
 
     let retrievedChunks: RetrievedChunk[] = [];

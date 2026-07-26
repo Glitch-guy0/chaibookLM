@@ -12,7 +12,7 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ error: "Notebook ID required" }, { status: 400 });
     }
 
-    const sources = getSources(notebookId, userId);
+    const sources = await getSources(notebookId, userId);
     return NextResponse.json({ sources });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 401 });
@@ -29,7 +29,7 @@ export async function DELETE(req: NextRequest) {
       return NextResponse.json({ error: "Source ID required" }, { status: 400 });
     }
 
-    const success = deleteSource(id, userId);
+    const success = await deleteSource(id, userId);
     return NextResponse.json({ success });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 400 });

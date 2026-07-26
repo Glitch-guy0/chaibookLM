@@ -5,7 +5,7 @@ import { getNotebooks, createNotebook, deleteNotebook } from "@/lib/db";
 export async function GET(req: NextRequest) {
   try {
     const { userId } = await getAuthUser();
-    const notebooks = getNotebooks(userId);
+    const notebooks = await getNotebooks(userId);
     return NextResponse.json({ notebooks });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 401 });
@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
     const { userId } = await getAuthUser();
     const body = await req.json();
     const title = body.title || "Untitled Notebook";
-    const notebook = createNotebook(userId, title);
+    const notebook = await createNotebook(userId, title);
     return NextResponse.json({ notebook });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 400 });
@@ -32,7 +32,7 @@ export async function DELETE(req: NextRequest) {
     if (!id) {
       return NextResponse.json({ error: "Notebook ID required" }, { status: 400 });
     }
-    const success = deleteNotebook(id, userId);
+    const success = await deleteNotebook(id, userId);
     return NextResponse.json({ success });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 400 });
