@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import {
   FileText,
   Youtube,
@@ -27,6 +28,7 @@ export function AddSourceModal({
   onClose,
   onAdded,
 }: AddSourceModalProps) {
+  const [mounted, setMounted] = useState(false);
   const [selectedType, setSelectedType] = useState<SourceType>(null);
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
@@ -35,7 +37,23 @@ export function AddSourceModal({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  if (!isOpen) return null;
+  // Client-side hydration check for Portal rendering
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Lock body scroll when modal is active
+  useEffect(() => {
+    if (isOpen) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }
+  }, [isOpen]);
+
+  if (!isOpen || !mounted) return null;
 
   const handleReset = () => {
     setSelectedType(null);
@@ -93,12 +111,21 @@ export function AddSourceModal({
     }
   };
 
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-up">
-      <div className="w-full max-w-xl glass rounded-2xl border border-border/40 p-6 shadow-2xl relative">
+  return createPortal(
+    <div
+      className="fixed inset-0 z-[1000] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-up"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) {
+          handleClose();
+        }
+      }}
+    >
+      <div className="w-full max-w-xl max-h-[90vh] overflow-y-auto glass rounded-2xl border border-border/40 p-6 shadow-2xl relative">
         <button
+          type="button"
           onClick={handleClose}
-          className="absolute top-4 right-4 p-1.5 rounded-lg text-text-muted hover:text-text hover:bg-surface transition-colors"
+          className="absolute top-4 right-4 p-1.5 rounded-lg text-text-muted hover:text-text hover:bg-surface transition-colors cursor-pointer"
+          aria-label="Close modal"
         >
           <X className="w-4 h-4" />
         </button>
@@ -119,8 +146,9 @@ export function AddSourceModal({
         {!selectedType ? (
           <div className="grid grid-cols-2 gap-4">
             <button
+              type="button"
               onClick={() => setSelectedType("pdf")}
-              className="group p-5 bg-surface border border-border hover:border-primary/80 rounded-xl flex flex-col items-start gap-3 transition-all hover:-translate-y-0.5 text-left"
+              className="group p-5 bg-surface border border-border hover:border-primary/80 rounded-xl flex flex-col items-start gap-3 transition-all hover:-translate-y-0.5 text-left cursor-pointer"
             >
               <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center group-hover:scale-110 transition-transform">
                 <FileText className="w-5 h-5" />
@@ -132,8 +160,9 @@ export function AddSourceModal({
             </button>
 
             <button
+              type="button"
               onClick={() => setSelectedType("youtube")}
-              className="group p-5 bg-surface border border-border hover:border-primary/80 rounded-xl flex flex-col items-start gap-3 transition-all hover:-translate-y-0.5 text-left"
+              className="group p-5 bg-surface border border-border hover:border-primary/80 rounded-xl flex flex-col items-start gap-3 transition-all hover:-translate-y-0.5 text-left cursor-pointer"
             >
               <div className="w-10 h-10 rounded-lg bg-error/10 text-error flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Youtube className="w-5 h-5" />
@@ -145,8 +174,9 @@ export function AddSourceModal({
             </button>
 
             <button
+              type="button"
               onClick={() => setSelectedType("text")}
-              className="group p-5 bg-surface border border-border hover:border-primary/80 rounded-xl flex flex-col items-start gap-3 transition-all hover:-translate-y-0.5 text-left"
+              className="group p-5 bg-surface border border-border hover:border-primary/80 rounded-xl flex flex-col items-start gap-3 transition-all hover:-translate-y-0.5 text-left cursor-pointer"
             >
               <div className="w-10 h-10 rounded-lg bg-secondary/10 text-secondary flex items-center justify-center group-hover:scale-110 transition-transform">
                 <AlignLeft className="w-5 h-5" />
@@ -158,8 +188,9 @@ export function AddSourceModal({
             </button>
 
             <button
+              type="button"
               onClick={() => setSelectedType("vtt")}
-              className="group p-5 bg-surface border border-border hover:border-primary/80 rounded-xl flex flex-col items-start gap-3 transition-all hover:-translate-y-0.5 text-left"
+              className="group p-5 bg-surface border border-border hover:border-primary/80 rounded-xl flex flex-col items-start gap-3 transition-all hover:-translate-y-0.5 text-left cursor-pointer"
             >
               <div className="w-10 h-10 rounded-lg bg-accent/10 text-accent flex items-center justify-center group-hover:scale-110 transition-transform">
                 <FileCode className="w-5 h-5" />
@@ -171,8 +202,9 @@ export function AddSourceModal({
             </button>
 
             <button
+              type="button"
               onClick={() => setSelectedType("web")}
-              className="group col-span-2 p-5 bg-surface border border-border hover:border-primary/80 rounded-xl flex items-center gap-4 transition-all hover:-translate-y-0.5 text-left"
+              className="group col-span-2 p-5 bg-surface border border-border hover:border-primary/80 rounded-xl flex items-center gap-4 transition-all hover:-translate-y-0.5 text-left cursor-pointer"
             >
               <div className="w-10 h-10 rounded-lg bg-success/10 text-success flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                 <Globe className="w-5 h-5" />
@@ -192,7 +224,7 @@ export function AddSourceModal({
               <button
                 type="button"
                 onClick={() => setSelectedType(null)}
-                className="text-mono-sm text-text-muted hover:text-text underline"
+                className="text-mono-sm text-text-muted hover:text-text underline cursor-pointer"
               >
                 Change type
               </button>
@@ -265,14 +297,14 @@ export function AddSourceModal({
               <button
                 type="button"
                 onClick={handleClose}
-                className="px-4 py-2 rounded-lg text-text-muted hover:text-text text-body-sm font-medium"
+                className="px-4 py-2 rounded-lg text-text-muted hover:text-text text-body-sm font-medium cursor-pointer"
               >
                 Cancel
               </button>
               <button
                 type="submit"
                 disabled={loading}
-                className="px-5 py-2 rounded-lg bg-primary text-text font-medium text-body-sm hover:brightness-110 active:scale-95 transition-all shadow-glow disabled:opacity-50 flex items-center gap-2"
+                className="px-5 py-2 rounded-lg bg-primary text-text font-medium text-body-sm hover:brightness-110 active:scale-95 transition-all shadow-glow disabled:opacity-50 flex items-center gap-2 cursor-pointer"
               >
                 {loading ? (
                   <Loader2 className="w-4 h-4 animate-spin" />
@@ -285,6 +317,7 @@ export function AddSourceModal({
           </form>
         )}
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
