@@ -232,6 +232,8 @@ Elevation is **hard, not ambient**. Depth comes exclusively from solid offset sh
 
 Interaction follows the metaphor: a slanted button on hover deepens its lean slightly (to `skewX(-10deg)`) with the shadow stretched further up-right — the object visibly lifts. On press, the offset collapses to `0` and the lean returns — the object is *pushed down into the surface*. Tonal layering (cream → white) adds a second, quieter depth axis: elevated panels are white on cream. **Motion (landing-page scroll-in, hover lifts) always honors `prefers-reduced-motion`: scroll-based animations degrade to static reveals, hover lifts become a border/underline change.**
 
+**Indexing state — the shadow becomes the loader.** While a Source is `queued → processing`, the Source card body stays completely static, but its offset ink shadow animates as a **rotating activity indicator**: the shadow block orbits the card (full 360° spin around the card's center, at a wider orbit radius than the resting `3px`) — the card never moves, only the shadow. On `ready`, the shadow snaps back to its normal `3px 3px 0 0` offset and the card **glows green** (`{colors.success}`) for **1 second**, then fades back to normal. This glow is the *only* sanctioned glow in the system — it is completion feedback, never ambient depth. Under `prefers-reduced-motion` the rotation is skipped (the shadow holds still at its loading offset) and the completion pulse is a flat color change that does not animate; the status dot + label still carry the state for non-visual users.
+
 **Focus is a rule, not a shadow.** The focus indicator is a `3px` ring in `{colors.focus-ring}` with a `2px` offset in `{colors.surface}`, applied via `:focus-visible` only — never the lift/press shadow, never a glow. On ink and brand fills, the ring **inverts** to `{colors.surface}` (and to `{colors.surface-dark}` in dark mode) so it never vanishes into its own background. Focus must stay legible independently of hover and press states.
 
 ## Shapes
@@ -244,7 +246,7 @@ Neo-brutalism means **hard corners by default**: `{rounded.DEFAULT}` = `0`, used
 - **Secondary button** — white fill, ink text, `2px` ink border, slanted with a `4px -4px` more-slanted shadow. For less-committed actions (cancel, inspect). The **add-source trigger** is a `button-secondary` — no bespoke trigger style.
 - **Danger button** — `{colors.error}` fill, white text, slanted like the primary. Reserved for destructive confirmations (delete notebook, remove sources).
 - **Citation chip** — the product's signature: `{colors.cite}` fill, white Space Mono text, `1px` ink border, `2px` radius, small, **not slanted**. Rendered inline at the end of the answer sentence it supports. Clicking opens the Showcase section on the cited source; hover reveals the source title. Never decorative, never "prettified" into a superscript footnote.
-- **Source card** — white, `2px` ink border, `3px` offset shadow, **not slanted**. Shows icon, title, type + size, added time, and a status dot that carries the ingestion state's color. Status text is always present, never color-only.
+- **Source card** — white, `2px` ink border, `3px` offset shadow, **not slanted**. Shows icon, title, type + size, added time, and a status dot that carries the ingestion state's color. Status text is always present, never color-only. While a Source is indexing, the card's offset shadow animates as a shadow-only rotating activity indicator; on `ready` the card glows green for 1 second then fades (Elevation & Depth).
 - **User message** — `{colors.accent-yellow}` contained block, ink text, `2px` ink border, hard corners, right-aligned. The reader's voice is a contained chip; the system's is open. Dark mode: `{colors.accent-yellow-dark}` fill with **dark** ink text so the pair stays legible.
 - **Assistant message** — open, unbordered document-style text on the canvas — "you're reading a document that responds to you." Citations appear inline. No bubble, no avatar, no reply glow.
 - **Composer** — white, `2px` ink border, bottom of the Chat section. Focus = `2px` brand border + visible hard focus ring; Enter sends, Shift+Enter newline.
@@ -261,6 +263,7 @@ Neo-brutalism means **hard corners by default**: `{rounded.DEFAULT}` = `0`, used
 | `{colors.cite}` only for citations and links | Using blue for chrome, states, or hover affordances |
 | Hard corners everywhere; `2px` only on tiny chips; full-radius only on dots | Pills, large soft radii, rounded cards |
 | Buttons slanted right with a more-slanted, up-right shadow (light from bottom-left) | Slanted cards, slanted dialogs, orthogonal button shadows |
+| Indexing = shadow-only spinning loader (card body static); ready = 1s green glow, then normal | Spinning the card body, moving the button, or persistent glows |
 | Assistants as open text, users as contained chips | Chat bubbles, avatars, typing-dot drama |
 | Color + text label for every state | State communicated by color alone |
 | `3px` focus ring + `2px` offset, inverted on ink/brand fills, `:focus-visible` only | Glow, shadow-based focus, or focus that vanishes on dark fills |

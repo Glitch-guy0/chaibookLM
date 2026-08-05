@@ -14,7 +14,8 @@
    DESIGN.md Layout & Spacing: tabbed workspace (Sources | Chat | Showcase), no rail,
      max-w-2xl reading width, 24px gutter, 20px panel-pad
    DESIGN.md Elevation & Depth: slanted buttons (skewX -6deg) with more-slanted up-right shadow
-     (light from bottom-left); hard offset shadows elsewhere; hover lift / press
+     (light from bottom-left); hard offset shadows elsewhere; hover lift / press;
+     indexing = shadow-only rotating loader (card static) + 1s green ready-glow
    DESIGN.md Focus: 3px ring + 2px offset, inverted on ink/brand fills, :focus-visible only
    DESIGN.md Dark mode: class strategy (body.dark), same AA floor
    EXPERIENCE.md State Patterns: ingestion (ready / processing), cookie consent banner
@@ -98,6 +99,8 @@ body.dark :focus-visible{ outline-color:var(--ink); }
 
 @media (prefers-reduced-motion: reduce){
   *{ transition:none !important; }
+  .source-card[data-state="processing"]::after{ animation:none; }
+  .source-card[data-state="ready-glow"]{ animation:none; }
 }
 
 /* ---- App shell ---- */
@@ -236,6 +239,7 @@ body.dark .btn-danger{ color:var(--ink); }
 .source-list{ display:flex; flex-direction:column; gap:16px; }
 
 .source-card{
+  position:relative;
   background:var(--surface-elevated);
   border:2px solid var(--border);
   box-shadow:3px 3px 0 0 var(--ink);
@@ -243,6 +247,31 @@ body.dark .btn-danger{ color:var(--ink); }
   display:flex;
   flex-direction:column;
   gap:12px;
+}
+
+/* Indexing: the shadow becomes a rotating activity indicator — card body stays static.
+   DESIGN.md Elevation & Depth — shadow-only loader, then a 1s green ready-glow. */
+.source-card[data-state="processing"]{ box-shadow:none; }
+.source-card[data-state="processing"]::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:var(--ink);
+  transform:rotate(0deg) translate(8px,8px);
+  animation:index-shadow-spin 1.1s linear infinite;
+}
+@keyframes index-shadow-spin{
+  from{ transform:rotate(0deg) translate(8px,8px); }
+  to{ transform:rotate(360deg) translate(8px,8px); }
+}
+.source-card[data-state="ready-glow"]{
+  animation:ready-glow 1s ease-out 1 forwards;
+}
+@keyframes ready-glow{
+  0%{ box-shadow:0 0 0 4px var(--success), 3px 3px 0 0 var(--ink); }
+  70%{ box-shadow:0 0 0 7px var(--success), 3px 3px 0 0 var(--ink); }
+  100%{ box-shadow:3px 3px 0 0 var(--ink); }
 }
 .card-top{ display:flex; gap:10px; align-items:flex-start; }
 .card-icon{
@@ -448,17 +477,18 @@ body.dark .btn-danger{ color:var(--ink); }
           </div>
           <span class="status status-ready" aria-live="polite"><span class="dot" aria-hidden="true"></span>Ready.</span>
         </article>
-        <article class="source-card" data-debug="source-card-2">
-          <div class="card-top">
-            <span class="card-icon" aria-hidden="true">W</span>
-            <div>
-              <h3 class="card-title">How Plants Drink</h3>
-              <p class="card-meta">Web · added 2 min ago</p>
-            </div>
+      <article class="source-card" data-state="ready-glow" data-debug="source-card-2">
+        <div class="card-top">
+          <span class="card-icon" aria-hidden="true">W</span>
+          <div>
+            <h3 class="card-title">How Plants Drink</h3>
+            <p class="card-meta">Web · added just now</p>
           </div>
-          <span class="status status-ready" aria-live="polite"><span class="dot" aria-hidden="true"></span>Ready.</span>
-        </article>
-        <article class="source-card" data-debug="source-card-3">
+        </div>
+        <span class="status status-ready" aria-live="polite"><span class="dot" aria-hidden="true"></span>Ready.</span>
+      </article>
+
+      <article class="source-card" data-state="processing" data-debug="source-card-3">
           <div class="card-top">
             <span class="card-icon" aria-hidden="true">W</span>
             <div>
