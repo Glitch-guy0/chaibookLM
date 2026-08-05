@@ -31,13 +31,13 @@ Why now: NotebookLM proved the market but stays heavy, Google-bound, and feature
   - **Entry state:** Signed in via Clerk. Opens the app on her laptop.
   - **Path:** Creates a notebook → pastes text from one article → adds a webpage URL as a second source → waits for indexing confirmation → types "What's the best way to avoid overwatering?" in chat.
   - **Climax:** The answer returns with two inline citations, one per source.
-  - **Resolution:** She clicks the webpage citation and sees the live original page in the right-hand showcase. She trusts the answer and continues asking.
+  - **Resolution:** She clicks the webpage citation and the Showcase tab opens the live original page. She trusts the answer and continues asking.
   - **Refusal turn:** If she asks something her sources don't cover, the answer says so and offers to fetch related web resources; on her approval they are fetched, indexed, and join the notebook.
 
 - **UJ-2. Sam curates his sources over time.**
   - **Persona + context:** Sam, a student who keeps returning to the same study notebook across sessions.
-  - **Entry state:** Signed in; has a notebook with multiple sources and chat history.
-  - **Path:** Switches between his notebooks → inspects a source's metadata → removes an outdated source (with confirmation) → asks a new question in chat.
+  - **Entry state:** Signed in; lands on his **notebook dashboard**, which lists his notebooks with their sources, age, and expiry.
+  - **Path:** Opens a notebook from the dashboard → inspects a source's metadata → removes an outdated source (with confirmation) → returns to the dashboard to bulk-delete a couple of stale notebooks → opens his study notebook again and asks a new question in chat.
   - **Climax:** The new answer cites only sources still in the notebook.
   - **Resolution:** He trusts the notebook reflects only his current sources and keeps working.
 
@@ -57,10 +57,12 @@ Why now: NotebookLM proved the market but stays heavy, Google-bound, and feature
 **Functional Requirements:**
 
 #### FR-1: Create and manage notebooks
-A signed-in user can create a notebook, rename it, switch between their notebooks, and delete one (with confirmation). Realizes UJ-1 and UJ-2.
+A signed-in user manages their notebooks from a **notebook dashboard**: create, rename, open, delete (with confirmation), and bulk-delete notebooks. Each user is capped at **10 notebooks**. A notebook **expires 1 week after creation** and is auto-deleted (cost-cutting measure). Realizes UJ-1 and UJ-2.
 **Consequences (testable):**
-- A user can create 2+ notebooks and switch between them without losing chat history or sources.
-- Deleting a notebook removes its sources and chat history after confirmation.
+- A user can create 2+ notebooks and open them without losing chat history or sources.
+- Deleting a notebook removes its sources and chat history after confirmation; bulk-delete removes multiple selected notebooks after a single confirmation.
+- A 10th notebook creation attempt is rejected with a pop-up warning showing the cap and current count.
+- A notebook created 7+ days ago shows its expiry date; an expired notebook is auto-deleted with its sources and chat, and the user is informed the next time they reach the dashboard.
 
 ### 4.2 Sources (Text & Web)
 **Description:** Users add Sources to the current notebook via two paths: pasting text into a textarea, or providing a webpage URL. Ingestion runs async with visible status (queued → processing → ready/failed).
@@ -121,7 +123,7 @@ If the notebook's Chunks cannot support an answer, the system says so plainly in
 #### FR-8: Open the original view from a citation
 Clicking a Citation opens the Original View of the referenced Source: the full pasted text for a Text Source; the live webpage for a Web Source. Realizes UJ-1.
 **Consequences (testable):**
-- A Citation on a Web Source opens the original URL in the right-hand showcase (in-app panel — see addendum Design anchors).
+- A Citation on a Web Source opens the original URL in the Showcase section (in-app tab — see addendum Design anchors).
 - A Citation on a Text Source opens the Source's full text with the cited passage highlighted via its recorded span/offset.
 
 ### 4.5 Auth & Persistence
@@ -141,6 +143,35 @@ A signed-in user's first run is guided by a library-driven product walkthrough i
 **Consequences (testable):**
 - The walkthrough appears on first run, is dismissible, and can be replayed.
 
+### 4.6 Landing, Consent & Platform
+
+**Description:** A public landing page presents the product and signs users in; the app follows European web standards for cookies and accessibility; and the service degrades honestly under load instead of erroring.
+
+#### FR-11: Public landing page
+A public (no-auth) landing page explains the product and links to sign-in. It uses smooth scrolling and scroll-based animations to tell the "grounded, verifiable" story. Realizes the brief's first-impression differentiator.
+**Consequences (testable):**
+- The landing page is reachable unauthenticated, renders on desktop and mobile (320px+), and honors Reduced Motion (animations degrade to static).
+- Smooth scroll and scroll-triggered animations run only when the user has not requested reduced motion.
+
+#### FR-12: Cookie consent and accessibility preferences
+The app follows European (GDPR-style) standards: before any cookies are stored, the user is shown a clear notification stating exactly what is being stored ("We are storing cookies related to X and Y") and must approve. Browser accessibility configuration (color scheme, reduced motion, high contrast) is honored automatically; manual overrides are available and persisted as cookies only after consent. Realizes the accessibility floor.
+**Consequences (testable):**
+- No non-essential cookie is written before explicit approval.
+- The consent notice lists each cookie category by name; the user can accept, decline, and revisit the choice.
+- `prefers-color-scheme`, `prefers-reduced-motion`, and forced-colors/high-contrast are detected from the browser; a manual theme/accessibility override persists via consented cookies.
+
+#### FR-13: Rate-limit rejection under load
+When the service is under load (spikes), requests are rejected with an honest "experiencing high load at this time — try again later" style message instead of failing silently or queueing unboundedly. Realizes cost posture and honest-degradation.
+**Consequences (testable):**
+- A rejected request returns a clear, human message and a retry affordance; the app never presents a broken/erroring state.
+- The rejection is scoped to AI/ingestion operations; already-indexed sources and browsing remain usable.
+
+#### FR-14: Dark mode
+All app and landing surfaces render in a dark theme that meets the same contrast floor as light mode. Dark mode defaults from the browser's `prefers-color-scheme` and is overridable (persisted via consented cookie). Realizes the accessibility floor and modern web-standard expectation.
+**Consequences (testable):**
+- Every surface (landing, dashboard, sources, chat, showcase, dialogs) renders in dark mode with AA contrast.
+- Switching theme does not lose state; the choice persists across sessions (with consent).
+
 ## 5. Non-Goals (Explicit)
 
 People who need these capabilities are non-users for v0.1 (and mostly for v1):
@@ -155,14 +186,18 @@ People who need these capabilities are non-users for v0.1 (and mostly for v1):
 
 ### 6.1 In Scope
 - Clerk sign-in; per-user data persistence (notebooks, Sources, Chunks, chat).
-- Multiple notebooks (create/rename/switch/delete).
+- Notebook dashboard as the only notebook-management surface (create/open/rename/delete, bulk-delete); **no persistent notebook rail** inside a notebook.
+- Multiple notebooks (up to **10 per user**); notebook auto-delete after **1 week** (cost-cutting).
 - Text Sources (textarea) and Web Sources (URL fetch + extraction).
 - Chunking + embedding with origin metadata; per-notebook retrieval.
 - Chat grounded in Sources with inline Citations, honest refusal, and approval-gated fetch-on-refusal (FR-7).
 - Citation → Original View (live page for Web; full text for Text).
 - Markdown rendering for Text Sources and chat messages (user and assistant).
-- Responsive web app, mobile-optimized (minimum supported viewport 320px).
-- Neo-brutalist, zero-noise design language applied to all surfaces. [ASSUMPTION: a lightweight design pass precedes or runs parallel to build]
+- Responsive web app, mobile-optimized (minimum supported viewport 320px). Inside a notebook, exactly **three sections — Sources | Chat | Showcase — switched via tabs on top**.
+- Neo-brutalist, zero-noise design language applied to all surfaces, with **dark mode** (FR-14) and a **Tailwind CSS** design stack. [ASSUMPTION: a lightweight design pass precedes or runs parallel to build]
+- Public **landing page** with smooth scroll + scroll-based animations (FR-11).
+- **Cookie consent** following European standards, with clear per-category cookie disclosure and accessibility-preference persistence (FR-12).
+- **Rate-limit rejection** under load with an honest "high load, try again later" message (FR-13).
 - Event instrumentation for SM-1/SM-2 telemetry (citation attach + click-through).
 - First-run product walkthrough (FR-10).
 - Structured application logging; no credit/rate limits in development.
@@ -170,7 +205,7 @@ People who need these capabilities are non-users for v0.1 (and mostly for v1):
 - Up to 30 Sources total per user.
 - 5 MB max per Source (applies to any Source type).
 - A Source that exceeds a limit (size or count) is rejected with a pop-up warning.
-- Per-user Source count and limits are stored server-side and configurable for future tiers.
+- Per-user Source and notebook counts and limits are stored server-side and configurable for future tiers.
 
 ## 7. Success Metrics
 
@@ -188,7 +223,7 @@ People who need these capabilities are non-users for v0.1 (and mostly for v1):
 ## 8. Open Questions
 
 1. Retrieval approach and the specific OpenAI-compatible provider [decision: OpenAI-compatible only] — architecture decision. [OQ-1]
-2. Citation granularity: per-sentence chips vs per-passage — refine during UX. [OQ-4]
+2. ~~Citation granularity~~ — **resolved in UX (2026-08-05): per-sentence inline citation chips.** [OQ-4]
 
 ## 9. Assumptions Index
 

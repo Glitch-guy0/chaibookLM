@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>chaibookLM — Notebook dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* Governing spine:
+   DESIGN.md Components: notebook-card, notebook-card-active, button-primary/secondary/danger
+   DESIGN.md Layout & Spacing: dashboard grid on cream canvas; only notebook-management surface
+   DESIGN.md Elevation & Depth: slanted buttons; hard offset card shadows
+   DESIGN.md Focus: 3px ring + 2px offset, inverted on brand fills, :focus-visible only
+   DESIGN.md Dark mode: class strategy (body.dark), same AA floor
+   EXPERIENCE.md Component Patterns: Notebook card, Create notebook, Expired notebook notice, Bulk-delete
+   EXPERIENCE.md State Patterns: notebook expiring / expired, cap reached, cold load
+   EXPERIENCE.md Key Flows: Flow 2 — UJ-2 Sam curates notebooks
+   Developer Contract: unique stable data-debug names on every component instance
+*/
+
+:root{
+  --surface:#FAF4E9;
+  --surface-elevated:#FFFFFF;
+  --ink:#17130E;
+  --ink-secondary:#5A5146;
+  --ink-muted:#766E63;
+  --border:#17130E;
+  --brand:#FF5C1A;
+  --brand-ink:#1A0A00;
+  --cite:#1E5EFF;
+  --accent-yellow:#FFD60A;
+  --accent-pink:#FF3D8B;
+  --success:#0B8A4B;
+  --warning:#B88200;
+  --error:#D62828;
+}
+
+body.dark{
+  --surface:#16130D;
+  --surface-elevated:#201C14;
+  --ink:#F2E9DC;
+  --ink-secondary:#C9BEB0;
+  --ink-muted:#A79B8B;
+  --border:#F2E9DC;
+  --brand:#FF7A3D;
+  --brand-ink:#1A0A00;
+  --cite:#6FA8FF;
+  --accent-yellow:#FFE14D;
+  --accent-pink:#FF6FA8;
+  --success:#3ECB7B;
+  --warning:#E8B100;
+  --error:#FF6B6B;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  background:var(--surface);
+  color:var(--ink);
+  font-family:'Space Grotesk',system-ui,sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+button{ font:inherit; color:inherit; background:none; border:none; cursor:pointer; }
+a{ color:var(--cite); }
+:focus-visible{ outline:3px solid var(--ink); outline-offset:2px; }
+.skip-link{ position:absolute; left:-9999px; top:0; background:var(--surface-elevated); border:2px solid var(--border); padding:8px 12px; z-index:60; }
+.skip-link:focus{ left:8px; top:8px; }
+@media (prefers-reduced-motion: reduce){ *{ transition:none !important; } }
+
+.shell{ max-width:1080px; margin:0 auto; padding:24px; }
+
+.topbar{ display:flex; align-items:center; gap:16px; margin-bottom:24px; }
+.mark{
+  width:40px; height:40px; flex:none;
+  background:var(--brand); border:2px solid var(--border);
+  color:var(--brand-ink);
+  font-family:'Archivo Black',sans-serif; font-size:20px;
+  display:flex; align-items:center; justify-content:center;
+}
+.app-name{ font-family:'Archivo Black',sans-serif; font-size:20px; line-height:1.2; }
+.topbar-spacer{ flex:1 1 auto; }
+
+/* Slanted buttons — DESIGN.md Elevation & Depth */
+.btn{
+  position:relative;
+  display:inline-flex; align-items:center; justify-content:center; gap:6px;
+  border:2px solid var(--border);
+  font-size:15px; font-weight:600; line-height:1.2;
+  white-space:nowrap; padding:10px 16px;
+  transform:skewX(-6deg);
+  transition:transform 120ms ease;
+}
+.btn > *{ transform:skewX(6deg); }
+.btn::after{
+  content:""; position:absolute; inset:0; z-index:-1;
+  background:var(--ink);
+  transform:skewX(-12deg) translate(6px,-6px);
+  transition:transform 120ms ease;
+}
+.btn:hover{ transform:skewX(-10deg); }
+.btn:hover::after{ transform:skewX(-14deg) translate(8px,-9px); }
+.btn:active{ transform:skewX(-6deg); }
+.btn:active::after{ transform:skewX(-6deg) translate(0,0); }
+.btn-primary{ background:var(--brand); color:var(--brand-ink); }
+.btn-secondary{ background:var(--surface-elevated); color:var(--ink); }
+.btn-danger{ background:var(--error); color:var(--ink); }
+
+.dash-header{ display:flex; align-items:flex-end; justify-content:space-between; gap:16px; margin-bottom:20px; }
+.dash-header h1{ font-family:'Archivo Black',sans-serif; font-size:32px; font-weight:400; line-height:1.15; }
+.dash-header p{ margin-top:4px; font-family:'Space Mono',monospace; font-size:12px; color:var(--ink-muted); }
+
+/* Expired notice — a notebook was auto-deleted at the 1-week mark */
+.expired-notice{
+  display:flex; align-items:center; gap:12px;
+  background:var(--accent-yellow);
+  border:2px solid var(--border);
+  box-shadow:3px 3px 0 0 var(--ink);
+  padding:12px 16px;
+  margin-bottom:16px;
+  font-size:14px;
+}
+.expired-notice .mono{ font-family:'Space Mono',monospace; font-size:12px; }
+
+/* Bulk-select toolbar */
+.bulk-toolbar{
+  display:flex; align-items:center; gap:12px;
+  background:var(--surface-elevated);
+  border:2px solid var(--border);
+  box-shadow:3px 3px 0 0 var(--ink);
+  padding:10px 16px;
+  margin-bottom:16px;
+  font-size:14px;
+}
+.bulk-toolbar .count{ font-family:'Space Mono',monospace; font-weight:700; }
+.bulk-toolbar-spacer{ flex:1 1 auto; }
+
+/* Notebook grid */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:20px;
+}
+.nb-card{
+  background:var(--surface-elevated);
+  border:2px solid var(--border);
+  box-shadow:3px 3px 0 0 var(--ink);
+  padding:16px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  text-align:left;
+  cursor:pointer;
+}
+.nb-card-active{
+  background:var(--brand);
+  color:var(--brand-ink);
+  border:3px solid var(--border);
+  box-shadow:5px 5px 0 0 var(--ink);
+}
+.nb-card-top{ display:flex; align-items:flex-start; justify-content:space-between; gap:10px; }
+.nb-title{ font-family:'Archivo Black',sans-serif; font-size:18px; font-weight:400; line-height:1.25; }
+.nb-title .active-glyph{ font-family:'Space Mono',monospace; font-size:13px; }
+.nb-meta{
+  margin-top:6px;
+  font-family:'Space Mono',monospace;
+  font-size:12px; line-height:1.5;
+  color:var(--ink-muted);
+}
+.nb-card-active .nb-meta{ color:var(--brand-ink); }
+.nb-actions{ display:flex; gap:8px; align-items:center; }
+.nb-check{ width:18px; height:18px; border:2px solid var(--border); background:var(--surface-elevated); }
+.nb-card-active .nb-check{ background:var(--surface); }
+
+/* Create card */
+.nb-create{
+  border:2px dashed var(--ink);
+  background:transparent;
+  box-shadow:none;
+  color:var(--ink-secondary);
+  min-height:180px;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  font-size:15px;
+  font-weight:600;
+  gap:8px;
+}
+.nb-create .plus{ font-family:'Space Mono',monospace; font-size:28px; line-height:1; color:var(--ink); }
+.nb-create:hover{ color:var(--ink); }
+.nb-create-disabled{
+  cursor:not-allowed;
+  border:2px dashed var(--ink-muted);
+  color:var(--ink-muted);
+}
+.nb-create-disabled .plus{ color:var(--ink-muted); }
+
+/* Cap warning (10 of 10) */
+.cap-note{
+  margin-top:16px;
+  font-family:'Space Mono',monospace;
+  font-size:12px;
+  color:var(--ink-muted);
+}
+</style>
+</head>
+<body data-theme="light">
+
+<a class="skip-link" href="#dashboard" data-debug="skip-to-dashboard">Skip to dashboard</a>
+
+<div class="shell">
+
+  <header class="topbar" data-debug="app-topbar">
+    <div class="mark" aria-hidden="true">c</div>
+    <span class="app-name">chaibookLM</span>
+    <div class="topbar-spacer"></div>
+    <button type="button" class="btn btn-secondary" data-debug="theme-toggle" onclick="document.body.classList.toggle('dark')"><span>Dark / Light</span></button>
+    <button type="button" class="btn btn-secondary" aria-label="Account" data-debug="account-trigger"><span>Acct</span></button>
+  </header>
+
+  <div class="dash-header" id="dashboard">
+    <div>
+      <h1>Your notebooks</h1>
+      <p>3 of 10 · notebooks auto-delete 1 week after creation</p>
+    </div>
+    <button type="button" class="btn btn-primary" data-debug="create-notebook"><span>+ New notebook</span></button>
+  </div>
+
+  <div class="expired-notice" role="status" data-debug="expired-notice">
+    <span>■</span>
+    <span><strong>"Essay Drafts"</strong> was auto-deleted after its 1-week expiry. Its sources and chat are gone.</span>
+  </div>
+
+  <div class="bulk-toolbar" data-debug="bulk-select-toolbar">
+    <span class="count">2 selected</span>
+    <span>·</span>
+    <span>Delete the 2 selected notebooks? They include all their sources and chat.</span>
+    <div class="bulk-toolbar-spacer"></div>
+    <button type="button" class="btn btn-danger" data-debug="bulk-delete-confirm"><span>Delete selected</span></button>
+    <button type="button" class="btn btn-secondary" data-debug="bulk-clear"><span>Cancel</span></button>
+  </div>
+
+  <div class="grid" data-debug="notebook-grid">
+
+    <button type="button" class="nb-card nb-card-active" data-debug="notebook-card-1">
+      <span class="nb-card-top">
+        <span class="nb-title"><span class="active-glyph" aria-hidden="true">■ </span>Indoor Plant Care</span>
+        <span class="nb-check" role="checkbox" aria-checked="true" data-debug="notebook-card-checkbox-1"></span>
+      </span>
+      <span>
+        <span class="nb-meta">3 sources · created Aug 4</span>
+        <span class="nb-meta">Expires in 2 days</span>
+      </span>
+      <span class="nb-actions">
+        <span data-debug="notebook-rename-1">[rename]</span>
+        <span data-debug="notebook-delete-1">[delete]</span>
+      </span>
+    </button>
+
+    <button type="button" class="nb-card" data-debug="notebook-card-2">
+      <span class="nb-card-top">
+        <span class="nb-title">Urban Farming</span>
+        <span class="nb-check" role="checkbox" aria-checked="false" data-debug="notebook-card-checkbox-2"></span>
+      </span>
+      <span class="nb-meta">7 sources · created Aug 3 · Expires in 3 days</span>
+      <span class="nb-actions">
+        <span data-debug="notebook-rename-2">[rename]</span>
+        <span data-debug="notebook-delete-2">[delete]</span>
+      </span>
+    </button>
+
+    <button type="button" class="nb-card" data-debug="notebook-card-3">
+      <span class="nb-card-top">
+        <span class="nb-title">History Paper</span>
+        <span class="nb-check" role="checkbox" aria-checked="false" data-debug="notebook-card-checkbox-3"></span>
+      </span>
+      <span class="nb-meta">0 sources · created today · Expires in 7 days</span>
+      <span class="nb-actions">
+        <span data-debug="notebook-rename-3">[rename]</span>
+        <span data-debug="notebook-delete-3">[delete]</span>
+      </span>
+    </button>
+
+    <button type="button" class="nb-card nb-create nb-create-disabled" disabled data-debug="create-notebook-card">
+      <span class="plus" aria-hidden="true">+</span>
+      <span>Notebook limit reached — 10 of 10.</span>
+    </button>
+
+  </div>
+
+  <p class="cap-note" data-debug="cap-note">The 10-notebook cap is enforced server-side; deleting a notebook frees a slot.</p>
+
+</div>
+</body>
+</html>

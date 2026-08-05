@@ -3,20 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>chaibookLM — Workspace (desktop)</title>
+<title>chaibookLM — Notebook workspace (desktop)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 /* Governing spine:
-   DESIGN.md Components: notebook-rail, notebook-rail-active, source-card, button-secondary,
-     chat-user, chat-assistant, citation-chip, composer, showcase
-   DESIGN.md Layout & Spacing: three-pane workspace, max-w-2xl reading width, 24px gutter, 20px panel-pad
-   DESIGN.md Elevation & Depth: 2px ink borders, solid offset ink shadows, hover lift / press
+   DESIGN.md Components: button-primary/secondary, source-card, chat-user, chat-assistant,
+     citation-chip, composer, showcase, notebook-card
+   DESIGN.md Layout & Spacing: tabbed workspace (Sources | Chat | Showcase), no rail,
+     max-w-2xl reading width, 24px gutter, 20px panel-pad
+   DESIGN.md Elevation & Depth: slanted buttons (skewX -6deg) with more-slanted up-right shadow
+     (light from bottom-left); hard offset shadows elsewhere; hover lift / press
    DESIGN.md Focus: 3px ring + 2px offset, inverted on ink/brand fills, :focus-visible only
-   EXPERIENCE.md State Patterns: ingestion (ready / processing)
+   DESIGN.md Dark mode: class strategy (body.dark), same AA floor
+   EXPERIENCE.md State Patterns: ingestion (ready / processing), cookie consent banner
+   EXPERIENCE.md Interaction Primitives: real tablist semantics, skip link, Esc returns from Showcase
    EXPERIENCE.md Key Flows: Flow 1 — UJ-1 Meera verifies an answer
    Developer Contract: unique stable data-debug names on every component instance (zero visual impact)
+   NOTE: this mock uses a hidden-radio hack to demo the three tab panels in a static file;
+         production uses real tablist semantics per EXPERIENCE.md Interaction Primitives.
 */
 
 :root{
@@ -35,6 +41,26 @@
   --success:#0B8A4B;
   --warning:#B88200;
   --error:#D62828;
+  --overlay-dim:rgba(23,19,14,0.55);
+}
+
+body.dark{
+  --surface:#16130D;
+  --surface-elevated:#201C14;
+  --ink:#F2E9DC;
+  --ink-secondary:#C9BEB0;
+  --ink-muted:#A79B8B;
+  --border:#F2E9DC;
+  --brand:#FF7A3D;
+  --brand-ink:#1A0A00;
+  --cite:#6FA8FF;
+  --cite-ink:#0A1A3D;
+  --accent-yellow:#FFE14D;
+  --accent-pink:#FF6FA8;
+  --success:#3ECB7B;
+  --warning:#E8B100;
+  --error:#FF6B6B;
+  --overlay-dim:rgba(13,11,7,0.55);
 }
 
 *{ margin:0; padding:0; box-sizing:border-box; }
@@ -50,29 +76,23 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 
-button{
-  font:inherit;
-  color:inherit;
-  background:none;
-  border:none;
-  cursor:pointer;
-}
-
+button{ font:inherit; color:inherit; background:none; border:none; cursor:pointer; }
 a{ color:var(--cite); }
 
 :focus-visible{
   outline:3px solid var(--ink);
   outline-offset:2px;
 }
+body.dark :focus-visible{ outline-color:var(--ink); }
 
 .skip-link{
   position:absolute;
   left:-9999px;
   top:0;
   background:var(--surface-elevated);
-  border:2px solid var(--ink);
+  border:2px solid var(--border);
   padding:8px 12px;
-  z-index:50;
+  z-index:60;
 }
 .skip-link:focus{ left:8px; top:8px; }
 
@@ -80,135 +100,41 @@ a{ color:var(--cite); }
   *{ transition:none !important; }
 }
 
-/* ---- Browser frame ---- */
-.frame{
-  width:1440px;
-  max-width:100%;
-  min-height:100vh;
-  margin:0 auto;
-  padding:24px;
-  display:flex;
-  gap:24px;
-  align-items:stretch;
-}
+/* ---- App shell ---- */
+.shell{ max-width:1280px; margin:0 auto; padding:24px; }
 
-.pane{
-  border:2px solid var(--border);
-  box-shadow:4px 4px 0 0 var(--ink);
-  background:var(--surface-elevated);
-}
-
-/* ---- Notebook rail ---- */
-.rail{
-  width:64px;
-  flex:none;
-  background:var(--ink);
-  color:var(--surface);
-  border:2px solid var(--border);
-  box-shadow:4px 4px 0 0 var(--ink);
+.topbar{
   display:flex;
-  flex-direction:column;
   align-items:center;
-  padding:16px 0;
-  gap:24px;
+  gap:16px;
+  margin-bottom:16px;
 }
 
-.rail-mark{
-  width:32px;
-  height:32px;
+.mark{
+  width:40px;
+  height:40px;
+  flex:none;
   background:var(--brand);
-  border:2px solid var(--ink);
+  border:2px solid var(--border);
   color:var(--brand-ink);
   font-family:'Archivo Black',sans-serif;
-  font-size:18px;
+  font-size:20px;
   display:flex;
   align-items:center;
   justify-content:center;
 }
 
-.rail-nav{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-  align-items:stretch;
-  width:100%;
-}
-
-.rail-item{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:10px;
-  padding:14px 6px;
-  color:var(--surface);
-  border:2px solid transparent;
-}
-.rail-item:focus-visible{ outline-color:var(--surface); }
-
-.rail-item .glyph{
-  font-size:14px;
-  line-height:1;
-  font-family:'Space Mono',monospace;
-  color:var(--ink-muted);
-}
-
-.rail-item .label{
-  writing-mode:vertical-rl;
-  transform:rotate(180deg);
-  font-family:'Space Grotesk',sans-serif;
-  font-size:13px;
-  font-weight:500;
-  line-height:1.35;
-  letter-spacing:0.02em;
-}
-
-.rail-item-active{
-  background:var(--brand);
-  border-color:var(--ink);
-  color:var(--brand-ink);
-}
-.rail-item-active .glyph{ color:var(--brand-ink); font-weight:700; }
-.rail-item-active .label{ font-weight:700; }
-
-.rail-add{
-  margin-top:auto;
-  width:32px;
-  height:32px;
-  border:2px solid var(--surface);
-  color:var(--surface);
-  font-family:'Space Mono',monospace;
-  font-size:18px;
-  line-height:1;
-}
-.rail-add:focus-visible{ outline-color:var(--surface); }
-.rail-add:hover{ background:var(--surface); color:var(--ink); transform:translate(-1px,-1px); box-shadow:4px 4px 0 0 rgba(250,244,233,0.4); }
-.rail-add:active{ transform:none; box-shadow:none; }
-
-/* ---- Sources panel ---- */
-.sources{
-  width:280px;
-  flex:none;
-  display:flex;
-  flex-direction:column;
-  padding:20px;
-  gap:16px;
-}
-
-.sources-header{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:8px;
-}
-
-.sources-header h2{
-  font-family:'Space Grotesk',sans-serif;
+.notebook-name{
+  font-family:'Archivo Black',sans-serif;
   font-size:20px;
-  font-weight:600;
-  line-height:1.3;
+  line-height:1.2;
 }
 
+.topbar-spacer{ flex:1 1 auto; }
+
+/* ---- Buttons: slanted right, more-slanted up-right shadow, light from bottom-left ---- */
 .btn{
+  position:relative;
   display:inline-flex;
   align-items:center;
   justify-content:center;
@@ -218,23 +144,96 @@ a{ color:var(--cite); }
   font-weight:600;
   line-height:1.2;
   white-space:nowrap;
-  transition:transform 120ms ease, box-shadow 120ms ease;
+  padding:10px 16px;
+  transform:skewX(-6deg);
+  transition:transform 120ms ease;
 }
-
-.btn-secondary{
-  background:var(--surface-elevated);
-  color:var(--ink);
-  box-shadow:2px 2px 0 0 var(--ink);
-  padding:8px 12px;
+.btn > *{ transform:skewX(6deg); }
+.btn::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:var(--ink);
+  transform:skewX(-12deg) translate(6px,-6px);
+  transition:transform 120ms ease;
 }
-.btn-secondary:hover{ transform:translate(-1px,-1px); box-shadow:4px 4px 0 0 var(--ink); }
-.btn-secondary:active{ transform:none; box-shadow:0 0 0 0 var(--ink); }
+.btn:hover{ transform:skewX(-10deg); }
+.btn:hover::after{ transform:skewX(-14deg) translate(8px,-9px); }
+.btn:active{ transform:skewX(-6deg); }
+.btn:active::after{ transform:skewX(-6deg) translate(0,0); }
 
-.source-list{
+.btn-primary{ background:var(--brand); color:var(--brand-ink); }
+.btn-secondary{ background:var(--surface-elevated); color:var(--ink); }
+.btn-danger{ background:var(--error); color:var(--ink); }
+body.dark .btn-danger{ color:var(--ink); }
+
+.btn .btn-unskew{ transform:skewX(6deg); }
+
+/* ---- Tab bar (Sources | Chat | Showcase) ---- */
+.tabs{
   display:flex;
+  border:2px solid var(--border);
+  box-shadow:4px 4px 0 0 var(--ink);
+  background:var(--surface);
+}
+.tabs input{ position:absolute; opacity:0; pointer-events:none; }
+.tab-label{
+  flex:1 1 0;
+  padding:14px 16px;
+  text-align:center;
+  font-size:15px;
+  font-weight:600;
+  border-right:2px solid var(--border);
+  cursor:pointer;
+  color:var(--ink-secondary);
+  transition:transform 120ms ease;
+}
+.tab-label:last-of-type{ border-right:none; }
+.tabs input:focus-visible + .tab-label{ outline:3px solid var(--ink); outline-offset:-5px; }
+.tabs input:checked + .tab-label{
+  background:var(--brand);
+  color:var(--brand-ink);
+}
+.tabs input:checked + .tab-label::before{
+  content:"■ ";
+  font-family:'Space Mono',monospace;
+}
+
+/* tab panels driven by the radios (inputs are nested in .tabs, so :has() reaches .panels) */
+.panel{ display:none; }
+.tabs:has(#tab-sources:checked) ~ .panels #panel-sources,
+.tabs:has(#tab-chat:checked) ~ .panels #panel-chat,
+.tabs:has(#tab-showcase:checked) ~ .panels #panel-showcase{ display:flex; }
+
+/* ---- Panels ---- */
+.panels{ margin-top:16px; }
+
+.section{
+  border:2px solid var(--border);
+  box-shadow:4px 4px 0 0 var(--ink);
+  background:var(--surface-elevated);
+}
+
+/* Sources section */
+.sources{
   flex-direction:column;
   gap:16px;
+  padding:20px;
 }
+.sources-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.sources-header h2{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:20px;
+  font-weight:600;
+  line-height:1.3;
+}
+.source-list{ display:flex; flex-direction:column; gap:16px; }
 
 .source-card{
   background:var(--surface-elevated);
@@ -245,94 +244,49 @@ a{ color:var(--cite); }
   flex-direction:column;
   gap:12px;
 }
-
-.card-top{
-  display:flex;
-  gap:10px;
-  align-items:flex-start;
-}
-
+.card-top{ display:flex; gap:10px; align-items:flex-start; }
 .card-icon{
-  width:36px;
-  height:36px;
-  flex:none;
+  width:36px; height:36px; flex:none;
   background:var(--surface);
   border:2px solid var(--border);
   font-family:'Space Mono',monospace;
-  font-size:15px;
-  font-weight:700;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  font-size:15px; font-weight:700;
+  display:flex; align-items:center; justify-content:center;
 }
-
-.card-title{
-  font-size:16px;
-  font-weight:600;
-  line-height:1.35;
-}
-
+.card-title{ font-size:16px; font-weight:600; line-height:1.35; }
 .card-meta{
   margin-top:2px;
   font-family:'Space Mono',monospace;
-  font-size:12px;
-  line-height:1.5;
+  font-size:12px; line-height:1.5;
   color:var(--ink-muted);
 }
-
 .status{
-  display:inline-flex;
-  align-items:center;
-  gap:7px;
+  display:inline-flex; align-items:center; gap:7px;
   font-family:'Space Mono',monospace;
-  font-size:12px;
-  line-height:1.4;
+  font-size:12px; line-height:1.4;
 }
-.status .dot{
-  width:9px;
-  height:9px;
-  border-radius:9999px;
-  flex:none;
-}
+.status .dot{ width:9px; height:9px; border-radius:9999px; flex:none; }
 .status-ready{ color:var(--ink); }
 .status-ready .dot{ background:var(--success); }
 .status-processing{ color:var(--ink-secondary); }
 .status-processing .dot{ background:var(--warning); }
 
-/* ---- Chat column ---- */
-.chat{
-  flex:1 1 auto;
-  max-width:672px;
-  background:transparent;
-  border:2px solid var(--border);
-  box-shadow:4px 4px 0 0 var(--ink);
-  display:flex;
-  flex-direction:column;
-}
-
-.chat-header{
+/* Chat section */
+.chat{ flex-direction:column; min-height:520px; }
+.chat-head{
   padding:20px 24px 16px;
   border-bottom:2px solid var(--border);
   background:var(--surface-elevated);
 }
-
-.chat-header h1{
-  font-family:'Archivo Black',sans-serif;
-  font-size:24px;
-  line-height:1.2;
-  font-weight:400;
-}
-
-.chat-header .chat-meta{
+.chat-head h1{ font-family:'Archivo Black',sans-serif; font-size:22px; font-weight:400; line-height:1.2; }
+.chat-head .chat-meta{
   margin-top:2px;
   font-family:'Space Mono',monospace;
   font-size:12px;
   color:var(--ink-muted);
 }
-
 .chat-body{
   flex:1 1 auto;
-  overflow-y:auto;
   padding:24px;
   display:flex;
   flex-direction:column;
@@ -340,7 +294,6 @@ a{ color:var(--cite); }
   max-width:672px;
   width:100%;
 }
-
 .user-msg{
   background:var(--accent-yellow);
   border:2px solid var(--border);
@@ -351,27 +304,15 @@ a{ color:var(--cite); }
   font-size:16px;
   line-height:1.6;
 }
-
-.assistant-msg{
-  align-self:flex-start;
-  max-width:100%;
-  color:var(--ink);
-}
-
-.assistant-msg p{
-  font-size:16px;
-  line-height:1.6;
-  margin-bottom:12px;
-}
+.assistant-msg{ align-self:flex-start; max-width:100%; }
+.assistant-msg p{ font-size:16px; line-height:1.6; margin-bottom:12px; }
 .assistant-msg p:last-child{ margin-bottom:0; }
-
 .cite-chip{
   display:inline-block;
   background:var(--cite);
   color:var(--cite-ink);
   font-family:'Space Mono',monospace;
-  font-size:12px;
-  line-height:1.4;
+  font-size:12px; line-height:1.4;
   border:1px solid var(--border);
   border-radius:2px;
   padding:1px 6px;
@@ -382,7 +323,6 @@ a{ color:var(--cite); }
 .cite-chip:hover{ transform:translate(-1px,-1px); box-shadow:2px 2px 0 0 var(--ink); }
 .cite-chip:active{ transform:none; box-shadow:none; }
 
-/* ---- Composer ---- */
 .composer{
   margin:0 24px 24px;
   background:var(--surface-elevated);
@@ -390,93 +330,48 @@ a{ color:var(--cite); }
   box-shadow:2px 2px 0 0 var(--ink);
 }
 .composer:focus-within{ border-color:var(--brand); box-shadow:4px 4px 0 0 var(--ink); }
-
-.composer-input{
-  padding:14px 14px 4px;
-  font-size:16px;
-  line-height:1.6;
-  color:var(--ink);
-}
+.composer-input{ padding:14px 14px 4px; font-size:16px; line-height:1.6; }
 .composer-input .ph{ color:var(--ink-muted); }
-
 .composer-hint{
   padding:0 14px 12px;
   font-family:'Space Mono',monospace;
-  font-size:12px;
-  line-height:1.4;
+  font-size:12px; line-height:1.4;
   color:var(--ink-muted);
 }
 
-/* ---- Showcase ---- */
-.showcase{
-  width:420px;
-  flex:none;
-  background:var(--surface-elevated);
-  border:2px solid var(--border);
-  box-shadow:4px 4px 0 0 var(--ink);
-  display:flex;
-  flex-direction:column;
-  overflow:hidden;
-}
-
+/* Showcase section */
+.showcase{ flex-direction:column; }
 .showcase-bar{
   flex:none;
   background:var(--surface);
   border-bottom:2px solid var(--border);
   padding:10px 16px;
   font-family:'Space Mono',monospace;
-  font-size:12px;
-  line-height:1.4;
+  font-size:12px; line-height:1.4;
   color:var(--ink-secondary);
 }
-
-.webpage{
-  flex:1 1 auto;
-  overflow-y:auto;
-  padding:24px 24px 28px;
-  background:var(--surface-elevated);
-}
-
+.webpage{ padding:24px 24px 28px; }
 .webpage .site-line{
   font-family:'Space Mono',monospace;
   font-size:12px;
   color:var(--ink-muted);
   margin-bottom:14px;
 }
-
 .webpage h1{
   font-family:'Archivo Black',sans-serif;
-  font-size:28px;
-  font-weight:400;
-  line-height:1.15;
+  font-size:28px; font-weight:400; line-height:1.15;
   margin-bottom:14px;
 }
-
 .webpage h2{
   font-family:'Space Grotesk',sans-serif;
-  font-size:18px;
-  font-weight:600;
-  line-height:1.3;
+  font-size:18px; font-weight:600; line-height:1.3;
   margin-bottom:10px;
 }
-
-.webpage p{
-  font-size:15px;
-  line-height:1.6;
-  color:var(--ink);
-  margin-bottom:12px;
-}
-
-.webpage ul{
-  list-style:none;
-  margin:4px 0 0;
-}
+.webpage p{ font-size:15px; line-height:1.6; margin-bottom:12px; }
+.webpage ul{ list-style:none; margin:4px 0 0; }
 .webpage li{
-  display:flex;
-  gap:10px;
-  align-items:baseline;
-  font-size:15px;
-  line-height:1.6;
+  display:flex; gap:10px; align-items:baseline;
+  font-size:15px; line-height:1.6;
   padding:6px 0;
   border-top:1px solid var(--ink);
 }
@@ -488,115 +383,145 @@ a{ color:var(--cite); }
   color:var(--ink-secondary);
   flex:none;
 }
+
+/* ---- Cookie banner (FR-12) ---- */
+.cookie-banner{
+  position:fixed;
+  left:16px; right:16px; bottom:16px;
+  z-index:70;
+  max-width:760px;
+  margin:0 auto;
+  background:var(--surface-elevated);
+  border:3px solid var(--border);
+  box-shadow:8px 8px 0 0 var(--ink);
+  padding:16px 20px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.cookie-banner h3{ font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; }
+.cookie-banner p{ font-size:14px; line-height:1.5; color:var(--ink-secondary); }
+.cookie-actions{ display:flex; gap:12px; }
 </style>
 </head>
-<body>
+<body data-theme="light">
 
 <a class="skip-link" href="#chat" data-debug="skip-to-chat">Skip to chat</a>
 
-<div class="frame">
+<div class="shell">
 
-  <!-- Notebook rail -->
-  <aside class="rail" data-debug="notebook-rail" aria-label="Notebooks">
-    <div class="rail-mark" aria-hidden="true">c</div>
-    <nav class="rail-nav">
-      <button type="button" class="rail-item rail-item-active" aria-pressed="true" title="Indoor Plant Care — current notebook" data-debug="notebook-rail-item-1">
-        <span class="glyph" aria-hidden="true">■</span>
-        <span class="label">Indoor Plant Care</span>
-      </button>
-      <button type="button" class="rail-item" title="Switch to Essay Drafts" data-debug="notebook-rail-item-2">
-        <span class="glyph" aria-hidden="true">□</span>
-        <span class="label">Essay Drafts</span>
-      </button>
-    </nav>
-    <button type="button" class="rail-add" title="New notebook" data-debug="notebook-switcher-add">＋</button>
-  </aside>
+  <header class="topbar" data-debug="app-topbar">
+    <div class="mark" aria-hidden="true">c</div>
+    <span class="notebook-name">Indoor Plant Care</span>
+    <button type="button" class="btn btn-secondary" data-debug="back-to-notebooks"><span class="btn-unskew">← Back to notebooks</span></button>
+    <div class="topbar-spacer"></div>
+    <button type="button" class="btn btn-secondary" data-debug="theme-toggle" onclick="document.body.classList.toggle('dark')"><span class="btn-unskew">Dark / Light</span></button>
+    <button type="button" class="btn btn-secondary" aria-label="Account" data-debug="account-trigger"><span class="btn-unskew">Acct</span></button>
+  </header>
 
-  <!-- Sources panel -->
-  <section class="pane sources" aria-label="Sources panel, 3 sources" data-debug="sources-panel">
-    <div class="sources-header">
-      <h2>Sources</h2>
-      <button type="button" class="btn btn-secondary" data-debug="add-source-trigger">+ Add source</button>
-    </div>
+  <!-- Tab bar: real tablist semantics in production; radio hack here for static demo -->
+  <div class="tabs" role="tablist" aria-label="Notebook sections" data-debug="notebook-tabs">
+    <input type="radio" name="ws" id="tab-sources" value="sources">
+    <label class="tab-label" for="tab-sources" role="tab" id="tab-sources-label" aria-controls="panel-sources" data-debug="tab-sources">Sources</label>
+    <input type="radio" name="ws" id="tab-chat" value="chat" checked>
+    <label class="tab-label" for="tab-chat" role="tab" id="tab-chat-label" aria-controls="panel-chat" data-debug="tab-chat">Chat</label>
+    <input type="radio" name="ws" id="tab-showcase" value="showcase">
+    <label class="tab-label" for="tab-showcase" role="tab" id="tab-showcase-label" aria-controls="panel-showcase" data-debug="tab-showcase">Showcase</label>
+  </div>
 
-    <div class="source-list">
-      <article class="source-card" data-debug="source-card-1">
-        <div class="card-top">
-          <span class="card-icon" aria-hidden="true">T</span>
-          <div>
-            <h3 class="card-title">Overwatering: A Practical Guide</h3>
-            <p class="card-meta">Text · 1.2 KB · added 2 min ago</p>
-          </div>
-        </div>
-        <span class="status status-ready" aria-live="polite"><span class="dot" aria-hidden="true"></span>Ready.</span>
-      </article>
+  <div class="panels">
 
-      <article class="source-card" data-debug="source-card-2">
-        <div class="card-top">
-          <span class="card-icon" aria-hidden="true">W</span>
-          <div>
-            <h3 class="card-title">How Plants Drink</h3>
-            <p class="card-meta">Web · added 2 min ago</p>
-          </div>
-        </div>
-        <span class="status status-ready" aria-live="polite"><span class="dot" aria-hidden="true"></span>Ready.</span>
-      </article>
-
-      <article class="source-card" data-debug="source-card-3">
-        <div class="card-top">
-          <span class="card-icon" aria-hidden="true">W</span>
-          <div>
-            <h3 class="card-title">Ferns &amp; Humidity</h3>
-            <p class="card-meta">Web · added 1 min ago</p>
-          </div>
-        </div>
-        <span class="status status-processing"><span class="dot" aria-hidden="true"></span>Processing…</span>
-      </article>
-    </div>
-  </section>
-
-  <!-- Chat column -->
-  <section class="chat" id="chat" aria-label="Chat" data-debug="chat">
-    <header class="chat-header">
-      <h1>Indoor Plant Care</h1>
-      <p class="chat-meta">2 sources · 2 citations</p>
-    </header>
-
-    <div class="chat-body">
-      <div class="user-msg" data-debug="user-message-1">What's the best way to avoid overwatering?</div>
-
-      <div class="assistant-msg" aria-live="polite" data-debug="assistant-message-1">
-        <p>The most reliable way to avoid overwatering is to check the soil before you add water — press a finger about an inch into the pot, and water only when that layer feels dry.<button type="button" class="cite-chip" title="Overwatering: A Practical Guide" data-debug="citation-chip-1">[S1]</button></p>
-        <p>Most houseplants prefer the soil to dry out a little between waterings, so a fixed weekly schedule often leaves roots wetter than they want to be.<button type="button" class="cite-chip" title="How Plants Drink" data-debug="citation-chip-2">[S2]</button></p>
-        <p>Water thoroughly but rarely: pour until it runs from the drainage holes, then empty the saucer so the pot never sits in standing water.<button type="button" class="cite-chip" title="Overwatering: A Practical Guide" data-debug="citation-chip-3">[S1]</button></p>
-        <p>Yellowing leaves and soft, mushy stems usually mean the roots are staying too wet — slow down and let the soil dry before the next watering.<button type="button" class="cite-chip" title="How Plants Drink" data-debug="citation-chip-4">[S2]</button></p>
+    <!-- Sources section -->
+    <section class="section sources panel" id="panel-sources" role="tabpanel" aria-label="Sources, 3 sources" data-debug="sources-section">
+      <div class="sources-header">
+        <h2>Sources</h2>
+        <button type="button" class="btn btn-secondary" data-debug="add-source-trigger"><span class="btn-unskew">+ Add source</span></button>
       </div>
-    </div>
+      <div class="source-list">
+        <article class="source-card" data-debug="source-card-1">
+          <div class="card-top">
+            <span class="card-icon" aria-hidden="true">T</span>
+            <div>
+              <h3 class="card-title">Overwatering: A Practical Guide</h3>
+              <p class="card-meta">Text · 1.2 KB · added 2 min ago</p>
+            </div>
+          </div>
+          <span class="status status-ready" aria-live="polite"><span class="dot" aria-hidden="true"></span>Ready.</span>
+        </article>
+        <article class="source-card" data-debug="source-card-2">
+          <div class="card-top">
+            <span class="card-icon" aria-hidden="true">W</span>
+            <div>
+              <h3 class="card-title">How Plants Drink</h3>
+              <p class="card-meta">Web · added 2 min ago</p>
+            </div>
+          </div>
+          <span class="status status-ready" aria-live="polite"><span class="dot" aria-hidden="true"></span>Ready.</span>
+        </article>
+        <article class="source-card" data-debug="source-card-3">
+          <div class="card-top">
+            <span class="card-icon" aria-hidden="true">W</span>
+            <div>
+              <h3 class="card-title">Ferns &amp; Humidity</h3>
+              <p class="card-meta">Web · added 1 min ago</p>
+            </div>
+          </div>
+          <span class="status status-processing"><span class="dot" aria-hidden="true"></span>Processing…</span>
+        </article>
+      </div>
+    </section>
 
-    <div class="composer" data-debug="composer">
-      <div class="composer-input"><span class="ph">Ask anything about your sources…</span></div>
-      <div class="composer-hint">Enter to send · Shift+Enter for a new line</div>
-    </div>
-  </section>
+    <!-- Chat section -->
+    <section class="section chat panel" id="panel-chat" role="tabpanel" aria-label="Chat" data-debug="chat">
+      <header class="chat-head">
+        <h1>Indoor Plant Care</h1>
+        <p class="chat-meta">2 sources · 2 citations</p>
+      </header>
+      <div class="chat-body">
+        <div class="user-msg" data-debug="user-message-1">What's the best way to avoid overwatering?</div>
+        <div class="assistant-msg" aria-live="polite" data-debug="assistant-message-1">
+          <p>The most reliable way to avoid overwatering is to check the soil before you add water — press a finger about an inch into the pot, and water only when that layer feels dry.<button type="button" class="cite-chip" title="Overwatering: A Practical Guide" data-debug="citation-chip-1">[S1]</button></p>
+          <p>Most houseplants prefer the soil to dry out a little between waterings, so a fixed weekly schedule often leaves roots wetter than they want to be.<button type="button" class="cite-chip" title="How Plants Drink" data-debug="citation-chip-2">[S2]</button></p>
+          <p>Water thoroughly but rarely: pour until it runs from the drainage holes, then empty the saucer so the pot never sits in standing water.<button type="button" class="cite-chip" title="Overwatering: A Practical Guide" data-debug="citation-chip-3">[S1]</button></p>
+          <p>Yellowing leaves and soft, mushy stems usually mean the roots are staying too wet — slow down and let the soil dry before the next watering.<button type="button" class="cite-chip" title="How Plants Drink" data-debug="citation-chip-4">[S2]</button></p>
+        </div>
+      </div>
+      <div class="composer" data-debug="composer">
+        <div class="composer-input"><span class="ph">Ask anything about your sources…</span></div>
+        <div class="composer-hint">Enter to send · Shift+Enter for a new line</div>
+      </div>
+    </section>
 
-  <!-- Original View showcase -->
-  <section class="pane showcase" aria-label="Original View: How Plants Drink" data-debug="showcase">
-    <div class="showcase-bar">Original View — How Plants Drink</div>
-    <div class="webpage">
-      <p class="site-line">howplantsdrink.com</p>
-      <h1>How Plants Drink</h1>
-      <h2>Where the water goes</h2>
-      <p>Plants pull water up from their roots and move it through the stem to the leaves, where most of it evaporates through tiny pores. This steady flow is what keeps a plant's cells firm and its leaves upright.</p>
-      <p>That same flow means watering isn't about adding more — it's about keeping the air pockets in the soil open, so roots can breathe and take up water exactly when the plant needs it.</p>
-      <h2>Watering, simply</h2>
-      <ul>
-        <li>Water only when the top inch of soil is dry.</li>
-        <li>Always use a pot with drainage holes.</li>
-        <li>Empty the saucer after watering.</li>
-      </ul>
-    </div>
-  </section>
+    <!-- Showcase section (Original View) -->
+    <section class="section showcase panel" id="panel-showcase" role="tabpanel" aria-label="Showcase: How Plants Drink" data-debug="showcase">
+      <div class="showcase-bar">Original View — How Plants Drink</div>
+      <div class="webpage">
+        <p class="site-line">howplantsdrink.com</p>
+        <h1>How Plants Drink</h1>
+        <h2>Where the water goes</h2>
+        <p>Plants pull water up from their roots and move it through the stem to the leaves, where most of it evaporates through tiny pores. This steady flow is what keeps a plant's cells firm and its leaves upright.</p>
+        <p>That same flow means watering isn't about adding more — it's about keeping the air pockets in the soil open, so roots can breathe and take up water exactly when the plant needs it.</p>
+        <h2>Watering, simply</h2>
+        <ul>
+          <li>Water only when the top inch of soil is dry.</li>
+          <li>Always use a pot with drainage holes.</li>
+          <li>Empty the saucer after watering.</li>
+        </ul>
+      </div>
+    </section>
 
+  </div>
 </div>
+
+<!-- Cookie consent banner (FR-12) -->
+<div class="cookie-banner" role="region" aria-label="Cookie consent" data-debug="cookie-banner">
+  <h3>We are storing cookies related to session, preferences, and usage.</h3>
+  <p>By clicking "Accept", you agree to cookies that keep you signed in, remember your theme and accessibility settings, and measure how the product is used. You can decline — core features still work.</p>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-primary" data-debug="cookie-accept"><span class="btn-unskew">Accept</span></button>
+    <button type="button" class="btn btn-secondary" data-debug="cookie-decline"><span class="btn-unskew">Decline</span></button>
+  </div>
+</div>
+
 </body>
 </html>
