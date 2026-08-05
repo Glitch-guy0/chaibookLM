@@ -1,73 +1,70 @@
 ---
 title: "chaibookLM — NotebookLM-Style Research Workspace"
-status: draft
+status: final
 created: 2026-08-04
-updated: 2026-08-04
+updated: 2026-08-06
 ---
 
 # Product Brief: chaibookLM
 
 ## Executive Summary
 
-chaibookLM is a personal research workspace in the spirit of Google's NotebookLM: upload your sources — PDFs, web pages, pasted text, YouTube links, subtitle files — and chat with an AI that answers strictly from your own materials, citing exactly where every claim came from. Where NotebookLM optimizes for scale and Google's ecosystem, chaibookLM optimizes for *clarity, cost, and trust*: a simpler, cheaper ecosystem built on a hybrid of self-hosted and commercial AI, wrapped in a bold, funky neo-brutalist design identity that is deliberately unlike anything Google ships.
+chaibookLM is a personal research workspace in the spirit of Google's NotebookLM: bring your own sources — pasted text and webpages in v0.1, with PDF, transcripts, and YouTube on the roadmap — and chat with an AI that answers strictly from your own material, citing exactly where every claim came from. Where NotebookLM is heavy, Google-bound, and feature-first, chaibookLM optimizes for *clarity, cost, and trust*: a commercial-API stack with no lock-in, wrapped in a purely neo-brutalist design identity that is deliberately unlike anything Google ships.
 
-The differentiating bet is the **citation loop closed back to the original document**. Most tools — NotebookLM included — cite a *highlighted quote*; chaibookLM's answer panel lets you click a citation and see the *actual original resource*: the real PDF page, the live web page, the exact video moment. Combined with genuinely deep PDF ingestion (scanned pages, tables, dense layouts), subtitle-file support that nobody else offers as a first-class source, and a unique neo-brutalist / minimalistic-maximalist design language that makes the product instantly recognizable, chaibookLM is built for everyday learners who want deep research without deep tooling.
+The differentiating bet is the **citation loop closed back to the original source**. Most tools — NotebookLM included — cite a *highlighted quote*; chaibookLM lets you click a citation and see the *actual original resource*: the live web page, or the pasted text with the cited passage highlighted. Built for everyday learners who want deep research without deep tooling.
 
 ## The Problem
 
-Reading-heavy knowledge work is fragmenting. To study a topic properly you juggle PDFs, articles, YouTube lectures, and transcripts across apps, and your notes end up disconnected from their sources. AI assistants answer fluently but too often from general knowledge — not *your* documents — and when they do cite, you can't easily verify against the original page.
+Reading-heavy knowledge work is fragmenting. To study a topic properly you juggle articles, PDFs, and transcripts across apps, and your notes end up disconnected from their sources. AI assistants answer fluently but too often from general knowledge — not *your* documents — and when they do cite, you can't easily verify against the original page.
 
-NotebookLM solved the core loop (sources → grounded answers) but it is heavy: Google-account-bound, upload-quota-restricted, and increasingly focused on Google's AI subscriptions and agentic features. For the everyday consumer the tradeoffs — cost, lock-in, an interface that prioritizes features over focus — are real. There is room for a workspace that is *simpler to understand, cheaper to run, and more honest about where answers come from*.
+NotebookLM solved the core loop (sources → grounded answers) but is heavy: Google-account-bound, quota-restricted, and increasingly focused on subscriptions and agentic features. There is room for a workspace that is *simpler to understand, cheaper to run, and more honest about where answers come from*.
 
 ## The Solution
 
-A responsive web app (mobile-optimized) built around three surfaces:
+A responsive web app (mobile-optimized, 320px floor) built around three surfaces inside a notebook:
 
-1. **Sources** — drop in PDFs, web URLs, pasted text, YouTube links, and `.srt`/`.vtt` subtitle files. Each source is indexed with rich metadata (title, author, timestamps, page anchors, section structure) so every indexed passage knows exactly where it lives in the original.
-2. **Chat** — ask questions; answers are grounded only in your sources and carry visible citations pointing to the specific uploaded resource.
-3. **Original view** — click any citation and see the *original* resource, not a parsed extract: the actual rendered PDF page for documents, the live webpage for URLs. For video, the **timestamp is the primary citation mark** — clicking a citation plays the video at that exact moment.
+1. **Sources** — paste text or add a webpage URL; each source is indexed with rich metadata (origin, position) so every indexed passage knows exactly where it lives in the original.
+2. **Chat** — answers grounded only in your sources, carrying per-sentence citations that point at the specific source used.
+3. **Original View (Showcase)** — click a citation and see the *original* resource, not a parsed extract: the live webpage, or the full pasted text with the cited passage highlighted.
 
 ## What Makes This Different
 
 | Pillar | Our position | Honest read |
 |---|---|---|
-| **Design / UX** | A unique, funky **neo-brutalist + minimalistic-maximalist** design language — bold, modern, unmistakably different from Google's clean minimalism | Brand-level, visible difference; a deliberate aesthetic contrast to NotebookLM — memorable and demoable, must be executed with taste |
-| **Complex PDF ingestion** | Deep handling of scanned pages, tables, multi-column layouts | Google adds OCR/images; deep structured PDF extraction is still a genuine gap [ASSUMPTION: this is the hardest pillar and likely the highest-engineering-cost] |
-| **Rich-metadata indexing** | Every chunk points back at its origin with page/heading/timestamp anchors | This is the *foundation* for the two pillars below — not a visible feature on its own |
-| **Citation view** | Answers cite the exact uploaded resource | NotebookLM matches this; parity required, not differentiator |
-| **Citation → original view** | Clicking a citation opens the *actual original resource* — real PDF page, live web page, or the video played at the cited timestamp | **Genuine gap.** NotebookLM shows a highlighted quote preview; we show the source itself |
-| **Websearch + ingest** | Search the web, find related resources, ingest them as sources | **No longer novel** — NotebookLM's Deep Research does this. Reframed as parity with a simpler UX |
+| **Design / UX** | A funky, purely **neo-brutalist** language — bold, unmistakably different from Google's clean minimalism | Brand-level, visible difference; must be executed with taste |
+| **Citation → original view** | Clicking a citation opens the *actual original resource* — live web page or full text with the passage highlighted | **Genuine gap.** NotebookLM shows a highlighted quote preview; we show the source itself |
+| **Rich-metadata indexing** | Every chunk points back to its origin with position/offset anchors | The *foundation* for the pillar above — not a visible feature on its own |
+| **Websearch + ingest** | Fetch related web resources and ingest them as sources (approval-gated, FR-7) | Parity, not novelty — NotebookLM's Deep Research does this |
+| **Cost / stack** | Commercial OpenAI-compatible APIs only, env-configurable, no lock-in | Cheaper and simpler than a platform bet; per-use cost must be watched |
 
-**Unfair advantage, honestly stated:** there is no technical moat. The advantage is *execution and focus*: a passion-built product with a cheaper hybrid stack, a niche source type (subtitles) Google doesn't treat as first-class, and a citation experience that visibly closes the loop to the original document — done faster and lighter than a platform product can.
+**Unfair advantage, honestly stated:** there is no technical moat. The advantage is *execution and focus* — a passion-built product with a lighter stack, a first-principles citation experience that visibly closes the loop to the original source, and a signature design — done faster and lighter than a platform product can.
 
 ## Who This Serves
 
-**Primary:** everyday consumers who want to learn something deeply — studying from PDFs and lectures, following along with a course, researching a topic across mixed sources, or analyzing any content they personally own or find. Success for them: ask a question, get an answer they can *verify* against the original source in one click, without leaving the flow.
+**Primary:** everyday consumers who want to learn something deeply — researching a topic across mixed sources, following along with a course, or analyzing content they personally own or find. Success for them: ask a question, get an answer they can *verify* against the original source in one click, without leaving the flow.
 
 **Secondary:** students and self-directed learners who need citation discipline (essays, reports, study notes) and value a tool that doesn't require a Google account.
 
 ## Success Criteria
 
 - **Engagement:** users create multiple notebooks; sources per notebook grow beyond the first upload.
-- **Grounded answers:** ≥ 90% of chat answers carry at least one citation to a user source [ASSUMPTION: measurable in logs].
-- **Citation trust:** a meaningful share of citations are clicked, and the click leads to the original view, not a fallback.
-- **Ingestion breadth:** all five source types (PDF, webpage, text, YouTube, subtitles) ingested successfully without error in normal use.
-- **Usage gating:** the credit system works — each agent call consumes exactly 1 credit, the daily reset functions, and uploads/indexing stay friction-free.
+- **Grounded answers:** ≥90% of chat answers carry at least one citation to a user source [ASSUMPTION: measurable in logs].
+- **Citation trust:** a meaningful share of citations are clicked, and the click opens the original source.
+- **Ingestion reliability:** text and web sources ingest successfully in normal use; failures are honest and isolated.
 
-## Scope
+## Roadmap & Scope
 
-**Roadmap (phased — every milestone is a usable slice):**
-- **v0.1 — Text foundation:** textarea + webpage ingestion, rich-metadata indexing, chat with per-source citations, citation → original view (renders the source)
-- **v0.3 — PDF support:** PDF ingestion with deep parsing (scanned pages, tables, dense layouts); citations render the actual PDF page
-- **v0.6 — Transcript support:** subtitle files (`.srt`, `.vtt`) as first-class sources with timestamp-anchored indexing
-- **v1 — YouTube & polish:** full YouTube video ingestion where the **timestamp is the primary citation mark** — clicking a citation plays the video at that exact moment; design polish, mobile optimization, freemium credit system live
+Every milestone is a usable slice; the citation-first core loop is the foundation throughout.
 
-**Explicitly out (v1):** audio transcription, image/OCR sources, collaboration/sharing, native mobile apps, podcast/Audio-Overview generation, Google Drive sync. [ASSUMPTION: all flagged as future, subject to review]
+- **v0.1 — Text foundation (this build):** textarea + webpage ingestion, rich-metadata indexing, chat with per-source citations, citation → original view, landing page, dark mode, cookie consent. Limits: 10 notebooks/user, 1-week notebook expiry, 10 sources/notebook, 30/user, 5 MB/source.
+- **v0.3 — PDF support:** PDF ingestion with deep parsing (scanned pages, tables, dense layouts); citations render the actual PDF page.
+- **v0.6 — Transcript support:** subtitle files (`.srt`, `.vtt`) as first-class sources with timestamp-anchored indexing.
+- **v1 — YouTube & polish:** full video ingestion where the **timestamp is the primary citation mark**; design polish, freemium credit system.
 
-**Daily credit limit (decided):** users get **10 credits/day**, reset daily. Each agent call — a chat answer *or* a web search — consumes 1 credit. Credits gate AI usage only; uploading, indexing, and browsing sources remain free [ASSUMPTION: uploads/indexing uncapped, subject to abuse review]. Payments/business model: deliberately out of scope for now.
+**Explicitly out (v1):** audio transcription, image/OCR sources, collaboration/sharing, native mobile apps, podcast/Audio-Overview generation, Google Drive sync.
 
-**Risk to name:** deep PDF parsing (v0.3) and citation-to-video-playback (v1) are the hardest engineering. The phased roadmap keeps every milestone shippable — value lands before the hard parts. The citation-first core loop is the defensible foundation throughout.
+**Payments/business model:** out of scope for now. A daily credit limit arrives at v1 as a usage/cost gate (see addendum).
 
 ## Vision
 
-If chaibookLM succeeds, it becomes the everyday person's research workspace — the place where learning from mixed sources feels calm, verifiable, and inexpensive. In 2–3 years it expands beyond documents: audio sources, richer artifact generation (summaries, study guides), optional collaboration, and a self-hosted option for people who want full control of their data. The throughline stays the same: *cheaper, simpler, more honest about where every answer comes from — and impossible to mistake for anything else.* The neo-brutalist design language becomes the product's signature.
+If chaibookLM succeeds, it becomes the everyday person's research workspace — the place where learning from mixed sources feels calm, verifiable, and inexpensive. Over time it expands beyond documents: audio sources, richer artifact generation, optional collaboration. The throughline stays the same: *cheaper, simpler, more honest about where every answer comes from — and impossible to mistake for anything else.* The neo-brutalist design language becomes the product's signature.
