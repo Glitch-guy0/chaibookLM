@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>chaibookLM — Add a source (upload dialog)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* Governing spine:
+   DESIGN.md Components: dialog, button-primary, button-secondary
+   DESIGN.md Elevation & Depth: overlay-dim backdrop (#17130E @ 55%), 8px 8px 0 0 dialog shadow
+   DESIGN.md Typography: Space Grotesk for working text, Space Mono for evidence microcopy
+   EXPERIENCE.md Component Patterns: Upload dialog — two paths (paste text / add webpage),
+     empty/whitespace-only text rejected inline
+   EXPERIENCE.md State Patterns: ingestion states surface on the source card after close
+   Developer Contract: unique stable data-debug names on every component instance (zero visual impact)
+*/
+
+:root{
+  --surface:#FAF4E9;
+  --surface-elevated:#FFFFFF;
+  --ink:#17130E;
+  --ink-secondary:#5A5146;
+  --ink-muted:#766E63;
+  --border:#17130E;
+  --brand:#FF5C1A;
+  --brand-ink:#1A0A00;
+  --cite:#1E5EFF;
+  --cite-ink:#FFFFFF;
+  --accent-yellow:#FFD60A;
+  --accent-pink:#FF3D8B;
+  --success:#0B8A4B;
+  --warning:#B88200;
+  --error:#D62828;
+  --overlay-dim:rgba(23,19,14,0.55);
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+html,body{ height:100%; }
+
+body{
+  background:var(--surface);
+  color:var(--ink);
+  font-family:'Space Grotesk',system-ui,sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+
+button{ font:inherit; color:inherit; background:none; border:none; cursor:pointer; }
+
+:focus-visible{
+  outline:3px solid var(--ink);
+  outline-offset:2px;
+}
+
+.btn-primary:focus-visible,
+.dialog-tab:focus-visible{
+  outline-color:var(--surface);
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ transition:none !important; }
+}
+
+/* ---- Dimmed workspace mock (behind the dialog) ---- */
+.workspace-mock{
+  min-height:100vh;
+  padding:24px;
+  display:flex;
+  gap:24px;
+}
+
+.mock-pane{
+  border:2px solid var(--border);
+  box-shadow:4px 4px 0 0 var(--ink);
+  background:var(--surface-elevated);
+}
+.mock-rail{ width:64px; background:var(--ink); }
+.mock-sources{ width:280px; }
+.mock-chat{ flex:1 1 auto; max-width:672px; }
+.mock-showcase{ width:420px; }
+
+/* ---- Backdrop + dialog ---- */
+.backdrop{
+  position:fixed;
+  inset:0;
+  background:var(--overlay-dim);
+  z-index:10;
+}
+
+.dialog{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:520px;
+  max-width:calc(100vw - 32px);
+  background:var(--surface-elevated);
+  border:3px solid var(--border);
+  box-shadow:8px 8px 0 0 var(--ink);
+  z-index:20;
+  padding:28px;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+.dialog-title{
+  font-family:'Archivo Black',sans-serif;
+  font-size:24px;
+  font-weight:400;
+  line-height:1.2;
+}
+
+/* ---- Source type tabs ---- */
+.dialog-tabs{
+  display:flex;
+  border-bottom:2px solid var(--border);
+}
+
+.dialog-tab{
+  padding:10px 4px;
+  margin-right:20px;
+  font-size:16px;
+  font-weight:500;
+  color:var(--ink-muted);
+  border-bottom:4px solid transparent;
+  margin-bottom:-2px;
+}
+.dialog-tab:hover{ color:var(--ink); }
+.dialog-tab-active{
+  color:var(--ink);
+  font-weight:600;
+  border-bottom-color:var(--ink);
+}
+
+/* ---- Paste text path ---- */
+.dialog-field{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.field-label{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:15px;
+  font-weight:500;
+}
+
+.dialog-textarea{
+  width:100%;
+  min-height:112px;
+  background:var(--surface-elevated);
+  border:2px solid var(--border);
+  box-shadow:2px 2px 0 0 var(--ink);
+  padding:12px 14px;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:15px;
+  line-height:1.6;
+  color:var(--ink);
+  resize:vertical;
+}
+
+.rejection{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-family:'Space Mono',monospace;
+  font-size:12.5px;
+  line-height:1.5;
+  color:var(--error);
+}
+.rejection .dot{
+  width:8px;
+  height:8px;
+  border-radius:9999px;
+  background:var(--error);
+  flex:none;
+}
+
+/* ---- Footer row ---- */
+.dialog-footer{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  margin-top:4px;
+}
+
+.hint-line{
+  font-family:'Space Mono',monospace;
+  font-size:12px;
+  line-height:1.4;
+  color:var(--ink-muted);
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border:2px solid var(--border);
+  font-size:16px;
+  font-weight:600;
+  line-height:1.2;
+  padding:12px 20px;
+  white-space:nowrap;
+  transition:transform 120ms ease, box-shadow 120ms ease;
+}
+
+.btn-secondary{
+  background:var(--surface-elevated);
+  color:var(--ink);
+  box-shadow:2px 2px 0 0 var(--ink);
+  margin-right:12px;
+}
+.btn-secondary:hover{ transform:translate(-1px,-1px); box-shadow:4px 4px 0 0 var(--ink); }
+.btn-secondary:active{ transform:none; box-shadow:0 0 0 0 var(--ink); }
+
+.btn-primary{
+  background:var(--brand);
+  color:var(--brand-ink);
+  box-shadow:4px 4px 0 0 var(--ink);
+}
+.btn-primary:hover{ transform:translate(-1px,-1px); box-shadow:6px 6px 0 0 var(--ink); }
+.btn-primary:active{ transform:none; box-shadow:0 0 0 0 var(--ink); }
+</style>
+</head>
+<body>
+
+<!-- Dimmed workspace mock -->
+<div class="workspace-mock" aria-hidden="true">
+  <div class="mock-pane mock-rail"></div>
+  <div class="mock-pane mock-sources"></div>
+  <div class="mock-pane mock-chat"></div>
+  <div class="mock-pane mock-showcase"></div>
+</div>
+
+<div class="backdrop" data-debug="dialog-backdrop"></div>
+
+<div class="dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title" data-debug="upload-dialog">
+  <h2 class="dialog-title" id="dialog-title">Add a source</h2>
+
+  <div class="dialog-tabs" role="tablist" aria-label="Source type" data-debug="upload-dialog-tabs">
+    <button type="button" role="tab" id="tab-paste" aria-selected="true" class="dialog-tab dialog-tab-active" data-debug="upload-dialog-tab-paste">Paste text</button>
+    <button type="button" role="tab" id="tab-web" aria-selected="false" class="dialog-tab" data-debug="upload-dialog-tab-web">Add webpage</button>
+  </div>
+
+  <div class="dialog-field" role="tabpanel" aria-labelledby="tab-paste" data-debug="upload-dialog-path-paste">
+    <label class="field-label" for="source-text">Your text</label>
+    <textarea class="dialog-textarea" id="source-text" name="source-text">Overwatering is the most common cause of indoor plant problems. Let the top inch of soil dry out before watering again, and always use a pot that drains freely.</textarea>
+    <p class="rejection" data-debug="upload-dialog-rejection" aria-live="polite"><span class="dot" aria-hidden="true"></span>Enter some text to add it to this notebook.</p>
+  </div>
+
+  <div class="dialog-footer">
+    <span class="hint-line">5 MB max per source</span>
+    <span>
+      <button type="button" class="btn btn-secondary" data-debug="upload-dialog-cancel">Cancel</button>
+      <button type="button" class="btn btn-primary" data-debug="upload-dialog-submit">Add to notebook</button>
+    </span>
+  </div>
+</div>
+
+</body>
+</html>
