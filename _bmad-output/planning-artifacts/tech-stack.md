@@ -14,9 +14,9 @@ Decided 2026-08-05, updated 2026-08-06. Source of truth for external dependencie
 | Auth | Clerk | Locked in PRD |
 | Chat LLM | env-configured OpenAI-compatible endpoint (`baseURL`, `apiKey`, `model`) | Provider-agnostic; DeepSeek V4 Flash / GPT-5.4-mini / Groq / Together / OpenRouter swap with no code change |
 | Embeddings | env-configured OpenAI-compatible endpoint (`baseURL`, `apiKey`, `model`) | Same env-driven pattern as chat LLM; `text-embedding-3-small`-class default |
-| Vector DB | **Qdrant**, behind a `VectorStore` interface (**composite adapter**) | Separate service — cloud free tier or self-hosted; composite adapter allows more vector stores later |
-| Relational DB | Neon (one multi-tenant Postgres) | Notebooks/sources/metadata + resource-limit counters; vectors live in Qdrant |
-| RAG runtime | shikigami agent SDK (`@glitch-guy0/shikigami`) | Retrieval = custom `MemoryStrategy` backed by the `VectorStore` port; answer path via `Agent` |
+| Vector DB | **Qdrant**, behind a `VectorStore` interface (**composite adapter**) | **System of record for Chunks** — vectors + chunk metadata (origin source, span/offset, position) stored together; separate service — cloud free tier or self-hosted; composite adapter allows more vector stores later |
+| Relational DB | Neon (one multi-tenant Postgres) | User + resource **working metadata only** (notebooks, source records/status, resource-limit counters, chat); **no chunk-level data** |
+| RAG runtime | shikigami agent SDK (`@glitch-guy0/shikigami`) | Retrieval = custom `MemoryStrategy` backed by the `VectorStore` port; answer path via `Agent`. **Tightly coupled by approved decision — NOT behind a port** |
 | Ingestion | App code in Upstash QStash job | Fetch → readability + linkedom → Turndown → split → embed → store. Job writes, agent reads |
 | Fetch/extract | native `fetch` + `@mozilla/readability` + linkedom + Turndown | Images stripped at index time (removable interceptor); JS-only pages → honest "failed" status |
 | File storage | **Filebase** (S3-compatible), behind a `StorageService` interface (**composite adapter**) | Raw HTML + assets; S3 SDK compatible; composite adapter allows multiple providers/databases later |
@@ -27,8 +27,10 @@ Decided 2026-08-05, updated 2026-08-06. Source of truth for external dependencie
 ## Code architecture
 
 - **DDD (domain-driven design)** — code organized by domain/bounded context (notebooks, sources, chat, ingestion, limits), entities + value objects + aggregates + repositories per bounded context.
-- **Modular monolith** — single deployable; Next.js is the controller/presentation layer only; all services in `backend/` as independently swappable modules.
+- **Modular monolith** — single deployable; Next.js is the controller/presentation layer only; all domain/application/infra services live in a **separate top-level `backend/` tree**, not nested inside the Next app — so it can be extracted into its own deployable later without a structural refactor.
 - **Composite adapters** — storage and vector DB are ports with composite adapter implementations: route/aggregate across multiple backing providers, so adding a provider or second database later never touches domain code.
+- **Shikigami coupling** — the shikigami agent SDK (`@glitch-guy0/shikigami`) is **tightly coupled** into the application (approved decision), *not* behind a port. The ports-and-adapters rule applies to storage, vector DB, LLM, embeddings, and web search — not to the answer runtime. Any modification to the SDK itself requires a detailed change-request document and explicit approval.
+- **Chunk authority & recovery** — Qdrant is the sole record of chunk-level data (metadata + vector together); Neon never stores chunk content. Qdrant loss is **not** rebuilt by re-indexing; the approved recovery is to delete the affected users' resource files from Filebase and surface an error to those users.
 - **LLM + embeddings both env-driven** — `baseURL`/`apiKey`/`model` from environment, OpenAI-compatible only.
 
 ## Explicit non-picks

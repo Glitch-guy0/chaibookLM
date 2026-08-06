@@ -35,7 +35,7 @@ A responsive web app (mobile-optimized, 320px floor) built around three surfaces
 | **Citation → original view** | Clicking a citation opens the *actual original resource* — live web page or full text with the passage highlighted | **Genuine gap.** NotebookLM shows a highlighted quote preview; we show the source itself |
 | **Rich-metadata indexing** | Every chunk points back to its origin with position/offset anchors | The *foundation* for the pillar above — not a visible feature on its own |
 | **Websearch + ingest** | Fetch related web resources and ingest them as sources (approval-gated, FR-7) | Parity, not novelty — NotebookLM's Deep Research does this |
-| **Cost / stack** | Commercial OpenAI-compatible APIs only, env-configurable, no lock-in | Cheaper and simpler than a platform bet; per-use cost must be watched |
+| **Cost / stack** | Commercial OpenAI-compatible APIs only, env-configurable, no lock-in | Cheaper and simpler than a platform bet; per-use cost must be watched. **Honest read (v0.1 policy): data durability is not guaranteed — a vector-store loss deletes the affected users' sources** |
 
 **Unfair advantage, honestly stated:** there is no technical moat. The advantage is *execution and focus* — a passion-built product with a lighter stack, a first-principles citation experience that visibly closes the loop to the original source, and a signature design — done faster and lighter than a platform product can.
 
