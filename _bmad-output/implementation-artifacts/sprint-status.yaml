@@ -61,12 +61,12 @@ development_status:
   # ─────────────────────────────────────────────────────
   # Epic 2: Organize Your Research Notebooks (FR-1)
   # ─────────────────────────────────────────────────────
-  epic-2: backlog
-  2-1-create-a-notebook: backlog
-  2-2-open-a-notebook-workspace: backlog
-  2-3-rename-a-notebook: backlog
-  2-4-delete-and-bulk-delete-notebooks: backlog
-  2-5-auto-expire-notebooks-after-one-week: backlog
+  epic-2: done
+  2-1-create-a-notebook: done
+  2-2-open-a-notebook-workspace: done
+  2-3-rename-a-notebook: done
+  2-4-delete-and-bulk-delete-notebooks: done
+  2-5-auto-expire-notebooks-after-one-week: done
   epic-2-retrospective: optional
 
   # ─────────────────────────────────────────────────────
