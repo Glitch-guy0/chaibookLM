@@ -1,0 +1,16 @@
+{
+  "node": {
+    "00b19e7511faef0432061b8cd231e66b4d836cb3dc": {
+      "workers": {
+        "app/(auth)/sign-in/page": {
+          "moduleId": 4569,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "invalidateCacheAction",
+      "filename": "node_modules/@clerk/nextjs/dist/esm/app-router/server-actions.js"
+    }
+  },
+  "edge": {}
+}

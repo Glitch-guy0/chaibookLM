@@ -1,0 +1,37 @@
+{
+  "name": "chaibooklm",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "^16.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "@clerk/nextjs": "^5.0.0",
+    "@clerk/types": "^4.0.0",
+    "@tanstack/react-query": "^5.101.4",
+    "@glitch-guy0/shikigami": "0.1.0",
+    "react-markdown": "^9.0.0",
+    "remark-gfm": "^4.0.0",
+    "driver.js": "^1.0.0",
+        "@neondatabase/serverless": "^0.9.0",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@types/uuid": "^10.0.0",
+    "tailwindcss": "^4.3.0",
+    "postcss": "^8.4.0",
+    "@tailwindcss/postcss": "^4.3.0",
+        "tsx": "^4.16.0"
+  }
+}

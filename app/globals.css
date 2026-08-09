@@ -1,0 +1,180 @@
+@import 'tailwindcss';
+
+/* ─── Design Tokens (DESIGN.md → CSS custom properties) ─── */
+
+:root {
+  /* Colors - Light */
+  --color-surface: #F5F0E8;
+  --color-surface-elevated: #FFFFFF;
+  --color-surface-dark: #16130D;
+  --color-surface-elevated-dark: #201C14;
+  --color-ink: #17130E;
+  --color-ink-secondary: #5C554A;
+  --color-ink-muted: #8A8273;
+  --color-brand: #FF6B35;
+  --color-cite: #2B7BE4;
+  --color-accent-yellow: #FFD23F;
+  --color-accent-pink: #FF6B8A;
+  --color-success: #2D8A4E;
+  --color-warning: #D4A017;
+  --color-error: #D32F2F;
+  --color-border: #17130E;
+  --color-focus-ring: #17130E;
+  --color-overlay-dim: rgba(23, 19, 14, 0.55);
+
+  /* Colors - Dark */
+  --color-brand-dark: #FF864F;
+  --color-cite-dark: #4A9EFF;
+  --color-accent-yellow-dark: #FFE066;
+  --color-accent-pink-dark: #FF8AA5;
+  --color-ink-dark: #F5F0E8;
+  --color-ink-secondary-dark: #B0A898;
+  --color-ink-muted-dark: #7A7263;
+  --color-border-dark: #F5F0E8;
+  --color-focus-ring-dark: #F5F0E8;
+  --color-success-dark: #3DAF5E;
+  --color-warning-dark: #E0B830;
+  --color-error-dark: #EF5350;
+
+  /* Typography */
+  --font-display: 'Archivo Black', sans-serif;
+  --font-sans: 'Space Grotesk', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+
+  /* Spacing (4-based scale) */
+  --spacing-gutter: 24px;
+  --spacing-panel-pad: 20px;
+
+  /* Border Radius */
+  --radius-default: 0px;
+  --radius-md: 2px;
+  --radius-full: 9999px;
+
+  /* Box Shadow */
+  --shadow-card: 3px 3px 0 0 var(--color-ink);
+  --shadow-dialog: 8px 8px 0 0 var(--color-ink);
+  --shadow-button: 6px -6px 0 0 var(--color-ink);
+  --shadow-card-dark: 3px 3px 0 0 var(--color-ink-dark);
+  --shadow-dialog-dark: 8px 8px 0 0 var(--color-ink-dark);
+  --shadow-button-dark: 6px -6px 0 0 var(--color-ink-dark);
+
+  color-scheme: light;
+}
+
+.dark {
+  --color-surface: #16130D;
+  --color-surface-elevated: #201C14;
+  --color-ink: #F5F0E8;
+  --color-ink-secondary: #B0A898;
+  --color-ink-muted: #7A7263;
+  --color-brand: #FF864F;
+  --color-cite: #4A9EFF;
+  --color-accent-yellow: #FFE066;
+  --color-accent-pink: #FF8AA5;
+  --color-border: #F5F0E8;
+  --color-focus-ring: #F5F0E8;
+  --shadow-card: 3px 3px 0 0 var(--color-ink);
+  --shadow-dialog: 8px 8px 0 0 var(--color-ink);
+  --shadow-button: 6px -6px 0 0 var(--color-ink);
+
+  color-scheme: dark;
+
+  /* Dark mode overlay is darker to maintain contrast on dark background */
+  --color-overlay-dim: rgba(0, 0, 0, 0.7);
+}
+
+/* ─── Tailwind v4 Theme ─── */
+@theme {
+  --color-surface: var(--color-surface);
+  --color-surface-elevated: var(--color-surface-elevated);
+  --color-ink: var(--color-ink);
+  --color-ink-secondary: var(--color-ink-secondary);
+  --color-ink-muted: var(--color-ink-muted);
+  --color-brand: var(--color-brand);
+  --color-cite: var(--color-cite);
+  --color-accent-yellow: var(--color-accent-yellow);
+  --color-accent-pink: var(--color-accent-pink);
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-error: var(--color-error);
+  --color-border: var(--color-border);
+  --color-focus-ring: var(--color-focus-ring);
+  --color-overlay-dim: var(--color-overlay-dim);
+
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+
+  --radius-default: var(--radius-default);
+  --radius-md: var(--radius-md);
+  --radius-full: var(--radius-full);
+
+  --shadow-card: var(--shadow-card);
+  --shadow-dialog: var(--shadow-dialog);
+  --shadow-button: var(--shadow-button);
+}
+
+/* ─── Base Styles ─── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+/* ─── Focus Styles ─── */
+*:focus-visible {
+  outline: 3px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+/* ─── Reduced Motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─── Debug Label (UX-DR22) ─── */
+[data-debug] {
+  position: relative;
+}
+
+[data-debug]::before {
+  content: attr(data-debug);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  padding: 2px 6px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 1;
+  color: var(--color-ink-muted);
+  background: var(--color-accent-yellow);
+  border: 1px solid var(--color-ink);
+  pointer-events: none;
+  opacity: 0.8;
+  white-space: nowrap;
+}
+
+/* Production build strips debug labels */
+.production [data-debug]::before {
+  display: none !important;
+}
+
+html.dark [data-debug]::before {
+  background: var(--color-accent-yellow-dark);
+  color: var(--color-ink-dark);
+  border-color: var(--color-border-dark);
+}
