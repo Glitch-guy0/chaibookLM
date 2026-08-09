@@ -1,0 +1,103 @@
+# generated: 2026-08-09
+# last_updated: 2026-08-09
+# project: chaibookLM
+# project_key: NOKEY
+# tracking_system: file-system
+# story_location: _bmad-output/implementation-artifacts
+
+# STATUS DEFINITIONS:
+# ==================
+# Epic Status:
+#   - backlog: Epic not yet started
+#   - in-progress: Epic actively being worked on
+#   - done: All stories in epic completed
+#
+# Epic Status Transitions:
+#   - backlog to in-progress: Automatically when first story is created (via create-story)
+#   - in-progress to done: Manually when all stories reach done status
+#
+# Story Status:
+#   - backlog: Story only exists in epic file
+#   - ready-for-dev: Story file created in stories folder
+#   - in-progress: Developer actively working on implementation
+#   - review: Ready for code review (via Dev code-review workflow)
+#   - done: Story completed
+#
+# Retrospective Status:
+#   - optional: Can be completed but not required
+#   - done: Retrospective has been completed
+#
+# Action Item Status:
+#   - open: Committed during a retrospective, not yet addressed
+#   - in-progress: Actively being worked on
+#   - done: Completed
+#
+# WORKFLOW NOTES:
+# ===============
+# - Epic transitions to in-progress automatically when first story is created
+# - Stories can be worked in parallel if team capacity allows
+# - Developer typically creates next story after previous one is done to incorporate learnings
+# - Dev moves story to review, then runs code-review (fresh context, different LLM recommended)
+# - Retrospective appends its action items to action_items; sprint-status surfaces open ones
+
+generated: "2026-08-09"
+last_updated: "2026-08-09"
+project: chaibookLM
+project_key: NOKEY
+tracking_system: file-system
+story_location: _bmad-output/implementation-artifacts
+
+development_status:
+  # ─────────────────────────────────────────────────────
+  # Epic 1: Sign In and Own Your Workspace (FR-9)
+  # ─────────────────────────────────────────────────────
+  epic-1: backlog
+  1-1-bootstrap-the-workspace-foundation: backlog
+  1-2-sign-in-with-your-account: backlog
+  1-3-scope-and-persist-my-workspace-data-per-user: backlog
+  1-4-establish-workspace-limits-and-counters: backlog
+  epic-1-retrospective: optional
+
+  # ─────────────────────────────────────────────────────
+  # Epic 2: Organize Your Research Notebooks (FR-1)
+  # ─────────────────────────────────────────────────────
+  epic-2: backlog
+  2-1-create-a-notebook: backlog
+  2-2-open-a-notebook-workspace: backlog
+  2-3-rename-a-notebook: backlog
+  2-4-delete-and-bulk-delete-notebooks: backlog
+  2-5-auto-expire-notebooks-after-one-week: backlog
+  epic-2-retrospective: optional
+
+  # ─────────────────────────────────────────────────────
+  # Epic 3: Bring and Index Your Sources (FR-2,3,4,5)
+  # ─────────────────────────────────────────────────────
+  epic-3: backlog
+  3-1-build-the-ingestion-pipeline: backlog
+  3-2-add-a-text-source: backlog
+  3-3-add-a-web-source-by-url: backlog
+  3-4-list-inspect-and-remove-sources: backlog
+  epic-3-retrospective: optional
+
+  # ─────────────────────────────────────────────────────
+  # Epic 4: Ask Questions Get Verifiable Answers (FR-6,7,8)
+  # ─────────────────────────────────────────────────────
+  epic-4: backlog
+  4-1-ask-questions-and-get-grounded-streaming-answers: backlog
+  4-2-render-verifiable-citation-chips: backlog
+  4-3-open-the-original-view-from-a-citation: backlog
+  4-4-refuse-honestly-and-offer-approval-gated-fetch-on-refusal: backlog
+  4-5-persist-chat-history-with-a-sliding-window: backlog
+  epic-4-retrospective: optional
+
+  # ─────────────────────────────────────────────────────
+  # Epic 5: First Impressions and Trust Floor (FR-10,11,12,13,14)
+  # ─────────────────────────────────────────────────────
+  epic-5: backlog
+  5-1-public-landing-page-with-scroll-storytelling: backlog
+  5-2-dark-mode-across-all-surfaces: backlog
+  5-3-cookie-consent-and-accessibility-preferences: backlog
+  5-4-first-run-product-walkthrough: backlog
+  5-5-honest-rate-limit-rejection-under-load: backlog
+  5-6-harden-the-design-system-across-all-surfaces: backlog
+  epic-5-retrospective: optional
