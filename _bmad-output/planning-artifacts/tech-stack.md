@@ -20,7 +20,7 @@ Decided 2026-08-05, updated 2026-08-06. Source of truth for external dependencie
 | Ingestion | App code in Upstash QStash job | Fetch → readability + linkedom → Turndown → split → embed → store. Job writes, agent reads |
 | Fetch/extract | native `fetch` + `@mozilla/readability` + linkedom + Turndown | Images stripped at index time (removable interceptor); JS-only pages → honest "failed" status |
 | File storage | **Filebase** (S3-compatible), behind a `StorageService` interface (**composite adapter**) | Raw HTML + assets; S3 SDK compatible; composite adapter allows multiple providers/databases later |
-| Web search (FR-7) | Pluggable `search` port — Kairo `WebSearchTool({ search: impl })` | v0.1 impls: jina / duckduckgo |
+| Web search (FR-7) | Pluggable `search` port — Kairo `WebSearchTool({ search: impl })` | v0.1 impl: jina (duckduckgo dropped) |
 | Markdown render | react-markdown + remark-gfm | Text sources + chat |
 | First-run tour (FR-10) | Driver.js | |
 

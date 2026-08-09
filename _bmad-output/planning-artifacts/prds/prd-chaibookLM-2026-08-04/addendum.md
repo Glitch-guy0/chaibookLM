@@ -25,7 +25,7 @@ Needs a design pass before/parallel to build (per PRD §6.1 assumption); exact p
 
 - **Models are OpenAI-compatible only** — LLM and embeddings both config-driven via env (`baseURL`, `apiKey`, `model`); any OpenAI-compatible host swaps in without code change.
 - **Answer runtime is the shikigami agent SDK** (`@glitch-guy0/shikigami`) — retrieval is a custom `MemoryStrategy` wired into `MemoryManager`; ingestion is app code (queue job) writing to the same store.
-- **Web search is a pluggable port** — Kairo `WebSearchTool` takes an injected `search` implementation; v0.1 ships jina / duckduckgo impls.
+- **Web search is a pluggable port** — Kairo `WebSearchTool` takes an injected `search` implementation; v0.1 ships jina (duckduckgo dropped).
 - **Code is DDD + modular monolith** — bounded-context modules in `backend/` (domain + application + infrastructure) as a **separate top-level tree**, not nested in the Next app; Next.js holds the controller/presentation layer only. Structure only — the runtime stays a single deployable.
 - **Storage is a port with a composite adapter** — `StorageService` interface backed by Filebase (S3-compatible) via composite adapter, so more providers/databases can be added without touching domain code.
 - **Vector DB is a port with a composite adapter** — `VectorStore` interface backed by Qdrant via composite adapter; more vector stores can be added later.
@@ -48,7 +48,7 @@ Needs a design pass before/parallel to build (per PRD §6.1 assumption); exact p
 | RAG runtime | shikigami agent SDK | Custom `MemoryStrategy` → `VectorStore` port; **tightly coupled (approved), not behind a port** |
 | Ingestion | App code in Upstash QStash job | Fetch → readability+linkedom → Turndown → split → embed → store; job writes, agent reads |
 | File storage | Filebase (S3-compatible) behind `StorageService` composite adapter | Raw HTML + assets; more providers later |
-| Web search (FR-7) | Pluggable `search` port; v0.1 = jina / duckduckgo | Kairo `WebSearchTool` |
+| Web search (FR-7) | Pluggable `search` port; v0.1 = jina (duckduckgo dropped) | Kairo `WebSearchTool` |
 | Client data | TanStack Query (default recommendations) | No raw fetch in components |
 | Design/CSS | **Tailwind CSS** (design tokens map 1:1 to Tailwind theme config) | Dark mode via `dark` variant + CSS custom properties |
 | Cookies/consent | Consent-first cookie handling (GDPR-style) | Per-category disclosure ("cookies related to X and Y"); a11y prefs persisted as cookies only after consent |
