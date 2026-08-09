@@ -71,6 +71,51 @@ export class NotebookService {
   }
 
   /**
+   * Delete multiple notebooks, verifying ownership per id.
+   * Reconcilies the notebook counter to the actual persisted count exactly once
+   * after any deletions. Unauthorized or missing ids are skipped.
+   * @returns the number of notebooks actually deleted.
+   */
+  async deleteMany(ids: string[], userId: string): Promise<number> {
+    let deleted = 0;
+    for (const id of ids) {
+      const notebook = await this.repo.findNotebookById(id);
+      if (notebook && notebook.userId === userId) {
+        const ok = await this.repo.deleteNotebook(id);
+        if (ok) deleted++;
+      }
+    }
+    if (deleted > 0) {
+      const actualCount = (await this.repo.findNotebooksByUserId(userId)).length;
+      await this.limits.reconcileCounter(userId, 'notebooks', actualCount);
+    }
+    return deleted;
+  }
+
+  /**
+   * Delete a user's TTL-expired notebooks (lazy prune). Reconciles the notebook
+   * counter to the actual persisted count exactly once after any deletions.
+   * @returns the number of expired notebooks deleted.
+   */
+  async removeExpiredForUser(userId: string): Promise<number> {
+    const notebooks = await this.repo.findNotebooksByUserId(userId);
+    const now = Date.now();
+    const expired = notebooks.filter(
+      (n) => new Date(n.expiresAt).getTime() <= now,
+    );
+    let deleted = 0;
+    for (const notebook of expired) {
+      const ok = await this.repo.deleteNotebook(notebook.id);
+      if (ok) deleted++;
+    }
+    if (deleted > 0) {
+      const actualCount = (await this.repo.findNotebooksByUserId(userId)).length;
+      await this.limits.reconcileCounter(userId, 'notebooks', actualCount);
+    }
+    return deleted;
+  }
+
+  /**
    * Find all TTL-expired notebooks. Useful for a cleanup cron job.
    */
   async findExpired(): Promise<Notebook[]> {
