@@ -43,6 +43,8 @@ CREATE TABLE IF NOT EXISTS sources (
   created_at  TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
+ALTER TABLE sources ADD COLUMN IF NOT EXISTS fail_reason TEXT;
+
 CREATE INDEX IF NOT EXISTS idx_sources_notebook_id ON sources(notebook_id);
 CREATE INDEX IF NOT EXISTS idx_sources_user_id ON sources(user_id);
 
@@ -100,6 +102,7 @@ function rowToSource(row: QueryResultRow): Source {
     title: row.title,
     status: row.status,
     size: row.size,
+    failReason: row.fail_reason ?? undefined,
     createdAt: row.created_at,
   };
 }
@@ -275,6 +278,35 @@ export class NeonRepository {
       [notebookId],
     );
     return rows[0].cnt;
+  }
+
+  /**
+   * Update a source's ingestion status. A `failReason` is persisted when the
+   * status is `failed` and cleared otherwise. Returns null when the source does
+   * not exist.
+   */
+  async setSourceStatus(
+    id: string,
+    status: 'queued' | 'processing' | 'ready' | 'failed',
+    reason?: string,
+  ): Promise<Source | null> {
+    const { rows } = await this.pool.query(
+      `UPDATE sources
+       SET status = $2,
+           fail_reason = CASE WHEN $2 = 'failed' THEN $3 ELSE NULL END
+       WHERE id = $1
+       RETURNING *`,
+      [id, status, reason ?? null],
+    );
+    return rows.length > 0 ? rowToSource(rows[0]) : null;
+  }
+
+  async deleteSource(id: string): Promise<boolean> {
+    const { rowCount } = await this.pool.query(
+      'DELETE FROM sources WHERE id = $1',
+      [id],
+    );
+    return (rowCount ?? 0) > 0;
   }
 
   // ── Chat Messages ──────────────────────────────────────────────────────

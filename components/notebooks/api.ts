@@ -102,3 +102,93 @@ export function daysUntilExpiry(expiresAt: string, now = Date.now()): number {
   const diff = new Date(expiresAt).getTime() - now;
   return diff > 0 ? Math.ceil(diff / 86_400_000) : 0;
 }
+
+// ── Sources ──────────────────────────────────────────────────────────────
+
+export type SourceType = 'text' | 'web';
+export type SourceStatus = 'queued' | 'processing' | 'ready' | 'failed';
+
+export interface SourceRecord {
+  id: string;
+  notebookId: string;
+  userId: string;
+  type: SourceType;
+  title: string;
+  status: SourceStatus;
+  size: number;
+  failReason: string | null;
+  createdAt: string;
+}
+
+export interface SourceListResponse {
+  sources: SourceRecord[];
+}
+
+export interface SourceSingleResponse {
+  source: SourceRecord;
+}
+
+export function fetchSources(notebookId: string): Promise<SourceListResponse> {
+  return request<SourceListResponse>(
+    `/api/notebooks/${encodeURIComponent(notebookId)}/sources`,
+  );
+}
+
+export function createTextSource(
+  notebookId: string,
+  input: { title?: string; content: string },
+): Promise<SourceSingleResponse> {
+  return request<SourceSingleResponse>(
+    `/api/notebooks/${encodeURIComponent(notebookId)}/sources`,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ type: 'text', ...input }),
+    },
+  );
+}
+
+export function createWebSource(
+  notebookId: string,
+  input: { title?: string; url: string },
+): Promise<SourceSingleResponse> {
+  return request<SourceSingleResponse>(
+    `/api/notebooks/${encodeURIComponent(notebookId)}/sources`,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ type: 'web', ...input }),
+    },
+  );
+}
+
+export function deleteSource(id: string): Promise<{ deleted: boolean }> {
+  return request<{ deleted: boolean }>(
+    `/api/sources/${encodeURIComponent(id)}`,
+    { method: 'DELETE' },
+  );
+}
+
+export function deleteSourcesBulk(ids: string[]): Promise<{ deleted: number }> {
+  return request<{ deleted: number }>('/api/sources/bulk', {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ ids }),
+  });
+}
+
+export function clearFailedSources(
+  notebookId: string,
+): Promise<{ deleted: number }> {
+  return request<{ deleted: number }>('/api/sources/clear-failed', {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ notebookId }),
+  });
+}
+
+export function formatBytes(bytes: number): string {
+  if (bytes < 1024) return `${bytes} B`;
+  if (bytes < 1_048_576) return `${(bytes / 1024).toFixed(1)} KB`;
+  return `${(bytes / 1_048_576).toFixed(1)} MB`;
+}

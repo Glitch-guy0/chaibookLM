@@ -5,6 +5,7 @@ import { useParams } from 'next/navigation';
 import { useQuery } from '@tanstack/react-query';
 import { Tabs, type TabItem } from '@components/ui/tabs';
 import { fetchNotebook } from './api';
+import { SourcesPanel } from '@components/sources/sources-panel';
 
 const TABS: TabItem[] = [
   { id: 'sources', label: 'Sources' },
@@ -90,27 +91,8 @@ export function Workspace() {
             {(activeTab) => {
               if (activeTab === 'sources') {
                 return (
-                  <div
-                    data-debug="WorkspaceSourcesPanel"
-                    className="flex flex-col items-center justify-center px-6 py-16 border-2 border-dashed border-ink-muted dark:border-ink-muted-dark bg-surface-elevated dark:bg-surface-elevated-dark rounded-default"
-                  >
-                    <p className="text-lg font-semibold text-ink-secondary dark:text-ink-secondary-dark">
-                      {notebook.sourceCount === 0
-                        ? 'This notebook has no sources yet.'
-                        : `${notebook.sourceCount} ${
-                            notebook.sourceCount === 1 ? 'source' : 'sources'
-                          } in this notebook.`}
-                    </p>
-                    <p className="mt-2 text-sm text-ink-muted dark:text-ink-muted-dark">
-                      Add sources to ground your research and chat.
-                    </p>
-                    <button
-                      type="button"
-                      data-debug="AddFirstSourceButton"
-                      className="mt-6 min-h-11 px-6 py-3 text-sm font-semibold font-sans uppercase tracking-wider border-2 border-border dark:border-border-dark bg-brand dark:bg-brand text-ink dark:text-ink-dark rounded-default focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2"
-                    >
-                      Add your first source
-                    </button>
+                  <div data-debug="WorkspaceSourcesPanel">
+                    <SourcesPanel notebookId={id} />
                   </div>
                 );
               }

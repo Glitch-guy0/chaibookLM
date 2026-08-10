@@ -1,6 +1,6 @@
 import { auth } from '@clerk/nextjs/server';
 import { NextResponse } from 'next/server';
-import type { Notebook } from '@backend/shared-kernel/types';
+import type { Notebook, Source } from '@backend/shared-kernel/types';
 
 /**
  * Extracts the authenticated user's ID from the request using Clerk auth().
@@ -43,5 +43,26 @@ export function serializeNotebook(notebook: Notebook) {
       notebook.expiresAt instanceof Date
         ? notebook.expiresAt.toISOString()
         : String(notebook.expiresAt),
+  };
+}
+
+/**
+ * Serialize a Source for the JSON wire format, converting Date fields to ISO
+ * strings and always including failReason (null when absent).
+ */
+export function serializeSource(source: Source) {
+  return {
+    id: source.id,
+    notebookId: source.notebookId,
+    userId: source.userId,
+    type: source.type,
+    title: source.title,
+    status: source.status,
+    size: source.size,
+    failReason: source.failReason ?? null,
+    createdAt:
+      source.createdAt instanceof Date
+        ? source.createdAt.toISOString()
+        : String(source.createdAt),
   };
 }

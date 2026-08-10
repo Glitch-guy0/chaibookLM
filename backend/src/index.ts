@@ -42,6 +42,21 @@ export { JinaAdapter } from './adapters/jina/index';
 // Contexts
 export { LimitsService, DEFAULT_LIMITS } from './contexts/limits/index';
 export { NotebookService } from './contexts/notebooks/index';
+export { SourceService } from './contexts/sources/index';
+export { IngestionService } from './contexts/ingestion/index';
+
+// Chunking
+export {
+  splitPlainText,
+  splitMarkdown,
+  chunkId,
+  CHUNK_SIZE,
+  CHUNK_OVERLAP,
+  type SplitChunk,
+} from './chunking/splitter';
+
+// Adapter helper (reader + image stripping)
+export { stripImages } from './adapters/jina/index';
 
 // Templates
 export { VectorStoreMemoryStrategy } from './templates/VectorStoreMemoryStrategy';

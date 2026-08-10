@@ -1,11 +1,20 @@
 import { NeonRepository } from '@backend/adapters/neon/index';
+import { QdrantAdapter } from '@backend/adapters/qdrant/index';
+import { EmbeddingsAdapter } from '@backend/adapters/embeddings/index';
+import { FilebaseAdapter } from '@backend/adapters/filebase/index';
+import { JinaAdapter } from '@backend/adapters/jina/index';
 import { LimitsService } from '@backend/contexts/limits/index';
 import { NotebookService } from '@backend/contexts/notebooks/index';
+import { SourceService } from '@backend/contexts/sources/index';
+import { IngestionService } from '@backend/contexts/ingestion/index';
+import { SourceIndexer } from '@backend/templates/SourceIndexer';
+import { EmbeddingService } from '@backend/templates/EmbeddingService';
 
 interface BackendServices {
   repo: NeonRepository;
   limits: LimitsService;
   notebooks: NotebookService;
+  sources: SourceService;
 }
 
 let backendPromise: Promise<BackendServices> | null = null;
@@ -13,10 +22,10 @@ let backendPromise: Promise<BackendServices> | null = null;
 /**
  * Composition root singleton.
  *
- * Lazily constructs the NeonRepository, LimitsService and NotebookService once
- * and reuses them across route invocations (Vercel serverless module cache).
- * Runs the idempotent schema migration before any service is used. Routes never
- * construct adapters directly — they only call getBackend().
+ * Lazily constructs every adapter and owning context once and reuses them
+ * across route invocations (Vercel serverless module cache). Runs the idempotent
+ * schema migration before any service is used. Adapters are constructed only
+ * here — routes never construct them directly.
  */
 export function getBackend(): Promise<BackendServices> {
   if (!backendPromise) {
@@ -29,9 +38,21 @@ export function getBackend(): Promise<BackendServices> {
       }
       const repo = new NeonRepository(databaseUrl);
       await repo.runMigrations();
+
+      const embeddings = new EmbeddingsAdapter();
+      const qdrant = new QdrantAdapter();
+      const storage = new FilebaseAdapter();
+      const jina = new JinaAdapter();
+
+      const embeddingService = new EmbeddingService(embeddings, qdrant);
+      const ingestion = new IngestionService(repo, storage, jina, embeddingService);
+      const indexer = new SourceIndexer(ingestion);
+
       const limits = new LimitsService(repo);
       const notebooks = new NotebookService(repo, limits);
-      return { repo, limits, notebooks };
+      const sources = new SourceService(repo, storage, limits, indexer, qdrant);
+
+      return { repo, limits, notebooks, sources };
     })();
   }
   return backendPromise;

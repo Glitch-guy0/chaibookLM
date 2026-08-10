@@ -21,6 +21,7 @@ export interface Source {
   title: string;
   status: 'queued' | 'processing' | 'ready' | 'failed';
   size: number;
+  failReason?: string;
   createdAt: Date;
 }
 

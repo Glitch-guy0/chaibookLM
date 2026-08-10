@@ -1,0 +1,161 @@
+import { NeonRepository } from '../../adapters/neon/index';
+import { LimitsService } from '../limits/index';
+import { SourceIndexer } from '../../templates/SourceIndexer';
+import type { VectorStore } from '../../ports/VectorStore';
+import type { StorageService } from '../../ports/StorageService';
+import type { Source } from '../../shared-kernel/types';
+
+const RAW_KEY = (sourceId: string) => `sources/${sourceId}`;
+
+export interface CreateSourceParams {
+  notebookId: string;
+  userId: string;
+  type: 'text' | 'web';
+  title: string;
+  content: string;
+}
+
+export type CreateSourceResult =
+  | { ok: true; source: Source }
+  | { ok: false; reason: string; count: number; cap: number };
+
+/**
+ * Source lifecycle: create (with limits + enqueue), scoped list/find, and the
+ * delete cascade (Qdrant → Filebase → Neon) for single/bulk/clear-failed with a
+ * single counter reconcile. Counters are owned by the LimitsService; the
+ * per-user source counter is bumped atomically inside checkSourceCap.
+ */
+export class SourceService {
+  private repo: NeonRepository;
+  private storage: StorageService;
+  private limits: LimitsService;
+  private indexer: SourceIndexer;
+  private qdrant: VectorStore;
+
+  constructor(
+    repo: NeonRepository,
+    storage: StorageService,
+    limits: LimitsService,
+    indexer: SourceIndexer,
+    qdrant: VectorStore,
+  ) {
+    this.repo = repo;
+    this.storage = storage;
+    this.limits = limits;
+    this.indexer = indexer;
+    this.qdrant = qdrant;
+  }
+
+  async create(params: CreateSourceParams): Promise<CreateSourceResult> {
+    const config = this.limits.getConfig();
+    const size = Buffer.byteLength(params.content, 'utf8');
+    if (size > config.maxSourceSizeBytes) {
+      const notebookCount = await this.repo.countSourcesByNotebook(
+        params.notebookId,
+      );
+      return {
+        ok: false,
+        reason: `This source exceeds the ${this.formatBytes(config.maxSourceSizeBytes)} limit.`,
+        count: notebookCount,
+        cap: config.maxSourcesPerNotebook,
+      };
+    }
+
+    const cap = await this.limits.checkSourceCap(
+      params.notebookId,
+      params.userId,
+    );
+    if (!cap.allowed) {
+      const userCounter = await this.limits.getSourcesPerUserCounter(
+        params.userId,
+      );
+      const notebookCount = await this.repo.countSourcesByNotebook(
+        params.notebookId,
+      );
+      const userOver = userCounter.count >= userCounter.cap;
+      return {
+        ok: false,
+        reason: cap.reason ?? 'Source limit reached',
+        count: userOver ? userCounter.count : notebookCount,
+        cap: userOver
+          ? userCounter.cap
+          : config.maxSourcesPerNotebook,
+      };
+    }
+
+    await this.repo.createUser(params.userId, '').catch(() => {});
+
+    try {
+      const source = await this.repo.createSource(
+        params.notebookId,
+        params.userId,
+        params.type,
+        params.title,
+      );
+
+      try {
+        await this.storage.put(
+          RAW_KEY(source.id),
+          Buffer.from(params.content, 'utf8'),
+          'text/plain',
+        );
+      } catch {
+        // Storage unconfigured/transient: leave queued; ingestion reports it.
+      }
+
+      void this.indexer.index(source.id).catch(() => {});
+
+      return { ok: true, source };
+    } catch (err) {
+      await this.limits
+        .decrementCounter(params.userId, 'sources_per_user')
+        .catch(() => {});
+      throw err;
+    }
+  }
+
+  async listByNotebook(notebookId: string): Promise<Source[]> {
+    return this.repo.findSourcesByNotebookId(notebookId);
+  }
+
+  async findById(id: string): Promise<Source | null> {
+    return this.repo.findSourceById(id);
+  }
+
+  async remove(ids: string[], userId: string): Promise<number> {
+    let deleted = 0;
+    for (const id of ids) {
+      const source = await this.repo.findSourceById(id);
+      if (!source || source.userId !== userId) continue;
+      await this.cascadeDelete(id);
+      const ok = await this.repo.deleteSource(id);
+      if (ok) deleted++;
+    }
+    if (deleted > 0) {
+      const actualCount = await this.repo.countSourcesByUser(userId);
+      await this.limits.reconcileCounter(
+        userId,
+        'sources_per_user',
+        actualCount,
+      );
+    }
+    return deleted;
+  }
+
+  async clearFailed(notebookId: string, userId: string): Promise<number> {
+    const sources = await this.repo.findSourcesByNotebookId(notebookId);
+    const failed = sources
+      .filter((s) => s.userId === userId && s.status === 'failed')
+      .map((s) => s.id);
+    return this.remove(failed, userId);
+  }
+
+  private async cascadeDelete(sourceId: string): Promise<void> {
+    await this.qdrant.deleteBySourceId(sourceId).catch(() => {});
+    await this.storage.delete(RAW_KEY(sourceId)).catch(() => {});
+  }
+
+  private formatBytes(bytes: number): string {
+    return `${Math.floor(bytes / 1_048_576)} MB`;
+  }
+}

@@ -1,10 +1,11 @@
-// Template stub: EmbeddingService
-// Generates embeddings for chunks and upserts them into the VectorStore.
-// Real implementation deferred to Epic 3 (ingestion).
-
 import type { Embeddings } from '../ports/Embeddings';
 import type { VectorStore } from '../ports/VectorStore';
+import type { Chunk } from '../shared-kernel/types';
 
+/**
+ * Embeds chunk text via the Embeddings port and upserts chunk + vector pairs
+ * into the VectorStore. This is the only caller of the embeddings endpoint.
+ */
 export class EmbeddingService {
   private embeddings: Embeddings;
   private vectorStore: VectorStore;
@@ -14,7 +15,11 @@ export class EmbeddingService {
     this.vectorStore = vectorStore;
   }
 
-  async embedAndStore(_chunks: unknown[]): Promise<void> {
-    throw new Error('Not implemented');
+  async embedAndStore(chunks: Chunk[]): Promise<void> {
+    if (chunks.length === 0) return;
+    const vectors = await this.embeddings.embedBatch(
+      chunks.map((c) => c.text),
+    );
+    await this.vectorStore.upsert(chunks, vectors);
   }
 }
