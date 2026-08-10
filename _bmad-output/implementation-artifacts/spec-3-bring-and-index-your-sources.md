@@ -2,10 +2,11 @@
 title: 'Epic 3 — Bring & Index Your Sources'
 type: 'feature'
 created: '2026-08-09'
-status: 'in-review'
+status: 'done'
 baseline_revision: aa2c42b61aac435b56d760d63b6b81aa25061dc6
+final_revision: PENDING_COMMIT
 review_loop_iteration: 0
-followup_review_recommended: false
+followup_review_recommended: true
 context: []
 warnings: [oversized]
 ---
@@ -122,7 +123,31 @@ warnings: [oversized]
 
 ## Review Triage Log
 
-(Empty until first review pass.)
+### 2026-08-10 — Review pass
+- intent_gap: 0
+- bad_spec: 0
+- patch: 13: (high 2, medium 6, low 5)
+- defer: 5: (high 0, medium 3, low 2)
+- reject: 3
+- addressed_findings:
+  - `[high]` `[patch]` Jina `fetchReader` fully percent-encoded the target URL (including `://`), which the r.jina.ai reader convention rejects/misinterprets — broke web-source ingestion for essentially every URL. Fixed to append the raw URL unencoded.
+  - `[high]` `[patch]` Filebase SigV4 canonical headers always signed a `content-type` value that GET/DELETE requests never actually sent, causing signature mismatches against a real S3-compatible backend. Fixed to always send the same `Content-Type` value that is signed.
+  - `[medium]` `[patch]` `QdrantAdapter.upsert`'s 404→create-collection→retry path had no recursion guard; a persistently misconfigured collection could recurse indefinitely. Added a `_retried` flag to cap it at one retry.
+  - `[medium]` `[patch]` Web-source ingestion had no content-size cap before chunking/embedding, unlike text sources capped at create time — an arbitrarily large scraped page could incur unbounded embedding cost. Added a size check against the source size limit in `IngestionService.loadContent`.
+  - `[medium]` `[patch]` `IngestionService.ingest` read-then-wrote the `queued → processing` transition non-atomically; two concurrent triggers for the same source could both pass the check and double-embed. Added `NeonRepository.claimSourceForIngestion` (atomic `UPDATE ... WHERE status = 'queued'`) and switched `ingest` to use it.
+  - `[medium]` `[patch]` Markdown splitter only recognized H1/H2 (`#`/`##`) as section boundaries, contradicting the "no chunk crosses a section boundary" intent for H3–H6 headings. Extended the boundary regex to all ATX heading levels.
+  - `[medium]` `[patch]` `SourceService.remove` cascaded deletes sequentially in a `for` loop, risking serverless timeouts on large bulk deletes (up to 100 ids × 2 round-trips). Parallelized with `Promise.all`.
+  - `[low]` `[patch]` `toUuid` sliced a hex string at fixed offsets with no length validation, silently producing malformed UUIDs if the input shape ever changed. Added a length guard that throws.
+  - `[low]` `[patch]` `EmbeddingsAdapter.embed` could return `undefined` if the batch API returned fewer vectors than requested, silently violating its `Promise<number[]>` contract. Added a guard that throws instead.
+  - `[low]` `[patch]` `EmbeddingService.embedAndStore` had no defensive check that `embedBatch` returned a vector for every chunk before calling `VectorStore.upsert`, relying solely on `QdrantAdapter`'s own check. Added a length-mismatch guard.
+  - `[low]` `[patch]` `POST /api/notebooks/[id]/sources` had no try/catch around `sources.create`, so a DB error would fall through to Next.js's default 500 instead of the app's JSON error envelope. Wrapped in try/catch.
+  - `[low]` `[patch]` Bulk-delete route accepted empty-string ids from the request body, wasting a lookup per request. Filtered them out.
+  - `[low]` `[patch]` `deriveTitle` left a leading `#`/`##`/etc. in a derived title when the first line of pasted content was a markdown heading. Strips leading ATX heading markers before deriving the title.
+  - `[medium]` `[defer]` Per-notebook source cap check (`countSourcesByNotebook`) is a non-atomic read-then-compare, unlike the atomic per-user counter — deliberate existing design (explicit code comment), fixing requires a new atomic counter/schema change.
+  - `[medium]` `[defer]` No recovery/sweep path for a source stuck in `processing` if the serverless function is killed mid-ingest — requires a background worker/cron, out of scope for this diff.
+  - `[medium]` `[defer]` No outbound timeouts (`AbortController`) on any adapter's `fetch` calls (Embeddings, Filebase, Qdrant, Jina) — requires threading timeout/retry policy across four adapters, non-trivial.
+  - `[low]` `[defer]` `SourceService.create` swallows `createUser`/`storage.put` errors uniformly, masking genuine failures alongside expected no-ops — needs error-type discrimination, non-trivial.
+  - `[low]` `[defer]` 409 size-limit and count-limit rejections share one error code, so the client can't distinguish them — deferred as a minor UX polish item, not blocking.
 
 ## Design Notes
 
@@ -142,3 +167,29 @@ Delete cascade: `deleteBySourceId(sourceId)` on Qdrant → `storage.delete(rawKe
 - Review that no client component calls `fetch`; all data goes through TanStack Query hooks.
 - Confirm every interactive element carries a unique `data-debug` name; upload dialog traps focus; status uses color + text.
 - Confirm ingestion degrades gracefully: with no FILEBASE/JINA/QStash configured, a web source fails with a clear reason rather than crashing.
+
+## Auto Run Result
+
+**Summary:** Epic 3 (source management, ingestion pipeline, adapters, Sources UI) was already implemented prior to this run (baseline commits `fe90c4f5`/`e54034d2`). This run performed the review pass: adversarial + edge-case review of the diff since `aa2c42b6`, triage, and in-place patching.
+
+**Files changed in this review pass:**
+- `backend/src/adapters/jina/index.ts` — stop double-encoding the reader target URL (was breaking web ingestion for virtually all URLs).
+- `backend/src/adapters/filebase/index.ts` — sign and send the same `Content-Type` value (was a SigV4 mismatch breaking GET/DELETE against a real backend).
+- `backend/src/adapters/qdrant/index.ts` — bound the 404→create-collection→retry path to one retry; guard `toUuid` against malformed input.
+- `backend/src/chunking/splitter.ts` — recognize all ATX heading levels (H1–H6) as section boundaries, not just H1/H2.
+- `backend/src/adapters/embeddings/index.ts`, `backend/src/templates/EmbeddingService.ts` — defensive length/undefined checks around embedding vectors.
+- `backend/src/contexts/ingestion/index.ts`, `backend/src/adapters/neon/index.ts` — atomic `claimSourceForIngestion` (queued→processing) to prevent duplicate concurrent ingestion; size cap on fetched web content before chunking.
+- `backend/src/contexts/sources/index.ts` — parallelized bulk-delete cascade; aligned server/client byte-formatting.
+- `app/api/notebooks/[id]/sources/route.ts` — strip leading markdown heading marks from derived titles; wrap `sources.create` in try/catch for a consistent JSON error envelope.
+- `app/api/sources/bulk/route.ts` — filter out empty-string ids.
+
+**Review findings breakdown:** 13 patched (2 high, 6 medium, 5 low), 5 deferred (3 medium, 2 low) to `deferred-work.md`, 3 rejected as noise.
+
+**Follow-up review recommendation:** `true` — 13 patches spanning every adapter plus the ingestion/source contexts and two API routes, including two high-severity correctness fixes (web ingestion was effectively broken; Filebase signing would fail against a real backend) and a concurrency fix in the ingestion claim path. Breadth and behavior impact both warrant an independent follow-up pass.
+
+**Verification performed:** `npm run typecheck` — no type errors, after all patches applied. UI/browser verification not performed in this pass (no dev server run); flagged as a residual risk below.
+
+**Residual risks:**
+- No live verification against real Filebase/Qdrant/Jina/Embeddings endpoints — the two high-severity fixes (SigV4 header, reader URL encoding) are corrected per protocol spec but unverified against live services in this session.
+- Five items deferred to `deferred-work.md`: non-atomic per-notebook cap check, no stuck-ingestion recovery sweep, no adapter fetch timeouts, uniform error-swallowing in `SourceService.create`, and an indistinguishable 409 reason code for size vs. count limits.
+- No new automated tests were added for the patched paths (atomic claim, heading-level splitting, URL encoding); coverage relies on the existing manual verification checklist above.

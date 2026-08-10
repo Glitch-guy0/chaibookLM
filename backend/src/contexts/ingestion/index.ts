@@ -10,6 +10,7 @@ import type { StorageService } from '../../ports/StorageService';
 import type { Chunk } from '../../shared-kernel/types';
 
 const RAW_KEY = (sourceId: string) => `sources/${sourceId}`;
+const MAX_WEB_CONTENT_BYTES = 5_242_880; // matches DEFAULT_LIMITS.maxSourceSizeBytes
 
 /**
  * Single-writer ingestion pipeline. Drives a source through
@@ -37,10 +38,8 @@ export class IngestionService {
   }
 
   async ingest(sourceId: string): Promise<void> {
-    const source = await this.repo.findSourceById(sourceId);
-    if (!source || source.status !== 'queued') return;
-
-    await this.repo.setSourceStatus(sourceId, 'processing');
+    const source = await this.repo.claimSourceForIngestion(sourceId);
+    if (!source) return;
 
     try {
       const content = await this.loadContent(source.type, sourceId);
@@ -74,6 +73,9 @@ export class IngestionService {
     if (type === 'web') {
       const url = raw.toString('utf8');
       const markdown = await this.reader.fetchReader(url);
+      if (Buffer.byteLength(markdown, 'utf8') > MAX_WEB_CONTENT_BYTES) {
+        throw new Error('The fetched page exceeds the source size limit.');
+      }
       return stripImages(markdown);
     }
     return raw.toString('utf8');

@@ -22,6 +22,9 @@ export class EmbeddingsAdapter implements Embeddings {
 
   async embed(text: string): Promise<number[]> {
     const [vector] = await this.embedBatch([text]);
+    if (!vector) {
+      throw new Error('Embeddings API returned no vector');
+    }
     return vector;
   }
 

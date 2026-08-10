@@ -24,3 +24,18 @@
 - source_spec: `_bmad-output/implementation-artifacts/spec-2-organize-your-research-notebooks.md`
   summary: `getBackend` throws an unhandled 500 when `DATABASE_URL` is absent.
   evidence: Composition root throws on missing env rather than a graceful error; acceptable but not graceful.
+- source_spec: `_bmad-output/implementation-artifacts/spec-3-bring-and-index-your-sources.md`
+  summary: The per-notebook source cap check is a non-atomic read-then-compare (`countSourcesByNotebook`), unlike the atomic per-user counter.
+  evidence: `LimitsService.checkSourceCap` reads a live COUNT then compares, with an explicit comment noting no separate counter is used; two concurrent creates near the cap can both pass and exceed `maxSourcesPerNotebook`. Fixing requires adding a `sources_per_notebook` atomic counter akin to `sources_per_user`.
+- source_spec: `_bmad-output/implementation-artifacts/spec-3-bring-and-index-your-sources.md`
+  summary: No recovery path for a source stuck in `processing` if the serverless function is killed mid-ingest.
+  evidence: `void this.indexer.index(source.id).catch(() => {})` is fire-and-forget with no cron/worker sweep to retry or fail stuck sources; the UI shows an indefinite "Indexing" spinner with no recourse but delete-and-recreate.
+- source_spec: `_bmad-output/implementation-artifacts/spec-3-bring-and-index-your-sources.md`
+  summary: `SourceService.create` swallows all `createUser`/`storage.put` errors identically to expected "already exists"/"unconfigured" cases, hiding genuine DB or storage failures.
+  evidence: Both are wrapped in bare `.catch(() => {})`/`try { } catch { }` with no error-type discrimination; a real DB outage on `createUser` is indistinguishable from the idempotent no-op case.
+- source_spec: `_bmad-output/implementation-artifacts/spec-3-bring-and-index-your-sources.md`
+  summary: No outbound timeouts on any adapter fetch call (Embeddings, Filebase, Qdrant, Jina reader).
+  evidence: None of the four adapters use `AbortController`/timeout; a hung upstream blocks ingestion until the platform's own function timeout fires with no graceful "ingestion failed: timeout" message.
+- source_spec: `_bmad-output/implementation-artifacts/spec-3-bring-and-index-your-sources.md`
+  summary: The 409 size-limit and count-limit rejections share the same `SOURCE_CAP_EXCEEDED` error code, so the client can't distinguish them to tailor messaging.
+  evidence: `CreateSourceResult`'s `ok: false` branch has no `reasonCode` field; both size-exceeded and cap-exceeded paths return the identical shape from the route.

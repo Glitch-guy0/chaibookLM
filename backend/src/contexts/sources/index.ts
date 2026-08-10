@@ -123,14 +123,15 @@ export class SourceService {
   }
 
   async remove(ids: string[], userId: string): Promise<number> {
-    let deleted = 0;
-    for (const id of ids) {
-      const source = await this.repo.findSourceById(id);
-      if (!source || source.userId !== userId) continue;
-      await this.cascadeDelete(id);
-      const ok = await this.repo.deleteSource(id);
-      if (ok) deleted++;
-    }
+    const results = await Promise.all(
+      ids.map(async (id) => {
+        const source = await this.repo.findSourceById(id);
+        if (!source || source.userId !== userId) return false;
+        await this.cascadeDelete(id);
+        return this.repo.deleteSource(id);
+      }),
+    );
+    const deleted = results.filter(Boolean).length;
     if (deleted > 0) {
       const actualCount = await this.repo.countSourcesByUser(userId);
       await this.limits.reconcileCounter(
@@ -156,6 +157,6 @@ export class SourceService {
   }
 
   private formatBytes(bytes: number): string {
-    return `${Math.floor(bytes / 1_048_576)} MB`;
+    return `${(bytes / 1_048_576).toFixed(1)} MB`;
   }
 }

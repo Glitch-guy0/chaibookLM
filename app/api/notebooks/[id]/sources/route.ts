@@ -8,7 +8,10 @@ interface RouteContext {
 }
 
 function deriveTitle(content: string, fallback: string): string {
-  const firstLine = content.split('\n').map((l) => l.trim()).find(Boolean);
+  const firstLine = content
+    .split('\n')
+    .map((l) => l.trim().replace(/^#{1,6}\s+/, ''))
+    .find(Boolean);
   if (!firstLine) return fallback;
   return firstLine.length > 80 ? firstLine.slice(0, 80) : firstLine;
 }
@@ -102,13 +105,18 @@ export async function POST(request: NextRequest, context: RouteContext) {
       typeof b.title === 'string' && b.title.trim() ? b.title.trim() : raw;
   }
 
-  const result = await sources.create({
-    notebookId: id,
-    userId,
-    type,
-    title: title ?? 'Untitled',
-    content,
-  });
+  let result;
+  try {
+    result = await sources.create({
+      notebookId: id,
+      userId,
+      type,
+      title: title ?? 'Untitled',
+      content,
+    });
+  } catch {
+    return errorResponse('Could not create the source', 'INTERNAL_ERROR', 500);
+  }
 
   if (!result.ok) {
     return NextResponse.json(

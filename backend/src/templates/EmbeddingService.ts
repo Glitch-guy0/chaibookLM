@@ -20,6 +20,9 @@ export class EmbeddingService {
     const vectors = await this.embeddings.embedBatch(
       chunks.map((c) => c.text),
     );
+    if (vectors.length !== chunks.length) {
+      throw new Error('Embedding count does not match chunk count');
+    }
     await this.vectorStore.upsert(chunks, vectors);
   }
 }

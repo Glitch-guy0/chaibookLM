@@ -69,8 +69,9 @@ export class FilebaseAdapter implements StorageService {
     const host = new URL(this.endpoint).host;
     const canonicalUri = `/${this.bucket}/${encodeKey(key)}`;
     const payloadHash = sha256Hex(body ?? '');
+    const resolvedContentType = contentType ?? 'application/octet-stream';
     const canonicalHeaders = [
-      `content-type:${contentType ?? ''}`,
+      `content-type:${resolvedContentType}`,
       `host:${host}`,
       `x-amz-content-sha256:${payloadHash}`,
       `x-amz-date:${amzDate}`,
@@ -110,8 +111,8 @@ export class FilebaseAdapter implements StorageService {
       'x-amz-date': amzDate,
       'x-amz-content-sha256': payloadHash,
       Authorization: authorization,
+      'Content-Type': resolvedContentType,
     };
-    if (contentType) headers['Content-Type'] = contentType;
 
     return fetch(`${this.endpoint}${canonicalUri}`, {
       method,

@@ -31,7 +31,7 @@ export class JinaAdapter implements Search {
   }
 
   async fetchReader(url: string): Promise<string> {
-    const target = `${this.readerUrl}/${encodeURIComponent(url)}`;
+    const target = `${this.readerUrl}/${url}`;
     const res = await fetch(target, {
       headers: {
         'X-Return-Format': 'markdown',

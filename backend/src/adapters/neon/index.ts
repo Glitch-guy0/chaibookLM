@@ -301,6 +301,23 @@ export class NeonRepository {
     return rows.length > 0 ? rowToSource(rows[0]) : null;
   }
 
+  /**
+   * Atomically claim a queued source for ingestion by transitioning it to
+   * `processing` only if it is still `queued`. Returns null if another writer
+   * already claimed it (or it no longer exists), preventing duplicate
+   * ingestion of the same source.
+   */
+  async claimSourceForIngestion(id: string): Promise<Source | null> {
+    const { rows } = await this.pool.query(
+      `UPDATE sources
+       SET status = 'processing'
+       WHERE id = $1 AND status = 'queued'
+       RETURNING *`,
+      [id],
+    );
+    return rows.length > 0 ? rowToSource(rows[0]) : null;
+  }
+
   async deleteSource(id: string): Promise<boolean> {
     const { rowCount } = await this.pool.query(
       'DELETE FROM sources WHERE id = $1',

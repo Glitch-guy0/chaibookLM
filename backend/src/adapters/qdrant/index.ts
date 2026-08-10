@@ -15,6 +15,9 @@ interface QdrantPoint {
 
 /** Format a 32-char hex chunkId into a Qdrant-acceptable UUID string. */
 function toUuid(hex: string): string {
+  if (hex.length !== 32) {
+    throw new Error(`Expected a 32-char hex chunkId, got ${hex.length} chars`);
+  }
   return (
     hex.slice(0, 8) +
     '-' +
@@ -71,7 +74,11 @@ export class QdrantAdapter implements VectorStore {
     throw new Error('Not implemented');
   }
 
-  async upsert(chunks: Chunk[], vectors?: number[][]): Promise<void> {
+  async upsert(
+    chunks: Chunk[],
+    vectors?: number[][],
+    _retried = false,
+  ): Promise<void> {
     if (chunks.length === 0) return;
     if (!this.url) {
       throw new Error('Qdrant not configured: QDRANT_URL is not set');
@@ -99,9 +106,9 @@ export class QdrantAdapter implements VectorStore {
         body: JSON.stringify({ points }),
       },
     );
-    if (res.status === 404) {
+    if (res.status === 404 && !_retried) {
       await this.createCollection(vectors[0].length);
-      await this.upsert(chunks, vectors);
+      await this.upsert(chunks, vectors, true);
       return;
     }
     if (!res.ok) {

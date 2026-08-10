@@ -38,9 +38,10 @@ export function splitPlainText(text: string): SplitChunk[] {
 }
 
 /**
- * Split markdown into non-overlapping heading sections on `#`/`##` boundaries,
- * then apply the fixed-size rule within each section so no chunk crosses a
- * section boundary. Positions continue globally across the whole document.
+ * Split markdown into non-overlapping heading sections on ATX heading
+ * boundaries (`#` through `######`), then apply the fixed-size rule within
+ * each section so no chunk crosses a section boundary. Positions continue
+ * globally across the whole document.
  */
 export function splitMarkdown(text: string): SplitChunk[] {
   const result: SplitChunk[] = [];
@@ -72,7 +73,7 @@ function splitIntoHeadingSections(text: string): Section[] {
   let currentStart = 0;
   let offset = 0;
   for (const line of lines) {
-    if (/^#{1,2}\s+/.test(line)) {
+    if (/^#{1,6}\s+/.test(line)) {
       if (offset > currentStart) {
         sections.push({
           start: currentStart,

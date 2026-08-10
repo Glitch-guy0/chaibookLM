@@ -20,7 +20,9 @@ export async function DELETE(request: NextRequest) {
     const body = (await request.json()) as { ids?: unknown };
     const raw = body?.ids;
     if (Array.isArray(raw)) {
-      ids = raw.filter((id): id is string => typeof id === 'string');
+      ids = raw.filter(
+        (id): id is string => typeof id === 'string' && id.length > 0,
+      );
     }
   } catch {
     return errorResponse('Invalid request body', 'INVALID_BODY', 400);
