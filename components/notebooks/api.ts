@@ -179,6 +179,16 @@ export function deleteSourcesBulk(ids: string[]): Promise<{ deleted: number }> {
   });
 }
 
+export type SourceContent =
+  | { type: 'text'; text: string }
+  | { type: 'web'; url: string; snapshotHtml: string | null };
+
+export function fetchSourceContent(sourceId: string): Promise<SourceContent> {
+  return request<{ content: SourceContent }>(
+    `/api/sources/${encodeURIComponent(sourceId)}/content`,
+  ).then((res) => res.content);
+}
+
 export function clearFailedSources(
   notebookId: string,
 ): Promise<{ deleted: number }> {

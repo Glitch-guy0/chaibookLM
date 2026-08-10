@@ -9,9 +9,13 @@ interface CitationChipProps {
    * client's currently-loaded source list (e.g. removed) -- falls back to a
    * generic label instead of crashing. */
   sourceTitle: string | undefined;
-  /** Story 4.3's responsibility is the actual navigation; this story wires a
-   * no-op placeholder. */
-  onOpenCitation: (citation: CitationSnapshot) => void;
+  /** Stable id unique to this rendered occurrence (e.g.
+   * `${turn.id}-${citation.chunkId}-${occurrenceIndex}`), set as
+   * `data-citation-key` so focus can be re-queried after `ChatPanel`
+   * remounts on returning from the Showcase tab -- a raw DOM node reference
+   * would not survive that unmount/remount cycle. */
+  citationKey: string;
+  onOpenCitation: (citation: CitationSnapshot, citationKey: string) => void;
 }
 
 /**
@@ -20,13 +24,13 @@ interface CitationChipProps {
  * title on hover/focus" without pulling in a tooltip library -- native
  * `title` already fires on both mouse hover and keyboard focus.
  */
-export function CitationChip({ citation, sourceTitle, onOpenCitation }: CitationChipProps) {
+export function CitationChip({ citation, sourceTitle, citationKey, onOpenCitation }: CitationChipProps) {
   const label = sourceTitle ?? 'Source unavailable';
 
   const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>) => {
     if (e.key === 'Enter') {
       e.preventDefault();
-      onOpenCitation(citation);
+      onOpenCitation(citation, citationKey);
     }
   };
 
@@ -34,9 +38,10 @@ export function CitationChip({ citation, sourceTitle, onOpenCitation }: Citation
     <button
       type="button"
       data-debug="CitationChip"
+      data-citation-key={citationKey}
       title={label}
       aria-label={`Citation: ${label}`}
-      onClick={() => onOpenCitation(citation)}
+      onClick={() => onOpenCitation(citation, citationKey)}
       onKeyDown={handleKeyDown}
       className="mx-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full border-2 border-border dark:border-border-dark bg-surface-elevated dark:bg-surface-elevated-dark text-[10px] font-semibold align-super leading-none text-ink-secondary dark:text-ink-secondary-dark hover:bg-ink hover:text-white dark:hover:bg-ink-dark focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2"
     >

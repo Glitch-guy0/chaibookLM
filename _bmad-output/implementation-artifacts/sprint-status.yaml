@@ -85,7 +85,7 @@ development_status:
   epic-4: in-progress
   4-1-ask-questions-and-get-grounded-streaming-answers: done
   4-2-render-verifiable-citation-chips: done
-  4-3-open-the-original-view-from-a-citation: backlog
+  4-3-open-the-original-view-from-a-citation: done
   4-4-refuse-honestly-and-offer-approval-gated-fetch-on-refusal: backlog
   4-5-persist-chat-history-with-a-sliding-window: backlog
   epic-4-retrospective: optional

@@ -6,6 +6,13 @@ import type { StorageService } from '../../ports/StorageService';
 import type { Source } from '../../shared-kernel/types';
 
 const RAW_KEY = (sourceId: string) => `sources/${sourceId}`;
+const SNAPSHOT_KEY = (sourceId: string) => `sources/${sourceId}/snapshot.html`;
+
+export type GetContentResult =
+  | { ok: true; content: { type: 'text'; text: string } }
+  | { ok: true; content: { type: 'web'; url: string; snapshotHtml: string | null } }
+  | { ok: false; reason: 'not_found' }
+  | { ok: false; reason: 'content_unavailable' };
 
 export interface CreateSourceParams {
   notebookId: string;
@@ -120,6 +127,43 @@ export class SourceService {
 
   async findById(id: string): Promise<Source | null> {
     return this.repo.findSourceById(id);
+  }
+
+  /**
+   * Loads a source's full content for the Showcase panel: raw text for a
+   * Text Source, or the stored URL + optional HTML snapshot for a Web
+   * Source. Storage-read failures are handled identically across both
+   * branches (`.catch(() => null)`) and surfaced as `content_unavailable`
+   * rather than masked as an empty-string success -- distinct from
+   * `not_found`, which covers a missing/not-owned `Source` row.
+   */
+  async getContent(id: string, userId: string): Promise<GetContentResult> {
+    const source = await this.repo.findSourceById(id);
+    if (!source || source.userId !== userId) {
+      return { ok: false, reason: 'not_found' };
+    }
+
+    if (source.type === 'text') {
+      const raw = await this.storage.get(RAW_KEY(id)).catch(() => null);
+      if (raw === null) {
+        return { ok: false, reason: 'content_unavailable' };
+      }
+      return { ok: true, content: { type: 'text', text: raw.toString('utf8') } };
+    }
+
+    const raw = await this.storage.get(RAW_KEY(id)).catch(() => null);
+    if (raw === null) {
+      return { ok: false, reason: 'content_unavailable' };
+    }
+    const snapshot = await this.storage.get(SNAPSHOT_KEY(id)).catch(() => null);
+    return {
+      ok: true,
+      content: {
+        type: 'web',
+        url: raw.toString('utf8'),
+        snapshotHtml: snapshot ? snapshot.toString('utf8') : null,
+      },
+    };
   }
 
   async remove(ids: string[], userId: string): Promise<number> {

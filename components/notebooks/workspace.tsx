@@ -1,12 +1,14 @@
 'use client';
 
+import { useCallback, useState } from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { useQuery } from '@tanstack/react-query';
 import { Tabs, type TabItem } from '@components/ui/tabs';
-import { fetchNotebook } from './api';
+import { fetchNotebook, fetchSources, type CitationSnapshot } from './api';
 import { SourcesPanel } from '@components/sources/sources-panel';
 import { ChatPanel } from '@components/chat/chat-panel';
+import { ShowcasePanel } from './showcase-panel';
 
 const TABS: TabItem[] = [
   { id: 'sources', label: 'Sources' },
@@ -53,6 +55,36 @@ export function Workspace() {
 
   const notebook = data?.notebook;
 
+  // Deduped (by TanStack Query) against ChatPanel's own identical query for
+  // this notebookId -- no extra network call, just a shared cache entry that
+  // lets ShowcasePanel distinguish "source list still loading" from
+  // "genuinely not found."
+  const sourcesQuery = useQuery({
+    queryKey: ['sources', id],
+    queryFn: () => fetchSources(id),
+    enabled: Boolean(id),
+  });
+
+  const [activeTab, setActiveTab] = useState('sources');
+  const [openCitation, setOpenCitation] = useState<CitationSnapshot | null>(null);
+  const [restoreFocusKey, setRestoreFocusKey] = useState<string | null>(null);
+
+  const handleOpenCitation = useCallback((citation: CitationSnapshot, citationKey: string) => {
+    setOpenCitation(citation);
+    setRestoreFocusKey(citationKey);
+    setActiveTab('showcase');
+  }, []);
+
+  const handleShowcaseEsc = useCallback(() => {
+    setActiveTab('chat');
+    // restoreFocusKey stays set -- ChatPanel's effect re-queries the chip by
+    // this key once it remounts, then reports back via onFocusRestored.
+  }, []);
+
+  const handleFocusRestored = useCallback(() => {
+    setRestoreFocusKey(null);
+  }, []);
+
   return (
     <section data-debug="Workspace" className="mx-auto max-w-5xl">
       <div className="mb-6">
@@ -88,33 +120,41 @@ export function Workspace() {
             {notebook.title}
           </h2>
 
-          <Tabs tabs={TABS} label="Notebook sections" data-debug="WorkspaceTabs">
-            {(activeTab) => {
-              if (activeTab === 'sources') {
+          <Tabs
+            tabs={TABS}
+            label="Notebook sections"
+            data-debug="WorkspaceTabs"
+            activeTab={activeTab}
+            onTabChange={setActiveTab}
+          >
+            {(currentTab) => {
+              if (currentTab === 'sources') {
                 return (
                   <div data-debug="WorkspaceSourcesPanel">
                     <SourcesPanel notebookId={id} />
                   </div>
                 );
               }
-              if (activeTab === 'chat') {
+              if (currentTab === 'chat') {
                 return (
                   <div data-debug="WorkspaceChatPanel">
-                    <ChatPanel notebookId={id} />
+                    <ChatPanel
+                      notebookId={id}
+                      onOpenCitation={handleOpenCitation}
+                      restoreFocusKey={restoreFocusKey}
+                      onFocusRestored={handleFocusRestored}
+                    />
                   </div>
                 );
               }
               return (
-                <div
-                  data-debug="WorkspaceShowcasePanel"
-                  className="flex flex-col items-center justify-center px-6 py-16 border-2 border-dashed border-ink-muted dark:border-ink-muted-dark bg-surface-elevated dark:bg-surface-elevated-dark rounded-default"
-                >
-                  <p className="text-lg font-semibold text-ink-secondary dark:text-ink-secondary-dark">
-                    Your showcase will appear here.
-                  </p>
-                  <p className="mt-2 text-sm text-ink-muted dark:text-ink-muted-dark">
-                    Showcase is coming in a future update.
-                  </p>
+                <div data-debug="WorkspaceShowcasePanel">
+                  <ShowcasePanel
+                    citation={openCitation}
+                    sources={sourcesQuery.data?.sources ?? []}
+                    sourcesLoading={sourcesQuery.isLoading}
+                    onEsc={handleShowcaseEsc}
+                  />
                 </div>
               );
             }}

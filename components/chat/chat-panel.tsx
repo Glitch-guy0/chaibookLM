@@ -10,6 +10,19 @@ import { CitationChip } from './citation-chip';
 
 interface ChatPanelProps {
   notebookId: string;
+  /** Opens a citation in the Showcase tab; `citationKey` is the clicked
+   * chip's stable `data-citation-key` identifier, stored by `Workspace` as
+   * `restoreFocusKey` for focus restore after Esc. */
+  onOpenCitation?: (citation: CitationSnapshot, citationKey: string) => void;
+  /** Set by `Workspace` right after switching back to `'chat'` (i.e. right
+   * after this component remounts). Once set, an effect here re-queries
+   * `[data-citation-key="..."]` and focuses it -- a raw DOM node captured
+   * before the tab switch would already be detached, since `Tabs` fully
+   * unmounts the inactive panel. */
+  restoreFocusKey?: string | null;
+  /** Reports back up once the re-query/focus attempt has run, so `Workspace`
+   * can clear `restoreFocusKey`. */
+  onFocusRestored?: () => void;
 }
 
 const MARKER_RE = /\[\[([^[\]]+)\]\]/g;
@@ -17,21 +30,23 @@ const MARKER_RE = /\[\[([^[\]]+)\]\]/g;
 /**
  * Settle-time transform (never applied mid-stream, per spec Design Notes):
  * replaces each `[[chunkId]]` occurrence that is present in `validChunkIds`
- * with a `[•](citation:chunkId)` markdown-link placeholder consumed by the
- * `a` component override below; any other `[[chunkId]]`-shaped text (unknown
- * / unvalidated marker) is stripped to nothing (AD-7 -- dropped markers are
- * invisible, never shown as raw bracket text).
+ * with a `[•](citation:chunkId:occurrenceIndex)` markdown-link placeholder
+ * consumed by the `a` component override below; any other `[[chunkId]]`-
+ * shaped text (unknown/unvalidated marker) is stripped to nothing (AD-7 --
+ * dropped markers are invisible, never shown as raw bracket text). The
+ * occurrence index is computed here, once per transform pass, and encoded
+ * into the href itself rather than via a render-time counter closure -- this
+ * keeps the `a` renderer a pure function of its href, so `components` (built
+ * from it) can be `useMemo`'d instead of rebuilt every render.
  */
 function transformMarkersToChipLinks(content: string, validChunkIds: Set<string>): string {
+  const occurrenceCounts = new Map<string, number>();
   return content.replace(MARKER_RE, (full, chunkId: string) => {
-    return validChunkIds.has(chunkId) ? `[•](citation:${encodeURIComponent(chunkId)})` : '';
+    if (!validChunkIds.has(chunkId)) return '';
+    const occurrenceIndex = occurrenceCounts.get(chunkId) ?? 0;
+    occurrenceCounts.set(chunkId, occurrenceIndex + 1);
+    return `[•](citation:${encodeURIComponent(chunkId)}:${occurrenceIndex})`;
   });
-}
-
-/** No-op placeholder -- opening the cited source (Original View) is Story
- * 4.3's scope. This story only exposes the interaction point. */
-function handleOpenCitationPlaceholder(_citation: CitationSnapshot) {
-  // Intentionally empty.
 }
 
 type TurnStatus = 'streaming' | 'done' | 'failed';
@@ -66,7 +81,12 @@ function nextId(): string {
  * (auto-grow textarea, Enter sends / Shift+Enter newline, disabled while
  * streaming) + inline retry on failed messages.
  */
-export function ChatPanel({ notebookId }: ChatPanelProps) {
+export function ChatPanel({
+  notebookId,
+  onOpenCitation,
+  restoreFocusKey,
+  onFocusRestored,
+}: ChatPanelProps) {
   const [turns, setTurns] = useState<Turn[]>([]);
   const [input, setInput] = useState('');
   const [announcement, setAnnouncement] = useState('');
@@ -99,6 +119,21 @@ export function ChatPanel({ notebookId }: ChatPanelProps) {
   useEffect(() => {
     listEndRef.current?.scrollIntoView({ block: 'end' });
   }, [turns]);
+
+  // Focus restore after returning from the Showcase tab: `restoreFocusKey`
+  // is set right after this component remounts (Tabs fully unmounts the
+  // inactive panel), so re-query the chip by its stable data-citation-key
+  // instead of relying on any DOM node captured before the tab switch (that
+  // node would already be detached). Silently no-ops if the exact chip no
+  // longer exists (e.g. the turn was cleared).
+  useEffect(() => {
+    if (!restoreFocusKey) return;
+    const el = document.querySelector<HTMLElement>(
+      `[data-citation-key="${CSS.escape(restoreFocusKey)}"]`,
+    );
+    el?.focus();
+    onFocusRestored?.();
+  }, [restoreFocusKey, onFocusRestored]);
 
   // Unmount cleanup (fold-in fix): abort any turn still in flight so it
   // doesn't keep streaming/updating state after the component is gone.
@@ -261,6 +296,7 @@ export function ChatPanel({ notebookId }: ChatPanelProps) {
                 <AssistantMessageContent
                   turn={turn}
                   sourceTitleById={sourceTitleById}
+                  onOpenCitation={onOpenCitation}
                 />
               ) : (
                 <p className="whitespace-pre-wrap">{turn.content}</p>
@@ -335,9 +371,11 @@ export function ChatPanel({ notebookId }: ChatPanelProps) {
 function AssistantMessageContent({
   turn,
   sourceTitleById,
+  onOpenCitation,
 }: {
   turn: Turn;
   sourceTitleById: Map<string, string>;
+  onOpenCitation?: (citation: CitationSnapshot, citationKey: string) => void;
 }) {
   // Only a successfully completed turn has validated citations to transform.
   // A failed turn's partial content is rendered raw, same as while streaming,
@@ -358,18 +396,26 @@ function AssistantMessageContent({
     };
   }, [isDone, turn.content, turn.citations]);
 
+  // Pure function of `chunkIdToCitation`/`sourceTitleById`/`onOpenCitation` --
+  // the occurrence index is already baked into `href` by the transform above,
+  // so this needs no per-render mutable counter and can be safely memoized
+  // (avoids rebuilding react-markdown's renderer map, and remounting every
+  // chip, on every unrelated re-render of this component).
   const components: Components = useMemo(
     () => ({
       a: ({ href, children, ...props }) => {
         if (typeof href === 'string' && href.startsWith('citation:')) {
-          const chunkId = decodeURIComponent(href.slice('citation:'.length));
+          const [, encodedChunkId, occurrenceIndex] = href.split(':');
+          const chunkId = decodeURIComponent(encodedChunkId ?? '');
           const citation = chunkIdToCitation.get(chunkId);
           if (!citation) return null;
+          const citationKey = `${turn.id}-${chunkId}-${occurrenceIndex}`;
           return (
             <CitationChip
               citation={citation}
               sourceTitle={sourceTitleById.get(citation.sourceId)}
-              onOpenCitation={handleOpenCitationPlaceholder}
+              citationKey={citationKey}
+              onOpenCitation={(c, key) => onOpenCitation?.(c, key)}
             />
           );
         }
@@ -380,7 +426,7 @@ function AssistantMessageContent({
         );
       },
     }),
-    [chunkIdToCitation, sourceTitleById],
+    [chunkIdToCitation, sourceTitleById, onOpenCitation, turn.id],
   );
 
   return (
