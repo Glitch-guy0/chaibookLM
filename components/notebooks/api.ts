@@ -1,3 +1,5 @@
+import type { CitationSnapshot } from '@backend/shared-kernel/types';
+
 export interface NotebookRecord {
   id: string;
   title: string;
@@ -195,6 +197,16 @@ export function clearFailedSources(
  */
 const CHAT_ERROR_SENTINEL = 'CHAT_ERROR:';
 
+/**
+ * Fixed printable-ASCII marker matching the server route's
+ * CHAT_CITATIONS_SENTINEL. Sent (with a JSON-encoded CitationSnapshot[]
+ * payload, possibly empty) only on a successful, non-refusal completion --
+ * refusal and error paths never send it.
+ */
+const CHAT_CITATIONS_SENTINEL = 'CHAT_CITATIONS:';
+
+export type { CitationSnapshot };
+
 export interface StreamChatResult {
   fullText: string;
   failed: boolean;
@@ -203,6 +215,10 @@ export interface StreamChatResult {
    * the `X-Chat-User-Message-Id` response header -- callers thread this back
    * in as `retryOfMessageId` if this turn later needs to be retried. */
   userMessageId?: string;
+  /** Parsed from the CHAT_CITATIONS: trailer, present only on a successful,
+   * non-refusal completion (may be an empty array when the answer cited
+   * nothing). Absent on refusal/error/failed turns. */
+  citations?: CitationSnapshot[];
 }
 
 /**
@@ -259,8 +275,12 @@ export async function streamChatMessage(
   let pending = '';
   let failed = false;
   let errorMessage: string | undefined;
+  let citations: CitationSnapshot[] | undefined;
 
-  const maxSentinelTail = CHAT_ERROR_SENTINEL.length;
+  const maxSentinelTail = Math.max(
+    CHAT_ERROR_SENTINEL.length,
+    CHAT_CITATIONS_SENTINEL.length,
+  );
 
   try {
     while (true) {
@@ -268,18 +288,38 @@ export async function streamChatMessage(
       if (done) break;
       pending += decoder.decode(value, { stream: true });
 
-      if (pending.includes(CHAT_ERROR_SENTINEL)) {
-        const idx = pending.indexOf(CHAT_ERROR_SENTINEL);
-        const before = pending.slice(0, idx);
+      const errIdx = pending.indexOf(CHAT_ERROR_SENTINEL);
+      const citIdx = pending.indexOf(CHAT_CITATIONS_SENTINEL);
+
+      if (errIdx !== -1) {
+        const before = pending.slice(0, errIdx);
         if (before) {
           full += before;
           onToken(before);
         }
         failed = true;
-        errorMessage = pending.slice(idx + CHAT_ERROR_SENTINEL.length);
+        errorMessage = pending.slice(errIdx + CHAT_ERROR_SENTINEL.length);
         // The outcome is now known and the server closes the stream right
         // after the sentinel -- stop scanning/emitting so the same
         // pre-sentinel text is never re-processed on a subsequent chunk.
+        break;
+      }
+
+      if (citIdx !== -1) {
+        const before = pending.slice(0, citIdx);
+        if (before) {
+          full += before;
+          onToken(before);
+        }
+        const payload = pending.slice(citIdx + CHAT_CITATIONS_SENTINEL.length);
+        try {
+          citations = JSON.parse(payload) as CitationSnapshot[];
+        } catch {
+          citations = [];
+        }
+        // Same reasoning as the error sentinel: the server closes the stream
+        // right after this trailer, so stop scanning to avoid re-emitting
+        // the pre-sentinel text on a later read.
         break;
       }
 
@@ -297,12 +337,12 @@ export async function streamChatMessage(
     return { fullText: full, failed: true, errorMessage: errMessage, userMessageId };
   }
 
-  if (!failed && pending) {
+  if (!failed && citations === undefined && pending) {
     full += pending;
     onToken(pending);
   }
 
-  return { fullText: full, failed, errorMessage, userMessageId };
+  return { fullText: full, failed, errorMessage, userMessageId, citations };
 }
 
 export function formatBytes(bytes: number): string {

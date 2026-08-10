@@ -15,7 +15,8 @@ import {
   stripFailedMarker,
 } from '../../templates/GroundedAnswerReasoningStrategy';
 import { NotebookSession } from '../../templates/NotebookSession';
-import type { ChatMessage } from '../../shared-kernel/types';
+import { CitationMapper } from '../../templates/CitationMapper';
+import type { ChatMessage, CitationSnapshot } from '../../shared-kernel/types';
 import type { ScoredChunk } from '../../ports/VectorStore';
 
 // Re-exported for backward compatibility -- these are now defined alongside
@@ -34,6 +35,7 @@ export interface ChatRepo {
     userId: string,
     role: 'user' | 'assistant' | 'system',
     content: string,
+    citations?: CitationSnapshot[],
   ): Promise<unknown>;
   findRecentChatMessages(notebookId: string, limit: number): Promise<ChatMessage[]>;
 }
@@ -70,9 +72,16 @@ export interface ChatTurnEvent {
    * persisted (or reused, on retry) user chat_messages row for this turn, so
    * callers can thread it back to the client for a later retry. */
   userMessageId?: string;
+  /** Set only on the 'done' event of a successful (non-refusal, non-error)
+   * completion -- the validated CitationSnapshot[] for this turn (may be
+   * empty when the answer cited nothing). Left undefined on refusal/error
+   * paths so callers never emit a citations trailer for those. */
+  citations?: CitationSnapshot[];
 }
 
 export class ChatService {
+  private readonly citationMapper = new CitationMapper();
+
   constructor(
     private readonly repo: ChatRepo,
     private readonly memory: ChatMemory,
@@ -177,13 +186,18 @@ export class ChatService {
         assembled += token;
         yield { type: 'token', token };
       }
+      // Citations are computed once the full answer text has settled (AD-7:
+      // validated against the exact chunks retrieved for this turn, never
+      // the notebook's full chunk set) -- streaming itself is unaffected.
+      const citations = this.citationMapper.map(assembled, chunks);
       await this.repo.createChatMessage(
         notebookId,
         userId,
         'assistant',
         assembled,
+        citations,
       );
-      yield { type: 'done', fullText: assembled };
+      yield { type: 'done', fullText: assembled, citations };
     } catch (err) {
       const failedContent = FAILED_CONTENT_MARKER + assembled;
       await this.repo.createChatMessage(

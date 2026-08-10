@@ -5,6 +5,7 @@ import type {
   Notebook,
   Source,
   ChatMessage,
+  CitationSnapshot,
   LimitCounter,
   LimitsConfig,
 } from '../../shared-kernel/types';
@@ -333,7 +334,7 @@ export class NeonRepository {
     userId: string,
     role: 'user' | 'assistant' | 'system',
     content: string,
-    citations?: unknown,
+    citations?: CitationSnapshot[],
   ): Promise<ChatMessage> {
     const { rows } = await this.pool.query(
       `INSERT INTO chat_messages (notebook_id, user_id, role, content, citations)

@@ -1,9 +1,42 @@
-// Template stub: CitationMapper
-// Maps source chunks to citation snapshots for grounded chat responses.
-// Real implementation deferred to Epic 4 (chat + reasoning).
+// CitationMapper
+//
+// Validates inline `[[chunkId]]` markers emitted by the model (per
+// GroundedAnswerReasoningStrategy's system prompt) against the chunk ids
+// actually retrieved for this specific chat turn (AD-7: validated, never
+// trusted). Unknown/malformed markers are dropped -- they never become a
+// citation. Order of the returned CitationSnapshot[] matches order of
+// appearance in the answer text; the same chunkId cited more than once
+// produces one snapshot per occurrence.
+
+import type { CitationSnapshot } from '../shared-kernel/types';
+import type { ScoredChunk } from '../ports/VectorStore';
+
+const MARKER_RE = /\[\[([^\[\]]+)\]\]/g;
 
 export class CitationMapper {
-  async map(_chunkIds: string[]): Promise<unknown[]> {
-    throw new Error('Not implemented');
+  /**
+   * Scans `answerText` in order for `[[chunkId]]` markers, keeps only those
+   * whose chunkId matches a chunk in `retrievedChunks` (the exact set
+   * retrieved for this turn -- never all chunks ever indexed for the
+   * notebook), and returns an ordered CitationSnapshot[] for the survivors.
+   */
+  map(answerText: string, retrievedChunks: ScoredChunk[]): CitationSnapshot[] {
+    const byChunkId = new Map<string, ScoredChunk>();
+    for (const chunk of retrievedChunks) {
+      byChunkId.set(chunk.chunkId, chunk);
+    }
+
+    const citations: CitationSnapshot[] = [];
+    for (const match of answerText.matchAll(MARKER_RE)) {
+      const chunkId = match[1];
+      const chunk = byChunkId.get(chunkId);
+      if (!chunk) continue;
+      citations.push({
+        chunkId: chunk.chunkId,
+        sourceId: chunk.sourceId,
+        span: chunk.span,
+      });
+    }
+    return citations;
   }
 }

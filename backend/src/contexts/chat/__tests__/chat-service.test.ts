@@ -156,6 +156,83 @@ describe('ChatService.ask', () => {
     const assistantRow = repo.created.find((c) => c.role === 'assistant');
     expect(assistantRow?.content).toBe('Hello world.');
   });
+
+  it('VALID_MARKERS: persists and streams a CitationSnapshot for each marker validated against this turn\'s retrieved chunks', async () => {
+    const repo = makeFakeRepo();
+    const chunk = makeChunk({ chunkId: 'chunk-1', sourceId: 'source-1', span: { start: 0, end: 5 } });
+    const memory: ChatMemory = { retrieveChunks: async () => [chunk] };
+    const llm: ChatLlm = {
+      streamComplete: async () => makeTokenStream(['Answer ', 'with a cite [[chunk-1]].']),
+    };
+
+    const service = new ChatService(repo, memory, fakeReasoning, llm);
+    const events = await collect(service.ask('user-1', 'notebook-a', 'question'));
+
+    const done = events.find((e) => e.type === 'done');
+    const expectedCitation = { chunkId: 'chunk-1', sourceId: 'source-1', span: { start: 0, end: 5 } };
+    expect(done?.citations).toEqual([expectedCitation]);
+
+    const assistantRow = repo.created.find((c) => c.role === 'assistant');
+    expect(assistantRow?.content).toBe('Answer with a cite [[chunk-1]].');
+    // createChatMessage's 5th arg (citations) must match what was streamed.
+    const createCalls = (repo.createChatMessage as ReturnType<typeof vi.fn>).mock.calls;
+    const assistantCall = createCalls.find((args) => args[2] === 'assistant');
+    expect(assistantCall?.[4]).toEqual([expectedCitation]);
+  });
+
+  it('UNKNOWN_MARKER: a chunkId not in the turn\'s retrieved set is dropped from citations entirely', async () => {
+    const repo = makeFakeRepo();
+    const memory: ChatMemory = { retrieveChunks: async () => [makeChunk({ chunkId: 'chunk-1' })] };
+    const llm: ChatLlm = {
+      streamComplete: async () => makeTokenStream(['Hallucinated cite [[chunk-unknown]].']),
+    };
+
+    const service = new ChatService(repo, memory, fakeReasoning, llm);
+    const events = await collect(service.ask('user-1', 'notebook-a', 'question'));
+
+    const done = events.find((e) => e.type === 'done');
+    expect(done?.citations).toEqual([]);
+  });
+
+  it('DUPLICATE_MARKER: the same valid chunkId cited twice yields one CitationSnapshot per occurrence', async () => {
+    const repo = makeFakeRepo();
+    const chunk = makeChunk({ chunkId: 'chunk-1', sourceId: 'source-1' });
+    const memory: ChatMemory = { retrieveChunks: async () => [chunk] };
+    const llm: ChatLlm = {
+      streamComplete: async () => makeTokenStream(['[[chunk-1]] and again [[chunk-1]].']),
+    };
+
+    const service = new ChatService(repo, memory, fakeReasoning, llm);
+    const events = await collect(service.ask('user-1', 'notebook-a', 'question'));
+
+    const done = events.find((e) => e.type === 'done');
+    expect(done?.citations).toHaveLength(2);
+    expect(done?.citations?.every((c) => c.chunkId === 'chunk-1')).toBe(true);
+  });
+
+  it('REFUSAL: a structural refusal never carries a citations field on its done event', async () => {
+    const repo = makeFakeRepo();
+    const memory: ChatMemory = { retrieveChunks: async () => [] };
+    const llm: ChatLlm = { streamComplete: vi.fn() };
+
+    const service = new ChatService(repo, memory, fakeReasoning, llm);
+    const events = await collect(service.ask('user-1', 'notebook-empty', 'question'));
+
+    const done = events.find((e) => e.type === 'done');
+    expect(done?.citations).toBeUndefined();
+  });
+
+  it('NO_MARKERS: a grounded answer with zero markers persists an empty citations array', async () => {
+    const repo = makeFakeRepo();
+    const memory: ChatMemory = { retrieveChunks: async () => [makeChunk()] };
+    const llm: ChatLlm = { streamComplete: async () => makeTokenStream(['No citations here.']) };
+
+    const service = new ChatService(repo, memory, fakeReasoning, llm);
+    const events = await collect(service.ask('user-1', 'notebook-a', 'question'));
+
+    const done = events.find((e) => e.type === 'done');
+    expect(done?.citations).toEqual([]);
+  });
 });
 
 async function* makeTokenStream(tokens: string[]): AsyncGenerator<string> {

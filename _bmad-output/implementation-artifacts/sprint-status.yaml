@@ -82,9 +82,9 @@ development_status:
   # ─────────────────────────────────────────────────────
   # Epic 4: Ask Questions Get Verifiable Answers (FR-6,7,8)
   # ─────────────────────────────────────────────────────
-  epic-4: backlog
-  4-1-ask-questions-and-get-grounded-streaming-answers: backlog
-  4-2-render-verifiable-citation-chips: backlog
+  epic-4: in-progress
+  4-1-ask-questions-and-get-grounded-streaming-answers: done
+  4-2-render-verifiable-citation-chips: done
   4-3-open-the-original-view-from-a-citation: backlog
   4-4-refuse-honestly-and-offer-approval-gated-fetch-on-refusal: backlog
   4-5-persist-chat-history-with-a-sliding-window: backlog

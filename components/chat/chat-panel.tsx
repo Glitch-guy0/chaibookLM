@@ -1,13 +1,37 @@
 'use client';
 
-import { useCallback, useEffect, useRef, useState } from 'react';
-import { useMutation } from '@tanstack/react-query';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import ReactMarkdown from 'react-markdown';
+import type { Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { streamChatMessage } from '../notebooks/api';
+import { fetchSources, streamChatMessage, type CitationSnapshot } from '../notebooks/api';
+import { CitationChip } from './citation-chip';
 
 interface ChatPanelProps {
   notebookId: string;
+}
+
+const MARKER_RE = /\[\[([^[\]]+)\]\]/g;
+
+/**
+ * Settle-time transform (never applied mid-stream, per spec Design Notes):
+ * replaces each `[[chunkId]]` occurrence that is present in `validChunkIds`
+ * with a `[•](citation:chunkId)` markdown-link placeholder consumed by the
+ * `a` component override below; any other `[[chunkId]]`-shaped text (unknown
+ * / unvalidated marker) is stripped to nothing (AD-7 -- dropped markers are
+ * invisible, never shown as raw bracket text).
+ */
+function transformMarkersToChipLinks(content: string, validChunkIds: Set<string>): string {
+  return content.replace(MARKER_RE, (full, chunkId: string) => {
+    return validChunkIds.has(chunkId) ? `[•](citation:${encodeURIComponent(chunkId)})` : '';
+  });
+}
+
+/** No-op placeholder -- opening the cited source (Original View) is Story
+ * 4.3's scope. This story only exposes the interaction point. */
+function handleOpenCitationPlaceholder(_citation: CitationSnapshot) {
+  // Intentionally empty.
 }
 
 type TurnStatus = 'streaming' | 'done' | 'failed';
@@ -25,6 +49,10 @@ interface Turn {
    * threaded back in as `retryOfMessageId` on retry so a retry reuses the
    * already-persisted user message instead of inserting a duplicate. */
   userMessageId?: string;
+  /** Validated CitationSnapshot[] from the CHAT_CITATIONS: trailer, present
+   * only once a successful (non-refusal, non-failed) assistant turn has
+   * settled -- undefined while streaming, on failure, and on refusals. */
+  citations?: CitationSnapshot[];
 }
 
 let turnCounter = 0;
@@ -53,6 +81,21 @@ export function ChatPanel({ notebookId }: ChatPanelProps) {
   // aborting the wrong request when either one finished or was cancelled.
   const activeControllersRef = useRef<Set<AbortController>>(new Set());
 
+  // Source-title lookup for citation chips: deduped by TanStack Query
+  // against any existing Sources-tab fetch for this notebookId -- no new
+  // network call per chip.
+  const sourcesQuery = useQuery({
+    queryKey: ['sources', notebookId],
+    queryFn: () => fetchSources(notebookId),
+  });
+  const sourceTitleById = useMemo(() => {
+    const map = new Map<string, string>();
+    for (const source of sourcesQuery.data?.sources ?? []) {
+      map.set(source.id, source.title);
+    }
+    return map;
+  }, [sourcesQuery.data]);
+
   useEffect(() => {
     listEndRef.current?.scrollIntoView({ block: 'end' });
   }, [turns]);
@@ -78,7 +121,9 @@ export function ChatPanel({ notebookId }: ChatPanelProps) {
       setIsTurnActive(true);
       setTurns((prev) =>
         prev.map((t) =>
-          t.id === assistantId ? { ...t, content: '', status: 'streaming' } : t,
+          t.id === assistantId
+            ? { ...t, content: '', status: 'streaming', citations: undefined }
+            : t,
         ),
       );
 
@@ -114,6 +159,7 @@ export function ChatPanel({ notebookId }: ChatPanelProps) {
                 ...withUserMessageId,
                 status: result.failed ? 'failed' : 'done',
                 content: result.failed ? t.content : result.fullText,
+                citations: result.failed ? undefined : result.citations,
               };
             }
             return { ...t, ...withUserMessageId };
@@ -212,11 +258,10 @@ export function ChatPanel({ notebookId }: ChatPanelProps) {
               }
             >
               {turn.role === 'assistant' ? (
-                <div className="prose prose-sm dark:prose-invert max-w-none">
-                  <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                    {turn.content || (turn.status === 'streaming' ? '...' : '')}
-                  </ReactMarkdown>
-                </div>
+                <AssistantMessageContent
+                  turn={turn}
+                  sourceTitleById={sourceTitleById}
+                />
               ) : (
                 <p className="whitespace-pre-wrap">{turn.content}</p>
               )}
@@ -275,6 +320,74 @@ export function ChatPanel({ notebookId }: ChatPanelProps) {
           Generating answer…
         </p>
       )}
+    </div>
+  );
+}
+
+/**
+ * Renders one assistant turn's content. While the turn is still streaming,
+ * raw markdown is rendered unchanged (no marker substitution mid-stream, per
+ * spec Design Notes). Once settled (done or failed), validated `[[chunkId]]`
+ * markers become `CitationChip`s and unvalidated/dropped ones are stripped
+ * to plain text -- a settle-time transform, computed once per render via the
+ * turn's own `citations` (present only on a successful non-refusal turn).
+ */
+function AssistantMessageContent({
+  turn,
+  sourceTitleById,
+}: {
+  turn: Turn;
+  sourceTitleById: Map<string, string>;
+}) {
+  // Only a successfully completed turn has validated citations to transform.
+  // A failed turn's partial content is rendered raw, same as while streaming,
+  // rather than having any complete-looking [[chunkId]] markers stripped.
+  const isDone = turn.status === 'done';
+
+  const { markdown, chunkIdToCitation } = useMemo(() => {
+    if (!isDone) {
+      return { markdown: turn.content, chunkIdToCitation: new Map<string, CitationSnapshot>() };
+    }
+    const citations = turn.citations ?? [];
+    const validChunkIds = new Set(citations.map((c) => c.chunkId));
+    const byChunkId = new Map<string, CitationSnapshot>();
+    for (const citation of citations) byChunkId.set(citation.chunkId, citation);
+    return {
+      markdown: transformMarkersToChipLinks(turn.content, validChunkIds),
+      chunkIdToCitation: byChunkId,
+    };
+  }, [isDone, turn.content, turn.citations]);
+
+  const components: Components = useMemo(
+    () => ({
+      a: ({ href, children, ...props }) => {
+        if (typeof href === 'string' && href.startsWith('citation:')) {
+          const chunkId = decodeURIComponent(href.slice('citation:'.length));
+          const citation = chunkIdToCitation.get(chunkId);
+          if (!citation) return null;
+          return (
+            <CitationChip
+              citation={citation}
+              sourceTitle={sourceTitleById.get(citation.sourceId)}
+              onOpenCitation={handleOpenCitationPlaceholder}
+            />
+          );
+        }
+        return (
+          <a href={href} {...props}>
+            {children}
+          </a>
+        );
+      },
+    }),
+    [chunkIdToCitation, sourceTitleById],
+  );
+
+  return (
+    <div className="prose prose-sm dark:prose-invert max-w-none">
+      <ReactMarkdown remarkPlugins={[remarkGfm]} components={components}>
+        {markdown || (turn.status === 'streaming' ? '...' : '')}
+      </ReactMarkdown>
     </div>
   );
 }

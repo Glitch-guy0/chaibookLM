@@ -16,6 +16,16 @@ interface RouteContext {
 export const CHAT_ERROR_SENTINEL = 'CHAT_ERROR:';
 
 /**
+ * Fixed printable-ASCII marker written to the stream body, after the answer
+ * content and before the stream closes, only on a successful (non-refusal,
+ * non-error) completion -- mirrors CHAT_ERROR_SENTINEL's design so the
+ * client's existing tail-buffering sentinel scan can be extended to also
+ * recognize this one. Payload is `JSON.stringify(citations)` (a
+ * CitationSnapshot[], possibly empty).
+ */
+export const CHAT_CITATIONS_SENTINEL = 'CHAT_CITATIONS:';
+
+/**
  * POST /api/notebooks/[id]/chat
  * Streams a grounded answer to `{message}` as chunked `text/plain`. Auth +
  * ownership follow the same convention as the sources route. The
@@ -83,6 +93,14 @@ export async function POST(request: NextRequest, context: RouteContext) {
           } else if (event.type === 'error') {
             streamController.enqueue(
               encoder.encode(`${CHAT_ERROR_SENTINEL}${event.message ?? 'unknown error'}`),
+            );
+          } else if (event.type === 'done' && event.citations !== undefined) {
+            // Only a successful, non-refusal completion carries `citations`
+            // on its 'done' event (ChatService leaves it undefined on the
+            // refusal/error paths) -- so this trailer is never sent for
+            // those, consistent with zero-citations-on-refusal.
+            streamController.enqueue(
+              encoder.encode(`${CHAT_CITATIONS_SENTINEL}${JSON.stringify(event.citations)}`),
             );
           }
         }
