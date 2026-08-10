@@ -39,3 +39,15 @@
 - source_spec: `_bmad-output/implementation-artifacts/spec-3-bring-and-index-your-sources.md`
   summary: The 409 size-limit and count-limit rejections share the same `SOURCE_CAP_EXCEEDED` error code, so the client can't distinguish them to tailor messaging.
   evidence: `CreateSourceResult`'s `ok: false` branch has no `reasonCode` field; both size-exceeded and cap-exceeded paths return the identical shape from the route.
+- source_spec: `_bmad-output/implementation-artifacts/spec-4-1-ask-questions-and-get-grounded-streaming-answers.md`
+  summary: `findRecentChatMessages` orders by `created_at DESC` with no tiebreaker, so same-millisecond rows (rapid consecutive turns) have unstable ordering.
+  evidence: `chat_messages.id` is a random UUID (not sortable by insertion order) and there is no serial/sequence column; fixing requires a schema change to add a monotonic tiebreaker column.
+- source_spec: `_bmad-output/implementation-artifacts/spec-4-1-ask-questions-and-get-grounded-streaming-answers.md`
+  summary: The plain-text stream's `CHAT_ERROR:` sentinel and the persisted `[[failed]]` content marker are in-band string matches with no framing, so genuine model output containing either literal substring would be misclassified as an error.
+  evidence: Both `components/notebooks/api.ts` and `backend/src/contexts/chat/index.ts` scan raw text for these markers; the Design Notes explicitly chose plain-text streaming over structured framing (SSE/NDJSON) for simplicity until a later story needs richer event types — fixing this properly requires that framing change.
+- source_spec: `_bmad-output/implementation-artifacts/spec-4-1-ask-questions-and-get-grounded-streaming-answers.md`
+  summary: `QdrantAdapter.search` trusts `data.result` and each point's payload fields (`span`, `text`, etc.) without runtime validation.
+  evidence: A Qdrant schema drift or corrupted payload would surface as an `undefined` leaking into a prompt or a raw exception rather than a clear "retrieval failed" error; no validation/parsing layer exists between the REST response and `ScoredChunk[]`.
+- source_spec: `_bmad-output/implementation-artifacts/spec-4-1-ask-questions-and-get-grounded-streaming-answers.md`
+  summary: No maximum length is enforced on the chat message body before it is persisted and forwarded to the LLM.
+  evidence: `app/api/notebooks/[id]/chat/route.ts` only checks that `message` is a non-empty trimmed string; an arbitrarily long message increases LLM cost/latency unbounded, mirroring the same class of gap already deferred for source size limits.

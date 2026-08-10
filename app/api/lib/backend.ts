@@ -9,12 +9,17 @@ import { SourceService } from '@backend/contexts/sources/index';
 import { IngestionService } from '@backend/contexts/ingestion/index';
 import { SourceIndexer } from '@backend/templates/SourceIndexer';
 import { EmbeddingService } from '@backend/templates/EmbeddingService';
+import { LlmAdapter } from '@backend/adapters/llm/index';
+import { VectorStoreMemoryStrategy } from '@backend/templates/VectorStoreMemoryStrategy';
+import { GroundedAnswerReasoningStrategy } from '@backend/templates/GroundedAnswerReasoningStrategy';
+import { ChatService } from '@backend/contexts/chat/index';
 
 interface BackendServices {
   repo: NeonRepository;
   limits: LimitsService;
   notebooks: NotebookService;
   sources: SourceService;
+  chatFor: (notebookId: string) => ChatService;
 }
 
 let backendPromise: Promise<BackendServices> | null = null;
@@ -52,7 +57,17 @@ export function getBackend(): Promise<BackendServices> {
       const notebooks = new NotebookService(repo, limits);
       const sources = new SourceService(repo, storage, limits, indexer, qdrant);
 
-      return { repo, limits, notebooks, sources };
+      const llm = new LlmAdapter();
+      const reasoning = new GroundedAnswerReasoningStrategy();
+      // ChatService is notebook-scoped (VectorStoreMemoryStrategy is
+      // constructed per notebookId to keep retrieval strictly filtered), so
+      // we expose a factory rather than a single shared instance.
+      const chatFor = (notebookId: string) => {
+        const memory = new VectorStoreMemoryStrategy(qdrant, embeddings, notebookId);
+        return new ChatService(repo, memory, reasoning, llm);
+      };
+
+      return { repo, limits, notebooks, sources, chatFor };
     })();
   }
   return backendPromise;

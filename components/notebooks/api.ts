@@ -187,6 +187,124 @@ export function clearFailedSources(
   });
 }
 
+// ── Chat ─────────────────────────────────────────────────────────────────
+
+/**
+ * Fixed printable-ASCII marker matching the server route's CHAT_ERROR_SENTINEL.
+ * Kept as a plain string literal, never a raw control byte.
+ */
+const CHAT_ERROR_SENTINEL = 'CHAT_ERROR:';
+
+export interface StreamChatResult {
+  fullText: string;
+  failed: boolean;
+  errorMessage?: string;
+  /** The persisted (or reused, on retry) user chat_messages row id, read off
+   * the `X-Chat-User-Message-Id` response header -- callers thread this back
+   * in as `retryOfMessageId` if this turn later needs to be retried. */
+  userMessageId?: string;
+}
+
+/**
+ * Streams a chat answer for `notebookId`, invoking `onToken` with each
+ * decoded text chunk as it arrives. Buffers the tail of each decoded chunk
+ * across `reader.read()` calls (fold-in fix) so a sentinel split across two
+ * reads is still detected -- only ever emits the sentinel-prefixed suffix
+ * once accumulated text unambiguously starts with it. Passing
+ * `retryOfMessageId` (the `userMessageId` from a previously-failed turn's
+ * result) resends against the already-persisted user message instead of
+ * inserting a duplicate.
+ */
+export async function streamChatMessage(
+  notebookId: string,
+  message: string,
+  onToken: (token: string) => void,
+  signal?: AbortSignal,
+  retryOfMessageId?: string,
+): Promise<StreamChatResult> {
+  let res: Response;
+  try {
+    res = await fetch(`/api/notebooks/${encodeURIComponent(notebookId)}/chat`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message, retryOfMessageId }),
+      signal,
+    });
+  } catch (err) {
+    // Fold-in fix: a network drop or an aborted fetch must resolve to a
+    // failed-turn result like every other failure path here, never surface
+    // as an unhandled promise rejection.
+    const errMessage = err instanceof Error ? err.message : 'Network request failed';
+    return { fullText: '', failed: true, errorMessage: errMessage };
+  }
+
+  if (!res.ok || !res.body) {
+    let errMessage = res.statusText;
+    try {
+      const data = (await res.json()) as ApiErrorPayload;
+      errMessage = data?.error?.message ?? errMessage;
+    } catch {
+      // ignore -- no JSON body
+    }
+    return { fullText: '', failed: true, errorMessage: errMessage };
+  }
+
+  const userMessageId = res.headers.get('X-Chat-User-Message-Id') ?? undefined;
+  const reader = res.body.getReader();
+  const decoder = new TextDecoder();
+  let full = '';
+  // Tail buffer: text not yet confirmed clear of a sentinel split across
+  // reads. Held back from onToken until we know it isn't (the start of) the
+  // sentinel.
+  let pending = '';
+  let failed = false;
+  let errorMessage: string | undefined;
+
+  const maxSentinelTail = CHAT_ERROR_SENTINEL.length;
+
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      pending += decoder.decode(value, { stream: true });
+
+      if (pending.includes(CHAT_ERROR_SENTINEL)) {
+        const idx = pending.indexOf(CHAT_ERROR_SENTINEL);
+        const before = pending.slice(0, idx);
+        if (before) {
+          full += before;
+          onToken(before);
+        }
+        failed = true;
+        errorMessage = pending.slice(idx + CHAT_ERROR_SENTINEL.length);
+        // The outcome is now known and the server closes the stream right
+        // after the sentinel -- stop scanning/emitting so the same
+        // pre-sentinel text is never re-processed on a subsequent chunk.
+        break;
+      }
+
+      // Hold back a tail long enough to contain a partial sentinel match.
+      const safeLength = Math.max(0, pending.length - maxSentinelTail);
+      const safe = pending.slice(0, safeLength);
+      pending = pending.slice(safeLength);
+      if (safe) {
+        full += safe;
+        onToken(safe);
+      }
+    }
+  } catch (err) {
+    const errMessage = err instanceof Error ? err.message : 'Stream read failed';
+    return { fullText: full, failed: true, errorMessage: errMessage, userMessageId };
+  }
+
+  if (!failed && pending) {
+    full += pending;
+    onToken(pending);
+  }
+
+  return { fullText: full, failed, errorMessage, userMessageId };
+}
+
 export function formatBytes(bytes: number): string {
   if (bytes < 1024) return `${bytes} B`;
   if (bytes < 1_048_576) return `${(bytes / 1024).toFixed(1)} KB`;

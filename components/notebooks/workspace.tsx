@@ -6,6 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import { Tabs, type TabItem } from '@components/ui/tabs';
 import { fetchNotebook } from './api';
 import { SourcesPanel } from '@components/sources/sources-panel';
+import { ChatPanel } from '@components/chat/chat-panel';
 
 const TABS: TabItem[] = [
   { id: 'sources', label: 'Sources' },
@@ -98,16 +99,8 @@ export function Workspace() {
               }
               if (activeTab === 'chat') {
                 return (
-                  <div
-                    data-debug="WorkspaceChatPanel"
-                    className="flex flex-col items-center justify-center px-6 py-16 border-2 border-dashed border-ink-muted dark:border-ink-muted-dark bg-surface-elevated dark:bg-surface-elevated-dark rounded-default"
-                  >
-                    <p className="text-lg font-semibold text-ink-secondary dark:text-ink-secondary-dark">
-                      Ask anything about your sources.
-                    </p>
-                    <p className="mt-2 text-sm text-ink-muted dark:text-ink-muted-dark">
-                      Chat will be available here.
-                    </p>
+                  <div data-debug="WorkspaceChatPanel">
+                    <ChatPanel notebookId={id} />
                   </div>
                 );
               }

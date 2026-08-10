@@ -1,13 +1,53 @@
-// Template stub: NotebookSession
-// Manages a single notebook's chat context within a shikigami agent session.
-// Real implementation deferred to Epic 4 (chat + reasoning).
+// NotebookSession
+//
+// Implemented as a shikigami `Session`-shaped class (IBaseSession contract)
+// per the template stub's original intent, but per the 2026-08-10 amendment
+// it is NOT wired into a shikigami `Agent` on the grounded-chat path -- no
+// Agent is constructed in ChatService. It is used only to validate/shape the
+// last-7-turns window handed into the prompt (AD-9): `setState('turns', ...)`
+// is expected to receive an already-windowed (<=7) array, and `getState`
+// hands it back for GroundedAnswerReasoningStrategy's prompt builders.
 
-export class NotebookSession {
-  async start(_notebookId: string): Promise<void> {
-    throw new Error('Not implemented');
+import type {
+  IBaseSession,
+  SessionSnapshot,
+} from '@glitch-guy0/shikigami/session';
+import type { ChatMessage } from '../shared-kernel/types';
+
+export const MAX_TURNS = 7;
+
+export class NotebookSession implements IBaseSession {
+  private state: Record<string, unknown> = {};
+
+  constructor(readonly notebookId: string) {}
+
+  /** Shapes/validates the recent-turns window to at most MAX_TURNS, most-recent-last. */
+  async setTurns(turns: ChatMessage[]): Promise<void> {
+    const windowed = turns.slice(-MAX_TURNS);
+    await this.setState('turns', windowed);
   }
 
-  async end(): Promise<void> {
-    throw new Error('Not implemented');
+  async getTurns(): Promise<ChatMessage[]> {
+    const turns = await this.getState('turns');
+    return Array.isArray(turns) ? (turns as ChatMessage[]) : [];
+  }
+
+  async getState(key: string): Promise<unknown | undefined> {
+    return this.state[key];
+  }
+
+  async setState(key: string, value: unknown): Promise<void> {
+    this.state[key] = value;
+  }
+
+  async clearState(): Promise<void> {
+    this.state = {};
+  }
+
+  snapshot(): SessionSnapshot {
+    return {
+      data: { ...this.state },
+      timestamp: new Date().toISOString(),
+    };
   }
 }

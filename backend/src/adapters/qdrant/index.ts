@@ -63,15 +63,56 @@ export class QdrantAdapter implements VectorStore {
     return res;
   }
 
-  async search(
-    _params: {
-      queryVector: number[];
-      notebookId: string;
-      topK: number;
-      minScore: number;
-    },
-  ): Promise<ScoredChunk[]> {
-    throw new Error('Not implemented');
+  async search(params: {
+    queryVector: number[];
+    notebookId: string;
+    topK: number;
+    minScore: number;
+  }): Promise<ScoredChunk[]> {
+    if (!this.url) {
+      throw new Error('Qdrant not configured: QDRANT_URL is not set');
+    }
+    const res = await this.request(`/collections/${this.collection}/points/search`, {
+      method: 'POST',
+      body: JSON.stringify({
+        vector: params.queryVector,
+        limit: params.topK,
+        score_threshold: params.minScore,
+        filter: {
+          must: [{ key: 'notebookId', match: { value: params.notebookId } }],
+        },
+        with_payload: true,
+      }),
+    });
+    if (res.status === 404) {
+      // Collection doesn't exist yet -- nothing has been indexed.
+      return [];
+    }
+    if (!res.ok) {
+      const detail = await res.text().catch(() => '');
+      throw new Error(
+        `Qdrant search failed (${res.status})${detail ? `: ${detail}` : ''}`,
+      );
+    }
+    const data = (await res.json()) as {
+      result: Array<{
+        id: string | number;
+        score: number;
+        payload: QdrantPoint['payload'];
+      }>;
+    };
+    return data.result.map((point) => ({
+      // Fold-in fix: use the Qdrant point id verbatim as chunkId -- no
+      // dash-stripping or other mutation, so citation resolution (Story 4.2)
+      // can round-trip it unchanged.
+      chunkId: String(point.id),
+      sourceId: point.payload.sourceId,
+      notebookId: point.payload.notebookId,
+      span: point.payload.span,
+      position: point.payload.position,
+      text: point.payload.text,
+      score: point.score,
+    }));
   }
 
   async upsert(

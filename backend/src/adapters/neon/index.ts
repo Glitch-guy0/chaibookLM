@@ -356,6 +356,25 @@ export class NeonRepository {
     return rows.map(rowToChatMessage);
   }
 
+  /**
+   * Returns the most recent `limit` messages for a notebook, in chronological
+   * (oldest-first) order. Fetches DESC LIMIT then reverses in application
+   * code -- unlike `findChatMessagesByNotebookId` (ascending order, capped at
+   * a caller-supplied page size starting from `offset`), this always gets
+   * the *newest* window regardless of how much history exists, which is what
+   * the last-7-turns chat context window needs (AD-9).
+   */
+  async findRecentChatMessages(
+    notebookId: string,
+    limit: number,
+  ): Promise<ChatMessage[]> {
+    const { rows } = await this.pool.query(
+      'SELECT * FROM chat_messages WHERE notebook_id = $1 ORDER BY created_at DESC LIMIT $2',
+      [notebookId, limit],
+    );
+    return rows.map(rowToChatMessage).reverse();
+  }
+
   // ── Limit Counters ─────────────────────────────────────────────────────
 
   async getOrCreateCounter(
