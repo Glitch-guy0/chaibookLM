@@ -1,6 +1,22 @@
 # Deferred Work
 
 - source_spec: `_bmad-output/implementation-artifacts/spec-5-6-harden-the-design-system-across-all-surfaces.md`
+  summary: The contrast test's hex constants are copy-pasted duplicates of `app/globals.css`'s values with no automated check tying them together, so the test can silently drift from the real tokens if `globals.css` changes without the test constants being updated.
+  evidence: `app/design-system.contrast.test.ts`'s `COLOR_*_DARK` constants are plain string literals with a comment asking future editors to keep them in sync, not a parse of the actual CSS file.
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-6-harden-the-design-system-across-all-surfaces.md`
+  summary: Only `ThemeToggle` was checked/fixed for the ≥44px mobile touch-target floor; other icon-only buttons elsewhere in the app were not swept for the same issue.
+  evidence: This story's touch-target task named `ThemeToggle` and the consent banner specifically, not a repo-wide icon-button audit.
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-6-harden-the-design-system-across-all-surfaces.md`
+  summary: The reduced-motion underline is applied unconditionally to any `.chai-button` on hover, including buttons whose children are icon-only (no visible text to underline).
+  evidence: `app/globals.css`'s `.chai-button:hover` reduced-motion rule sets `text-decoration: underline` with no check for text vs. icon content.
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-6-harden-the-design-system-across-all-surfaces.md`
+  summary: None of the three behavioral CSS changes in this story (reduced-motion override, focus-ring inversion, touch-target size) have dedicated test coverage — only the unrelated static contrast-math test was added.
+  evidence: `app/design-system.contrast.test.ts` covers hex math only; no test renders `Button`/`ThemeToggle` and asserts computed styles or dimensions.
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-6-harden-the-design-system-across-all-surfaces.md`
+  summary: This story's own gap analysis (recorded in an earlier, since-reverted draft of this spec) also found `CitationChip` renders below the touch-target floor and `NotebookCard`'s selected-state text has a real contrast failure on `--color-brand-dark` in dark mode — neither was fixed, since that draft's approach (including changing token values) was reverted for exceeding this story's scope. Both remain open gaps worth a future story.
+  evidence: Computed during this story's review: `CitationChip` renders at `h-5 w-5` (20×20px, below both floors); `NotebookCard`'s selected state in dark mode pairs `text-ink-dark` (cream, #F5F0E8) on `bg-brand-dark` (#FF864F) at ~2.11:1, matching the same brand-dark/ink-dark failure already tracked above for the active-notebook chip.
+
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-6-harden-the-design-system-across-all-surfaces.md`
   summary: `--color-ink-muted-dark` (#7A7263) on `--color-surface-dark` (#16130D) fails the 4.5:1 WCAG AA floor for muted/body text, computing to 3.90:1.
   evidence: `app/design-system.contrast.test.ts`'s "ink-muted-dark on surface-dark meets 4.5:1" assertion fails with the exact ratio; per this spec's `Never` clause, the token hex value was not changed to force a pass — darkening `--color-ink-muted-dark` (or lightening `--color-surface-dark`) is a design decision deferred to a future story.
 - source_spec: `_bmad-output/implementation-artifacts/spec-5-6-harden-the-design-system-across-all-surfaces.md`

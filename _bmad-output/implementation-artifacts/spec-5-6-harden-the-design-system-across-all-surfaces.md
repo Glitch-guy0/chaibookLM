@@ -92,6 +92,16 @@ Two of the five contrast pairs named in this story's own acceptance criteria gen
 
 ## Review Triage Log
 
+### 2026-08-11 — Review pass
+- intent_gap: 0
+- bad_spec: 0
+- patch: 2 (medium 1, low 1)
+- defer: 6 (medium 1, low 5)
+- reject: 3 (low 3)
+- addressed_findings:
+  - `[medium]` `[patch]` A prior edit pass had drifted from this story's own `Never` clause by changing color token hex values in `app/globals.css` to force the two known-failing contrast pairs to pass, and had rewritten this spec's `<intent-contract>` to describe out-of-scope changes (`CitationChip`/`NotebookCard`) that were never actually applied; both were reverted so the code and spec accurately reflect each other.
+  - `[low]` `[patch]` `hexToRgb` silently produced `NaN` on malformed input; added a regex validation that throws a clear error instead.
+
 ## Auto Run Result
 
 **Summary:** Closed the three verifiable design-system gaps named in this story's intent: reduced-motion now swaps the button's hover skew/shadow lift for an underline, the brand-filled `Button` variant's focus ring inverts to cream/dark-surface, `ThemeToggle`'s touch target grew to 44px on mobile, and a new WCAG contrast test gates the five token pairs named in the epic's acceptance criteria — two of which are documented, spec-sanctioned known failures rather than silently-forced passes.
