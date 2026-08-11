@@ -95,7 +95,7 @@ development_status:
   # ─────────────────────────────────────────────────────
   epic-5: in-progress
   5-1-public-landing-page-with-scroll-storytelling: done
-  5-2-dark-mode-across-all-surfaces: backlog
+  5-2-dark-mode-across-all-surfaces: done
   5-3-cookie-consent-and-accessibility-preferences: backlog
   5-4-first-run-product-walkthrough: backlog
   5-5-honest-rate-limit-rejection-under-load: backlog

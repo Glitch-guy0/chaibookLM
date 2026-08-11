@@ -2,10 +2,11 @@
 title: 'Dark mode across all surfaces'
 type: 'feature'
 created: '2026-08-11'
-status: 'in-review'
+status: 'done'
 review_loop_iteration: 0
 followup_review_recommended: false
 baseline_revision: '1c41bc9fd496b431301bd72411fc0089eb303f4f'
+final_revision: 'be9b6ea3'
 context: ['{project-root}/_bmad-output/implementation-artifacts/epic-5-context.md']
 warnings: []
 ---
@@ -110,4 +111,22 @@ warnings: []
 - Set OS to dark mode, reload `/dashboard` — header, cards, and text render in dark tokens immediately, no flash.
 - Toggle theme via the new button with no consent cookie set — theme changes, `document.cookie` shows no `theme` entry; reload reverts to OS preference.
 - Set a `cookie-consent=accepted` cookie manually via devtools, toggle theme, reload — theme choice persists.
+
+## Auto Run Result
+
+**Summary:** Completed dark mode end-to-end: added the missing `-dark` design tokens so every already-written `dark:*-dark` utility class across the app now resolves, added a blocking inline theme-init script to avoid flash-of-light-UI, and shipped a consent-gated manual theme toggle in the dashboard header.
+
+**Files changed:**
+- `app/globals.css` — added `-dark`-suffixed color/shadow tokens to `@theme`; `color-scheme` aligned on `body`.
+- `app/layout.tsx` — blocking inline theme-init script; wraps children in the new `ThemeProvider` (via `Providers`).
+- `components/theme/cookies.ts`, `theme-context.tsx`, `theme-provider.tsx`, `theme-toggle.tsx` (new) — the theme runtime.
+- `components/providers.tsx` — wires in `ThemeProvider`.
+- `app/dashboard/layout.tsx` — mounts `<ThemeToggle />`.
+- `components/theme/theme.test.tsx` (new) — cookie helper tests + consent-gating behavior tests.
+
+**Review findings:** 4 patched (state/DOM sync on mount, dead branch removed, `aria-pressed` added, `Secure` cookie flag added), 5 deferred (duplicated cookie-parsing logic between the inline script and `cookies.ts`, duplicated token values between `.dark{}` and `@theme`, no live `matchMedia` change listener, `ThemeProvider`'s real `setTheme` lacking direct test coverage, no retroactive persistence if consent is accepted after an unpersisted toggle), 8 rejected (data-debug attribute matches existing repo-wide convention; two coexisting dark-mode mechanisms is an intentional bridge documented in Design Notes; CSP/nonce and duplicate-cookie-path handling are out of scope with no CSP currently configured in this repo; remaining findings were style nits already covered by the patches above or out of this story's boundaries per its `<intent-contract>`).
+
+**Verification:** `npm run typecheck`, `npm test` (60/60 passing), `npm run build` all pass.
+
+**Residual risks:** see the newly appended `deferred-work.md` entries — mainly the token/logic duplication and lack of live OS-preference-change handling.
 </content>
