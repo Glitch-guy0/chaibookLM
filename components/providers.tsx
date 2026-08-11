@@ -3,6 +3,8 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useState, type ReactNode } from 'react';
 import { ThemeProvider } from '@components/theme/theme-provider';
+import { ConsentProvider } from '@components/consent/consent-provider';
+import { ConsentBanner } from '@components/consent/consent-banner';
 
 interface ProvidersProps {
   children: ReactNode;
@@ -28,7 +30,12 @@ export function Providers({ children }: ProvidersProps) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider>{children}</ThemeProvider>
+      <ThemeProvider>
+        <ConsentProvider>
+          {children}
+          <ConsentBanner />
+        </ConsentProvider>
+      </ThemeProvider>
     </QueryClientProvider>
   );
 }

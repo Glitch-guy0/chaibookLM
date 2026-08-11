@@ -29,3 +29,12 @@ export function setCookie(name: string, value: string, days: number): void {
   const secure = typeof location !== 'undefined' && location.protocol === 'https:' ? '; Secure' : '';
   document.cookie = `${name}=${encodeURIComponent(value)}; max-age=${maxAge}; path=/; SameSite=Lax${secure}`;
 }
+
+export function deleteCookie(name: string): void {
+  if (typeof document === 'undefined') {
+    return;
+  }
+
+  const secure = typeof location !== 'undefined' && location.protocol === 'https:' ? '; Secure' : '';
+  document.cookie = `${name}=; max-age=0; path=/; SameSite=Lax${secure}`;
+}

@@ -1,5 +1,27 @@
 # Deferred Work
 
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-3-cookie-consent-and-accessibility-preferences.md`
+  summary: A tampered/unrecognized `cookie-consent` cookie value leaves `consent` stuck at `null` forever (the banner reappears every visit) instead of treating it as "no decision" and clearing the stray cookie.
+  evidence: `ConsentProvider`'s mount effect only calls `setConsent` for exactly `'accepted'`/`'declined'`; any other stored value is silently ignored rather than reset.
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-3-cookie-consent-and-accessibility-preferences.md`
+  summary: No cross-tab sync — accepting/declining consent or toggling theme in one tab doesn't update state in another already-open tab.
+  evidence: `ConsentProvider`/`ThemeProvider` only read cookies once on mount; no `storage`/`visibilitychange` listener re-reads them.
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-3-cookie-consent-and-accessibility-preferences.md`
+  summary: The "has consent → persist theme" cookie check is duplicated independently in `theme-provider.tsx`'s `setTheme` and `consent-provider.tsx`'s `accept`, risking drift if the rule changes.
+  evidence: Both re-derive `getCookie(CONSENT_COOKIE_NAME) === CONSENT_ACCEPTED_VALUE` inline rather than sharing a helper.
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-3-cookie-consent-and-accessibility-preferences.md`
+  summary: `decline()` only deletes the `theme` cookie by name; there's no generalized list of non-essential cookies to purge, so a future second preference cookie needs to be hand-wired into this function or it will survive a decline.
+  evidence: `consent-provider.tsx`'s `decline` calls `deleteCookie(THEME_COOKIE_NAME)` directly with no registry of "non-essential" cookies.
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-3-cookie-consent-and-accessibility-preferences.md`
+  summary: The consent banner has no `aria-live` announcement or focus movement on mount, so screen-reader users aren't proactively notified a new actionable element appeared.
+  evidence: `consent-banner.tsx` uses `role="region"` `aria-label` only, no `aria-live` or focus management.
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-3-cookie-consent-and-accessibility-preferences.md`
+  summary: No component-level tests render the real `ConsentProvider`/`ConsentBanner`/`AccountPage`; `consent.test.tsx` re-implements the accept/decline cookie logic inline rather than exercising the actual exported functions.
+  evidence: Same pattern as the story-5.2 deferred item — `theme.test.tsx` has the same gap for `ThemeProvider`.
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-3-cookie-consent-and-accessibility-preferences.md`
+  summary: If a browser blocks/clears cookies entirely, the consent banner reappears on every load indefinitely with no in-memory session-only dismissal fallback.
+  evidence: `setCookie`/`getCookie` silently no-op when writes don't take effect; nothing detects that case to avoid re-showing the banner within the same session.
+
 - source_spec: `_bmad-output/implementation-artifacts/spec-5-2-dark-mode-across-all-surfaces.md`
   summary: Cookie-reading logic is duplicated between the blocking inline script string in `app/layout.tsx` and the real implementation in `components/theme/cookies.ts`, so a fix to one won't propagate to the other.
   evidence: `THEME_INIT_SCRIPT` in `app/layout.tsx` hand-parses `document.cookie` inline rather than sharing `getCookie`, since it must run before any React/module code loads.
