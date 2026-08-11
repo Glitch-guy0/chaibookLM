@@ -2,8 +2,9 @@
 title: 'Story 4.4 — Refuse Honestly and Offer Approval-Gated Fetch-on-Refusal'
 type: 'feature'
 created: '2026-08-10'
-status: 'in-review'
+status: 'done'
 baseline_revision: 2c1058d282e074896900d4f9c5b2505b3eaffb54
+final_revision: 276b976e99ba84875519e25212f0d6db159ba08d
 review_loop_iteration: 0
 followup_review_recommended: false
 context: []
