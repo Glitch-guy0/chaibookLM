@@ -7,8 +7,10 @@ import type { Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import {
   approveFetchOnRefusal,
+  fetchChatHistory,
   fetchSources,
   streamChatMessage,
+  type ChatMessageDTO,
   type CitationSnapshot,
 } from '../notebooks/api';
 import { CitationChip } from './citation-chip';
@@ -96,6 +98,35 @@ function nextId(): string {
   return `turn-${turnCounter}-${Date.now()}`;
 }
 
+/** Distance (px) from the top of the message list at which a scroll event
+ * triggers loading the next-older history page. */
+const SCROLL_LOAD_THRESHOLD_PX = 40;
+
+/**
+ * Maps one persisted `chat_messages` row into the same `Turn` shape the live
+ * streaming path produces (design decision, Story 4.5): each row becomes its
+ * own `Turn` one-to-one (no pairing into user+assistant "exchanges") since
+ * `Turn` already models one row per entry and pairing would need to
+ * reconstruct exchange boundaries the server doesn't guarantee either
+ * (refusal/error rows still count as their own row). Historical turns always
+ * settle as `status: 'done'` -- there is no live stream to be "in progress"
+ * for a reloaded row -- and never carry `refusal`/`fetchOnRefusal` (per the
+ * Never rule: a reloaded refusal turn shows its stored content/citations but
+ * never re-offers a stale "Find related web pages" action).
+ */
+function dtoToTurn(message: ChatMessageDTO): Turn {
+  const role = message.role === 'assistant' ? 'assistant' : 'user';
+  return {
+    id: `hist-${message.id}`,
+    role,
+    content: message.content,
+    status: 'done',
+    sourceMessage: message.content,
+    userMessageId: role === 'user' ? message.id : undefined,
+    citations: role === 'assistant' ? message.citations : undefined,
+  };
+}
+
 /**
  * Chat panel: message list (markdown, aria-live region) + composer
  * (auto-grow textarea, Enter sends / Shift+Enter newline, disabled while
@@ -116,6 +147,102 @@ export function ChatPanel({
   const [isTurnActive, setIsTurnActive] = useState(false);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const listEndRef = useRef<HTMLDivElement>(null);
+  const listContainerRef = useRef<HTMLDivElement>(null);
+
+  // ── Chat history pagination (Story 4.5) ─────────────────────────────────
+  // `hasMoreHistory` starts true so the initial load-on-mount fetch always
+  // runs; it flips to whatever the first response reports. `oldestLoadedId`
+  // is the cursor for the *next* older-page fetch -- undefined only before
+  // any page has loaded (empty history).
+  const [hasMoreHistory, setHasMoreHistory] = useState(true);
+  const [oldestLoadedId, setOldestLoadedId] = useState<string | undefined>(undefined);
+  const [isLoadingOlderHistory, setIsLoadingOlderHistory] = useState(false);
+  const [historyError, setHistoryError] = useState<'initial' | 'older' | null>(null);
+  // Ref mirror of the in-flight guard (fold-in-style) -- state alone can lag
+  // a rapid second scroll-to-top event fired before the re-render that would
+  // reflect `isLoadingOlderHistory: true` has committed.
+  const isFetchingOlderRef = useRef(false);
+  const initialHistoryLoadedRef = useRef(false);
+  // Tracks the last turn's id so the bottom-scroll effect only fires on an
+  // *append* (a new live turn added at the end) and never on a *prepend*
+  // (an older-history page loaded at the top, which must not move the view).
+  const lastTurnIdRef = useRef<string | null>(null);
+
+  const loadInitialHistory = useCallback(() => {
+    setHistoryError(null);
+    fetchChatHistory(notebookId)
+      .then((res) => {
+        const rows = res.messages.filter((m) => m.role !== 'system');
+        // Prepend rather than replace: if the user already sent a message
+        // before this initial load resolved, a wholesale replace would wipe
+        // that in-flight/optimistic turn out of view.
+        setTurns((prev) => [...rows.map(dtoToTurn), ...prev]);
+        setHasMoreHistory(res.hasMore);
+        setOldestLoadedId(res.messages[0]?.id);
+      })
+      .catch(() => {
+        setHasMoreHistory(false);
+        setHistoryError('initial');
+      });
+  }, [notebookId]);
+
+  // Load-on-mount: replaces the empty initial `turns` state with the most
+  // recent page. Guarded by a ref (not just the effect's dependency array)
+  // so React StrictMode's double-invoke in development never fires two
+  // overlapping fetches.
+  useEffect(() => {
+    if (initialHistoryLoadedRef.current) return;
+    initialHistoryLoadedRef.current = true;
+    loadInitialHistory();
+  }, [loadInitialHistory]);
+
+  const loadOlderHistory = useCallback(() => {
+    if (isFetchingOlderRef.current || !hasMoreHistory || !oldestLoadedId) return;
+    const container = listContainerRef.current;
+    isFetchingOlderRef.current = true;
+    setIsLoadingOlderHistory(true);
+    setHistoryError(null);
+    const prevScrollHeight = container?.scrollHeight ?? 0;
+    const prevScrollTop = container?.scrollTop ?? 0;
+    fetchChatHistory(notebookId, oldestLoadedId)
+      .then((res) => {
+        const rows = res.messages.filter((m) => m.role !== 'system');
+        if (rows.length > 0) {
+          setTurns((prev) => [...rows.map(dtoToTurn), ...prev]);
+        }
+        // Advance the cursor from the raw (unfiltered) oldest fetched
+        // message, not the filtered `rows` -- a page consisting entirely of
+        // system-role rows would otherwise never advance the cursor, making
+        // every subsequent scroll-to-top re-fetch the exact same page.
+        if (res.messages.length > 0) {
+          setOldestLoadedId(res.messages[0].id);
+        }
+        setHasMoreHistory(res.hasMore);
+        // Restore scroll offset after the prepended content mounts so there
+        // is no visible jump -- runs on the next frame, once the DOM has
+        // reflowed with the new (taller) content above the fold.
+        requestAnimationFrame(() => {
+          if (!container) return;
+          const delta = container.scrollHeight - prevScrollHeight;
+          container.scrollTop = prevScrollTop + delta;
+        });
+      })
+      .catch(() => {
+        setHistoryError('older');
+      })
+      .finally(() => {
+        isFetchingOlderRef.current = false;
+        setIsLoadingOlderHistory(false);
+      });
+  }, [notebookId, hasMoreHistory, oldestLoadedId]);
+
+  const handleListScroll = useCallback(
+    (e: React.UIEvent<HTMLDivElement>) => {
+      if (e.currentTarget.scrollTop > SCROLL_LOAD_THRESHOLD_PX) return;
+      loadOlderHistory();
+    },
+    [loadOlderHistory],
+  );
   // Distinct AbortController per in-flight call (fold-in fix) -- a single
   // shared ref let a second call's controller silently replace the first,
   // aborting the wrong request when either one finished or was cancelled.
@@ -137,7 +264,16 @@ export function ChatPanel({
   }, [sourcesQuery.data]);
 
   useEffect(() => {
-    listEndRef.current?.scrollIntoView({ block: 'end' });
+    const last = turns[turns.length - 1];
+    const lastId = last ? last.id : null;
+    // Only auto-scroll to bottom when the *last* turn changed (a new turn
+    // appended, e.g. a send or the initial history load) -- a prepend from
+    // `loadOlderHistory` leaves the last turn's id unchanged, so it never
+    // fights the manual scroll-offset restore above.
+    if (lastId !== lastTurnIdRef.current) {
+      listEndRef.current?.scrollIntoView({ block: 'end' });
+    }
+    lastTurnIdRef.current = lastId;
   }, [turns]);
 
   // Focus restore after returning from the Showcase tab: `restoreFocusKey`
@@ -335,9 +471,39 @@ export function ChatPanel({
   return (
     <div data-debug="ChatPanel" className="flex flex-col gap-4">
       <div
+        ref={listContainerRef}
+        onScroll={handleListScroll}
         data-debug="ChatMessageList"
         className="flex min-h-[16rem] flex-col gap-4 overflow-y-auto rounded-default border-2 border-border dark:border-border-dark bg-surface-elevated dark:bg-surface-elevated-dark p-4"
       >
+        {isLoadingOlderHistory && (
+          <p
+            data-debug="ChatHistoryLoadingIndicator"
+            className="text-center text-xs text-ink-muted dark:text-ink-muted-dark"
+          >
+            Loading older messages…
+          </p>
+        )}
+        {historyError && (
+          <div
+            data-debug="ChatHistoryError"
+            className="flex items-center justify-center gap-2 text-sm text-red-600 dark:text-red-400"
+          >
+            <p>
+              {historyError === 'initial'
+                ? 'Could not load chat history.'
+                : 'Could not load older messages.'}
+            </p>
+            <button
+              type="button"
+              data-debug="ChatHistoryRetryButton"
+              onClick={() => (historyError === 'initial' ? loadInitialHistory() : loadOlderHistory())}
+              className="font-semibold underline underline-offset-2 hover:text-ink dark:hover:text-ink-dark focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2"
+            >
+              Retry
+            </button>
+          </div>
+        )}
         {turns.length === 0 ? (
           <p className="text-sm text-ink-muted dark:text-ink-muted-dark">
             Ask a question about your sources to get started.

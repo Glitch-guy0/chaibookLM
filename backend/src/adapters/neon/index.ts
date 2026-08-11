@@ -376,6 +376,48 @@ export class NeonRepository {
     return rows.map(rowToChatMessage).reverse();
   }
 
+  /**
+   * Cursor-paginated chat history for `ChatPanel`'s scroll-to-load-older
+   * flow (Story 4.5) -- distinct from `findRecentChatMessages` (which always
+   * gets the newest window for the AD-9 model-context path and is never
+   * touched by this method). With no `beforeMessageId`, returns the most
+   * recent `limit` rows (same DESC-then-reverse shape as
+   * `findRecentChatMessages`). With `beforeMessageId`, first resolves that
+   * row's `(created_at, id)` cursor, then returns the next `limit` rows
+   * strictly older than it, so a message inserted concurrently can never
+   * shift page boundaries the way plain OFFSET pagination would. `hasMore`
+   * is true only when exactly `limit` rows came back, letting the caller
+   * stop paginating once fewer than a full page remains.
+   */
+  async findChatMessagesBefore(
+    notebookId: string,
+    limit: number,
+    beforeMessageId?: string,
+  ): Promise<{ messages: ChatMessage[]; hasMore: boolean }> {
+    let rows: QueryResultRow[];
+    if (beforeMessageId) {
+      const result = await this.pool.query(
+        `SELECT cm.* FROM chat_messages cm
+         WHERE cm.notebook_id = $1
+           AND (cm.created_at, cm.id) < (
+             SELECT created_at, id FROM chat_messages WHERE id = $2 AND notebook_id = $1
+           )
+         ORDER BY cm.created_at DESC, cm.id DESC
+         LIMIT $3`,
+        [notebookId, beforeMessageId, limit],
+      );
+      rows = result.rows;
+    } else {
+      const result = await this.pool.query(
+        'SELECT * FROM chat_messages WHERE notebook_id = $1 ORDER BY created_at DESC, id DESC LIMIT $2',
+        [notebookId, limit],
+      );
+      rows = result.rows;
+    }
+    const messages = rows.map(rowToChatMessage).reverse();
+    return { messages, hasMore: rows.length === limit };
+  }
+
   // ── Limit Counters ─────────────────────────────────────────────────────
 
   async getOrCreateCounter(

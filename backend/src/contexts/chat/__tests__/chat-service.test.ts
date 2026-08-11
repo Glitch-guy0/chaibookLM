@@ -38,6 +38,7 @@ function makeFakeRepo(overrides: Partial<ChatRepo> = {}): ChatRepo & {
       return { id: `msg-${created.length}` };
     }),
     findRecentChatMessages: vi.fn(async () => []),
+    findChatMessagesBefore: vi.fn(async () => ({ messages: [], hasMore: false })),
     ...overrides,
   };
 }
@@ -136,6 +137,25 @@ describe('ChatService.ask', () => {
     await collect(service.ask('user-1', 'notebook-a', 'question'));
 
     expect(repo.findRecentChatMessages).toHaveBeenCalledWith('notebook-a', HISTORY_WINDOW);
+  });
+
+  it('HISTORY: delegates to repo.findChatMessagesBefore with HISTORY_WINDOW and the given cursor, returning its result verbatim', async () => {
+    const page = { messages: [{ id: 'm1' } as ChatMessage], hasMore: true };
+    const repo = makeFakeRepo({
+      findChatMessagesBefore: vi.fn(async () => page),
+    });
+    const memory: ChatMemory = { retrieveChunks: async () => [] };
+    const llm: ChatLlm = { streamComplete: vi.fn() };
+
+    const service = new ChatService(repo, memory, fakeReasoning, llm);
+    const result = await service.history('notebook-a', 'user-1', 'cursor-msg-id');
+
+    expect(repo.findChatMessagesBefore).toHaveBeenCalledWith(
+      'notebook-a',
+      HISTORY_WINDOW,
+      'cursor-msg-id',
+    );
+    expect(result).toBe(page);
   });
 
   it('STREAM_FAIL: persists a failed-marked assistant row with partial content and yields an error event', async () => {

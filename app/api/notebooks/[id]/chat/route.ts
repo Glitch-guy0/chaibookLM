@@ -137,3 +137,45 @@ export async function POST(request: NextRequest, context: RouteContext) {
     },
   });
 }
+
+/**
+ * GET /api/notebooks/[id]/chat?before=<messageId>
+ * Paginated read of persisted chat history (Story 4.5) -- auth + ownership
+ * mirror the POST handler above. With no `before`, returns the most recent
+ * HISTORY_WINDOW messages; with `before` (a previously-returned message id),
+ * returns the next-older page. Always oldest-first, ready for the client to
+ * render/prepend directly.
+ */
+export async function GET(request: NextRequest, context: RouteContext) {
+  const { userId } = await auth();
+  if (!userId) {
+    return errorResponse('Unauthorized', 'UNAUTHORIZED', 401);
+  }
+
+  const { id } = await context.params;
+  const { notebooks, chatFor } = await getBackend();
+  const notebook = await notebooks.findById(id);
+  if (!notebook || notebook.userId !== userId) {
+    return errorResponse('Notebook not found', 'NOT_FOUND', 404);
+  }
+
+  const before = request.nextUrl.searchParams.get('before') ?? undefined;
+
+  const chatService = chatFor(id);
+  try {
+    const { messages, hasMore } = await chatService.history(id, userId, before);
+    return Response.json({
+      messages: messages.map((m) => ({
+        id: m.id,
+        role: m.role,
+        content: m.content,
+        citations: m.citations,
+        createdAt: m.createdAt,
+      })),
+      hasMore,
+    });
+  } catch (err) {
+    const detail = err instanceof Error ? err.message : 'unknown error';
+    return errorResponse(detail, 'CHAT_HISTORY_FAILED', 500);
+  }
+}

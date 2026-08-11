@@ -401,6 +401,43 @@ export function approveFetchOnRefusal(
   );
 }
 
+/**
+ * A persisted chat_messages row as returned by GET /api/notebooks/[id]/chat
+ * -- mirrors backend `ChatMessage` (Story 4.5), minus `notebookId`/`userId`
+ * which the client never needs. `citations`, when present, is the exact
+ * persisted `CitationSnapshot[]` snapshot -- rendered as-is, never
+ * re-derived from live Qdrant/chunk data.
+ */
+export interface ChatMessageDTO {
+  id: string;
+  role: 'user' | 'assistant' | 'system';
+  content: string;
+  citations?: CitationSnapshot[];
+  createdAt: string;
+}
+
+export interface ChatHistoryResponse {
+  messages: ChatMessageDTO[];
+  hasMore: boolean;
+}
+
+/**
+ * Fetches one page (up to HISTORY_WINDOW = 7 messages) of persisted chat
+ * history for `notebookId`, oldest-first. With no `before`, returns the most
+ * recent page (for load-on-mount); passing the oldest currently-loaded
+ * message's id as `before` returns the next-older page (for
+ * scroll-to-load-older).
+ */
+export function fetchChatHistory(
+  notebookId: string,
+  before?: string,
+): Promise<ChatHistoryResponse> {
+  const params = before ? `?before=${encodeURIComponent(before)}` : '';
+  return request<ChatHistoryResponse>(
+    `/api/notebooks/${encodeURIComponent(notebookId)}/chat${params}`,
+  );
+}
+
 export function formatBytes(bytes: number): string {
   if (bytes < 1024) return `${bytes} B`;
   if (bytes < 1_048_576) return `${(bytes / 1024).toFixed(1)} KB`;

@@ -38,6 +38,11 @@ export interface ChatRepo {
     citations?: CitationSnapshot[],
   ): Promise<unknown>;
   findRecentChatMessages(notebookId: string, limit: number): Promise<ChatMessage[]>;
+  findChatMessagesBefore(
+    notebookId: string,
+    limit: number,
+    beforeMessageId?: string,
+  ): Promise<{ messages: ChatMessage[]; hasMore: boolean }>;
 }
 
 export interface ChatMemory {
@@ -215,6 +220,22 @@ export class ChatService {
         err instanceof Error ? err.message : 'LLM request failed';
       yield { type: 'error', message: errMessage };
     }
+  }
+
+  /**
+   * Paginated read of a notebook's persisted chat history for `ChatPanel`'s
+   * load-on-mount / scroll-to-load-older flow (Story 4.5). Purely a
+   * read/pagination path -- never touches `HISTORY_WINDOW` or the
+   * model-context feeding logic in `ask()` above. `userId` is accepted for
+   * interface symmetry with `ask()` but ownership is enforced by the caller
+   * (the route), exactly like `ask()` never re-checks auth itself.
+   */
+  async history(
+    notebookId: string,
+    _userId: string,
+    before?: string,
+  ): Promise<{ messages: ChatMessage[]; hasMore: boolean }> {
+    return this.repo.findChatMessagesBefore(notebookId, HISTORY_WINDOW, before);
   }
 }
 
