@@ -20,7 +20,7 @@ export function ThemeToggle() {
       title={label}
       data-debug="ThemeToggle"
       className={
-        'inline-flex h-9 w-9 items-center justify-center ' +
+        'inline-flex h-11 w-11 sm:h-9 sm:w-9 items-center justify-center ' +
         'border-2 border-border dark:border-border-dark ' +
         'bg-surface-elevated dark:bg-surface-elevated-dark ' +
         'text-ink dark:text-ink-dark ' +

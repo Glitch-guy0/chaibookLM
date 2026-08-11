@@ -1,5 +1,12 @@
 # Deferred Work
 
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-6-harden-the-design-system-across-all-surfaces.md`
+  summary: `--color-ink-muted-dark` (#7A7263) on `--color-surface-dark` (#16130D) fails the 4.5:1 WCAG AA floor for muted/body text, computing to 3.90:1.
+  evidence: `app/design-system.contrast.test.ts`'s "ink-muted-dark on surface-dark meets 4.5:1" assertion fails with the exact ratio; per this spec's `Never` clause, the token hex value was not changed to force a pass — darkening `--color-ink-muted-dark` (or lightening `--color-surface-dark`) is a design decision deferred to a future story.
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-6-harden-the-design-system-across-all-surfaces.md`
+  summary: `--color-ink-dark` (#F5F0E8) on `--color-brand-dark` (#FF864F) fails the 4.5:1 WCAG AA floor for the active-notebook chip's text-on-brand-fill, computing to 2.11:1.
+  evidence: `app/design-system.contrast.test.ts`'s "ink-dark on brand-dark meets 4.5:1" assertion fails with the exact ratio; per this spec's `Never` clause, no token hex value was changed — this pairing needs either a darker/higher-contrast text color on brand fills in dark mode or a different brand-dark shade, both design decisions out of this story's scope.
+
 - source_spec: `_bmad-output/implementation-artifacts/spec-5-5-honest-rate-limit-rejection-under-load.md`
   summary: The rate limiter's in-memory counter is process-local; in any multi-instance/serverless-scaled deployment, each instance gets its own independent budget, so the effective aggregate limit is multiplied by instance count instead of being a true shared cap.
   evidence: `app/api/lib/rate-limit.ts` uses module-level variables with no Redis/Upstash-backed shared store, documented as a known single-instance limitation in the spec's own Design Notes.

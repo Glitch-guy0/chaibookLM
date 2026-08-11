@@ -169,6 +169,40 @@ body {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+
+  /* Button hover normally deepens the skew/lifts the shadow (motion-based
+     feedback). Under reduced motion, swap that for a static border/underline
+     change instead, per spec-5-6. */
+  .chai-button {
+    transform: skewX(-6deg) !important;
+  }
+
+  .chai-button:hover {
+    transform: skewX(-6deg) !important;
+    box-shadow: var(--shadow-button) !important;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+  }
+
+  .chai-button:active {
+    transform: skewX(-6deg) !important;
+    box-shadow: var(--shadow-button) !important;
+  }
+
+  .chai-button .chai-button-label,
+  .chai-button span {
+    transform: skewX(6deg) !important;
+  }
+}
+
+/* ─── Focus Ring Inversion (ink/brand-filled elements) ─── */
+.chai-button-primary:focus-visible {
+  outline-color: var(--color-surface);
+}
+
+.dark .chai-button-primary:focus-visible {
+  outline-color: var(--color-surface-dark);
 }
 
 /* ─── Debug Label (UX-DR22) ─── */
