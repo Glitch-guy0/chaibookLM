@@ -1,5 +1,21 @@
 # Deferred Work
 
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-2-dark-mode-across-all-surfaces.md`
+  summary: Cookie-reading logic is duplicated between the blocking inline script string in `app/layout.tsx` and the real implementation in `components/theme/cookies.ts`, so a fix to one won't propagate to the other.
+  evidence: `THEME_INIT_SCRIPT` in `app/layout.tsx` hand-parses `document.cookie` inline rather than sharing `getCookie`, since it must run before any React/module code loads.
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-2-dark-mode-across-all-surfaces.md`
+  summary: The `-dark`-suffixed tokens in `app/globals.css` `@theme` are hand-copied literal duplicates of the values in the `.dark {}` override block; the two will drift if one is edited without the other.
+  evidence: Both blocks encode the same hex values independently with no single source of truth or build-time generation step.
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-2-dark-mode-across-all-surfaces.md`
+  summary: `resolveTheme()` reads `prefers-color-scheme` once on mount with no `matchMedia` `change` listener, so a live OS theme flip while the tab is open (and no consent-based override is set) never updates the UI until reload.
+  evidence: `components/theme/theme-provider.tsx`'s effect calls `matchMedia(...).matches` once with no listener registered.
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-2-dark-mode-across-all-surfaces.md`
+  summary: No test exercises `ThemeProvider`'s actual `setTheme`/`resolveTheme` functions directly; `theme.test.tsx` re-implements the consent-gating logic inline in the test rather than calling the real provider, so a regression in the real `setTheme` would not be caught.
+  evidence: `components/theme/theme.test.tsx`'s "provider" describe block asserts against hand-rolled test logic, not an import from `theme-provider.tsx`.
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-2-dark-mode-across-all-surfaces.md`
+  summary: If a user changes theme before accepting cookie consent, then accepts consent later (story 5.3), the theme they're currently viewing is not retroactively persisted — only the next toggle after consent gets written to a cookie.
+  evidence: `setTheme` only writes the `theme` cookie inside its own call; there's no consent-acceptance listener that persists the current in-memory theme.
+
 - source_spec: `_bmad-output/implementation-artifacts/spec-5-1-public-landing-page-with-scroll-storytelling.md`
   summary: `RevealSection`, `LandingStory`, and `LandingCta` have no unit test coverage; only `LandingHero` and `prefersReducedMotion` are tested.
   evidence: `components/landing/landing.test.tsx` only asserts a `/sign-in` link on `LandingHero` and mocks `matchMedia`; the reveal transition logic itself ships unverified.

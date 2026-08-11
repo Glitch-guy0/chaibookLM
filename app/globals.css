@@ -112,6 +112,27 @@
   --shadow-card: var(--shadow-card);
   --shadow-dialog: var(--shadow-dialog);
   --shadow-button: var(--shadow-button);
+
+  /* Parallel -dark tokens for dark:*-dark utilities (static values copied
+     from the .dark {} override block, per spec-5-2 design notes). */
+  --color-surface-dark: #16130D;
+  --color-surface-elevated-dark: #201C14;
+  --color-ink-dark: #F5F0E8;
+  --color-ink-secondary-dark: #B0A898;
+  --color-ink-muted-dark: #7A7263;
+  --color-brand-dark: #FF864F;
+  --color-cite-dark: #4A9EFF;
+  --color-accent-yellow-dark: #FFE066;
+  --color-accent-pink-dark: #FF8AA5;
+  --color-success-dark: #3DAF5E;
+  --color-warning-dark: #E0B830;
+  --color-error-dark: #EF5350;
+  --color-border-dark: #F5F0E8;
+  --color-focus-ring-dark: #F5F0E8;
+
+  --shadow-card-dark: 3px 3px 0 0 #F5F0E8;
+  --shadow-dialog-dark: 8px 8px 0 0 #F5F0E8;
+  --shadow-button-dark: 6px -6px 0 0 #F5F0E8;
 }
 
 /* ─── Base Styles ─── */
@@ -125,6 +146,11 @@ body {
   background-color: var(--color-surface);
   color: var(--color-ink);
   font-family: var(--font-sans);
+  color-scheme: light;
+}
+
+.dark body {
+  color-scheme: dark;
 }
 
 /* ─── Focus Styles ─── */
