@@ -12,7 +12,9 @@ import { EmbeddingService } from '@backend/templates/EmbeddingService';
 import { LlmAdapter } from '@backend/adapters/llm/index';
 import { VectorStoreMemoryStrategy } from '@backend/templates/VectorStoreMemoryStrategy';
 import { GroundedAnswerReasoningStrategy } from '@backend/templates/GroundedAnswerReasoningStrategy';
+import { WebSearchTool } from '@backend/templates/WebSearchTool';
 import { ChatService } from '@backend/contexts/chat/index';
+import { FetchOnRefusalService } from '@backend/contexts/fetch-on-refusal/index';
 
 interface BackendServices {
   repo: NeonRepository;
@@ -20,6 +22,7 @@ interface BackendServices {
   notebooks: NotebookService;
   sources: SourceService;
   chatFor: (notebookId: string) => ChatService;
+  fetchOnRefusal: FetchOnRefusalService;
 }
 
 let backendPromise: Promise<BackendServices> | null = null;
@@ -67,7 +70,10 @@ export function getBackend(): Promise<BackendServices> {
         return new ChatService(repo, memory, reasoning, llm);
       };
 
-      return { repo, limits, notebooks, sources, chatFor };
+      const webSearchTool = new WebSearchTool(jina);
+      const fetchOnRefusal = new FetchOnRefusalService(webSearchTool, sources, indexer);
+
+      return { repo, limits, notebooks, sources, chatFor, fetchOnRefusal };
     })();
   }
   return backendPromise;

@@ -77,6 +77,11 @@ export interface ChatTurnEvent {
    * empty when the answer cited nothing). Left undefined on refusal/error
    * paths so callers never emit a citations trailer for those. */
   citations?: CitationSnapshot[];
+  /** Set only on the 'done' event of the zero-retrieved-chunks structural
+   * refusal path -- the explicit, never-string-matched signal callers use to
+   * detect a refusal (as opposed to comparing `fullText` against
+   * NOT_IN_SOURCES_ANSWER). Left undefined on every other 'done' event. */
+  refusal?: boolean;
 }
 
 export class ChatService {
@@ -164,7 +169,7 @@ export class ChatService {
         NOT_IN_SOURCES_ANSWER,
       );
       yield { type: 'token', token: NOT_IN_SOURCES_ANSWER };
-      yield { type: 'done', fullText: NOT_IN_SOURCES_ANSWER };
+      yield { type: 'done', fullText: NOT_IN_SOURCES_ANSWER, refusal: true };
       return;
     }
 

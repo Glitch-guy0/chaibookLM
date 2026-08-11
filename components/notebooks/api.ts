@@ -215,6 +215,14 @@ const CHAT_ERROR_SENTINEL = 'CHAT_ERROR:';
  */
 const CHAT_CITATIONS_SENTINEL = 'CHAT_CITATIONS:';
 
+/**
+ * Fixed printable-ASCII marker matching the server route's
+ * CHAT_REFUSAL_SENTINEL. Sent (with no payload) only when the turn's `done`
+ * event carried `refusal: true` -- detected here purely via this trailer,
+ * never by string-matching the streamed text against NOT_IN_SOURCES_ANSWER.
+ */
+const CHAT_REFUSAL_SENTINEL = 'CHAT_REFUSAL:';
+
 export type { CitationSnapshot };
 
 export interface StreamChatResult {
@@ -229,6 +237,9 @@ export interface StreamChatResult {
    * non-refusal completion (may be an empty array when the answer cited
    * nothing). Absent on refusal/error/failed turns. */
   citations?: CitationSnapshot[];
+  /** True only when the CHAT_REFUSAL: trailer was seen -- the explicit,
+   * never-string-matched signal that this turn is a structural refusal. */
+  refusal?: boolean;
 }
 
 /**
@@ -286,10 +297,12 @@ export async function streamChatMessage(
   let failed = false;
   let errorMessage: string | undefined;
   let citations: CitationSnapshot[] | undefined;
+  let refusal = false;
 
   const maxSentinelTail = Math.max(
     CHAT_ERROR_SENTINEL.length,
     CHAT_CITATIONS_SENTINEL.length,
+    CHAT_REFUSAL_SENTINEL.length,
   );
 
   try {
@@ -300,6 +313,7 @@ export async function streamChatMessage(
 
       const errIdx = pending.indexOf(CHAT_ERROR_SENTINEL);
       const citIdx = pending.indexOf(CHAT_CITATIONS_SENTINEL);
+      const refIdx = pending.indexOf(CHAT_REFUSAL_SENTINEL);
 
       if (errIdx !== -1) {
         const before = pending.slice(0, errIdx);
@@ -333,6 +347,18 @@ export async function streamChatMessage(
         break;
       }
 
+      if (refIdx !== -1) {
+        const before = pending.slice(0, refIdx);
+        if (before) {
+          full += before;
+          onToken(before);
+        }
+        refusal = true;
+        // Same reasoning as the other trailers: the server closes the stream
+        // right after this sentinel, so stop scanning here.
+        break;
+      }
+
       // Hold back a tail long enough to contain a partial sentinel match.
       const safeLength = Math.max(0, pending.length - maxSentinelTail);
       const safe = pending.slice(0, safeLength);
@@ -347,12 +373,32 @@ export async function streamChatMessage(
     return { fullText: full, failed: true, errorMessage: errMessage, userMessageId };
   }
 
-  if (!failed && citations === undefined && pending) {
+  if (!failed && citations === undefined && !refusal && pending) {
     full += pending;
     onToken(pending);
   }
 
-  return { fullText: full, failed, errorMessage, userMessageId, citations };
+  return { fullText: full, failed, errorMessage, userMessageId, citations, refusal };
+}
+
+/**
+ * Approves a fetch-on-refusal for `notebookId`: runs a server-side web
+ * search for `query` and creates a Web Source per result via the existing
+ * SourceService.create path, awaiting ingestion to settle. Only ever called
+ * from the "Find related web pages" button click on a refusal turn.
+ */
+export function approveFetchOnRefusal(
+  notebookId: string,
+  query: string,
+): Promise<{ ok: true; added: number } | { ok: false; reason: string }> {
+  return request<{ ok: true; added: number } | { ok: false; reason: string }>(
+    `/api/notebooks/${encodeURIComponent(notebookId)}/search-fetch`,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query }),
+    },
+  );
 }
 
 export function formatBytes(bytes: number): string {

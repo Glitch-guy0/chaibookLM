@@ -26,6 +26,15 @@ export const CHAT_ERROR_SENTINEL = 'CHAT_ERROR:';
 export const CHAT_CITATIONS_SENTINEL = 'CHAT_CITATIONS:';
 
 /**
+ * Fixed printable-ASCII marker written to the stream body, after the answer
+ * content and before the stream closes, only when the turn's `done` event
+ * carries `refusal: true` -- mirrors CHAT_CITATIONS_SENTINEL's design.
+ * Detected on the client via the same tail-buffered sentinel scan, never by
+ * string-matching the answer content against NOT_IN_SOURCES_ANSWER.
+ */
+export const CHAT_REFUSAL_SENTINEL = 'CHAT_REFUSAL:';
+
+/**
  * POST /api/notebooks/[id]/chat
  * Streams a grounded answer to `{message}` as chunked `text/plain`. Auth +
  * ownership follow the same convention as the sources route. The
@@ -94,6 +103,10 @@ export async function POST(request: NextRequest, context: RouteContext) {
             streamController.enqueue(
               encoder.encode(`${CHAT_ERROR_SENTINEL}${event.message ?? 'unknown error'}`),
             );
+          } else if (event.type === 'done' && event.refusal) {
+            // Explicit refusal marker -- never inferred by string-matching
+            // fullText against NOT_IN_SOURCES_ANSWER, on either side.
+            streamController.enqueue(encoder.encode(CHAT_REFUSAL_SENTINEL));
           } else if (event.type === 'done' && event.citations !== undefined) {
             // Only a successful, non-refusal completion carries `citations`
             // on its 'done' event (ChatService leaves it undefined on the

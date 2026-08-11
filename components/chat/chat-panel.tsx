@@ -5,7 +5,12 @@ import { useMutation, useQuery } from '@tanstack/react-query';
 import ReactMarkdown from 'react-markdown';
 import type { Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { fetchSources, streamChatMessage, type CitationSnapshot } from '../notebooks/api';
+import {
+  approveFetchOnRefusal,
+  fetchSources,
+  streamChatMessage,
+  type CitationSnapshot,
+} from '../notebooks/api';
 import { CitationChip } from './citation-chip';
 
 interface ChatPanelProps {
@@ -68,6 +73,21 @@ interface Turn {
    * only once a successful (non-refusal, non-failed) assistant turn has
    * settled -- undefined while streaming, on failure, and on refusals. */
   citations?: CitationSnapshot[];
+  /** True only when the CHAT_REFUSAL: trailer was seen for this turn -- the
+   * explicit, never-string-matched structural refusal signal. When set, this
+   * turn renders "Not in your sources." plus the fetch-on-refusal affordance
+   * instead of markdown content. */
+  refusal?: boolean;
+  /** Local-only state machine for the "Find related web pages" approval
+   * action on a refusal turn. Absent/`'idle'` renders the button; `'pending'`
+   * disables the composer (same gate as an in-flight chat turn); `'done'`
+   * shows "Added N sources"; `'failed'` restores the refusal affordance with
+   * a message (and, except for the capped case, a retryable button). */
+  fetchOnRefusal?: {
+    status: 'idle' | 'pending' | 'done' | 'failed';
+    added?: number;
+    reason?: string;
+  };
 }
 
 let turnCounter = 0;
@@ -195,6 +215,9 @@ export function ChatPanel({
                 status: result.failed ? 'failed' : 'done',
                 content: result.failed ? t.content : result.fullText,
                 citations: result.failed ? undefined : result.citations,
+                refusal: result.failed ? undefined : result.refusal,
+                fetchOnRefusal:
+                  !result.failed && result.refusal ? { status: 'idle' } : undefined,
               };
             }
             return { ...t, ...withUserMessageId };
@@ -237,7 +260,45 @@ export function ChatPanel({
     },
   });
 
-  const isStreaming = isTurnActive;
+  // Any turn's pending fetch-on-refusal gates the composer the same way an
+  // in-flight chat turn does, per AD-13/Boundaries -- a second question can't
+  // be sent mid-fetch.
+  const isFetchOnRefusalPending = turns.some(
+    (t) => t.fetchOnRefusal?.status === 'pending',
+  );
+  const isStreaming = isTurnActive || isFetchOnRefusalPending;
+
+  const approveFetch = useCallback(
+    (turn: Turn) => {
+      if (turn.fetchOnRefusal?.status === 'pending') return;
+      setTurns((prev) =>
+        prev.map((t) =>
+          t.id === turn.id ? { ...t, fetchOnRefusal: { status: 'pending' } } : t,
+        ),
+      );
+      void approveFetchOnRefusal(notebookId, turn.sourceMessage)
+        .then((result) => {
+          setTurns((prev) =>
+            prev.map((t) => {
+              if (t.id !== turn.id) return t;
+              if (result.ok) {
+                return { ...t, fetchOnRefusal: { status: 'done', added: result.added } };
+              }
+              return { ...t, fetchOnRefusal: { status: 'failed', reason: result.reason } };
+            }),
+          );
+        })
+        .catch((err: unknown) => {
+          const reason = err instanceof Error ? err.message : 'search_failed';
+          setTurns((prev) =>
+            prev.map((t) =>
+              t.id === turn.id ? { ...t, fetchOnRefusal: { status: 'failed', reason } } : t,
+            ),
+          );
+        });
+    },
+    [notebookId],
+  );
 
   const send = useCallback(() => {
     const text = input.trim();
@@ -315,6 +376,63 @@ export function ChatPanel({
                   >
                     Retry
                   </button>
+                </div>
+              )}
+              {turn.refusal && turn.status === 'done' && (
+                <div className="mt-2" data-debug="ChatFetchOnRefusal">
+                  {(!turn.fetchOnRefusal || turn.fetchOnRefusal.status === 'idle') && (
+                    <button
+                      type="button"
+                      data-debug="ChatFindWebPagesButton"
+                      onClick={() => approveFetch(turn)}
+                      disabled={isStreaming}
+                      className="text-sm font-semibold underline underline-offset-2 text-ink-secondary dark:text-ink-secondary-dark hover:text-ink dark:hover:text-ink-dark focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2"
+                    >
+                      Find related web pages
+                    </button>
+                  )}
+                  {turn.fetchOnRefusal?.status === 'pending' && (
+                    <p
+                      className="text-sm text-ink-muted dark:text-ink-muted-dark"
+                      data-debug="ChatFetchOnRefusalPending"
+                    >
+                      Searching the web…
+                    </p>
+                  )}
+                  {turn.fetchOnRefusal?.status === 'done' && (
+                    <p
+                      className="text-sm text-ink-secondary dark:text-ink-secondary-dark"
+                      data-debug="ChatFetchOnRefusalDone"
+                    >
+                      Added {turn.fetchOnRefusal.added} source
+                      {turn.fetchOnRefusal.added === 1 ? '' : 's'}.
+                    </p>
+                  )}
+                  {turn.fetchOnRefusal?.status === 'failed' && (
+                    <div className="flex items-center gap-2">
+                      <p
+                        className="text-sm text-red-600 dark:text-red-400"
+                        data-debug="ChatFetchOnRefusalError"
+                      >
+                        {turn.fetchOnRefusal.reason === 'capped'
+                          ? 'Source limit reached.'
+                          : turn.fetchOnRefusal.reason === 'no_results'
+                            ? 'No related pages found.'
+                            : 'Something went wrong.'}
+                      </p>
+                      {turn.fetchOnRefusal.reason !== 'capped' && (
+                        <button
+                          type="button"
+                          data-debug="ChatFetchOnRefusalRetryButton"
+                          onClick={() => approveFetch(turn)}
+                          disabled={isStreaming}
+                          className="text-sm font-semibold underline underline-offset-2 text-ink-secondary dark:text-ink-secondary-dark hover:text-ink dark:hover:text-ink-dark focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2"
+                        >
+                          Try again
+                        </button>
+                      )}
+                    </div>
+                  )}
                 </div>
               )}
             </div>

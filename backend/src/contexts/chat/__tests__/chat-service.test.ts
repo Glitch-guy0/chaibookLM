@@ -100,6 +100,18 @@ describe('ChatService.ask', () => {
     expect(assistantRow?.content).not.toMatch(/\[\[.*\]\]/);
   });
 
+  it('REFUSAL_FLAG: the zero-chunks done event carries refusal: true (never inferred by string-matching)', async () => {
+    const repo = makeFakeRepo();
+    const memory: ChatMemory = { retrieveChunks: async () => [] };
+    const llm: ChatLlm = { streamComplete: vi.fn() };
+
+    const service = new ChatService(repo, memory, fakeReasoning, llm);
+    const events = await collect(service.ask('user-1', 'notebook-empty', 'Anything in here?'));
+
+    const done = events.find((e) => e.type === 'done');
+    expect(done?.refusal).toBe(true);
+  });
+
   it('SLIDING_WINDOW: requests exactly HISTORY_WINDOW most-recent turns regardless of total history size', async () => {
     const repo = makeFakeRepo({
       findRecentChatMessages: vi.fn(async (_notebookId: string, limit: number) => {
@@ -150,11 +162,14 @@ describe('ChatService.ask', () => {
     const llm: ChatLlm = { streamComplete: async () => makeTokenStream(['Hello ', 'world.']) };
 
     const service = new ChatService(repo, memory, fakeReasoning, llm);
-    await collect(service.ask('user-1', 'notebook-a', 'Hi there'));
+    const events = await collect(service.ask('user-1', 'notebook-a', 'Hi there'));
 
     expect(repo.created[0]).toMatchObject({ role: 'user', content: 'Hi there' });
     const assistantRow = repo.created.find((c) => c.role === 'assistant');
     expect(assistantRow?.content).toBe('Hello world.');
+
+    const done = events.find((e) => e.type === 'done');
+    expect(done?.refusal).toBeUndefined();
   });
 
   it('VALID_MARKERS: persists and streams a CitationSnapshot for each marker validated against this turn\'s retrieved chunks', async () => {
