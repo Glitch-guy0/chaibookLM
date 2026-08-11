@@ -41,7 +41,7 @@
 # - Retrospective appends its action items to action_items; sprint-status surfaces open ones
 
 generated: "2026-08-09"
-last_updated: "2026-08-10"
+last_updated: "2026-08-11"
 project: chaibookLM
 project_key: NOKEY
 tracking_system: file-system
@@ -93,8 +93,8 @@ development_status:
   # ─────────────────────────────────────────────────────
   # Epic 5: First Impressions and Trust Floor (FR-10,11,12,13,14)
   # ─────────────────────────────────────────────────────
-  epic-5: backlog
-  5-1-public-landing-page-with-scroll-storytelling: backlog
+  epic-5: in-progress
+  5-1-public-landing-page-with-scroll-storytelling: done
   5-2-dark-mode-across-all-surfaces: backlog
   5-3-cookie-consent-and-accessibility-preferences: backlog
   5-4-first-run-product-walkthrough: backlog
