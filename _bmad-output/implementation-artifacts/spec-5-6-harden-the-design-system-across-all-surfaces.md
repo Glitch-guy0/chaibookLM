@@ -2,9 +2,10 @@
 title: 'Harden the design system across all surfaces'
 type: 'feature'
 created: '2026-08-11'
-status: 'in-progress'
+status: 'done'
 review_loop_iteration: 0
-followup_review_recommended: false
+followup_review_recommended: true
+final_revision: '4f0c2431'
 baseline_revision: 'e59991aaca59f9d2bc3a1dd3c7152d37a41345d6'
 context: ['{project-root}/_bmad-output/implementation-artifacts/epic-5-context.md']
 warnings: []
@@ -116,5 +117,5 @@ Two of the five contrast pairs named in this story's own acceptance criteria gen
 
 **Verification:** `npm run typecheck`, `npm test` (84 passing, 2 expected-fail), `npm run build` all pass.
 
-**Residual risks:** the two documented WCAG AA contrast failures remain unresolved by design (out of this story's scope); see `deferred-work.md`.
+**Residual risks:** the two documented WCAG AA contrast failures remain unresolved by design (out of this story's scope), and review additionally surfaced two more likely-related contrast/touch-target gaps (`CitationChip`, `NotebookCard` selected state) that weren't fixed here; see `deferred-work.md`. Given the process deviation found and reverted during review plus the accumulated open findings, a follow-up review of this story's final diff is recommended.
 </content>
