@@ -204,3 +204,68 @@ html.dark [data-debug]::before {
   color: var(--color-ink-dark);
   border-color: var(--color-border-dark);
 }
+
+/* ─── Product Tour (driver.js override) ─── */
+.chai-tour-popover.driver-popover {
+  background: var(--color-surface-elevated);
+  color: var(--color-ink);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-default);
+  box-shadow: var(--shadow-dialog);
+  font-family: var(--font-sans);
+}
+
+.dark .chai-tour-popover.driver-popover {
+  background: var(--color-surface-elevated-dark);
+  color: var(--color-ink-dark);
+  border-color: var(--color-border-dark);
+  box-shadow: var(--shadow-dialog-dark);
+}
+
+.chai-tour-popover .driver-popover-title {
+  font-family: var(--font-display);
+  color: var(--color-ink);
+}
+
+.dark .chai-tour-popover .driver-popover-title {
+  color: var(--color-ink-dark);
+}
+
+.chai-tour-popover .driver-popover-description {
+  color: var(--color-ink-secondary);
+}
+
+.dark .chai-tour-popover .driver-popover-description {
+  color: var(--color-ink-secondary-dark);
+}
+
+.chai-tour-popover .driver-popover-footer-btn {
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-default);
+  background: var(--color-brand);
+  color: var(--color-ink);
+  text-shadow: none;
+  box-shadow: none;
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.dark .chai-tour-popover .driver-popover-footer-btn {
+  border-color: var(--color-border-dark);
+  background: var(--color-brand);
+  color: var(--color-ink-dark);
+}
+
+.chai-tour-popover .driver-popover-close-btn {
+  color: var(--color-ink);
+}
+
+.dark .chai-tour-popover .driver-popover-close-btn {
+  color: var(--color-ink-dark);
+}
+
+.chai-tour-popover .driver-popover-arrow {
+  display: none;
+}

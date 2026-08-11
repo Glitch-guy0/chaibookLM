@@ -1,14 +1,16 @@
 'use client';
 
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
+import { useParams, useSearchParams } from 'next/navigation';
+import { useUser } from '@clerk/nextjs';
 import { useQuery } from '@tanstack/react-query';
 import { Tabs, type TabItem } from '@components/ui/tabs';
 import { fetchNotebook, fetchSources, type CitationSnapshot } from './api';
 import { SourcesPanel } from '@components/sources/sources-panel';
 import { ChatPanel } from '@components/chat/chat-panel';
 import { ShowcasePanel } from './showcase-panel';
+import { useProductTour } from '@components/tour/use-product-tour';
 
 const TABS: TabItem[] = [
   { id: 'sources', label: 'Sources' },
@@ -46,6 +48,8 @@ function WorkspaceSkeleton() {
 export function Workspace() {
   const params = useParams<{ id: string }>();
   const id = params?.id;
+  const searchParams = useSearchParams();
+  const { user } = useUser();
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ['notebook', id],
@@ -54,6 +58,11 @@ export function Workspace() {
   });
 
   const notebook = data?.notebook;
+
+  useProductTour(user?.id, {
+    ready: Boolean(notebook),
+    autoReplay: searchParams?.get('tour') === 'replay',
+  });
 
   // Deduped (by TanStack Query) against ChatPanel's own identical query for
   // this notebookId -- no extra network call, just a shared cache entry that

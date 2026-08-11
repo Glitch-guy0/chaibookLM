@@ -1,5 +1,21 @@
 # Deferred Work
 
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-4-first-run-product-walkthrough.md`
+  summary: If the tour is interrupted by a hard exit (tab closed, crash) before `onDestroyed`/`onCloseClick` fires, `resetTour` already ran but the flag is never re-marked seen, so the user gets involuntarily treated as first-run and auto-tour-started again on their next visit.
+  evidence: `use-product-tour.ts` calls `resetTour(userId)` before `buildAndDrive`, and only calls `markTourSeen` from driver.js exit callbacks that require the instance to actually fire an exit event.
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-4-first-run-product-walkthrough.md`
+  summary: No test exercises `useProductTour`'s actual auto-start/replay branching, driver.js instantiation, or cleanup — `tour.test.tsx` only covers the storage helpers and the reused `prefersReducedMotion` function.
+  evidence: Same pattern as the story-5.2/5.3 deferred items — the riskiest new hook logic ships untested.
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-4-first-run-product-walkthrough.md`
+  summary: The account page's "most recent notebook" selection assumes `fetchNotebooks` returns results most-recent-first, asserted only in a comment with no verification against the actual API/query ordering.
+  evidence: `app/dashboard/account/page.tsx`'s `handleReplayTour` takes `notebooks[0]` as the replay target based on a comment reference to `fetchNotebooks`/`NotebookGrid`, not a verified sort contract.
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-4-first-run-product-walkthrough.md`
+  summary: `useProductTour`'s exported `replay()` function is unused dead code — the Account page's replay flow goes through a `?tour=replay` query param and the hook's `autoReplay` option instead of calling `replay()` directly.
+  evidence: `account/page.tsx`'s `handleReplayTour` only calls `router.push`; nothing in the diff imports or calls the hook's `replay`.
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-4-first-run-product-walkthrough.md`
+  summary: `localStorage`-unavailable fails safe by treating the tour as already seen, with no product-analytics signal that a cohort of users (private-mode/storage-disabled) will never see onboarding.
+  evidence: `tour-storage.ts`'s `hasSeenTour` returns `true` on any thrown error, logged only via `console.error`.
+
 - source_spec: `_bmad-output/implementation-artifacts/spec-5-3-cookie-consent-and-accessibility-preferences.md`
   summary: A tampered/unrecognized `cookie-consent` cookie value leaves `consent` stuck at `null` forever (the banner reappears every visit) instead of treating it as "no decision" and clearing the stray cookie.
   evidence: `ConsentProvider`'s mount effect only calls `setConsent` for exactly `'accepted'`/`'declined'`; any other stored value is silently ignored rather than reset.
