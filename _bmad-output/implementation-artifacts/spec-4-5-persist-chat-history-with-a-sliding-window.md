@@ -2,8 +2,9 @@
 title: 'Story 4.5 — Persist Chat History with a Sliding Window'
 type: 'feature'
 created: '2026-08-11'
-status: 'in-review'
+status: 'done'
 baseline_revision: 002000a3a267b9359613387e84b92762bf624e94
+final_revision: 95ea7e633d5b7c5c7df88a3649649c74fd2a9f18
 review_loop_iteration: 0
 followup_review_recommended: false
 context: []
