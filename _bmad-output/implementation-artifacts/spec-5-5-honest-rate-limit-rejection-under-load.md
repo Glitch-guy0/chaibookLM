@@ -2,9 +2,10 @@
 title: 'Honest rate-limit rejection under load'
 type: 'feature'
 created: '2026-08-11'
-status: 'in-review'
-review_loop_iteration: 0
-followup_review_recommended: false
+status: 'done'
+review_loop_iteration: 1
+followup_review_recommended: true
+final_revision: 'c8783ed5'
 baseline_revision: '4076cfb67ecd5d9369a1b4b446d88d6d39e4df67'
 context: ['{project-root}/_bmad-output/implementation-artifacts/epic-5-context.md']
 warnings: []
@@ -111,4 +112,21 @@ The counter is intentionally process-wide (not per-user, not per-route) because 
 - Set `RATE_LIMIT_MAX_REQUESTS=1`, hit `POST /api/notebooks/[id]/chat` twice quickly — second request gets `429` with the honest message.
 - Wait past `RATE_LIMIT_WINDOW_MS`, retry — request succeeds.
 - Confirm GET routes (chat history, sources list) are unaffected during a rejection window.
+
+## Auto Run Result
+
+**Summary:** Added an env-driven, process-local, fixed-window rate guard on the three AI/ingestion POST routes (chat, sources, search-fetch), rejecting with an honest 429 before any LLM/embedding/QStash call. Review surfaced and fixed a real ordering gap (the original spec had the guard run before auth, letting anonymous requests consume the shared budget); it now runs after each route's own auth check.
+
+**Files changed:**
+- `app/api/lib/rate-limit.ts` (new) — the counter + `checkRateLimit()`/`rateLimitResponse()`.
+- `app/api/notebooks/[id]/chat/route.ts`, `sources/route.ts`, `search-fetch/route.ts` — guard wired in, after auth, before any backend call.
+- `.env.example` — new `RATE_LIMIT_MAX_REQUESTS`/`RATE_LIMIT_WINDOW_MS` section.
+- `app/api/lib/rate-limit.test.ts` (new) — unit tests for all I/O matrix rows plus a non-positive-env-value case added during review.
+- `vitest.config.ts` — extended `include` to pick up `app/**/*.test.ts`.
+
+**Review findings:** 1 bad_spec (auth-ordering gap, amended and re-applied), 3 patched (non-positive env values now fall back to defaults instead of locking out or disabling the guard; 429 responses now use a shared `errorResponse()`-consistent helper with a standard `Retry-After` header; the copy-pasted 429 block deduplicated into that helper), 5 deferred (single-instance-only counter, fixed-window boundary burst allowance, one shared bucket across three differently-costed routes, no throttle logging/metrics, no route-level integration tests for the 429 path), 2 rejected (the shared-bucket-across-routes and pre-existing GET-routes-ungated concerns are accepted, spec-documented design tradeoffs, not defects).
+
+**Verification:** `npm run typecheck`, `npm test` (80/80 passing), `npm run build` all pass.
+
+**Residual risks:** see `deferred-work.md` — mainly the single-instance limitation, which matters if this app is ever scaled horizontally.
 </content>
