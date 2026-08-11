@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
 import { errorResponse } from '../../../helpers';
 import { getBackend } from '../../../lib/backend';
+import { checkRateLimit, rateLimitResponse } from '../../../lib/rate-limit';
 
 interface RouteContext {
   params: Promise<{ id: string }>;
@@ -19,6 +20,11 @@ export async function POST(request: NextRequest, context: RouteContext) {
   const { userId } = await auth();
   if (!userId) {
     return errorResponse('Unauthorized', 'UNAUTHORIZED', 401);
+  }
+
+  const rateLimit = checkRateLimit();
+  if (!rateLimit.allowed) {
+    return rateLimitResponse(rateLimit);
   }
 
   const { id } = await context.params;

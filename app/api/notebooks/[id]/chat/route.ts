@@ -1,7 +1,8 @@
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
 import { errorResponse } from '../../../helpers';
 import { getBackend } from '../../../lib/backend';
+import { checkRateLimit, rateLimitResponse } from '../../../lib/rate-limit';
 
 interface RouteContext {
   params: Promise<{ id: string }>;
@@ -45,6 +46,15 @@ export async function POST(request: NextRequest, context: RouteContext) {
   const { userId } = await auth();
   if (!userId) {
     return errorResponse('Unauthorized', 'UNAUTHORIZED', 401);
+  }
+
+  // Runs after the (cheap) auth check but before any notebook lookup or LLM
+  // call, so an authenticated-but-rejected request still costs nothing
+  // beyond a counter increment, without letting anonymous requests consume
+  // the shared budget (see spec-5-5 Spec Change Log).
+  const rateLimit = checkRateLimit();
+  if (!rateLimit.allowed) {
+    return rateLimitResponse(rateLimit);
   }
 
   const { id } = await context.params;

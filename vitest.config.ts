@@ -4,7 +4,7 @@ import path from 'node:path';
 export default defineConfig({
   test: {
     environment: 'node',
-    include: ['backend/**/*.test.ts', 'components/**/*.test.ts', 'components/**/*.test.tsx'],
+    include: ['backend/**/*.test.ts', 'components/**/*.test.ts', 'components/**/*.test.tsx', 'app/**/*.test.ts'],
     exclude: ['**/node_modules/**', '.next/**'],
   },
   resolve: {

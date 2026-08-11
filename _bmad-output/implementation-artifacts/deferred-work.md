@@ -1,5 +1,21 @@
 # Deferred Work
 
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-5-honest-rate-limit-rejection-under-load.md`
+  summary: The rate limiter's in-memory counter is process-local; in any multi-instance/serverless-scaled deployment, each instance gets its own independent budget, so the effective aggregate limit is multiplied by instance count instead of being a true shared cap.
+  evidence: `app/api/lib/rate-limit.ts` uses module-level variables with no Redis/Upstash-backed shared store, documented as a known single-instance limitation in the spec's own Design Notes.
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-5-honest-rate-limit-rejection-under-load.md`
+  summary: A fixed-window counter allows roughly 2x the intended throughput in a short burst straddling a window boundary (max requests at the tail of one window, then another max immediately after reset).
+  evidence: `checkRateLimit()` resets the window on a hard cutoff (`now - windowStart >= windowMs`) rather than using a sliding-window or token-bucket algorithm.
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-5-honest-rate-limit-rejection-under-load.md`
+  summary: One shared global bucket covers three endpoints with very different cost profiles (LLM chat, source ingestion, search-fetch); a burst on one route can starve the others' budget with no per-route allocation.
+  evidence: All three routes call the same module-level `checkRateLimit()` with no route-scoped counter.
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-5-honest-rate-limit-rejection-under-load.md`
+  summary: No logging/metrics on throttled requests, making it hard to tell how often the limit is hit or to tune the threshold without adding instrumentation after the fact.
+  evidence: `checkRateLimit()`/`rateLimitResponse()` have no logging call on the rejection path.
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-5-honest-rate-limit-rejection-under-load.md`
+  summary: No route-level/integration tests verify that the three gated routes actually return 429 with the correct shape when throttled — only the isolated `rate-limit.ts` module is unit-tested.
+  evidence: `app/api/lib/rate-limit.test.ts` tests `checkRateLimit()` directly; none of `chat/route.ts`, `sources/route.ts`, `search-fetch/route.ts` have route-level tests for the 429 path.
+
 - source_spec: `_bmad-output/implementation-artifacts/spec-5-4-first-run-product-walkthrough.md`
   summary: If the tour is interrupted by a hard exit (tab closed, crash) before `onDestroyed`/`onCloseClick` fires, `resetTour` already ran but the flag is never re-marked seen, so the user gets involuntarily treated as first-run and auto-tour-started again on their next visit.
   evidence: `use-product-tour.ts` calls `resetTour(userId)` before `buildAndDrive`, and only calls `markTourSeen` from driver.js exit callbacks that require the instance to actually fire an exit event.
