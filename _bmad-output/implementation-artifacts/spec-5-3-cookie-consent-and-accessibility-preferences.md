@@ -2,7 +2,8 @@
 title: 'Cookie consent and accessibility preferences'
 type: 'feature'
 created: '2026-08-11'
-status: 'in-review'
+status: 'done'
+final_revision: '06e96efd'
 review_loop_iteration: 0
 followup_review_recommended: false
 baseline_revision: 'e8c6aa4162768f297db36c7bea6a7998343d35bd'
@@ -108,4 +109,21 @@ warnings: []
 - Clear cookies, load `/` — banner appears naming cookie categories.
 - Click Decline — banner disappears, `document.cookie` shows `cookie-consent=declined` and no `theme` cookie regardless of theme toggling.
 - Visit `/dashboard/account`, switch to Accept — `theme` cookie now appears matching the current toggle state.
+
+## Auto Run Result
+
+**Summary:** Added the missing consent writer for story 5.2's `cookie-consent` contract: a first-visit banner naming the cookie categories, Accept/Decline wiring, and a new `/dashboard/account` page to revisit the choice, including reconciling the `theme` cookie on accept-after-toggle and decline.
+
+**Files changed:**
+- `components/theme/cookies.ts` — added `deleteCookie`.
+- `components/consent/consent-context.tsx`, `consent-provider.tsx`, `consent-banner.tsx` (new) — the consent runtime and banner UI.
+- `app/dashboard/account/page.tsx` (new) — cookie-preferences section.
+- `components/providers.tsx` — wires `ConsentProvider` + renders `ConsentBanner`.
+- `components/consent/consent.test.tsx` (new) — cookie/consent-logic tests.
+
+**Review findings:** 1 patched (banner flash for returning visitors fixed via `useLayoutEffect`), 7 deferred (tampered-cookie recovery, cross-tab sync, duplicated consent-check logic, no generalized non-essential-cookie registry for decline, banner lacks `aria-live`/focus movement, tests don't exercise the real provider functions, no fallback when cookies are blocked entirely), 3 rejected (data-debug convention; account-page-outside-provider crash has no realistic code path since providers wrap the whole app at the root layout; banner category wording is intentionally forward-looking per the spec's own mandated copy).
+
+**Verification:** `npm run typecheck`, `npm test` (65/65 passing), `npm run build` all pass.
+
+**Residual risks:** see `deferred-work.md` — mainly cross-tab desync and the lack of a registry for future non-essential cookies.
 </content>
