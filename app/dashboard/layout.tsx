@@ -5,6 +5,12 @@ import type { ReactNode } from 'react';
 import { AuthProvider } from '@components/auth-provider';
 
 /**
+ * Dashboard subtree requires per-request auth context (Clerk session lookup,
+ * redirect on missing session), so it must always render dynamically.
+ */
+export const dynamic = 'force-dynamic';
+
+/**
  * Dashboard layout — protected route shell with header and auth.
  * Redirects unauthenticated users to /sign-in.
  */

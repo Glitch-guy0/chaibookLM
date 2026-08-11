@@ -1,5 +1,24 @@
 # Deferred Work
 
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-1-public-landing-page-with-scroll-storytelling.md`
+  summary: `RevealSection`, `LandingStory`, and `LandingCta` have no unit test coverage; only `LandingHero` and `prefersReducedMotion` are tested.
+  evidence: `components/landing/landing.test.tsx` only asserts a `/sign-in` link on `LandingHero` and mocks `matchMedia`; the reveal transition logic itself ships unverified.
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-1-public-landing-page-with-scroll-storytelling.md`
+  summary: `useScrollReveal` reads `prefersReducedMotion()` only once on mount, so a live OS-level toggle of reduced-motion while the tab is open has no effect until reload.
+  evidence: `components/landing/use-scroll-reveal.ts` calls `prefersReducedMotion()` inside a `useEffect` with an empty dependency array and no `matchMedia` change listener.
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-1-public-landing-page-with-scroll-storytelling.md`
+  summary: The `skewX` CTA button decoration is duplicated verbatim in `landing-hero.tsx` and `landing-cta.tsx` instead of being factored into a shared class/component.
+  evidence: Both files hardcode the same arbitrary Tailwind skew value; a future style change requires editing both call sites.
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-1-public-landing-page-with-scroll-storytelling.md`
+  summary: `vitest.config.ts` runs under `environment: 'node'`, so DOM/browser-API-driven logic (`IntersectionObserver`, `matchMedia`, effect lifecycle) in the new landing components structurally cannot be unit tested without adding a jsdom environment.
+  evidence: `landing.test.tsx` works around this via `renderToStaticMarkup` instead of exercising the client hooks directly.
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-1-public-landing-page-with-scroll-storytelling.md`
+  summary: Removing root-level `force-dynamic` from `app/layout.tsx` in favor of per-segment opt-in means any future route added outside `(auth)`/`dashboard` that needs per-request auth context must remember to set `force-dynamic` itself, with no safety net.
+  evidence: The prior root layout comment stated `force-dynamic` existed because "chaibookLM requires authentication for all pages"; that blanket guarantee is now gone.
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-1-public-landing-page-with-scroll-storytelling.md`
+  summary: `app/middleware.ts` marking `'/'` as an exact public route has no automated test confirming it doesn't inadvertently widen to other paths.
+  evidence: `isPublicRoute` is a `createRouteMatcher(['/', ...])` array with no accompanying middleware test in the diff.
+
 - source_spec: `_bmad-output/implementation-artifacts/spec-2-organize-your-research-notebooks.md`
   summary: NeonRepository delete/rename are not user-scoped (TOCTOU defense-in-depth); ownership enforced only at the route/service layer.
   evidence: `deleteNotebook`/`renameNotebook` issue `DELETE/UPDATE ... WHERE id = $1` with no `user_id` predicate; a re-pointed id between check and repo call could bypass scoping.

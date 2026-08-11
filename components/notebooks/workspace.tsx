@@ -89,7 +89,7 @@ export function Workspace() {
     <section data-debug="Workspace" className="mx-auto max-w-5xl">
       <div className="mb-6">
         <Link
-          href="/"
+          href="/dashboard"
           data-debug="BackToNotebooks"
           className="inline-flex items-center gap-2 text-sm font-semibold font-sans uppercase tracking-wider text-ink-secondary dark:text-ink-secondary-dark underline underline-offset-2 hover:text-ink dark:hover:text-ink-dark focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2"
         >

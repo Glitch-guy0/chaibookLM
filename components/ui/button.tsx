@@ -9,7 +9,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   'data-debug'?: string;
 }
 
-const variantClasses: Record<ButtonVariant, string> = {
+export const buttonVariantClasses: Record<ButtonVariant, string> = {
   primary:
     'bg-brand text-[var(--color-ink)] dark:bg-brand dark:text-[var(--color-ink-dark)] ',
   secondary:
@@ -18,7 +18,7 @@ const variantClasses: Record<ButtonVariant, string> = {
     'bg-error text-white dark:bg-error-dark dark:text-white ',
 };
 
-const baseClasses =
+export const buttonBaseClasses =
   'relative inline-flex items-center justify-center gap-2 px-6 py-3 ' +
   'text-sm font-semibold font-sans uppercase tracking-wider ' +
   'border-2 border-[var(--color-border)] dark:border-[var(--color-border-dark)] ' +
@@ -55,7 +55,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref,
   ) => {
-    const classNames = `${baseClasses} ${variantClasses[variant]} ${className}`.trim();
+    const classNames = `${buttonBaseClasses} ${buttonVariantClasses[variant]} ${className}`.trim();
 
     return (
       <button
