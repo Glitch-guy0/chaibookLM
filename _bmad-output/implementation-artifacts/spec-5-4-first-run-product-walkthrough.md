@@ -2,7 +2,8 @@
 title: 'First-run product walkthrough'
 type: 'feature'
 created: '2026-08-11'
-status: 'in-review'
+status: 'done'
+final_revision: 'f511af5a'
 review_loop_iteration: 0
 followup_review_recommended: false
 baseline_revision: 'c8ef8518dbd8d06e25eaa77e5eed134c5508a5eb'
@@ -108,4 +109,21 @@ driver.js does not emit ARIA dialog semantics itself — `onPopoverRender(popove
 - Reload the same notebook — tour does not restart.
 - Set OS reduced-motion, clear the flag, reopen — tour appears without animated transitions.
 - From `/dashboard/account`, click "Replay product tour" — tour restarts on the most recent notebook.
+
+## Auto Run Result
+
+**Summary:** Added a `driver.js`-powered first-run walkthrough of the Sources/Chat/Showcase tabs, tracked per-user in `localStorage`, honoring reduced-motion, with dialog-like ARIA semantics on the popover and a replay control on the account page.
+
+**Files changed:**
+- `components/tour/tour-storage.ts`, `tour-config.ts`, `use-product-tour.ts` (new) — the tour runtime.
+- `components/notebooks/workspace.tsx` — wires the auto-run trigger and `?tour=replay` handling.
+- `app/globals.css` — `.chai-tour-popover` styling matching driver.js's real emitted classes.
+- `app/dashboard/account/page.tsx` — "Replay product tour" control with zero-notebooks/error empty states.
+- `components/tour/tour.test.tsx` (new) — storage fallback + reduced-motion tests.
+
+**Review findings:** 3 patched (Strict-Mode double-drive fallthrough guarded, unmount race during the dynamic `driver.js` import guarded, account-page error/empty-state distinction and a falsy-id navigation guard added), 5 deferred (hard-exit-before-completion leaves the seen flag cleared, no test coverage of the hook's actual branching/driver instantiation, unverified "most-recent-first" ordering assumption, dead unused `replay()` export, no analytics signal for the storage-unavailable fail-safe cohort), 1 rejected (the DOM target ids `#tab-sources`/`#tab-chat`/`#tab-showcase` were independently verified to already exist in `components/ui/tabs.tsx`, so the "unverified DOM contract" concern doesn't apply).
+
+**Verification:** `npm run typecheck`, `npm test` (74/74 passing), `npm run build` all pass.
+
+**Residual risks:** see `deferred-work.md` — mainly the hard-exit edge case and the unverified notebook-ordering assumption.
 </content>
