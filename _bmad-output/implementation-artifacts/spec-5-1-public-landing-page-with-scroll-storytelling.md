@@ -2,10 +2,11 @@
 title: 'Public landing page with scroll storytelling'
 type: 'feature'
 created: '2026-08-11'
-status: 'in-review'
+status: 'done'
 review_loop_iteration: 0
 followup_review_recommended: false
 baseline_revision: '3ee0a014aebd1766aa3d1995c1e8f1d237c99fdc'
+final_revision: '4baf4d20'
 context: ['{project-root}/_bmad-output/implementation-artifacts/epic-5-context.md']
 warnings: []
 ---
@@ -111,6 +112,28 @@ Scroll reveal approach: each `RevealSection` starts in the DOM with visible base
 
 **Manual checks (if no CLI):**
 - Visit `/` in a browser with no auth session — landing page loads, no redirect.
+
+## Auto Run Result
+
+**Summary:** Moved the authenticated dashboard from `/` to `/dashboard` and built a new public `/` landing page with a hero, a 4-step "source → chat → citation → original" story section, and a closing CTA — all using a progressive-enhancement `IntersectionObserver`-based scroll reveal that respects `prefers-reduced-motion` and degrades gracefully with no JS.
+
+**Files changed:**
+- `app/(dashboard)/*` → `app/dashboard/*` (git-mv) — relocates the authenticated dashboard off `/`; `layout.tsx` gained `force-dynamic`.
+- `app/layout.tsx` — removed root-level `force-dynamic` so `/` can be statically optimized.
+- `app/(auth)/layout.tsx` — added `force-dynamic` (needed once the root layout stopped providing it, or `/sign-in` failed to build).
+- `app/middleware.ts` — added `'/'` as an exact public route.
+- `components/notebooks/workspace.tsx` — "Back to notebooks" link now points at `/dashboard`.
+- `components/auth-provider.tsx` — stale comment fix.
+- `components/ui/button.tsx` — exported button style classes for reuse in landing CTA links.
+- `app/page.tsx`, `components/landing/*` (new) — the landing page and its sections/hook.
+- `components/landing/landing.test.tsx` (new) — covers `prefersReducedMotion()` and the sign-in link.
+- `vitest.config.ts` — extended `include` to pick up `.tsx` tests.
+
+**Review findings:** 2 patched (IntersectionObserver `threshold` lowered to `0` to avoid a very-tall-section never-revealing edge case; unmount race guard on the observer callback), 6 deferred to `deferred-work.md` (missing coverage for `RevealSection`/`LandingStory`/`LandingCta`, no live `matchMedia` change listener, duplicated skew style, no jsdom test environment for DOM-driven hooks, no safety net for future routes needing `force-dynamic`, no middleware test for the new public route), 6 rejected as either already-sanctioned-by-spec behavior (authenticated visitors seeing the landing page and CTA always linking to `/sign-in`) or non-blocking process nits.
+
+**Verification:** `npm run typecheck`, `npm test` (53/53 passing), and `npm run build` all pass; `/` renders statically (○) and `/dashboard`/`/sign-in` render dynamically (ƒ), matching the spec's expected route classification.
+
+**Residual risks:** see deferred-work.md entries for this spec — mainly test-coverage gaps on the reveal components and the removed blanket `force-dynamic` safety net for future routes.
 - Toggle OS-level reduced-motion, reload `/` — sections appear without transition.
 - Resize viewport to 320px — no horizontal scrollbar.
 </content>
