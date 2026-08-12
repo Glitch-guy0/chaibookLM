@@ -1,6 +1,6 @@
 # chaibookLM — Tech Stack (v0.1)
 
-Decided 2026-08-05, updated 2026-08-06. Source of truth for external dependencies. Mirrors `prds/prd-chaibookLM-2026-08-04/addendum.md` dependency map + PRD decisions.
+Decided 2026-08-05, updated 2026-08-06, updated 2026-08-12 (Jina → Tavily/Firecrawl, Filebase → Cloudinary). Source of truth for external dependencies. Mirrors `prds/prd-chaibookLM-2026-08-04/addendum.md` dependency map + PRD decisions. For provisioning/account status of every external service named below, see `external-tools-tracker.md`.
 
 ## Stack
 
@@ -18,9 +18,9 @@ Decided 2026-08-05, updated 2026-08-06. Source of truth for external dependencie
 | Relational DB | Neon (one multi-tenant Postgres) | User + resource **working metadata only** (notebooks, source records/status, resource-limit counters, chat); **no chunk-level data** |
 | RAG runtime | shikigami agent SDK (`@glitch-guy0/shikigami`) | Retrieval = custom `MemoryStrategy` backed by the `VectorStore` port; answer path via `Agent`. **Tightly coupled by approved decision — NOT behind a port** |
 | Ingestion | App code in Upstash QStash job | Fetch → readability + linkedom → Turndown → split → embed → store. Job writes, agent reads |
-| Fetch/extract | native `fetch` + `@mozilla/readability` + linkedom + Turndown | Images stripped at index time (removable interceptor); JS-only pages → honest "failed" status |
-| File storage | **Filebase** (S3-compatible), behind a `StorageService` interface (**composite adapter**) | Raw HTML + assets; S3 SDK compatible; composite adapter allows multiple providers/databases later |
-| Web search (FR-7) | Pluggable `search` port — Kairo `WebSearchTool({ search: impl })` | v0.1 impl: jina (duckduckgo dropped) |
+| Fetch/extract | **Firecrawl** (scrape URL → clean markdown) | Replaces native `fetch` + `@mozilla/readability` + linkedom + Turndown; JS-only pages → honest "failed" status still applies where Firecrawl can't extract content |
+| File storage | **Cloudinary**, behind a `StorageService` interface (**composite adapter**) | Replaces Filebase; raw HTML + assets; composite adapter allows multiple providers/databases later |
+| Web search (FR-7) | Pluggable `search` port — Kairo `WebSearchTool({ search: impl })` | v0.1 impl: **Tavily** (replaces Jina; duckduckgo dropped earlier) |
 | Markdown render | react-markdown + remark-gfm | Text sources + chat |
 | First-run tour (FR-10) | Driver.js | |
 
@@ -30,7 +30,7 @@ Decided 2026-08-05, updated 2026-08-06. Source of truth for external dependencie
 - **Modular monolith** — single deployable; Next.js is the controller/presentation layer only; all domain/application/infra services live in a **separate top-level `backend/` tree**, not nested inside the Next app — so it can be extracted into its own deployable later without a structural refactor.
 - **Composite adapters** — storage and vector DB are ports with composite adapter implementations: route/aggregate across multiple backing providers, so adding a provider or second database later never touches domain code.
 - **Shikigami coupling** — the shikigami agent SDK (`@glitch-guy0/shikigami`) is **tightly coupled** into the application (approved decision), *not* behind a port. The ports-and-adapters rule applies to storage, vector DB, LLM, embeddings, and web search — not to the answer runtime. Any modification to the SDK itself requires a detailed change-request document and explicit approval.
-- **Chunk authority & recovery** — Qdrant is the sole record of chunk-level data (metadata + vector together); Neon never stores chunk content. Qdrant loss is **not** rebuilt by re-indexing; the approved recovery is to delete the affected users' resource files from Filebase and surface an error to those users.
+- **Chunk authority & recovery** — Qdrant is the sole record of chunk-level data (metadata + vector together); Neon never stores chunk content. Qdrant loss is **not** rebuilt by re-indexing; the approved recovery is to delete the affected users' resource files from Cloudinary and surface an error to those users.
 - **LLM + embeddings both env-driven** — `baseURL`/`apiKey`/`model` from environment, OpenAI-compatible only.
 
 ## Explicit non-picks
@@ -43,7 +43,7 @@ Decided 2026-08-05, updated 2026-08-06. Source of truth for external dependencie
 
 ## Cost posture
 
-Free tier throughout: Vercel Hobby · Neon free · Qdrant free tier (1GB cluster) · Filebase free tier · QStash 1k msgs/day · Clerk dev — paid line is LLM + embeddings usage only.
+Free tier throughout: Vercel Hobby · Neon free · Qdrant free tier (1GB cluster) · Cloudinary free tier · QStash 1k msgs/day · Clerk dev · Tavily free tier · Firecrawl free tier — paid line is LLM + embeddings usage only.
 
 **Cost controls (decided 2026-08-06):** notebooks auto-delete **1 week** after creation (TTL); per-user **10-notebook cap**; **rate-limit rejection** under load ("experiencing high load at this time — try again later") so spikes drop requests instead of burning credits. Credit gate / cost cap = FR-5 design (v1).
 

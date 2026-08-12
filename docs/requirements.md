@@ -38,7 +38,7 @@ A research workspace where the AI never answers from general knowledge — only 
 | NFR-7 | Server-side persistence across sessions/devices. |
 | NFR-8 | No non-essential cookie before consent. |
 | NFR-9 | Structured logging; SM-1/SM-2 telemetry (citation attach + click-through). |
-| NFR-10 | Qdrant is chunk authority; single writer; idempotent chunk creation; fixed delete-cascade order; no rebuild-on-loss (delete Filebase + honest error). |
+| NFR-10 | Qdrant is chunk authority; single writer; idempotent chunk creation; fixed delete-cascade order; no rebuild-on-loss (delete Cloudinary + honest error). |
 | NFR-11 | Caps: 10 notebooks/user, 10 sources/notebook, 30 sources/user, 5MB/source, 1-week TTL — atomic, server-side, configurable. |
 | NFR-12 | Retrieval params (topK=5, minScore=0.30) and the refusal gate are acceptance-testable. |
 

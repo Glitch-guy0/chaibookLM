@@ -1,6 +1,6 @@
 # chaibookLM — Tech Stack
 
-Condensed from `_bmad-output/planning-artifacts/tech-stack.md`. Decided 2026-08-05/06; the code is the source of truth for actual installed versions (`package.json`).
+Condensed from `_bmad-output/planning-artifacts/tech-stack.md`. Decided 2026-08-05/06, updated 2026-08-12 (Filebase → Cloudinary, Jina → Tavily + Firecrawl). The code is the source of truth for actual installed versions (`package.json`).
 
 | Concern | Pick | Note |
 |---|---|---|
@@ -15,10 +15,10 @@ Condensed from `_bmad-output/planning-artifacts/tech-stack.md`. Decided 2026-08-
 | Vector DB | Qdrant behind a `VectorStore` port (composite adapter) | System of record for chunks (vector + metadata together) |
 | Relational DB | Neon (Postgres) | Working metadata only — no chunk-level data |
 | RAG runtime | shikigami agent SDK (`@glitch-guy0/shikigami`) | Tightly coupled by approved decision — not behind a port |
-| Ingestion | App code in an Upstash QStash job | fetch → readability + linkedom → Turndown → split → embed → store |
-| Fetch/extract | native `fetch` + `@mozilla/readability` + linkedom + Turndown | Images stripped at index time; JS-only pages → honest "failed" |
-| File storage | Filebase (S3-compatible) behind a `StorageService` port (composite adapter) | Raw HTML + assets |
-| Web search | Pluggable `search` port — jina | Approval-gated fetch-on-refusal only |
+| Ingestion | App code (synchronous in request path) | Firecrawl → split → embed → store |
+| Fetch/extract | **Firecrawl** (URL → markdown) | Clean markdown extraction via Firecrawl API; JS-only pages → honest "failed" |
+| File storage | **Cloudinary** behind a `StorageService` port (composite adapter) | Raw HTML + assets via Cloudinary Upload API |
+| Web search | Pluggable `search` port — **Tavily** | Approval-gated fetch-on-refusal only |
 | Markdown render | react-markdown + remark-gfm | |
 | First-run tour | Driver.js | |
 
@@ -35,4 +35,4 @@ No LangChain/LlamaIndex, no headless browser (JS-only pages fail honestly), no s
 
 ## Cost posture
 
-Free tier throughout: Vercel Hobby, Neon free, Qdrant free tier (1GB), Filebase free tier, QStash 1k msgs/day, Clerk dev — paid line is LLM + embeddings usage only. Cost controls: 1-week notebook TTL, 10-notebook/user cap, rate-limit rejection under load. Vercel Hobby's serverless duration cap (~10s default, ~60s max) bounds the QStash ingestion callback — monitor as real sources index.
+Free tier throughout: Vercel Hobby, Neon free, Qdrant free tier (1GB), Cloudinary free tier, Tavily free tier, Firecrawl free tier, Clerk dev — paid line is LLM + embeddings usage only. Cost controls: 1-week notebook TTL, 10-notebook/user cap, rate-limit rejection under load. Vercel Hobby's serverless duration cap (~10s default, ~60s max) bounds synchronous ingestion — monitor as real sources index; async queue (QStash) is a v1 design decision still open.

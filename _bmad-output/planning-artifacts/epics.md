@@ -75,7 +75,7 @@ NFR-8: Privacy/consent — no non-essential cookie is written before explicit ap
 
 NFR-9: Observability — structured application logging; event instrumentation for SM-1/SM-2 telemetry (citation attach + click-through); no credit/rate limits in development.
 
-NFR-10: Data integrity — chunk data authority in Qdrant (vector + metadata together); single writer for chunk lifecycle; deterministic, idempotent chunk creation; fixed delete-cascade order; no rebuild on Qdrant loss (approved recovery: delete Filebase resources + honest error).
+NFR-10: Data integrity — chunk data authority in Qdrant (vector + metadata together); single writer for chunk lifecycle; deterministic, idempotent chunk creation; fixed delete-cascade order; no rebuild on Qdrant loss (approved recovery: delete Cloudinary resources + honest error).
 
 NFR-11: Limits & caps — 10 notebooks/user, 10 sources/notebook, 30 sources/user, 5MB/source, 1-week notebook TTL; caps enforced atomically server-side, configurable for future tiers; a Source that exceeds a limit is rejected with a pop-up warning.
 
@@ -86,25 +86,25 @@ NFR-12: Testing/acceptance floor — retrieval parameters (topK=5, minScore=0.30
 - Greenfield project: no starter template specified in Architecture; the repo is seeded with the Next.js App Router + separate top-level `backend/` tree structural seed (AD in spine "Structural Seed").
 - Ports-and-adapters (hexagonal) modular monolith over DDD bounded contexts: domain in separate top-level `backend/` tree as contexts (`notebooks`, `sources`, `chat`, `ingestion`, `limits`); Next.js is composition root + controllers only; single deployable (Vercel Hobby).
 - AD-1 Chunk data authority: Qdrant is the system of record for Chunks (vector + metadata `sourceId`, `notebookId`, `span`, `position`, `text` stored together); Neon stores user + resource working metadata only; no chunk-level data in Neon; resolved-citation snapshots (chunkId + sourceId + span) allowed as rendering artifacts.
-- AD-2 Recovery: Qdrant loss is NOT repaired by replaying ingestion; approved recovery = delete affected users' resource files from Filebase + surface honest error; zero backup posture in v0.1.
+- AD-2 Recovery: Qdrant loss is NOT repaired by replaying ingestion; approved recovery = delete affected users' resource files from Cloudinary + surface honest error; zero backup posture in v0.1.
 - AD-3 shikigami is coupled, not ported: app depends directly on `@glitch-guy0/shikigami`; SDK modifications require a detailed change-request + explicit approval; custom strategies/templates on top of the SDK are app code.
 - AD-4 Single writer for chunk lifecycle: only the ingestion context creates and removes chunks; Qdrant filtered delete on `sourceId`; no other code path writes to the chunk collection.
 - AD-5 One embedding model both sides: `EmbeddingService` is the only caller of the embeddings endpoint, shared by `SourceIndexer` and `VectorStoreMemoryStrategy`; env-driven (`EMBEDDING_BASE_URL`, `EMBEDDING_API_KEY`, `EMBEDDING_MODEL`); changing the model is a deliberate re-index event.
-- AD-6 One shared chunk kernel, deterministically split: shared type `{chunkId, sourceId, notebookId, span{start,end}, position, text}` used by ingestion, retrieval, and `CitationMapper`; splitter deterministic and span-preserving; `chunkId` = deterministic hash of `sourceId + position` (idempotent upsert); 500 chars/chunk with 25% overlap for plain text; heading-aware splitting for web (markdown from jina Reader).
+- AD-6 One shared chunk kernel, deterministically split: shared type `{chunkId, sourceId, notebookId, span{start,end}, position, text}` used by ingestion, retrieval, and `CitationMapper`; splitter deterministic and span-preserving; `chunkId` = deterministic hash of `sourceId + position` (idempotent upsert); 500 chars/chunk with 25% overlap for plain text; heading-aware splitting for web (markdown from Firecrawl).
 - AD-7 Citation contract: markers validated, never trusted — retrieved chunks keyed by `chunkId`; `GroundedAnswerReasoningStrategy` emits per-sentence inline markers referencing only given chunkIds; `CitationMapper` validates every marker, drops unknowns, maps survivors to chips + span highlight; refusal is structural (no retrieval above minScore → no chunkIds → no citations).
 - AD-8 Retrieval parameters: `topK = 5` chunks into context; `minScore = 0.30` absolute cosine threshold; retrieval scoped by `notebookId` (cross-notebook citations impossible by construction).
 - AD-9 Chat history window: exactly the last 7 user+assistant turns fed per turn (sliding window); a turn = one user message + its assistant response (fetch-on-refusal sub-answer counts as its own turn); chat list loads most recent 7 and pulls next 7 on scroll; full history persists in Neon; persisted messages may carry resolved-citation snapshot.
 - AD-10 Limits: one counter owner, atomic enforcement — the `limits` context owns all per-user/per-notebook counts in Neon; every write boundary routes through it; cap check-and-increment is a single Postgres transaction; only the write boundary bumps counters; delete/TTL paths reconcile counters down exactly once.
 - AD-11 Notebook TTL is lazy: expiry check on dashboard load and notebook open; expired notebooks deleted and user informed; no cron in v0.1.
 - AD-12 Honest degradation scoped to AI/ingestion ops: app-layer guard rejects with "experiencing high load at this time — try again later" and drops the request; trigger is env-driven request-rate threshold; already-indexed sources and browsing remain usable.
-- AD-13 Web search approval-gated: `WebSearchTool` (jina) runs only after explicit user approval of a fetch-on-refusal offer; model never invokes search autonomously; fetched pages re-enter via `SourceIndexer` (counts against limits).
-- AD-14 Delete cascade order: Qdrant → Filebase → Neon, owned by the ingestion context; each step idempotent; in-flight QStash ingestion must detect removal (generation/tombstone check before writing chunks).
+- AD-13 Web search approval-gated: `WebSearchTool` (Tavily) runs only after explicit user approval of a fetch-on-refusal offer; model never invokes search autonomously; fetched pages re-enter via `SourceIndexer` (counts against limits).
+- AD-14 Delete cascade order: Qdrant → Cloudinary → Neon, owned by the ingestion context; each step idempotent; in-flight QStash ingestion must detect removal (generation/tombstone check before writing chunks).
 - AD-15 Qdrant hosting is a build decision: one adapter driven by env (`QDRANT_URL` + key); cloud free-tier and self-hosted are the same adapter, different endpoints.
 - AD-16 Streaming answers via shikigami events: answer delivery is streaming on; controller pulls from shikigami stream and forwards deltas to client; citation markers stream inline.
 - Ingestion pipeline: app code in Upstash QStash job — fetch → readability + linkedom → Turndown → split → embed → store; QStash payload cap → callback passes `sourceId` reference only (serverless fn re-fetches metadata/raw).
 - Image handling: interception layer strips images from Sources at indexing time only; original Source content never altered; implemented as a removable interceptor.
 - Client data fetching via TanStack Query; markdown rendering via react-markdown + remark-gfm; first-run tour via Driver.js.
-- Deployment: dev + prod environments, config entirely via environment variables, seed data for fresh/test environments; Vercel Hobby (free), Neon free, Qdrant free tier, Filebase free tier, QStash 1k msgs/day, Clerk dev.
+- Deployment: dev + prod environments, config entirely via environment variables, seed data for fresh/test environments; Vercel Hobby (free), Neon free, Qdrant free tier, Cloudinary free tier, Tavily free tier, Firecrawl free tier, QStash 1k msgs/day, Clerk dev.
 - shikigami guardrails: `SimpleInputGuardrail` runs on every `execute()`; reasoning flows through `ReasoningManager`; Kairo stock templates are placeholders only — the custom set in `templates/` is authoritative.
 
 ### UX Design Requirements
@@ -220,7 +220,7 @@ So that every later feature builds on a consistent architecture and neo-brutalis
 
 **Given** a fresh clone,
 **When** the app boots in dev,
-**Then** a Next.js App Router app runs with a separate top-level `backend/` tree (contexts `notebooks`, `sources`, `chat`, `ingestion`, `limits`; ports `VectorStore`, `StorageService`, `Embeddings`, `search`; adapter stubs `qdrant`, `neon`, `filebase`, `clerk`, `llm`, `embeddings`, `jina`) and Next.js is the composition root and controller layer only.
+**Then** a Next.js App Router app runs with a separate top-level `backend/` tree (contexts `notebooks`, `sources`, `chat`, `ingestion`, `limits`; ports `VectorStore`, `StorageService`, `Embeddings`, `search`; adapter stubs `qdrant`, `neon`, `cloudinary`, `clerk`, `llm`, `embeddings`, `tavily`, `firecrawl`) and Next.js is the composition root and controller layer only.
 **And** the whole thing ships as one deployable (Vercel Hobby), with `backend/` extractable later without a structural refactor.
 
 **Given** the architecture rules,
@@ -483,7 +483,7 @@ So that notebooks become queryable with trustworthy citations.
 
 **Given** a QStash job,
 **When** ingestion is triggered,
-**Then** the callback passes only a `sourceId` reference (never the ≤5MB body), the serverless fn re-fetches source metadata/raw from Neon/Filebase, and the run finishes inside the Vercel Hobby function-duration cap.
+**Then** the callback passes only a `sourceId` reference (never the ≤5MB body), the serverless fn re-fetches source metadata/raw from Neon/Cloudinary, and the run finishes inside the Vercel Hobby function-duration cap.
 
 **Given** a re-run or QStash retry,
 **When** the pipeline runs again,
@@ -543,7 +543,7 @@ So that live web content joins my notebook as a searchable source.
 
 **Given** a valid public URL,
 **When** submitted,
-**Then** the system fetches the page, extracts main content (title + body text) via jina Reader (`r.jina.ai` → markdown) with readability/linkedom/Turndown, strips images at index time through the removable interceptor (original Source content never altered), and the source becomes ready with its title displayed (FR-3).
+**Then** the system fetches the page, extracts main content (title + body text) via Firecrawl (URL → clean markdown), strips images at index time through the removable interceptor (original Source content never altered), and the source becomes ready with its title displayed (FR-3).
 
 **Given** an unfetchable URL (404, paywall, non-HTML),
 **When** submitted,
@@ -579,7 +579,7 @@ So that my notebook reflects only the material I trust.
 
 **Given** a source removal,
 **When** the user confirms,
-**Then** the removal follows the fixed cascade order Qdrant → Filebase → Neon, each step idempotent, and the source's chunks are removed from retrieval (FR-4, AD-14).
+**Then** the removal follows the fixed cascade order Qdrant → Cloudinary → Neon, each step idempotent, and the source's chunks are removed from retrieval (FR-4, AD-14).
 
 **Given** a removal,
 **When** confirmed,
@@ -709,7 +709,7 @@ So that I am never misled by guesses and my material is never polluted without m
 
 **Given** the fetch-on-refusal offer,
 **When** the user approves,
-**Then** the WebSearchTool (jina `s.jina.ai`, top-5) runs via the controller — the model never invokes search autonomously (AD-13) — and the fetched pages re-enter via the SourceIndexer, counting against limits (AD-13, AD-10).
+**Then** the WebSearchTool (Tavily, top-5) runs via the controller — the model never invokes search autonomously (AD-13) — and the fetched pages re-enter via the SourceIndexer, counting against limits (AD-13, AD-10).
 
 **Given** the fetch running,
 **When** new pages are indexed,
