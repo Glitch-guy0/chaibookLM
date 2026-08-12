@@ -34,10 +34,11 @@ export {
   clerkClient,
 } from './adapters/clerk/index';
 export { QdrantAdapter } from './adapters/qdrant/index';
-export { FilebaseAdapter } from './adapters/filebase/index';
+export { CloudinaryAdapter } from './adapters/cloudinary/index';
 export { LlmAdapter } from './adapters/llm/index';
 export { EmbeddingsAdapter } from './adapters/embeddings/index';
-export { JinaAdapter } from './adapters/jina/index';
+export { TavilyAdapter } from './adapters/tavily/index';
+export { FirecrawlAdapter } from './adapters/firecrawl/index';
 
 // Contexts
 export { LimitsService, DEFAULT_LIMITS } from './contexts/limits/index';
@@ -55,8 +56,6 @@ export {
   type SplitChunk,
 } from './chunking/splitter';
 
-// Adapter helper (reader + image stripping)
-export { stripImages } from './adapters/jina/index';
 
 // Templates
 export { VectorStoreMemoryStrategy } from './templates/VectorStoreMemoryStrategy';

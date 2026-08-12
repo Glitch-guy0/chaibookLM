@@ -1,8 +1,9 @@
 import { NeonRepository } from '@backend/adapters/neon/index';
 import { QdrantAdapter } from '@backend/adapters/qdrant/index';
 import { EmbeddingsAdapter } from '@backend/adapters/embeddings/index';
-import { FilebaseAdapter } from '@backend/adapters/filebase/index';
-import { JinaAdapter } from '@backend/adapters/jina/index';
+import { CloudinaryAdapter } from '@backend/adapters/cloudinary/index';
+import { TavilyAdapter } from '@backend/adapters/tavily/index';
+import { FirecrawlAdapter } from '@backend/adapters/firecrawl/index';
 import { LimitsService } from '@backend/contexts/limits/index';
 import { NotebookService } from '@backend/contexts/notebooks/index';
 import { SourceService } from '@backend/contexts/sources/index';
@@ -49,11 +50,12 @@ export function getBackend(): Promise<BackendServices> {
 
       const embeddings = new EmbeddingsAdapter();
       const qdrant = new QdrantAdapter();
-      const storage = new FilebaseAdapter();
-      const jina = new JinaAdapter();
+      const storage = new CloudinaryAdapter();
+      const scraper = new FirecrawlAdapter();
+      const search = new TavilyAdapter();
 
       const embeddingService = new EmbeddingService(embeddings, qdrant);
-      const ingestion = new IngestionService(repo, storage, jina, embeddingService);
+      const ingestion = new IngestionService(repo, storage, scraper, embeddingService);
       const indexer = new SourceIndexer(ingestion);
 
       const limits = new LimitsService(repo);
@@ -70,7 +72,7 @@ export function getBackend(): Promise<BackendServices> {
         return new ChatService(repo, memory, reasoning, llm);
       };
 
-      const webSearchTool = new WebSearchTool(jina);
+      const webSearchTool = new WebSearchTool(search);
       const fetchOnRefusal = new FetchOnRefusalService(webSearchTool, sources, indexer);
 
       return { repo, limits, notebooks, sources, chatFor, fetchOnRefusal };

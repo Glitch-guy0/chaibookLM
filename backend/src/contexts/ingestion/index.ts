@@ -1,7 +1,7 @@
 import { lookup as dnsLookup } from 'node:dns/promises';
 import { isIP } from 'node:net';
 import { NeonRepository } from '../../adapters/neon/index';
-import { JinaAdapter, stripImages } from '../../adapters/jina/index';
+import { FirecrawlAdapter } from '../../adapters/firecrawl/index';
 import { EmbeddingService } from '../../templates/EmbeddingService';
 import {
   splitPlainText,
@@ -85,18 +85,18 @@ async function isUnsafeHost(hostname: string): Promise<boolean> {
 export class IngestionService {
   private repo: NeonRepository;
   private storage: StorageService;
-  private reader: JinaAdapter;
+  private scraper: FirecrawlAdapter;
   private embeddingService: EmbeddingService;
 
   constructor(
     repo: NeonRepository,
     storage: StorageService,
-    reader: JinaAdapter,
+    scraper: FirecrawlAdapter,
     embeddingService: EmbeddingService,
   ) {
     this.repo = repo;
     this.storage = storage;
-    this.reader = reader;
+    this.scraper = scraper;
     this.embeddingService = embeddingService;
   }
 
@@ -135,12 +135,12 @@ export class IngestionService {
     }
     if (type === 'web') {
       const url = raw.toString('utf8');
-      const markdown = await this.reader.fetchReader(url);
+      const markdown = await this.scraper.scrape(url);
       if (Buffer.byteLength(markdown, 'utf8') > MAX_WEB_CONTENT_BYTES) {
         throw new Error('The fetched page exceeds the source size limit.');
       }
       await this.captureSnapshot(sourceId, url).catch(() => {});
-      return stripImages(markdown);
+      return markdown;
     }
     return raw.toString('utf8');
   }
