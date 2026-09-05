@@ -17,11 +17,13 @@ inputDocuments:
   - planning-artifacts/briefs/brief-chaibookLM-2026-08-04/addendum.md
 ---
 
-# chaibookLM - Epic Breakdown
+# Contextual - Epic Breakdown
+
+<!-- id: contextual_epic_breakdown -->
 
 ## Overview
 
-This document provides the complete epic and story breakdown for chaibookLM, decomposing the requirements from the PRD, UX Design if it exists, and Architecture requirements into implementable stories.
+This document provides the complete epic and story breakdown for Contextual, decomposing the requirements from the PRD, UX Design if it exists, and Architecture requirements into implementable stories.
 
 ## Requirements Inventory
 

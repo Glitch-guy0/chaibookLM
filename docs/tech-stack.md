@@ -1,4 +1,4 @@
-# chaibookLM — Tech Stack
+# Contextual — Tech Stack
 
 Condensed from `_bmad-output/planning-artifacts/tech-stack.md`. Decided 2026-08-05/06, updated 2026-08-12 (Filebase → Cloudinary, Jina → Tavily + Firecrawl). The code is the source of truth for actual installed versions (`package.json`).
 

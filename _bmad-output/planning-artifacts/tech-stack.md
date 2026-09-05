@@ -1,4 +1,4 @@
-# chaibookLM — Tech Stack (v0.1)
+# Contextual — Tech Stack (v0.1)
 
 Decided 2026-08-05, updated 2026-08-06, updated 2026-08-12 (Jina → Tavily/Firecrawl, Filebase → Cloudinary). Source of truth for external dependencies. Mirrors `prds/prd-chaibookLM-2026-08-04/addendum.md` dependency map + PRD decisions. For provisioning/account status of every external service named below, see `external-tools-tracker.md`.
 

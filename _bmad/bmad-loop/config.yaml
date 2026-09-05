@@ -6,7 +6,7 @@
 
 # Core Configuration Values
 user_name: Prajwal
-project_name: chaibookLM
+project_name: Contextual
 communication_language: English
 document_output_language: English
 output_folder: "{project-root}/_bmad-output"

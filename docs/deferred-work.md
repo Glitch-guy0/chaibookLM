@@ -109,7 +109,7 @@ This is the backlog for the next iteration: known gaps and rough edges surfaced 
   evidence: `landing.test.tsx` works around this via `renderToStaticMarkup` instead of exercising the client hooks directly.
 - source_spec: `_bmad-output/implementation-artifacts/spec-5-1-public-landing-page-with-scroll-storytelling.md`
   summary: Removing root-level `force-dynamic` from `app/layout.tsx` in favor of per-segment opt-in means any future route added outside `(auth)`/`dashboard` that needs per-request auth context must remember to set `force-dynamic` itself, with no safety net.
-  evidence: The prior root layout comment stated `force-dynamic` existed because "chaibookLM requires authentication for all pages"; that blanket guarantee is now gone.
+  evidence: The prior root layout comment stated `force-dynamic` existed because "Contextual requires authentication for all pages"; that blanket guarantee is now gone.
 - source_spec: `_bmad-output/implementation-artifacts/spec-5-1-public-landing-page-with-scroll-storytelling.md`
   summary: `app/middleware.ts` marking `'/'` as an exact public route has no automated test confirming it doesn't inadvertently widen to other paths.
   evidence: `isPublicRoute` is a `createRouteMatcher(['/', ...])` array with no accompanying middleware test in the diff.

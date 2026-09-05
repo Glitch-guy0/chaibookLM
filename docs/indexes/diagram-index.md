@@ -1,6 +1,6 @@
 # Diagram Index
 
-Master catalog of architecture diagrams for chaibookLM.
+Master catalog of architecture diagrams for Contextual.
 
 ## C4 Model - Structure
 

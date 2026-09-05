@@ -1,6 +1,6 @@
 document_output_language: English
 output_folder: '{project-root}/_bmad-output'
-project_name: chaibookLM
+project_name: Contextual
 dbw:
   name: Diagram-Based Workflow
   description: Diagram-first architecture and documentation workflow module leveraging

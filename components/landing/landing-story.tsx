@@ -10,7 +10,7 @@ const STEPS: StoryStep[] = [
   {
     step: '01',
     title: 'Bring your sources',
-    body: 'Drop in PDFs, articles, or links. chaibookLM ingests and indexes every source so its content becomes searchable context for your notebook.',
+    body: 'Drop in PDFs, articles, or links. Contextual ingests and indexes every source so its content becomes searchable context for your notebook.',
   },
   {
     step: '02',

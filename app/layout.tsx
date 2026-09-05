@@ -4,8 +4,8 @@ import { fonts } from './fonts';
 import { Providers } from '@components/providers';
 
 export const metadata: Metadata = {
-  title: 'chaibookLM',
-  description: 'chaibookLM — your AI research notebook',
+  title: 'Contextual',
+  description: 'Contextual — your AI research notebook (Gemini Notebook clone)',
 };
 
 // Runs synchronously in <head>, before <body> renders, so the correct theme

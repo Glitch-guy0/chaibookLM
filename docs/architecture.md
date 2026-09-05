@@ -1,4 +1,4 @@
-# chaibookLM — Architecture Reference
+# Contextual — Architecture Reference
 
 Condensed from `_bmad-output/planning-artifacts/architecture/architecture-chaibookLM-2026-08-06/ARCHITECTURE-SPINE.md`. These decisions are load-bearing for any new feature work — read the AD you're touching before changing that area's code.
 

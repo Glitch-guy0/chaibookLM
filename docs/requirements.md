@@ -1,4 +1,4 @@
-# chaibookLM — Requirements (v0.1, shipped)
+# Contextual — Requirements (v0.1, shipped)
 
 Condensed from `_bmad-output/planning-artifacts/prds/prd-chaibookLM-2026-08-04/`. All 14 FRs below are implemented and closed — see `_bmad-output/implementation-artifacts/sprint-status.yaml` for the story-level trail. This file is the durable reference for *what the product does*; use [deferred-work.md](deferred-work.md) for *what's still rough*.
 

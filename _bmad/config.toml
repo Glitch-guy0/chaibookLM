@@ -11,7 +11,7 @@
 # ─────────────────────────────────────────────────────────────────
 
 [core]
-project_name = "chaibookLM"
+project_name = "Contextual"
 document_output_language = "English"
 output_folder = "{project-root}/_bmad-output"
 

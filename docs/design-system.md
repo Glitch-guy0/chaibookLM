@@ -1,4 +1,4 @@
-# chaibookLM — Design System Reference
+# Contextual — Design System Reference
 
 Condensed from `_bmad-output/planning-artifacts/ux-designs/ux-chaibookLM-2026-08-05/{DESIGN,EXPERIENCE}.md` and the UX-DR requirements in `epics.md`. The tokens themselves live in `app/globals.css` (source of truth) — this doc is the *intent* behind them, for consistent styling on new components.
 

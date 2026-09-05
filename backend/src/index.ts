@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// chaibookLM — Backend Index
+// Contextual — Backend Index
 // ---------------------------------------------------------------------------
 // The main entry point for the backend tree. Exports all context services,
 // port interfaces, adapter implementations, templates, and shared types.

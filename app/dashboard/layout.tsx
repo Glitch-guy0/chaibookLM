@@ -41,7 +41,7 @@ export default async function DashboardLayout({
           className="flex items-center justify-between border-b-2 border-border dark:border-border-dark bg-surface-elevated dark:bg-surface-elevated-dark px-6 py-4"
         >
           <h1 className="text-2xl font-display text-ink dark:text-ink-dark tracking-tight">
-            chaibookLM
+            Contextual
           </h1>
 
           <div className="flex items-center gap-4">

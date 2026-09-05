@@ -1,70 +1,116 @@
 ---
-title: "chaibookLM — NotebookLM-Style Research Workspace"
+title: "Contextual — Gemini Notebook Clone"
 status: final
 created: 2026-08-04
-updated: 2026-08-06
+updated: 2026-09-05
 ---
 
-# Product Brief: chaibookLM
+# Product Brief: Contextual (Gemini Notebook Clone — v1 Direct Production Release)
 
 ## Executive Summary
 
-chaibookLM is a personal research workspace in the spirit of Google's NotebookLM: bring your own sources — pasted text and webpages in v0.1, with PDF, transcripts, and YouTube on the roadmap — and chat with an AI that answers strictly from your own material, citing exactly where every claim came from. Where NotebookLM is heavy, Google-bound, and feature-first, chaibookLM optimizes for *clarity, cost, and trust*: a commercial-API stack with no lock-in, wrapped in a purely neo-brutalist design identity that is deliberately unlike anything Google ships.
+Contextual is a fast, personal research workspace built in the spirit of Google's NotebookLM (Gemini Notebook): bring your own multi-modal sources and chat with an AI assistant whose answers are grounded strictly in your uploaded material, citing verifiable proof back to original resources.
 
-The differentiating bet is the **citation loop closed back to the original source**. Most tools — NotebookLM included — cite a *highlighted quote*; chaibookLM lets you click a citation and see the *actual original resource*: the live web page, or the pasted text with the cited passage highlighted. Built for everyday learners who want deep research without deep tooling.
+Rather than fragmenting functionality across iterative minor versions (v0.1 → v0.3 → v0.6 → v1), **Contextual ships all core capabilities directly into production as v1**. Users can immediately ingest pasted text, live web URLs, dense multi-page PDFs, subtitle transcript files (`.srt`, `.vtt`), and YouTube videos.
+
+To ensure production stability, high throughput, and zero dropped jobs on serverless infrastructure, Contextual implements **Inngest** as the internal failure management and workflow orchestration engine. Inngest powers durable, step-based ingestion pipelines with automated retries, rate limiting, and failure isolation.
+
+The experience is wrapped in an **upgraded, modern neo-brutalist UI**—bold, tactile, functional, and fast—designed around a synchronized tri-pane workspace (Sources, Chat, Original View) that works effortlessly from desktop monitors down to 320px mobile screens.
 
 ## The Problem
 
-Reading-heavy knowledge work is fragmenting. To study a topic properly you juggle articles, PDFs, and transcripts across apps, and your notes end up disconnected from their sources. AI assistants answer fluently but too often from general knowledge — not *your* documents — and when they do cite, you can't easily verify against the original page.
+Reading-heavy knowledge work is severely fragmented. Learning or investigating complex topics requires juggling disparate web articles, technical PDFs, video lectures, and lecture transcripts across disconnected tools. Notes quickly decouple from their sources.
 
-NotebookLM solved the core loop (sources → grounded answers) but is heavy: Google-account-bound, quota-restricted, and increasingly focused on subscriptions and agentic features. There is room for a workspace that is *simpler to understand, cheaper to run, and more honest about where answers come from*.
+General-purpose AI chatbots hallucinate or answer from broad training corpora rather than specific source materials. Even specialized tools like Google NotebookLM / Gemini Notebook suffer from friction:
+1. **Shallow citation verification:** NotebookLM displays an isolated quote preview snippet rather than the true source in context.
+2. **Platform lock-in & weight:** Google account requirement, rigid ecosystem constraints, and a heavy corporate interface.
+3. **Fragile pipeline execution:** Ingestion of heavy assets (long PDFs, YouTube transcript fetching, web scraping) routinely hits serverless timeouts, causing silent drops or cryptic failure states.
 
 ## The Solution
 
-A responsive web app (mobile-optimized, 320px floor) built around three surfaces inside a notebook:
+A responsive, high-velocity research workspace where the citation loop is definitively closed and the backend never fails silently:
 
-1. **Sources** — paste text or add a webpage URL; each source is indexed with rich metadata (origin, position) so every indexed passage knows exactly where it lives in the original.
-2. **Chat** — answers grounded only in your sources, carrying per-sentence citations that point at the specific source used.
-3. **Original View (Showcase)** — click a citation and see the *original* resource, not a parsed extract: the live webpage, or the full pasted text with the cited passage highlighted.
+1. **Multi-Source Ingestion:** Ingest plain text, web URLs (via Firecrawl), PDFs (deep layout parsing), transcripts (`.srt`, `.vtt`), and YouTube links.
+2. **Inngest Durable Failure Management:** Background workflow orchestration isolating each ingestion step (extract → chunk → embed → index) with automatic retries, backoff, and transparent status telemetry.
+3. **Strict Grounded Chat:** Chat assistant answering exclusively from active notebook chunks with sentence-level citations (`[[C:chunkId]]`). Honest refusal when material lacks answers, with an approval-gated web search fallback.
+4. **Deep Original View (Showcase):** Clicking any citation reveals the true source asset:
+   - **Text:** Full document with the exact sentence highlighted.
+   - **Web:** Interactive reader or live webpage preview with passage anchoring.
+   - **PDF:** Rendered PDF page showing the exact location and text bounding box.
+   - **YouTube / Transcripts:** Synchronized media player seeking immediately to the referenced second.
+5. **Modern Neo-Brutalist UI:** High-contrast borders, bold typography, tactile micro-interactions, responsive 3-column / tabbed navigation, and WCAG AA dark/light themes.
 
-## What Makes This Different
+## Strategic Pillars & Differentiation
 
-| Pillar | Our position | Honest read |
+| Pillar | Our Position | Competitive Reality |
 |---|---|---|
-| **Design / UX** | A funky, purely **neo-brutalist** language — bold, unmistakably different from Google's clean minimalism | Brand-level, visible difference; must be executed with taste |
-| **Citation → original view** | Clicking a citation opens the *actual original resource* — live web page or full text with the passage highlighted | **Genuine gap.** NotebookLM shows a highlighted quote preview; we show the source itself |
-| **Rich-metadata indexing** | Every chunk points back to its origin with position/offset anchors | The *foundation* for the pillar above — not a visible feature on its own |
-| **Websearch + ingest** | Fetch related web resources and ingest them as sources (approval-gated, FR-7) | Parity, not novelty — NotebookLM's Deep Research does this |
-| **Cost / stack** | Commercial OpenAI-compatible APIs only, env-configurable, no lock-in | Cheaper and simpler than a platform bet; per-use cost must be watched. **Honest read (v0.1 policy): data durability is not guaranteed — a vector-store loss deletes the affected users' sources** |
-
-**Unfair advantage, honestly stated:** there is no technical moat. The advantage is *execution and focus* — a passion-built product with a lighter stack, a first-principles citation experience that visibly closes the loop to the original source, and a signature design — done faster and lighter than a platform product can.
+| **Scope Delivery** | **All-in-One v1 Release:** Direct-to-production delivery of text, web, PDF, transcript, and YouTube sources. | Eliminates prolonged release delays; delivers immediate parity and beyond on day one. |
+| **Pipeline Durability** | **Inngest Workflow Orchestration:** Step-level execution, automatic retries, concurrency limits, and failure isolation. | Prevents Vercel serverless execution timeouts; guarantees no silent ingestion failures. |
+| **Citation → Original View** | **Deep Source Verification:** Citations jump directly to the rendered PDF page, live web page, full text highlight, or YouTube second mark. | Genuine wedge. Competitors show quote snippets; Contextual renders the actual source. |
+| **Design Language** | **Upgraded Neo-Brutalism:** Distinctive, high-energy, clean utility with zero fluff, fully responsive down to 320px. | Deliberate contrast against sterile enterprise SaaS and Google minimalism. |
+| **Cost & Portability** | **Open Modular Stack:** Next.js + Neon + Qdrant + Cloudinary + Inngest + commercial OpenAI-compatible models. | No vendor lock-in; runs within generous free tiers with a daily 10-credit cost guardrail. |
 
 ## Who This Serves
 
-**Primary:** everyday consumers who want to learn something deeply — researching a topic across mixed sources, following along with a course, or analyzing content they personally own or find. Success for them: ask a question, get an answer they can *verify* against the original source in one click, without leaving the flow.
+- **Everyday Deep Learners:** Consumers self-studying complex topics across articles, textbooks, and video lectures who need fast synthesis they can instantly audit.
+- **Students & Academics:** Researchers requiring strict citation discipline where every claim in an essay or summary maps to an exact PDF page or lecture timestamp.
+- **Engineers & Technical Writers:** Professionals parsing dense API documentation, technical specs, and recorded presentations with zero patience for AI hallucinations.
 
-**Secondary:** students and self-directed learners who need citation discipline (essays, reports, study notes) and value a tool that doesn't require a Google account.
+## Success Metrics
 
-## Success Criteria
+- **SM-1 (Grounded Fidelity):** ≥90% of assistant answers contain at least 1 verified citation marker.
+- **SM-2 (Citation Verification Rate):** ≥60% citation click-through rate resolving directly to the target Original View.
+- **SM-3 (Pipeline Resilience):** ≥99% completion rate for valid sources via Inngest orchestration; 0 unhandled serverless timeouts.
+- **SM-4 (Ingestion Latency & Clarity):** 100% of failed ingestions surface actionable, user-visible error reasons (e.g., paywall, invalid format, video uncaptioned).
 
-- **Engagement:** users create multiple notebooks; sources per notebook grow beyond the first upload.
-- **Grounded answers:** ≥90% of chat answers carry at least one citation to a user source [ASSUMPTION: measurable in logs].
-- **Citation trust:** a meaningful share of citations are clicked, and the click opens the original source.
-- **Ingestion reliability:** text and web sources ingest successfully in normal use; failures are honest and isolated.
+## Functional Requirements (v1 Production Scope)
 
-## Roadmap & Scope
+### 1. Ingestion & Source Management
+- **FR-1.1 Text Ingestion:** Direct paste with character count validation, markdown preview, and span offset mapping.
+- **FR-1.2 Web URL Ingestion:** Firecrawl-backed main content extraction from public URLs; graceful rejection of paywalls and bot-blocked sites.
+- **FR-1.3 PDF Ingestion:** Upload up to 10MB PDFs; structured extraction retaining page numbers, section headers, and page-level image rendering.
+- **FR-1.4 Subtitle & Transcript Ingestion:** Direct upload of `.srt` and `.vtt` files; millisecond timestamp parsing anchored to dialogue blocks.
+- **FR-1.5 YouTube Ingestion:** Ingest public YouTube URLs; automated transcript extraction with second-level timestamp chunking.
+- **FR-1.6 Source Management:** Inspect source details, rename, view status badges (`queued`, `processing`, `ready`, `failed`), retry failed items, and perform bulk deletion.
 
-Every milestone is a usable slice; the citation-first core loop is the foundation throughout.
+### 2. Inngest Durable Execution & Failure Management
+- **FR-2.1 Event-Driven Step Orchestration:** Ingestion triggered via Inngest events (`source.ingest.*`), breaking execution into discrete, resumable steps: fetch/extract → parse → chunk → generate embeddings → vector upsert.
+- **FR-2.2 Automated Retries & Backoff:** Up to 3 automatic retries with exponential backoff for transient API errors (Firecrawl rate limits, embedding endpoint spikes, Qdrant timeouts).
+- **FR-2.3 Failure Isolation:** A failure in one source never blocks or corrupts the notebook; failed items register an isolated error status with an honest diagnostic message.
+- **FR-2.4 Concurrency & Rate Limiting:** Enforce concurrency caps per user to protect downstream endpoints and prevent quota exhaustion.
 
-- **v0.1 — Text foundation (this build):** textarea + webpage ingestion, rich-metadata indexing, chat with per-source citations, citation → original view, landing page, dark mode, cookie consent. Limits: 10 notebooks/user, 1-week notebook expiry, 10 sources/notebook, 30/user, 5 MB/source.
-- **v0.3 — PDF support:** PDF ingestion with deep parsing (scanned pages, tables, dense layouts); citations render the actual PDF page.
-- **v0.6 — Transcript support:** subtitle files (`.srt`, `.vtt`) as first-class sources with timestamp-anchored indexing.
-- **v1 — YouTube & polish:** full video ingestion where the **timestamp is the primary citation mark**; design polish, freemium credit system.
+### 3. Retrieval-Augmented Generation & Grounded Chat
+- **FR-3.1 Scoped Retrieval:** Notebook-isolated cosine similarity retrieval (`topK=5`, `minScore=0.30`) from Qdrant vector storage.
+- **FR-3.2 Grounded Answer Generation:** Chat completions carry validated inline citation markers (`[[C:chunkId]]`); sentences without retrieved support are refused or omitted.
+- **FR-3.3 Honest Refusal & Fallback:** Clear refusal when uploaded sources do not contain the answer; offers user-approved Tavily web search to fill verifiable gaps.
+- **FR-3.4 Streaming Response:** Real-time token streaming with on-the-fly citation marker rendering and responsive mobile scrolling.
 
-**Explicitly out (v1):** audio transcription, image/OCR sources, collaboration/sharing, native mobile apps, podcast/Audio-Overview generation, Google Drive sync.
+### 4. Original View (Showcase) Interactive Verification
+- **FR-4.1 Text Showcase:** Renders full text source with instantaneous smooth-scroll and highlight on the cited span.
+- **FR-4.2 Web Showcase:** Split-pane reader showing the extracted article with original URL attribution and highlighted matching passage.
+- **FR-4.3 PDF Showcase:** Embedded PDF viewer navigating immediately to the referenced page, highlighting the cited paragraph bounding box.
+- **FR-4.4 Video & Transcript Showcase:** Embedded responsive video player synchronizing directly to the cited timestamp with synchronized transcript scrolling.
 
-**Payments/business model:** out of scope for now. A daily credit limit arrives at v1 as a usage/cost gate (see addendum).
+### 5. Upgraded Neo-Brutalist UI & Design System
+- **FR-5.1 Workspace Layout:** High-efficiency tri-pane layout (Left: Sources & Ingestion; Center: Conversational Chat; Right: Original View Showcase). Collapses into smooth tabs on tablet and mobile viewports down to 320px.
+- **FR-5.2 Visual Language:** Refined neo-brutalist styling: stark contrast borders (2px solid black/accent), deliberate drop shadows, tactile hover states, and modern monospace/grotesk typography.
+- **FR-5.3 Theme & Accessibility:** Full WCAG 2.2 AA compliant dark and light modes, accessible focus rings (`3px` ring + `2px` offset), and motion preference toggles.
+- **FR-5.4 First-Run Guidance:** Lightweight, interactive onboarding walkthrough (Driver.js) introducing the tri-pane interaction model.
 
-## Vision
+### 6. User Limits & Cost Posture
+- **FR-6.1 Notebook & Source Caps:** 10 notebooks per user, 10 sources per notebook (30 total per user), 10MB per source file, lazy 1-week inactivity TTL.
+- **FR-6.2 Daily Credit Gate:** 10 AI interaction credits per user per day (rolling 24-hour reset); each grounded chat answer or approved web search consumes 1 credit. Ingestion and source browsing are ungated.
 
-If chaibookLM succeeds, it becomes the everyday person's research workspace — the place where learning from mixed sources feels calm, verifiable, and inexpensive. Over time it expands beyond documents: audio sources, richer artifact generation, optional collaboration. The throughline stays the same: *cheaper, simpler, more honest about where every answer comes from — and impossible to mistake for anything else.* The neo-brutalist design language becomes the product's signature.
+## Explicit Non-Goals (v1)
+
+- **Raw Audio Transcription:** No local/custom Whisper transcription of arbitrary `.mp3`/`.wav` recordings (users supply `.srt`/`.vtt` transcripts or YouTube links).
+- **Multi-User Collaboration:** No real-time multi-tenant notebook sharing or team workspaces.
+- **Native Mobile Apps:** Web-only responsive design (PWA ready, fully functional on iOS/Android mobile browsers).
+- **AI Podcast / Audio Synthesis:** No dual-host conversational audio overview generation.
+- **Paid Subscriptions / Stripe Integration:** Monitization is deferred; daily credit quota acts as the cost governor.
+
+## Production Path & Implementation Strategy
+
+1. **Fast-to-Production Architecture:** Built on the established modular monolith (`backend/` domain contexts: `notebooks`, `sources`, `chat`, `ingestion`, `limits`) deployed directly to Vercel Hobby with external managed services (Neon, Qdrant, Cloudinary, Inngest).
+2. **Inngest Setup:** Zero infrastructure deployment. Next.js App Router route `/api/inngest` exposes the Inngest handler; background jobs run reliably without serverless timeouts.
+3. **Execution Velocity:** Leverage existing v0.1 domain code, wiring up Inngest functions for the expanded source types (PDF deep extraction, transcript parsing, YouTube transcript fetching) and connecting the updated tri-pane UI.

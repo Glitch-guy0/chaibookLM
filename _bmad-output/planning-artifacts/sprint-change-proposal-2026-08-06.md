@@ -1,7 +1,7 @@
 # Sprint Change Proposal — Chunk Data Authority, shikigami Coupling, backend/ Structure
 
 **Date:** 2026-08-06
-**Triggered by:** Architecture coaching review (chaibookLM v0.1 spine) — stakeholder overrides
+**Triggered by:** Architecture coaching review (Contextual v0.1 spine) — stakeholder overrides
 **Status:** Proposed
 **Change scope:** Major (architecture + planning-artifact correction)
 
@@ -11,7 +11,7 @@
 
 ### 1.1 Problem statement
 
-During the architecture spine session for chaibookLM v0.1, three load-bearing decisions were made that override the previously assumed architecture anchors:
+During the architecture spine session for Contextual v0.1, three load-bearing decisions were made that override the previously assumed architecture anchors:
 
 1. **Chunk data authority.** The earlier lean treated Neon as the system of record for chunk metadata with Qdrant as a derived, rebuildable index. The approved decision: **Qdrant is the single system of record for Chunks** — vector and chunk metadata (origin source, span/offset, position) stored together. Neon stores only **user + resource working metadata** (notebooks, source records/status, resource limits, chat) and **no chunk-level data**.
 2. **Chunk recovery policy.** Qdrant loss is **not** rebuilt by replaying ingestion. The approved recovery: delete the affected users' resource files from Filebase and surface an error to those users.

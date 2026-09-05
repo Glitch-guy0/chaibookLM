@@ -1,6 +1,6 @@
-# chaibookLM — External Tools Tracker (v0.1 → v1)
+# Contextual — External Tools Tracker (v0.1 → v1)
 
-Created 2026-08-12. Updated 2026-08-12 (party review: John + Winston) against the actual implemented code, not just the planning decision. Updated again 2026-08-12: Jina → Tavily + Firecrawl, Filebase → Cloudinary (decision, ahead of code migration — see Notes). Tracks every third-party service/account chaibookLM depends on, its setup status, and who owns it. Companion to `tech-stack.md` (the *what/why* of each pick) — this doc is the *is it actually provisioned* checklist. Update the Status column as accounts get created and keys land in `.env.local` / Vercel project env.
+Created 2026-08-12. Updated 2026-08-12 (party review: John + Winston) against the actual implemented code, not just the planning decision. Updated again 2026-08-12: Jina → Tavily + Firecrawl, Filebase → Cloudinary (decision, ahead of code migration — see Notes). Tracks every third-party service/account Contextual depends on, its setup status, and who owns it. Companion to `tech-stack.md` (the *what/why* of each pick) — this doc is the *is it actually provisioned* checklist. Update the Status column as accounts get created and keys land in `.env.local` / Vercel project env.
 
 ## Status legend
 `Not started` · `Account created` · `Configured (dev)` · `Configured (prod)` · `Blocked`
