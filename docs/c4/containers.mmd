@@ -1,0 +1,92 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#4f46e5', 'primaryTextColor': '#fff', 'primaryBorderColor': '#3730a3', 'lineColor': '#6b7280'}}}%%
+graph TD
+    subgraph "User Device"
+        Browser["Browser\n(Next.js SPA)"]:::client
+    end
+
+    subgraph "chaibookLM - Vercel"
+        API["API Routes\n(Next.js)"]:::controller
+        
+        subgraph "Backend - Bounded Contexts"
+            NotebooksCtx["notebooks\nContext"]:::domain
+            SourcesCtx["sources\nContext"]:::domain
+            ChatCtx["chat\nContext"]:::domain
+            IngestionCtx["ingestion\nContext"]:::domain
+            LimitsCtx["limits\nContext"]:::domain
+        end
+        
+        subgraph "Shared Kernel"
+            SharedKernel["shared-kernel\n(chunk types, citation markers)"]:::kernel
+        end
+        
+        subgraph "Ports (Interfaces)"
+            VectorStorePort["VectorStore\nPort"]:::port
+            StoragePort["StorageService\nPort"]:::port
+            EmbeddingsPort["Embeddings\nPort"]:::port
+            SearchPort["Search\nPort"]:::port
+        end
+    end
+
+    subgraph "External Services"
+        Qdrant["Qdrant"]:::external
+        Neon["Neon DB"]:::external
+        Cloudinary["Cloudinary"]:::external
+        Clerk["Clerk"]:::external
+        LLM["LLM"]:::external
+        Embeddings["Embeddings API"]:::external
+        Firecrawl["Firecrawl"]:::external
+        Tavily["Tavily"]:::external
+        QStash["QStash"]:::external
+    end
+
+    %% User interactions
+    Browser -->|HTTP/REST| API
+    
+    %% API routes to contexts
+    API --> NotebooksCtx
+    API --> SourcesCtx
+    API --> ChatCtx
+    API --> IngestionCtx
+    API --> LimitsCtx
+    
+    %% Contexts to ports
+    NotebooksCtx --> VectorStorePort
+    NotebooksCtx --> StoragePort
+    SourcesCtx --> VectorStorePort
+    SourcesCtx --> StoragePort
+    SourcesCtx --> EmbeddingsPort
+    ChatCtx --> VectorStorePort
+    ChatCtx --> LLM
+    ChatCtx --> SearchPort
+    IngestionCtx --> VectorStorePort
+    IngestionCtx --> StoragePort
+    IngestionCtx --> EmbeddingsPort
+    IngestionCtx --> SearchPort
+    LimitsCtx --> StoragePort
+    
+    %% Shared kernel usage
+    NotebooksCtx --> SharedKernel
+    SourcesCtx --> SharedKernel
+    ChatCtx --> SharedKernel
+    IngestionCtx --> SharedKernel
+    
+    %% Ports to external services
+    VectorStorePort --> Qdrant
+    StoragePort --> Neon
+    StoragePort --> Cloudinary
+    EmbeddingsPort --> Embeddings
+    SearchPort --> Firecrawl
+    SearchPort --> Tavily
+    
+    %% Auth
+    API --> Clerk
+    
+    %% Async
+    QStash -.->|Ingestion Jobs| IngestionCtx
+
+    classDef client fill:#f472b6,stroke:#db2777,color:#fff
+    classDef controller fill:#4f46e5,stroke:#3730a3,color:#fff
+    classDef domain fill:#10b981,stroke:#047857,color:#fff
+    classDef kernel fill:#f59e0b,stroke:#b45309,color:#fff
+    classDef port fill:#6366f1,stroke:#4338ca,color:#fff
+    classDef external fill:#6b7280,stroke:#4b5563,color:#fff

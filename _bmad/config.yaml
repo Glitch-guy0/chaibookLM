@@ -1,0 +1,13 @@
+document_output_language: English
+output_folder: '{project-root}/_bmad-output'
+project_name: chaibookLM
+dbw:
+  name: Diagram-Based Workflow
+  description: Diagram-first architecture and documentation workflow module leveraging
+    Mermaid and C4 models
+  version: 1.0.0
+  default_selected: false
+  docs_folder: '{project-root}/docs'
+  planning_artifacts_folder: '{project-root}/planning-artifacts'
+  adr_folder: '{project-root}/docs/decisions'
+  diagram_index: '{project-root}/docs/indexes/diagram-index.md'

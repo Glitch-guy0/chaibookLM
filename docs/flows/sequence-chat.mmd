@@ -1,0 +1,42 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#4f46e5', 'primaryTextColor': '#fff', 'lineColor': '#6b7280'}}}%%
+sequenceDiagram
+    participant U as User
+    participant B as Browser
+    participant N as Next.js
+    participant Q as Qdrant
+    participant L as LLM
+    participant T as Tavily
+
+    Note over B,N: Chat Flow (AD-9: last 7 turns)
+    U->>B: Type message
+    B->>N: POST /api/chat
+    
+    rect rgb(16, 185, 129, 0.1)
+        Note over N: Retrieval Phase (AD-8)
+        N->>Q: Vector search (topK=5, minScore=0.30)
+        Q-->>N: Retrieved chunks (scoped by notebookId)
+    end
+    
+    rect rgb(245, 158, 11, 0.1)
+        Note over N: Citation Mapping
+        N->>N: Validate chunkIds, drop unknown markers
+    end
+    
+    rect rgb(79, 70, 229, 0.1)
+        Note over N: LLM Reasoning
+        N->>L: Grounded answer request<br/>+ chunks + citations
+        L-->>N: Streaming response<br/>+ [[C:chunkId]] markers
+    end
+    
+    alt Refusal / Low Confidence
+        Note over N: Web Search Offer (AD-13)
+        N-->>B: Offer web search
+        U->>B: Approve search
+        B->>N: Confirm search
+        N->>T: Tavily search
+        T-->>N: Search results
+        N->>L: Retry with context
+    end
+    
+    N-->>B: Stream answer + citations
+    B-->>U: Render message

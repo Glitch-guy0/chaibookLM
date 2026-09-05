@@ -1,0 +1,41 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#4f46e5', 'primaryTextColor': '#fff', 'lineColor': '#6b7280'}}}%%
+graph TD
+    subgraph "chat Context"
+        ChatAPI["Chat API\n(notebook chat endpoints)"]:::controller
+        GroundedAnswer["GroundedAnswer\nReasoning Strategy"]:::strategy
+        CitationMapper["CitationMapper"]:::strategy
+        VectorStoreStrategy["VectorStore\nMemory Strategy"]:::strategy
+        WebSearchTool["WebSearchTool\n(Tavily)"]:::tool
+    end
+
+    subgraph "Ports"
+        VectorStore["VectorStore Port"]:::port
+        LLM["LLM Port"]:::port
+        SearchPort["Search Port"]:::port
+    end
+
+    subgraph "External"
+        Qdrant["Qdrant"]:::external
+        LLMProvider["LLM Provider"]:::external
+        Tavily["Tavily"]:::external
+    end
+
+    User["User"]:::user -->|Chat Message| ChatAPI
+    ChatAPI --> GroundedAnswer
+    GroundedAnswer -->|Retrieve Chunks| VectorStoreStrategy
+    VectorStoreStrategy --> VectorStore
+    VectorStore --> Qdrant
+    GroundedAnswer -->|Get Answer + Markers| LLMProvider
+    LLMProvider --> LLM
+    GroundedAnswer --> CitationMapper
+    CitationMapper -->|Validate/Map| VectorStoreStrategy
+    GroundedAnswer -->|Refusal?| WebSearchTool
+    WebSearchTool --> SearchPort
+    SearchPort --> Tavily
+
+    classDef user fill:#f472b6,stroke:#db2777,color:#fff
+    classDef controller fill:#4f46e5,stroke:#3730a3,color:#fff
+    classDef strategy fill:#10b981,stroke:#047857,color:#fff
+    classDef tool fill:#f59e0b,stroke:#b45309,color:#fff
+    classDef port fill:#6366f1,stroke:#4338ca,color:#fff
+    classDef external fill:#6b7280,stroke:#4b5563,color:#fff

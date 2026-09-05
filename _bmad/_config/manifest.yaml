@@ -1,39 +1,39 @@
 installation:
   version: 6.12.0
   installDate: 2026-08-04T17:56:16.927Z
-  lastUpdated: 2026-09-05T10:01:15.886Z
-  installShims: true
+  lastUpdated: 2026-09-05T12:47:51.798Z
+  installShims: false
 modules:
   - name: core
     version: 6.12.0
     installDate: 2026-08-04T17:56:16.876Z
-    lastUpdated: 2026-09-05T10:01:15.881Z
+    lastUpdated: 2026-09-05T12:47:51.793Z
     source: built-in
     npmPackage: null
     repoUrl: null
   - name: bmm
     version: 6.12.0
     installDate: 2026-08-04T17:56:16.852Z
-    lastUpdated: 2026-09-05T10:01:15.881Z
+    lastUpdated: 2026-09-05T12:47:51.793Z
     source: built-in
     npmPackage: null
     repoUrl: null
   - name: bmad-loop
     version: v0.11.1
     installDate: 2026-09-05T10:01:15.838Z
-    lastUpdated: 2026-09-05T10:01:15.883Z
+    lastUpdated: 2026-09-05T12:47:51.795Z
     source: external
     npmPackage: null
     repoUrl: https://github.com/bmad-code-org/bmad-loop
     channel: stable
     sha: bb7cebec4ee4f0fa2783a56ffd0b1b8bc67c4ec5
   - name: dbw
-    version: main
+    version: 1.0.0
     installDate: 2026-09-05T10:01:15.850Z
-    lastUpdated: 2026-09-05T10:01:15.886Z
-    source: custom
+    lastUpdated: 2026-09-05T12:47:51.798Z
+    source: unknown
     npmPackage: null
-    repoUrl: https://github.com/Glitch-guy0/diagram-based-workflow
+    repoUrl: null
     channel: next
 ides:
   - antigravity

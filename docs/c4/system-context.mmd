@@ -1,0 +1,37 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#4f46e5', 'primaryTextColor': '#fff', 'primaryBorderColor': '#3730a3', 'lineColor': '#6b7280', 'secondaryColor': '#10b981', 'tertiaryColor': '#f59e0b'}}}%%
+graph TD
+    subgraph "Internet"
+        User["User"]:::user
+    end
+
+    subgraph "chaibookLM System"
+        NextJS["Next.js App"]:::system
+    end
+
+    subgraph "External Services"
+        Clerk["Clerk\n(Auth)"]:::external
+        LLM["LLM Provider\n(OpenAI/Anthropic)"]:::external
+        Embeddings["Embedding Service"]:::external
+        Qdrant["Qdrant\n(Vector Store)"]:::external
+        Neon["Neon\n(PostgreSQL)"]:::external
+        Cloudinary["Cloudinary\n(Storage)"]:::external
+        Firecrawl["Firecrawl\n(Web Scraping)"]:::external
+        Tavily["Tavily\n(Web Search)"]:::external
+        QStash["QStash\n(Async Jobs)"]:::external
+    end
+
+    User -->|Authenticate| Clerk
+    User -->|Browse/Chat| NextJS
+    NextJS -->|Auth Check| Clerk
+    NextJS -->|Store/Query Chunks| Qdrant
+    NextJS -->|User/Notebook Metadata| Neon
+    NextJS -->|Store Assets| Cloudinary
+    NextJS -->|LLM Responses| LLM
+    NextJS -->|Generate Embeddings| Embeddings
+    NextJS -->|Extract Web Content| Firecrawl
+    NextJS -->|Search Web| Tavily
+    QStash -->|Async Ingestion| NextJS
+
+    classDef user fill:#f472b6,stroke:#db2777,color:#fff
+    classDef system fill:#4f46e5,stroke:#3730a3,color:#fff
+    classDef external fill:#6b7280,stroke:#4b5563,color:#fff

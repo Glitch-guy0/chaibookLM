@@ -1,0 +1,44 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#4f46e5', 'primaryTextColor': '#fff', 'lineColor': '#6b7280'}}}%%
+graph TD
+    subgraph "ingestion Context"
+        SourceIndexer["SourceIndexer"]:::service
+        ChunkSplitter["ChunkSplitter"]:::service
+        EmbeddingService["EmbeddingService"]:::service
+        QStashCallback["QStash Callback\nHandler"]:::service
+    end
+
+    subgraph "Ports"
+        VectorStorePort["VectorStore Port"]:::port
+        StoragePort["StorageService Port"]:::port
+        EmbeddingsPort["Embeddings Port"]:::port
+        SearchPort["Search Port"]:::port
+    end
+
+    subgraph "External Services"
+        Qdrant["Qdrant"]:::external
+        Neon["Neon DB"]:::external
+        Cloudinary["Cloudinary"]:::external
+        Firecrawl["Firecrawl"]:::external
+        EmbeddingsAPI["Embeddings API"]:::external
+    end
+
+    User["User"]:::user -->|Add Source| NextJS
+    NextJS -->|Create Job| QStash
+    QStash --> QStashCallback
+    QStashCallback -->|Fetch Raw Content| Firecrawl
+    Firecrawl --> SearchPort
+    SearchPort --> SourceIndexer
+    SourceIndexer -->|Split Text| ChunkSplitter
+    ChunkSplitter -->|Generate Chunks| EmbeddingService
+    EmbeddingService --> EmbeddingsPort
+    EmbeddingsPort --> EmbeddingsAPI
+    SourceIndexer -->|Upsert Chunks| VectorStorePort
+    VectorStorePort --> Qdrant
+    SourceIndexer -->|Store Metadata| StoragePort
+    StoragePort --> Neon
+    StoragePort --> Cloudinary
+
+    classDef user fill:#f472b6,stroke:#db2777,color:#fff
+    classDef service fill:#10b981,stroke:#047857,color:#fff
+    classDef port fill:#6366f1,stroke:#4338ca,color:#fff
+    classDef external fill:#6b7280,stroke:#4b5563,color:#fff
