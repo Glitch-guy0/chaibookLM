@@ -20,6 +20,12 @@ planning_artifacts = "{project-root}/_bmad-output/planning-artifacts"
 implementation_artifacts = "{project-root}/_bmad-output/implementation-artifacts"
 project_knowledge = "{project-root}/docs"
 
+[modules.dbw]
+docs_folder = "{project-root}/docs"
+planning_artifacts_folder = "{project-root}/planning-artifacts"
+adr_folder = "{project-root}/docs/decisions"
+diagram_index = "{project-root}/docs/indexes/diagram-index.md"
+
 [agents.bmad-agent-analyst]
 module = "bmm"
 team = "software-development"

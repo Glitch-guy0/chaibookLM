@@ -1,0 +1,31 @@
+code: dbw
+name: "Diagram-Based Workflow"
+description: "Diagram-first architecture and documentation workflow module leveraging Mermaid and C4 models"
+module_version: 1.0.0
+default_selected: false
+module_greeting: >
+  Welcome to the Diagram-Based Workflow (DBW) Module!
+  Your diagram-first architecture and documentation environment is now configured.
+  You can run 'Document System' (DS) to map existing systems or 'Plan Architectural Change' (PW) to design new capabilities visually.
+
+  For questions, updates, and templates - see docs/indexes/diagram-index.md or run dbw-setup at any time to reconfigure.
+
+docs_folder:
+  prompt: "Where should approved C4 diagrams, flows, and documentation be saved?"
+  default: "{project-root}/docs"
+  result: "{project-root}/{value}"
+
+planning_artifacts_folder:
+  prompt: "Where should work-in-progress planning diagrams and draft designs be saved?"
+  default: "{project-root}/planning-artifacts"
+  result: "{project-root}/{value}"
+
+adr_folder:
+  prompt: "Where should Architecture Decision Records (ADRs) be saved?"
+  default: "{project-root}/docs/decisions"
+  result: "{project-root}/{value}"
+
+diagram_index:
+  prompt: "Path for the primary diagram index file?"
+  default: "{project-root}/docs/indexes/diagram-index.md"
+  result: "{project-root}/{value}"

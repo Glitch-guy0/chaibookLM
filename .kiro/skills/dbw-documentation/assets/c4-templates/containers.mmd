@@ -1,0 +1,24 @@
+C4Container
+    title Container Diagram for [System Name]
+
+    Person(user, "User / Customer", "Interacts via browser / client")
+
+    System_Boundary(c1, "[System Name]") {
+        Container(spa, "Web Application", "React / Vite", "Provides rich UI for users in browser")
+        Container(api, "API Gateway / Server", "Node.js / Express / Go", "Exposes REST/GraphQL endpoints")
+        Container(worker, "Background Worker", "Python / Go", "Processes asynchronous jobs and queues")
+        ContainerDb(db, "Primary Database", "PostgreSQL", "Stores core domain models and relational data")
+        ContainerDb(cache, "Cache Store", "Redis", "Session cache and transient state")
+        ContainerQueue(queue, "Message Broker", "RabbitMQ / SQS", "Buffers async tasks and events")
+    }
+
+    System_Ext(ext_payment, "Payment Gateway", "Stripe / PayPal")
+
+    Rel(user, spa, "Delivers assets & interacts", "HTTPS")
+    Rel(spa, api, "API requests", "JSON / HTTPS")
+    Rel(api, cache, "Reads/writes cache", "TCP")
+    Rel(api, db, "Reads/writes data", "SQL / TCP")
+    Rel(api, queue, "Publishes events", "AMQP")
+    Rel(worker, queue, "Consumes jobs", "AMQP")
+    Rel(worker, db, "Persists processed state", "SQL / TCP")
+    Rel(api, ext_payment, "Processes charges", "HTTPS / REST")

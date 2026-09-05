@@ -1,0 +1,11 @@
+C4Context
+    title System Context Diagram for [System Name]
+
+    Person(user, "User / Customer", "A user of the application")
+    System(system, "[System Name]", "Core application providing primary services")
+    System_Ext(ext_auth, "Auth Provider", "Third-party identity and authentication provider")
+    System_Ext(ext_api, "External API", "Third-party partner or vendor API")
+
+    Rel(user, system, "Uses", "HTTPS")
+    Rel(system, ext_auth, "Authenticates users via", "OAuth2 / OIDC")
+    Rel(system, ext_api, "Fetches external data from", "REST / JSON")

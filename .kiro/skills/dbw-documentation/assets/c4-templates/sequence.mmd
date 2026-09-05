@@ -1,0 +1,19 @@
+sequenceDiagram
+    autonumber
+    actor User
+    participant Web as Web Client
+    participant API as API Server
+    participant DB as Database
+    participant Ext as Third-Party Service
+
+    User->>Web: Submits form / Action
+    Web->>API: POST /api/v1/resource (Payload)
+    API->>API: Validate & Authenticate request
+    API->>DB: Query current state
+    DB-->>API: Return state
+    API->>Ext: Invoke external integration (Sync)
+    Ext-->>API: Return result / confirmation
+    API->>DB: Persist updated state (Transaction)
+    DB-->>API: Commit OK
+    API-->>Web: 200 OK (Response JSON)
+    Web-->>User: Display confirmation UI

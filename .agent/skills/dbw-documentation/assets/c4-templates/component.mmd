@@ -1,0 +1,20 @@
+C4Component
+    title Component Diagram for [Container Name]
+
+    Container_Boundary(b1, "[Container Name]") {
+        Component(ctrl, "API Controller", "Handles incoming HTTP requests and validates parameters")
+        Component(auth_mw, "Auth Middleware", "Validates JWT / session tokens")
+        Component(svc, "Domain Service", "Encapsulates core business logic and orchestration")
+        Component(repo, "Data Repository", "Interfaces with ORM / database layer")
+        Component(adapter, "External Client Adapter", "Wraps third-party SDK calls and handles retries")
+    }
+
+    ContainerDb_Ext(db, "Database", "PostgreSQL", "Stores records")
+    System_Ext(ext_service, "External Service", "Third-party API")
+
+    Rel(ctrl, auth_mw, "Secured by")
+    Rel(ctrl, svc, "Invokes operations")
+    Rel(svc, repo, "Persists domain entities")
+    Rel(svc, adapter, "Delegates external calls")
+    Rel(repo, db, "Executes queries", "SQL")
+    Rel(adapter, ext_service, "Makes API calls", "HTTPS")
