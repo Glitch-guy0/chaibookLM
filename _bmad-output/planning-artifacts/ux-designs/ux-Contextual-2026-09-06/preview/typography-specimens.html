@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Typography — Contextual Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--fg:#111111;--muted:#555555;--bg:#F4F4F0;--surface:#FFFFFF;--border:#111111;--citation:#00E5FF;--accent:#FFE500;--mono:"Space Mono",ui-monospace,Menlo,Consolas,monospace;--sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);padding:40px 24px}
+h1{font-family:var(--mono);font-weight:700;font-size:1.6rem;margin-bottom:8px}
+.sub{font-family:var(--mono);font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:32px}
+.scale{border:2px solid var(--border);background:var(--surface);box-shadow:5px 5px 0 0 var(--border);padding:24px;display:flex;flex-direction:column;gap:16px;max-width:800px}
+.row{display:flex;align-items:baseline;gap:16px;border-bottom:1px solid rgba(17,17,17,.15);padding-bottom:12px}
+.tag{font-family:var(--mono);font-size:.6rem;color:var(--muted);flex:none;width:80px}
+.display{font-family:var(--mono);font-weight:700}
+.body{font-family:var(--sans)}
+.note{font-family:var(--mono);font-size:.68rem;color:var(--muted);margin-top:16px}
+.section{margin-bottom:40px}
+.pair{display:flex;gap:16px;flex-wrap:wrap}
+.pair-card{border:2px solid var(--border);background:var(--surface);box-shadow:4px 4px 0 0 var(--border);padding:20px;flex:1;min-width:240px}
+.pair-card h3{font-family:var(--mono);font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+.pair-card p{font-size:.88rem;line-height:1.6}
+</style>
+</head>
+<body>
+<h1>Typography</h1>
+<p class="sub">Space Mono (display) + Inter (body)</p>
+
+<div class="section">
+<h2 style="font-family:var(--mono);font-weight:700;font-size:1rem;margin-bottom:16px">Type Scale</h2>
+<div class="scale">
+  <div class="row"><span class="tag">display/xl</span><span class="display" style="font-size:2.2rem">Verify every answer</span></div>
+  <div class="row"><span class="tag">display/lg</span><span class="display" style="font-size:1.25rem">Sources (3/10)</span></div>
+  <div class="row"><span class="tag">display/md</span><span class="display" style="font-size:1rem">Raft & Consensus Protocols</span></div>
+  <div class="row"><span class="tag">tag</span><span class="display" style="font-size:.68rem;text-transform:uppercase;letter-spacing:.05em">GROUNDED CHAT</span></div>
+  <div class="row"><span class="tag">body</span><span class="body" style="font-size:.95rem">Sheet body resting at 400 weight with a 1.6 line height for long-form chat answers that wrap comfortably inside the pane.</span></div>
+  <div class="row"><span class="tag">body/sm</span><span class="body" style="font-size:.82rem;color:var(--muted)">Secondary metadata, captions, and status lines.</span></div>
+</div>
+</div>
+
+<div class="section">
+<h2 style="font-family:var(--mono);font-weight:700;font-size:1rem;margin-bottom:16px">Display + Body Pairing</h2>
+<div class="pair">
+  <div class="pair-card">
+    <h3>Space Mono (display)</h3>
+    <p>Used for headings, badges, metrics, code, and tags. Weight 700, uppercase for tags. Mono numerics back the technical, data-dense feel.</p>
+  </div>
+  <div class="pair-card">
+    <h3>Inter (body)</h3>
+    <p>Used for paragraphs, chat responses, and long-form text. Weights 400/500/600, line-height 1.6. Keeps long answers readable.</p>
+  </div>
+</div>
+</div>
+
+<p class="note">Fonts loaded from Google Fonts: Space Mono (400,700) + Inter (400,500,600)</p>
+</body>
+</html>

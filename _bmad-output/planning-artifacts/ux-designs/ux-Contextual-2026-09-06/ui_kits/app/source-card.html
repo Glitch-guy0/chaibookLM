@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SourceCard — Contextual UI Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F4F0;--surface:#FFFFFF;--fg:#111111;--muted:#555555;--border:#111111;--accent:#FFE500;--citation:#00E5FF;--danger:#FF3333;--success:#00E575;--mono:"Space Mono",ui-monospace,Menlo,Consolas,monospace}
+[data-theme="dark"]{--bg:#0D0D0D;--surface:#18181B;--fg:#FFFFFF;--muted:#A1A1AA;--border:#E4E4E7;--accent:#FACC15;--citation:#22D3EE}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--mono);padding:40px 24px;transition:background .2s,color .2s}
+:focus-visible{outline:3px solid var(--citation);outline-offset:2px;border-radius:2px}
+h1{font-weight:700;font-size:1.6rem;margin-bottom:8px}
+.sub{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:32px}
+.row{display:flex;flex-direction:column;gap:10px;margin-bottom:24px;max-width:360px}
+.note{font-size:.68rem;color:var(--muted);margin-bottom:32px;max-width:500px;line-height:1.5}
+.src-item{border:2px solid var(--border);background:var(--surface);box-shadow:3px 3px 0 0 var(--border);padding:.6rem .7rem}
+.src-row{display:flex;align-items:center;gap:.55rem;font-size:.7rem;font-weight:700}
+.src-icon{width:22px;height:22px;border:1.5px solid var(--border);border-radius:2px;display:grid;place-items:center;flex:none;background:var(--bg);font-size:.55rem}
+.src-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.status{display:flex;align-items:center;gap:.4rem;font-size:.6rem;text-transform:uppercase;letter-spacing:.05em;margin-top:.35rem}
+.dot{width:8px;height:8px;border-radius:50%;flex:none}
+.dot.green{background:var(--success);box-shadow:0 0 0 3px color-mix(in oklch,var(--success) 35%,transparent);animation:pulse 1.6s infinite}
+.dot.yellow{background:var(--accent)}
+.dot.red{background:var(--danger)}
+.dot.gray{background:var(--muted)}
+.orb{width:14px;height:14px;border:2px solid var(--border);border-top-color:transparent;border-radius:50%;flex:none;background:var(--accent);animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.spec{border:2px solid var(--border);background:var(--surface);box-shadow:4px 4px 0 0 var(--border);padding:20px;margin-top:24px;max-width:600px;font-size:.72rem;line-height:1.6}
+.spec h3{font-weight:700;margin-bottom:8px;font-size:.82rem}
+</style>
+</head>
+<body>
+<h1>SourceCard</h1>
+<p class="sub">Ingestion Source Item · Component</p>
+
+<div class="row">
+  <div class="src-item">
+    <div class="src-row"><span class="src-icon">PDF</span><span class="src-name">raft-paper.pdf</span></div>
+    <span class="status"><span class="dot green"></span><span style="color:color-mix(in oklch,var(--success) 55%,var(--fg));font-weight:700">● ready</span></span>
+  </div>
+  <div class="src-item">
+    <div class="src-row"><span class="src-icon">▶</span><span class="src-name">mit-lecture-youtube</span></div>
+    <span class="status"><span class="orb"></span><span>indexing…</span></span>
+  </div>
+  <div class="src-item">
+    <div class="src-row"><span class="src-icon">◎</span><span class="src-name">system-docs-web</span></div>
+    <span class="status"><span class="dot gray"></span><span style="color:var(--muted)">queued</span></span>
+  </div>
+  <div class="src-item">
+    <div class="src-row"><span class="src-icon">TXT</span><span class="src-name">notes-draft.txt</span></div>
+    <span class="status"><span class="dot red"></span><span style="color:var(--danger);font-weight:700">failed</span></span>
+  </div>
+</div>
+<p class="note">Status states: queued (gray dot), indexing (accent orbital spin), ready (green pulse), failed (danger). Type icons: PDF, Globe (web), Play (YouTube), File, TXT.</p>
+
+<div class="spec">
+  <h3>Status Classes</h3>
+  <p><code>.dot.green</code> = ready, <code>.orb</code> = indexing, <code>.dot.gray</code> = queued, <code>.dot.red</code> = failed</p>
+  <p>Ready state uses <code>color-mix()</code> for the green-tinted text label.</p>
+</div>
+
+<script>
+(function(){var r=document.documentElement,s=localStorage.getItem('ctx-theme');if(s)r.setAttribute('data-theme',s);})();
+</script>
+</body>
+</html>

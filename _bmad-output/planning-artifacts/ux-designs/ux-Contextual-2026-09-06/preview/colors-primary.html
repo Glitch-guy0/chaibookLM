@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Colors — Contextual Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F4F0;--surface:#FFFFFF;--fg:#111111;--muted:#555555;--border:#111111;--accent:#FFE500;--citation:#00E5FF;--danger:#FF3333;--success:#00E575;--mono:"Space Mono",ui-monospace,Menlo,Consolas,monospace;--sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);padding:40px 24px}
+h1{font-family:var(--mono);font-weight:700;font-size:1.6rem;margin-bottom:8px}
+.sub{font-family:var(--mono);font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:32px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
+.card{border:2px solid var(--border);background:var(--surface);box-shadow:4px 4px 0 0 var(--border);overflow:hidden}
+.chip{height:80px;border-bottom:2px solid var(--border)}
+.meta{padding:12px 14px;font-family:var(--mono);font-size:.62rem}
+.meta b{display:block;font-size:.72rem;text-transform:uppercase;margin-bottom:4px}
+.meta code{color:var(--muted)}
+.label{font-family:var(--mono);font-weight:700;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px;padding:4px 8px;border:1.5px solid var(--border);border-radius:2px;display:inline-block}
+.section{margin-bottom:40px}
+</style>
+</head>
+<body>
+<h1>Color Tokens</h1>
+<p class="sub">Light theme · oklch values · verified from source</p>
+
+<div class="section">
+<span class="label">Light Theme</span>
+<div class="grid">
+  <div class="card"><div class="chip" style="background:#F4F4F0"></div><div class="meta"><b>bg</b><code>#F4F4F0 · oklch(0.982 0.003 90)</code></div></div>
+  <div class="card"><div class="chip" style="background:#FFFFFF;border-bottom:2px solid var(--border)"></div><div class="meta"><b>surface</b><code>#FFFFFF · oklch(1 0 0)</code></div></div>
+  <div class="card"><div class="chip" style="background:#111111"></div><div class="meta"><b>fg / ink</b><code>#111111 · oklch(0.21 0 0)</code></div></div>
+  <div class="card"><div class="chip" style="background:#555555"></div><div class="meta"><b>muted</b><code>#555555 · oklch(0.44 0 0)</code></div></div>
+  <div class="card"><div class="chip" style="background:#111111"></div><div class="meta"><b>border</b><code>#111111 · oklch(0.21 0 0)</code></div></div>
+  <div class="card"><div class="chip" style="background:#FFE500"></div><div class="meta"><b>accent</b><code>#FFE500 · oklch(0.93 0.17 95)</code></div></div>
+  <div class="card"><div class="chip" style="background:#00E5FF"></div><div class="meta"><b>citation</b><code>#00E5FF · oklch(0.84 0.19 215)</code></div></div>
+  <div class="card"><div class="chip" style="background:#FF3333"></div><div class="meta"><b>danger</b><code>#FF3333 · oklch(0.65 0.22 27)</code></div></div>
+  <div class="card"><div class="chip" style="background:#00E575"></div><div class="meta"><b>success</b><code>#00E575 · oklch(0.82 0.20 155)</code></div></div>
+</div>
+</div>
+
+<div class="section">
+<span class="label">Dark Theme</span>
+<div class="grid">
+  <div class="card"><div class="chip" style="background:#0D0D0D"></div><div class="meta"><b>bg</b><code>#0D0D0D · oklch(0.15 0 0)</code></div></div>
+  <div class="card"><div class="chip" style="background:#18181B"></div><div class="meta"><b>surface</b><code>#18181B · oklch(0.21 0.005 280)</code></div></div>
+  <div class="card"><div class="chip" style="background:#FFFFFF"></div><div class="meta"><b>fg</b><code>#FFFFFF · oklch(1 0 0)</code></div></div>
+  <div class="card"><div class="chip" style="background:#A1A1AA"></div><div class="meta"><b>muted</b><code>#A1A1AA · oklch(0.68 0.01 285)</code></div></div>
+  <div class="card"><div class="chip" style="background:#E4E4E7"></div><div class="meta"><b>border</b><code>#E4E4E7 · oklch(0.9 0.01 285)</code></div></div>
+  <div class="card"><div class="chip" style="background:#FACC15"></div><div class="meta"><b>accent</b><code>#FACC15 · oklch(0.86 0.17 95)</code></div></div>
+  <div class="card"><div class="chip" style="background:#22D3EE"></div><div class="meta"><b>citation</b><code>#22D3EE · oklch(0.78 0.14 220)</code></div></div>
+</div>
+</div>
+</body>
+</html>

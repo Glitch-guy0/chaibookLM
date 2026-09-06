@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "source-examples/mockup-workspace-mobile.html",
+  "entry": "source-examples/mockup-workspace-mobile.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-09-06T14:48:58.858Z",
+  "updatedAt": "2026-09-06T14:48:58.858Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}

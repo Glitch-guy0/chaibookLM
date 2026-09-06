@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CitationPill — Contextual UI Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F4F0;--surface:#FFFFFF;--fg:#111111;--muted:#555555;--border:#111111;--accent:#FFE500;--citation:#00E5FF;--mono:"Space Mono",ui-monospace,Menlo,Consolas,monospace}
+[data-theme="dark"]{--bg:#0D0D0D;--surface:#18181B;--fg:#FFFFFF;--muted:#A1A1AA;--border:#E4E4E7;--accent:#FACC15;--citation:#22D3EE}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--mono);padding:40px 24px;transition:background .2s,color .2s}
+:focus-visible{outline:3px solid var(--citation);outline-offset:2px;border-radius:2px}
+h1{font-weight:700;font-size:1.6rem;margin-bottom:8px}
+.sub{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:32px}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:24px}
+.note{font-size:.68rem;color:var(--muted);margin-bottom:32px;max-width:500px;line-height:1.5}
+.spec{border:2px solid var(--border);background:var(--surface);box-shadow:4px 4px 0 0 var(--border);padding:20px;margin-top:24px;max-width:600px;font-size:.72rem;line-height:1.6}
+.spec h3{font-weight:700;margin-bottom:8px;font-size:.82rem}
+.spec code{background:var(--bg);padding:1px 4px;font-size:.68rem}
+.pill{font-family:var(--mono);font-weight:700;font-size:.68rem;padding:2px 6px;border:1.5px solid var(--border);border-radius:2px;background:var(--citation);color:var(--fg);cursor:pointer;display:inline-block;transition:box-shadow .12s ease}
+.pill:hover{box-shadow:2px 2px 0 0 var(--border)}
+.pill.plain{background:var(--bg)}
+</style>
+</head>
+<body>
+<h1>CitationPill</h1>
+<p class="sub">Inline Citation Marker · Component</p>
+
+<div class="row">
+  <span class="pill">[1]</span>
+  <span class="pill">[2]</span>
+  <span class="pill">[3]</span>
+  <span style="font-size:.82rem;color:var(--muted)">Answer text with inline citations.</span>
+</div>
+<div class="row">
+  <span class="pill plain">[A]</span>
+  <span class="pill plain">[B]</span>
+  <span style="font-size:.82rem;color:var(--muted)">Plain variant (bg = canvas).</span>
+</div>
+<p class="note">Cyan background with 1.5px ink border. Click to open Original View. Hover shows offset shadow. Reserves cyan exclusively for verification affordances.</p>
+
+<div class="spec">
+  <h3>Usage</h3>
+  <p><code>&lt;span class="pill"&gt;[1]&lt;/span&gt;</code></p>
+  <p>Variants: default (citation bg), <code>.plain</code> (canvas bg)</p>
+  <p>Click handler should open the Original View Showcase pane to the cited source.</p>
+</div>
+
+<script>
+(function(){var r=document.documentElement,s=localStorage.getItem('ctx-theme');if(s)r.setAttribute('data-theme',s);})();
+</script>
+</body>
+</html>

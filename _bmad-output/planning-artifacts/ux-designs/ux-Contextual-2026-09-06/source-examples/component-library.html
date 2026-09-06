@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contextual — Component Library</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:oklch(0.982 0.003 90);--surface:oklch(1 0 0);--fg:oklch(0.21 0 0);
+  --muted:oklch(0.44 0 0);--border:oklch(0.21 0 0);--accent:oklch(0.93 0.17 95);
+  --citation:oklch(0.84 0.19 215);--danger:oklch(0.65 0.22 27);--success:oklch(0.82 0.20 155);
+  --danger-deep:oklch(0.5 0.21 27);
+  --mono:"Space Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+}
+[data-theme="dark"]{--bg:oklch(0.15 0 0);--surface:oklch(0.21 0.005 280);--fg:oklch(1 0 0);--muted:oklch(0.68 0.01 285);--border:oklch(0.9 0.01 285);--accent:oklch(0.86 0.17 95);--citation:oklch(0.78 0.14 220);--danger-deep:oklch(0.58 0.22 27)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;transition:background .2s,color .2s}
+.mono{font-family:var(--mono)}
+:focus-visible{outline:3px solid var(--citation);outline-offset:2px;border-radius:2px}
+a{color:inherit}
+
+/* ---- topbar ---- */
+.topbar{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:2px solid var(--border)}
+.tb-inner{max-width:1180px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.brand{display:flex;align-items:center;gap:.6rem;font-family:var(--mono);font-weight:700;letter-spacing:.02em}
+.brandmark{width:28px;height:28px;border:2px solid var(--border);background:var(--accent);display:grid;place-items:center;box-shadow:3px 3px 0 0 var(--border)}
+.tb-right{display:flex;align-items:center;gap:.85rem}
+.credit{font-family:var(--mono);font-weight:700;font-size:.74rem;padding:.4rem .8rem;border:2px solid var(--border);border-radius:9999px;background:var(--surface);color:var(--fg);box-shadow:3px 3px 0 0 var(--border);cursor:pointer;position:relative}
+.credit-popup{display:none;position:absolute;top:calc(100% + 8px);right:0;width:320px;border:2px solid var(--border);background:var(--surface);box-shadow:6px 6px 0 0 var(--border);padding:1.2rem;z-index:100}
+.credit-popup.open{display:block}
+.credit-popup-title{font-family:var(--mono);font-weight:700;font-size:.85rem;margin-bottom:.5rem}
+.credit-popup-desc{font-size:.82rem;color:var(--muted);line-height:1.5;margin-bottom:.8rem}
+.credit-popup .btn{font-family:var(--mono);font-weight:700;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;padding:.55rem 1rem;border:2px solid var(--border);background:var(--surface);color:var(--fg);cursor:pointer;box-shadow:3px 3px 0 0 var(--border);transition:transform .15s cubic-bezier(0.2,0,0,1),box-shadow .15s cubic-bezier(0.2,0,0,1)}
+.credit-popup .btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 0 var(--border)}
+.credit-popup .btn:active{transform:translate(3px,3px);box-shadow:0 0 0 0 var(--border)}
+.theme-toggle{width:44px;height:44px;border:2px solid var(--border);border-radius:2px;background:var(--surface);display:grid;place-items:center;cursor:pointer;box-shadow:3px 3px 0 0 var(--border)}
+.theme-toggle:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 0 var(--border)}
+
+/* ---- page shell ---- */
+main{max-width:1180px;margin:0 auto;padding:40px 24px 80px}
+.page-head{margin-bottom:2.5rem}
+.page-head h1{font-family:var(--mono);font-weight:700;font-size:clamp(1.7rem,3.6vw,2.5rem);line-height:1.1}
+.page-head p{color:var(--muted);max-width:64ch;margin-top:.6rem;font-size:.98rem}
+.eyebrow{font-family:var(--mono);font-weight:700;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* ---- sections ---- */
+.cat{margin-top:3rem;border-top:2px solid var(--border);padding-top:1.6rem;scroll-margin-top:90px}
+.cat-head{display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;margin-bottom:1.4rem}
+.cat-head h2{font-family:var(--mono);font-weight:700;font-size:1.25rem}
+.cat-head .n{font-family:var(--mono);color:var(--muted);font-size:.8rem}
+
+.row{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:1.4rem}
+.eg{flex:1 1 280px;border:2px solid var(--border);background:var(--surface);box-shadow:5px 5px 0 0 var(--border)}
+.eg-preview{min-height:110px;padding:1.4rem;display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;background:var(--bg)}
+.eg-meta{padding:.6rem .9rem;border-top:2px solid var(--border);font-family:var(--mono);font-size:.62rem;color:var(--muted);background:repeating-linear-gradient(-45deg,color-mix(in oklch,var(--border) 4%,transparent) 0 6px,transparent 6px 12px)}
+.eg-meta b{color:var(--fg);font-weight:700}
+
+/* one-off wide cards */
+.eg.wide{flex:1 1 100%}
+.eg.preview-row .eg-preview{flex-direction:column;align-items:stretch;justify-content:flex-start;gap:.8rem}
+
+/* ---- components ---- */
+.btn{font-family:var(--mono);font-weight:700;font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;display:inline-flex;align-items:center;gap:.4rem;padding:.75rem 1.3rem;cursor:pointer;border:2px solid var(--border);border-radius:2px;background:var(--surface);color:var(--fg);box-shadow:4px 4px 0 0 var(--border);transition:transform .12s ease,box-shadow .12s ease,background .12s ease}
+.btn.primary{background:var(--accent)}
+.btn.ghost{background:transparent}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 0 var(--border)}
+.btn:active{transform:translate(4px,4px);box-shadow:0 0 0 0 var(--border)}
+.btn:disabled{opacity:.45;cursor:not-allowed;box-shadow:none;transform:none}
+.btn.small{font-size:.68rem;padding:.5rem .9rem;box-shadow:5px 5px 0 0 var(--border)}
+
+.pill{font-family:var(--mono);font-weight:700;font-size:.68rem;padding:2px 6px;border:1.5px solid var(--border);border-radius:2px;background:var(--citation);color:var(--fg);cursor:pointer;display:inline-block}
+.pill:hover{box-shadow:2px 2px 0 0 var(--border)}
+.pill.plain{background:var(--bg)}
+
+.badge{font-family:var(--mono);font-weight:700;font-size:.68rem;padding:2px 8px;border:1.5px solid var(--border);border-radius:2px;background:var(--bg)}
+.badge.accent{background:var(--accent)}
+.badge.cyan{background:var(--citation)}
+.badge.ink{background:var(--fg);color:var(--surface)}
+.badge.danger{background:var(--danger-deep);color:#fff}
+.expire{font-family:var(--mono);font-size:.66rem;padding:2px 7px;border:1.5px solid var(--border);border-radius:2px;background:var(--accent);color:var(--fg)}
+
+.src-item{border:2px solid var(--border);background:var(--surface);box-shadow:3px 3px 0 0 var(--border);padding:.6rem .7rem;width:100%}
+.src-row{display:flex;align-items:center;gap:.55rem;font-family:var(--mono);font-size:.7rem;font-weight:700}
+.src-icon{width:22px;height:22px;border:1.5px solid var(--border);border-radius:2px;display:grid;place-items:center;flex:none;background:var(--bg);font-size:.55rem}
+.status{display:flex;align-items:center;gap:.4rem;font-family:var(--mono);font-size:.6rem;text-transform:uppercase;letter-spacing:.05em}
+.dot{width:8px;height:8px;border-radius:50%;flex:none}
+.dot.green{background:var(--success);box-shadow:0 0 0 3px color-mix(in oklch,var(--success) 35%,transparent);animation:pulse 1.6s infinite}
+.dot.yellow{background:var(--accent)}
+.dot.red{background:var(--danger)}
+.dot.gray{background:var(--muted)}
+.orb{width:14px;height:14px;border:2px solid var(--border);border-top-color:transparent;border-radius:50%;flex:none;background:var(--accent);animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.stat-ready{color:color-mix(in oklch,var(--success) 55%,var(--fg));font-weight:700}
+.stat-failed{color:var(--danger);font-weight:700}
+
+.banner{background:var(--accent);color:var(--fg);border:2px solid var(--border);box-shadow:5px 5px 0 0 var(--border);font-family:var(--mono);font-size:.72rem;font-weight:700;text-align:center;padding:.6rem .9rem;width:100%}
+
+.refusal{border:2px solid var(--fg);background:var(--surface);padding:1rem;box-shadow:4px 4px 0 0 var(--border);width:100%}
+.refusal .rtitle{font-family:var(--mono);font-weight:700;font-size:.74rem;margin-bottom:.3rem}
+.refusal p{font-size:.78rem;margin-bottom:.7rem}
+.refusal .cost{font-family:var(--mono);font-size:.62rem;color:var(--muted);margin-top:.6rem}
+
+/* forms */
+.field{width:100%}
+.field label{display:block;font-family:var(--mono);font-weight:700;font-size:.68rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.4rem}
+.field input[type=text],.field textarea{width:100%;border:2px solid var(--border);border-radius:2px;padding:.6rem .7rem;font-family:var(--sans);font-size:.86rem;background:var(--surface);color:var(--fg)}
+.dropzone{border:2px dashed var(--border);border-radius:2px;background:var(--bg);padding:1.6rem;text-align:center;color:var(--muted);font-family:var(--mono);font-size:.72rem;width:100%}
+.upload-tabs{display:flex;gap:.4rem;flex-wrap:wrap;width:100%}
+.utab{padding:.45rem .75rem;border:1.5px solid var(--border);border-radius:2px;background:var(--bg);cursor:pointer;font-family:var(--mono);font-size:.66rem;text-transform:uppercase;color:var(--muted)}
+.utab.active{background:var(--accent);color:var(--fg);font-weight:700}
+
+/* swatches */
+.swatches{display:flex;flex-wrap:wrap;gap:1rem}
+.sw{flex:1 1 150px;border:2px solid var(--border);background:var(--surface);box-shadow:4px 4px 0 0 var(--border);overflow:hidden}
+.sw-chip{height:64px;border-bottom:2px solid var(--border)}
+.sw-meta{padding:.5rem .7rem;font-family:var(--mono);font-size:.6rem}
+.sw-meta b{display:block;font-size:.66rem;text-transform:uppercase}
+.sw-meta code{color:var(--muted)}
+
+/* type */
+.type-scale{display:flex;flex-direction:column;gap:.6rem;border:2px solid var(--border);background:var(--surface);box-shadow:5px 5px 0 0 var(--border);padding:1.5rem;width:100%}
+.ts-row{display:flex;align-items:baseline;gap:1rem;border-bottom:1px solid color-mix(in oklch,var(--border) 25%,transparent);padding-bottom:.5rem}
+.ts-tag{font-family:var(--mono);font-size:.6rem;color:var(--muted);flex:none;width:76px}
+.ts-display{font-family:var(--mono);font-weight:700}
+.ts-body{font-family:var(--sans)}
+
+/* shadow demos */
+.shadow-demo{width:100%;display:flex;flex-wrap:wrap;gap:1rem}
+.sh-box{flex:1 1 180px;height:96px;border:2px solid var(--border);background:var(--surface);display:grid;place-items:center;font-family:var(--mono);font-size:.62rem;text-align:center;padding:.6rem}
+.sh-1{box-shadow:4px 4px 0 0 var(--border)}
+.sh-2{box-shadow:6px 6px 0 0 var(--border)}
+.sh-3{box-shadow:6px 6px 0 0 var(--border)}
+
+/* avatar / cards demo */
+.rowtight{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
+.avatar{width:40px;height:40px;border:2px solid var(--border);border-radius:2px;background:var(--accent);display:grid;place-items:center;font-family:var(--mono);font-weight:700;font-size:.76rem;box-shadow:3px 3px 0 0 var(--border)}
+.card-demo{flex:1 1 240px;border:2px solid var(--border);background:var(--surface);box-shadow:5px 5px 0 0 var(--border);padding:1.2rem;display:flex;flex-direction:column;gap:.6rem}
+.card-demo h4{font-family:var(--mono);font-weight:700;font-size:.86rem;line-height:1.25}
+
+/* modal demo */
+.modal-overlay{position:fixed;inset:0;background:rgba(17,17,17,.45);display:none;align-items:center;justify-content:center;z-index:100;padding:1rem}
+.modal-overlay.open{display:flex}
+.modal{background:var(--surface);border:2px solid var(--border);box-shadow:12px 12px 0 0 var(--border);width:min(520px,100%);max-height:90vh;overflow-y:auto}
+.modal-head{display:flex;justify-content:space-between;align-items:center;padding:1rem;border-bottom:2px solid var(--border);font-family:var(--mono);font-weight:700}
+.modal-close{border:none;background:none;font-family:var(--mono);font-weight:700;font-size:1.2rem;cursor:pointer;color:var(--fg);width:36px;height:36px;display:grid;place-items:center}
+.modal-body{padding:1.2rem;min-height:240px}
+
+footer{border-top:2px solid var(--border);padding:1.6rem 0;margin-top:40px}
+.foot{max-width:1180px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;font-family:var(--mono);font-size:.7rem;color:var(--muted)}
+
+@media (max-width:560px){.tb-inner{padding:0 12px}main{padding:28px 16px 60px}}
+@media (prefers-reduced-motion:reduce){.btn{transform:none}.btn:hover{transform:none}.orb{animation:none}}
+</style>
+</head>
+<body>
+
+<header class="topbar" data-od-id="library-topbar">
+  <div class="tb-inner">
+    <div class="brand"><span class="brandmark" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" stroke="var(--fg)" stroke-width="2"/><path d="M5 8h6" stroke="var(--fg)" stroke-width="2"/></svg></span>CONTEXTUAL / UI KIT</div>
+    <div class="tb-right">
+      <button class="credit" data-od-id="credit-badge" onclick="event.stopPropagation();this.nextElementSibling.classList.toggle('open')">⚡ 8/10<span class="credit-popup"><div class="credit-popup-title">⚡ Credits remaining</div><div class="credit-popup-desc">You have 8 of 10 daily credits left. Each query uses 1 credit. Credits reset at midnight IST.</div></span></button>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" data-od-id="theme-toggle">
+        <svg id="iSun" width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="4" stroke="var(--fg)" stroke-width="2"/><path d="M10 2v2M10 16v2M2 10h2M16 10h2M4.3 4.3l1.4 1.4M14.3 14.3l1.4 1.4M15.7 4.3l-1.4 1.4M5.7 14.3l-1.4 1.4" stroke="var(--fg)" stroke-width="2"/></svg>
+        <svg id="iMoon" width="18" height="18" viewBox="0 0 20 20" fill="none" style="display:none"><path d="M17 12.5A8 8 0 017.5 3 8 8 0 1017 12.5" stroke="var(--fg)" stroke-width="2" fill="none"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main data-od-id="library-content">
+  <div class="page-head">
+    <span class="eyebrow">Design system · v1.0</span>
+    <h1>Contextual Component Library</h1>
+    <p>Every interactive component from the mockups, on one page. Hover, press, and focus each control — these are the live components used to build the landing, dashboard, and workspace screens.</p>
+  </div>
+
+  <!-- Colors -->
+  <section class="cat" data-od-id="cat-colors">
+    <div class="cat-head"><h2>Colors</h2><span class="n">tokens · light + dark</span></div>
+    <div class="swatches">
+      <div class="sw"><div class="sw-chip" style="background:var(--bg)"></div><div class="sw-meta"><b>bg</b><code>#F4F4F0</code></div></div>
+      <div class="sw"><div class="sw-chip" style="background:var(--surface);border-bottom:2px solid var(--border)"></div><div class="sw-meta"><b>surface</b><code>#FFFFFF</code></div></div>
+      <div class="sw"><div class="sw-chip" style="background:var(--fg)"></div><div class="sw-meta"><b>fg / ink</b><code>#111111</code></div></div>
+      <div class="sw"><div class="sw-chip" style="background:var(--muted)"></div><div class="sw-meta"><b>muted</b><code>#555555</code></div></div>
+      <div class="sw"><div class="sw-chip" style="background:var(--accent)"></div><div class="sw-meta"><b>accent</b><code>#FFE500</code></div></div>
+      <div class="sw"><div class="sw-chip" style="background:var(--citation)"></div><div class="sw-meta"><b>citation</b><code>#00E5FF</code></div></div>
+      <div class="sw"><div class="sw-chip" style="background:var(--danger)"></div><div class="sw-meta"><b>danger</b><code>#FF3333</code></div></div>
+      <div class="sw"><div class="sw-chip" style="background:var(--success)"></div><div class="sw-meta"><b>success</b><code>#00E575</code></div></div>
+    </div>
+    <p class="mono" style="font-size:.68rem;color:var(--muted);margin-top:1rem">☐ Use the theme toggle (top right) to see all tokens swap. Derived values use oklch.</p>
+  </section>
+
+  <!-- Typography -->
+  <section class="cat" data-od-id="cat-typography">
+    <div class="cat-head"><h2>Typography</h2><span class="n">Space Mono (display) + Inter (body)</span></div>
+    <div class="type-scale">
+      <div class="ts-row"><span class="ts-tag">display/xl</span><span class="ts-display" style="font-size:2rem">Verify every answer</span></div>
+      <div class="ts-row"><span class="ts-tag">display/lg</span><span class="ts-display" style="font-size:1.25rem">Sources (3/10)</span></div>
+      <div class="ts-row"><span class="ts-tag">display/md</span><span class="ts-display" style="font-size:1rem">Raft &amp; Consensus Protocols</span></div>
+      <div class="ts-row"><span class="ts-tag">tag</span><span class="ts-display" style="font-size:.68rem;text-transform:uppercase;letter-spacing:.05em">GROUNDED CHAT</span></div>
+      <div class="ts-row"><span class="ts-tag">body</span><span class="ts-body" style="font-size:.95rem">Sheet body resting at 400 weight with a 1.6 line height for long-form chat answers that wrap comfortably inside the pane.</span></div>
+      <div class="ts-row"><span class="ts-tag">body/sm</span><span class="ts-body" style="font-size:.82rem;color:var(--muted)">Secondary metadata, captions, and status lines.</span></div>
+    </div>
+  </section>
+
+  <!-- Elevation -->
+  <section class="cat" data-od-id="cat-elevation">
+    <div class="cat-head"><h2>Elevation</h2><span class="n">zero-blur offset shadows</span></div>
+    <div class="shadow-demo">
+      <div class="sh-box sh-1">card<br>4px 4px</div>
+      <div class="sh-box sh-2">elevated / focus<br>6px 6px</div>
+      <div class="sh-box sh-3">button hover<br>6px 6px</div>
+      <div class="sh-box" style="box-shadow:none">pressed<br>0 0 + shift</div>
+    </div>
+  </section>
+
+  <!-- Buttons -->
+  <section class="cat" data-od-id="cat-buttons">
+    <div class="cat-head"><h2>Buttons</h2><span class="n">Button · uniform elevation</span></div>
+    <div class="row">
+      <div class="eg"><div class="eg-preview"><button class="btn primary" data-od-id="btn-primary">Start Free</button><button class="btn" data-od-id="btn-secondary">Secondary</button><button class="btn ghost" data-od-id="btn-ghost">Ghost</button></div><div class="eg-meta"><b>Variants</b> · primary=accent · secondary=surface · ghost=transparent</div></div>
+      <div class="eg"><div class="eg-preview"><button class="btn primary small" data-od-id="btn-small">+ Add Source</button><button class="btn small" disabled data-od-id="btn-disabled">Disabled</button></div><div class="eg-meta"><b>Sizing + disabled</b> · de-emphasized, non-interactive</div></div>
+    </div>
+    <p class="mono" style="font-size:.68rem;color:var(--muted)">States: hover lifts -2px with deeper shadow; press collapses shadow &amp; shifts 4px. prefers-reduced-motion removes all transforms.</p>
+  </section>
+
+  <!-- Pills + badges -->
+  <section class="cat" data-od-id="cat-pills">
+    <div class="cat-head"><h2>Pills &amp; Badges</h2><span class="n">citations · counts · status</span></div>
+    <div class="row">
+      <div class="eg"><div class="eg-preview"><span class="pill" data-od-id="pill-1">[1]</span><span class="pill" data-od-id="pill-2">[2]</span><span class="mono" style="font-size:.7rem">Answer text with inline citation.</span></div><div class="eg-meta"><b>CitationPill</b> · 1.5px ink border · cyan only for verification</div></div>
+      <div class="eg"><div class="eg-preview"><span class="badge cyan" data-od-id="badge-sources">4 sources</span><span class="expire" data-od-id="badge-expire">Deletes tonight 12:00 AM IST</span><span class="badge accent" data-od-id="badge-accent">indexing</span><span class="badge ink" data-od-id="badge-ink">READY</span><span class="badge danger" data-od-id="badge-danger">0 credits</span></div><div class="eg-meta"><b>Badges</b> · mono 700 · 2px radius; pill only for credit badge</div></div>
+    </div>
+  </section>
+
+  <!-- Credit badge -->
+  <section class="cat" data-od-id="cat-credit">
+    <div class="cat-head"><h2>Credit Badge</h2><span class="n">daily pool · warning · locked</span></div>
+    <div class="row">
+      <div class="eg"><div class="eg-preview"><span class="credit" style="font-family:var(--mono);font-weight:700;font-size:.78rem;padding:.45rem .9rem;border:2px solid var(--border);border-radius:9999px;background:var(--surface);box-shadow:3px 3px 0 0 var(--border)" data-od-id="credit-normal">⚡ 8/10</span></div><div class="eg-meta"><b>OK</b> · surface · shadow</div></div>
+      <div class="eg"><div class="eg-preview"><span class="credit" style="font-family:var(--mono);font-weight:700;font-size:.78rem;padding:.45rem .9rem;border:2px solid var(--border);border-radius:9999px;background:var(--accent);box-shadow:3px 3px 0 0 var(--border)" data-od-id="credit-warn">⚡ 2/10</span></div><div class="eg-meta"><b>≤2 warning</b> · accent bg</div></div>
+      <div class="eg"><div class="eg-preview"><span class="credit" style="font-family:var(--mono);font-weight:700;font-size:.78rem;padding:.45rem .9rem;border:2px solid var(--border);border-radius:9999px;background:var(--danger-deep);color:#fff;box-shadow:3px 3px 0 0 var(--border)" data-od-id="credit-locked">🔒 0/10</span></div><div class="eg-meta"><b>Locked</b> · danger-deep + white · composer disabled</div></div>
+    </div>
+  </section>
+
+  <!-- Source cards -->
+  <section class="cat" data-od-id="cat-sources">
+    <div class="cat-head"><h2>Source Card</h2><span class="n">ingestion states</span></div>
+    <div class="row">
+      <div class="eg preview-row"><div class="eg-preview">
+        <div class="src-item"><div class="src-row"><span class="src-icon">PDF</span><span>raft-paper.pdf</span></div><span class="status"><span class="dot green"></span><span class="stat-ready">● ready</span></span></div>
+        <div class="src-item"><div class="src-row"><span class="src-icon">▶</span><span>mit-lecture-youtube</span></div><span class="status"><span class="orb"></span><span class="mono" style="color:var(--fg)">indexing…</span></span></div>
+        <div class="src-item"><div class="src-row"><span class="src-icon">◎</span><span>system-docs-web</span></div><span class="status"><span class="dot gray"></span><span class="mono" style="color:var(--muted)">queued</span></span></div>
+        <div class="src-item"><div class="src-row"><span class="src-icon">TXT</span><span>notes-draft.txt</span></div><span class="status"><span class="dot red"></span><span class="stat-failed">failed</span></span></div>
+      </div><div class="eg-meta"><b>States</b> · queued=gray · indexing=orbital spin · ready=green pulse · failed=red</div></div>
+    </div>
+  </section>
+
+  <!-- Banner + refusal -->
+  <section class="cat" data-od-id="cat-banner">
+    <div class="cat-head"><h2>Banner &amp; Refusal</h2><span class="n">system notices</span></div>
+    <div class="row">
+      <div class="eg wide preview-row"><div class="eg-preview">
+        <div class="banner" data-od-id="expiration-banner">⏳ Auto-deletion Notice: This notebook will be auto-deleted tonight at 12:00 AM Asia/Kolkata (UTC+05:30).</div>
+        <div class="refusal" data-od-id="refusal-card">
+          <div class="rtitle">⚠ Honest refusal</div>
+          <p>The uploaded sources do not specify the requested information.</p>
+          <button class="btn small primary" data-od-id="btn-web-search">Search Web &amp; Answer</button>
+          <div class="cost">Consumes 1 credit · via Tavily</div>
+        </div>
+      </div><div class="eg-meta"><b>ExpirationBanner</b> (full-width accent) + <b>RefusalCard</b> (warning border, web-search CTA)</div></div>
+    </div>
+  </section>
+
+  <!-- Forms -->
+  <section class="cat" data-od-id="cat-forms">
+    <div class="cat-head"><h2>Form Controls</h2><span class="n">input · textarea · tabs · dropzone</span></div>
+    <div class="row">
+      <div class="eg preview-row"><div class="eg-preview">
+        <div class="field"><label for="turl">Web URL</label><input type="text" id="turl" placeholder="https://example.com/article" data-od-id="input-url"></div>
+        <div class="field"><label for="tnote">Paste text</label><textarea id="tnote" rows="2" placeholder="Paste raw text to ingest…" data-od-id="textarea-note"></textarea></div>
+        <div class="upload-tabs" id="utabs" data-od-id="upload-tabs-demo">
+          <button class="utab active" data-tab="Text">Text</button>
+          <button class="utab" data-tab="Web URL">Web URL</button>
+          <button class="utab" data-tab="PDF">PDF</button>
+          <button class="utab" data-tab="Transcript">Transcript</button>
+          <button class="utab" data-tab="YouTube">YouTube</button>
+        </div>
+        <div class="dropzone" data-od-id="dropzone-demo">Drag &amp; drop PDF, transcript, or text file — or click to browse</div>
+      </div><div class="eg-meta"><b>Add Source modal controls</b> · 2px ink border, sharp radius, focus ring cyan</div></div>
+    </div>
+  </section>
+
+  <!-- Cards + avatar -->
+  <section class="cat" data-od-id="cat-cards">
+    <div class="cat-head"><h2>Cards &amp; Avatar</h2><span class="n">containers</span></div>
+    <div class="rowtight" style="align-items:stretch;margin-bottom:1rem">
+      <article class="card-demo" data-od-id="card-demo-1"><h4>Notebook card</h4><span class="mono" style="font-size:.66rem;color:var(--muted)">Created 2026-09-04</span><div style="display:flex;gap:.5rem;flex-wrap:wrap"><span class="badge cyan">4 sources</span><span class="expire">Deletes tonight</span></div></article>
+      <article class="card-demo" style="justify-content:center;align-items:center;text-align:center" data-od-id="card-demo-2"><span class="mono" style="font-size:1.4rem">＋</span><span class="mono" style="font-size:.68rem;color:var(--muted)">Create notebook card · dashed in screens</span></article>
+      <article class="card-demo" style="justify-content:center;align-items:center;gap:.8rem" data-od-id="card-demo-3"><span class="avatar">P</span><span class="mono" style="font-size:.7rem">User avatar · accent, 2px ink</span></article>
+    </div>
+    <div class="modal-overlay" id="modalDemo" data-od-id="modal-demo">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-head"><span id="modalTitle">ADD SOURCE</span><button class="modal-close" id="closeModal" data-od-id="modal-close">×</button></div>
+        <div class="modal-body">
+          <div class="upload-tabs"><button class="utab active">Text</button><button class="utab">Web URL</button><button class="utab">PDF</button></div>
+          <div class="field" style="margin-top:1rem"><label>Paste text</label><textarea rows="3" placeholder="Paste raw text to ingest…"></textarea></div>
+          <div style="display:flex;justify-content:flex-end;gap:.6rem;margin-top:1rem"><button class="btn small primary" data-od-id="modal-add">Add Source</button></div>
+        </div>
+      </div>
+    </div>
+    <button class="btn small" data-od-id="btn-open-modal">Open modal sample</button>
+  </section>
+
+</main>
+
+<footer data-od-id="library-footer">
+  <div class="foot"><span>© 2026 CONTEXTUAL UI KIT</span><span>Consensus is: verify everything.</span></div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var saved=localStorage.getItem('ctx-theme');
+  if(saved)root.setAttribute('data-theme',saved);
+  var btn=document.getElementById('themeToggle'),sun=document.getElementById('iSun'),moon=document.getElementById('iMoon');
+  function sync(){var d=root.getAttribute('data-theme')==='dark';sun.style.display=d?'none':'block';moon.style.display=d?'block':'none';}
+  sync();
+  if(btn)btn.addEventListener('click',function(){var c=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',c);localStorage.setItem('ctx-theme',c);sync();});
+
+  var tabs=document.querySelectorAll('#utabs .utab');
+  tabs.forEach(function(t){t.addEventListener('click',function(){tabs.forEach(function(x){x.classList.remove('active');});t.classList.add('active');});});
+
+  var modal=document.getElementById('modalDemo');
+  document.querySelector('[data-od-id="btn-open-modal"]').addEventListener('click',function(){modal.classList.add('open');});
+  document.getElementById('closeModal').addEventListener('click',function(){modal.classList.remove('open');});
+  modal.addEventListener('click',function(e){if(e.target===modal)modal.classList.remove('open');});
+
+  document.addEventListener('click',function(e){document.querySelectorAll('.credit-popup.open').forEach(function(d){if(!d.parentElement.contains(e.target))d.classList.remove('open')})});
+})();
+</script>
+</body>
+</html>

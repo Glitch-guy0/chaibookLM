@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elevation — Contextual Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--fg:#111111;--muted:#555555;--bg:#F4F4F0;--surface:#FFFFFF;--border:#111111;--mono:"Space Mono",ui-monospace,Menlo,Consolas,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--mono);padding:40px 24px}
+h1{font-weight:700;font-size:1.6rem;margin-bottom:8px}
+.sub{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:32px}
+.grid{display:flex;flex-wrap:wrap;gap:24px}
+.box{width:200px;height:120px;border:2px solid var(--border);background:var(--surface);display:grid;place-items:center;font-size:.66rem;text-align:center;padding:12px;line-height:1.4}
+.s1{box-shadow:4px 4px 0 0 var(--border)}
+.s2{box-shadow:6px 6px 0 0 var(--border)}
+
+.s4{box-shadow:none}
+.note{font-size:.66rem;color:var(--muted);margin-top:24px;max-width:500px;line-height:1.5}
+</style>
+</head>
+<body>
+<h1>Elevation System</h1>
+<p class="sub">Zero-blur solid offset shadows · hard ink borders</p>
+
+<div class="grid">
+  <div class="box s1">Standard<br>4px 4px 0 0</div>
+  <div class="box s2">Hover / Focus<br>6px 6px 0 0</div>
+  <div class="box s4" style="border-bottom:4px solid var(--border)">Pressed / Active<br>0 0 + translate(4px,4px)</div>
+</div>
+
+<p class="note">All interactive elements (buttons, cards, controls) follow the same elevation flow: standard → hover/focus (elevated) → pressed (collapsed). The pressed state translates the element down-right to simulate physical depth.</p>
+</body>
+</html>

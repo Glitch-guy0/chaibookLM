@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UI Surfaces — Contextual Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F4F0;--surface:#FFFFFF;--fg:#111111;--muted:#555555;--border:#111111;--accent:#FFE500;--citation:#00E5FF;--danger:#FF3333;--success:#00E575;--danger-deep:oklch(0.5 0.21 27);--mono:"Space Mono",ui-monospace,Menlo,Consolas,monospace;--sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);padding:40px 24px}
+h1{font-family:var(--mono);font-weight:700;font-size:1.6rem;margin-bottom:8px}
+.sub{font-family:var(--mono);font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:32px}
+h2{font-family:var(--mono);font-weight:700;font-size:1rem;margin-bottom:16px;border-top:2px solid var(--border);padding-top:16px;margin-top:32px}
+.surfaces{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px}
+.surface-card{border:2px solid var(--border);background:var(--surface);box-shadow:5px 5px 0 0 var(--border);overflow:hidden}
+.surface-head{padding:10px 14px;border-bottom:2px solid var(--border);font-family:var(--mono);font-weight:700;font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;background:repeating-linear-gradient(-45deg,color-mix(in oklch,var(--border) 4%,transparent) 0 6px,transparent 6px 12px)}
+.surface-body{padding:14px;min-height:200px}
+
+/* mini components for surface demos */
+.brand{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-weight:700;font-size:.76rem}
+.brandmark{width:24px;height:24px;border:2px solid var(--border);background:var(--accent);display:grid;place-items:center;box-shadow:2px 2px 0 0 var(--border)}
+.credit{font-family:var(--mono);font-weight:700;font-size:.68rem;padding:.35rem .7rem;border:2px solid var(--border);border-radius:9999px;background:var(--surface);box-shadow:2px 2px 0 0 var(--border)}
+.btn{font-family:var(--mono);font-weight:700;font-size:.68rem;text-transform:uppercase;display:inline-flex;align-items:center;gap:.3rem;padding:.5rem .9rem;cursor:pointer;border:2px solid var(--border);border-radius:2px;background:var(--surface);color:var(--fg);box-shadow:4px 4px 0 0 var(--border);transition:box-shadow .12s ease,transform .12s ease}
+.btn.primary{background:var(--accent)}
+.btn:hover{box-shadow:6px 6px 0 0 var(--border);transform:translate(-2px,-2px)}
+.btn:active{box-shadow:0 0 0 0 var(--border);transform:translate(4px,4px)}
+.card-mini{border:2px solid var(--border);background:var(--surface);box-shadow:3px 3px 0 0 var(--border);padding:10px;margin-bottom:8px}
+.card-mini h4{font-family:var(--mono);font-weight:700;font-size:.78rem;margin-bottom:4px}
+.card-mini .meta{font-family:var(--mono);font-size:.62rem;color:var(--muted)}
+.msg{background:var(--accent);border:2px solid var(--border);padding:6px 8px;font-family:var(--mono);font-size:.68rem;box-shadow:3px 3px 0 0 var(--border);margin-bottom:8px}
+.pill{font-family:var(--mono);font-weight:700;font-size:.62rem;padding:2px 5px;border:1.5px solid var(--border);border-radius:2px;background:var(--citation);display:inline-block}
+.banner{background:var(--accent);border:2px solid var(--border);font-family:var(--mono);font-size:.64rem;font-weight:700;text-align:center;padding:5px 8px;margin-bottom:10px}
+</style>
+</head>
+<body>
+<h1>Applied UI Surfaces</h1>
+<p class="sub">Miniaturized real screens using the design system tokens</p>
+
+<div class="surfaces">
+  <!-- Landing Nav -->
+  <div class="surface-card">
+    <div class="surface-head">Landing — Navigation Bar</div>
+    <div class="surface-body" style="display:flex;align-items:center;justify-content:space-between">
+      <div class="brand"><span class="brandmark"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M2 2h12v12H2z" stroke="var(--fg)" stroke-width="2"/><path d="M5 8h6" stroke="var(--fg)" stroke-width="2"/></svg></span>CONTEXTUAL</div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <span style="font-family:var(--mono);font-size:.68rem;color:var(--muted)">Sign in</span>
+        <button class="btn ghost" style="background:transparent">Get started</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dashboard Card -->
+  <div class="surface-card">
+    <div class="surface-head">Dashboard — Notebook Card</div>
+    <div class="surface-body">
+      <div class="card-mini">
+        <h4>Distributed Systems & Raft Consensus</h4>
+        <div class="meta">Created 2026-09-04 · 4 sources</div>
+        <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap">
+          <span class="pill" style="background:var(--citation)">4 sources</span>
+          <span style="font-family:var(--mono);font-size:.6rem;padding:2px 6px;border:1.5px solid var(--border);border-radius:2px;background:var(--accent)">Deletes tonight 12:00 AM IST</span>
+        </div>
+      </div>
+      <div class="card-mini" style="border-style:dashed;display:flex;align-items:center;justify-content:center;min-height:80px;gap:8px">
+        <span class="mono" style="font-size:1.2rem">+</span>
+        <button class="btn primary">+ New Notebook</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Workspace Chat -->
+  <div class="surface-card">
+    <div class="surface-head">Workspace — Chat Pane</div>
+    <div class="surface-body">
+      <div class="msg" style="align-self:flex-start;max-width:90%">How does Raft handle partition recovery?</div>
+      <div style="font-size:.72rem;margin-bottom:6px">When the partition heals, the minority leader steps down and reverts to follower <span class="pill">[1]</span>.</div>
+      <div style="font-size:.72rem">In MIT's lecture, this is the commit index catch-up phase <span class="pill">[2]</span>.</div>
+    </div>
+  </div>
+
+  <!-- Workspace Showcase -->
+  <div class="surface-card">
+    <div class="surface-head">Workspace — Original View</div>
+    <div class="surface-body">
+      <div style="display:flex;justify-content:space-between;align-items:center;border:2px solid var(--border);background:var(--bg);padding:5px 8px;margin-bottom:8px;font-family:var(--mono);font-size:.62rem">
+        <span>raft-paper.pdf</span>
+        <span>Page 14 of 28</span>
+      </div>
+      <div style="border:2px solid var(--border);background:var(--surface);padding:10px;box-shadow:3px 3px 0 0 var(--border);font-size:.72rem;line-height:1.55">
+        <p>During a partition, the minority leader can be deposed. Once the partitions heal, the deposed leader <span style="background:color-mix(in oklch,var(--citation) 45%,transparent);border:2px solid var(--citation);border-radius:2px;padding:2px 4px;display:inline">reverts to follower and discards any uncommitted entries</span>.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Expiration Banner + Refusal -->
+  <div class="surface-card">
+    <div class="surface-head">System Notices</div>
+    <div class="surface-body">
+      <div class="banner">⏳ Auto-deletes tonight 12:00 AM IST</div>
+      <div style="border:2px solid var(--fg);background:var(--surface);padding:10px;box-shadow:3px 3px 0 0 var(--border)">
+        <div style="font-family:var(--mono);font-weight:700;font-size:.7rem;margin-bottom:4px">⚠ Honest refusal</div>
+        <p style="font-size:.74rem;margin-bottom:6px">The uploaded sources do not specify the requested information.</p>
+        <button class="btn primary" style="font-size:.62rem;padding:.4rem .7rem">Search Web & Answer</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

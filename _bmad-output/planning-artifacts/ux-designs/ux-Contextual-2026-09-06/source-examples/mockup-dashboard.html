@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contextual — Notebooks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:oklch(0.982 0.003 90);--surface:oklch(1 0 0);--fg:oklch(0.21 0 0);
+  --muted:oklch(0.44 0 0);--border:oklch(0.21 0 0);--accent:oklch(0.93 0.17 95);
+  --citation:oklch(0.84 0.19 215);--danger:oklch(0.65 0.22 27);--success:oklch(0.82 0.20 155);
+  --mono:"Space Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+}
+[data-theme="dark"]{--bg:oklch(0.15 0 0);--surface:oklch(0.21 0.005 280);--fg:oklch(1 0 0);--muted:oklch(0.68 0.01 285);--border:oklch(0.9 0.01 285);--accent:oklch(0.86 0.17 95);--citation:oklch(0.78 0.14 220)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;transition:background .2s,color .2s}
+.mono{font-family:var(--mono)}
+:focus-visible{outline:3px solid var(--citation);outline-offset:2px;border-radius:2px}
+
+/* header */
+.topbar{border-bottom:2px solid var(--border);background:var(--bg);position:sticky;top:0;z-index:40}
+.topbar-inner{max-width:1180px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.brand{display:flex;align-items:center;gap:.6rem;font-family:var(--mono);font-weight:700;text-decoration:none;color:var(--fg)}
+.brandmark{width:28px;height:28px;border:2px solid var(--border);background:var(--accent);display:grid;place-items:center;box-shadow:3px 3px 0 0 var(--border)}
+.topright{display:flex;align-items:center;gap:.9rem}
+.credit{font-family:var(--mono);font-weight:700;font-size:.78rem;padding:.45rem .9rem;border:2px solid var(--border);border-radius:9999px;background:var(--surface);color:var(--fg);box-shadow:3px 3px 0 0 var(--border);cursor:pointer;position:relative}
+.credit.warn{background:var(--accent)}
+.credit.locked{background:oklch(0.5 0.21 27);color:#fff}
+.credit-popup{display:none;position:absolute;top:calc(100% + 8px);right:0;width:320px;border:2px solid var(--border);background:var(--surface);box-shadow:6px 6px 0 0 var(--border);padding:1.2rem;z-index:100}
+.credit-popup.open{display:block}
+.credit-popup-title{font-family:var(--mono);font-weight:700;font-size:.85rem;margin-bottom:.5rem}
+.credit-popup-desc{font-size:.82rem;color:var(--muted);line-height:1.5;margin-bottom:.8rem}
+.credit-popup .btn{font-family:var(--mono);font-weight:700;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;padding:.55rem 1rem;border:2px solid var(--border);background:var(--surface);color:var(--fg);cursor:pointer;box-shadow:3px 3px 0 0 var(--border);transition:transform .15s cubic-bezier(0.2,0,0,1),box-shadow .15s cubic-bezier(0.2,0,0,1)}
+.credit-popup .btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 0 var(--border)}
+.credit-popup .btn:active{transform:translate(3px,3px);box-shadow:0 0 0 0 var(--border)}
+.theme-toggle{width:44px;height:44px;border:2px solid var(--border);border-radius:2px;background:var(--surface);display:grid;place-items:center;cursor:pointer;box-shadow:3px 3px 0 0 var(--border);transition:box-shadow .15s cubic-bezier(0.2,0,0,1),background .15s cubic-bezier(0.2,0,0,1)}
+.theme-toggle:hover{box-shadow:5px 5px 0 0 var(--border)}
+.theme-toggle:active{box-shadow:0 0 0 0 var(--border);background:color-mix(in oklch,var(--border) 10%,var(--surface));transition:box-shadow .06s ease,background .06s ease}
+.avatar{width:40px;height:40px;border:2px solid var(--border);border-radius:2px;background:var(--accent);display:grid;place-items:center;font-family:var(--mono);font-weight:700;font-size:.8rem;box-shadow:3px 3px 0 0 var(--border)}
+
+/* hero strip */
+.dash-hero{border-bottom:2px solid var(--border);background:var(--surface)}
+.dash-hero-inner{max-width:1180px;margin:0 auto;padding:28px 24px}
+.eyebrow{font-family:var(--mono);font-weight:700;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.dash-hero h1{font-family:var(--mono);font-weight:700;font-size:clamp(1.5rem,3vw,2.1rem);margin-top:.4rem}
+.dash-hero p{color:var(--muted);font-size:.95rem;max-width:56ch;margin-top:.4rem}
+
+/* grid */
+.grid{max-width:1180px;margin:0 auto;padding:32px 24px 72px}
+.grid-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.6rem;flex-wrap:wrap;gap:1rem}
+.grid-head h2{font-family:var(--mono);font-weight:700;font-size:1.1rem}
+.rows-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+
+a.card{border:2px solid var(--border);background:var(--surface);box-shadow:5px 5px 0 0 var(--border);display:flex;flex-direction:column;padding:1.3rem;gap:.7rem;transition:box-shadow .12s ease,transform .12s ease;text-decoration:none;color:var(--fg)}
+a.card:hover{box-shadow:8px 8px 0 0 var(--border);transform:translate(-2px,-2px)}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start}
+.card-title{font-family:var(--mono);font-weight:700;font-size:1rem;line-height:1.25}
+.card-meta{font-family:var(--mono);font-size:.7rem;color:var(--muted)}
+.badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.2rem}
+.badge{font-family:var(--mono);font-weight:700;font-size:.66rem;padding:2px 7px;border:1.5px solid var(--border);border-radius:2px;background:var(--bg)}
+.badge.cyan{background:var(--citation)}
+.badge.yellow{background:var(--accent)}
+.badge.ink{background:var(--fg);color:var(--surface)}
+.meatball{margin-left:auto;padding:2px 6px;border:none;background:none;font-family:var(--mono);font-weight:700;cursor:pointer;color:var(--muted);position:relative;z-index:2}
+.meatball:hover{color:var(--fg)}
+.dropdown{display:none;position:absolute;right:0;top:100%;margin-top:4px;border:2px solid var(--border);background:var(--surface);box-shadow:4px 4px 0 0 var(--border);min-width:140px;z-index:10}
+.dropdown.open{display:block}
+.dropdown button{display:block;width:100%;text-align:left;padding:.5rem .7rem;font-family:var(--mono);font-size:.72rem;font-weight:700;border:none;background:none;cursor:pointer;color:var(--danger)}
+.dropdown button:hover{background:color-mix(in oklch,var(--danger) 10%,var(--surface))}
+
+/* create card */
+.card.create{border-style:dashed;background:transparent;box-shadow:none;justify-content:center;align-items:center;text-align:center;gap:1rem;min-height:150px}
+.card.create:hover{box-shadow:none}
+.create-label{font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+.btn{font-family:var(--mono);font-weight:700;font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;display:inline-flex;align-items:center;gap:.4rem;padding:.75rem 1.2rem;cursor:pointer;border:2px solid var(--border);border-radius:2px;background:var(--surface);color:var(--fg);box-shadow:4px 4px 0 0 var(--border);text-decoration:none;transition:transform .15s cubic-bezier(0.2,0,0,1),box-shadow .15s cubic-bezier(0.2,0,0,1),background .15s cubic-bezier(0.2,0,0,1)}
+.btn.primary{background:var(--accent)}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 0 var(--border)}
+.btn:focus-visible{outline:3px solid var(--citation);outline-offset:2px}
+.btn:active{transform:translate(4px,4px);box-shadow:0 0 0 0 var(--border);transition:transform .06s ease,box-shadow .06s ease,background .06s ease}
+
+.expire{font-family:var(--mono);font-size:.66rem;padding:2px 7px;border:1.5px solid var(--border);border-radius:2px;background:var(--accent);color:var(--fg);align-self:flex-start}
+
+@media (max-width:920px){.rows-cols{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.rows-cols{grid-template-columns:1fr}}
+@media (max-width:520px){.avatar{display:none}.credit{font-size:.66rem;padding:.35rem .6rem}.topbar-inner{padding:0 12px}}
+@media (prefers-reduced-motion:reduce){.btn{transform:none}.btn:hover{transform:none}a.card{transform:none}a.card:hover{transform:none}}
+</style>
+</head>
+<body>
+
+<header class="topbar" data-od-id="dashboard-topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#" data-od-id="brand-mark"><span class="brandmark" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" stroke="var(--fg)" stroke-width="2"/><path d="M5 8h6" stroke="var(--fg)" stroke-width="2"/></svg></span>CONTEXTUAL</a>
+    <div class="topright">
+      <button class="credit" id="creditBadge" data-od-id="credit-badge" onclick="event.stopPropagation();this.nextElementSibling.classList.toggle('open')">⚡ 8/10<span class="credit-popup"><div class="credit-popup-title">⚡ Credits remaining</div><div class="credit-popup-desc">You have 8 of 10 daily credits left. Each query uses 1 credit. Credits reset at midnight IST.</div></span></button>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" data-od-id="theme-toggle">
+        <svg id="iSun" width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="4" stroke="var(--fg)" stroke-width="2"/><path d="M10 2v2M10 16v2M2 10h2M16 10h2M4.3 4.3l1.4 1.4M14.3 14.3l1.4 1.4M15.7 4.3l-1.4 1.4M5.7 14.3l-1.4 1.4" stroke="var(--fg)" stroke-width="2"/></svg>
+        <svg id="iMoon" width="18" height="18" viewBox="0 0 20 20" fill="none" style="display:none"><path d="M17 12.5A8 8 0 017.5 3 8 8 0 1017 12.5" stroke="var(--fg)" stroke-width="2" fill="none"/></svg>
+      </button>
+      <div class="avatar" data-od-id="user-avatar" title="Prajwal">P</div>
+    </div>
+  </div>
+</header>
+
+<section class="dash-hero" data-od-id="dashboard-hero">
+  <div class="dash-hero-inner">
+    <span class="eyebrow">Research workspace</span>
+    <h1>Your notebooks</h1>
+    <p>Each notebook is a self-contained corpus. Add up to 10 sources, ask questions across them, and verify every answer in the original.</p>
+  </div>
+</section>
+
+<main class="grid" data-od-id="notebooks-grid">
+  <div class="grid-head">
+    <h2 class="mono">NOTEBOOKS</h2>
+    <span class="eyebrow" style="text-transform:none">auto-delete @ 12:00 AM Asia/Kolkata</span>
+  </div>
+  <div class="rows-cols">
+
+    <a class="card create" href="#" data-od-id="notebook-create">
+      <span class="btn primary">+ New Notebook</span>
+    </a>
+
+    <a class="card" href="mockup-workspace-desktop.html" data-od-id="notebook-raft">
+      <div class="card-top">
+        <h3 class="card-title">Distributed Systems &amp; Raft Consensus</h3>
+        <button class="meatball" aria-label="More options" onclick="event.preventDefault();event.stopPropagation();this.nextElementSibling.classList.toggle('open')">•••<span class="dropdown"><button onclick="event.preventDefault();event.stopPropagation();if(confirm('Delete this notebook?'))this.closest('a.card').remove()">Delete notebook</button></span></button>
+      </div>
+      <span class="card-meta">Created 2026-09-04 · 4 sources</span>
+      <div class="badges">
+        <span class="badge cyan">4 sources</span>
+        <span class="expire">Deletes tonight 12:00 AM IST</span>
+      </div>
+    </a>
+
+    <a class="card" href="mockup-workspace-desktop.html" data-od-id="notebook-ml">
+      <div class="card-top">
+        <h3 class="card-title">ML Systems &amp; Attention</h3>
+        <button class="meatball" aria-label="More options" onclick="event.preventDefault();event.stopPropagation();this.nextElementSibling.classList.toggle('open')">•••<span class="dropdown"><button onclick="event.preventDefault();event.stopPropagation();if(confirm('Delete this notebook?'))this.closest('a.card').remove()">Delete notebook</button></span></button>
+      </div>
+      <span class="card-meta">Created 2026-09-02 · 7 sources</span>
+      <div class="badges">
+        <span class="badge cyan">7 sources</span>
+        <span class="expire">Deletes tonight 12:00 AM IST</span>
+      </div>
+    </a>
+
+    <a class="card" href="mockup-workspace-desktop.html" data-od-id="notebook-sec">
+      <div class="card-top">
+        <h3 class="card-title">Web Security Field Notes</h3>
+        <button class="meatball" aria-label="More options" onclick="event.preventDefault();event.stopPropagation();this.nextElementSibling.classList.toggle('open')">•••<span class="dropdown"><button onclick="event.preventDefault();event.stopPropagation();if(confirm('Delete this notebook?'))this.closest('a.card').remove()">Delete notebook</button></span></button>
+      </div>
+      <span class="card-meta">Created 2026-08-30 · 2 sources</span>
+      <div class="badges">
+        <span class="badge cyan">2 sources</span>
+        <span class="expire">Deletes in 2 nights</span>
+      </div>
+    </a>
+
+    <a class="card" href="mockup-workspace-desktop.html" data-od-id="notebook-pl">
+      <div class="card-top">
+        <h3 class="card-title">Language Models Reading List</h3>
+        <button class="meatball" aria-label="More options" onclick="event.preventDefault();event.stopPropagation();this.nextElementSibling.classList.toggle('open')">•••<span class="dropdown"><button onclick="event.preventDefault();event.stopPropagation();if(confirm('Delete this notebook?'))this.closest('a.card').remove()">Delete notebook</button></span></button>
+      </div>
+      <span class="card-meta">Created 2026-08-21 · 9 sources</span>
+      <div class="badges">
+        <span class="badge cyan">9 sources</span>
+        <span class="expire" style="background:oklch(0.5 0.21 27);color:#fff">Deletes tonight 12:00 AM IST</span>
+      </div>
+    </a>
+
+    <a class="card" href="mockup-workspace-desktop.html" data-od-id="notebook-db">
+      <div class="card-top">
+        <h3 class="card-title">Database Internals</h3>
+        <button class="meatball" aria-label="More options" onclick="event.preventDefault();event.stopPropagation();this.nextElementSibling.classList.toggle('open')">•••<span class="dropdown"><button onclick="event.preventDefault();event.stopPropagation();if(confirm('Delete this notebook?'))this.closest('a.card').remove()">Delete notebook</button></span></button>
+      </div>
+      <span class="card-meta">Created 2026-09-05 · 3 sources</span>
+      <div class="badges">
+        <span class="badge cyan">3 sources</span>
+        <span class="expire">Deletes tonight 12:00 AM IST</span>
+      </div>
+    </a>
+
+  </div>
+</main>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var saved=localStorage.getItem('ctx-theme');
+  if(saved) root.setAttribute('data-theme',saved);
+  var btn=document.getElementById('themeToggle'),sun=document.getElementById('iSun'),moon=document.getElementById('iMoon');
+  function sync(){var d=root.getAttribute('data-theme')==='dark';sun.style.display=d?'none':'block';moon.style.display=d?'block':'none';}
+  sync();
+  if(btn)btn.addEventListener('click',function(){var c=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',c);localStorage.setItem('ctx-theme',c);sync();});
+  document.addEventListener('click',function(e){document.querySelectorAll('.dropdown.open').forEach(function(d){if(!d.parentElement.contains(e.target))d.classList.remove('open')});document.querySelectorAll('.credit-popup.open').forEach(function(d){if(!d.parentElement.contains(e.target))d.classList.remove('open')})});
+})();
+</script>
+</body>
+</html>

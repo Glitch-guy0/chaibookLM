@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "source-examples/component-library.html",
+  "entry": "source-examples/component-library.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-09-06T15:22:55.041Z",
+  "updatedAt": "2026-09-06T15:22:55.041Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}

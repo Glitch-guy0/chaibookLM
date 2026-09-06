@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CreditBadge — Contextual UI Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F4F0;--surface:#FFFFFF;--fg:#111111;--muted:#555555;--border:#111111;--accent:#FFE500;--danger:#FF3333;--danger-deep:oklch(0.5 0.21 27);--mono:"Space Mono",ui-monospace,Menlo,Consolas,monospace}
+[data-theme="dark"]{--bg:#0D0D0D;--surface:#18181B;--fg:#FFFFFF;--muted:#A1A1AA;--border:#E4E4E7;--accent:#FACC15;--danger-deep:oklch(0.58 0.22 27)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--mono);padding:40px 24px;transition:background .2s,color .2s}
+:focus-visible{outline:3px solid var(--citation);outline-offset:2px;border-radius:2px}
+h1{font-weight:700;font-size:1.6rem;margin-bottom:8px}
+.sub{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:32px}
+.row{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-bottom:24px}
+.note{font-size:.68rem;color:var(--muted);margin-bottom:32px;max-width:500px;line-height:1.5}
+.credit{font-weight:700;font-size:.78rem;padding:.45rem .9rem;border:2px solid var(--border);border-radius:9999px;background:var(--surface);box-shadow:3px 3px 0 0 var(--border)}
+.credit.warn{background:var(--accent)}
+.credit.locked{background:var(--danger-deep);color:#fff}
+.spec{border:2px solid var(--border);background:var(--surface);box-shadow:4px 4px 0 0 var(--border);padding:20px;margin-top:24px;max-width:600px;font-size:.72rem;line-height:1.6}
+.spec h3{font-weight:700;margin-bottom:8px;font-size:.82rem}
+</style>
+</head>
+<body>
+<h1>CreditBadge</h1>
+<p class="sub">Daily Credit Counter · Component</p>
+
+<div class="row">
+  <span class="credit">⚡ 8/10</span>
+  <span class="credit">⚡ 5/10</span>
+  <span class="credit warn">⚡ 2/10</span>
+  <span class="credit locked">🔒 0/10</span>
+</div>
+<p class="note">Pill shape (9999px radius). Yellow warning at ≤2 credits. Red locked at 0 — disables the chat composer with an upgrade notice.</p>
+
+<div class="spec">
+  <h3>States</h3>
+  <p><code>.credit</code> = normal (surface bg)</p>
+  <p><code>.credit.warn</code> = low credits (accent bg)</p>
+  <p><code>.credit.locked</code> = zero credits (danger-deep bg, white text)</p>
+</div>
+
+<script>
+(function(){var r=document.documentElement,s=localStorage.getItem('ctx-theme');if(s)r.setAttribute('data-theme',s);})();
+</script>
+</body>
+</html>

@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contextual — Brand Identity Directions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F4F0;--surface:#FFFFFF;--fg:#111111;--muted:#555555;
+  --border:#111111;--accent:#FFE500;--citation:#00E5FF;
+  --danger:#FF3333;--success:#00E575;
+  --mono:"Space Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* layout */
+.page{max-width:1180px;margin:0 auto;padding:48px 24px}
+.hero{text-align:center;padding:60px 0 48px;border-bottom:2px solid var(--border)}
+.hero h1{font-family:var(--mono);font-weight:700;font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:.6rem}
+.hero p{color:var(--muted);font-size:1rem;max-width:52ch;margin:0 auto}
+.section{padding:56px 0;border-bottom:2px solid var(--border)}
+.section:last-child{border-bottom:none}
+.section-label{font-family:var(--mono);font-weight:700;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:1.4rem}
+.section h2{font-family:var(--mono);font-weight:700;font-size:1.5rem;margin-bottom:.4rem}
+.section h3{font-family:var(--mono);font-weight:700;font-size:1rem;margin:1.6rem 0 .6rem}
+.section>p{color:var(--muted);font-size:.9rem;max-width:60ch;margin-bottom:1.4rem}
+
+/* route cards */
+.routes{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:1.4rem}
+.route{border:2px solid var(--border);background:var(--surface);box-shadow:6px 6px 0 0 var(--border);padding:1.6rem;display:flex;flex-direction:column;gap:1rem}
+.route-head{display:flex;align-items:center;gap:.8rem}
+.route-num{font-family:var(--mono);font-weight:700;font-size:1.4rem;width:36px;height:36px;border:2px solid var(--border);background:var(--accent);display:grid;place-items:center;box-shadow:3px 3px 0 0 var(--border);flex:none}
+.route-title{font-family:var(--mono);font-weight:700;font-size:1rem}
+.route-desc{font-size:.85rem;color:var(--muted)}
+
+/* logo display */
+.logo-display{border:2px solid var(--border);background:var(--bg);padding:2rem;display:grid;place-items:center;min-height:160px;position:relative}
+.logo-display.dark{background:#0D0D0D;color:#FFFFFF}
+.logo-display.alt{background:#111111;color:#FFFFFF}
+.symbol{width:80px;height:80px;border:3px solid var(--fg);display:grid;place-items:center;position:relative}
+.symbol svg{width:48px;height:48px}
+
+/* wordmark */
+.wordmark{font-family:var(--mono);font-weight:700;font-size:1.6rem;letter-spacing:.02em;display:flex;align-items:center;gap:.6rem}
+.wordmark-sm{font-size:1rem}
+.wordmark-xs{font-size:.78rem}
+
+/* lockup */
+.lockup{display:flex;align-items:center;gap:.8rem}
+.lockup .symbol{width:48px;height:48px;border-width:2px}
+.lockup .symbol svg{width:28px;height:28px}
+
+/* palette swatches */
+.swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.8rem;margin-top:1rem}
+.swatch{border:2px solid var(--border);overflow:hidden}
+.swatch-color{height:64px;display:grid;place-items:center;font-family:var(--mono);font-size:.66rem;font-weight:700}
+.swatch-info{padding:.5rem .6rem;font-family:var(--mono);font-size:.66rem;line-height:1.5}
+.swatch-info strong{display:block;font-size:.72rem}
+
+/* usage rules */
+.rules{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1rem}
+.rule{border:2px solid var(--border);background:var(--surface);padding:1rem;box-shadow:4px 4px 0 0 var(--border)}
+.rule-label{font-family:var(--mono);font-weight:700;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.4rem;color:var(--muted)}
+.rule-do{border-left:4px solid var(--success)}
+.rule-dont{border-left:4px solid var(--danger)}
+
+/* prompt box */
+.prompt-box{border:2px solid var(--border);background:var(--surface);box-shadow:4px 4px 0 0 var(--border);padding:1rem;font-family:var(--mono);font-size:.72rem;line-height:1.6;color:var(--muted);white-space:pre-wrap;word-break:break-word;margin-top:.8rem}
+
+/* grid helpers */
+.row{display:grid;gap:1.5rem}
+.row-2{grid-template-columns:repeat(2,1fr)}
+.row-3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:800px){.routes,.row-2,.row-3,.rules{grid-template-columns:1fr}}
+
+/* nav */
+.topnav{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:2px solid var(--border);padding:0 24px}
+.topnav-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+.topnav a{font-family:var(--mono);font-weight:700;font-size:.78rem;text-decoration:none;color:var(--fg);display:flex;align-items:center;gap:.5rem}
+.topnav .brandmark{width:24px;height:24px;border:2px solid var(--border);background:var(--accent);display:grid;place-items:center;box-shadow:2px 2px 0 0 var(--border)}
+.topnav .brandmark svg{width:12px;height:12px}
+.nav-links{display:flex;gap:1.2rem}
+.nav-links a{color:var(--muted);font-weight:400}
+.nav-links a:hover{color:var(--fg)}
+
+/* clearfix */
+.mt{margin-top:1.4rem}
+.mb{margin-bottom:1.4rem}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="#"><span class="brandmark"><svg viewBox="0 0 16 16" fill="none"><path d="M2 2h12v12H2z" stroke="var(--fg)" stroke-width="2"/><path d="M5 8h6" stroke="var(--fg)" stroke-width="2"/></svg></span>CONTEXTUAL</a>
+    <div class="nav-links">
+      <a href="#routes">Routes</a>
+      <a href="#palette">Palette</a>
+      <a href="#usage">Usage</a>
+      <a href="#prompts">Prompts</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page">
+
+<div class="hero">
+  <div class="section-label">Brand Identity System</div>
+  <h1>Contextual</h1>
+  <p>Three identity directions for a grounded research workspace. Each route extends the existing Neo-Brutalist design language — bold ink, offset shadows, monospace type — into a distinct logo system.</p>
+</div>
+
+<!-- ===== ROUTES ===== -->
+<div class="section" id="routes">
+  <div class="section-label">01 — Logo Routes</div>
+  <h2>Identity Directions</h2>
+  <p>Three distinct symbol concepts, each paired with a wordmark and lockup. All are built from the same geometric vocabulary: 2px ink strokes, sharp corners, zero blur.</p>
+
+  <div class="routes">
+
+    <!-- ROUTE A -->
+    <div class="route">
+      <div class="route-head">
+        <div class="route-num">A</div>
+        <div class="route-title">The Document Mark</div>
+      </div>
+      <div class="route-desc">A square document with a deliberate horizontal gash — the act of extracting a passage. Evolves the existing brandmark into a sharper, more ownable symbol.</div>
+      <div class="logo-display">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+          <rect x="8" y="8" width="64" height="64" stroke="#111" stroke-width="3"/>
+          <line x1="20" y1="40" x2="60" y2="40" stroke="#111" stroke-width="3"/>
+          <rect x="20" y="24" width="24" height="3" fill="#FFE500"/>
+          <rect x="20" y="52" width="18" height="3" fill="#111" opacity=".3"/>
+        </svg>
+      </div>
+      <div class="row row-2 mt">
+        <div class="logo-display">
+          <div class="lockup">
+            <div class="symbol">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M2 2h12v12H2z" stroke="var(--fg)" stroke-width="2"/><path d="M5 8h6" stroke="var(--fg)" stroke-width="2"/></svg>
+            </div>
+            <div class="wordmark wordmark-sm">CONTEXTUAL</div>
+          </div>
+        </div>
+        <div class="logo-display dark">
+          <div class="lockup">
+            <div class="symbol" style="border-color:#fff">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M2 2h12v12H2z" stroke="#fff" stroke-width="2"/><path d="M5 8h6" stroke="#fff" stroke-width="2"/></svg>
+            </div>
+            <div class="wordmark wordmark-sm" style="color:#fff">CONTEXTUAL</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROUTE B -->
+    <div class="route">
+      <div class="route-head">
+        <div class="route-num">B</div>
+        <div class="route-title">Citation Bracket</div>
+      </div>
+      <div class="route-desc">Heavy angular brackets framing a horizontal bar — a visual citation mark. The brackets reference source bounding boxes; the bar is the highlighted passage.</div>
+      <div class="logo-display">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+          <path d="M24 16L12 40L24 64" stroke="#111" stroke-width="4" stroke-linecap="square"/>
+          <rect x="30" y="36" width="20" height="8" fill="#00E5FF"/>
+          <path d="M56 16L68 40L56 64" stroke="#111" stroke-width="4" stroke-linecap="square"/>
+        </svg>
+      </div>
+      <div class="row row-2 mt">
+        <div class="logo-display">
+          <div class="lockup">
+            <div class="symbol" style="border:none;background:none;box-shadow:none;width:48px;height:48px">
+              <svg viewBox="0 0 48 48" fill="none" width="48" height="48">
+                <path d="M14 8L6 24L14 40" stroke="#111" stroke-width="3" stroke-linecap="square"/>
+                <rect x="18" y="20" width="12" height="5" fill="#00E5FF"/>
+                <path d="M34 8L42 24L34 40" stroke="#111" stroke-width="3" stroke-linecap="square"/>
+              </svg>
+            </div>
+            <div class="wordmark wordmark-sm">CONTEXTUAL</div>
+          </div>
+        </div>
+        <div class="logo-display dark">
+          <div class="lockup">
+            <div class="symbol" style="border:none;background:none;box-shadow:none;width:48px;height:48px">
+              <svg viewBox="0 0 48 48" fill="none" width="48" height="48">
+                <path d="M14 8L6 24L14 40" stroke="#fff" stroke-width="3" stroke-linecap="square"/>
+                <rect x="18" y="20" width="12" height="5" fill="#22D3EE"/>
+                <path d="M34 8L42 24L34 40" stroke="#fff" stroke-width="3" stroke-linecap="square"/>
+              </svg>
+            </div>
+            <div class="wordmark wordmark-sm" style="color:#fff">CONTEXTUAL</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROUTE C -->
+    <div class="route">
+      <div class="route-head">
+        <div class="route-num">C</div>
+        <div class="route-title">Monospace C</div>
+      </div>
+      <div class="route-desc">A bold, geometric letterform "C" built on the Space Mono grid. Open-right shape suggests an open bracket — always ready to receive context.</div>
+      <div class="logo-display">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+          <path d="M60 20C52 12 36 10 24 18C12 26 10 42 18 54C26 66 42 68 54 60" stroke="#111" stroke-width="5" stroke-linecap="square"/>
+          <rect x="52" y="36" width="12" height="8" fill="#FFE500"/>
+        </svg>
+      </div>
+      <div class="row row-2 mt">
+        <div class="logo-display">
+          <div class="lockup">
+            <div class="symbol" style="border:none;background:none;box-shadow:none;width:48px;height:48px">
+              <svg viewBox="0 0 48 48" fill="none" width="48" height="48">
+                <path d="M36 12C31 7 22 6 15 11C8 16 6 26 11 33C16 40 25 41 32 36" stroke="#111" stroke-width="3.5" stroke-linecap="square"/>
+                <rect x="31" y="22" width="7" height="5" fill="#FFE500"/>
+              </svg>
+            </div>
+            <div class="wordmark wordmark-sm">CONTEXTUAL</div>
+          </div>
+        </div>
+        <div class="logo-display dark">
+          <div class="lockup">
+            <div class="symbol" style="border:none;background:none;box-shadow:none;width:48px;height:48px">
+              <svg viewBox="0 0 48 48" fill="none" width="48" height="48">
+                <path d="M36 12C31 7 22 6 15 11C8 16 6 26 11 33C16 40 25 41 32 36" stroke="#fff" stroke-width="3.5" stroke-linecap="square"/>
+                <rect x="31" y="22" width="7" height="5" fill="#FACC15"/>
+              </svg>
+            </div>
+            <div class="wordmark wordmark-sm" style="color:#fff">CONTEXTUAL</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== PALETTE ===== -->
+<div class="section" id="palette">
+  <div class="section-label">02 — Extended Palette</div>
+  <h2>Color System</h2>
+  <p>The identity palette extends the core tokens with functional tints and shades for each route. Yellow anchors primary actions; cyan marks citations; ink carries structure.</p>
+
+  <h3>Core Tokens</h3>
+  <div class="swatches">
+    <div class="swatch"><div class="swatch-color" style="background:#F4F4F0;color:#111">#F4F4F0</div><div class="swatch-info"><strong>bg</strong>Warm off-white canvas</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#FFFFFF;border-bottom:1px solid #eee">#FFFFFF</div><div class="swatch-info"><strong>surface</strong>Cards, panes</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#111111;color:#fff">#111111</div><div class="swatch-info"><strong>fg / border</strong>Deep ink</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#555555;color:#fff">#555555</div><div class="swatch-info"><strong>muted</strong>Secondary text</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#FFE500;color:#111">#FFE500</div><div class="swatch-info"><strong>accent</strong>Brand yellow</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#00E5FF;color:#111">#00E5FF</div><div class="swatch-info"><strong>citation</strong>Cyan highlight</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#FF3333;color:#fff">#FF3333</div><div class="swatch-info"><strong>danger</strong>Errors, deletion</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#00E575;color:#111">#00E575</div><div class="swatch-info"><strong>success</strong>Ready / valid</div></div>
+  </div>
+
+  <h3>Dark Mode Overrides</h3>
+  <div class="swatches">
+    <div class="swatch"><div class="swatch-color" style="background:#0D0D0D;color:#fff">#0D0D0D</div><div class="swatch-info"><strong>bg dark</strong>Near-black canvas</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#18181B;color:#fff">#18181B</div><div class="swatch-info"><strong>surface dark</strong>Elevated panels</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#FFFFFF;color:#111">#FFFFFF</div><div class="swatch-info"><strong>fg dark</strong>Pure white text</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#A1A1AA;color:#111">#A1A1AA</div><div class="swatch-info"><strong>muted dark</strong>Secondary</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#E4E4E7;color:#111">#E4E4E7</div><div class="swatch-info"><strong>border dark</strong>Light ink</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#FACC15;color:#111">#FACC15</div><div class="swatch-info"><strong>accent dark</strong>Softened yellow</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#22D3EE;color:#111">#22D3EE</div><div class="swatch-info"><strong>citation dark</strong>Deep cyan</div></div>
+  </div>
+
+  <h3>Route-Specific Accents</h3>
+  <div class="row row-3 mt">
+    <div>
+      <div class="section-label">Route A — Document Mark</div>
+      <div class="swatches">
+        <div class="swatch"><div class="swatch-color" style="background:#FFE500;color:#111">#FFE500</div><div class="swatch-info"><strong>highlight bar</strong>Passage marker</div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#111111;color:#fff;opacity:.3">#11111133</div><div class="swatch-info"><strong>meta lines</strong>Secondary text bars</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="section-label">Route B — Citation Bracket</div>
+      <div class="swatches">
+        <div class="swatch"><div class="swatch-color" style="background:#00E5FF;color:#111">#00E5FF</div><div class="swatch-info"><strong>bracket fill</strong>Citation highlight</div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#22D3EE;color:#111">#22D3EE</div><div class="swatch-info"><strong>bracket dark</strong>Dark mode fill</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="section-label">Route C — Monospace C</div>
+      <div class="swatches">
+        <div class="swatch"><div class="swatch-color" style="background:#FFE500;color:#111">#FFE500</div><div class="swatch-info"><strong>C terminal bar</strong>Accent notch</div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#FACC15;color:#111">#FACC15</div><div class="swatch-info"><strong>C terminal dark</strong>Dark mode bar</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== USAGE ===== -->
+<div class="section" id="usage">
+  <div class="section-label">03 — Usage Rules</div>
+  <h2>Do's and Don'ts</h2>
+  <p>Rules that keep the identity consistent across products, marketing, and social.</p>
+
+  <h3>Clear Space & Sizing</h3>
+  <div class="rules">
+    <div class="rule rule-do">
+      <div class="rule-label">Do</div>
+      <div style="font-size:.85rem">Maintain minimum clear space equal to the symbol height on all sides. Minimum symbol size: 24px digital, 12mm print.</div>
+    </div>
+    <div class="rule rule-dont">
+      <div class="rule-label">Don't</div>
+      <div style="font-size:.85rem">Never place the logo inside busy photographic backgrounds or overlapping UI elements without sufficient contrast backing.</div>
+    </div>
+  </div>
+
+  <h3>Color Application</h3>
+  <div class="rules">
+    <div class="rule rule-do">
+      <div class="rule-label">Do</div>
+      <div style="font-size:.85rem">Use the yellow accent mark only on the primary CTA or the brand symbol highlight. One accent per viewport.</div>
+    </div>
+    <div class="rule rule-dont">
+      <div class="rule-label">Don't</div>
+      <div style="font-size:.85rem">Never apply the citation cyan to buttons, badges, or navigation. Cyan is reserved for source-linked elements only.</div>
+    </div>
+  </div>
+
+  <h3>Typography Pairing</h3>
+  <div class="rules">
+    <div class="rule rule-do">
+      <div class="rule-label">Do</div>
+      <div style="font-size:.85rem">Use Space Mono for all headings, labels, and badges. Use Inter for body paragraphs and chat responses. Never mix a third typeface.</div>
+    </div>
+    <div class="rule rule-dont">
+      <div class="rule-label">Don't</div>
+      <div style="font-size:.85rem">Never use decorative, script, or serif typefaces. The identity is utilitarian and monospaced — ornamental fonts break the voice.</div>
+    </div>
+  </div>
+
+  <h3>Shadow & Border System</h3>
+  <div class="rules">
+    <div class="rule rule-do">
+      <div class="rule-label">Do</div>
+      <div style="font-size:.85rem">All interactive elements use the standard elevation flow: 4px → hover 6px → pressed 0px. Zero blur, solid ink.</div>
+    </div>
+    <div class="rule rule-dont">
+      <div class="rule-label">Don't</div>
+      <div style="font-size:.85rem">Never use soft/diffuse shadows, gradients, or rounded corners beyond the pill badge (9999px). No border-radius above 4px.</div>
+    </div>
+  </div>
+
+  <h3>Logo on Backgrounds</h3>
+  <div class="row row-3 mt">
+    <div class="logo-display" style="min-height:100px">
+      <div class="lockup">
+        <div class="symbol" style="width:36px;height:36px;border-width:2px">
+          <svg viewBox="0 0 16 16" fill="none" width="20" height="20"><path d="M2 2h12v12H2z" stroke="var(--fg)" stroke-width="2"/><path d="M5 8h6" stroke="var(--fg)" stroke-width="2"/></svg>
+        </div>
+        <div class="wordmark wordmark-xs">CONTEXTUAL</div>
+      </div>
+      <div style="position:absolute;bottom:6px;font-family:var(--mono);font-size:.6rem;color:var(--muted)">Light bg ✓</div>
+    </div>
+    <div class="logo-display dark" style="min-height:100px">
+      <div class="lockup">
+        <div class="symbol" style="width:36px;height:36px;border-width:2px;border-color:#fff">
+          <svg viewBox="0 0 16 16" fill="none" width="20" height="20"><path d="M2 2h12v12H2z" stroke="#fff" stroke-width="2"/><path d="M5 8h6" stroke="#fff" stroke-width="2"/></svg>
+        </div>
+        <div class="wordmark wordmark-xs" style="color:#fff">CONTEXTUAL</div>
+      </div>
+      <div style="position:absolute;bottom:6px;font-family:var(--mono);font-size:.6rem;color:#666">Dark bg ✓</div>
+    </div>
+    <div class="logo-display" style="min-height:100px;background:var(--accent)">
+      <div class="lockup">
+        <div class="symbol" style="width:36px;height:36px;border-width:2px">
+          <svg viewBox="0 0 16 16" fill="none" width="20" height="20"><path d="M2 2h12v12H2z" stroke="var(--fg)" stroke-width="2"/><path d="M5 8h6" stroke="var(--fg)" stroke-width="2"/></svg>
+        </div>
+        <div class="wordmark wordmark-xs">CONTEXTUAL</div>
+      </div>
+      <div style="position:absolute;bottom:6px;font-family:var(--mono);font-size:.6rem;color:var(--muted)">Accent bg ✓</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PROMPTS ===== -->
+<div class="section" id="prompts">
+  <div class="section-label">04 — Generation Prompts</div>
+  <h2>Image Generation Prompts</h2>
+  <p>Copy-paste prompts for generating each logo route as a high-res asset. Optimized for flux-pro-ultra and gpt-image-2.</p>
+
+  <h3>Route A — Document Mark (Symbol Only)</h3>
+  <div class="prompt-box">Minimal geometric logo symbol on a warm off-white background (#F4F4F0). A perfect square with 3px black (#111111) stroke, sharp corners, no border-radius. Inside the square: a horizontal yellow (#FFE500) bar at the vertical center, 60% width, 3px tall, aligned left with padding. Below the bar, two faint horizontal lines in light gray suggesting text. Style: neo-brutalist, hard edges, zero blur, flat colors only. No gradients, no shadows, no 3D effects. Centered composition, generous whitespace around the symbol. Aspect ratio 1:1, high resolution.</div>
+
+  <h3>Route A — Full Lockup</h3>
+  <div class="prompt-box">Horizontal brand lockup on warm off-white (#F4F4F0). Left: a 48px square symbol with 2px black stroke, containing a yellow horizontal bar at center. Right: the word "CONTEXTUAL" in Space Mono Bold, 18px, black (#111111), letter-spacing 0.02em. Alignment: vertically centered. No tagline. Clean, minimal, neo-brutalist aesthetic. Flat colors, no gradients, no shadows. Aspect ratio 3:1, high resolution.</div>
+
+  <h3>Route B — Citation Bracket (Symbol Only)</h3>
+  <div class="prompt-box">Minimal geometric logo symbol on warm off-white (#F4F4F0). Two heavy angular brackets facing inward, constructed from 4px black (#111111) strokes with square line-caps. Between the brackets: a horizontal cyan (#00E5FF) rectangle, centered, representing a highlighted passage. The brackets are taller than the bar, creating vertical emphasis. Style: neo-brutalist, sharp geometry, flat colors, zero blur. No gradients, no rounded corners. Centered composition. Aspect ratio 1:1, high resolution.</div>
+
+  <h3>Route B — Full Lockup</h3>
+  <div class="prompt-box">Horizontal brand lockup on warm off-white (#F4F4F0). Left: a symbol of two inward-facing black brackets with a cyan horizontal bar between them. Right: the word "CONTEXTUAL" in Space Mono Bold, 18px, black (#111111). Vertically centered alignment. Flat neo-brutalist style, no gradients, no shadows. Aspect ratio 3:1, high resolution.</div>
+
+  <h3>Route C — Monospace C (Symbol Only)</h3>
+  <div class="prompt-box">Minimal geometric logo symbol on warm off-white (#F4F4F0). A bold, geometric letter "C" constructed with a 5px black (#111111) stroke, square line-caps, open on the right side. At the terminal of the C (the open end), a small yellow (#FFE500) horizontal rectangle fills the gap, acting as an accent notch. The C is built on a grid, with sharp angles matching a monospace typeface. Style: neo-brutalist, flat, zero blur, no gradients. Centered composition. Aspect ratio 1:1, high resolution.</div>
+
+  <h3>Route C — Full Lockup</h3>
+  <div class="prompt-box">Horizontal brand lockup on warm off-white (#F4F4F0). Left: a geometric letter "C" symbol with black stroke and yellow terminal accent bar. Right: the word "CONTEXTUAL" in Space Mono Bold, 18px, black (#111111). Vertically centered. Flat neo-brutalist style. Aspect ratio 3:1, high resolution.</div>
+
+  <h3>Dark Mode Variants</h3>
+  <div class="prompt-box">[Same prompts as above, but replace:]
+Background: near-black #0D0D0D
+Strokes: white #FFFFFF
+Yellow accent: softened to #FACC15
+Cyan accent: deepened to #22D3EE
+All other rules remain the same.</div>
+
+  <h3>Social Card / OG Image</h3>
+  <div class="prompt-box">Wide brand card (1200×630) on warm off-white (#F4F4F0) with 2px black border on all edges. Left 40%: large logo symbol (Document Mark or Citation Bracket, your choice) centered. Right 60%: "CONTEXTUAL" in Space Mono Bold, 48px, black, top-aligned. Below: "Ask your sources. Verify every answer." in Inter Regular, 18px, gray (#555555). Bottom strip: yellow (#FFE500) bar, 6px tall, full width. Neo-brutalist, flat, no gradients.</div>
+
+  <h3>Favicon / App Icon</h3>
+  <div class="prompt-box">Square app icon (1024×1024) on warm off-white (#F4F4F0). Center: the Document Mark symbol — black square outline with yellow horizontal bar inside. 80px padding on all sides. Style: flat, neo-brutalist, no gradients, no shadows, no rounded corners. The symbol should fill approximately 60% of the canvas.</div>
+</div>
+
+<!-- ===== FONT SPECIMEN ===== -->
+<div class="section">
+  <div class="section-label">05 — Type Specimen</div>
+  <h2>Typography</h2>
+  <p>The identity uses exactly two typefaces. Space Mono carries all structural and display text; Inter handles reading-heavy content.</p>
+
+  <div class="row row-2 mt">
+    <div style="border:2px solid var(--border);background:var(--surface);box-shadow:4px 4px 0 0 var(--border);padding:1.5rem">
+      <div class="section-label">Display / Mono</div>
+      <div style="font-family:var(--mono);font-weight:700;font-size:2rem;line-height:1.1;margin-bottom:.6rem">Space Mono 700</div>
+      <div style="font-family:var(--mono);font-size:.85rem;color:var(--muted);line-height:1.5">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789 !@#$%^&*()</div>
+      <div style="font-family:var(--mono);font-weight:700;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;margin-top:1rem;padding:4px 8px;border:1.5px solid var(--border);display:inline-block">BADGE SAMPLE</div>
+    </div>
+    <div style="border:2px solid var(--border);background:var(--surface);box-shadow:4px 4px 0 0 var(--border);padding:1.5rem">
+      <div class="section-label">Body / Sans</div>
+      <div style="font-family:var(--sans);font-weight:600;font-size:1.6rem;line-height:1.2;margin-bottom:.6rem">Inter SemiBold</div>
+      <div style="font-family:var(--sans);font-size:.85rem;color:var(--muted);line-height:1.6">Each notebook is a self-contained corpus. Add up to 10 sources, ask questions across them, and verify every answer in the original text.</div>
+      <div style="font-family:var(--sans);font-size:.78rem;margin-top:1rem;color:var(--muted)">Weights: 400 · 500 · 600</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SPACING ===== -->
+<div class="section">
+  <div class="section-label">06 — Spacing & Elevation</div>
+  <h2>System Tokens</h2>
+
+  <div class="row row-2 mt">
+    <div>
+      <h3>Spacing Scale</h3>
+      <div style="display:flex;flex-direction:column;gap:.5rem;margin-top:.6rem">
+        <div style="display:flex;align-items:center;gap:.8rem"><div style="width:4px;height:16px;background:var(--accent);border:1px solid var(--border)"></div><span style="font-family:var(--mono);font-size:.72rem">4px — xs</span></div>
+        <div style="display:flex;align-items:center;gap:.8rem"><div style="width:8px;height:16px;background:var(--accent);border:1px solid var(--border)"></div><span style="font-family:var(--mono);font-size:.72rem">8px — sm</span></div>
+        <div style="display:flex;align-items:center;gap:.8rem"><div style="width:16px;height:16px;background:var(--accent);border:1px solid var(--border)"></div><span style="font-family:var(--mono);font-size:.72rem">16px — md</span></div>
+        <div style="display:flex;align-items:center;gap:.8rem"><div style="width:24px;height:16px;background:var(--accent);border:1px solid var(--border)"></div><span style="font-family:var(--mono);font-size:.72rem">24px — lg</span></div>
+        <div style="display:flex;align-items:center;gap:.8rem"><div style="width:40px;height:16px;background:var(--accent);border:1px solid var(--border)"></div><span style="font-family:var(--mono);font-size:.72rem">40px — xl</span></div>
+      </div>
+    </div>
+    <div>
+      <h3>Elevation Flow</h3>
+      <div style="display:flex;gap:1.5rem;margin-top:.6rem;flex-wrap:wrap">
+        <div style="text-align:center">
+          <div style="width:64px;height:64px;border:2px solid var(--border);background:var(--surface);box-shadow:4px 4px 0 0 var(--border)"></div>
+          <div style="font-family:var(--mono);font-size:.66rem;margin-top:.4rem">Standard<br>4px 4px</div>
+        </div>
+        <div style="text-align:center">
+          <div style="width:64px;height:64px;border:2px solid var(--border);background:var(--surface);box-shadow:6px 6px 0 0 var(--border);transform:translate(-2px,-2px)"></div>
+          <div style="font-family:var(--mono);font-size:.66rem;margin-top:.4rem">Hover<br>6px 6px</div>
+        </div>
+        <div style="text-align:center">
+          <div style="width:64px;height:64px;border:2px solid var(--border);background:var(--surface);box-shadow:0 0 0 0 var(--border);transform:translate(4px,4px)"></div>
+          <div style="font-family:var(--mono);font-size:.66rem;margin-top:.4rem">Pressed<br>0px 0px</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- .page -->
+
+</body>
+</html>

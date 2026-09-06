@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contextual — Consensus Protocols</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:oklch(0.982 0.003 90);--surface:oklch(1 0 0);--fg:oklch(0.21 0 0);
+  --muted:oklch(0.44 0 0);--border:oklch(0.21 0 0);--accent:oklch(0.93 0.17 95);
+  --citation:oklch(0.84 0.19 215);--danger:oklch(0.65 0.22 27);--success:oklch(0.82 0.20 155);
+  --mono:"Space Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+}
+[data-theme="dark"]{--bg:oklch(0.15 0 0);--surface:oklch(0.21 0.005 280);--fg:oklch(1 0 0);--muted:oklch(0.68 0.01 285);--border:oklch(0.9 0.01 285);--accent:oklch(0.86 0.17 95);--citation:oklch(0.78 0.14 220)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{display:flex;flex-direction:column;background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;overflow:hidden}
+.mono{font-family:var(--mono)}
+:focus-visible{outline:3px solid var(--citation);outline-offset:2px;border-radius:2px}
+
+/* banner */
+.banner{background:var(--accent);color:var(--fg);border-bottom:2px solid var(--border);font-family:var(--mono);font-size:.74rem;font-weight:700;text-align:center;padding:.5rem .9rem;flex:none}
+
+/* topbar */
+.topbar{background:var(--surface);border-bottom:2px solid var(--border);flex:none}
+.topbar-inner{max-width:1600px;margin:0 auto;padding:0 16px;height:56px;display:flex;align-items:center;gap:1rem;justify-content:space-between}
+.crumb{display:flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.76rem}
+.crumb a{color:var(--muted);text-decoration:none}
+.crumb a:hover{color:var(--fg)}
+.crumb .sep{color:var(--muted)}
+.crumb .cur{font-weight:700}
+.topright{display:flex;align-items:center;gap:.85rem}
+.credit{font-family:var(--mono);font-weight:700;font-size:.74rem;padding:.4rem .8rem;border:2px solid var(--border);border-radius:9999px;background:var(--surface);color:var(--fg);box-shadow:3px 3px 0 0 var(--border);cursor:pointer;position:relative}
+.credit-popup{display:none;position:absolute;top:calc(100% + 8px);right:0;width:320px;border:2px solid var(--border);background:var(--surface);box-shadow:6px 6px 0 0 var(--border);padding:1.2rem;z-index:100}
+.credit-popup.open{display:block}
+.credit-popup-title{font-family:var(--mono);font-weight:700;font-size:.85rem;margin-bottom:.5rem}
+.credit-popup-desc{font-size:.82rem;color:var(--muted);line-height:1.5;margin-bottom:.8rem}
+.credit-popup .btn{font-family:var(--mono);font-weight:700;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;padding:.55rem 1rem;border:2px solid var(--border);background:var(--surface);color:var(--fg);cursor:pointer;box-shadow:3px 3px 0 0 var(--border);transition:transform .15s cubic-bezier(0.2,0,0,1),box-shadow .15s cubic-bezier(0.2,0,0,1)}
+.credit-popup .btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 0 var(--border)}
+.credit-popup .btn:active{transform:translate(3px,3px);box-shadow:0 0 0 0 var(--border)}
+.share{font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;padding:.5rem .9rem;border:2px solid var(--border);border-radius:2px;background:var(--bg);color:var(--muted);cursor:not-allowed;opacity:.65}
+.theme-toggle{width:40px;height:40px;border:2px solid var(--border);border-radius:2px;background:var(--surface);display:grid;place-items:center;cursor:pointer;box-shadow:3px 3px 0 0 var(--border);transition:box-shadow .15s cubic-bezier(0.2,0,0,1),background .15s cubic-bezier(0.2,0,0,1)}
+.theme-toggle:hover{box-shadow:5px 5px 0 0 var(--border)}
+.theme-toggle:active{box-shadow:0 0 0 0 var(--border);background:color-mix(in oklch,var(--border) 10%,var(--surface))}
+.avatar{width:36px;height:36px;border:2px solid var(--border);border-radius:2px;background:var(--accent);display:grid;place-items:center;font-family:var(--mono);font-weight:700;font-size:.76rem;box-shadow:3px 3px 0 0 var(--border)}
+
+/* workspace */
+.workspace{flex:1;display:grid;grid-template-columns:25% 45% 30%;min-height:0;background:var(--bg)}
+.pane{display:flex;flex-direction:column;min-height:0;border-right:2px solid var(--border);background:var(--surface)}
+.pane:last-child{border-right:none}
+.pane-head{flex:none;display:flex;align-items:center;justify-content:space-between;gap:.6rem;padding:.8rem .9rem;border-bottom:2px solid var(--border);font-family:var(--mono);font-size:.76rem;font-weight:700}
+.pane-scroll{flex:1;overflow-y:auto;padding:.8rem;min-height:0}
+.btn{font-family:var(--mono);font-weight:700;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;display:inline-flex;align-items:center;gap:.35rem;padding:.55rem .9rem;cursor:pointer;border:2px solid var(--border);border-radius:2px;background:var(--surface);color:var(--fg);box-shadow:4px 4px 0 0 var(--border);transition:transform .12s ease,box-shadow .12s ease;white-space:nowrap}
+.btn.primary{background:var(--accent)}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 0 var(--border)}
+.btn:active{transform:translate(4px,4px);box-shadow:0 0 0 0 var(--border)}
+.btn.small{font-size:.66rem;padding:.4rem .7rem}
+
+/* sources */
+.src-item{border:2px solid var(--border);background:var(--surface);box-shadow:3px 3px 0 0 var(--border);padding:.6rem .7rem;margin-bottom:.6rem;display:flex;flex-direction:column;gap:.35rem}
+.src-row{display:flex;align-items:center;gap:.55rem;font-family:var(--mono);font-size:.7rem;font-weight:700}
+.src-icon{width:22px;height:22px;border:1.5px solid var(--border);border-radius:2px;display:grid;place-items:center;flex:none;background:var(--bg)}
+.src-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.status{display:flex;align-items:center;gap:.4rem;font-family:var(--mono);font-size:.6rem;text-transform:uppercase;letter-spacing:.05em}
+.dot{width:8px;height:8px;border-radius:50%;flex:none}
+.dot.green{background:var(--success);box-shadow:0 0 0 3px color-mix(in oklch,var(--success) 35%,transparent);animation:pulse 1.6s infinite}
+.dot.yellow{background:var(--accent)}
+.dot.red{background:var(--danger)}
+.dot.gray{background:var(--muted)}
+.orb{width:14px;height:14px;border:2px solid var(--border);border-top-color:transparent;border-radius:50%;flex:none;background:var(--accent);animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.stat-ready{color:color-mix(in oklch,var(--success) 55%,var(--fg));font-weight:700}
+.stat-indexing{color:var(--fg)}
+.stat-failed{color:var(--danger);font-weight:700}
+.cite-note{color:color-mix(in oklch,var(--citation) 55%,var(--fg))}
+.src-failed-note{font-size:.66rem;color:var(--danger);display:flex;align-items:center;gap:.4rem}
+.src-failed-note button{font-family:var(--mono);font-size:.6rem;border:1.5px solid var(--danger);background:var(--surface);color:var(--danger);border-radius:2px;padding:1px 5px;cursor:pointer}
+
+/* chat */
+.chat-stack{display:flex;flex-direction:column;gap:.9rem}
+.msg-user{background:var(--accent);border:2px solid var(--border);padding:.7rem .8rem;font-family:var(--mono);font-size:.8rem;box-shadow:4px 4px 0 0 var(--border);align-self:flex-start;max-width:92%}
+.msg-ai{font-size:.84rem}
+.msg-ai p{margin-bottom:.5rem}
+.pill{font-family:var(--mono);font-weight:700;font-size:.68rem;padding:2px 6px;border:1.5px solid var(--border);border-radius:2px;background:var(--citation);color:var(--fg);cursor:pointer;margin:0 1px;display:inline-block}
+.pill:hover{box-shadow:2px 2px 0 0 var(--border)}
+.refusal{border:2px solid var(--fg);background:var(--bg);padding:1rem;margin-top:.5rem;box-shadow:4px 4px 0 0 var(--border)}
+.refusal .rtitle{font-family:var(--mono);font-weight:700;font-size:.74rem;margin-bottom:.3rem}
+.refusal p{font-size:.78rem;color:var(--fg);margin-bottom:.7rem}
+.refusal .cost{font-family:var(--mono);font-size:.62rem;color:var(--muted);margin-top:.6rem}
+
+/* composer */
+.composer{flex:none;border-top:2px solid var(--border);background:var(--surface);padding:.8rem}
+.composer-box{border:2px solid var(--border);border-radius:4px;background:var(--surface);display:flex;align-items:flex-end;gap:.6rem;padding:.6rem;box-shadow:4px 4px 0 0 var(--border)}
+.composer textarea{flex:1;border:none;background:transparent;font-family:var(--sans);font-size:.86rem;color:var(--fg);resize:none;outline:none;line-height:1.5;min-height:24px;max-height:120px;padding:.2rem 0}
+.composer-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:.5rem;padding:0 .15rem}
+.ccount{font-family:var(--mono);font-size:.66rem;color:var(--muted)}
+.hint{font-family:var(--mono);font-size:.6rem;color:var(--muted)}
+
+/* showcase */
+.sho-head{display:flex;align-items:center;justify-content:space-between;font-family:var(--mono);font-size:.7rem;font-weight:700}
+.tabs{display:flex;gap:.4rem}
+.tab{padding:3px 8px;border:1.5px solid var(--border);border-radius:2px;background:var(--bg);cursor:pointer;font-family:var(--mono);font-size:.62rem;text-transform:uppercase}
+.tab.active{background:var(--fg);color:var(--surface)}
+.sho-empty{height:100%;display:flex;flex-direction:column;gap:.6rem;align-items:center;justify-content:center;text-align:center;color:var(--muted);font-size:.78rem;padding:1.5rem}
+.doc-head{display:flex;align-items:center;justify-content:space-between;gap:.5rem;border:2px solid var(--border);background:var(--bg);padding:.5rem .6rem;margin-bottom:.7rem;font-family:var(--mono);font-size:.66rem}
+.page-jump{display:flex;align-items:center;gap:.4rem}
+.page-btn{width:26px;height:26px;border:1.5px solid var(--border);border-radius:2px;background:var(--surface);display:grid;place-items:center;cursor:pointer;font-family:var(--mono);font-size:.7rem}
+.pdf-sheet{border:2px solid var(--border);background:var(--surface);padding:1rem;box-shadow:3px 3px 0 0 var(--border)}
+.pdf-sheet .ptitle{font-family:var(--mono);font-weight:700;font-size:.72rem;margin-bottom:.6rem;color:var(--muted)}
+.pdf-body{font-size:.74rem;color:var(--fg);line-height:1.55}
+.pdf-body .hlbox{background:color-mix(in oklch,var(--citation) 45%,transparent);border:2px solid var(--citation);border-radius:2px;padding:2px 4px;box-shadow:2px 2px 0 0 var(--border);cursor:pointer;display:inline}
+.yt-embed{border:2px solid var(--border);background:var(--bg);aspect-ratio:16/9;display:grid;place-items:center;color:var(--muted);font-family:var(--mono);font-size:.66rem;margin-bottom:.7rem;position:relative}
+.yt-embed .play{width:52px;height:52px;border:2px solid var(--border);border-radius:2px;background:var(--accent);display:grid;place-items:center;font-size:1rem;color:var(--fg);box-shadow:4px 4px 0 0 var(--border)}
+.yt-title{font-family:var(--mono);font-weight:700;font-size:.72rem;margin-bottom:.5rem;display:flex;justify-content:space-between}
+.transcript{font-size:.72rem;color:var(--fg);border:2px solid var(--border);background:var(--surface);padding:.7rem;max-height:220px;overflow-y:auto;box-shadow:3px 3px 0 0 var(--border)}
+.transcript .line{padding:.3rem .5rem;border-left:3px solid transparent;margin-bottom:.15rem}
+.transcript .line.hl{background:color-mix(in oklch,var(--citation) 35%,transparent);border-left-color:var(--citation);font-weight:600}
+.transcript .ts{font-family:var(--mono);font-size:.6rem;color:var(--muted);margin-right:.4rem}
+
+/* modal */
+.modal-overlay{position:fixed;inset:0;background:rgba(17,17,17,.45);display:none;align-items:center;justify-content:center;z-index:100;padding:1rem}
+.modal-overlay.open{display:flex}
+.modal{background:var(--surface);border:2px solid var(--border);box-shadow:12px 12px 0 0 var(--border);width:min(560px,100%);max-height:90vh;overflow-y:auto}
+.modal-head{display:flex;justify-content:space-between;align-items:center;padding:1rem;border-bottom:2px solid var(--border);font-family:var(--mono);font-weight:700}
+.modal-close{border:none;background:none;font-family:var(--mono);font-weight:700;font-size:1.2rem;cursor:pointer;color:var(--fg);width:36px;height:36px;display:grid;place-items:center}
+.upload-tabs{display:flex;gap:.4rem;padding:.8rem .9rem;border-bottom:2px solid var(--border);flex-wrap:wrap}
+.utab{padding:.45rem .75rem;border:1.5px solid var(--border);border-radius:2px;background:var(--bg);cursor:pointer;font-family:var(--mono);font-size:.66rem;text-transform:uppercase;color:var(--muted)}
+.utab.active{background:var(--accent);color:var(--fg);font-weight:700}
+.upload-body{padding:1.2rem;min-height:240px}
+.upload-body label{display:block;font-family:var(--mono);font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.4rem}
+.upload-body input[type=text]{width:100%;border:2px solid var(--border);border-radius:2px;padding:.6rem .7rem;font-family:var(--sans);font-size:.86rem;background:var(--surface);color:var(--fg);margin-bottom:1rem}
+.dropzone{border:2px dashed var(--border);border-radius:2px;background:var(--bg);padding:2rem;text-align:center;color:var(--muted);font-family:var(--mono);font-size:.74rem;margin-bottom:1rem}
+.modal-actions{display:flex;justify-content:flex-end;gap:.6rem;margin-top:.4rem}
+
+@media (max-width:920px){.workspace{grid-template-columns:1fr 1fr}.pane:first-child{display:none}}
+@media (prefers-reduced-motion:reduce){.btn{transform:none}.btn:hover{transform:none}.orb{animation:none}}
+</style>
+</head>
+<body>
+
+<div class="banner" data-od-id="expiration-banner">⏳ Auto-deletion Notice: This notebook will be auto-deleted tonight at 12:00 AM Asia/Kolkata (UTC+05:30).</div>
+
+<header class="topbar" data-od-id="workspace-topbar">
+  <div class="topbar-inner">
+    <div class="crumb">
+      <a href="mockup-dashboard.html" data-od-id="crumb-back">← Notebooks</a><span class="sep">/</span><span class="cur">Consensus Protocols</span>
+    </div>
+    <div class="topright">
+      <button class="credit" id="creditBadge" data-od-id="credit-badge" onclick="event.stopPropagation();this.nextElementSibling.classList.toggle('open')">⚡ 7/10<span class="credit-popup"><div class="credit-popup-title">⚡ Credits remaining</div><div class="credit-popup-desc">You have 7 of 10 daily credits left. Each query uses 1 credit. Credits reset at midnight IST.</div><button class="btn" onclick="event.stopPropagation()">Upgrade / Reset</button></span></button>
+      <button class="share" disabled data-od-id="share-btn" title="Sharing coming in v1.1">Share · soon</button>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" data-od-id="theme-toggle">
+        <svg id="iSun" width="17" height="17" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="4" stroke="var(--fg)" stroke-width="2"/><path d="M10 2v2M10 16v2M2 10h2M16 10h2M4.3 4.3l1.4 1.4M14.3 14.3l1.4 1.4M15.7 4.3l-1.4 1.4M5.7 14.3l-1.4 1.4" stroke="var(--fg)" stroke-width="2"/></svg>
+        <svg id="iMoon" width="17" height="17" viewBox="0 0 20 20" fill="none" style="display:none"><path d="M17 12.5A8 8 0 017.5 3 8 8 0 1017 12.5" stroke="var(--fg)" stroke-width="2" fill="none"/></svg>
+      </button>
+      <div class="avatar" data-od-id="user-avatar">P</div>
+    </div>
+  </div>
+</header>
+
+<div class="workspace">
+
+  <!-- Pane 1: Sources -->
+  <aside class="pane" data-od-id="pane-sources">
+    <div class="pane-head">
+      <span>SOURCES (3/10)</span>
+      <button class="btn small" id="addSourceBtn" data-od-id="add-source-btn">+ Add Source</button>
+    </div>
+    <div class="pane-scroll">
+      <div class="src-item" data-od-id="src-raft">
+        <div class="src-row">
+          <span class="src-icon" aria-hidden="true">PDF</span>
+          <span class="src-name">raft-paper.pdf</span>
+        </div>
+        <span class="status"><span class="dot green" style="display:none"></span><span class="orb" style="display:none"></span><span class="stat-ready" id="raftStat">● ready</span></span>
+      </div>
+      <div class="src-item" data-od-id="src-mit">
+        <div class="src-row">
+          <span class="src-icon" aria-hidden="true">▶</span>
+          <span class="src-name">mit-lecture-youtube</span>
+        </div>
+        <span class="status"><span class="dot yellow" style="display:none"></span><span class="orb"></span><span class="stat-indexing" id="mitStat">indexing…</span></span>
+      </div>
+      <div class="src-item" data-od-id="src-web">
+        <div class="src-row">
+          <span class="src-icon" aria-hidden="true">◎</span>
+          <span class="src-name">system-docs-web</span>
+        </div>
+        <span class="status"><span class="dot green"></span><span class="stat-ready">● ready</span></span>
+      </div>
+      <div class="src-item" data-od-id="src-failed">
+        <div class="src-row">
+          <span class="src-icon" aria-hidden="true">TXT</span>
+          <span class="src-name">notes-draft.txt</span>
+        </div>
+        <span class="status"><span class="dot red"></span><span class="stat-failed">failed</span></span>
+        <span class="src-failed-note">Couldn't parse file <button data-od-id="retry-btn">retry</button></span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Pane 2: Chat -->
+  <section class="pane" data-od-id="pane-chat">
+    <div class="pane-head"><span>GROUNDED CHAT</span><span class="mono" style="font-size:.62rem;color:var(--muted)">queries draw from credits</span></div>
+    <div class="pane-scroll" id="chatScroll">
+      <div class="chat-stack">
+        <div class="msg-user" data-od-id="msg-user-1">How does Raft handle a leader crash during replication?</div>
+        <div class="msg-ai" data-od-id="msg-ai-1">
+          <p>When a leader crashes, followers detect the missed heartbeat and start a new election with randomized timeouts. The candidate with the most up-to-date log wins, then replicates a new <span class="mono" style="font-weight:700">no-op</span> or client entry to commit the previous term's state <span class="pill" data-cite="raft" data-token="[1]">[1]</span>.</p>
+          <p>In the MIT lecture, this is framed around the safety property — a leader never overwrites entries from an already-committed log <span class="pill" data-cite="mit" data-token="[2]">[2]</span>.</p>
+        </div>
+        <div class="msg-user" data-od-id="msg-user-2">What about a health-check paper for distributed systems?</div>
+        <div class="refusal" data-od-id="refusal-card">
+          <div class="rtitle">⚠ Honest refusal</div>
+          <p>The uploaded sources do not specify the requested information.</p>
+          <button class="btn small primary" data-od-id="web-search-btn">Search Web &amp; Answer</button>
+          <div class="cost">Consumes 1 credit · via Tavily</div>
+        </div>
+      </div>
+    </div>
+    <div class="composer" data-od-id="composer">
+      <div class="composer-box">
+        <textarea id="composerInput" placeholder="Ask across your sources…" rows="1" data-od-id="composer-input"></textarea>
+        <button class="btn primary" data-od-id="send-btn" style="flex:none">Send</button>
+      </div>
+      <div class="composer-bottom">
+        <span class="hint">⍈ Enter to send · grounded in 3 sources</span>
+        <span class="ccount">credits available: 7</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pane 3: Showcase -->
+  <section class="pane" data-od-id="pane-showcase">
+    <div class="pane-head sho-head">
+      <span>ORIGINAL VIEW</span>
+      <div class="tabs">
+        <button class="tab active" data-view="pdf" data-od-id="tab-pdf">PDF</button>
+        <button class="tab" data-view="yt" data-od-id="tab-yt">Video</button>
+      </div>
+    </div>
+    <div class="pane-scroll">
+      <div class="sho-empty" id="shoEmpty" data-od-id="showcase-empty">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none"><rect x="2" y="2" width="40" height="40" stroke="var(--border)" stroke-width="2"/><circle cx="22" cy="22" r="6" fill="none" stroke="var(--muted)" stroke-width="2"/><path d="M22 8v6M22 30v6M8 22h6M30 22h6" stroke="var(--muted)" stroke-width="2"/></svg>
+        <div>Click any citation pill in chat<br>to verify proof in the original source.</div>
+      </div>
+
+      <div id="viewPdf" style="display:none" data-od-id="showcase-pdf">
+        <div class="doc-head">
+          <span>raft-paper.pdf</span>
+          <span class="page-jump">
+            <button class="page-btn" id="pgPrev" data-od-id="page-prev">‹</button>
+            <span>Page 14 of 28</span>
+            <button class="page-btn" id="pgNext" data-od-id="page-next">›</button>
+          </span>
+        </div>
+        <div class="pdf-sheet">
+          <div class="ptitle">Section 5.4 — Leadership changes</div>
+          <div class="pdf-body">
+            <p style="margin-bottom:.5rem">Raft also handles the case where a server is removed from the configuration. If the removed leader continues to receive and replicate entries, those entries will never be committed because the removed leader is not part of the majority. The cluster can make progress only after the removed leader steps down.</p>
+            <p>During a partition, the minority leader can be deposed. Once the partitions heal, the deposed leader <span class="hlbox" data-od-id="highlight-box">reverts to follower and discards any uncommitted entries from its term, then adopts the new leader's log</span>.</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="viewYt" style="display:none" data-od-id="showcase-yt">
+        <div class="yt-embed">
+          <span class="play">▶</span>
+          <div style="position:absolute;bottom:.5rem;right:.6rem;font-family:var(--mono);font-size:.6rem">MIT 6.824 · Lecture 7 · @ 18:42</div>
+        </div>
+        <div class="yt-title"><span>mit-lecture-youtube</span><span class="cite-note">@ 18:42</span></div>
+        <div class="transcript" data-od-id="transcript">
+          <div class="line">[18:32] <span class="ts"></span>so the key safety guarantee is that the elected leader's log contains</div>
+          <div class="line hl" data-od-id="transcript-hl">[18:42] <span class="ts"></span>every committed entry from prior terms — nothing can be lost.</div>
+          <div class="line">[18:52] <span class="ts"></span>and it does this by never overwriting entries already committed.</div>
+          <div class="line">[19:02] <span class="ts"></span>a new leader can only append, and it reconciles followers' logs.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- Add Source Modal -->
+<div class="modal-overlay" id="addModal" data-od-id="add-source-modal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-head"><span id="modalTitle">ADD SOURCE</span><button class="modal-close" id="closeModal" data-od-id="modal-close">×</button></div>
+    <div class="upload-tabs" data-od-id="upload-tabs">
+      <button class="utab active" data-tab="text">Text</button>
+      <button class="utab" data-tab="web">Web URL</button>
+      <button class="utab" data-tab="pdf">PDF</button>
+      <button class="utab" data-tab="transcript">Transcript</button>
+      <button class="utab" data-tab="yt">YouTube</button>
+    </div>
+    <div class="upload-body" id="uploadBody">
+      <label>Paste text</label>
+      <textarea style="width:100%;border:2px solid var(--border);border-radius:2px;padding:.6rem;font-family:var(--sans);font-size:.86rem;background:var(--surface);color:var(--fg);min-height:120px;resize:vertical"></textarea>
+    </div>
+    <div class="modal-actions" style="padding:0 1.2rem 1.2rem"><button class="btn small primary" data-od-id="modal-add-btn">Add Source</button></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var saved=localStorage.getItem('ctx-theme');
+  if(saved)root.setAttribute('data-theme',saved);
+  var btn=document.getElementById('themeToggle'),sun=document.getElementById('iSun'),moon=document.getElementById('iMoon');
+  function sync(){var d=root.getAttribute('data-theme')==='dark';sun.style.display=d?'none':'block';moon.style.display=d?'block':'none';}
+  sync();
+  if(btn)btn.addEventListener('click',function(){var c=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',c);localStorage.setItem('ctx-theme',c);sync();});
+
+  // modal
+  var modal=document.getElementById('addModal');
+  document.getElementById('addSourceBtn').addEventListener('click',function(){modal.classList.add('open');});
+  document.getElementById('closeModal').addEventListener('click',function(){modal.classList.remove('open');});
+  modal.addEventListener('click',function(e){if(e.target===modal)modal.classList.remove('open');});
+
+  // upload tabs -> swap body placeholder
+  var tabs=document.querySelectorAll('.utab');
+  var body=document.getElementById('uploadBody');
+  var bodies={
+    text:'<label>Paste text</label><textarea style="width:100%;border:2px solid var(--border);border-radius:2px;padding:.6rem;font-family:var(--sans);font-size:.86rem;background:var(--surface);color:var(--fg);min-height:120px;resize:vertical"></textarea>',
+    web:'<label>Web URL</label><input type="text" placeholder="https://example.com/article">',
+    pdf:'<div class="dropzone">Drag &amp; drop your PDF here, or<br>click to browse</div>',
+    transcript:'<label>Transcript file (.srt / .vtt)</label><div class="dropzone">Drop a subtitle file here</div>',
+    yt:'<label>YouTube URL</label><input type="text" placeholder="https://youtube.com/watch?v=…">'
+  };
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      tabs.forEach(function(x){x.classList.remove('active');});
+      t.classList.add('active');
+      body.innerHTML=bodies[t.getAttribute('data-tab')]||'';
+    });
+  });
+
+  // composer autosize
+  var input=document.getElementById('composerInput');
+  input.addEventListener('input',function(){this.style.height='auto';this.style.height=Math.min(this.scrollHeight,120)+'px';});
+
+  // showcase tabs
+  var viewTabs=document.querySelectorAll('.sho-head .tab');
+  var empty=document.getElementById('shoEmpty');
+  var vPdf=document.getElementById('viewPdf');
+  var vYt=document.getElementById('viewYt');
+  function showEmpty(){empty.style.display='flex';vPdf.style.display='none';vYt.style.display='none';}
+  showEmpty();
+  viewTabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      viewTabs.forEach(function(x){x.classList.remove('active');});
+      t.classList.add('active');
+      var v=t.getAttribute('data-view');
+      if(v==='pdf'){empty.style.display='none';vPdf.style.display='block';vYt.style.display='none';}
+      else if(v==='yt'){empty.style.display='none';vPdf.style.display='none';vYt.style.display='block';}
+      else showEmpty();
+    });
+  });
+
+  // citation pills open showcase
+  document.querySelectorAll('.pill[data-cite]').forEach(function(p){
+    p.addEventListener('click',function(){
+      empty.style.display='none';
+      var c=p.getAttribute('data-cite');
+      viewTabs.forEach(function(x){x.classList.remove('active');});
+      if(c==='mit'){vYt.style.display='block';vPdf.style.display='none';document.querySelector('.tab[data-view="yt"]').classList.add('active');}
+      else{vPdf.style.display='block';vYt.style.display='none';document.querySelector('.tab[data-view="pdf"]').classList.add('active');}
+    });
+  });
+
+  // indexing -> ready demo
+  setTimeout(function(){
+    var orb=document.querySelector('#src-mit .orb'),dot=document.querySelector('#src-mit .dot.yellow'),st=document.getElementById('mitStat');
+    if(orb){orb.style.display='none';}
+    if(dot){dot.style.display='inline-block';}
+    if(st){st.textContent='● ready';st.className='stat-ready';}
+  },3500);
+
+  document.addEventListener('click',function(e){document.querySelectorAll('.credit-popup.open').forEach(function(d){if(!d.parentElement.contains(e.target))d.classList.remove('open')})});
+})();
+</script>
+</body>
+</html>

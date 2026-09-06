@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "source-examples/mockup-workspace-desktop.html",
+  "entry": "source-examples/mockup-workspace-desktop.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-09-06T15:22:36.815Z",
+  "updatedAt": "2026-09-06T15:22:36.815Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}

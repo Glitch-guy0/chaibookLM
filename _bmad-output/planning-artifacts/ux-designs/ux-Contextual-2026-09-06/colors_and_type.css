@@ -1,0 +1,157 @@
+/* ============================================================
+   Contextual Design System — Colors & Typography
+   Paste this file into any project's first <style> block.
+   All values derived from oklch() for perceptual consistency.
+   ============================================================ */
+
+/* ---- Light Theme (default) ---- */
+:root {
+  /* --- Color tokens (hex fallbacks) --- */
+  --bg: #F4F4F0;           /* oklch(0.982 0.003 90) */
+  --surface: #FFFFFF;      /* oklch(1 0 0) */
+  --fg: #111111;           /* oklch(0.21 0 0) */
+  --muted: #555555;        /* oklch(0.44 0 0) */
+  --border: #111111;       /* oklch(0.21 0 0) */
+  --accent: #FFE500;       /* oklch(0.93 0.17 95) */
+  --citation: #00E5FF;     /* oklch(0.84 0.19 215) */
+  --danger: #FF3333;       /* oklch(0.65 0.22 27) */
+  --success: #00E575;      /* oklch(0.82 0.20 155) */
+
+  /* --- Derived state colors (hex fallbacks) --- */
+  --danger-deep: oklch(0.5 0.21 27);  /* ~#B32020 */
+  --accent-hover: oklch(0.87 0.17 95);  /* ~#FFE033 */
+  --citation-hover: oklch(0.78 0.19 215);  /* ~#00BFD0 */
+
+  /* --- Typography stacks --- */
+  --mono: "Space Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+
+  /* --- Spacing scale --- */
+  --sp-xs: 4px;
+  --sp-sm: 8px;
+  --sp-md: 16px;
+  --sp-lg: 24px;
+  --sp-xl: 40px;
+
+  /* --- Radii --- */
+  --r-sm: 2px;
+  --r-md: 4px;
+  --r-pill: 9999px;
+
+  /* --- Elevation (zero-blur offset shadows) --- */
+  --shadow-card: 4px 4px 0 0 var(--border);
+  --shadow-elevated: 6px 6px 0 0 var(--border);
+  --shadow-pressed: 0 0 0 0 var(--border);
+
+  /* --- Transitions --- */
+  --ease-out: 0.12s ease;
+  --motion-fast: 120ms;
+  --motion-base: 200ms;
+}
+
+/* ---- Dark Theme ---- */
+[data-theme="dark"] {
+  --bg: #0D0D0D;           /* oklch(0.15 0 0) */
+  --surface: #18181B;      /* oklch(0.21 0.005 280) */
+  --fg: #FFFFFF;           /* oklch(1 0 0) */
+  --muted: #A1A1AA;        /* oklch(0.68 0.01 285) */
+  --border: #E4E4E7;       /* oklch(0.9 0.01 285) */
+  --accent: #FACC15;       /* oklch(0.86 0.17 95) */
+  --citation: #22D3EE;     /* oklch(0.78 0.14 220) */
+  --danger: #FF3333;       /* oklch(0.65 0.22 27) */
+  --success: #00E575;      /* oklch(0.82 0.20 155) */
+  --danger-deep: oklch(0.58 0.22 27);  /* ~#CC2929 */
+  --accent-hover: oklch(0.90 0.17 95);  /* ~#FCD640 */
+  --citation-hover: oklch(0.84 0.14 220);  /* ~#33E0F5 */
+}
+
+/* ---- Reset ---- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+/* ---- Base Typography ---- */
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--sans);
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background var(--ease-out), color var(--ease-out);
+}
+
+.mono { font-family: var(--mono); }
+
+/* ---- Focus ---- */
+:focus-visible {
+  outline: 3px solid var(--citation);
+  outline-offset: 2px;
+  border-radius: var(--r-sm);
+}
+
+/* ---- Links ---- */
+a { color: inherit; }
+
+/* ---- Button Base (shared elevation flow) ---- */
+.btn {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: .8rem;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .75rem 1.3rem;
+  cursor: pointer;
+  border: 2px solid var(--border);
+  border-radius: var(--r-sm);
+  background: var(--surface);
+  color: var(--fg);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow var(--motion-fast) ease, transform var(--motion-fast) ease, background var(--motion-fast) ease;
+}
+.btn:hover {
+  box-shadow: var(--shadow-elevated);
+  transform: translate(-2px, -2px);
+}
+.btn:active {
+  box-shadow: var(--shadow-pressed);
+  transform: translate(4px, 4px);
+}
+.btn:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+  box-shadow: var(--shadow-card);
+  transform: none;
+}
+.btn.primary { background: var(--accent); }
+.btn.ghost { background: transparent; }
+.btn.small { font-size: .68rem; padding: .5rem .9rem; box-shadow: 4px 4px 0 0 var(--border); }
+.btn.small:hover { box-shadow: var(--shadow-elevated); }
+.btn.small:active { box-shadow: var(--shadow-pressed); transform: translate(4px, 4px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn { transition: none; }
+  .btn:hover { transform: none; box-shadow: var(--shadow-elevated); border-bottom: 3px solid var(--border); }
+  .btn:active { transform: none; }
+}
+
+/* ---- Utility ---- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---- Reduced Motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition-duration: 0.01ms !important; }
+}

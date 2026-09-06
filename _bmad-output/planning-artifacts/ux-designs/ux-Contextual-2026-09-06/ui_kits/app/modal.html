@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modal — Contextual UI Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F4F0;--surface:#FFFFFF;--fg:#111111;--muted:#555555;--border:#111111;--accent:#FFE500;--citation:#00E5FF;--mono:"Space Mono",ui-monospace,Menlo,Consolas,monospace;--sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif}
+[data-theme="dark"]{--bg:#0D0D0D;--surface:#18181B;--fg:#FFFFFF;--muted:#A1A1AA;--border:#E4E4E7;--accent:#FACC15;--citation:#22D3EE}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);padding:40px 24px;transition:background .2s,color .2s}
+:focus-visible{outline:3px solid var(--citation);outline-offset:2px;border-radius:2px}
+h1{font-family:var(--mono);font-weight:700;font-size:1.6rem;margin-bottom:8px}
+.sub{font-family:var(--mono);font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:32px}
+.note{font-family:var(--mono);font-size:.68rem;color:var(--muted);margin-bottom:24px;max-width:500px;line-height:1.5}
+
+.btn{font-family:var(--mono);font-weight:700;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;display:inline-flex;align-items:center;gap:.4rem;padding:.55rem .9rem;cursor:pointer;border:2px solid var(--border);border-radius:2px;background:var(--surface);color:var(--fg);box-shadow:4px 4px 0 0 var(--border);transition:box-shadow .12s ease,transform .12s ease}
+.btn.primary{background:var(--accent)}
+.btn:hover{box-shadow:6px 6px 0 0 var(--border);transform:translate(-2px,-2px)}
+.btn:active{box-shadow:0 0 0 0 var(--border);transform:translate(4px,4px)}
+
+.modal-overlay{position:fixed;inset:0;background:rgba(17,17,17,.45);display:none;align-items:center;justify-content:center;z-index:100;padding:1rem}
+.modal-overlay.open{display:flex}
+.modal{background:var(--surface);border:2px solid var(--border);box-shadow:12px 12px 0 0 var(--border);width:min(560px,100%);max-height:90vh;overflow-y:auto}
+.modal-head{display:flex;justify-content:space-between;align-items:center;padding:1rem;border-bottom:2px solid var(--border);font-family:var(--mono);font-weight:700}
+.modal-close{border:none;background:none;font-family:var(--mono);font-weight:700;font-size:1.2rem;cursor:pointer;color:var(--fg);width:36px;height:36px;display:grid;place-items:center}
+.upload-tabs{display:flex;gap:.4rem;padding:.8rem .9rem;border-bottom:2px solid var(--border);flex-wrap:wrap}
+.utab{padding:.45rem .75rem;border:1.5px solid var(--border);border-radius:2px;background:var(--bg);cursor:pointer;font-family:var(--mono);font-size:.66rem;text-transform:uppercase;color:var(--muted)}
+.utab.active{background:var(--accent);color:var(--fg);font-weight:700}
+.upload-body{padding:1.2rem}
+.upload-body label{display:block;font-family:var(--mono);font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.4rem}
+.upload-body input[type=text],.upload-body textarea{width:100%;border:2px solid var(--border);border-radius:2px;padding:.6rem .7rem;font-family:var(--sans);font-size:.86rem;background:var(--surface);color:var(--fg);margin-bottom:1rem}
+.dropzone{border:2px dashed var(--border);border-radius:2px;background:var(--bg);padding:2rem;text-align:center;color:var(--muted);font-family:var(--mono);font-size:.74rem;margin-bottom:1rem}
+.modal-actions{display:flex;justify-content:flex-end;gap:.6rem;margin-top:.4rem}
+.spec{border:2px solid var(--border);background:var(--surface);box-shadow:4px 4px 0 0 var(--border);padding:20px;margin-top:24px;max-width:600px;font-size:.72rem;line-height:1.6;font-family:var(--mono)}
+.spec h3{font-weight:700;margin-bottom:8px;font-size:.82rem}
+</style>
+</head>
+<body>
+<h1>Modal</h1>
+<p class="sub">Add Source Modal · Component</p>
+
+<button class="btn primary" id="openModal">Open Add Source Modal</button>
+<p class="note" style="margin-top:12px">Full-screen overlay with 12px offset shadow. Tab switching swaps the body content. 5 tabs: Text, Web URL, PDF, Transcript, YouTube.</p>
+
+<div class="modal-overlay" id="modal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-head"><span id="modalTitle">ADD SOURCE</span><button class="modal-close" id="closeModal">×</button></div>
+    <div class="upload-tabs" id="uploadTabs">
+      <button class="utab active" data-tab="text">Text</button>
+      <button class="utab" data-tab="web">Web URL</button>
+      <button class="utab" data-tab="pdf">PDF</button>
+      <button class="utab" data-tab="transcript">Transcript</button>
+      <button class="utab" data-tab="yt">YouTube</button>
+    </div>
+    <div class="upload-body" id="uploadBody">
+      <label>Paste text</label>
+      <textarea rows="4" placeholder="Paste raw text to ingest…"></textarea>
+    </div>
+    <div class="modal-actions" style="padding:0 1.2rem 1.2rem"><button class="btn primary">Add Source</button></div>
+  </div>
+</div>
+
+<div class="spec">
+  <h3>Tab Bodies</h3>
+  <p>Text: textarea. Web URL: text input. PDF: dropzone. Transcript: dropzone (.srt/.vtt). YouTube: text input.</p>
+  <p>Active tab gets accent bg. Modal closes on overlay click or × button.</p>
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var saved=localStorage.getItem('ctx-theme');
+  if(saved)root.setAttribute('data-theme',saved);
+
+  var modal=document.getElementById('modal');
+  document.getElementById('openModal').addEventListener('click',function(){modal.classList.add('open');});
+  document.getElementById('closeModal').addEventListener('click',function(){modal.classList.remove('open');});
+  modal.addEventListener('click',function(e){if(e.target===modal)modal.classList.remove('open');});
+
+  var tabs=document.querySelectorAll('.utab');
+  var body=document.getElementById('uploadBody');
+  var bodies={
+    text:'<label>Paste text</label><textarea rows="4" placeholder="Paste raw text to ingest…"></textarea>',
+    web:'<label>Web URL</label><input type="text" placeholder="https://example.com/article">',
+    pdf:'<div class="dropzone">Drag & drop your PDF here, or<br>click to browse</div>',
+    transcript:'<label>Transcript file (.srt / .vtt)</label><div class="dropzone">Drop a subtitle file here</div>',
+    yt:'<label>YouTube URL</label><input type="text" placeholder="https://youtube.com/watch?v=…">'
+  };
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      tabs.forEach(function(x){x.classList.remove('active');});
+      t.classList.add('active');
+      body.innerHTML=bodies[t.getAttribute('data-tab')]||'';
+    });
+  });
+})();
+</script>
+</body>
+</html>

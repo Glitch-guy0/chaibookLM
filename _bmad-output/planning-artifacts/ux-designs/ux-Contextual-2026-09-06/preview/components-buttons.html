@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Components — Contextual Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F4F0;--surface:#FFFFFF;--fg:#111111;--muted:#555555;--border:#111111;--accent:#FFE500;--citation:#00E5FF;--danger:#FF3333;--success:#00E575;--danger-deep:oklch(0.5 0.21 27);--mono:"Space Mono",ui-monospace,Menlo,Consolas,monospace;--sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);padding:40px 24px}
+h1{font-family:var(--mono);font-weight:700;font-size:1.6rem;margin-bottom:8px}
+.sub{font-family:var(--mono);font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:32px}
+h2{font-family:var(--mono);font-weight:700;font-size:1rem;margin-bottom:16px;border-top:2px solid var(--border);padding-top:16px;margin-top:32px}
+.row{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:16px;align-items:center}
+.note{font-family:var(--mono);font-size:.68rem;color:var(--muted);margin-top:8px}
+
+.btn{font-family:var(--mono);font-weight:700;font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;display:inline-flex;align-items:center;gap:.4rem;padding:.75rem 1.3rem;cursor:pointer;border:2px solid var(--border);border-radius:2px;background:var(--surface);color:var(--fg);box-shadow:4px 4px 0 0 var(--border);transition:box-shadow .12s ease,transform .12s ease,background .12s ease}
+.btn.primary{background:var(--accent)}
+.btn.ghost{background:transparent}
+.btn.small{font-size:.68rem;padding:.5rem .9rem}
+.btn:hover{box-shadow:6px 6px 0 0 var(--border);transform:translate(-2px,-2px)}
+.btn:active{box-shadow:0 0 0 0 var(--border);transform:translate(4px,4px)}
+.btn:disabled{opacity:.45;cursor:not-allowed;box-shadow:4px 4px 0 0 var(--border);transform:none}
+
+.pill{font-family:var(--mono);font-weight:700;font-size:.68rem;padding:2px 6px;border:1.5px solid var(--border);border-radius:2px;background:var(--citation);color:var(--fg);cursor:pointer;display:inline-block}
+.pill:hover{box-shadow:2px 2px 0 0 var(--border)}
+
+.badge{font-family:var(--mono);font-weight:700;font-size:.68rem;padding:2px 8px;border:1.5px solid var(--border);border-radius:2px;background:var(--bg)}
+.badge.cyan{background:var(--citation)}
+.badge.accent{background:var(--accent)}
+.badge.ink{background:var(--fg);color:var(--surface)}
+.badge.danger{background:var(--danger-deep);color:#fff}
+
+.credit{font-family:var(--mono);font-weight:700;font-size:.78rem;padding:.45rem .9rem;border:2px solid var(--border);border-radius:9999px;background:var(--surface);box-shadow:3px 3px 0 0 var(--border)}
+.credit.warn{background:var(--accent)}
+.credit.locked{background:var(--danger-deep);color:#fff}
+
+.src-item{border:2px solid var(--border);background:var(--surface);box-shadow:3px 3px 0 0 var(--border);padding:.6rem .7rem;width:100%;max-width:320px}
+.src-row{display:flex;align-items:center;gap:.55rem;font-family:var(--mono);font-size:.7rem;font-weight:700}
+.src-icon{width:22px;height:22px;border:1.5px solid var(--border);border-radius:2px;display:grid;place-items:center;flex:none;background:var(--bg);font-size:.55rem}
+.status{display:flex;align-items:center;gap:.4rem;font-family:var(--mono);font-size:.6rem;text-transform:uppercase;letter-spacing:.05em}
+.dot{width:8px;height:8px;border-radius:50%;flex:none}
+.dot.green{background:var(--success);box-shadow:0 0 0 3px color-mix(in oklch,var(--success) 35%,transparent);animation:pulse 1.6s infinite}
+.dot.yellow{background:var(--accent)}
+.dot.red{background:var(--danger)}
+.dot.gray{background:var(--muted)}
+.orb{width:14px;height:14px;border:2px solid var(--border);border-top-color:transparent;border-radius:50%;flex:none;background:var(--accent);animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+.banner{background:var(--accent);color:var(--fg);border:2px solid var(--border);box-shadow:5px 5px 0 0 var(--border);font-family:var(--mono);font-size:.72rem;font-weight:700;text-align:center;padding:.6rem .9rem;width:100%}
+.refusal{border:2px solid var(--fg);background:var(--surface);padding:1rem;box-shadow:4px 4px 0 0 var(--border);width:100%;max-width:400px}
+.refusal .rtitle{font-family:var(--mono);font-weight:700;font-size:.74rem;margin-bottom:4px}
+.refusal p{font-size:.82rem;margin-bottom:8px}
+.refusal .cost{font-family:var(--mono);font-size:.62rem;color:var(--muted);margin-top:8px}
+</style>
+</head>
+<body>
+<h1>Components</h1>
+<p class="sub">Live interactive demos · hover and press each control</p>
+
+<h2>Button</h2>
+<div class="row">
+  <button class="btn primary">Start Free</button>
+  <button class="btn">Secondary</button>
+  <button class="btn ghost">Ghost</button>
+  <button class="btn primary small">+ Add Source</button>
+  <button class="btn small" disabled>Disabled</button>
+</div>
+<p class="note">Standard 4px shadow → hover elevates to 6px + translate(-2px,-2px) → pressed collapses to 0 + translate(4px,4px)</p>
+
+<h2>Citation Pill</h2>
+<div class="row">
+  <span class="pill">[1]</span>
+  <span class="pill">[2]</span>
+  <span class="pill">[3]</span>
+  <span style="font-size:.82rem;color:var(--muted)">Answer text with inline citation.</span>
+</div>
+<p class="note">Cyan bg · 1.5px ink border · Space Mono 11px bold · hover shows shadow</p>
+
+<h2>Badges</h2>
+<div class="row">
+  <span class="badge cyan">4 sources</span>
+  <span class="badge accent">indexing</span>
+  <span class="badge ink">READY</span>
+  <span class="badge danger">0 credits</span>
+  <span class="badge">queued</span>
+</div>
+
+<h2>Credit Badge</h2>
+<div class="row">
+  <span class="credit">⚡ 8/10</span>
+  <span class="credit warn">⚡ 2/10</span>
+  <span class="credit locked">🔒 0/10</span>
+</div>
+<p class="note">Pill shape · yellow warning ≤2 · red locked at 0 disables composer</p>
+
+<h2>Source Card</h2>
+<div class="src-item">
+  <div class="src-row"><span class="src-icon">PDF</span><span>raft-paper.pdf</span></div>
+  <span class="status"><span class="dot green"></span><span style="color:color-mix(in oklch,var(--success) 55%,var(--fg));font-weight:700">● ready</span></span>
+</div>
+<div class="src-item" style="margin-top:8px">
+  <div class="src-row"><span class="src-icon">▶</span><span>mit-lecture-youtube</span></div>
+  <span class="status"><span class="orb"></span><span>indexing…</span></span>
+</div>
+<div class="src-item" style="margin-top:8px">
+  <div class="src-row"><span class="src-icon">◎</span><span>system-docs-web</span></div>
+  <span class="status"><span class="dot gray"></span><span style="color:var(--muted)">queued</span></span>
+</div>
+<div class="src-item" style="margin-top:8px">
+  <div class="src-row"><span class="src-icon">TXT</span><span>notes-draft.txt</span></div>
+  <span class="status"><span class="dot red"></span><span style="color:var(--danger);font-weight:700">failed</span></span>
+</div>
+
+<h2>Expiration Banner</h2>
+<div class="banner">⏳ Auto-deletion Notice: This notebook will be auto-deleted tonight at 12:00 AM Asia/Kolkata (UTC+05:30).</div>
+
+<h2>Refusal Card</h2>
+<div class="refusal">
+  <div class="rtitle">⚠ Honest refusal</div>
+  <p>The uploaded sources do not specify the requested information.</p>
+  <button class="btn small primary">Search Web & Answer</button>
+  <div class="cost">Consumes 1 credit · via Tavily</div>
+</div>
+</body>
+</html>
