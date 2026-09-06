@@ -14,8 +14,8 @@ Condensed from `_bmad-output/planning-artifacts/tech-stack.md`. Decided 2026-08-
 | Embeddings | env-configured OpenAI-compatible endpoint | Same pattern, independent env vars from chat LLM |
 | Vector DB | Qdrant behind a `VectorStore` port (composite adapter) | System of record for chunks (vector + metadata together) |
 | Relational DB | Neon (Postgres) | Working metadata only — no chunk-level data |
-| RAG runtime | shikigami agent SDK (`@glitch-guy0/shikigami`) | Tightly coupled by approved decision — not behind a port |
-| Ingestion | App code (synchronous in request path) | Firecrawl → split → embed → store |
+| RAG runtime | **LangChain** (`@langchain/core`, `@langchain/openai`, `langchain`) | Decoupled behind ports-and-adapters; standardized prompt templates and streaming runnable chains |
+| Ingestion & Durability | **Inngest** durable step-functions | Step functions: extract → parse → chunk → embed → upsert → status. Auto-retries & failure isolation |
 | Fetch/extract | **Firecrawl** (URL → markdown) | Clean markdown extraction via Firecrawl API; JS-only pages → honest "failed" |
 | File storage | **Cloudinary** behind a `StorageService` port (composite adapter) | Raw HTML + assets via Cloudinary Upload API |
 | Web search | Pluggable `search` port — **Tavily** | Approval-gated fetch-on-refusal only |
@@ -26,12 +26,12 @@ Condensed from `_bmad-output/planning-artifacts/tech-stack.md`. Decided 2026-08-
 
 - DDD bounded contexts (`notebooks`, `sources`, `chat`, `ingestion`, `limits`) in a separate top-level `backend/` tree, not nested in the Next app — extractable later without a structural refactor.
 - Composite adapters for storage and vector DB — new providers never touch domain code.
-- shikigami is the one approved tight-coupling exception; everything else follows ports-and-adapters.
+- LangChain integrates cleanly behind ports-and-adapters; no tight-coupling carve-outs.
 - LLM + embeddings are both fully env-driven, OpenAI-compatible only.
 
 ## Explicit non-picks
 
-No LangChain/LlamaIndex, no headless browser (JS-only pages fail honestly), no self-hosted AI, no raw client `fetch`, no persistent notebook rail.
+No shikigami SDK (deprecated/removed in favor of LangChain), no LlamaIndex, no headless browser (JS-only pages fail honestly), no self-hosted AI, no raw client `fetch`, no persistent notebook rail.
 
 ## Cost posture
 

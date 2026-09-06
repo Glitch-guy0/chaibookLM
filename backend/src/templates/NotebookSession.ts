@@ -8,10 +8,18 @@
 // is expected to receive an already-windowed (<=7) array, and `getState`
 // hands it back for GroundedAnswerReasoningStrategy's prompt builders.
 
-import type {
-  IBaseSession,
-  SessionSnapshot,
-} from '@glitch-guy0/shikigami/session';
+export interface SessionSnapshot {
+  data: Record<string, unknown>;
+  timestamp: string;
+}
+
+export interface IBaseSession {
+  notebookId: string;
+  getState(key: string): Promise<unknown | undefined>;
+  setState(key: string, value: unknown): Promise<void>;
+  clearState(): Promise<void>;
+  snapshot(): SessionSnapshot;
+}
 import type { ChatMessage } from '../shared-kernel/types';
 
 export const MAX_TURNS = 7;

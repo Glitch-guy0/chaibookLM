@@ -4,12 +4,12 @@ Condensed from `_bmad-output/planning-artifacts/architecture/architecture-chaibo
 
 ## Paradigm
 
-Ports-and-adapters (hexagonal) modular monolith over DDD bounded contexts, with one approved tight-coupling carve-out (shikigami).
+Ports-and-adapters (hexagonal) modular monolith over DDD bounded contexts, with clean LangChain RAG integration.
 
 - Domain lives in a separate top-level `backend/` tree as bounded contexts: `notebooks`, `sources`, `chat`, `ingestion`, `limits`. Domain code depends only on **ports** (interfaces), never infrastructure.
 - Adapters (Qdrant, Neon, Cloudinary, Clerk, LLM/embeddings, Tavily, Firecrawl) are injected at the composition root.
 - **Next.js is the composition root and controller layer only** — no business logic. One deployable (Vercel Hobby); `backend/` stays extractable later without a structural refactor.
-- **Carve-out:** the shikigami agent SDK is tightly coupled — not behind a port. Ports-and-adapters applies to storage/vector/LLM/embeddings/search, not the answer runtime.
+- **RAG runtime:** LangChain (`@langchain/core`, `@langchain/openai`, `langchain`) standardizes prompt templates, document retrievers, and streaming runnable chains, integrated behind standard ports-and-adapters without proprietary tight-coupling.
 
 ```
 backend/src/
@@ -28,7 +28,7 @@ backend/src/
 |----|------|
 | AD-1 | Qdrant is the **sole** system of record for Chunks (vector + metadata together: `sourceId`, `notebookId`, `span`, `position`, `text`). Neon holds only user/resource working metadata — never chunk content. Carve-out: resolved-citation snapshots on persisted chat messages are a rendering artifact, not chunk content. |
 | AD-2 | Qdrant loss is **not** repaired by re-ingesting. Approved recovery: delete the affected users' Cloudinary resources + surface an honest error. Zero backup posture in v0.1. |
-| AD-3 | `@glitch-guy0/shikigami` is a direct dependency, not ported. SDK modifications need a change-request + explicit approval; custom strategies/templates built on top are ordinary app code. |
+| AD-3 | LangChain (`@langchain/core`, `@langchain/openai`, `langchain`) is used for prompt templating, retriever abstractions, and streaming runnable sequences. Decoupled behind the chat and retrieval domain services (replaces `@glitch-guy0/shikigami`). |
 | AD-4 | Only the `ingestion` context creates/removes chunks. Removal = filtered delete on `sourceId`. No other code path writes the chunk collection. |
 | AD-5 | `EmbeddingService` is the only embeddings-endpoint caller, shared by `SourceIndexer` and `VectorStoreMemoryStrategy`. Env-driven (`EMBEDDING_BASE_URL/API_KEY/MODEL`), independent of LLM env vars. Model change = deliberate re-index event. |
 | AD-6 | One shared chunk type `{chunkId, sourceId, notebookId, span{start,end}, position, text}` used by ingestion/retrieval/CitationMapper. Splitter is deterministic + span-preserving. `chunkId` = hash(`sourceId + position`) → idempotent upsert. 500 chars/25% overlap for plain text; heading-aware for web (markdown via Firecrawl). |
@@ -41,7 +41,7 @@ backend/src/
 | AD-13 | `WebSearchTool` (Tavily) runs only after explicit user approval of a fetch-on-refusal offer — the model never invokes search autonomously. |
 | AD-14 | Delete cascade is fixed order: Qdrant → Cloudinary → Neon, each step idempotent, owned by `ingestion`. In-flight QStash ingestion must tombstone-check before writing chunks for a removed source. |
 | AD-15 | Qdrant adapter is one implementation driven by env (`QDRANT_URL` + key) — cloud vs self-hosted is a config choice, not a fork. |
-| AD-16 | Answers stream via shikigami events; controller forwards deltas to the client; citation markers stream inline. |
+| AD-16 | Answers stream via LangChain streaming callbacks / SSE; controller forwards deltas to the client; citation markers stream inline. |
 
 ## Conventions
 

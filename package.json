@@ -13,7 +13,9 @@
   "dependencies": {
     "@clerk/nextjs": "^5.0.0",
     "@clerk/types": "^4.0.0",
-    "@glitch-guy0/shikigami": "0.1.0",
+    "@langchain/core": "^0.3.0",
+    "@langchain/openai": "^0.3.0",
+    "langchain": "^0.3.0",
     "@neondatabase/serverless": "^0.9.0",
     "@tanstack/react-query": "^5.101.4",
     "driver.js": "^1.0.0",

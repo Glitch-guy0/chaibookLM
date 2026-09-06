@@ -13,13 +13,31 @@
 
 import type { VectorStore, ScoredChunk } from '../ports/VectorStore';
 import type { Embeddings } from '../ports/Embeddings';
-import type {
-  MemoryStoreInput,
-  MemoryStoreResult,
-  MemoryRetrieveInput,
-  MemoryRetrieveResult,
-  KnowledgeEntry,
-} from '@glitch-guy0/shikigami/core';
+export interface KnowledgeEntry {
+  id: string;
+  content: string;
+  metadata?: Record<string, unknown>;
+  timestamp?: string;
+}
+
+export interface MemoryRetrieveInput {
+  query: string;
+}
+
+export interface MemoryRetrieveResult {
+  entries: KnowledgeEntry[];
+  strategy: string;
+}
+
+export interface MemoryStoreInput {
+  content: string;
+  metadata?: Record<string, unknown>;
+}
+
+export interface MemoryStoreResult {
+  stored: boolean;
+  strategy: string;
+}
 
 export const DEFAULT_TOP_K = 5;
 export const DEFAULT_MIN_SCORE = 0.3;
