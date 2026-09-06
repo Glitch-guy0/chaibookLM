@@ -1,0 +1,63 @@
+sequenceDiagram
+    autonumber
+    actor User as User
+    participant Client as Next.js Client
+    participant API as Route /api/sources
+    participant Neon as Neon Postgres
+    participant Inngest as Inngest Event Bus
+    participant Worker as Inngest Step Worker
+    participant Cloudinary as Cloudinary Storage (Temporary)
+    participant Extractor as Parser / Firecrawl / YT Captions
+    participant OpenAI as OpenAI Embeddings
+    participant Qdrant as Qdrant Vector Store
+
+    User->>Client: Upload PDF / Paste URL / Submit YouTube
+    Client->>API: POST /api/sources (FormData / JSON)
+    API->>Neon: INSERT source (status='queued')
+    opt If File Source
+        API->>Neon: INSERT telemetry_file_uploads (fileType, fileSizeBytes)
+    end
+    API->>Inngest: inngest.send("source.ingest.*", { sourceId, userId, ... })
+    API-->>Client: 201 Created { sourceId, status: "queued" }
+    Client->>Client: Render SourceCard with 'queued' pill
+
+    Note over Inngest,Worker: Inngest Asynchronous Execution (concurrency: 2/user)
+    Inngest->>Worker: Dispatch Step 1: extract-raw-content
+    Worker->>Neon: UPDATE source SET status='indexing'
+    Client->>Client: SourceCard badge transitions to 'indexing' (orbital spin)
+
+    alt Web Source
+        Worker->>Extractor: Scrape clean markdown via Firecrawl
+    else PDF Source
+        Worker->>Cloudinary: Fetch temporary uploaded PDF binary
+        Worker->>Extractor: Extract page text via pure-JS PDFPageExtractor
+    else YouTube Source
+        Worker->>Extractor: Fetch subtitle cues via keyless youtube-transcript
+    else Subtitle Source
+        Worker->>Extractor: Parse .srt / .vtt timecode cues
+    end
+    Extractor-->>Worker: Raw extracted content
+
+    Note over Worker: Universal Intermediate Format: Markdown
+    Worker->>Worker: Step 2: normalize-to-intermediate-markdown (with <!-- page: N --> or <!-- time: mm:ss -->)
+    Worker->>Worker: Step 3: chunk-intermediate-markdown (~500 token segments + type metadata)
+    
+    Worker->>OpenAI: Step 4: generate-embeddings (batch <= 20 chunks)
+    OpenAI-->>Worker: Vector embeddings (1536d)
+
+    Worker->>Qdrant: Step 5: index-qdrant (upsert points into unified contextual_chunks_v1)
+    Qdrant-->>Worker: Upsert confirmed
+
+    opt PDF Source
+        Worker->>Cloudinary: Step 6: delete-temp-binary (purge ephemeral upload from Cloudinary)
+        Cloudinary-->>Worker: Ephemeral binary purged
+    end
+
+    Worker->>Neon: Step 7: update-neon-status (status='ready', chunkCount=N)
+    Client->>Client: SourceCard badge transitions to 'ready' (success glow)
+
+    opt Failure Isolation (Retries exhausted or deterministic error)
+        Worker->>Cloudinary: Purge temporary binary if exists
+        Worker->>Neon: onFailure: UPDATE source SET status='failed', error_reason=$msg
+        Client->>Client: SourceCard badge transitions to 'failed' (red border + tooltip)
+    end

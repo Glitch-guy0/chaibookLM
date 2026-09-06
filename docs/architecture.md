@@ -1,66 +1,73 @@
-# Contextual — Architecture Reference
+# Contextual — Architecture Reference (v1 Direct Production)
 
-Condensed from `_bmad-output/planning-artifacts/architecture/architecture-chaibookLM-2026-08-06/ARCHITECTURE-SPINE.md`. These decisions are load-bearing for any new feature work — read the AD you're touching before changing that area's code.
+Condensed from [`ARCHITECTURE-SPINE.md`](../_bmad-output/planning-artifacts/architecture/architecture-Contextual-2026-09-06/ARCHITECTURE-SPINE.md). These architectural decisions (ADs) are authoritative invariants for Contextual v1.
+
+---
 
 ## Paradigm
 
-Ports-and-adapters (hexagonal) modular monolith over DDD bounded contexts, with clean LangChain RAG integration.
-
-- Domain lives in a separate top-level `backend/` tree as bounded contexts: `notebooks`, `sources`, `chat`, `ingestion`, `limits`. Domain code depends only on **ports** (interfaces), never infrastructure.
-- Adapters (Qdrant, Neon, Cloudinary, Clerk, LLM/embeddings, Tavily, Firecrawl) are injected at the composition root.
-- **Next.js is the composition root and controller layer only** — no business logic. One deployable (Vercel Hobby); `backend/` stays extractable later without a structural refactor.
-- **RAG runtime:** LangChain (`@langchain/core`, `@langchain/openai`, `langchain`) standardizes prompt templates, document retrievers, and streaming runnable chains, integrated behind standard ports-and-adapters without proprietary tight-coupling.
+Contextual is a **Modular Monolith** applying **Ports-and-Adapters (Hexagonal Architecture)** over domain-driven bounded contexts, orchestrated asynchronously via **Inngest Durable Workflows**:
+- **Presentation & Controllers (`app/api/`)**: Thin Next.js App Router handlers managing HTTP requests, Clerk session authentication, and SSE streaming.
+- **Domain & Application Services (`backend/src/contexts/`)**: Organized strictly by bounded context (`notebooks`, `sources`, `chat`, `ingestion`, `limits`, `telemetry`).
+- **Ports (`backend/src/ports/`)**: Pure TypeScript interfaces insulating domain logic from vendor SDKs (`VectorStore`, `StorageService`, `Embeddings`, `Search`, `WebExtractor`, `CaptionsService`).
+- **Composite Adapters (`backend/src/adapters/`)**: Swappable infrastructure implementations (`QdrantAdapter`, `NeonRepository`, `CloudinaryAdapter`, `OpenAIEmbeddingsAdapter`, `TavilyAdapter`, `FirecrawlAdapter`, `YouTubeCaptionsAdapter`).
+- **Asynchronous Execution Backbone (`app/api/inngest/route.ts`)**: Inngest durable step-functions partitioning multi-modal ingestion into sub-5s memoized steps with concurrency caps and failure isolation.
+- **Universal Intermediate Representation**: All source modalities are normalized into clean, structured **Markdown** prior to chunking and vector indexing.
 
 ```
 backend/src/
-  contexts/{notebooks,sources,chat,ingestion,limits}/
-  shared-kernel/     # chunk shape, citation marker types
-  ports/             # VectorStore, StorageService, Embeddings, search
-  adapters/          # qdrant, neon, cloudinary, clerk, llm, embeddings, tavily, firecrawl
-  templates/         # VectorStoreMemoryStrategy, GroundedAnswerReasoningStrategy,
-                      # NotebookSession, WebSearchTool, SourceIndexer,
-                      # EmbeddingService, CitationMapper
+  contexts/          # notebooks, sources, chat, ingestion, limits, telemetry
+  shared-kernel/     # canonical chunk types, citation marker syntax, DTOs
+  ports/             # VectorStore, StorageService, Embeddings, Search, WebExtractor, CaptionsService
+  adapters/          # qdrant, neon, cloudinary, clerk, openai, tavily, firecrawl, youtube
+  chunking/          # markdown-aware semantic token segmenters
 ```
 
-## Architecture Decisions
+---
 
-| AD | Rule |
-|----|------|
-| AD-1 | Qdrant is the **sole** system of record for Chunks (vector + metadata together: `sourceId`, `notebookId`, `span`, `position`, `text`). Neon holds only user/resource working metadata — never chunk content. Carve-out: resolved-citation snapshots on persisted chat messages are a rendering artifact, not chunk content. |
-| AD-2 | Qdrant loss is **not** repaired by re-ingesting. Approved recovery: delete the affected users' Cloudinary resources + surface an honest error. Zero backup posture in v0.1. |
-| AD-3 | LangChain (`@langchain/core`, `@langchain/openai`, `langchain`) is used for prompt templating, retriever abstractions, and streaming runnable sequences. Decoupled behind the chat and retrieval domain services (replaces `@glitch-guy0/shikigami`). |
-| AD-4 | Only the `ingestion` context creates/removes chunks. Removal = filtered delete on `sourceId`. No other code path writes the chunk collection. |
-| AD-5 | `EmbeddingService` is the only embeddings-endpoint caller, shared by `SourceIndexer` and `VectorStoreMemoryStrategy`. Env-driven (`EMBEDDING_BASE_URL/API_KEY/MODEL`), independent of LLM env vars. Model change = deliberate re-index event. |
-| AD-6 | One shared chunk type `{chunkId, sourceId, notebookId, span{start,end}, position, text}` used by ingestion/retrieval/CitationMapper. Splitter is deterministic + span-preserving. `chunkId` = hash(`sourceId + position`) → idempotent upsert. 500 chars/25% overlap for plain text; heading-aware for web (markdown via Firecrawl). |
-| AD-7 | Citation markers are **validated, never trusted**: `GroundedAnswerReasoningStrategy` emits per-sentence markers referencing only retrieved `chunkId`s; `CitationMapper` drops unknown markers. Refusal is structural — no chunk above `minScore` → no `chunkId`s in context → zero citation markers possible. |
-| AD-8 | Retrieval: `topK=5`, `minScore=0.30` absolute cosine, scoped by `notebookId` (cross-notebook citations impossible by construction). |
-| AD-9 | Chat window: exactly last 7 user+assistant turns fed per turn (a fetch-on-refusal sub-answer counts as its own turn). Chat list loads/paginates by 7. Full history persists in Neon; only the window is re-fed. |
-| AD-10 | `limits` context is the single owner of all per-user/per-notebook counters in Neon. Cap check-and-increment is one Postgres transaction per write boundary. Only the write boundary bumps; delete/TTL paths reconcile down exactly once. |
-| AD-11 | Notebook TTL is lazy — checked on dashboard load / notebook open, no cron in v0.1. |
-| AD-12 | App-layer guard in front of AI/ingestion ops rejects with the honest high-load message under an env-driven request-rate threshold; already-indexed content/browsing stay usable. |
-| AD-13 | `WebSearchTool` (Tavily) runs only after explicit user approval of a fetch-on-refusal offer — the model never invokes search autonomously. |
-| AD-14 | Delete cascade is fixed order: Qdrant → Cloudinary → Neon, each step idempotent, owned by `ingestion`. In-flight QStash ingestion must tombstone-check before writing chunks for a removed source. |
-| AD-15 | Qdrant adapter is one implementation driven by env (`QDRANT_URL` + key) — cloud vs self-hosted is a config choice, not a fork. |
-| AD-16 | Answers stream via LangChain streaming callbacks / SSE; controller forwards deltas to the client; citation markers stream inline. |
+## Authoritative Architecture Decisions
 
-## Conventions
+| AD | Category | Rule & Invariant |
+|---|---|---|
+| **AD-1** | Chat / Citations | Assistant completions must be grounded exclusively in retrieved chunks from the active notebook. LLM emits inline markers `[[C:chunkId]]`. Refusal triggers if top retrieval score < 0.30. Client parser maps `[[C:chunkId]]` to sequential Inline Citation Pills `[1]`, `[2]`. |
+| **AD-2** | Vector Store | Qdrant is the **sole system of record for chunks** (vectors + text + metadata together). All chunks live in a single unified collection `contextual_chunks_v1` with indexed keyword fields (`notebookId`, `userId`, `sourceId`). Neon never stores chunk text. Explicit invariant: **No Graph Database** in this project. |
+| **AD-3** | Ephemeral Storage | Uploaded binaries (PDFs in Cloudinary) exist **only temporarily** during active ingestion. Once parsed, chunked, and upserted into Qdrant (`status: 'ready'`), Cloudinary binaries are immediately deleted. Users solely rely on indexed chunks and chat. Zero backup infra. |
+| **AD-4** | Ingestion Engine | `POST /api/sources` immediately commits `status: 'queued'`, dispatches an Inngest event, and returns HTTP 201 (< 200ms). Pipeline: `extract` → `normalize-to-markdown` → `chunk-markdown` → `embed` → `index-qdrant` → `delete-temp-binary` → `update-neon-status`. Per-user concurrency cap of 2. |
+| **AD-5** | Failure Isolation | Failure during ingestion of one source NEVER blocks, corrupts, or delays any other source or the active notebook. Upon retry exhaustion or deterministic error, Inngest triggers `onFailure`, marking the source `status: 'failed'` with an actionable `errorReason` in Neon and purging temp binaries. |
+| **AD-6** | Universal Markdown | **Markdown is the single universal intermediate format across all modalities.** PDFs convert to paginated Markdown (`<!-- page: N -->`), YouTube/subtitles convert to timecoded Markdown (`<!-- time: mm:ss -->`), Web converts to clean markdown. Chunks segment at ~500 tokens from this Markdown. Deep Original View pairs structural locators with substring text search for `excerpt`. |
+| **AD-7** | Multi-Modal Parsers | PDF extracted via pure-JS serverless parser (`unpdf` / `pdf-parse`) in Inngest step. YouTube captions extracted keyless via `youtube-transcript`. Web extracted via Firecrawl API. Subtitles parsed via native regex timecode splitters. |
+| **AD-8** | RAG Runtime | LangChain (`@langchain/core`, `@langchain/openai`, `langchain`) orchestrates prompt templates, retrievers, and streaming runnable sequences. Chat and Embeddings endpoints are independently configured via environment variables. |
+| **AD-9** | Web Search | Live web search NEVER executes autonomously. When active notebook sources yield an Honest Refusal, UI renders `[Search Web & Answer (1 Credit)]`. Search executes via Tavily only on explicit user click, tagging citations as `[Web: domain.com]`. |
+| **AD-10** | Unified 12 AM IST Reset | Daily user credits reset to **10 credits** at a strict, unified schedule: **12:00 AM Asia/Kolkata (18:30 UTC / 00:00 IST)**. Grounded chat completions consume 1 credit; approved web searches consume 1 credit. Ingestion and browsing consume 0 credits. |
+| **AD-11** | Midnight Purge Cascade | Active notebooks auto-delete at **12:00 AM Asia/Kolkata (18:30 UTC / 00:00 IST)** via Inngest cron (`fnMidnightMaintenance`). Purges Qdrant vector points, Cloudinary temp assets, and Neon records (`notebooks`, `sources`, `chat_messages`). Notice banner permanently displayed on workspace. |
+| **AD-12** | Telemetry & OLAP Rollup | Operational tables `telemetry_chat_prompts` and `telemetry_file_uploads` track daily activity. At **12:00 AM IST (18:30 UTC)**, an OLAP processing step consolidates all recorded rows for the day into a single summary record in `telemetry_daily_aggregates`, preserving historical analytics while purging raw operational rows. |
+| **AD-13** | Monolith Boundary | Next.js App Router owns routing, authentication middleware, and presentation only. All domain entities, bounded context services, ports, and composite adapters reside in the top-level `backend/src/` directory. |
+| **AD-14** | Chat Window | Exactly the last 7 conversation turns (user + assistant) are pulled from Neon and injected into the LLM context. Full conversation history is retained in Neon for client pagination, but older messages are excluded from the active LLM prompt. |
+| **AD-15** | Quotas & Caps | Hard server-side caps: max 10 notebooks per user, max 10 sources per notebook, max 30 sources per user, max 10MB per PDF upload, max 5MB for transcript files. Violations return HTTP 422 with an actionable modal. |
+| **AD-16** | Neo-Brutalism & UI | Desktop (≥1280px) renders persistent 3-column split (`Sources 25% | Chat 45% | Showcase 30%`). Mobile (<768px) renders single tabbed pane `[Sources | Chat | Showcase]`. Slanted buttons use `-6deg` skew with `6px -6px` solid ink shadow. Full WCAG 2.2 AA compliance in light and dark modes. |
 
-- IDs are UUIDs (`chunkId`, `sourceId`, `notebookId`); spans are `{start,end}` char offsets in the source's original text.
-- Citation marker syntax `[[C:chunkId]]`, shared by strategy + mapper.
-- All LLM/embedding/search config is env-driven (`baseURL`/`apiKey`/`model`); secrets never in client bundles.
-- No raw `fetch` in client components — TanStack Query owns fetching/caching.
-- Firecrawl: `FIRECRAWL_API_KEY` for URL→markdown extraction; Tavily: `TAVILY_API_KEY` for fetch-on-refusal web search.
-- QStash callback passes only a `sourceId` reference; the serverless fn re-fetches metadata/raw — never the ≤5MB body.
+---
 
-## Deployment
+## Deployment & Environments
 
-Vercel Hobby (Next.js, single deployable) → Neon (working metadata) + Qdrant (chunk system of record) + Cloudinary (raw html/assets) + QStash (ingestion jobs) + env-driven LLM/embeddings + Firecrawl (fetch-extract) + Tavily (search). Dev + prod environments, config entirely via env vars.
+- **Deployment Platform**: Vercel Serverless (Hobby Free Tier)
+- **Relational Store**: Neon Serverless PostgreSQL (one multi-tenant database)
+- **Vector Store**: Qdrant Cloud Free Tier (1GB cluster, single collection `contextual_chunks_v1`)
+- **Blob Storage**: Cloudinary (temporary buffer during active ingestion only; purged post-index)
+- **Async Execution & Crons**: Inngest Cloud (`/api/inngest` worker gateway)
+- **Web Scraping**: Firecrawl API
+- **Web Search**: Tavily API
+- **Authentication**: Clerk
 
-## Known deferred-by-design (not gaps, deliberate)
+---
 
-- No Qdrant backups/monitoring (AD-2 zero-backup posture).
-- No daily TTL sweep (AD-11), only lazy checks.
-- Embeddings limited to OpenAI-compatible providers (AD-5).
-- No standalone search surface — chat is the only query interface (PRD v0.1).
+## Related Diagrams & Specifications
 
-For actual known rough edges and bugs to pick up next, see [deferred-work.md](deferred-work.md). Full source docs (PRD, UX design/experience, epics, tech stack, review logs) remain archived under `_bmad-output/planning-artifacts/`.
+- **L1 System Context**: [`docs/c4/system-context.mmd`](c4/system-context.mmd)
+- **L2 Containers**: [`docs/c4/containers.mmd`](c4/containers.mmd)
+- **L3 Ingestion Components**: [`docs/c4/components/ingestion.mmd`](c4/components/ingestion.mmd)
+- **L3 Chat Components**: [`docs/c4/components/chat.mmd`](c4/components/chat.mmd)
+- **Ingestion Flow**: [`docs/flows/sequence-ingestion.mmd`](flows/sequence-ingestion.mmd)
+- **Chat Flow**: [`docs/flows/sequence-chat.mmd`](flows/sequence-chat.mmd)
+- **Lifecycle Flow**: [`docs/flows/sequence-lifecycle.mmd`](flows/sequence-lifecycle.mmd)
+- **Master Index**: [`docs/indexes/diagram-index.md`](indexes/diagram-index.md)

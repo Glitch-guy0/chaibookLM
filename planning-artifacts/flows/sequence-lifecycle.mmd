@@ -1,0 +1,43 @@
+sequenceDiagram
+    autonumber
+    participant Inngest as Inngest Cron Scheduler
+    participant Worker as Inngest Maintenance Worker
+    participant Neon as Neon Postgres
+    participant Qdrant as Qdrant Vector Store
+    participant Cloudinary as Cloudinary Storage
+
+    Note over Inngest,Worker: Unified Midnight Maintenance (12:00 AM IST / 18:30 UTC)
+    Inngest->>Worker: Trigger cron("30 18 * * *") -> fnMidnightMaintenance
+
+    %% 1. OLAP Rollup Processing
+    rect rgb(240, 245, 255)
+        Note over Worker,Neon: Phase 1: OLAP Telemetry Rollup (Daily Aggregation)
+        Worker->>Neon: Aggregate day's metrics from telemetry_chat_prompts & telemetry_file_uploads
+        Worker->>Neon: INSERT INTO telemetry_daily_aggregates (summary_date, total_prompts, total_credits_consumed, total_prompt_chars, total_file_uploads, total_upload_bytes, active_users_count, uploads_by_type)
+        Worker->>Neon: DELETE FROM telemetry_chat_prompts WHERE created_at < NOW() - INTERVAL '1 day'
+        Worker->>Neon: DELETE FROM telemetry_file_uploads WHERE created_at < NOW() - INTERVAL '1 day'
+        Neon-->>Worker: Daily OLAP aggregation locked, operational tables pruned
+    end
+
+    %% 2. Daily Credit Reset
+    rect rgb(255, 250, 235)
+        Note over Worker,Neon: Phase 2: Daily Credit Reset (10 Credits / Day)
+        Worker->>Neon: UPDATE limit_counters SET available_credits = 10, updated_at = NOW()
+        Neon-->>Worker: All user credits reset to 10
+    end
+
+    %% 3. Ephemeral Notebook & Cascade Purge
+    rect rgb(255, 240, 240)
+        Note over Worker,Qdrant: Phase 3: Ephemeral Notebook Purge Cascade
+        Worker->>Neon: SELECT id FROM notebooks
+        Neon-->>Worker: Active notebook IDs
+
+        loop For each active notebook
+            Worker->>Qdrant: Delete points where payload.notebookId == notebook.id
+            Qdrant-->>Worker: Vectors purged
+            Worker->>Cloudinary: Delete any dangling temp assets
+            Cloudinary-->>Worker: Cleaned up
+            Worker->>Neon: CASCADE DELETE FROM notebooks WHERE id == notebook.id
+            Neon-->>Worker: Operational records purged (notebooks, sources, chat_messages)
+        end
+    end

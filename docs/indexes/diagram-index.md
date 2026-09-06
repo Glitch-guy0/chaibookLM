@@ -6,36 +6,36 @@ Master catalog of architecture diagrams for Contextual.
 
 | Level | Diagram | Description | Status |
 |-------|---------|-------------|--------|
-| L1 | [System Context](c4/system-context.mmd) | Shows users and external systems | ✅ Current |
-| L2 | [Containers](c4/containers.mmd) | Runtime units (Next.js, contexts, ports) | ✅ Current |
-| L3 | [Components - Chat](c4/components/chat.mmd) | Chat bounded context internals | ✅ Current |
-| L3 | [Components - Ingestion](c4/components/ingestion.mmd) | Ingestion bounded context internals | ✅ Current |
+| L1 | [System Context](c4/system-context.mmd) | Users, Next.js 15, Inngest, Neon, Qdrant, Cloudinary, OpenAI, Firecrawl, YouTube, Tavily | ✅ Current (v1) |
+| L2 | [Containers](c4/containers.mmd) | Next.js App Router, Inngest worker gateway, backend bounded contexts, ports & adapters | ✅ Current (v1) |
+| L3 | [Components - Ingestion](c4/components/ingestion.mmd) | Inngest durable step-functions, per-user concurrency cap, memoized pipeline, failure isolation | ✅ Current (v1) |
+| L3 | [Components - Chat](c4/components/chat.mmd) | LangChain RAG pipeline, credit governor check, scoped retrieval, SSE tokens, citation parser, refusal | ✅ Current (v1) |
 
 ## Flows - Behavior
 
 | Diagram | Description | Status |
 |---------|-------------|--------|
-| [sequence-chat](flows/sequence-chat.mmd) | Chat interaction flow (retrieval → LLM → citations) | ✅ Current |
+| [sequence-ingestion](flows/sequence-ingestion.mmd) | Asynchronous multi-modal ingestion pipeline with Inngest step memoization and failure isolation | ✅ Current (v1) |
+| [sequence-chat](flows/sequence-chat.mmd) | Grounded chat interaction flow (credit check → Qdrant retrieval → LangChain LLM → citation pills → refusal fallback) | ✅ Current (v1) |
+| [sequence-lifecycle](flows/sequence-lifecycle.mmd) | Midnight 12:00 AM IST auto-deletion purge cascade and rolling 24-hour credit window synchronization | ✅ Current (v1) |
 
 ## Integrations
 
 | Service | Purpose | Diagram |
 |---------|---------|---------|
-| Qdrant | Vector store for chunks | [Containers](c4/containers.mmd) |
-| Neon | PostgreSQL for user/notebook metadata | [Containers](c4/containers.mmd) |
-| Clerk | Authentication | [System Context](c4/system-context.mmd) |
-| LLM | Answer generation | [Chat Components](c4/components/chat.mmd) |
-| Tavily | Web search on refusal | [Chat Components](c4/components/chat.mmd) |
-| Firecrawl | Web content extraction | [Ingestion Components](c4/components/ingestion.mmd) |
+| Inngest | Durable background step-functions & cron scheduler | [Containers](c4/containers.mmd), [Ingestion Components](c4/components/ingestion.mmd), [Lifecycle Flow](flows/sequence-lifecycle.mmd) |
+| Qdrant | Vector store (system of record for chunk text, embeddings, and metadata) | [Containers](c4/containers.mmd), [Chat Components](c4/components/chat.mmd) |
+| Neon | PostgreSQL for user/notebook metadata, limits, and telemetry | [Containers](c4/containers.mmd), [Chat Components](c4/components/chat.mmd) |
+| Clerk | Authentication and session verification | [System Context](c4/system-context.mmd), [Containers](c4/containers.mmd) |
+| Cloudinary | Blob storage for uploaded PDF binaries and raw transcripts | [Containers](c4/containers.mmd), [Ingestion Components](c4/components/ingestion.mmd) |
+| OpenAI | Compatible endpoints for embeddings (1536d) and Chat LLM | [Chat Components](c4/components/chat.mmd), [Ingestion Components](c4/components/ingestion.mmd) |
+| Firecrawl | Web content extraction into sanitized clean markdown | [Ingestion Components](c4/components/ingestion.mmd) |
+| YouTube Captions | Automated or uploaded caption track cue extraction | [Ingestion Components](c4/components/ingestion.mmd) |
+| Tavily | Approval-gated live web search on honest refusal | [Chat Components](c4/components/chat.mmd) |
 
 ## Related Documentation
 
-- [Architecture Reference](../architecture.md) - Full architecture decisions (AD-1 through AD-16)
-- [Tech Stack](../tech-stack.md) - Technology choices
-- [Decisions](../decisions/) - Architecture Decision Records
-
-## Maintenance
-
-- Review diagrams when adding new bounded contexts
-- Update on external service changes
-- Verify sync with actual code using `dbw-documentation:verify-sync`
+- [Architecture Reference](../architecture.md) — Authoritative architecture decisions (AD-1 through AD-16)
+- [Architecture Spine](../../_bmad-output/planning-artifacts/architecture/architecture-Contextual-2026-09-06/ARCHITECTURE-SPINE.md) — Invariants build substrate
+- [Tech Stack](../../_bmad-output/planning-artifacts/tech-stack.md) — Pinned technologies and free-tier cost posture
+- [Assumptions Report](../../assumption-report.md) — Approved architectural decisions & assumptions questionnaire
