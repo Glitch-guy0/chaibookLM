@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contextual — Consensus Protocols (Mobile)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:oklch(0.982 0.003 90);--surface:oklch(1 0 0);--fg:oklch(0.21 0 0);--muted:oklch(0.44 0 0);--border:oklch(0.21 0 0);--accent:oklch(0.93 0.17 95);--citation:oklch(0.84 0.19 215);--danger:oklch(0.65 0.22 27);--success:oklch(0.82 0.20 155);--mono:"Space Mono",ui-monospace,Menlo,Consolas,monospace;--sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif}
+[data-theme="dark"]{--bg:oklch(0.15 0 0);--surface:oklch(0.21 0.005 280);--fg:oklch(1 0 0);--muted:oklch(0.68 0.01 285);--border:oklch(0.9 0.01 285);--accent:oklch(0.86 0.17 95);--citation:oklch(0.78 0.14 220)}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{height:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;height:100vh;height:100dvh;overflow:hidden;max-width:100%}
+.mono{font-family:var(--mono)}
+:focus-visible{outline:3px solid var(--citation);outline-offset:2px;border-radius:2px}
+button{font-family:inherit}
+
+.banner{background:var(--accent);color:var(--fg);border-bottom:2px solid var(--border);font-family:var(--mono);font-size:.62rem;font-weight:700;text-align:center;padding:.45rem .7rem;flex:none}
+.topbar{background:var(--surface);border-bottom:2px solid var(--border);flex:none}
+.topbar-inner{padding:0 12px;height:52px;display:flex;align-items:center;gap:.6rem;justify-content:space-between}
+.crumb{font-family:var(--mono);font-size:.7rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.crumb a{color:var(--muted);text-decoration:none}
+.topright{display:flex;align-items:center;gap:.55rem;flex:none}
+.credit{font-family:var(--mono);font-weight:700;font-size:.66rem;padding:.35rem .6rem;border:2px solid var(--border);border-radius:9999px;background:var(--surface);color:var(--fg);box-shadow:2px 2px 0 0 var(--border);white-space:nowrap;cursor:pointer;position:relative}
+.credit-popup{display:none;position:absolute;top:calc(100% + 8px);right:0;width:280px;border:2px solid var(--border);background:var(--surface);box-shadow:6px 6px 0 0 var(--border);padding:1rem;z-index:100}
+.credit-popup.open{display:block}
+.credit-popup-title{font-family:var(--mono);font-weight:700;font-size:.82rem;margin-bottom:.4rem}
+.credit-popup-desc{font-size:.78rem;color:var(--muted);line-height:1.5;margin-bottom:.7rem}
+.credit-popup .btn{font-family:var(--mono);font-weight:700;font-size:.7rem;letter-spacing:.04em;text-transform:uppercase;padding:.5rem .9rem;border:2px solid var(--border);background:var(--surface);color:var(--fg);cursor:pointer;box-shadow:3px 3px 0 0 var(--border);transition:transform .15s cubic-bezier(0.2,0,0,1),box-shadow .15s cubic-bezier(0.2,0,0,1)}
+.credit-popup .btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 0 var(--border)}
+.credit-popup .btn:active{transform:translate(3px,3px);box-shadow:0 0 0 0 var(--border)}
+.theme-toggle{width:40px;height:40px;border:2px solid var(--border);border-radius:2px;background:var(--surface);display:grid;place-items:center;cursor:pointer;flex:none;box-shadow:3px 3px 0 0 var(--border);transition:box-shadow .15s cubic-bezier(0.2,0,0,1),background .15s cubic-bezier(0.2,0,0,1)}
+.theme-toggle:hover{box-shadow:5px 5px 0 0 var(--border)}
+.theme-toggle:active{box-shadow:0 0 0 0 var(--border);background:color-mix(in oklch,var(--border) 10%,var(--surface))}
+.avatar{width:34px;height:34px;border:2px solid var(--border);border-radius:2px;background:var(--accent);display:grid;place-items:center;font-family:var(--mono);font-weight:700;font-size:.7rem;flex:none}
+
+/* tab nav */
+.tabnav{display:flex;border-bottom:2px solid var(--border);background:var(--surface);flex:none}
+.tabnav button{flex:1;padding:.85rem .4rem;border:none;border-right:2px solid var(--border);background:var(--bg);color:var(--muted);font-family:var(--mono);font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;cursor:pointer;min-height:48px}
+.tabnav button:last-child{border-right:none}
+.tabnav button.active{background:var(--fg);color:var(--surface)}
+
+.panel{flex:1;overflow-y:auto;padding:14px;min-height:0;display:none}
+.panel.active{display:block;-webkit-overflow-scrolling:touch}
+
+/* sources panel */
+.src-item{border:2px solid var(--border);background:var(--surface);box-shadow:3px 3px 0 0 var(--border);padding:.7rem;margin-bottom:.7rem}
+.src-row{display:flex;align-items:center;gap:.55rem;font-family:var(--mono);font-size:.72rem;font-weight:700}
+.src-icon{width:24px;height:24px;border:1.5px solid var(--border);border-radius:2px;display:grid;place-items:center;background:var(--bg);font-size:.55rem;flex:none}
+.src-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.status{display:flex;align-items:center;gap:.4rem;font-family:var(--mono);font-size:.58rem;text-transform:uppercase;margin-top:.4rem}
+.dot{width:8px;height:8px;border-radius:50%}
+.dot.green{background:var(--success)}
+.dot.yellow{background:var(--accent)}
+.dot.red{background:var(--danger)}
+.orb{width:13px;height:13px;border:2px solid var(--border);border-top-color:transparent;border-radius:50%;background:var(--accent);animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.stat-ready{color:color-mix(in oklch,var(--success) 55%,var(--fg));font-weight:700}
+.stat-failed{color:var(--danger);font-weight:700}
+.cite-note{color:color-mix(in oklch,var(--citation) 55%,var(--fg))}
+.btn{font-family:var(--mono);font-weight:700;font-size:.72rem;text-transform:uppercase;display:inline-flex;align-items:center;gap:.35rem;padding:.7rem 1.1rem;cursor:pointer;border:2px solid var(--border);border-radius:2px;background:var(--surface);color:var(--fg);box-shadow:4px 4px 0 0 var(--border);text-decoration:none;transition:transform .15s cubic-bezier(0.2,0,0,1),box-shadow .15s cubic-bezier(0.2,0,0,1),background .15s cubic-bezier(0.2,0,0,1)}
+.btn.primary{background:var(--accent)}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 0 var(--border)}
+.btn:focus-visible{outline:3px solid var(--citation);outline-offset:2px}
+.btn:active{transform:translate(4px,4px);box-shadow:0 0 0 0 var(--border);transition:transform .06s ease,box-shadow .06s ease,background .06s ease}
+.btn.ghost{background:transparent;box-shadow:4px 4px 0 0 var(--border)}
+.btn.ghost:hover{background:color-mix(in oklch,var(--border) 8%,transparent)}
+.btn.ghost:active{background:color-mix(in oklch,var(--border) 14%,transparent)}
+.sources-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:.9rem}
+.sources-head .mono{font-weight:700;font-size:.8rem}
+
+/* chat */
+.chat-stack{display:flex;flex-direction:column;gap:.9rem;padding-bottom:80px}
+.msg-user{background:var(--accent);border:2px solid var(--border);padding:.7rem .8rem;font-family:var(--mono);font-size:.76rem;box-shadow:4px 4px 0 0 var(--border);align-self:flex-start;max-width:100%}
+.msg-ai{font-size:.82rem}
+.msg-ai p{margin-bottom:.5rem}
+.pill{font-family:var(--mono);font-weight:700;font-size:.66rem;padding:2px 6px;border:1.5px solid var(--border);border-radius:2px;background:var(--citation);color:var(--fg);cursor:pointer;margin:0 1px;display:inline-block}
+.refusal{border:2px solid var(--fg);background:var(--bg);padding:1rem;box-shadow:4px 4px 0 0 var(--border)}
+.refusal .rtitle{font-family:var(--mono);font-weight:700;font-size:.72rem;margin-bottom:.3rem}
+.refusal p{font-size:.76rem;margin-bottom:.7rem}
+.refusal .cost{font-family:var(--mono);font-size:.6rem;color:var(--muted);margin-top:.6rem}
+.composer{flex:none;border-top:2px solid var(--border);background:var(--surface);padding:.7rem;display:none}
+.composer-box{border:2px solid var(--border);border-radius:4px;display:flex;align-items:flex-end;gap:.5rem;padding:.55rem;box-shadow:3px 3px 0 0 var(--border)}
+.composer textarea{flex:1;border:none;background:transparent;font-family:var(--sans);font-size:.84rem;color:var(--fg);resize:none;outline:none;line-height:1.5;min-height:22px;max-height:100px}
+.composer-bottom{display:flex;justify-content:space-between;margin-top:.45rem;font-family:var(--mono);font-size:.6rem;color:var(--muted)}
+
+/* showcase */
+.sho-empty{display:flex;flex-direction:column;gap:.6rem;align-items:center;justify-content:center;text-align:center;color:var(--muted);font-size:.76rem;min-height:50vh}
+.doc-head{display:flex;justify-content:space-between;align-items:center;gap:.5rem;border:2px solid var(--border);background:var(--bg);padding:.5rem .6rem;margin-bottom:.7rem;font-family:var(--mono);font-size:.64rem}
+.pdf-sheet{border:2px solid var(--border);background:var(--surface);padding:.9rem;box-shadow:3px 3px 0 0 var(--border)}
+.pdf-sheet .ptitle{font-family:var(--mono);font-weight:700;font-size:.7rem;margin-bottom:.6rem;color:var(--muted)}
+.pdf-body{font-size:.74rem;line-height:1.55}
+.pdf-body p{margin-bottom:.5rem}
+.hlbox{background:color-mix(in oklch,var(--citation) 45%,transparent);border:2px solid var(--citation);border-radius:2px;padding:2px 4px;display:inline}
+.yt-embed{border:2px solid var(--border);background:var(--bg);aspect-ratio:16/9;display:grid;place-items:center;color:var(--muted);font-family:var(--mono);font-size:.62rem;margin-bottom:.7rem;position:relative}
+.yt-embed .play{width:52px;height:52px;border:2px solid var(--border);border-radius:2px;background:var(--accent);display:grid;place-items:center;font-size:1rem;box-shadow:4px 4px 0 0 var(--border)}
+.yt-title{font-family:var(--mono);font-weight:700;font-size:.7rem;margin-bottom:.5rem;display:flex;justify-content:space-between}
+.transcript{font-size:.7rem;border:2px solid var(--border);background:var(--surface);padding:.7rem;max-height:45vh;overflow-y:auto;box-shadow:3px 3px 0 0 var(--border)}
+.transcript .line{padding:.3rem .5rem;border-left:3px solid transparent;margin-bottom:.15rem}
+.transcript .line.hl{background:color-mix(in oklch,var(--citation) 35%,transparent);border-left-color:var(--citation);font-weight:600}
+.transcript .ts{font-family:var(--mono);font-size:.56rem;color:var(--muted);margin-right:.4rem}
+
+/* FAB */
+.fab{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);z-index:50;display:none;box-shadow:4px 4px 0 0 var(--border)}
+.fab.active{display:inline-flex}
+.fab:hover{transform:translateX(-50%) translate(-2px,-2px);box-shadow:6px 6px 0 0 var(--border)}
+.fab:active{transform:translateX(-50%) translate(4px,4px);box-shadow:0 0 0 0 var(--border);transition:transform .06s ease,box-shadow .06s ease}
+
+@media (prefers-reduced-motion:reduce){.btn{transform:none}.btn:active{transform:none}.orb{animation:none}}
+</style>
+</head>
+<body>
+
+<div class="banner" data-od-id="expiration-banner">⏳ Auto-deletes tonight 12:00 AM Asia/Kolkata</div>
+
+<header class="topbar" data-od-id="mobile-topbar">
+  <div class="topbar-inner">
+    <div class="crumb">← Notebooks / <span style="font-weight:700;color:var(--fg)">Consensus</span></div>
+    <div class="topright">
+      <button class="credit" data-od-id="credit-badge" onclick="event.stopPropagation();this.nextElementSibling.classList.toggle('open')">⚡ 7/10<span class="credit-popup"><div class="credit-popup-title">⚡ Credits remaining</div><div class="credit-popup-desc">You have 7 of 10 daily credits left. Each query uses 1 credit. Credits reset at midnight IST.</div><button class="btn" onclick="event.stopPropagation()">Upgrade / Reset</button></span></button>
+      <button class="theme-toggle" id="themeToggle" aria-label="Theme" data-od-id="theme-toggle">
+        <svg id="iSun" width="17" height="17" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="4" stroke="var(--fg)" stroke-width="2"/><path d="M10 2v2M10 16v2M2 10h2M16 10h2M4.3 4.3l1.4 1.4M14.3 14.3l1.4 1.4M15.7 4.3l-1.4 1.4M5.7 14.3l-1.4 1.4" stroke="var(--fg)" stroke-width="2"/></svg>
+        <svg id="iMoon" width="17" height="17" viewBox="0 0 20 20" fill="none" style="display:none"><path d="M17 12.5A8 8 0 017.5 3 8 8 0 1017 12.5" stroke="var(--fg)" stroke-width="2" fill="none"/></svg>
+      </button>
+      <div class="avatar" data-od-id="user-avatar">P</div>
+    </div>
+  </div>
+</header>
+
+<nav class="tabnav" data-od-id="mobile-tabs" role="tablist">
+  <button class="active" data-tab="sources" role="tab" data-od-id="tab-sources">Sources (3)</button>
+  <button data-tab="chat" role="tab" data-od-id="tab-chat">Chat</button>
+  <button data-tab="showcase" role="tab" data-od-id="tab-showcase">Showcase</button>
+</nav>
+
+<div class="panel active" id="panel-sources" data-od-id="panel-sources" role="tabpanel">
+  <div class="sources-head"><span class="mono">SOURCES (3/10)</span><button class="btn small primary" style="font-size:.66rem;padding:.5rem .8rem" data-od-id="add-source-btn">+ Add</button></div>
+  <div class="src-item" data-od-id="src-raft">
+    <div class="src-row"><span class="src-icon">PDF</span><span class="src-name">raft-paper.pdf</span></div>
+    <span class="status"><span class="dot green"></span><span class="stat-ready">● ready</span></span>
+  </div>
+  <div class="src-item" data-od-id="src-mit">
+    <div class="src-row"><span class="src-icon">▶</span><span class="src-name">mit-lecture-youtube</span></div>
+    <span class="status"><span class="orb"></span><span class="mono" style="color:var(--fg)">indexing…</span></span>
+  </div>
+  <div class="src-item" data-od-id="src-web">
+    <div class="src-row"><span class="src-icon">◎</span><span class="src-name">system-docs-web</span></div>
+    <span class="status"><span class="dot green"></span><span class="stat-ready">● ready</span></span>
+  </div>
+  <div class="src-item" data-od-id="src-failed">
+    <div class="src-row"><span class="src-icon">TXT</span><span class="src-name">notes-draft.txt</span></div>
+    <span class="status"><span class="dot red"></span><span class="stat-failed">failed · retry</span></span>
+  </div>
+  <div class="refusal" style="margin-top:.7rem">
+    <div class="rtitle">⚠ Zero credits</div>
+    <p>You've used all 10 daily credits. New queries are paused until tomorrow's reset, or upgrade now.</p>
+    <button class="btn" style="font-size:.68rem;padding:.6rem .9rem" data-od-id="upgrade-btn">Upgrade/reset</button>
+  </div>
+</div>
+
+<div class="panel" id="panel-chat" data-od-id="panel-chat" role="tabpanel">
+  <div class="chat-stack" id="chatStack">
+    <div class="msg-user" data-od-id="msg-user-1">How does Raft handle partition recovery?</div>
+    <div class="msg-ai" data-od-id="msg-ai-1">
+      <p>When the partition heals, the minority leader steps down and reverts to follower. It discards any uncommitted entries from its term and adopts the new leader's log via the appending entries <span class="mono" style="font-weight:700">catch-up</span> phase <span class="pill" data-cite="mit">[1]</span>.</p>
+      <p>The committed-index is the safety anchor — a leader never overwrites already-committed entries <span class="pill" data-cite="pdf">[2]</span>.</p>
+    </div>
+    <div class="msg-user" data-od-id="msg-user-2">Any general health-check paper on replicas?</div>
+    <div class="refusal" data-od-id="refusal-card">
+      <div class="rtitle">⚠ Honest refusal</div>
+      <p>The uploaded sources do not specify the requested information.</p>
+      <button class="btn primary" style="font-size:.7rem" data-od-id="web-search-btn">Search Web &amp; Answer</button>
+      <div class="cost">Consumes 1 credit · via Tavily</div>
+    </div>
+  </div>
+</div>
+<div class="composer" id="composerBar" data-od-id="composer">
+  <div class="composer-box">
+    <textarea id="composerInput" placeholder="Ask across your sources…" rows="1" data-od-id="composer-input"></textarea>
+    <button class="btn primary" style="flex:none;padding:.55rem .85rem;font-size:.68rem" data-od-id="send-btn">Send</button>
+  </div>
+  <div class="composer-bottom"><span>grounded in 3 sources</span><span>credits: 7</span></div>
+</div>
+
+<div class="panel" id="panel-showcase" data-od-id="panel-showcase" role="tabpanel">
+  <div class="sho-empty" id="shoEmpty" data-od-id="showcase-empty">
+    <svg width="44" height="44" viewBox="0 0 44 44" fill="none"><rect x="2" y="2" width="40" height="40" stroke="var(--border)" stroke-width="2"/><circle cx="22" cy="22" r="6" fill="none" stroke="var(--muted)" stroke-width="2"/><path d="M22 8v6M22 30v6M8 22h6M30 22h6" stroke="var(--muted)" stroke-width="2"/></svg>
+    <div>Tap a citation pill in chat<br>to verify proof here.</div>
+  </div>
+
+  <div id="viewPdf" style="display:none" data-od-id="showcase-pdf">
+    <div class="doc-head">
+      <span>raft-paper.pdf</span>
+      <span style="font-family:var(--mono)">Page 14 of 28</span>
+    </div>
+    <div class="pdf-sheet">
+      <div class="ptitle">Section 5.4 — Leadership changes</div>
+      <div class="pdf-body">
+        <p>Once the partitions heal, the deposed leader <span class="hlbox" data-od-id="highlight-box">reverts to follower and discards any uncommitted entries from its term, then adopts the new leader's log</span>.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="viewYt" style="display:none" data-od-id="showcase-yt">
+    <div class="yt-embed"><span class="play">▶</span><div style="position:absolute;bottom:.5rem;right:.6rem;font-family:var(--mono);font-size:.56rem">MIT 6.824 · @ 18:42</div></div>
+    <div class="yt-title"><span>mit-lecture-youtube</span><span class="cite-note">@ 18:42</span></div>
+    <div class="transcript" data-od-id="transcript">
+      <div class="line">[18:32] <span class="ts"></span>the key safety guarantee is that the leader's log contains</div>
+      <div class="line hl" data-od-id="transcript-hl">[18:42] <span class="ts"></span>every committed entry — nothing can be lost.</div>
+    </div>
+  </div>
+</div>
+
+<button class="fab btn primary" id="backToChat" data-od-id="back-to-chat">← Back to Chat</button>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var saved=localStorage.getItem('ctx-theme');
+  if(saved)root.setAttribute('data-theme',saved);
+  var btn=document.getElementById('themeToggle'),sun=document.getElementById('iSun'),moon=document.getElementById('iMoon');
+  function sync(){var d=root.getAttribute('data-theme')==='dark';sun.style.display=d?'none':'block';moon.style.display=d?'block':'none';}
+  sync();
+  if(btn)btn.addEventListener('click',function(){var c=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',c);localStorage.setItem('ctx-theme',c);sync();});
+
+  var tabs=document.querySelectorAll('.tabnav button');
+  var panels={sources:document.getElementById('panel-sources'),chat:document.getElementById('panel-chat'),showcase:document.getElementById('panel-showcase')};
+  var fab=document.getElementById('backToChat');
+  var composer=document.getElementById('composerBar');
+  var chatPanel=panels.chat;
+  var chatStack=document.getElementById('chatStack');
+  var savedChatScroll=0;
+
+  function activate(name){
+    tabs.forEach(function(t){t.classList.toggle('active',t.getAttribute('data-tab')===name);});
+    Object.keys(panels).forEach(function(k){panels[k].classList.toggle('active',k===name);});
+    // restore chat scroll position when returning
+    if(name==='chat'&&savedChatScroll){chatPanel.scrollTop=savedChatScroll;}
+    // show composer + FAB only on chat/external screens as appropriate
+    composer.style.display=(name==='chat')?'block':'none';
+    fab.classList.toggle('active',name!=='chat');
+  }
+  tabs.forEach(function(t){t.addEventListener('click',function(){activate(t.getAttribute('data-tab'));});});
+
+  chatPanel.addEventListener('scroll',function(){savedChatScroll=chatPanel.scrollTop;});
+
+  // FAB returns to chat and restores exact quote position
+  fab.addEventListener('click',function(){
+    activate('chat');
+    requestAnimationFrame(function(){if(savedChatScroll)chatPanel.scrollTop=savedChatScroll;});
+  });
+
+  // citation pill -> jump to Showcase (auto-navigate requirement)
+  document.querySelectorAll('.pill[data-cite]').forEach(function(p){
+    p.addEventListener('click',function(){
+      var pid=p.getAttribute('data-cite');
+      document.getElementById('shoEmpty').style.display='none';
+      var isMit=(pid==='mit');
+      document.getElementById('viewYt').style.display=isMit?'block':'none';
+      document.getElementById('viewPdf').style.display=isMit?'none':'block';
+      activate('showcase');
+    });
+  });
+
+  // search-web button -> chat stays, nothing yet
+  var composerInput=document.getElementById('composerInput');
+  composerInput.addEventListener('input',function(){this.style.height='auto';this.style.height=Math.min(this.scrollHeight,100)+'px';});
+
+  document.addEventListener('click',function(e){document.querySelectorAll('.credit-popup.open').forEach(function(d){if(!d.parentElement.contains(e.target))d.classList.remove('open')})});
+})();
+</script>
+</body>
+</html>

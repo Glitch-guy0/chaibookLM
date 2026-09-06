@@ -1,5 +1,7 @@
-------
+---
 name: contextual
+status: final
+updated: 2026-09-06
 colors:
   light:
     bg: "#F4F4F0"
