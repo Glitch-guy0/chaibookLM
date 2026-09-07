@@ -17,7 +17,7 @@ export type GetContentResult =
 export interface CreateSourceParams {
   notebookId: string;
   userId: string;
-  type: 'text' | 'web';
+  type: 'text' | 'web' | 'pdf' | 'transcript' | 'youtube';
   title: string;
   content: string;
 }

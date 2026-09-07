@@ -5,11 +5,15 @@ interface QdrantPoint {
   id: string;
   vector: number[];
   payload: {
+    chunkId?: string;
     sourceId: string;
     notebookId: string;
+    userId?: string;
     position: number;
     span: { start: number; end: number };
     text: string;
+    excerpt?: string;
+    metadata?: Record<string, any>;
   };
 }
 
@@ -33,9 +37,7 @@ function toUuid(hex: string): string {
 
 /**
  * Qdrant vector store backed by the REST API. Configured via QDRANT_URL,
- * QDRANT_API_KEY and QDRANT_COLLECTION (default "chunks"). Throws a clear error
- * when unconfigured; ingestion converts that into a `failed` status. `search`
- * is deferred to Epic 4.
+ * QDRANT_API_KEY and QDRANT_COLLECTION (default "contextual_chunks_v1").
  */
 export class QdrantAdapter implements VectorStore {
   private url: string;
@@ -45,7 +47,7 @@ export class QdrantAdapter implements VectorStore {
   constructor() {
     this.url = process.env.QDRANT_URL ?? '';
     this.apiKey = process.env.QDRANT_API_KEY ?? '';
-    this.collection = process.env.QDRANT_COLLECTION ?? 'chunks';
+    this.collection = process.env.QDRANT_COLLECTION ?? 'contextual_chunks_v1';
   }
 
   private async request(
@@ -132,11 +134,15 @@ export class QdrantAdapter implements VectorStore {
       id: toUuid(chunk.chunkId),
       vector: vectors[i],
       payload: {
+        chunkId: chunk.chunkId,
         sourceId: chunk.sourceId,
         notebookId: chunk.notebookId,
+        userId: chunk.userId,
         position: chunk.position,
         span: chunk.span,
         text: chunk.text,
+        excerpt: chunk.excerpt ?? chunk.text.slice(0, 160).trim(),
+        metadata: chunk.metadata ?? {},
       },
     }));
 

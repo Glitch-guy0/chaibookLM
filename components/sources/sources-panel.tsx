@@ -209,6 +209,7 @@ export function SourcesPanel({ notebookId }: SourcesPanelProps) {
               selected={selected.has(source.id)}
               onToggleSelect={() => toggleSelect(source.id)}
               onRemove={() => setRemoving(source)}
+              onRetry={() => invalidate()}
             />
           ))}
         </div>
@@ -218,12 +219,13 @@ export function SourcesPanel({ notebookId }: SourcesPanelProps) {
         open={uploadOpen}
         notebookId={notebookId}
         onClose={() => setUploadOpen(false)}
+        currentSourceCount={sources.length}
       />
 
       <Dialog
         open={removing !== null}
         onClose={() => setRemoving(null)}
-        title="Remove this source?"
+        title="Delete this source?"
         data-debug="RemoveSourceDialog"
         actions={
           <>
@@ -242,7 +244,7 @@ export function SourcesPanel({ notebookId }: SourcesPanelProps) {
               data-debug="RemoveSourceConfirm"
               className={dangerBtn}
             >
-              {singleDeleteMutation.isPending ? 'Removing…' : 'Remove'}
+              {singleDeleteMutation.isPending ? 'Deleting…' : 'Delete'}
             </button>
           </>
         }

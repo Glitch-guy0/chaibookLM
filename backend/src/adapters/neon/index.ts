@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS sources (
   id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   notebook_id UUID NOT NULL REFERENCES notebooks(id) ON DELETE CASCADE,
   user_id     TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-  type        TEXT NOT NULL CHECK (type IN ('text', 'web')),
+  type        TEXT NOT NULL CHECK (type IN ('text', 'web', 'pdf', 'transcript', 'youtube')),
   title       TEXT NOT NULL DEFAULT 'Untitled',
   status      TEXT NOT NULL DEFAULT 'queued' CHECK (status IN ('queued', 'processing', 'ready', 'failed')),
   size        INTEGER NOT NULL DEFAULT 0,
@@ -45,6 +45,7 @@ CREATE TABLE IF NOT EXISTS sources (
 );
 
 ALTER TABLE sources ADD COLUMN IF NOT EXISTS fail_reason TEXT;
+ALTER TABLE sources ADD COLUMN IF NOT EXISTS chunk_count INTEGER DEFAULT 0;
 
 CREATE INDEX IF NOT EXISTS idx_sources_notebook_id ON sources(notebook_id);
 CREATE INDEX IF NOT EXISTS idx_sources_user_id ON sources(user_id);
@@ -68,6 +69,28 @@ CREATE TABLE IF NOT EXISTS limit_counters (
   count         INTEGER NOT NULL DEFAULT 0,
   cap           INTEGER NOT NULL,
   PRIMARY KEY (user_id, resource_type)
+);
+
+CREATE TABLE IF NOT EXISTS telemetry_file_uploads (
+  id             UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  source_id      UUID,
+  user_id        TEXT,
+  byte_size      INTEGER NOT NULL DEFAULT 0,
+  mime_type      TEXT NOT NULL DEFAULT 'text/plain',
+  duration_ms    INTEGER NOT NULL DEFAULT 0,
+  error_category TEXT,
+  created_at     TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS idx_telemetry_uploads_created_at ON telemetry_file_uploads(created_at);
+
+CREATE TABLE IF NOT EXISTS telemetry_daily_aggregates (
+  date_ist         DATE PRIMARY KEY,
+  total_uploads    INTEGER NOT NULL DEFAULT 0,
+  total_bytes      BIGINT NOT NULL DEFAULT 0,
+  avg_duration_ms  INTEGER NOT NULL DEFAULT 0,
+  failed_uploads   INTEGER NOT NULL DEFAULT 0,
+  created_at       TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 `;
 
@@ -103,6 +126,7 @@ function rowToSource(row: QueryResultRow): Source {
     title: row.title,
     status: row.status,
     size: row.size,
+    chunkCount: typeof row.chunk_count === 'number' ? row.chunk_count : undefined,
     failReason: row.fail_reason ?? undefined,
     createdAt: row.created_at,
   };
@@ -290,14 +314,16 @@ export class NeonRepository {
     id: string,
     status: 'queued' | 'processing' | 'ready' | 'failed',
     reason?: string,
+    chunkCount?: number,
   ): Promise<Source | null> {
     const { rows } = await this.pool.query(
       `UPDATE sources
        SET status = $2,
-           fail_reason = CASE WHEN $2 = 'failed' THEN $3 ELSE NULL END
+           fail_reason = CASE WHEN $2 = 'failed' THEN $3 ELSE NULL END,
+           chunk_count = COALESCE($4, chunk_count)
        WHERE id = $1
        RETURNING *`,
-      [id, status, reason ?? null],
+      [id, status, reason ?? null, chunkCount ?? null],
     );
     return rows.length > 0 ? rowToSource(rows[0]) : null;
   }
@@ -526,6 +552,91 @@ export class NeonRepository {
       [userId, resourceType, actualCount],
     );
     return rows.length > 0 ? rowToLimitCounter(rows[0]) : null;
+  }
+
+  /**
+   * Non-blocking operational telemetry for source ingestion (AC-2.6.1).
+   * Appends a log record to telemetry_file_uploads. Adds < 15ms overhead.
+   */
+  async recordUploadTelemetry(params: {
+    sourceId?: string;
+    userId?: string;
+    byteSize: number;
+    mimeType: string;
+    durationMs: number;
+    errorCategory?: string | null;
+  }): Promise<void> {
+    await this.pool
+      .query(
+        `INSERT INTO telemetry_file_uploads (source_id, user_id, byte_size, mime_type, duration_ms, error_category)
+         VALUES ($1, $2, $3, $4, $5, $6)`,
+        [
+          params.sourceId ?? null,
+          params.userId ?? null,
+          params.byteSize,
+          params.mimeType,
+          params.durationMs,
+          params.errorCategory ?? null,
+        ],
+      )
+      .catch(() => {});
+  }
+
+  /**
+   * Daily rollup aggregation for file upload operational telemetry (AC-2.6.3).
+   * Aggregates records for dateIst into telemetry_daily_aggregates.
+   */
+  async aggregateDailyTelemetry(dateIst: string): Promise<{
+    dateIst: string;
+    totalUploads: number;
+    totalBytes: number;
+    avgDurationMs: number;
+    failedUploads: number;
+  }> {
+    const { rows } = await this.pool.query(
+      `SELECT
+         COUNT(*)::int AS total_uploads,
+         COALESCE(SUM(byte_size), 0)::bigint AS total_bytes,
+         COALESCE(AVG(duration_ms), 0)::int AS avg_duration_ms,
+         COUNT(CASE WHEN error_category IS NOT NULL THEN 1 END)::int AS failed_uploads
+       FROM telemetry_file_uploads
+       WHERE (created_at AT TIME ZONE 'Asia/Kolkata')::date = $1::date`,
+      [dateIst],
+    );
+
+    const agg = rows[0] || {
+      total_uploads: 0,
+      total_bytes: 0,
+      avg_duration_ms: 0,
+      failed_uploads: 0,
+    };
+
+    await this.pool
+      .query(
+        `INSERT INTO telemetry_daily_aggregates (date_ist, total_uploads, total_bytes, avg_duration_ms, failed_uploads)
+         VALUES ($1, $2, $3, $4, $5)
+         ON CONFLICT (date_ist) DO UPDATE
+         SET total_uploads = EXCLUDED.total_uploads,
+             total_bytes = EXCLUDED.total_bytes,
+             avg_duration_ms = EXCLUDED.avg_duration_ms,
+             failed_uploads = EXCLUDED.failed_uploads`,
+        [
+          dateIst,
+          agg.total_uploads,
+          agg.total_bytes,
+          agg.avg_duration_ms,
+          agg.failed_uploads,
+        ],
+      )
+      .catch(() => {});
+
+    return {
+      dateIst,
+      totalUploads: agg.total_uploads,
+      totalBytes: Number(agg.total_bytes),
+      avgDurationMs: agg.avg_duration_ms,
+      failedUploads: agg.failed_uploads,
+    };
   }
 
   async dispose(): Promise<void> {

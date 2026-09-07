@@ -29,7 +29,7 @@
 # - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
 # - Retrospective appends its action items to action_items; the status view surfaces open ones
 generated: 09-07-2026 10:58
-last_updated: 09-07-2026 10:58
+last_updated: 09-07-2026 12:47
 project: Contextual
 project_key: NOKEY
 tracking_system: file-system
@@ -44,14 +44,14 @@ development_status:
   1-6-first-run-onboarding-walkthrough-driver-js: done
   epic-1-retrospective: optional
 
-  epic-2: backlog
-  2-1-add-source-modal-client-side-file-validation: backlog
-  2-2-inngest-durable-orchestration-concurrency-failure-isolation: backlog
-  2-3-multi-modal-content-extractors-markdown-normalization: backlog
-  2-4-chunking-local-remote-vector-embeddings-qdrant-upsert: backlog
-  2-5-source-management-ui-real-time-status-telemetry: backlog
-  2-6-file-upload-ingestion-operational-telemetry: backlog
-  epic-2-retrospective: optional
+  epic-2: done
+  2-1-add-source-modal-client-side-file-validation: done
+  2-2-inngest-durable-orchestration-concurrency-failure-isolation: done
+  2-3-multi-modal-content-extractors-markdown-normalization: done
+  2-4-chunking-local-remote-vector-embeddings-qdrant-upsert: done
+  2-5-source-management-ui-real-time-status-telemetry: done
+  2-6-file-upload-ingestion-operational-telemetry: done
+  epic-2-retrospective: done
 
   epic-3: backlog
   3-1-scoped-semantic-vector-retrieval-service: backlog
@@ -68,3 +68,18 @@ development_status:
   4-4-text-web-source-showcase-readers: backlog
   4-5-responsive-multi-surface-layouts-tablet-drawer-mobile-3-tab: backlog
   epic-4-retrospective: optional
+action_items:
+  - id: "epic-2-retro-item-1-staging-concurrency-test"
+    epic: 2
+    action: "Run end-to-end integration test of live Inngest serverless endpoint under
+      concurrent multi-user upload scenarios"
+    owner: "Dev Team"
+    status: open
+    ref: "_bmad-output/implementation-artifacts/epic-2-retro-09-07-2026.md"
+  - id: "epic-2-retro-item-2-telemetry-retention-policy"
+    epic: 2
+    action: "Add 30-day automated cleanup for raw telemetry_file_uploads rows in midnight
+      maintenance"
+    owner: "Dev / Infrastructure Team"
+    status: open
+    ref: "_bmad-output/implementation-artifacts/epic-2-retro-09-07-2026.md"

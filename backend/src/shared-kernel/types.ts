@@ -17,10 +17,11 @@ export interface Source {
   id: string; // UUID
   notebookId: string;
   userId: string;
-  type: 'text' | 'web';
+  type: 'text' | 'web' | 'pdf' | 'transcript' | 'youtube';
   title: string;
   status: 'queued' | 'processing' | 'ready' | 'failed';
   size: number;
+  chunkCount?: number;
   failReason?: string;
   createdAt: Date;
 }
@@ -29,9 +30,17 @@ export interface Chunk {
   chunkId: string; // deterministic hash of sourceId + position
   sourceId: string;
   notebookId: string;
+  userId?: string;
   span: { start: number; end: number };
   position: number;
   text: string;
+  excerpt?: string;
+  metadata?: {
+    pageNumber?: number;
+    timestampSeconds?: number;
+    link?: string;
+    [key: string]: any;
+  };
 }
 
 export interface ChatMessage {

@@ -3,7 +3,10 @@ import type { VectorStore } from '../../ports/VectorStore';
 import type { StorageService } from '../../ports/StorageService';
 
 export interface MaintenanceCascadeDependencies {
-  neonRepo: Pick<NeonRepository, 'deleteNotebook' | 'findNotebooksByUserId' | 'reconcileCounter'>;
+  neonRepo: Pick<
+    NeonRepository,
+    'deleteNotebook' | 'findNotebooksByUserId' | 'reconcileCounter' | 'aggregateDailyTelemetry'
+  >;
   vectorStore?: Pick<VectorStore, 'deleteByNotebookId'>;
   storageService?: Pick<StorageService, 'delete'>;
 }
@@ -13,20 +16,23 @@ export interface MaintenanceCascadeResult {
   purgedVectors: boolean;
   purgedTempFiles: boolean;
   resetCredits: boolean;
+  aggregatedTelemetry: boolean;
 }
 
 /**
- * Executes the atomic midnight maintenance cascade (AD-11 / AC-1.5.2) at
+ * Executes the atomic midnight maintenance cascade (AD-11 / AC-1.5.2 / AC-2.6.3) at
  * 18:30 UTC / 12:00 AM Asia/Kolkata:
  * 1. Purges vector points in Qdrant matching active notebook IDs.
  * 2. Purges remaining temporary files in Cloudinary.
  * 3. Deletes records from Neon notebooks, sources, and chat_messages (cascading).
  * 4. Resets limit_counters back to 10 credits.
+ * 5. Aggregates daily upload telemetry into telemetry_daily_aggregates.
  */
 export async function executeMidnightMaintenanceCascade(
   activeNotebookIds: string[],
   userIds: string[],
   deps: MaintenanceCascadeDependencies,
+  dateIst?: string,
 ): Promise<MaintenanceCascadeResult> {
   // Step 1: Purge vector points in Qdrant matching active notebook IDs
   if (deps.vectorStore?.deleteByNotebookId) {
@@ -54,10 +60,19 @@ export async function executeMidnightMaintenanceCascade(
     await deps.neonRepo.reconcileCounter(userId, 'credits' as any, 0).catch(() => null);
   }
 
+  // Step 5: Aggregates daily upload telemetry into telemetry_daily_aggregates (AC-2.6.3)
+  let aggregatedTelemetry = false;
+  if (deps.neonRepo.aggregateDailyTelemetry) {
+    const targetDate = dateIst || new Date().toISOString().split('T')[0];
+    await deps.neonRepo.aggregateDailyTelemetry(targetDate).catch(() => {});
+    aggregatedTelemetry = true;
+  }
+
   return {
     purgedNotebooks,
     purgedVectors: Boolean(deps.vectorStore),
     purgedTempFiles: Boolean(deps.storageService),
     resetCredits: true,
+    aggregatedTelemetry,
   };
 }

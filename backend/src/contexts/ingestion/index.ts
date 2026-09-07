@@ -9,7 +9,13 @@ import {
   chunkId,
 } from '../../chunking/splitter';
 import type { StorageService } from '../../ports/StorageService';
-import type { Chunk } from '../../shared-kernel/types';
+import type { Chunk, Source } from '../../shared-kernel/types';
+import {
+  parsePdfToMarkdown,
+  parseSubtitlesToMarkdown,
+  parseYouTubeCaptionsToMarkdown,
+  normalizeTextToMarkdown,
+} from './extractors/index';
 
 const RAW_KEY = (sourceId: string) => `sources/${sourceId}`;
 export const SNAPSHOT_KEY = (sourceId: string) => `sources/${sourceId}/snapshot.html`;
@@ -101,9 +107,11 @@ export class IngestionService {
   }
 
   async ingest(sourceId: string): Promise<void> {
+    const startMs = Date.now();
     const source = await this.repo.claimSourceForIngestion(sourceId);
     if (!source) return;
 
+    let errorCategory: string | null = null;
     try {
       const content = await this.loadContent(source.type, sourceId);
       const chunks = this.buildChunks(
@@ -111,6 +119,7 @@ export class IngestionService {
         source.notebookId,
         source.type,
         content,
+        source.userId,
       );
 
       // Tombstone check: abort if the source was removed while ingesting.
@@ -118,23 +127,35 @@ export class IngestionService {
       if (!current || current.status === 'failed') return;
 
       await this.embeddingService.embedAndStore(chunks);
-      await this.repo.setSourceStatus(sourceId, 'ready');
+      await this.repo.setSourceStatus(sourceId, 'ready', undefined, chunks.length);
     } catch (err) {
+      errorCategory = 'extraction_error';
       const reason = err instanceof Error ? err.message : 'Ingestion failed';
       await this.repo.setSourceStatus(sourceId, 'failed', reason).catch(() => {});
+    } finally {
+      const durationMs = Date.now() - startMs;
+      void this.repo.recordUploadTelemetry({
+        sourceId,
+        userId: source.userId,
+        byteSize: source.size,
+        mimeType: source.type,
+        durationMs,
+        errorCategory,
+      }).catch(() => {});
     }
   }
 
   private async loadContent(
-    type: 'text' | 'web',
+    type: Source['type'],
     sourceId: string,
   ): Promise<string> {
     const raw = await this.storage.get(RAW_KEY(sourceId));
     if (!raw) {
       throw new Error('Source content could not be loaded from storage.');
     }
+    const rawStr = raw.toString('utf8');
     if (type === 'web') {
-      const url = raw.toString('utf8');
+      const url = rawStr;
       const markdown = await this.scraper.scrape(url);
       if (Buffer.byteLength(markdown, 'utf8') > MAX_WEB_CONTENT_BYTES) {
         throw new Error('The fetched page exceeds the source size limit.');
@@ -142,7 +163,16 @@ export class IngestionService {
       await this.captureSnapshot(sourceId, url).catch(() => {});
       return markdown;
     }
-    return raw.toString('utf8');
+    if (type === 'pdf') {
+      return await parsePdfToMarkdown(raw, sourceId, this.storage);
+    }
+    if (type === 'transcript') {
+      return parseSubtitlesToMarkdown(rawStr);
+    }
+    if (type === 'youtube') {
+      return await parseYouTubeCaptionsToMarkdown(rawStr);
+    }
+    return normalizeTextToMarkdown(rawStr);
   }
 
   /**
@@ -225,18 +255,22 @@ export class IngestionService {
   private buildChunks(
     sourceId: string,
     notebookId: string,
-    type: 'text' | 'web',
+    type: Source['type'],
     content: string,
+    userId?: string,
   ): Chunk[] {
     const split =
-      type === 'web' ? splitMarkdown(content) : splitPlainText(content);
+      type === 'text' ? splitPlainText(content) : splitMarkdown(content);
     return split.map((c) => ({
       chunkId: chunkId(sourceId, c.position),
       sourceId,
       notebookId,
+      userId,
       span: c.span,
       position: c.position,
       text: c.text,
+      excerpt: c.excerpt,
+      metadata: c.metadata,
     }));
   }
 }

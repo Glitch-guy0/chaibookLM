@@ -107,7 +107,7 @@ export function daysUntilExpiry(expiresAt: string, now = Date.now()): number {
 
 // ── Sources ──────────────────────────────────────────────────────────────
 
-export type SourceType = 'text' | 'web';
+export type SourceType = 'text' | 'web' | 'pdf' | 'transcript' | 'youtube';
 export type SourceStatus = 'queued' | 'processing' | 'ready' | 'failed';
 
 export interface SourceRecord {
@@ -162,6 +162,58 @@ export function createWebSource(
       body: JSON.stringify({ type: 'web', ...input }),
     },
   );
+}
+
+export function createPdfSource(
+  notebookId: string,
+  input: { title?: string; content: string },
+): Promise<SourceSingleResponse> {
+  return request<SourceSingleResponse>(
+    `/api/notebooks/${encodeURIComponent(notebookId)}/sources`,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ type: 'pdf', ...input }),
+    },
+  );
+}
+
+export function createTranscriptSource(
+  notebookId: string,
+  input: { title?: string; content: string },
+): Promise<SourceSingleResponse> {
+  return request<SourceSingleResponse>(
+    `/api/notebooks/${encodeURIComponent(notebookId)}/sources`,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ type: 'transcript', ...input }),
+    },
+  );
+}
+
+export function createYoutubeSource(
+  notebookId: string,
+  input: { title?: string; url: string },
+): Promise<SourceSingleResponse> {
+  return request<SourceSingleResponse>(
+    `/api/notebooks/${encodeURIComponent(notebookId)}/sources`,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ type: 'youtube', ...input }),
+    },
+  );
+}
+
+export function createSourceGeneric(
+  input: { notebookId: string; type: SourceType; title?: string; content?: string; url?: string },
+): Promise<SourceSingleResponse> {
+  return request<SourceSingleResponse>('/api/sources', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(input),
+  });
 }
 
 export function deleteSource(id: string): Promise<{ deleted: boolean }> {

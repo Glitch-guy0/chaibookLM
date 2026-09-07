@@ -1,12 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
-import { errorResponse, serializeSource } from '../../../helpers';
-import { getBackend } from '../../../lib/backend';
-import { checkRateLimit, rateLimitResponse } from '../../../lib/rate-limit';
-
-interface RouteContext {
-  params: Promise<{ id: string }>;
-}
+import { errorResponse, serializeSource } from '../helpers';
+import { getBackend } from '../lib/backend';
+import { checkRateLimit, rateLimitResponse } from '../lib/rate-limit';
 
 function deriveTitle(content: string, fallback: string): string {
   const firstLine = content
@@ -18,33 +14,11 @@ function deriveTitle(content: string, fallback: string): string {
 }
 
 /**
- * GET /api/notebooks/[id]/sources
- * List all sources in a notebook owned by the authenticated user.
+ * POST /api/sources
+ * Creates a source in a notebook across 5 modalities: text, web, pdf, transcript, youtube.
+ * Returns HTTP 201 with status 'queued' and dispatches Inngest event in < 200ms.
  */
-export async function GET(_request: NextRequest, context: RouteContext) {
-  const { userId } = await auth();
-  if (!userId) {
-    return errorResponse('Unauthorized', 'UNAUTHORIZED', 401);
-  }
-
-  const { id } = await context.params;
-  const { notebooks, sources } = await getBackend();
-  const notebook = await notebooks.findById(id);
-  if (!notebook || notebook.userId !== userId) {
-    return errorResponse('Notebook not found', 'NOT_FOUND', 404);
-  }
-
-  const list = await sources.listByNotebook(id);
-  return NextResponse.json({ sources: list.map(serializeSource) });
-}
-
-/**
- * POST /api/notebooks/[id]/sources
- * Create a Text or Web source in a notebook owned by the authenticated user.
- * Rejects empty text and malformed URLs inline; blocks limit violations with
- * 409. Returns 201 with the queued source and enqueues ingestion.
- */
-export async function POST(request: NextRequest, context: RouteContext) {
+export async function POST(request: NextRequest) {
   const { userId } = await auth();
   if (!userId) {
     return errorResponse('Unauthorized', 'UNAUTHORIZED', 401);
@@ -55,13 +29,6 @@ export async function POST(request: NextRequest, context: RouteContext) {
     return rateLimitResponse(rateLimit);
   }
 
-  const { id } = await context.params;
-  const { notebooks, sources } = await getBackend();
-  const notebook = await notebooks.findById(id);
-  if (!notebook || notebook.userId !== userId) {
-    return errorResponse('Notebook not found', 'NOT_FOUND', 404);
-  }
-
   let body: unknown;
   try {
     body = await request.json();
@@ -70,11 +37,23 @@ export async function POST(request: NextRequest, context: RouteContext) {
   }
 
   const b = body as {
+    notebookId?: unknown;
     type?: unknown;
     content?: unknown;
     url?: unknown;
     title?: unknown;
   };
+
+  const notebookId = typeof b.notebookId === 'string' ? b.notebookId.trim() : '';
+  if (!notebookId) {
+    return errorResponse('Notebook ID is required', 'INVALID_BODY', 400);
+  }
+
+  const { notebooks, sources } = await getBackend();
+  const notebook = await notebooks.findById(notebookId);
+  if (!notebook || notebook.userId !== userId) {
+    return errorResponse('Notebook not found', 'NOT_FOUND', 404);
+  }
 
   const type = b.type;
   if (
@@ -100,7 +79,6 @@ export async function POST(request: NextRequest, context: RouteContext) {
         ? b.title.trim()
         : deriveTitle(content, defaultTitle);
   } else {
-    // web or youtube
     const raw = typeof b.url === 'string' ? b.url.trim() : '';
     if (!raw) {
       return errorResponse('A URL is required', 'INVALID_URL', 400);
@@ -128,7 +106,7 @@ export async function POST(request: NextRequest, context: RouteContext) {
   let result;
   try {
     result = await sources.create({
-      notebookId: id,
+      notebookId,
       userId,
       type,
       title: title ?? 'Untitled',
@@ -151,12 +129,12 @@ export async function POST(request: NextRequest, context: RouteContext) {
 
   // Dispatch Inngest ingestion event asynchronously (non-blocking)
   try {
-    const { inngest } = await import('../../inngest/client');
+    const { inngest } = await import('../inngest/client');
     void inngest.send({
       name: 'source.ingest',
       data: {
         sourceId: result.source.id,
-        notebookId: id,
+        notebookId,
         userId,
         type,
       },

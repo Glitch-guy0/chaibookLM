@@ -23,9 +23,6 @@ from collections import Counter
 from collections.abc import Mapping
 from datetime import datetime
 
-from ruamel.yaml import YAML
-from ruamel.yaml.scalarstring import DoubleQuotedScalarString
-
 STORY_RE = re.compile(r"^(\d+)-\d+[a-z]?-")  # trailing [a-z]? matches split-story keys like 2-6a-...
 DATE_FORMAT = "%m-%d-%Y %H:%M"
 # The authoritative action-item vocabulary, mirrored from bmad-sprint-planning's
@@ -35,23 +32,37 @@ ACTION_STATUSES = ("open", "in-progress", "done")
 # orchestrators branch on the echo, so a free-spelled value ("accepted with open
 # items") would silently fall through every branch they write.
 VERDICTS = ("accepted", "accepted-with-open-items", "rejected")
+try:
+    from ruamel.yaml import YAML
+    from ruamel.yaml.scalarstring import DoubleQuotedScalarString
+    HAS_RUAMEL = True
+except ImportError:
+    import yaml as pyyaml
+    HAS_RUAMEL = False
+    def DoubleQuotedScalarString(s):
+        return str(s)
 
 
 def _load_yaml(path):
-    yaml = YAML(typ="rt")
-    yaml.preserve_quotes = True
-    # Pin the emitter to the indentation the sprint-status template ships with.
-    # Without this, ruamel re-dumps block sequences at its own default offset and
-    # every write silently de-indents pre-existing, untouched action_items.
-    yaml.indent(mapping=2, sequence=4, offset=2)
-    # Pin the dump encoding too: `_dump_bytes` serializes into a BytesIO, so the
-    # emitter -- not this module -- encodes the bytes that land in the user's
-    # file. utf-8 is ruamel's current default, but the file is read back as
-    # utf-8 unconditionally, so state it rather than inherit it.
-    yaml.encoding = "utf-8"
-    with open(path, "r", encoding="utf-8") as fh:
-        data = yaml.load(fh)
-    return yaml, data
+    if HAS_RUAMEL:
+        yaml = YAML(typ="rt")
+        yaml.preserve_quotes = True
+        # Pin the emitter to the indentation the sprint-status template ships with.
+        # Without this, ruamel re-dumps block sequences at its own default offset and
+        # every write silently de-indents pre-existing, untouched action_items.
+        yaml.indent(mapping=2, sequence=4, offset=2)
+        # Pin the dump encoding too: `_dump_bytes` serializes into a BytesIO, so the
+        # emitter -- not this module -- encodes the bytes that land in the user's
+        # file. utf-8 is ruamel's current default, but the file is read back as
+        # utf-8 unconditionally, so state it rather than inherit it.
+        yaml.encoding = "utf-8"
+        with open(path, "r", encoding="utf-8") as fh:
+            data = yaml.load(fh)
+        return yaml, data
+    else:
+        with open(path, "r", encoding="utf-8") as fh:
+            data = pyyaml.safe_load(fh)
+        return pyyaml, data
 
 
 def _emit(obj, code=0):
@@ -197,11 +208,15 @@ def _retro_status(dev, retro_key, restored=None):
     return status_value
 
 
-def _dump_bytes(yaml, data):
+def _dump_bytes(yaml_instance, data):
     """Serialize the document to bytes before any file is touched, so a dump
     failure cannot leave a partial file anywhere."""
     buf = io.BytesIO()
-    yaml.dump(data, buf)
+    if HAS_RUAMEL:
+        yaml_instance.dump(data, buf)
+    else:
+        text = pyyaml.dump(data, sort_keys=False, default_flow_style=False, allow_unicode=True)
+        buf.write(text.encode("utf-8"))
     return buf.getvalue()
 
 
