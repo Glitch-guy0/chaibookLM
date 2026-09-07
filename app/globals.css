@@ -3,6 +3,17 @@
 /* ─── Design Tokens (DESIGN.md → CSS custom properties) ─── */
 
 :root {
+  /* Canonical Design Tokens (DESIGN.md / AC-1.1.1) */
+  --bg: #F4F4F0;
+  --surface: #FFFFFF;
+  --fg: #111111;
+  --muted: #555555;
+  --border: #111111;
+  --accent: #FFE500;
+  --citation: #00E5FF;
+  --danger: #FF3333;
+  --success: #00E575;
+
   /* Colors - Light */
   --color-surface: #F5F0E8;
   --color-surface-elevated: #FFFFFF;
@@ -53,15 +64,26 @@
   /* Box Shadow */
   --shadow-card: 3px 3px 0 0 var(--color-ink);
   --shadow-dialog: 8px 8px 0 0 var(--color-ink);
-  --shadow-button: 6px -6px 0 0 var(--color-ink);
+  --shadow-button: 4px 4px 0 0 var(--border);
   --shadow-card-dark: 3px 3px 0 0 var(--color-ink-dark);
   --shadow-dialog-dark: 8px 8px 0 0 var(--color-ink-dark);
-  --shadow-button-dark: 6px -6px 0 0 var(--color-ink-dark);
+  --shadow-button-dark: 4px 4px 0 0 var(--border-dark, #E4E4E7);
 
   color-scheme: light;
 }
 
 .dark {
+  /* Canonical Design Tokens - Dark (DESIGN.md / AC-1.1.2) */
+  --bg: #0D0D0D;
+  --surface: #18181B;
+  --fg: #FFFFFF;
+  --muted: #A1A1AA;
+  --border: #E4E4E7;
+  --accent: #FACC15;
+  --citation: #22D3EE;
+  --danger: #FF3333;
+  --success: #00E575;
+
   --color-surface: #16130D;
   --color-surface-elevated: #201C14;
   --color-ink: #F5F0E8;
@@ -75,7 +97,7 @@
   --color-focus-ring: #F5F0E8;
   --shadow-card: 3px 3px 0 0 var(--color-ink);
   --shadow-dialog: 8px 8px 0 0 var(--color-ink);
-  --shadow-button: 6px -6px 0 0 var(--color-ink);
+  --shadow-button: 4px 4px 0 0 var(--border);
 
   color-scheme: dark;
 

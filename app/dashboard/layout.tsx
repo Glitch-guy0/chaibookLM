@@ -4,6 +4,7 @@ import { UserButton } from '@clerk/nextjs';
 import type { ReactNode } from 'react';
 import { AuthProvider } from '@components/auth-provider';
 import { ThemeToggle } from '@components/theme/theme-toggle';
+import { CreditBadge } from '@components/ui/credit-badge';
 
 /**
  * Dashboard subtree requires per-request auth context (Clerk session lookup,
@@ -45,6 +46,7 @@ export default async function DashboardLayout({
           </h1>
 
           <div className="flex items-center gap-4">
+            <CreditBadge />
             <ThemeToggle />
             <UserButton
               afterSignOutUrl="/sign-in"

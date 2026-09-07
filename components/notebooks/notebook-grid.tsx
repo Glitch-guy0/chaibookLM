@@ -81,6 +81,8 @@ export function NotebookGrid() {
     });
   };
 
+  const isCapReached = notebooks.length >= 10;
+
   const createCell = creating ? (
     <CreateNotebookForm
       onCancel={() => setCreating(false)}
@@ -91,20 +93,23 @@ export function NotebookGrid() {
     <button
       type="button"
       onClick={() => setCreating(true)}
+      disabled={isCapReached}
+      title={isCapReached ? 'Notebook limit reached (max 10 notebooks per user)' : undefined}
+      data-testid="new-notebook-card"
       data-debug="NewNotebookCard"
-      className="flex min-h-[200px] flex-col items-center justify-center gap-2 p-5 border-2 border-dashed border-ink-muted dark:border-ink-muted-dark bg-surface-elevated dark:bg-surface-elevated-dark rounded-default text-ink-secondary dark:text-ink-secondary-dark hover:bg-surface dark:hover:bg-surface-dark hover:text-ink dark:hover:text-ink-dark focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2"
+      className="flex min-h-[200px] flex-col items-center justify-center gap-2 p-5 border-2 border-dashed border-ink-muted dark:border-ink-muted-dark bg-surface-elevated dark:bg-surface-elevated-dark rounded-default text-ink-secondary dark:text-ink-secondary-dark hover:bg-surface dark:hover:bg-surface-dark hover:text-ink dark:hover:text-ink-dark focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2 disabled:opacity-45 disabled:cursor-not-allowed disabled:hover:bg-surface-elevated dark:disabled:hover:bg-surface-elevated-dark"
     >
       <span aria-hidden="true" className="font-display text-3xl leading-none">
         +
       </span>
       <span className="text-sm font-semibold font-sans uppercase tracking-wider">
-        New notebook
+        {isCapReached ? 'Limit reached (10 max)' : 'New notebook'}
       </span>
     </button>
   );
 
   return (
-    <section data-debug="NotebookGrid">
+    <section data-debug="NotebookGrid" data-testid="notebook-grid">
       {/* ── Header ── */}
       <div className="mb-6 flex items-center justify-between gap-4">
         <h2 className="text-3xl font-display text-ink dark:text-ink-dark">
@@ -114,10 +119,13 @@ export function NotebookGrid() {
           <button
             type="button"
             onClick={() => setCreating(true)}
+            disabled={isCapReached}
+            title={isCapReached ? 'Notebook limit reached (max 10 notebooks per user)' : undefined}
+            data-testid="create-notebook-button"
             data-debug="CreateNotebookButton"
-            className="min-h-11 px-5 py-2 text-sm font-semibold font-sans uppercase tracking-wider border-2 border-border dark:border-border-dark bg-brand dark:bg-brand text-ink dark:text-ink-dark rounded-default focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2"
+            className="min-h-11 px-5 py-2 text-sm font-semibold font-mono uppercase tracking-wider border-2 border-border dark:border-border-dark bg-brand dark:bg-brand text-ink dark:text-ink-dark rounded-default focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2 disabled:opacity-45 disabled:cursor-not-allowed"
           >
-            Create Notebook
+            + New Notebook
           </button>
         )}
       </div>

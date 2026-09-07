@@ -61,13 +61,13 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       {
         error: {
-          message: `You have reached the limit of ${counter.cap} notebooks`,
+          message: 'Notebook limit reached (max 10 notebooks per user)',
           code: 'NOTEBOOK_CAP_EXCEEDED',
         },
         count: counter.count,
         cap: counter.cap,
       },
-      { status: 409 },
+      { status: 422 },
     );
   }
 

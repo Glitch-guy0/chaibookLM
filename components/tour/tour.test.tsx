@@ -1,8 +1,33 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { hasSeenTour, markTourSeen, resetTour } from './tour-storage';
 import { prefersReducedMotion } from '@components/landing/use-scroll-reveal';
+import { TOUR_STEPS } from './tour-config';
 
-describe('tour-storage', () => {
+describe('TOUR_STEPS config (AC-1.6.1)', () => {
+  it('defines exactly 4 onboarding walkthrough steps', () => {
+    expect(TOUR_STEPS).toHaveLength(4);
+  });
+
+  it('covers the 4 required onboarding steps in order', () => {
+    // 1. Sources Pane
+    expect(TOUR_STEPS[0].element).toBe('#tab-sources');
+    expect(TOUR_STEPS[0].popover?.title).toContain('Start with your sources');
+
+    // 2. Grounded Chat Composer
+    expect(TOUR_STEPS[1].element).toBe('#tab-chat');
+    expect(TOUR_STEPS[1].popover?.title).toContain('Grounded Chat Composer');
+
+    // 3. Original View Showcase Pane
+    expect(TOUR_STEPS[2].element).toBe('#tab-showcase');
+    expect(TOUR_STEPS[2].popover?.title).toContain('Original View Showcase');
+
+    // 4. Daily Credit Counter & Midnight Expiration Notice
+    expect(TOUR_STEPS[3].element).toBe('[data-testid="expiration-banner"]');
+    expect(TOUR_STEPS[3].popover?.title).toContain('Credits & Midnight Reset');
+  });
+});
+
+describe('tour-storage (AC-1.6.2, AC-1.6.3)', () => {
   let store: Record<string, string>;
 
   function makeLocalStorage() {
@@ -33,13 +58,13 @@ describe('tour-storage', () => {
     expect(hasSeenTour('user_1')).toBe(false);
   });
 
-  it('markTourSeen then hasSeenTour round-trips true, scoped by userId', () => {
+  it('markTourSeen then hasSeenTour round-trips true, scoped by userId (AC-1.6.2)', () => {
     markTourSeen('user_1');
     expect(hasSeenTour('user_1')).toBe(true);
     expect(hasSeenTour('user_2')).toBe(false);
   });
 
-  it('resetTour clears a previously-set flag', () => {
+  it('resetTour clears a previously-set flag so user can re-trigger tour (AC-1.6.3)', () => {
     markTourSeen('user_1');
     expect(hasSeenTour('user_1')).toBe(true);
 

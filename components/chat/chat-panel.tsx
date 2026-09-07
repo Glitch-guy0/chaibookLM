@@ -17,6 +17,7 @@ import { CitationChip } from './citation-chip';
 
 interface ChatPanelProps {
   notebookId: string;
+  credits?: number;
   /** Opens a citation in the Showcase tab; `citationKey` is the clicked
    * chip's stable `data-citation-key` identifier, stored by `Workspace` as
    * `restoreFocusKey` for focus restore after Esc. */
@@ -134,6 +135,7 @@ function dtoToTurn(message: ChatMessageDTO): Turn {
  */
 export function ChatPanel({
   notebookId,
+  credits = 10,
   onOpenCitation,
   restoreFocusKey,
   onFocusRestored,
@@ -617,20 +619,26 @@ export function ChatPanel({
         <textarea
           ref={textareaRef}
           data-debug="ChatComposer"
+          data-testid="chat-composer-textarea"
           value={input}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
-          disabled={isStreaming}
-          placeholder="Ask a question about your sources..."
+          disabled={isStreaming || credits <= 0}
+          placeholder={
+            credits <= 0
+              ? '0 credits remaining. Composer disabled until midnight reset.'
+              : 'Ask a question about your sources...'
+          }
           rows={1}
-          className="min-h-[2.75rem] flex-1 resize-none rounded-default border-2 border-border dark:border-border-dark bg-white dark:bg-surface-dark px-3 py-2 text-sm disabled:opacity-60 focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2"
+          className="min-h-[2.75rem] flex-1 resize-none rounded-default border-2 border-border dark:border-border-dark bg-white dark:bg-surface-dark px-3 py-2 text-sm disabled:opacity-45 disabled:cursor-not-allowed focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2"
         />
         <button
           type="button"
           data-debug="ChatSendButton"
+          data-testid="chat-send-button"
           onClick={send}
-          disabled={isStreaming || !input.trim()}
-          className="rounded-default bg-ink dark:bg-ink-dark px-4 py-2 text-sm font-semibold text-white disabled:opacity-50 focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2"
+          disabled={isStreaming || !input.trim() || credits <= 0}
+          className="rounded-default bg-ink dark:bg-ink-dark px-4 py-2 text-sm font-semibold text-white disabled:opacity-45 disabled:cursor-not-allowed focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2"
         >
           {isStreaming ? 'Sending…' : 'Send'}
         </button>

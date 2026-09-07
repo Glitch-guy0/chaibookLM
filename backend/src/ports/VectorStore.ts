@@ -18,4 +18,5 @@ export interface VectorStore {
    */
   upsert(chunks: Chunk[], vectors?: number[][]): Promise<void>;
   deleteBySourceId(sourceId: string): Promise<void>;
+  deleteByNotebookId?(notebookId: string): Promise<void>;
 }

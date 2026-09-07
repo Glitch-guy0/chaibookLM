@@ -2,29 +2,39 @@ import type { DriveStep } from 'driver.js';
 
 /**
  * Ordered tour steps walking a first-run visitor through the product's
- * central trust loop: add a source, ask a grounded question, then see the
- * citation trace back to the original passage.
+ * central trust loop (AC-1.6.1):
+ * 1. Sources Pane (+ Add Source)
+ * 2. Grounded Chat Composer
+ * 3. Original View Showcase Pane
+ * 4. Daily Credit Counter & Midnight Expiration Notice
  */
 export const TOUR_STEPS: DriveStep[] = [
   {
     element: '#tab-sources',
     popover: {
-      title: 'Start with your sources',
-      description: 'Add the documents or pages you want to research — everything the assistant answers from lives here.',
+      title: '1. Start with your sources',
+      description: 'Add documents, PDFs, transcripts, or web links to research. Grounded answers draw strictly from here.',
     },
   },
   {
     element: '#tab-chat',
     popover: {
-      title: 'Ask grounded questions',
-      description: 'Chat answers are generated only from your sources, so every claim can be traced back to something you added.',
+      title: '2. Grounded Chat Composer',
+      description: 'Ask questions with strict source boundaries. Answers emit verifiable inline citation pills.',
     },
   },
   {
     element: '#tab-showcase',
     popover: {
-      title: 'Verify with citations',
-      description: 'Tap a citation in an answer to jump here and see the exact original passage it came from.',
+      title: '3. Original View Showcase',
+      description: 'Click any citation pill to verify proof with high-contrast cyan bounding boxes and page jumping.',
+    },
+  },
+  {
+    element: '[data-testid="expiration-banner"]',
+    popover: {
+      title: '4. Credits & Midnight Reset',
+      description: 'You have 10 daily query credits. Active notebooks are ephemeral and auto-delete at midnight Asia/Kolkata.',
     },
   },
 ];

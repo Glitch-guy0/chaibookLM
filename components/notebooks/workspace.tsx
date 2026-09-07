@@ -10,6 +10,7 @@ import { fetchNotebook, fetchSources, type CitationSnapshot } from './api';
 import { SourcesPanel } from '@components/sources/sources-panel';
 import { ChatPanel } from '@components/chat/chat-panel';
 import { ShowcasePanel } from './showcase-panel';
+import { ExpirationBanner } from './expiration-banner';
 import { useProductTour } from '@components/tour/use-product-tour';
 
 const TABS: TabItem[] = [
@@ -96,6 +97,7 @@ export function Workspace() {
 
   return (
     <section data-debug="Workspace" className="mx-auto max-w-5xl">
+      <ExpirationBanner className="mb-6" />
       <div className="mb-6">
         <Link
           href="/dashboard"
