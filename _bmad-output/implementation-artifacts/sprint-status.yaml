@@ -29,7 +29,7 @@
 # - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
 # - Retrospective appends its action items to action_items; the status view surfaces open ones
 generated: 09-07-2026 10:58
-last_updated: 09-07-2026 12:47
+last_updated: 09-07-2026 16:30
 project: Contextual
 project_key: NOKEY
 tracking_system: file-system
@@ -67,7 +67,7 @@ development_status:
   4-3-youtube-subtitle-transcript-showcase-with-player-sync: done
   4-4-text-web-source-showcase-readers: done
   4-5-responsive-multi-surface-layouts-tablet-drawer-mobile-3-tab: done
-  epic-4-retrospective: optional
+  epic-4-retrospective: done
 action_items:
   - id: "epic-2-retro-item-1-staging-concurrency-test"
     epic: 2
@@ -83,3 +83,19 @@ action_items:
     owner: "Dev / Infrastructure Team"
     status: open
     ref: "_bmad-output/implementation-artifacts/epic-2-retro-09-07-2026.md"
+  - id: "epic-4-retro-item-3-evaluate-supplementing-the-extracted-mar"
+    epic: 4
+    action: "Evaluate supplementing the extracted markdown-page reader with an optional
+      interactive PDF canvas renderer (e.g. PDF.js) for documents with complex vector
+      diagrams or graphical tables"
+    owner: "Frontend Team"
+    status: open
+    ref: "_bmad-output/implementation-artifacts/epic-4-retro-09-07-2026.md"
+  - id: "epic-4-retro-item-4-implement-error-event-monitoring-on-the"
+    epic: 4
+    action: "Implement error event monitoring on the live web showcase iframe to gracefully
+      detect X-Frame-Options blocking and automatically fall back to the sanitized
+      Reader mode with an informative notice"
+    owner: "Frontend Team"
+    status: open
+    ref: "_bmad-output/implementation-artifacts/epic-4-retro-09-07-2026.md"
