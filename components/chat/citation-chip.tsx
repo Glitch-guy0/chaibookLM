@@ -50,6 +50,17 @@ export function CitationChip({
           return Number.isFinite(num) ? num + 1 : 1;
         })();
 
+  let pillText = `[${derivedIndex}]`;
+  if (citation.link) {
+    try {
+      const url = new URL(citation.link);
+      const domain = url.hostname.replace(/^www\./, '');
+      pillText = `[Web: ${domain}]`;
+    } catch {
+      pillText = `[Web]`;
+    }
+  }
+
   const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>) => {
     if (e.key === 'Enter') {
       e.preventDefault();
@@ -69,8 +80,11 @@ export function CitationChip({
       onKeyDown={handleKeyDown}
       className="mx-1 inline-flex items-center justify-center px-1.5 py-0.5 border-1.5 border-border dark:border-border-dark rounded-sm bg-[#00E5FF] dark:bg-[#00E5FF]/90 text-ink font-mono font-bold text-[11px] align-baseline leading-none shadow-[2px_2px_0_0_#111111] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0_0_#111111] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2 transition-transform cursor-pointer"
     >
-      [{derivedIndex}]
+      {pillText}
     </button>
   );
 }
+
+export { CitationChip as CitationPill };
+
 

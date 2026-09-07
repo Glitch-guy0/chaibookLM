@@ -22,7 +22,7 @@ interface BackendServices {
   limits: LimitsService;
   notebooks: NotebookService;
   sources: SourceService;
-  chatFor: (notebookId: string) => ChatService;
+  chatFor: (notebookId: string, userId?: string) => ChatService;
   fetchOnRefusal: FetchOnRefusalService;
 }
 
@@ -67,8 +67,8 @@ export function getBackend(): Promise<BackendServices> {
       // ChatService is notebook-scoped (VectorStoreMemoryStrategy is
       // constructed per notebookId to keep retrieval strictly filtered), so
       // we expose a factory rather than a single shared instance.
-      const chatFor = (notebookId: string) => {
-        const memory = new VectorStoreMemoryStrategy(qdrant, embeddings, notebookId);
+      const chatFor = (notebookId: string, userId?: string) => {
+        const memory = new VectorStoreMemoryStrategy(qdrant, embeddings, notebookId, 5, 0.3, userId);
         return new ChatService(repo, memory, reasoning, llm);
       };
 

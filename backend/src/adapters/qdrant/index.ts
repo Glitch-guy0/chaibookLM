@@ -68,11 +68,18 @@ export class QdrantAdapter implements VectorStore {
   async search(params: {
     queryVector: number[];
     notebookId: string;
+    userId?: string;
     topK: number;
     minScore: number;
   }): Promise<ScoredChunk[]> {
     if (!this.url) {
       throw new Error('Qdrant not configured: QDRANT_URL is not set');
+    }
+    const mustFilters: Array<{ key: string; match: { value: string } }> = [
+      { key: 'notebookId', match: { value: params.notebookId } },
+    ];
+    if (params.userId) {
+      mustFilters.push({ key: 'userId', match: { value: params.userId } });
     }
     const res = await this.request(`/collections/${this.collection}/points/search`, {
       method: 'POST',
@@ -81,7 +88,7 @@ export class QdrantAdapter implements VectorStore {
         limit: params.topK,
         score_threshold: params.minScore,
         filter: {
-          must: [{ key: 'notebookId', match: { value: params.notebookId } }],
+          must: mustFilters,
         },
         with_payload: true,
       }),

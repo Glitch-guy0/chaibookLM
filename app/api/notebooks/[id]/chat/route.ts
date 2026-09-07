@@ -101,6 +101,10 @@ export async function POST(request: NextRequest, context: RouteContext) {
     return errorResponse(detail, 'CHAT_FAILED', 500);
   }
 
+  const startTime = performance.now();
+  let tokenCount = 0;
+  let assembledText = '';
+
   const stream = new ReadableStream<Uint8Array>({
     async start(streamController) {
       try {
@@ -108,6 +112,8 @@ export async function POST(request: NextRequest, context: RouteContext) {
           const { done, value: event } = await turn.next();
           if (done) break;
           if (event.type === 'token' && event.token) {
+            tokenCount += 1;
+            assembledText += event.token;
             streamController.enqueue(encoder.encode(event.token));
           } else if (event.type === 'error') {
             streamController.enqueue(
@@ -131,6 +137,16 @@ export async function POST(request: NextRequest, context: RouteContext) {
         const detail = err instanceof Error ? err.message : 'unknown error';
         streamController.enqueue(encoder.encode(`${CHAT_ERROR_SENTINEL}${detail}`));
       } finally {
+        const latencyMs = Math.round(performance.now() - startTime);
+        const { repo } = await getBackend();
+        void repo.recordChatTelemetry({
+          userId,
+          notebookId: id,
+          promptLength: message.length,
+          completionTokens: Math.max(tokenCount, Math.ceil(assembledText.length / 4)),
+          latencyMs,
+          creditCost: 1,
+        });
         streamController.close();
       }
     },

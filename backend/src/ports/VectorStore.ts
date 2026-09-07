@@ -8,6 +8,7 @@ export interface VectorStore {
   search(params: {
     queryVector: number[];
     notebookId: string;
+    userId?: string;
     topK: number;
     minScore: number;
   }): Promise<ScoredChunk[]>;

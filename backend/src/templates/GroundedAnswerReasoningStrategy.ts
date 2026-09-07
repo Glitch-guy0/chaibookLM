@@ -54,17 +54,23 @@ export class GroundedAnswerReasoningStrategy {
     return [
       'You are a grounded question-answering assistant for a notebook of user-provided sources.',
       'Answer only using the information in the CONTEXT block below. Do not use any outside or general knowledge.',
+      'unsupported claims are forbidden: every assertion must be strictly supported by the provided chunks.',
       'If the context does not contain enough information to answer, say so plainly -- do not guess.',
-      'Each context chunk is tagged with an id like [chunkId] at the start of its text.',
-      'When you use information from a chunk, cite it inline immediately after the relevant sentence using the exact marker [[chunkId]], using only chunk ids that appear in the CONTEXT block.',
+      'Each context chunk is enclosed in an XML <chunk> tag with attributes specifying id, source, and page.',
+      'When you use information from a chunk, cite it inline immediately after the relevant sentence using the exact marker [[C:chunkId]], using only chunk ids that appear in the CONTEXT block.',
       'Never invent a chunk id that is not present in the CONTEXT block. Never cite when you have not used that chunk.',
       'Format your answer as markdown.',
     ].join('\n');
   }
 
-  /** Formats retrieved chunks as `[chunkId] text` blocks, one per line/paragraph. */
+  /** Formats retrieved chunks as XML `<chunk id="..." source="..." page="...">text</chunk>` blocks. */
   buildContext(chunks: ScoredChunk[]): string {
-    return chunks.map((c) => `[${c.chunkId}] ${c.text}`).join('\n\n');
+    return chunks
+      .map((c) => {
+        const pageAttr = c.metadata?.pageNumber !== undefined ? String(c.metadata.pageNumber) : '';
+        return `<chunk id="${c.chunkId}" source="${c.sourceId}" page="${pageAttr}">${c.text}</chunk>`;
+      })
+      .join('\n\n');
   }
 
   /**

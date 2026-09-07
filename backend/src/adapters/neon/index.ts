@@ -84,14 +84,36 @@ CREATE TABLE IF NOT EXISTS telemetry_file_uploads (
 
 CREATE INDEX IF NOT EXISTS idx_telemetry_uploads_created_at ON telemetry_file_uploads(created_at);
 
-CREATE TABLE IF NOT EXISTS telemetry_daily_aggregates (
-  date_ist         DATE PRIMARY KEY,
-  total_uploads    INTEGER NOT NULL DEFAULT 0,
-  total_bytes      BIGINT NOT NULL DEFAULT 0,
-  avg_duration_ms  INTEGER NOT NULL DEFAULT 0,
-  failed_uploads   INTEGER NOT NULL DEFAULT 0,
-  created_at       TIMESTAMPTZ NOT NULL DEFAULT now()
+CREATE TABLE IF NOT EXISTS telemetry_chat_prompts (
+  id                UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id           TEXT,
+  notebook_id       UUID,
+  prompt_length     INTEGER NOT NULL DEFAULT 0,
+  completion_tokens INTEGER NOT NULL DEFAULT 0,
+  latency_ms        INTEGER NOT NULL DEFAULT 0,
+  credit_cost       INTEGER NOT NULL DEFAULT 1,
+  created_at        TIMESTAMPTZ NOT NULL DEFAULT now()
 );
+
+CREATE INDEX IF NOT EXISTS idx_telemetry_prompts_created_at ON telemetry_chat_prompts(created_at);
+
+CREATE TABLE IF NOT EXISTS telemetry_daily_aggregates (
+  date_ist                DATE PRIMARY KEY,
+  total_uploads           INTEGER NOT NULL DEFAULT 0,
+  total_bytes             BIGINT NOT NULL DEFAULT 0,
+  avg_duration_ms         INTEGER NOT NULL DEFAULT 0,
+  failed_uploads          INTEGER NOT NULL DEFAULT 0,
+  total_queries           INTEGER NOT NULL DEFAULT 0,
+  total_prompt_chars      BIGINT NOT NULL DEFAULT 0,
+  total_completion_tokens BIGINT NOT NULL DEFAULT 0,
+  total_credits_spent     INTEGER NOT NULL DEFAULT 0,
+  created_at              TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+ALTER TABLE telemetry_daily_aggregates ADD COLUMN IF NOT EXISTS total_queries INTEGER DEFAULT 0;
+ALTER TABLE telemetry_daily_aggregates ADD COLUMN IF NOT EXISTS total_prompt_chars BIGINT DEFAULT 0;
+ALTER TABLE telemetry_daily_aggregates ADD COLUMN IF NOT EXISTS total_completion_tokens BIGINT DEFAULT 0;
+ALTER TABLE telemetry_daily_aggregates ADD COLUMN IF NOT EXISTS total_credits_spent INTEGER DEFAULT 0;
 `;
 
 // ---------------------------------------------------------------------------
@@ -583,7 +605,36 @@ export class NeonRepository {
   }
 
   /**
-   * Daily rollup aggregation for file upload operational telemetry (AC-2.6.3).
+   * Non-blocking operational telemetry for chat prompt usage (AC-3.5.1).
+   * Appends a log record to telemetry_chat_prompts. Adds < 15ms overhead.
+   * Strictly records operational metrics (no raw prompt or response text).
+   */
+  async recordChatTelemetry(params: {
+    userId?: string;
+    notebookId?: string;
+    promptLength: number;
+    completionTokens: number;
+    latencyMs: number;
+    creditCost?: number;
+  }): Promise<void> {
+    await this.pool
+      .query(
+        `INSERT INTO telemetry_chat_prompts (user_id, notebook_id, prompt_length, completion_tokens, latency_ms, credit_cost)
+         VALUES ($1, $2, $3, $4, $5, $6)`,
+        [
+          params.userId ?? null,
+          params.notebookId ?? null,
+          params.promptLength,
+          params.completionTokens,
+          params.latencyMs,
+          params.creditCost ?? 1,
+        ],
+      )
+      .catch(() => {});
+  }
+
+  /**
+   * Daily rollup aggregation for operational telemetry (AC-2.6.3 & AC-3.5.3).
    * Aggregates records for dateIst into telemetry_daily_aggregates.
    */
   async aggregateDailyTelemetry(dateIst: string): Promise<{
@@ -592,8 +643,12 @@ export class NeonRepository {
     totalBytes: number;
     avgDurationMs: number;
     failedUploads: number;
+    totalQueries?: number;
+    totalPromptChars?: number;
+    totalCompletionTokens?: number;
+    totalCreditsSpent?: number;
   }> {
-    const { rows } = await this.pool.query(
+    const { rows: uploadRows } = await this.pool.query(
       `SELECT
          COUNT(*)::int AS total_uploads,
          COALESCE(SUM(byte_size), 0)::bigint AS total_bytes,
@@ -604,11 +659,29 @@ export class NeonRepository {
       [dateIst],
     );
 
-    const agg = rows[0] || {
+    const { rows: promptRows } = await this.pool.query(
+      `SELECT
+         COUNT(*)::int AS total_queries,
+         COALESCE(SUM(prompt_length), 0)::bigint AS total_prompt_chars,
+         COALESCE(SUM(completion_tokens), 0)::bigint AS total_completion_tokens,
+         COALESCE(SUM(credit_cost), 0)::int AS total_credits_spent
+       FROM telemetry_chat_prompts
+       WHERE (created_at AT TIME ZONE 'Asia/Kolkata')::date = $1::date`,
+      [dateIst],
+    );
+
+    const agg = uploadRows[0] || {
       total_uploads: 0,
       total_bytes: 0,
       avg_duration_ms: 0,
       failed_uploads: 0,
+    };
+
+    const promptAgg = promptRows[0] || {
+      total_queries: 0,
+      total_prompt_chars: 0,
+      total_completion_tokens: 0,
+      total_credits_spent: 0,
     };
 
     await this.pool
@@ -630,12 +703,34 @@ export class NeonRepository {
       )
       .catch(() => {});
 
+    await this.pool
+      .query(
+        `UPDATE telemetry_daily_aggregates
+         SET total_queries = $2,
+             total_prompt_chars = $3,
+             total_completion_tokens = $4,
+             total_credits_spent = $5
+         WHERE date_ist = $1`,
+        [
+          dateIst,
+          promptAgg.total_queries,
+          promptAgg.total_prompt_chars,
+          promptAgg.total_completion_tokens,
+          promptAgg.total_credits_spent,
+        ],
+      )
+      .catch(() => {});
+
     return {
       dateIst,
       totalUploads: agg.total_uploads,
       totalBytes: Number(agg.total_bytes),
       avgDurationMs: agg.avg_duration_ms,
       failedUploads: agg.failed_uploads,
+      totalQueries: promptAgg.total_queries,
+      totalPromptChars: Number(promptAgg.total_prompt_chars),
+      totalCompletionTokens: Number(promptAgg.total_completion_tokens),
+      totalCreditsSpent: promptAgg.total_credits_spent,
     };
   }
 

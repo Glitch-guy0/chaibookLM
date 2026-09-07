@@ -14,6 +14,7 @@ import {
   type CitationSnapshot,
 } from '../notebooks/api';
 import { CitationChip } from './citation-chip';
+import { RefusalCard } from './refusal-card';
 
 interface ChatPanelProps {
   notebookId: string;
@@ -49,7 +50,8 @@ const MARKER_RE = /\[\[([^[\]]+)\]\]/g;
  */
 function transformMarkersToChipLinks(content: string, validChunkIds: Set<string>): string {
   const occurrenceCounts = new Map<string, number>();
-  return content.replace(MARKER_RE, (full, chunkId: string) => {
+  return content.replace(MARKER_RE, (full, rawChunkId: string) => {
+    const chunkId = rawChunkId.startsWith('C:') ? rawChunkId.slice(2) : rawChunkId;
     if (!validChunkIds.has(chunkId)) return '';
     const occurrenceIndex = occurrenceCounts.get(chunkId) ?? 0;
     occurrenceCounts.set(chunkId, occurrenceIndex + 1);
@@ -547,60 +549,20 @@ export function ChatPanel({
                 </div>
               )}
               {turn.refusal && turn.status === 'done' && (
-                <div className="mt-2" data-debug="ChatFetchOnRefusal">
-                  {(!turn.fetchOnRefusal || turn.fetchOnRefusal.status === 'idle') && (
-                    <button
-                      type="button"
-                      data-debug="ChatFindWebPagesButton"
-                      onClick={() => approveFetch(turn)}
-                      disabled={isStreaming}
-                      className="text-sm font-semibold underline underline-offset-2 text-ink-secondary dark:text-ink-secondary-dark hover:text-ink dark:hover:text-ink-dark focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2"
-                    >
-                      Find related web pages
-                    </button>
-                  )}
-                  {turn.fetchOnRefusal?.status === 'pending' && (
-                    <p
-                      className="text-sm text-ink-muted dark:text-ink-muted-dark"
-                      data-debug="ChatFetchOnRefusalPending"
-                    >
-                      Searching the web…
-                    </p>
-                  )}
-                  {turn.fetchOnRefusal?.status === 'done' && (
-                    <p
-                      className="text-sm text-ink-secondary dark:text-ink-secondary-dark"
-                      data-debug="ChatFetchOnRefusalDone"
-                    >
-                      Added {turn.fetchOnRefusal.added} source
-                      {turn.fetchOnRefusal.added === 1 ? '' : 's'}.
-                    </p>
-                  )}
-                  {turn.fetchOnRefusal?.status === 'failed' && (
-                    <div className="flex items-center gap-2">
-                      <p
-                        className="text-sm text-red-600 dark:text-red-400"
-                        data-debug="ChatFetchOnRefusalError"
-                      >
-                        {turn.fetchOnRefusal.reason === 'capped'
-                          ? 'Source limit reached.'
-                          : turn.fetchOnRefusal.reason === 'no_results'
-                            ? 'No related pages found.'
-                            : 'Something went wrong.'}
-                      </p>
-                      {turn.fetchOnRefusal.reason !== 'capped' && (
-                        <button
-                          type="button"
-                          data-debug="ChatFetchOnRefusalRetryButton"
-                          onClick={() => approveFetch(turn)}
-                          disabled={isStreaming}
-                          className="text-sm font-semibold underline underline-offset-2 text-ink-secondary dark:text-ink-secondary-dark hover:text-ink dark:hover:text-ink-dark focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2"
-                        >
-                          Try again
-                        </button>
-                      )}
-                    </div>
-                  )}
+                <div data-debug="ChatFetchOnRefusal">
+                  <RefusalCard
+                    credits={credits}
+                    status={turn.fetchOnRefusal?.status ?? 'idle'}
+                    addedCount={turn.fetchOnRefusal?.added}
+                    errorMessage={
+                      turn.fetchOnRefusal?.reason === 'capped'
+                        ? 'Source limit reached.'
+                        : turn.fetchOnRefusal?.reason === 'no_results'
+                          ? 'No related pages found.'
+                          : 'Something went wrong.'
+                    }
+                    onSearchWebAndAnswer={() => approveFetch(turn)}
+                  />
                 </div>
               )}
             </div>

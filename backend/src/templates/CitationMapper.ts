@@ -11,7 +11,7 @@
 import type { CitationSnapshot } from '../shared-kernel/types';
 import type { ScoredChunk } from '../ports/VectorStore';
 
-const MARKER_RE = /\[\[([^\[\]]+)\]\]/g;
+const MARKER_RE = /\[\[(?:C:)?([^\[\]]+)\]\]/g;
 
 export class CitationMapper {
   /**

@@ -51,17 +51,31 @@ export class VectorStoreMemoryStrategy {
     private readonly notebookId: string,
     private readonly topK: number = DEFAULT_TOP_K,
     private readonly minScore: number = DEFAULT_MIN_SCORE,
+    private readonly userId?: string,
   ) {}
 
   /** Notebook-scoped retrieval returning the raw scored chunks (score, chunkId intact). */
-  async retrieveChunks(query: string): Promise<ScoredChunk[]> {
+  async retrieveChunks(query: string, userId?: string): Promise<ScoredChunk[]> {
+    const targetUserId = userId ?? this.userId;
     const queryVector = await this.embeddings.embed(query);
-    return this.vectorStore.search({
+    const chunks = await this.vectorStore.search({
       queryVector,
       notebookId: this.notebookId,
+      userId: targetUserId,
       topK: this.topK,
       minScore: this.minScore,
     });
+
+    if (chunks.length === 0) {
+      return [];
+    }
+
+    const maxScore = Math.max(...chunks.map((c) => c.score));
+    if (maxScore < this.minScore) {
+      return [];
+    }
+
+    return chunks;
   }
 
   /** Shikigami MemoryStrategy contract: retrieve() returns KnowledgeEntry[] with chunkId inlined into content. */
