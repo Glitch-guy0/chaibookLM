@@ -8,7 +8,7 @@ export const SOURCE_INGEST_FUNCTION_CONFIG = {
     key: 'event.data.userId',
     limit: 2,
   },
-  retries: 3,
+  retries: 3 as const,
 };
 
 /**

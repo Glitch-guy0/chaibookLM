@@ -232,8 +232,27 @@ export function deleteSourcesBulk(ids: string[]): Promise<{ deleted: number }> {
 }
 
 export type SourceContent =
-  | { type: 'text'; text: string }
-  | { type: 'web'; url: string; snapshotHtml: string | null };
+  | { type: 'text'; text: string; rawText?: string }
+  | { type: 'web'; url: string; snapshotHtml: string | null; markdown?: string }
+  | {
+      type: 'pdf';
+      title?: string;
+      pages: Array<{ pageNumber: number; text: string }>;
+      totalPages: number;
+      rawText?: string;
+    }
+  | {
+      type: 'youtube';
+      url: string;
+      videoId?: string;
+      title?: string;
+      transcript: Array<{ timestampSeconds: number; formattedTime: string; text: string }>;
+    }
+  | {
+      type: 'transcript';
+      title?: string;
+      dialogue: Array<{ timestampSeconds: number; formattedTime: string; text: string }>;
+    };
 
 export function fetchSourceContent(sourceId: string): Promise<SourceContent> {
   return request<{ content: SourceContent }>(

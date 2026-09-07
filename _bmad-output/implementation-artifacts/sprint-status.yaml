@@ -61,12 +61,12 @@ development_status:
   3-5-chat-prompt-usage-operational-telemetry: backlog
   epic-3-retrospective: optional
 
-  epic-4: backlog
-  4-1-showcase-state-machine-multi-modal-dispatcher: backlog
-  4-2-pdf-original-view-showcase-with-page-jumper-bounding-box-hig: backlog
-  4-3-youtube-subtitle-transcript-showcase-with-player-sync: backlog
-  4-4-text-web-source-showcase-readers: backlog
-  4-5-responsive-multi-surface-layouts-tablet-drawer-mobile-3-tab: backlog
+  epic-4: done
+  4-1-showcase-state-machine-multi-modal-dispatcher: done
+  4-2-pdf-original-view-showcase-with-page-jumper-bounding-box-hig: done
+  4-3-youtube-subtitle-transcript-showcase-with-player-sync: done
+  4-4-text-web-source-showcase-readers: done
+  4-5-responsive-multi-surface-layouts-tablet-drawer-mobile-3-tab: done
   epic-4-retrospective: optional
 action_items:
   - id: "epic-2-retro-item-1-staging-concurrency-test"

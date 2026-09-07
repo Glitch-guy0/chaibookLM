@@ -1,17 +1,20 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import {
   fetchSourceContent,
   type CitationSnapshot,
-  type SourceContent,
   type SourceRecord,
 } from './api';
+import { ShowcaseEmpty } from './showcase/showcase-empty';
+import { PdfShowcase } from './showcase/pdf-showcase';
+import { YouTubeShowcase } from './showcase/youtube-showcase';
+import { TranscriptShowcase } from './showcase/transcript-showcase';
+import { WebShowcase } from './showcase/web-showcase';
+import { TextShowcase } from './showcase/text-showcase';
 
-const IFRAME_LOAD_TIMEOUT_MS = 8_000;
-
-interface ShowcasePanelProps {
+export interface ShowcasePanelProps {
   citation: CitationSnapshot | null;
   sources: SourceRecord[];
   sourcesLoading: boolean;
@@ -19,21 +22,29 @@ interface ShowcasePanelProps {
 }
 
 /**
- * Showcase panel: renders the source cited by `citation` -- a live sandboxed
- * iframe (falling back to a stored HTML snapshot, then a plain link) for a
- * Web Source, or the full text with the cited span highlighted via `<mark>`
- * for a Text Source. Content is fetched on demand (never bundled into the
- * sources list call). Esc calls back up to `Workspace` to switch tabs and
- * trigger focus restore -- this component owns no focus-restore state itself.
+ * ShowcasePanel (Story 4.1: Showcase State Machine & Multi-Modal Dispatcher)
+ * - Empty state when no citation is active: "Click any citation pill in chat to verify proof in the original source."
+ * - Dispatches appropriate viewer modality based on cited source type:
+ *   - PDF: Page jumper with "Page X of Y", keyboard shortcuts `[` and `]`, cyan bounding box
+ *   - YouTube: Embedded player seeking to timestampSeconds + synchronized autoscrolling transcript
+ *   - Transcript: Dialogue lines with seekable timestamp cues and active highlight
+ *   - Web: Sanitized article reader with cyan outline on cited paragraph, iframe/snapshot fallback
+ *   - Text: Full markdown reader with auto-scroll and cyan highlight mark
+ * - State machine handling: idle -> loading -> active -> error / not-found
+ * - Esc key dismisses active citation and restores focus
  */
-export function ShowcasePanel({ citation, sources, sourcesLoading, onEsc }: ShowcasePanelProps) {
+export function ShowcasePanel({
+  citation,
+  sources,
+  sourcesLoading,
+  onEsc,
+}: ShowcasePanelProps) {
   const source = useMemo(
     () => (citation ? sources.find((s) => s.id === citation.sourceId) ?? null : null),
     [citation, sources],
   );
 
-  // Only treat the source as genuinely gone once the source list has settled
-  // -- never false-positive "not available" while it's still in flight.
+  // Only treat source as genuinely missing once source list query settles
   const sourceNotFound = Boolean(citation) && !sourcesLoading && !source;
 
   const contentQuery = useQuery({
@@ -54,7 +65,7 @@ export function ShowcasePanel({ citation, sources, sourcesLoading, onEsc }: Show
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [citation, onEsc]);
 
-  const title = source?.title ?? 'this source';
+  const title = source?.title ?? citation?.sourceTitle ?? 'this source';
   const announcement = sourceNotFound
     ? `Showcase: ${title} is no longer available.`
     : citation
@@ -62,23 +73,11 @@ export function ShowcasePanel({ citation, sources, sourcesLoading, onEsc }: Show
       : '';
 
   if (!citation) {
-    return (
-      <div
-        data-debug="ShowcaseEmpty"
-        className="flex flex-col items-center justify-center px-6 py-16 border-2 border-dashed border-ink-muted dark:border-ink-muted-dark bg-surface-elevated dark:bg-surface-elevated-dark rounded-default"
-      >
-        <p className="text-lg font-semibold text-ink-secondary dark:text-ink-secondary-dark">
-          Your showcase will appear here.
-        </p>
-        <p className="mt-2 text-sm text-ink-muted dark:text-ink-muted-dark">
-          Click a citation chip in Chat to open the original source.
-        </p>
-      </div>
-    );
+    return <ShowcaseEmpty />;
   }
 
   return (
-    <div data-debug="ShowcasePanel" className="flex flex-col gap-4">
+    <div data-debug="ShowcasePanel" data-testid="showcase-panel" className="flex flex-col gap-4">
       <div aria-live="polite" className="sr-only" data-debug="ShowcaseAriaLive">
         {announcement}
       </div>
@@ -86,164 +85,68 @@ export function ShowcasePanel({ citation, sources, sourcesLoading, onEsc }: Show
       {sourceNotFound ? (
         <div
           data-debug="ShowcaseSourceNotFound"
-          className="flex flex-col items-center justify-center px-6 py-16 border-2 border-dashed border-ink-muted dark:border-ink-muted-dark bg-surface-elevated dark:bg-surface-elevated-dark rounded-default"
+          data-testid="showcase-source-not-found"
+          className="flex flex-col items-center justify-center p-8 border-2 border-dashed border-border dark:border-border-dark bg-surface-elevated dark:bg-surface-elevated-dark rounded-default shadow-[3px_3px_0_0_#111111]"
         >
-          <p className="text-lg font-semibold text-ink-secondary dark:text-ink-secondary-dark">
+          <p className="font-mono text-sm font-semibold text-ink-secondary dark:text-ink-secondary-dark">
             This source is no longer available.
+          </p>
+          <p className="mt-1 text-xs text-ink-muted dark:text-ink-muted-dark">
+            The source may have been deleted from the notebook.
           </p>
         </div>
       ) : sourcesLoading || contentQuery.isLoading ? (
         <div
           data-debug="ShowcaseLoading"
-          className="flex flex-col items-center justify-center px-6 py-16 border-2 border-dashed border-ink-muted dark:border-ink-muted-dark bg-surface-elevated dark:bg-surface-elevated-dark rounded-default"
+          data-testid="showcase-loading"
+          className="flex flex-col items-center justify-center p-12 border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark rounded-default shadow-[3px_3px_0_0_#111111]"
         >
-          <p className="text-sm text-ink-muted dark:text-ink-muted-dark">Loading source…</p>
+          <div className="h-6 w-6 animate-spin rounded-full border-2 border-border dark:border-border-dark border-t-[#00E5FF] mb-3" />
+          <p className="font-mono text-xs font-semibold text-ink dark:text-ink-dark">
+            Loading source proof…
+          </p>
         </div>
       ) : contentQuery.isError || !contentQuery.data ? (
         <div
           data-debug="ShowcaseContentError"
-          className="flex flex-col items-center justify-center px-6 py-16 border-2 border-dashed border-ink-muted dark:border-ink-muted-dark bg-surface-elevated dark:bg-surface-elevated-dark rounded-default"
+          data-testid="showcase-content-error"
+          className="flex flex-col items-center justify-center p-8 border-2 border-dashed border-border dark:border-border-dark bg-surface-elevated dark:bg-surface-elevated-dark rounded-default shadow-[3px_3px_0_0_#111111]"
         >
-          <p className="text-sm text-ink-muted dark:text-ink-muted-dark">
-            This source's content is no longer available.
+          <p className="font-mono text-sm font-semibold text-ink-secondary dark:text-ink-secondary-dark">
+            This source&apos;s content is no longer available.
           </p>
         </div>
+      ) : contentQuery.data.type === 'pdf' ? (
+        <PdfShowcase
+          content={contentQuery.data}
+          citation={citation}
+          title={title}
+        />
+      ) : contentQuery.data.type === 'youtube' ? (
+        <YouTubeShowcase
+          content={contentQuery.data}
+          citation={citation}
+          title={title}
+        />
+      ) : contentQuery.data.type === 'transcript' ? (
+        <TranscriptShowcase
+          content={contentQuery.data}
+          citation={citation}
+          title={title}
+        />
       ) : contentQuery.data.type === 'web' ? (
-        <WebShowcase content={contentQuery.data} title={title} />
+        <WebShowcase
+          content={contentQuery.data}
+          citation={citation}
+          title={title}
+        />
       ) : (
-        <TextShowcase content={contentQuery.data} span={citation.span} title={title} />
+        <TextShowcase
+          content={contentQuery.data}
+          citation={citation}
+          title={title}
+        />
       )}
     </div>
-  );
-}
-
-function WebShowcase({
-  content,
-  title,
-}: {
-  content: Extract<SourceContent, { type: 'web' }>;
-  title: string;
-}) {
-  const [blocked, setBlocked] = useState(false);
-  const [loaded, setLoaded] = useState(false);
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  useEffect(() => {
-    setBlocked(false);
-    setLoaded(false);
-    timeoutRef.current = setTimeout(() => setBlocked(true), IFRAME_LOAD_TIMEOUT_MS);
-    return () => {
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    };
-  }, [content.url]);
-
-  const handleLoad = () => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    setLoaded(true);
-  };
-
-  if (!blocked) {
-    return (
-      <div data-debug="ShowcaseWebLive" className="flex flex-col gap-2">
-        {!loaded && (
-          <p className="text-sm text-ink-muted dark:text-ink-muted-dark">Loading {title}…</p>
-        )}
-        <iframe
-          key={content.url}
-          data-debug="ShowcaseWebIframe"
-          src={content.url}
-          title={title}
-          onLoad={handleLoad}
-          sandbox="allow-scripts allow-popups allow-forms"
-          className="h-[32rem] w-full rounded-default border-2 border-border dark:border-border-dark bg-white"
-        />
-      </div>
-    );
-  }
-
-  if (content.snapshotHtml) {
-    return (
-      <div data-debug="ShowcaseWebSnapshot" className="flex flex-col gap-2">
-        <p className="text-xs text-ink-muted dark:text-ink-muted-dark">
-          Showing a saved snapshot -- the live page could not be embedded.
-        </p>
-        <iframe
-          data-debug="ShowcaseWebSnapshotIframe"
-          srcDoc={content.snapshotHtml}
-          title={`${title} (snapshot)`}
-          sandbox=""
-          className="h-[32rem] w-full rounded-default border-2 border-border dark:border-border-dark bg-white"
-        />
-      </div>
-    );
-  }
-
-  return (
-    <div
-      data-debug="ShowcaseWebUnavailable"
-      className="flex flex-col items-center justify-center gap-2 px-6 py-16 border-2 border-dashed border-ink-muted dark:border-ink-muted-dark bg-surface-elevated dark:bg-surface-elevated-dark rounded-default"
-    >
-      <p className="text-sm text-ink-secondary dark:text-ink-secondary-dark">
-        This page can&apos;t be embedded.
-      </p>
-      <a
-        href={content.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        data-debug="ShowcaseWebOpenLink"
-        className="text-sm font-semibold underline underline-offset-2 text-ink-secondary dark:text-ink-secondary-dark hover:text-ink dark:hover:text-ink-dark focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2"
-      >
-        Open in a new tab
-      </a>
-    </div>
-  );
-}
-
-function TextShowcase({
-  content,
-  span,
-  title,
-}: {
-  content: Extract<SourceContent, { type: 'text' }>;
-  span: { start: number; end: number };
-  title: string;
-}) {
-  const markRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    markRef.current?.scrollIntoView({ block: 'center' });
-  }, [content.text, span.start, span.end]);
-
-  const { before, highlighted, after } = useMemo(() => {
-    const len = content.text.length;
-    const start = Math.max(0, Math.min(span.start, len));
-    const end = Math.max(start, Math.min(span.end, len));
-    return {
-      before: content.text.slice(0, start),
-      highlighted: content.text.slice(start, end),
-      after: content.text.slice(end),
-    };
-  }, [content.text, span.start, span.end]);
-
-  return (
-    <>
-      <div aria-live="polite" className="sr-only" data-debug="ShowcaseHighlightAriaLive">
-        {`Showcase: ${title} -- highlighted passage: ${highlighted}`}
-      </div>
-      <div
-        data-debug="ShowcaseTextView"
-        className="max-h-[32rem] overflow-y-auto whitespace-pre-wrap rounded-default border-2 border-border dark:border-border-dark bg-surface-elevated dark:bg-surface-elevated-dark p-4 text-sm"
-      >
-        {before}
-        <mark
-          ref={markRef}
-          data-debug="ShowcaseTextHighlight"
-          className="rounded-sm border-2 border-ink dark:border-ink-dark bg-yellow-200 dark:bg-yellow-500/40"
-        >
-          {highlighted}
-        </mark>
-        {after}
-      </div>
-    </>
   );
 }

@@ -57,6 +57,12 @@ export interface CitationSnapshot {
   chunkId: string;
   sourceId: string;
   span: { start: number; end: number };
+  sourceTitle?: string;
+  sourceType?: Source['type'];
+  pageNumber?: number;
+  timestampSeconds?: number;
+  excerpt?: string;
+  link?: string;
 }
 
 export interface LimitCounter {

@@ -8,9 +8,31 @@ import type { Source } from '../../shared-kernel/types';
 const RAW_KEY = (sourceId: string) => `sources/${sourceId}`;
 const SNAPSHOT_KEY = (sourceId: string) => `sources/${sourceId}/snapshot.html`;
 
+export type SourceContentResult =
+  | { type: 'text'; text: string }
+  | { type: 'web'; url: string; snapshotHtml: string | null; markdown?: string }
+  | {
+      type: 'pdf';
+      title?: string;
+      pages: Array<{ pageNumber: number; text: string }>;
+      totalPages: number;
+      rawText?: string;
+    }
+  | {
+      type: 'youtube';
+      url: string;
+      videoId?: string;
+      title?: string;
+      transcript: Array<{ timestampSeconds: number; formattedTime: string; text: string }>;
+    }
+  | {
+      type: 'transcript';
+      title?: string;
+      dialogue: Array<{ timestampSeconds: number; formattedTime: string; text: string }>;
+    };
+
 export type GetContentResult =
-  | { ok: true; content: { type: 'text'; text: string } }
-  | { ok: true; content: { type: 'web'; url: string; snapshotHtml: string | null } }
+  | { ok: true; content: SourceContentResult }
   | { ok: false; reason: 'not_found' }
   | { ok: false; reason: 'content_unavailable' };
 
@@ -149,6 +171,125 @@ export class SourceService {
         return { ok: false, reason: 'content_unavailable' };
       }
       return { ok: true, content: { type: 'text', text: raw.toString('utf8') } };
+    }
+
+    if (source.type === 'pdf') {
+      const raw = await this.storage.get(RAW_KEY(id)).catch(() => null);
+      if (raw === null) {
+        return { ok: false, reason: 'content_unavailable' };
+      }
+      const rawStr = raw.toString('utf8');
+      const pageSections = rawStr.split(/<!--\s*page:\s*(\d+)\s*-->/i);
+      const pages: Array<{ pageNumber: number; text: string }> = [];
+      if (pageSections.length > 1) {
+        for (let i = 1; i < pageSections.length; i += 2) {
+          const pageNum = parseInt(pageSections[i], 10);
+          const pageText = (pageSections[i + 1] || '').trim();
+          pages.push({ pageNumber: pageNum, text: pageText });
+        }
+      } else {
+        pages.push({ pageNumber: 1, text: rawStr.trim() });
+      }
+      return {
+        ok: true,
+        content: {
+          type: 'pdf',
+          title: source.title,
+          pages,
+          totalPages: pages.length > 0 ? pages.length : 1,
+          rawText: rawStr,
+        },
+      };
+    }
+
+    if (source.type === 'youtube') {
+      const raw = await this.storage.get(RAW_KEY(id)).catch(() => null);
+      if (raw === null) {
+        return { ok: false, reason: 'content_unavailable' };
+      }
+      const rawStr = raw.toString('utf8');
+      let videoId = '';
+      try {
+        const parsed = new URL(rawStr);
+        if (parsed.hostname.includes('youtu.be')) {
+          videoId = parsed.pathname.slice(1).split('?')[0] || '';
+        } else {
+          videoId = parsed.searchParams.get('v') || '';
+        }
+      } catch {}
+
+      const cues: Array<{ timestampSeconds: number; formattedTime: string; text: string }> = [];
+      const lines = rawStr.split('\n');
+      for (const line of lines) {
+        const timeMatch = line.match(
+          /<!--\s*time:\s*(?:(?:(\d{1,2}):)?(\d{1,2}):(\d{2})|(\d{1,3}):(\d{2}))\s*-->\s*(.*)/i,
+        );
+        if (timeMatch) {
+          let secs = 0;
+          let fmt = '00:00';
+          if (timeMatch[4] !== undefined && timeMatch[5] !== undefined) {
+            secs = parseInt(timeMatch[4], 10) * 60 + parseInt(timeMatch[5], 10);
+            fmt = `${timeMatch[4].padStart(2, '0')}:${timeMatch[5]}`;
+          } else if (timeMatch[2] !== undefined && timeMatch[3] !== undefined) {
+            const hrs = timeMatch[1] ? parseInt(timeMatch[1], 10) : 0;
+            const mins = parseInt(timeMatch[2], 10) + hrs * 60;
+            secs = hrs * 3600 + parseInt(timeMatch[2], 10) * 60 + parseInt(timeMatch[3], 10);
+            fmt = `${String(mins).padStart(2, '0')}:${timeMatch[3]}`;
+          }
+          const cueText = timeMatch[6] ? timeMatch[6].trim() : '';
+          cues.push({ timestampSeconds: secs, formattedTime: fmt, text: cueText });
+        }
+      }
+
+      return {
+        ok: true,
+        content: {
+          type: 'youtube',
+          url: rawStr,
+          videoId: videoId || undefined,
+          title: source.title,
+          transcript: cues,
+        },
+      };
+    }
+
+    if (source.type === 'transcript') {
+      const raw = await this.storage.get(RAW_KEY(id)).catch(() => null);
+      if (raw === null) {
+        return { ok: false, reason: 'content_unavailable' };
+      }
+      const rawStr = raw.toString('utf8');
+      const cues: Array<{ timestampSeconds: number; formattedTime: string; text: string }> = [];
+      const lines = rawStr.split('\n');
+      for (const line of lines) {
+        const timeMatch = line.match(
+          /<!--\s*time:\s*(?:(?:(\d{1,2}):)?(\d{1,2}):(\d{2})|(\d{1,3}):(\d{2}))\s*-->\s*(.*)/i,
+        );
+        if (timeMatch) {
+          let secs = 0;
+          let fmt = '00:00';
+          if (timeMatch[4] !== undefined && timeMatch[5] !== undefined) {
+            secs = parseInt(timeMatch[4], 10) * 60 + parseInt(timeMatch[5], 10);
+            fmt = `${timeMatch[4].padStart(2, '0')}:${timeMatch[5]}`;
+          } else if (timeMatch[2] !== undefined && timeMatch[3] !== undefined) {
+            const hrs = timeMatch[1] ? parseInt(timeMatch[1], 10) : 0;
+            const mins = parseInt(timeMatch[2], 10) + hrs * 60;
+            secs = hrs * 3600 + parseInt(timeMatch[2], 10) * 60 + parseInt(timeMatch[3], 10);
+            fmt = `${String(mins).padStart(2, '0')}:${timeMatch[3]}`;
+          }
+          const cueText = timeMatch[6] ? timeMatch[6].trim() : '';
+          cues.push({ timestampSeconds: secs, formattedTime: fmt, text: cueText });
+        }
+      }
+
+      return {
+        ok: true,
+        content: {
+          type: 'transcript',
+          title: source.title,
+          dialogue: cues.length > 0 ? cues : [{ timestampSeconds: 0, formattedTime: '00:00', text: rawStr }],
+        },
+      };
     }
 
     const raw = await this.storage.get(RAW_KEY(id)).catch(() => null);

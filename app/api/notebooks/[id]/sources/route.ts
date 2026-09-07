@@ -151,7 +151,7 @@ export async function POST(request: NextRequest, context: RouteContext) {
 
   // Dispatch Inngest ingestion event asynchronously (non-blocking)
   try {
-    const { inngest } = await import('../../inngest/client');
+    const { inngest } = await import('../../../inngest/client');
     void inngest.send({
       name: 'source.ingest',
       data: {

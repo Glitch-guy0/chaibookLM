@@ -160,7 +160,7 @@ function rowToLimitCounter(row: QueryResultRow): LimitCounter {
 export class NeonRepository {
   private pool: Pool;
 
-  constructor(connectionString: string) {
+  constructor(connectionString: string = process.env.DATABASE_URL || '') {
     this.pool = new Pool({ connectionString });
   }
 
@@ -253,7 +253,7 @@ export class NeonRepository {
   async createSource(
     notebookId: string,
     userId: string,
-    type: 'text' | 'web',
+    type: Source['type'],
     title: string,
   ): Promise<Source> {
     const { rows } = await this.pool.query(

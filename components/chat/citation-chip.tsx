@@ -9,23 +9,46 @@ interface CitationChipProps {
    * client's currently-loaded source list (e.g. removed) -- falls back to a
    * generic label instead of crashing. */
   sourceTitle: string | undefined;
-  /** Stable id unique to this rendered occurrence (e.g.
-   * `${turn.id}-${citation.chunkId}-${occurrenceIndex}`), set as
-   * `data-citation-key` so focus can be re-queried after `ChatPanel`
-   * remounts on returning from the Showcase tab -- a raw DOM node reference
-   * would not survive that unmount/remount cycle. */
+  /** Stable id unique to this rendered occurrence */
   citationKey: string;
+  /** Optional 1-based index for numeral display [1], [2], etc. */
+  index?: number;
   onOpenCitation: (citation: CitationSnapshot, citationKey: string) => void;
 }
 
 /**
- * Focusable, hoverable citation chip rendered in place of a validated
- * `[[chunkId]]` marker. A plain `title` attribute satisfies "shows source
- * title on hover/focus" without pulling in a tooltip library -- native
- * `title` already fires on both mouse hover and keyboard focus.
+ * Focusable, hoverable citation chip / pill rendered in place of a validated
+ * marker. Styled in high-contrast cyan (#00E5FF) with Space Mono bold numerals.
+ * Shows source title + page number / timestamp on hover and focus.
  */
-export function CitationChip({ citation, sourceTitle, citationKey, onOpenCitation }: CitationChipProps) {
-  const label = sourceTitle ?? 'Source unavailable';
+export function CitationChip({
+  citation,
+  sourceTitle,
+  citationKey,
+  index,
+  onOpenCitation,
+}: CitationChipProps) {
+  const baseTitle = sourceTitle ?? 'Source unavailable';
+  let tooltipLabel = baseTitle;
+
+  if (citation.pageNumber !== undefined) {
+    tooltipLabel = `${baseTitle} — Page ${citation.pageNumber}`;
+  } else if (citation.timestampSeconds !== undefined) {
+    const mins = Math.floor(citation.timestampSeconds / 60);
+    const secs = citation.timestampSeconds % 60;
+    tooltipLabel = `${baseTitle} — @ ${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+  }
+
+  // Derive numeral display: either explicit index or parsed from citationKey
+  const derivedIndex =
+    index !== undefined
+      ? index
+      : (() => {
+          const parts = citationKey.split('-');
+          const lastPart = parts[parts.length - 1];
+          const num = parseInt(lastPart, 10);
+          return Number.isFinite(num) ? num + 1 : 1;
+        })();
 
   const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>) => {
     if (e.key === 'Enter') {
@@ -38,14 +61,16 @@ export function CitationChip({ citation, sourceTitle, citationKey, onOpenCitatio
     <button
       type="button"
       data-debug="CitationChip"
+      data-testid="citation-pill"
       data-citation-key={citationKey}
-      title={label}
-      aria-label={`Citation: ${label}`}
+      title={tooltipLabel}
+      aria-label={`Citation: ${tooltipLabel}`}
       onClick={() => onOpenCitation(citation, citationKey)}
       onKeyDown={handleKeyDown}
-      className="mx-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full border-2 border-border dark:border-border-dark bg-surface-elevated dark:bg-surface-elevated-dark text-[10px] font-semibold align-super leading-none text-ink-secondary dark:text-ink-secondary-dark hover:bg-ink hover:text-white dark:hover:bg-ink-dark focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2"
+      className="mx-1 inline-flex items-center justify-center px-1.5 py-0.5 border-1.5 border-border dark:border-border-dark rounded-sm bg-[#00E5FF] dark:bg-[#00E5FF]/90 text-ink font-mono font-bold text-[11px] align-baseline leading-none shadow-[2px_2px_0_0_#111111] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0_0_#111111] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2 transition-transform cursor-pointer"
     >
-      •
+      [{derivedIndex}]
     </button>
   );
 }
+
