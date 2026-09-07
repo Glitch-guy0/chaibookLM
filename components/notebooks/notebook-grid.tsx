@@ -17,8 +17,8 @@ import { BulkDeleteBar } from './bulk-delete-bar';
 
 /**
  * Client dashboard for managing notebooks. All data access goes through TanStack
- * Query hooks — no raw fetch in this component. Handles create, rename, single
- * and bulk delete, the 10-notebook cap warning, TTL-expiry notice and empty state.
+ * Query hooks. Handles create, rename, single and bulk delete, the 10-notebook cap,
+ * TTL-expiry notice and empty state.
  */
 export function NotebookGrid() {
   const queryClient = useQueryClient();
@@ -96,38 +96,46 @@ export function NotebookGrid() {
       disabled={isCapReached}
       title={isCapReached ? 'Notebook limit reached (max 10 notebooks per user)' : undefined}
       data-testid="new-notebook-card"
-      data-debug="NewNotebookCard"
-      className="flex min-h-[200px] flex-col items-center justify-center gap-2 p-5 border-2 border-dashed border-ink-muted dark:border-ink-muted-dark bg-surface-elevated dark:bg-surface-elevated-dark rounded-default text-ink-secondary dark:text-ink-secondary-dark hover:bg-surface dark:hover:bg-surface-dark hover:text-ink dark:hover:text-ink-dark focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2 disabled:opacity-45 disabled:cursor-not-allowed disabled:hover:bg-surface-elevated dark:disabled:hover:bg-surface-elevated-dark"
+      className="flex min-h-[180px] flex-col items-center justify-center gap-3 p-6 border-2 border-dashed border-border dark:border-border-dark bg-transparent rounded-[2px] text-muted hover:text-ink dark:hover:text-ink-dark hover:border-ink dark:hover:border-ink-dark transition-colors cursor-pointer disabled:opacity-45 disabled:cursor-not-allowed focus-visible:outline-3 focus-visible:outline-[var(--citation,#00E5FF)] focus-visible:outline-offset-2"
     >
-      <span aria-hidden="true" className="font-display text-3xl leading-none">
+      <span aria-hidden="true" className="font-mono text-3xl font-bold leading-none">
         +
       </span>
-      <span className="text-sm font-semibold font-sans uppercase tracking-wider">
+      <span className="font-mono text-xs font-bold uppercase tracking-wider">
         {isCapReached ? 'Limit reached (10 max)' : 'New notebook'}
       </span>
     </button>
   );
 
   return (
-    <section data-debug="NotebookGrid" data-testid="notebook-grid">
-      {/* ── Header ── */}
-      <div className="mb-6 flex items-center justify-between gap-4">
-        <h2 className="text-3xl font-display text-ink dark:text-ink-dark">
-          Your Notebooks
-        </h2>
-        {!creating && (
-          <button
-            type="button"
-            onClick={() => setCreating(true)}
-            disabled={isCapReached}
-            title={isCapReached ? 'Notebook limit reached (max 10 notebooks per user)' : undefined}
-            data-testid="create-notebook-button"
-            data-debug="CreateNotebookButton"
-            className="min-h-11 px-5 py-2 text-sm font-semibold font-mono uppercase tracking-wider border-2 border-border dark:border-border-dark bg-brand dark:bg-brand text-ink dark:text-ink-dark rounded-default focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2 disabled:opacity-45 disabled:cursor-not-allowed"
-          >
-            + New Notebook
-          </button>
-        )}
+    <section data-testid="notebook-grid">
+      {/* ── Hero Strip (mockup-dashboard.html) ── */}
+      <div className="mb-8 border-b-2 border-border dark:border-border-dark pb-6">
+        <span className="font-mono text-xs font-bold uppercase tracking-widest text-muted">
+          RESEARCH WORKSPACE
+        </span>
+        <div className="mt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h2 className="font-mono text-3xl sm:text-4xl font-bold tracking-tight text-ink dark:text-ink-dark">
+              Your Notebooks
+            </h2>
+            <p className="mt-1 font-sans text-sm text-muted">
+              Each notebook is a self-contained corpus. Add up to 10 sources, ask questions across them, and verify every answer.
+            </p>
+          </div>
+          {!creating && (
+            <button
+              type="button"
+              onClick={() => setCreating(true)}
+              disabled={isCapReached}
+              title={isCapReached ? 'Notebook limit reached (max 10 notebooks per user)' : undefined}
+              data-testid="create-notebook-button"
+              className="inline-flex items-center gap-2 px-4 py-2 font-mono text-xs font-bold uppercase tracking-wider bg-[var(--accent,#FFE500)] text-[#111111] border-2 border-[var(--border,#111111)] dark:border-[var(--border-dark,#E4E4E7)] rounded-[2px] shadow-[4px_4px_0_0_var(--border,#111111)] dark:shadow-[4px_4px_0_0_var(--border-dark,#E4E4E7)] hover:shadow-[6px_6px_0_0_var(--border,#111111)] hover:-translate-x-[1px] hover:-translate-y-[1px] active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all cursor-pointer disabled:opacity-45 disabled:cursor-not-allowed"
+            >
+              + New Notebook
+            </button>
+          )}
+        </div>
       </div>
 
       {/* ── Bulk toolbar ── */}
@@ -142,19 +150,17 @@ export function NotebookGrid() {
       {/* ── Expired notice ── */}
       {showExpiredNotice && (
         <div
-          data-debug="ExpiredNotice"
           role="status"
-          className="mb-6 flex flex-wrap items-center justify-between gap-3 px-4 py-3 border-2 border-border dark:border-border-dark bg-accent-yellow dark:bg-accent-yellow text-ink dark:text-ink-dark rounded-default"
+          className="mb-6 flex flex-wrap items-center justify-between gap-3 px-4 py-3 border-2 border-border dark:border-border-dark bg-accent text-ink rounded-[2px] shadow-[3px_3px_0_0_var(--border,#111111)]"
         >
-          <p className="text-sm font-semibold">
+          <p className="text-sm font-mono font-bold">
             {expiredRemoved} {expiredRemoved === 1 ? 'notebook' : 'notebooks'} expired and were
             removed.
           </p>
           <button
             type="button"
             onClick={() => setDismissedExpired(expiredRemoved)}
-            data-debug="ExpiredNoticeDismiss"
-            className="min-h-11 px-3 py-1 text-xs font-semibold font-sans uppercase tracking-wider underline underline-offset-2 focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2"
+            className="min-h-11 px-3 py-1 text-xs font-bold font-mono uppercase tracking-wider underline underline-offset-2 focus-visible:outline-3 focus-visible:outline-[var(--citation,#00E5FF)] focus-visible:outline-offset-2 cursor-pointer"
           >
             Dismiss
           </button>
@@ -163,24 +169,22 @@ export function NotebookGrid() {
 
       {/* ── Grid ── */}
       {isLoading ? (
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3" data-debug="NotebookGridLoading">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {[0, 1, 2].map((n) => (
             <div
               key={n}
-              data-debug={`NotebookGridSkeleton-${n}`}
-              className="h-52 animate-pulse border-2 border-border dark:border-border-dark bg-ink-muted/30 dark:bg-ink-muted-dark/20 rounded-default"
+              className="h-52 animate-pulse border-2 border-border dark:border-border-dark bg-muted/20 rounded-[2px]"
             />
           ))}
         </div>
       ) : isError ? (
         <div
-          data-debug="NotebookGridError"
-          className="px-4 py-8 text-center border-2 border-dashed border-ink-muted dark:border-ink-muted-dark bg-surface-elevated dark:bg-surface-elevated-dark rounded-default"
+          className="px-4 py-8 text-center border-2 border-dashed border-muted bg-surface dark:bg-surface-dark rounded-[2px]"
         >
-          <p className="text-lg font-semibold text-ink-secondary dark:text-ink-secondary-dark">
+          <p className="text-lg font-mono font-bold text-ink dark:text-ink-dark">
             Could not load your notebooks.
           </p>
-          <p className="mt-2 text-sm text-ink-muted dark:text-ink-muted-dark">
+          <p className="mt-2 text-sm text-muted">
             Please try again shortly.
           </p>
         </div>
@@ -202,13 +206,12 @@ export function NotebookGrid() {
 
           {notebooks.length === 0 && (
             <div
-              data-debug="NotebookEmptyState"
-              className="mt-8 flex flex-col items-center justify-center px-6 py-12 border-2 border-dashed border-ink-muted dark:border-ink-muted-dark bg-surface-elevated dark:bg-surface-elevated-dark rounded-default"
+              className="mt-8 flex flex-col items-center justify-center px-6 py-12 border-2 border-dashed border-muted bg-surface dark:bg-surface-dark rounded-[2px]"
             >
-              <p className="text-lg font-semibold text-ink-secondary dark:text-ink-secondary-dark">
+              <p className="text-lg font-mono font-bold text-ink dark:text-ink-dark">
                 No notebooks yet
               </p>
-              <p className="mt-2 text-sm text-ink-muted dark:text-ink-muted-dark">
+              <p className="mt-2 text-sm text-muted">
                 Create your first notebook to start reading and researching.
               </p>
             </div>
@@ -246,19 +249,17 @@ export function NotebookGrid() {
         open={capWarning !== null}
         onClose={() => setCapWarning(null)}
         title="Notebook limit reached"
-        data-debug="CapWarningDialog"
         actions={
           <button
             type="button"
             onClick={() => setCapWarning(null)}
-            data-debug="CapWarningDismiss"
-            className="min-h-11 px-5 py-2 text-xs font-semibold font-sans uppercase tracking-wider border-2 border-border dark:border-border-dark bg-brand dark:bg-brand text-ink dark:text-ink-dark rounded-default focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2"
+            className="min-h-11 px-5 py-2 text-xs font-bold font-mono uppercase tracking-wider border-2 border-border dark:border-border-dark bg-accent text-ink rounded-[2px] shadow-[2px_2px_0_0_var(--border,#111111)] focus-visible:outline-3 focus-visible:outline-[var(--citation,#00E5FF)] focus-visible:outline-offset-2 cursor-pointer"
           >
             Dismiss
           </button>
         }
       >
-        <p data-debug="CapWarningMessage" className="text-ink dark:text-ink-dark">
+        <p className="text-ink dark:text-ink-dark">
           You have {capWarning?.count ?? 0} of {capWarning?.cap ?? 0} notebooks. Delete a
           notebook before creating another.
         </p>

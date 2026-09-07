@@ -238,13 +238,13 @@ export function UploadDialog({
   };
 
   const inputClass =
-    'w-full px-3 py-2 min-h-11 border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark rounded-default placeholder:text-ink-muted dark:placeholder:text-ink-muted-dark focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2';
+    'w-full px-3 py-2 min-h-11 border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark rounded-[2px] placeholder:text-muted focus-visible:outline-3 focus-visible:outline-[var(--citation,#00E5FF)] focus-visible:outline-offset-2 font-mono text-sm';
   const tabClass = (active: boolean) =>
     [
-      'flex-1 min-h-11 px-2 py-2 text-xs font-semibold font-sans uppercase tracking-wider border-2 border-border dark:border-border-dark rounded-default focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2 transition-colors',
+      'flex-1 min-h-11 px-2 py-2 text-xs font-bold font-mono uppercase tracking-wider border-2 border-border dark:border-border-dark rounded-[2px] focus-visible:outline-3 focus-visible:outline-[var(--citation,#00E5FF)] focus-visible:outline-offset-2 transition-colors cursor-pointer',
       active
-        ? 'bg-brand dark:bg-brand text-ink dark:text-ink-dark shadow-[2px_2px_0_0_var(--color-ink)]'
-        : 'bg-surface dark:bg-surface-dark text-ink-secondary dark:text-ink-secondary-dark',
+        ? 'bg-accent text-ink shadow-[2px_2px_0_0_var(--border,#111111)]'
+        : 'bg-surface dark:bg-surface-dark text-muted hover:text-ink dark:hover:text-ink-dark',
     ].join(' ');
 
   return (
@@ -252,15 +252,13 @@ export function UploadDialog({
       open={open}
       onClose={handleClose}
       title="Add a source"
-      data-debug="UploadDialog"
       actions={
         <>
           <button
             type="button"
             onClick={handleClose}
             disabled={mutation.isPending}
-            data-debug="UploadDialogCancel"
-            className="min-h-11 px-4 py-2 text-xs font-semibold font-sans uppercase tracking-wider border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark rounded-default focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2"
+            className="min-h-11 px-4 py-2 text-xs font-bold font-mono uppercase tracking-wider border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark rounded-[2px] shadow-[2px_2px_0_0_var(--border,#111111)] focus-visible:outline-3 focus-visible:outline-[var(--citation,#00E5FF)] focus-visible:outline-offset-2 cursor-pointer"
           >
             Cancel
           </button>
@@ -268,9 +266,8 @@ export function UploadDialog({
             type="submit"
             form="upload-source-form"
             disabled={mutation.isPending || isQuotaExceeded}
-            data-debug="UploadDialogSubmit"
             data-testid="upload-submit"
-            className="min-h-11 px-5 py-2 text-xs font-semibold font-sans uppercase tracking-wider border-2 border-border dark:border-border-dark bg-brand dark:bg-brand text-ink dark:text-ink-dark rounded-default disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2 shadow-[2px_2px_0_0_var(--color-ink)]"
+            className="min-h-11 px-5 py-2 text-xs font-bold font-mono uppercase tracking-wider border-2 border-border dark:border-border-dark bg-accent text-ink rounded-[2px] disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-3 focus-visible:outline-[var(--citation,#00E5FF)] focus-visible:outline-offset-2 shadow-[3px_3px_0_0_var(--border,#111111)] hover:shadow-[4px_4px_0_0_var(--border,#111111)] hover:-translate-x-[1px] hover:-translate-y-[1px] active:shadow-none active:translate-x-[2px] active:translate-y-[2px] cursor-pointer"
           >
             {mutation.isPending ? 'Adding…' : 'Add source'}
           </button>
@@ -281,15 +278,13 @@ export function UploadDialog({
         id="upload-source-form"
         onSubmit={handleSubmit}
         noValidate
-        data-debug="UploadDialogForm"
         className="flex flex-col gap-3"
       >
         {isQuotaExceeded && (
           <div
-            data-debug="UploadDialogQuotaWarning"
             data-testid="upload-quota-warning"
             role="alert"
-            className="px-4 py-3 border-2 border-border dark:border-border-dark bg-accent-yellow dark:bg-accent-yellow text-ink dark:text-ink-dark rounded-default font-semibold text-xs"
+            className="px-4 py-3 border-2 border-border dark:border-border-dark bg-accent text-ink rounded-[2px] font-mono font-bold text-xs"
           >
             ⚠️ Quota Limit Reached: This notebook already has 10 sources. Remove a source to add more.
           </div>
@@ -301,7 +296,6 @@ export function UploadDialog({
             role="tab"
             aria-selected={mode === 'text'}
             onClick={() => setModeSafe('text')}
-            data-debug="UploadDialogTextTab"
             data-testid="upload-tab-text"
             className={tabClass(mode === 'text')}
           >
@@ -312,7 +306,6 @@ export function UploadDialog({
             role="tab"
             aria-selected={mode === 'web'}
             onClick={() => setModeSafe('web')}
-            data-debug="UploadDialogWebTab"
             data-testid="upload-tab-web"
             className={tabClass(mode === 'web')}
           >
@@ -323,7 +316,6 @@ export function UploadDialog({
             role="tab"
             aria-selected={mode === 'pdf'}
             onClick={() => setModeSafe('pdf')}
-            data-debug="UploadDialogPdfTab"
             data-testid="upload-tab-pdf"
             className={tabClass(mode === 'pdf')}
           >
@@ -334,7 +326,6 @@ export function UploadDialog({
             role="tab"
             aria-selected={mode === 'transcript'}
             onClick={() => setModeSafe('transcript')}
-            data-debug="UploadDialogTranscriptTab"
             data-testid="upload-tab-transcript"
             className={tabClass(mode === 'transcript')}
           >
@@ -345,7 +336,6 @@ export function UploadDialog({
             role="tab"
             aria-selected={mode === 'youtube'}
             onClick={() => setModeSafe('youtube')}
-            data-debug="UploadDialogYoutubeTab"
             data-testid="upload-tab-youtube"
             className={tabClass(mode === 'youtube')}
           >
@@ -355,7 +345,7 @@ export function UploadDialog({
 
         <label
           htmlFor="upload-source-title"
-          className="text-xs font-mono uppercase tracking-wider text-ink-secondary dark:text-ink-secondary-dark"
+          className="text-xs font-mono uppercase tracking-wider text-muted"
         >
           Title (optional)
         </label>
@@ -365,14 +355,13 @@ export function UploadDialog({
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder={mode === 'text' ? 'Title of this source' : 'Source Title'}
-          data-debug="UploadDialogTitle"
           className={inputClass}
         />
 
         {mode === 'text' && (
           <label
             htmlFor="upload-source-text"
-            className="flex flex-col gap-1 text-xs font-mono uppercase tracking-wider text-ink-secondary dark:text-ink-secondary-dark"
+            className="flex flex-col gap-1 text-xs font-mono uppercase tracking-wider text-muted"
           >
             Text content
             <textarea
@@ -383,7 +372,6 @@ export function UploadDialog({
               placeholder="Paste the text you want to ground your research in…"
               rows={7}
               aria-invalid={error && mode === 'text' ? true : undefined}
-              data-debug="UploadDialogTextArea"
               className={`${inputClass} resize-y font-sans normal-case tracking-normal`}
             />
           </label>
@@ -392,7 +380,7 @@ export function UploadDialog({
         {mode === 'web' && (
           <label
             htmlFor="upload-source-url"
-            className="flex flex-col gap-1 text-xs font-mono uppercase tracking-wider text-ink-secondary dark:text-ink-secondary-dark"
+            className="flex flex-col gap-1 text-xs font-mono uppercase tracking-wider text-muted"
           >
             Page URL (Firecrawl Scrape)
             <input
@@ -403,7 +391,6 @@ export function UploadDialog({
               onChange={(e) => setUrl(e.target.value)}
               placeholder="https://example.com/article"
               aria-invalid={error && mode === 'web' ? true : undefined}
-              data-debug="UploadDialogUrlInput"
               className={`${inputClass} font-sans normal-case tracking-normal`}
             />
           </label>
@@ -413,11 +400,11 @@ export function UploadDialog({
           <div className="flex flex-col gap-2">
             <label
               htmlFor="upload-source-pdf"
-              className="flex flex-col gap-1 text-xs font-mono uppercase tracking-wider text-ink-secondary dark:text-ink-secondary-dark"
+              className="flex flex-col gap-1 text-xs font-mono uppercase tracking-wider text-muted"
             >
               PDF Document (Max 10MB)
             </label>
-            <div className="p-6 border-2 border-dashed border-border dark:border-border-dark rounded-default bg-surface dark:bg-surface-dark text-center flex flex-col items-center justify-center gap-2">
+            <div className="p-6 border-2 border-dashed border-border dark:border-border-dark rounded-[2px] bg-surface dark:bg-surface-dark text-center flex flex-col items-center justify-center gap-2">
               <input
                 id="upload-source-pdf"
                 ref={fileInputRef}
@@ -425,10 +412,10 @@ export function UploadDialog({
                 accept=".pdf,application/pdf"
                 data-testid="upload-pdf-input"
                 onChange={(e) => handleFileChange(e, MAX_PDF_BYTES, 'PDF')}
-                className="block w-full text-xs font-mono text-ink-secondary dark:text-ink-secondary-dark file:mr-4 file:py-2 file:px-4 file:rounded-default file:border-2 file:border-border file:bg-brand file:text-xs file:font-semibold file:uppercase"
+                className="block w-full text-xs font-mono text-muted file:mr-4 file:py-2 file:px-4 file:rounded-[2px] file:border-2 file:border-border file:bg-accent file:text-ink file:text-xs file:font-bold file:uppercase cursor-pointer"
               />
               {fileName && <p className="text-xs font-mono text-ink dark:text-ink-dark mt-1">Selected: {fileName}</p>}
-              <p className="text-xs text-ink-muted dark:text-ink-muted-dark">Pure-JS extraction with page anchors (&lt;!-- page: N --&gt;)</p>
+              <p className="text-xs text-muted font-mono">Pure-JS extraction with page anchors (&lt;!-- page: N --&gt;)</p>
             </div>
           </div>
         )}
@@ -437,7 +424,7 @@ export function UploadDialog({
           <div className="flex flex-col gap-2">
             <label
               htmlFor="upload-source-transcript"
-              className="flex flex-col gap-1 text-xs font-mono uppercase tracking-wider text-ink-secondary dark:text-ink-secondary-dark"
+              className="flex flex-col gap-1 text-xs font-mono uppercase tracking-wider text-muted"
             >
               Transcript (.srt/.vtt file - Max 5MB)
             </label>
@@ -447,10 +434,10 @@ export function UploadDialog({
               accept=".srt,.vtt,text/plain"
               data-testid="upload-transcript-input"
               onChange={(e) => handleFileChange(e, MAX_TRANSCRIPT_BYTES, 'Transcript')}
-              className="block w-full text-xs font-mono text-ink-secondary dark:text-ink-secondary-dark file:mr-4 file:py-2 file:px-4 file:rounded-default file:border-2 file:border-border file:bg-brand file:text-xs file:font-semibold file:uppercase"
+              className="block w-full text-xs font-mono text-muted file:mr-4 file:py-2 file:px-4 file:rounded-[2px] file:border-2 file:border-border file:bg-accent file:text-ink file:text-xs file:font-bold file:uppercase cursor-pointer"
             />
             {fileName && <p className="text-xs font-mono text-ink dark:text-ink-dark">Selected: {fileName}</p>}
-            <p className="text-xs font-mono text-ink-secondary dark:text-ink-secondary-dark mt-1">Or paste transcript text directly:</p>
+            <p className="text-xs font-mono text-muted mt-1">Or paste transcript text directly:</p>
             <textarea
               value={text}
               onChange={(e) => setText(e.target.value)}
@@ -464,7 +451,7 @@ export function UploadDialog({
         {mode === 'youtube' && (
           <label
             htmlFor="upload-source-youtube"
-            className="flex flex-col gap-1 text-xs font-mono uppercase tracking-wider text-ink-secondary dark:text-ink-secondary-dark"
+            className="flex flex-col gap-1 text-xs font-mono uppercase tracking-wider text-muted"
           >
             YouTube Video URL
             <input
@@ -475,11 +462,10 @@ export function UploadDialog({
               onChange={(e) => setUrl(e.target.value)}
               placeholder="https://www.youtube.com/watch?v=..."
               aria-invalid={error && mode === 'youtube' ? true : undefined}
-              data-debug="UploadDialogYoutubeInput"
               data-testid="upload-youtube-input"
               className={`${inputClass} font-sans normal-case tracking-normal`}
             />
-            <span className="text-xs text-ink-muted dark:text-ink-muted-dark mt-1">
+            <span className="text-xs text-muted font-mono mt-1">
               Keyless subtitle extraction with timestamp anchors (&lt;!-- time: mm:ss --&gt;)
             </span>
           </label>
@@ -487,10 +473,9 @@ export function UploadDialog({
 
         {error && (
           <p
-            data-debug="UploadDialogError"
             data-testid="upload-error"
             role="alert"
-            className="text-sm font-semibold text-[var(--color-error)] dark:text-[var(--color-error-dark)]"
+            className="text-xs font-mono font-bold text-danger"
           >
             {error}
           </p>
@@ -498,11 +483,10 @@ export function UploadDialog({
 
         {limitWarning && (
           <div
-            data-debug="UploadDialogLimitWarning"
             role="alert"
-            className="px-4 py-3 border-2 border-border dark:border-border-dark bg-accent-yellow dark:bg-accent-yellow text-ink dark:text-ink-dark rounded-default"
+            className="px-4 py-3 border-2 border-border dark:border-border-dark bg-accent text-ink rounded-[2px]"
           >
-            <p className="text-sm font-semibold">{limitWarning}</p>
+            <p className="text-xs font-mono font-bold">{limitWarning}</p>
           </div>
         )}
       </form>

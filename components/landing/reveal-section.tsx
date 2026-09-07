@@ -6,7 +6,6 @@ import { useScrollReveal } from './use-scroll-reveal';
 interface RevealSectionProps {
   children: ReactNode;
   className?: string;
-  'data-debug'?: string;
 }
 
 /**
@@ -19,7 +18,7 @@ interface RevealSectionProps {
  * under reduced-motion or when IntersectionObserver is unavailable, so the
  * hidden state is only ever transient on capable, motion-enabled browsers.
  */
-export function RevealSection({ children, className = '', ...rest }: RevealSectionProps) {
+export function RevealSection({ children, className = '' }: RevealSectionProps) {
   const { ref, isVisible } = useScrollReveal<HTMLDivElement>();
   const [jsReady, setJsReady] = useState(false);
 
@@ -32,7 +31,6 @@ export function RevealSection({ children, className = '', ...rest }: RevealSecti
   return (
     <div
       ref={ref}
-      data-debug={rest['data-debug'] ?? 'RevealSection'}
       className={`transition-all duration-500 ease-out ${revealClasses} ${className}`.trim()}
     >
       {children}

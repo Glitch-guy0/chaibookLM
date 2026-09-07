@@ -32,11 +32,11 @@ export function CreditBadge({
   const isZero = credits <= 0;
   const isWarning = credits > 0 && credits <= 2;
 
-  let badgeColorClasses = 'bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border-border dark:border-border-dark';
+  let badgeColorClasses = 'bg-surface text-[var(--fg,#111111)] dark:bg-surface-dark dark:text-[var(--fg,#FFFFFF)] border-[var(--border,#111111)] dark:border-[var(--border-dark,#E4E4E7)]';
   if (isZero) {
-    badgeColorClasses = 'bg-[var(--danger,#FF3333)] text-white border-border dark:border-border-dark';
+    badgeColorClasses = 'bg-[var(--danger,#FF3333)] text-white border-[var(--border,#111111)] dark:border-[var(--border-dark,#E4E4E7)]';
   } else if (isWarning) {
-    badgeColorClasses = 'bg-[var(--accent,#FFE500)] text-ink border-border dark:border-border-dark';
+    badgeColorClasses = 'bg-[var(--accent,#FFE500)] text-[var(--fg,#111111)] border-[var(--border,#111111)] dark:border-[var(--border-dark,#E4E4E7)]';
   }
 
   return (
@@ -45,9 +45,8 @@ export function CreditBadge({
         type="button"
         onClick={handleOpen}
         data-testid="credit-badge"
-        data-debug="CreditBadge"
         title="View daily credit balance and reset schedule"
-        className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-bold tracking-tight border-2 rounded-default cursor-pointer transition-transform hover:-translate-y-0.5 focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2 ${badgeColorClasses} ${className}`}
+        className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-mono font-bold tracking-wider uppercase border-2 rounded-full cursor-pointer select-none transition-[transform,box-shadow,background] duration-150 ease-[cubic-bezier(0.2,0,0,1)] shadow-[3px_3px_0_0_var(--border,#111111)] dark:shadow-[3px_3px_0_0_var(--border-dark,#E4E4E7)] hover:shadow-[5px_5px_0_0_var(--border,#111111)] dark:hover:shadow-[5px_5px_0_0_var(--border-dark,#E4E4E7)] hover:-translate-x-[1px] hover:-translate-y-[1px] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none focus-visible:outline-3 focus-visible:outline-[var(--citation,#00E5FF)] focus-visible:outline-offset-2 ${badgeColorClasses} ${className}`}
       >
         <span aria-hidden="true">{isZero ? '🔒' : '⚡'}</span>
         <span>
@@ -58,14 +57,13 @@ export function CreditBadge({
       <Dialog
         open={isOpen}
         onClose={handleClose}
-        title="Daily Query Credits"
-        data-debug="CreditDetailsModal"
+        title="⚡ Daily Query Credits"
       >
-        <div className="space-y-4 text-sm font-sans text-ink dark:text-ink-dark">
-          <div className="p-3 border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark rounded-default">
+        <div className="space-y-4 text-sm font-sans text-[var(--fg,#111111)] dark:text-[var(--fg,#FFFFFF)]">
+          <div className="p-3 border-2 border-[var(--border,#111111)] dark:border-[var(--border-dark,#E4E4E7)] bg-[var(--surface,#FFFFFF)] dark:bg-[var(--surface,#18181B)] rounded-[2px] shadow-[3px_3px_0_0_var(--border,#111111)]">
             <p className="font-mono text-base font-bold">
               Current Balance:{' '}
-              <span className={isZero ? 'text-error' : isWarning ? 'text-warning' : 'text-brand'}>
+              <span className={isZero ? 'text-[var(--danger,#FF3333)]' : isWarning ? 'text-[var(--accent,#FFE500)]' : 'text-[var(--success,#00E575)]'}>
                 {credits} of {maxCredits} credits
               </span>
             </p>
@@ -82,7 +80,7 @@ export function CreditBadge({
               Credits automatically reset every midnight at <strong>12:00 AM Asia/Kolkata (18:30 UTC)</strong>.
             </li>
             {isZero && (
-              <li className="font-semibold text-error">
+              <li className="font-semibold text-[var(--danger,#FF3333)]">
                 Your credits are depleted for today. The chat composer is disabled until the midnight reset.
               </li>
             )}

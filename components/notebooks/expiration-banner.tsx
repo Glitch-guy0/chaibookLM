@@ -58,8 +58,7 @@ export function ExpirationBanner({ initialTime, className = '' }: ExpirationBann
     <aside
       role="alert"
       data-testid="expiration-banner"
-      data-debug="ExpirationBanner"
-      className={`w-full border-b-2 border-border bg-[var(--accent,#FFE500)] px-4 py-2.5 text-center text-xs sm:text-sm font-mono font-bold text-ink dark:text-ink shadow-sm ${className}`}
+      className={`w-full border-b-2 border-border bg-[var(--accent,#FFE500)] px-4 py-2 text-center text-xs font-mono font-bold text-[#111111] ${className}`}
     >
       ⏳ Auto-deletion Notice: This notebook will be auto-deleted tonight at 12:00 AM Asia/Kolkata (in{' '}
       {timeLeft.hours} hours, {timeLeft.minutes} minutes)

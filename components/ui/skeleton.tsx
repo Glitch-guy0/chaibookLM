@@ -11,11 +11,10 @@ interface SkeletonProps extends HTMLAttributes<HTMLDivElement> {
 export function Skeleton({ className = '', ...props }: SkeletonProps) {
   return (
     <div
-      data-debug="Skeleton"
       className={[
-        'animate-pulse rounded-[var(--radius-md)]',
-        'bg-[var(--color-ink-muted)] dark:bg-[var(--color-ink-muted-dark)]',
-        'opacity-30 dark:opacity-20',
+        'animate-pulse rounded-[2px]',
+        'bg-[var(--muted,#555555)]',
+        'opacity-25 dark:opacity-20',
         className,
       ]
         .filter(Boolean)

@@ -19,8 +19,7 @@ interface SourcesPanelProps {
 
 /**
  * Sources section for a notebook. Lists sources with live status, offers add
- * (paste text / URL), bulk-select remove, and one-click "clear failed". All data
- * flows through TanStack Query — no raw fetch here.
+ * (paste text / URL / PDF / YouTube), bulk-select remove, and "clear failed".
  */
 export function SourcesPanel({ notebookId }: SourcesPanelProps) {
   const queryClient = useQueryClient();
@@ -75,22 +74,16 @@ export function SourcesPanel({ notebookId }: SourcesPanelProps) {
   const clearSelection = () => setSelected(new Set());
 
   const secondaryBtn =
-    'min-h-11 px-4 py-2 text-xs font-semibold font-sans uppercase tracking-wider border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark rounded-default focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2';
+    'px-3 py-1.5 text-xs font-bold font-mono uppercase tracking-wider border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark rounded-[2px] shadow-[2px_2px_0_0_var(--border,#111111)] dark:shadow-[2px_2px_0_0_var(--border-dark,#E4E4E7)] hover:shadow-[3px_3px_0_0_var(--border,#111111)] hover:-translate-x-[1px] hover:-translate-y-[1px] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all cursor-pointer focus-visible:outline-3 focus-visible:outline-[var(--citation,#00E5FF)] focus-visible:outline-offset-2';
   const primaryBtn =
-    'min-h-11 px-5 py-2 text-xs font-semibold font-sans uppercase tracking-wider border-2 border-border dark:border-border-dark bg-brand dark:bg-brand text-ink dark:text-ink-dark rounded-default focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2';
+    'px-3.5 py-1.5 text-xs font-bold font-mono uppercase tracking-wider border-2 border-border dark:border-border-dark bg-[var(--accent,#FFE500)] text-[#111111] rounded-[2px] shadow-[3px_3px_0_0_var(--border,#111111)] dark:shadow-[3px_3px_0_0_var(--border-dark,#E4E4E7)] hover:shadow-[4px_4px_0_0_var(--border,#111111)] hover:-translate-x-[1px] hover:-translate-y-[1px] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all cursor-pointer focus-visible:outline-3 focus-visible:outline-[var(--citation,#00E5FF)] focus-visible:outline-offset-2';
   const dangerBtn =
-    'min-h-11 px-5 py-2 text-xs font-semibold font-sans uppercase tracking-wider border-2 border-border dark:border-border-dark bg-error text-white dark:bg-error dark:text-white rounded-default focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2';
+    'px-3.5 py-1.5 text-xs font-bold font-mono uppercase tracking-wider border-2 border-border dark:border-border-dark bg-[var(--danger,#FF3333)] text-white rounded-[2px] shadow-[2px_2px_0_0_var(--border,#111111)] dark:shadow-[2px_2px_0_0_var(--border-dark,#E4E4E7)] hover:shadow-[3px_3px_0_0_var(--border,#111111)] hover:-translate-x-[1px] hover:-translate-y-[1px] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all cursor-pointer focus-visible:outline-3 focus-visible:outline-[var(--citation,#00E5FF)] focus-visible:outline-offset-2';
 
   return (
-    <section data-debug="SourcesPanel">
-      <div
-        data-debug="SourcesPanelHeader"
-        className="mb-6 flex flex-wrap items-center justify-between gap-3"
-      >
-        <p
-          data-debug="SourcesCount"
-          className="text-sm font-semibold font-sans uppercase tracking-wider text-ink-secondary dark:text-ink-secondary-dark"
-        >
+    <section>
+      <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+        <p className="text-xs font-bold font-mono uppercase tracking-wider text-muted">
           {sources.length} {sources.length === 1 ? 'source' : 'sources'}
         </p>
         <div className="flex flex-wrap items-center gap-2">
@@ -99,7 +92,6 @@ export function SourcesPanel({ notebookId }: SourcesPanelProps) {
               type="button"
               onClick={() => clearFailedMutation.mutate()}
               disabled={clearFailedMutation.isPending}
-              data-debug="ClearFailedButton"
               className={secondaryBtn}
             >
               {clearFailedMutation.isPending
@@ -110,32 +102,26 @@ export function SourcesPanel({ notebookId }: SourcesPanelProps) {
           <button
             type="button"
             onClick={() => setUploadOpen(true)}
-            data-debug="AddSourceButton"
-            className={secondaryBtn}
+            className={primaryBtn}
           >
-            Add source
+            + Add Source
           </button>
         </div>
       </div>
 
       {selected.size > 0 && (
         <div
-          data-debug="SourcesBulkBar"
           role="region"
           aria-label="Bulk source selection"
-          className="sticky top-4 z-10 flex flex-wrap items-center justify-between gap-3 px-4 py-3 mb-6 border-2 border-border dark:border-border-dark bg-brand dark:bg-brand shadow-card dark:shadow-card-dark rounded-default"
+          className="sticky top-4 z-10 flex flex-wrap items-center justify-between gap-3 px-4 py-3 mb-4 border-2 border-border dark:border-border-dark bg-accent text-ink shadow-[4px_4px_0_0_var(--border,#111111)] rounded-[2px]"
         >
-          <p
-            data-debug="SourcesBulkCount"
-            className="text-sm font-semibold font-sans uppercase tracking-wider text-ink dark:text-ink-dark"
-          >
+          <p className="text-xs font-bold font-mono uppercase tracking-wider text-ink">
             {selected.size} {selected.size === 1 ? 'source' : 'sources'} selected
           </p>
           <div className="flex items-center gap-2">
             <button
               type="button"
               onClick={clearSelection}
-              data-debug="SourcesBulkClear"
               className={secondaryBtn}
             >
               Clear
@@ -143,7 +129,6 @@ export function SourcesPanel({ notebookId }: SourcesPanelProps) {
             <button
               type="button"
               onClick={() => setBulkOpen(true)}
-              data-debug="SourcesBulkDelete"
               className={dangerBtn}
             >
               Remove
@@ -153,55 +138,41 @@ export function SourcesPanel({ notebookId }: SourcesPanelProps) {
       )}
 
       {isLoading ? (
-        <div
-          data-debug="SourcesPanelLoading"
-          className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
-        >
+        <div className="flex flex-col gap-3">
           {[0, 1, 2].map((n) => (
             <div
               key={n}
-              data-debug={`SourcesSkeleton-${n}`}
-              className="h-48 animate-pulse border-2 border-border dark:border-border-dark bg-ink-muted/30 dark:bg-ink-muted-dark/20 rounded-default"
+              className="h-24 animate-pulse border-2 border-border dark:border-border-dark bg-muted/20 rounded-[2px]"
             />
           ))}
         </div>
       ) : isError ? (
-        <div
-          data-debug="SourcesPanelError"
-          className="px-4 py-8 text-center border-2 border-dashed border-ink-muted dark:border-ink-muted-dark bg-surface-elevated dark:bg-surface-elevated-dark rounded-default"
-        >
-          <p className="text-lg font-semibold text-ink-secondary dark:text-ink-secondary-dark">
+        <div className="px-4 py-8 text-center border-2 border-dashed border-muted bg-surface dark:bg-surface-dark rounded-[2px]">
+          <p className="text-sm font-mono font-bold text-ink dark:text-ink-dark">
             Could not load your sources.
           </p>
-          <p className="mt-2 text-sm text-ink-muted dark:text-ink-muted-dark">
+          <p className="mt-1 text-xs text-muted">
             Please try again shortly.
           </p>
         </div>
       ) : sources.length === 0 ? (
-        <div
-          data-debug="SourcesEmptyState"
-          className="flex flex-col items-center justify-center px-6 py-16 border-2 border-dashed border-ink-muted dark:border-ink-muted-dark bg-surface-elevated dark:bg-surface-elevated-dark rounded-default"
-        >
-          <p className="text-lg font-semibold text-ink-secondary dark:text-ink-secondary-dark">
-            This notebook has no sources yet.
+        <div className="flex flex-col items-center justify-center px-4 py-12 border-2 border-dashed border-muted bg-surface dark:bg-surface-dark rounded-[2px] text-center">
+          <p className="text-sm font-mono font-bold text-ink dark:text-ink-dark">
+            No sources yet
           </p>
-          <p className="mt-2 text-sm text-ink-muted dark:text-ink-muted-dark">
-            Add sources to ground your research and chat.
+          <p className="mt-1 text-xs text-muted max-w-xs">
+            Add documents, links, or videos to ground your queries with citations.
           </p>
           <button
             type="button"
             onClick={() => setUploadOpen(true)}
-            data-debug="AddFirstSourceButton"
-            className={`${primaryBtn} mt-6`}
+            className={`${primaryBtn} mt-4`}
           >
-            Add your first source
+            + Add First Source
           </button>
         </div>
       ) : (
-        <div
-          data-debug="SourcesList"
-          className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
-        >
+        <div className="flex flex-col gap-3">
           {sources.map((source) => (
             <SourceCard
               key={source.id}
@@ -226,13 +197,11 @@ export function SourcesPanel({ notebookId }: SourcesPanelProps) {
         open={removing !== null}
         onClose={() => setRemoving(null)}
         title="Delete this source?"
-        data-debug="RemoveSourceDialog"
         actions={
           <>
             <button
               type="button"
               onClick={() => setRemoving(null)}
-              data-debug="RemoveSourceCancel"
               className={secondaryBtn}
             >
               Cancel
@@ -241,7 +210,6 @@ export function SourcesPanel({ notebookId }: SourcesPanelProps) {
               type="button"
               onClick={() => removing && singleDeleteMutation.mutate(removing.id)}
               disabled={singleDeleteMutation.isPending}
-              data-debug="RemoveSourceConfirm"
               className={dangerBtn}
             >
               {singleDeleteMutation.isPending ? 'Deleting…' : 'Delete'}
@@ -249,7 +217,7 @@ export function SourcesPanel({ notebookId }: SourcesPanelProps) {
           </>
         }
       >
-        <p data-debug="RemoveSourceMessage" className="text-ink dark:text-ink-dark">
+        <p className="text-ink dark:text-ink-dark font-sans text-sm">
           &quot;{removing?.title ?? ''}&quot; and its chunks will be removed from
           answers. This cannot be undone.
         </p>
@@ -259,13 +227,11 @@ export function SourcesPanel({ notebookId }: SourcesPanelProps) {
         open={bulkOpen}
         onClose={() => setBulkOpen(false)}
         title="Remove selected sources?"
-        data-debug="RemoveSourcesBulkDialog"
         actions={
           <>
             <button
               type="button"
               onClick={() => setBulkOpen(false)}
-              data-debug="RemoveSourcesBulkCancel"
               className={secondaryBtn}
             >
               Cancel
@@ -274,7 +240,6 @@ export function SourcesPanel({ notebookId }: SourcesPanelProps) {
               type="button"
               onClick={() => bulkDeleteMutation.mutate([...selected])}
               disabled={bulkDeleteMutation.isPending}
-              data-debug="RemoveSourcesBulkConfirm"
               className={dangerBtn}
             >
               {bulkDeleteMutation.isPending ? 'Removing…' : `Remove ${selected.size}`}
@@ -282,7 +247,7 @@ export function SourcesPanel({ notebookId }: SourcesPanelProps) {
           </>
         }
       >
-        <p data-debug="RemoveSourcesBulkMessage" className="text-ink dark:text-ink-dark">
+        <p className="text-ink dark:text-ink-dark font-sans text-sm">
           {selected.size} {selected.size === 1 ? 'source' : 'sources'} and their
           chunks will be removed from answers. This cannot be undone.
         </p>

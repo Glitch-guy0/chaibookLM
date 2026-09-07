@@ -66,10 +66,9 @@ export function CreateNotebookForm({
     <form
       onSubmit={handleSubmit}
       noValidate
-      data-debug="CreateNotebookForm"
-      className="flex flex-col gap-3 p-5 border-2 border-dashed border-ink-muted dark:border-ink-muted-dark bg-surface-elevated dark:bg-surface-elevated-dark rounded-default"
+      className="flex flex-col gap-3 p-5 border-2 border-dashed border-border dark:border-border-dark bg-surface dark:bg-surface-dark rounded-[2px]"
     >
-      <p className="font-display text-lg text-ink dark:text-ink-dark">New notebook</p>
+      <p className="font-mono text-base font-bold text-ink dark:text-ink-dark uppercase">New Notebook</p>
       <input
         ref={inputRef}
         type="text"
@@ -78,25 +77,22 @@ export function CreateNotebookForm({
         placeholder="Notebook name"
         aria-label="Notebook name"
         aria-invalid={error ? true : undefined}
-        data-debug="CreateNotebookInput"
-        className="w-full px-3 py-2 min-h-11 border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark rounded-default placeholder:text-ink-muted dark:placeholder:text-ink-muted-dark focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2"
+        className="w-full px-3 py-2 min-h-11 border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark rounded-[2px] placeholder:text-muted focus-visible:outline-3 focus-visible:outline-[var(--citation,#00E5FF)] focus-visible:outline-offset-2 font-mono text-sm"
       />
       {error && (
         <p
-          data-debug="CreateNotebookError"
           role="alert"
-          className="text-sm font-semibold text-error dark:text-error"
+          className="text-xs font-mono font-bold text-danger"
         >
           {error}
         </p>
       )}
-      <div className="flex items-center justify-end gap-2">
+      <div className="flex items-center justify-end gap-2 pt-1">
         {onCancel && (
           <button
             type="button"
             onClick={onCancel}
-            data-debug="CreateNotebookCancel"
-            className="min-h-11 px-4 py-2 text-xs font-semibold font-sans uppercase tracking-wider border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark rounded-default focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2"
+            className="min-h-11 px-4 py-2 text-xs font-bold font-mono uppercase tracking-wider border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark rounded-[2px] focus-visible:outline-3 focus-visible:outline-[var(--citation,#00E5FF)] focus-visible:outline-offset-2 cursor-pointer shadow-[2px_2px_0_0_var(--border,#111111)]"
           >
             Cancel
           </button>
@@ -104,8 +100,7 @@ export function CreateNotebookForm({
         <button
           type="submit"
           disabled={mutation.isPending}
-          data-debug="CreateNotebookSubmit"
-          className="min-h-11 px-5 py-2 text-xs font-semibold font-sans uppercase tracking-wider border-2 border-border dark:border-border-dark bg-brand dark:bg-brand text-ink dark:text-ink-dark rounded-default hover:shadow-card dark:hover:shadow-card-dark disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2"
+          className="min-h-11 px-5 py-2 text-xs font-bold font-mono uppercase tracking-wider border-2 border-border dark:border-border-dark bg-accent text-ink rounded-[2px] shadow-[3px_3px_0_0_var(--border,#111111)] hover:shadow-[4px_4px_0_0_var(--border,#111111)] hover:-translate-x-[1px] hover:-translate-y-[1px] active:shadow-none active:translate-x-[2px] active:translate-y-[2px] disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-3 focus-visible:outline-[var(--citation,#00E5FF)] focus-visible:outline-offset-2 cursor-pointer"
         >
           {mutation.isPending ? 'Creating…' : 'Create'}
         </button>

@@ -77,14 +77,13 @@ export function ShowcasePanel({
   }
 
   return (
-    <div data-debug="ShowcasePanel" data-testid="showcase-panel" className="flex flex-col gap-4">
-      <div aria-live="polite" className="sr-only" data-debug="ShowcaseAriaLive">
+    <div data-testid="showcase-panel" className="flex flex-col gap-4">
+      <div aria-live="polite" className="sr-only">
         {announcement}
       </div>
 
       {sourceNotFound ? (
         <div
-          data-debug="ShowcaseSourceNotFound"
           data-testid="showcase-source-not-found"
           className="flex flex-col items-center justify-center p-8 border-2 border-dashed border-border dark:border-border-dark bg-surface-elevated dark:bg-surface-elevated-dark rounded-default shadow-[3px_3px_0_0_#111111]"
         >
@@ -97,7 +96,6 @@ export function ShowcasePanel({
         </div>
       ) : sourcesLoading || contentQuery.isLoading ? (
         <div
-          data-debug="ShowcaseLoading"
           data-testid="showcase-loading"
           className="flex flex-col items-center justify-center p-12 border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark rounded-default shadow-[3px_3px_0_0_#111111]"
         >
@@ -108,7 +106,6 @@ export function ShowcasePanel({
         </div>
       ) : contentQuery.isError || !contentQuery.data ? (
         <div
-          data-debug="ShowcaseContentError"
           data-testid="showcase-content-error"
           className="flex flex-col items-center justify-center p-8 border-2 border-dashed border-border dark:border-border-dark bg-surface-elevated dark:bg-surface-elevated-dark rounded-default shadow-[3px_3px_0_0_#111111]"
         >

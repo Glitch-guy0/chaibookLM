@@ -15,8 +15,7 @@ interface DeleteNotebookDialogProps {
 
 /**
  * Focus-trapped confirmation dialog for destructive notebook deletion, used for
- * both single and bulk deletes. Initial focus lands on the destructive confirm
- * button; focus is restored to the trigger on close.
+ * both single and bulk deletes.
  */
 export function DeleteNotebookDialog({
   open,
@@ -35,14 +34,12 @@ export function DeleteNotebookDialog({
       onClose={onClose}
       title={title}
       initialFocusRef={confirmRef}
-      data-debug="DeleteNotebookDialog"
       actions={
         <>
           <button
             type="button"
             onClick={onClose}
-            data-debug="DeleteNotebookCancel"
-            className="min-h-11 px-4 py-2 text-xs font-semibold font-sans uppercase tracking-wider border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark rounded-default focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2"
+            className="min-h-11 px-4 py-2 text-xs font-bold font-mono uppercase tracking-wider border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark rounded-[2px] shadow-[2px_2px_0_0_var(--border,#111111)] focus-visible:outline-3 focus-visible:outline-[var(--citation,#00E5FF)] focus-visible:outline-offset-2 cursor-pointer"
           >
             Cancel
           </button>
@@ -51,15 +48,14 @@ export function DeleteNotebookDialog({
             type="button"
             onClick={onConfirm}
             disabled={isPending}
-            data-debug="DeleteNotebookConfirm"
-            className="min-h-11 px-5 py-2 text-xs font-semibold font-sans uppercase tracking-wider border-2 border-border dark:border-border-dark bg-error text-white dark:bg-error dark:text-white rounded-default disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2"
+            className="min-h-11 px-5 py-2 text-xs font-bold font-mono uppercase tracking-wider border-2 border-border dark:border-border-dark bg-[var(--danger,#FF3333)] text-white rounded-[2px] shadow-[3px_3px_0_0_var(--border,#111111)] hover:shadow-[4px_4px_0_0_var(--border,#111111)] hover:-translate-x-[1px] hover:-translate-y-[1px] active:shadow-none active:translate-x-[2px] active:translate-y-[2px] disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-3 focus-visible:outline-[var(--citation,#00E5FF)] focus-visible:outline-offset-2 cursor-pointer"
           >
             {isPending ? 'Deleting…' : confirmLabel}
           </button>
         </>
       }
     >
-      <p data-debug="DeleteNotebookMessage" className="text-ink dark:text-ink-dark">
+      <p className="text-ink dark:text-ink-dark font-sans text-sm leading-relaxed">
         {message}
       </p>
     </Dialog>

@@ -22,8 +22,6 @@ interface DialogProps {
   actions?: ReactNode;
   /** Element to receive focus when the dialog opens (e.g. the confirm button). */
   initialFocusRef?: RefObject<HTMLElement | null>;
-  /** Override the debug label name. */
-  'data-debug'?: string;
 }
 
 const FOCUSABLE_SELECTOR =
@@ -42,7 +40,7 @@ function getFocusable(
 
 /**
  * Neo-brutalist modal dialog with focus management:
- * - White fill, 2px ink border, offset shadow
+ * - White surface fill, 2px ink border, solid offset shadow
  * - Overlay dim backdrop, Escape to close, overlay click to close
  * - Traps Tab focus inside the dialog
  * - Focuses `initialFocusRef` (or the dialog) on open
@@ -55,7 +53,6 @@ export function Dialog({
   children,
   actions,
   initialFocusRef,
-  'data-debug': debugName = 'Dialog',
 }: DialogProps) {
   const dialogRef = useRef<HTMLDivElement>(null);
   const lastFocusedRef = useRef<HTMLElement | null>(null);
@@ -124,37 +121,36 @@ export function Dialog({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-overlay-dim px-4 py-6"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/45 px-4 py-6"
       onClick={handleOverlayClick}
       role="presentation"
     >
       <div
         ref={dialogRef}
-        data-debug={debugName}
         role="dialog"
         aria-modal="true"
         aria-label={title ?? 'Dialog'}
         tabIndex={-1}
         className={[
-          'relative w-full max-w-lg max-h-full overflow-y-auto',
-          'bg-surface-elevated dark:bg-surface-elevated-dark',
-          'border-3 border-[var(--color-border)] dark:border-[var(--color-border-dark)]',
-          'shadow-[8px_8px_0_0_var(--color-ink)]',
-          'dark:shadow-[8px_8px_0_0_var(--color-ink-dark)]',
+          'relative w-full max-w-lg max-h-[90vh] overflow-y-auto',
+          'bg-[var(--surface,#FFFFFF)] dark:bg-[var(--surface,#18181B)]',
+          'border-2 border-[var(--border,#111111)] dark:border-[var(--border-dark,#E4E4E7)]',
+          'shadow-[10px_10px_0_0_var(--border,#111111)]',
+          'dark:shadow-[10px_10px_0_0_var(--border-dark,#E4E4E7)]',
           'p-6',
-          'rounded-[var(--radius-default)]',
-          'focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2',
+          'rounded-[2px]',
+          'focus-visible:outline-3 focus-visible:outline-[var(--citation,#00E5FF)] focus-visible:outline-offset-2',
         ].join(' ')}
       >
         {/* Title */}
         {title && (
-          <h2 className="text-xl font-display text-[var(--color-ink)] dark:text-[var(--color-ink-dark)] mb-4">
+          <h2 className="text-xl font-mono font-bold text-[var(--fg,#111111)] dark:text-[var(--fg,#FFFFFF)] mb-4">
             {title}
           </h2>
         )}
 
         {/* Content */}
-        <div className="text-sm text-[var(--color-ink-secondary)] dark:text-[var(--color-ink-secondary-dark)]">
+        <div className="text-sm font-sans text-[var(--fg,#111111)] dark:text-[var(--fg,#FFFFFF)]">
           {children}
         </div>
 

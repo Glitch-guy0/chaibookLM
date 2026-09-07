@@ -71,14 +71,13 @@ export function CitationChip({
   return (
     <button
       type="button"
-      data-debug="CitationChip"
       data-testid="citation-pill"
       data-citation-key={citationKey}
       title={tooltipLabel}
       aria-label={`Citation: ${tooltipLabel}`}
       onClick={() => onOpenCitation(citation, citationKey)}
       onKeyDown={handleKeyDown}
-      className="mx-1 inline-flex items-center justify-center px-1.5 py-0.5 border-1.5 border-border dark:border-border-dark rounded-sm bg-[#00E5FF] dark:bg-[#00E5FF]/90 text-ink font-mono font-bold text-[11px] align-baseline leading-none shadow-[2px_2px_0_0_#111111] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0_0_#111111] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2 transition-transform cursor-pointer"
+      className="mx-1 inline-flex items-center justify-center px-1.5 py-0.5 border-[1.5px] border-[var(--border,#111111)] dark:border-[var(--border-dark,#E4E4E7)] rounded-[2px] bg-[var(--citation,#00E5FF)] dark:bg-[var(--citation,#22D3EE)] text-[var(--fg,#111111)] dark:text-[#111111] font-mono font-bold text-[11px] align-baseline leading-none shadow-[2px_2px_0_0_var(--border,#111111)] dark:shadow-[2px_2px_0_0_var(--border-dark,#E4E4E7)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0_0_var(--border,#111111)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none focus-visible:outline-3 focus-visible:outline-[var(--citation,#00E5FF)] focus-visible:outline-offset-2 transition-transform cursor-pointer"
     >
       {pillText}
     </button>

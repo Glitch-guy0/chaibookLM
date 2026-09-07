@@ -13,14 +13,12 @@ interface BulkDeleteBarProps {
 export function BulkDeleteBar({ count, onDelete, onClear }: BulkDeleteBarProps) {
   return (
     <div
-      data-debug="BulkDeleteBar"
       role="region"
       aria-label="Bulk selection"
-      className="sticky top-4 z-10 flex flex-wrap items-center justify-between gap-3 px-4 py-3 mb-6 border-2 border-border dark:border-border-dark bg-brand dark:bg-brand shadow-card dark:shadow-card-dark rounded-default"
+      className="sticky top-4 z-10 flex flex-wrap items-center justify-between gap-3 px-4 py-3 mb-6 border-2 border-border dark:border-border-dark bg-accent text-ink rounded-[2px] shadow-[5px_5px_0_0_var(--border,#111111)]"
     >
       <p
-        data-debug="BulkDeleteCount"
-        className="text-sm font-semibold font-sans uppercase tracking-wider text-ink dark:text-ink-dark"
+        className="text-xs font-bold font-mono uppercase tracking-wider text-ink"
       >
         {count} {count === 1 ? 'notebook' : 'notebooks'} selected
       </p>
@@ -28,16 +26,14 @@ export function BulkDeleteBar({ count, onDelete, onClear }: BulkDeleteBarProps) 
         <button
           type="button"
           onClick={onClear}
-          data-debug="BulkDeleteClear"
-          className="min-h-11 px-4 py-2 text-xs font-semibold font-sans uppercase tracking-wider border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark rounded-default focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2"
+          className="min-h-11 px-4 py-2 text-xs font-bold font-mono uppercase tracking-wider border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark rounded-[2px] shadow-[2px_2px_0_0_var(--border,#111111)] focus-visible:outline-3 focus-visible:outline-[var(--citation,#00E5FF)] focus-visible:outline-offset-2 cursor-pointer"
         >
           Clear
         </button>
         <button
           type="button"
           onClick={onDelete}
-          data-debug="BulkDeleteDelete"
-          className="min-h-11 px-5 py-2 text-xs font-semibold font-sans uppercase tracking-wider border-2 border-border dark:border-border-dark bg-error text-white dark:bg-error dark:text-white rounded-default focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2"
+          className="min-h-11 px-5 py-2 text-xs font-bold font-mono uppercase tracking-wider border-2 border-border dark:border-border-dark bg-[var(--danger,#FF3333)] text-white rounded-[2px] shadow-[3px_3px_0_0_var(--border,#111111)] hover:shadow-[4px_4px_0_0_var(--border,#111111)] hover:-translate-x-[1px] hover:-translate-y-[1px] active:shadow-none active:translate-x-[2px] active:translate-y-[2px] focus-visible:outline-3 focus-visible:outline-[var(--citation,#00E5FF)] focus-visible:outline-offset-2 cursor-pointer"
         >
           Delete
         </button>

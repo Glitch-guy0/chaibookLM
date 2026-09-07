@@ -77,30 +77,29 @@ export function YouTubeShowcase({ content, citation, title }: YouTubeShowcasePro
 
   return (
     <div
-      data-debug="YouTubeShowcase"
       data-testid="youtube-showcase"
       data-od-id="showcase-yt"
       className="flex flex-col gap-3"
     >
-      <div aria-live="polite" className="sr-only" data-debug="YouTubeAriaLive">
+      <div aria-live="polite" className="sr-only">
         {`YouTube Showcase: ${title} at ${formattedActiveTime}`}
       </div>
 
       {/* Header with Title and active timestamp */}
       <div
-        data-debug="YouTubeHeader"
         className="flex items-center justify-between gap-2 border-2 border-border dark:border-border-dark bg-surface-elevated dark:bg-surface-elevated-dark px-3 py-2 rounded-default shadow-[3px_3px_0_0_#111111]"
       >
         <div className="flex items-center gap-2 overflow-hidden">
           <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-sm border border-border dark:border-border-dark bg-[#FF3333] font-mono text-xs font-bold text-white">
-            ▶
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <polygon points="5 3 19 12 5 21 5 3" />
+            </svg>
           </span>
           <span className="truncate font-mono text-xs font-bold text-ink dark:text-ink-dark">
             {title}
           </span>
         </div>
         <span
-          data-debug="YouTubeTimestampBadge"
           data-testid="youtube-timestamp-badge"
           className="shrink-0 font-mono text-xs font-bold text-[#00E5FF] dark:text-[#00E5FF] bg-ink dark:bg-surface-dark px-2 py-0.5 rounded-sm border border-border dark:border-border-dark"
         >
@@ -110,13 +109,11 @@ export function YouTubeShowcase({ content, citation, title }: YouTubeShowcasePro
 
       {/* Embedded YouTube Player */}
       <div
-        data-debug="YouTubePlayerContainer"
         className="relative w-full aspect-video overflow-hidden rounded-default border-2 border-border dark:border-border-dark bg-black shadow-[4px_4px_0_0_#111111]"
       >
         {embedUrl ? (
           <iframe
             key={`${videoId}-${currentSeconds}`}
-            data-debug="YouTubeIframe"
             data-testid="youtube-player"
             src={embedUrl}
             title={title}
@@ -151,7 +148,6 @@ export function YouTubeShowcase({ content, citation, title }: YouTubeShowcasePro
         </div>
 
         <div
-          data-debug="YouTubeTranscriptList"
           data-testid="youtube-transcript-list"
           data-od-id="transcript"
           className="max-h-[16rem] overflow-y-auto rounded-default border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark p-2 shadow-[3px_3px_0_0_#111111]"
@@ -167,7 +163,6 @@ export function YouTubeShowcase({ content, citation, title }: YouTubeShowcasePro
                 <div
                   key={`${cue.timestampSeconds}-${idx}`}
                   ref={isActive ? activeCueRef : null}
-                  data-debug={isActive ? 'YouTubeActiveCue' : 'YouTubeCue'}
                   data-testid={isActive ? 'youtube-active-cue' : 'youtube-cue'}
                   data-od-id={isActive ? 'transcript-hl' : undefined}
                   onClick={() => setCurrentSeconds(cue.timestampSeconds)}
@@ -178,7 +173,6 @@ export function YouTubeShowcase({ content, citation, title }: YouTubeShowcasePro
                   }`}
                 >
                   <span
-                    data-debug="CueTimestamp"
                     className={`font-mono text-xs font-bold shrink-0 ${
                       isActive
                         ? 'text-ink dark:text-ink-dark font-black'

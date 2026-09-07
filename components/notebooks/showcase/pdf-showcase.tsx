@@ -84,7 +84,6 @@ export function PdfShowcase({ content, citation, title }: PdfShowcaseProps) {
           {excerpt && (
             <div
               ref={highlightRef}
-              data-debug="PdfHighlightBox"
               data-testid="pdf-bounding-box"
               data-od-id="highlight-box"
               className={`mb-4 p-3 rounded-sm border-3 border-[#00E5FF] bg-[#00E5FF]/20 shadow-[3px_3px_0_0_#111111] transition-all duration-300 ${
@@ -123,7 +122,6 @@ export function PdfShowcase({ content, citation, title }: PdfShowcaseProps) {
         <span>{before}</span>
         <span
           ref={highlightRef}
-          data-debug="PdfHighlightBox"
           data-testid="pdf-bounding-box"
           data-od-id="highlight-box"
           className={`inline p-1 rounded-sm border-3 border-[#00E5FF] bg-[#00E5FF]/25 shadow-[2px_2px_0_0_#111111] transition-all duration-300 ${
@@ -138,14 +136,13 @@ export function PdfShowcase({ content, citation, title }: PdfShowcaseProps) {
   }, [currentPageData, excerpt, highlightActive]);
 
   return (
-    <div data-debug="PdfShowcase" data-testid="pdf-showcase" className="flex flex-col gap-3">
-      <div aria-live="polite" className="sr-only" data-debug="PdfAriaLive">
+    <div data-testid="pdf-showcase" className="flex flex-col gap-3">
+      <div aria-live="polite" className="sr-only">
         {`PDF View: ${title}, Page ${currentPage} of ${totalPages}`}
       </div>
 
       {/* Header with document title and page jumper */}
       <div
-        data-debug="PdfHeader"
         className="flex items-center justify-between gap-3 border-2 border-border dark:border-border-dark bg-surface-elevated dark:bg-surface-elevated-dark px-3 py-2 rounded-default shadow-[3px_3px_0_0_#111111]"
       >
         <div className="flex items-center gap-2 overflow-hidden">
@@ -160,7 +157,6 @@ export function PdfShowcase({ content, citation, title }: PdfShowcaseProps) {
         <div className="flex items-center gap-2 font-mono text-xs font-bold">
           <button
             type="button"
-            data-debug="PdfPagePrev"
             data-testid="pdf-prev-page"
             data-od-id="page-prev"
             title="Previous page (Shortcut: [)"
@@ -172,7 +168,6 @@ export function PdfShowcase({ content, citation, title }: PdfShowcaseProps) {
             ‹
           </button>
           <span
-            data-debug="PdfPageIndicator"
             data-testid="pdf-page-indicator"
             className="min-w-[80px] text-center text-ink dark:text-ink-dark"
           >
@@ -180,7 +175,6 @@ export function PdfShowcase({ content, citation, title }: PdfShowcaseProps) {
           </span>
           <button
             type="button"
-            data-debug="PdfPageNext"
             data-testid="pdf-next-page"
             data-od-id="page-next"
             title="Next page (Shortcut: ])"
@@ -196,7 +190,6 @@ export function PdfShowcase({ content, citation, title }: PdfShowcaseProps) {
 
       {/* PDF Page Document Sheet */}
       <div
-        data-debug="PdfSheet"
         className="max-h-[34rem] overflow-y-auto rounded-default border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark p-6 shadow-[4px_4px_0_0_#111111]"
       >
         <div className="mb-4 flex items-center justify-between border-b-2 border-dashed border-border/30 dark:border-border-dark/30 pb-2">

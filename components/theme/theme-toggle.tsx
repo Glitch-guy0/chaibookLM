@@ -3,8 +3,8 @@
 import { useTheme } from './theme-context';
 
 /**
- * Manual theme override control. Mounted in the dashboard header today —
- * the only persistent chrome surface in the app.
+ * Neo-Brutalist Theme Toggle button matching mockup-landing.html / component-library.html.
+ * Renders crisp SVG sun/moon line icons with 3px -> 5px -> 0px tactile elevation flow.
  */
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
@@ -18,19 +18,39 @@ export function ThemeToggle() {
       aria-label={label}
       aria-pressed={isDark}
       title={label}
-      data-debug="ThemeToggle"
       className={
-        'inline-flex h-11 w-11 sm:h-9 sm:w-9 items-center justify-center ' +
-        'border-2 border-border dark:border-border-dark ' +
-        'bg-surface-elevated dark:bg-surface-elevated-dark ' +
-        'text-ink dark:text-ink-dark ' +
+        'inline-grid place-items-center h-10 w-10 sm:h-9 sm:w-9 ' +
+        'border-2 border-[var(--border,#111111)] dark:border-[var(--border-dark,#E4E4E7)] ' +
+        'rounded-[2px] bg-[var(--surface,#FFFFFF)] dark:bg-[var(--surface,#18181B)] ' +
+        'text-[var(--fg,#111111)] dark:text-[var(--fg,#FFFFFF)] ' +
         'cursor-pointer select-none ' +
-        'transition-colors duration-150 ease-in-out ' +
-        'hover:bg-surface dark:hover:bg-surface-dark ' +
-        'focus-visible:outline-3 focus-visible:outline-focus-ring dark:focus-visible:outline-focus-ring-dark focus-visible:outline-offset-2'
+        'shadow-[3px_3px_0_0_var(--border,#111111)] dark:shadow-[3px_3px_0_0_var(--border-dark,#E4E4E7)] ' +
+        'transition-[transform,box-shadow,background] duration-150 ease-[cubic-bezier(0.2,0,0,1)] ' +
+        'hover:shadow-[5px_5px_0_0_var(--border,#111111)] dark:hover:shadow-[5px_5px_0_0_var(--border-dark,#E4E4E7)] ' +
+        'hover:-translate-x-[1px] hover:-translate-y-[1px] ' +
+        'active:shadow-none active:translate-x-[3px] active:translate-y-[3px] active:duration-75 ' +
+        'focus-visible:outline-3 focus-visible:outline-[var(--citation,#00E5FF)] focus-visible:outline-offset-2'
       }
     >
-      <span aria-hidden="true">{isDark ? '☀' : '☾'}</span>
+      {isDark ? (
+        <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <circle cx="10" cy="10" r="4" stroke="currentColor" strokeWidth="2" />
+          <path
+            d="M10 2v2M10 16v2M2 10h2M16 10h2M4.3 4.3l1.4 1.4M14.3 14.3l1.4 1.4M15.7 4.3l-1.4 1.4M5.7 14.3l-1.4 1.4"
+            stroke="currentColor"
+            strokeWidth="2"
+          />
+        </svg>
+      ) : (
+        <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path
+            d="M17 12.5A8 8 0 017.5 3 8 8 0 1017 12.5"
+            stroke="currentColor"
+            strokeWidth="2"
+            fill="none"
+          />
+        </svg>
+      )}
     </button>
   );
 }

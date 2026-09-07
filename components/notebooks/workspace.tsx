@@ -53,27 +53,24 @@ interface WorkspaceProps {
  */
 function WorkspaceSkeleton() {
   return (
-    <div data-debug="WorkspaceSkeleton" aria-hidden="true">
-      <div className="mb-8 h-4 w-40 animate-pulse rounded-default bg-ink-muted/30 dark:bg-ink-muted-dark/20" />
-      <div className="mb-8 h-9 w-2/3 max-w-md animate-pulse rounded-default bg-ink-muted/30 dark:bg-ink-muted-dark/20" />
+    <div aria-hidden="true">
+      <div className="mb-8 h-4 w-40 animate-pulse rounded-[2px] bg-muted/20" />
+      <div className="mb-8 h-9 w-2/3 max-w-md animate-pulse rounded-[2px] bg-muted/20" />
       <div className="flex -space-x-1">
-        <div className="h-12 w-32 animate-pulse rounded-t-default border-2 border-border dark:border-border-dark bg-ink-muted/30 dark:bg-ink-muted-dark/20" />
-        <div className="h-12 w-32 animate-pulse rounded-t-default border-2 border-border dark:border-border-dark bg-ink-muted/30 dark:bg-ink-muted-dark/20" />
-        <div className="h-12 w-32 animate-pulse rounded-t-default border-2 border-border dark:border-border-dark bg-ink-muted/30 dark:bg-ink-muted-dark/20" />
+        <div className="h-12 w-32 animate-pulse rounded-t-[2px] border-2 border-border dark:border-border-dark bg-muted/20" />
+        <div className="h-12 w-32 animate-pulse rounded-t-[2px] border-2 border-border dark:border-border-dark bg-muted/20" />
+        <div className="h-12 w-32 animate-pulse rounded-t-[2px] border-2 border-border dark:border-border-dark bg-muted/20" />
       </div>
-      <div className="mt-6 h-40 animate-pulse rounded-default border-2 border-border dark:border-border-dark bg-ink-muted/30 dark:bg-ink-muted-dark/20" />
+      <div className="mt-6 h-40 animate-pulse rounded-[2px] border-2 border-border dark:border-border-dark bg-muted/20" />
     </div>
   );
 }
 
 /**
- * Notebook Workspace (Story 4.5: Responsive Multi-Surface Layouts)
- * - Desktop (≥1280px): Tri-Pane layout (25% Sources, 45% Chat, 30% Showcase side-by-side)
+ * Notebook Workspace
+ * - Desktop (≥1280px): Tri-Pane layout (26% Sources, 44% Chat, 30% Showcase side-by-side)
  * - Tablet (768px - 1279px): 50% Chat + 50% Showcase split, Sources open in slide-over Neo-Brutalist drawer
- * - Mobile (<768px, down to 320px): Single view with 3 top tabs [Sources (N)] | [Chat] | [Showcase] (touch targets ≥ 44px)
- *   - Tapping citation in Chat auto-switches to Showcase
- *   - Sticky floating [← Back to Chat] button docks at bottom center
- *   - Tapping [← Back to Chat] returns to Chat and restores exact scroll position
+ * - Mobile (<768px, down to 320px): Single view with 3 top tabs [Sources (N)] | [Chat] | [Showcase]
  */
 export function Workspace({ viewportMode: overrideMode }: WorkspaceProps = {}) {
   const params = useParams<{ id: string }>();
@@ -108,7 +105,7 @@ export function Workspace({ viewportMode: overrideMode }: WorkspaceProps = {}) {
   const [restoreFocusKey, setRestoreFocusKey] = useState<string | null>(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
-  // Chat scroll position persistence for mobile citation jumping (AC-4.5.5)
+  // Chat scroll position persistence for mobile citation jumping
   const chatScrollPositionRef = useRef<number>(0);
 
   const handleOpenCitation = useCallback(
@@ -117,7 +114,6 @@ export function Workspace({ viewportMode: overrideMode }: WorkspaceProps = {}) {
       setRestoreFocusKey(citationKey);
 
       if (viewportMode === 'mobile') {
-        // Record scroll offset before switching to Showcase tab
         chatScrollPositionRef.current = window.scrollY || document.documentElement.scrollTop;
         setActiveTab('showcase');
       }
@@ -156,30 +152,33 @@ export function Workspace({ viewportMode: overrideMode }: WorkspaceProps = {}) {
 
   return (
     <section
-      data-debug="Workspace"
       data-testid="workspace-root"
       data-viewport-mode={viewportMode}
-      className="mx-auto w-full max-w-7xl px-4 sm:px-6"
+      className="mx-auto w-full max-w-7xl px-4 sm:px-6 pb-12"
     >
       <ExpirationBanner className="mb-6" />
 
       {/* Top action bar with back link and tablet drawer toggle */}
-      <div className="mb-6 flex items-center justify-between">
-        <Link
-          href="/dashboard"
-          data-debug="BackToNotebooks"
-          className="inline-flex items-center gap-2 text-sm font-semibold font-sans uppercase tracking-wider text-ink-secondary dark:text-ink-secondary-dark underline underline-offset-2 hover:text-ink dark:hover:text-ink-dark focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2"
-        >
-          ← Back to notebooks
-        </Link>
+      <div className="mb-4 flex items-center justify-between font-mono text-xs">
+        <div className="flex items-center gap-2">
+          <Link
+            href="/dashboard"
+            className="inline-flex items-center gap-1 font-bold uppercase tracking-wider text-muted hover:text-ink dark:hover:text-ink-dark no-underline focus-visible:outline-2 focus-visible:outline-[var(--citation,#00E5FF)]"
+          >
+            ← Back to notebooks
+          </Link>
+          <span className="text-muted">/</span>
+          <span className="font-bold text-ink dark:text-ink-dark truncate max-w-md">
+            {notebook?.title ?? 'Notebook'}
+          </span>
+        </div>
 
         {viewportMode === 'tablet' && (
           <button
             type="button"
-            data-debug="TabletDrawerTrigger"
             data-testid="tablet-drawer-trigger"
             onClick={() => setDrawerOpen(true)}
-            className="inline-flex items-center gap-2 rounded-sm border-2 border-border dark:border-border-dark bg-[#FFE500] px-3.5 py-1.5 font-mono text-xs font-bold uppercase tracking-wider text-ink shadow-[3px_3px_0_0_#111111] hover:translate-x-[-1px] hover:translate-y-[-1px] active:translate-x-[1px] active:translate-y-[1px] cursor-pointer"
+            className="inline-flex items-center gap-2 rounded-[2px] border-2 border-border dark:border-border-dark bg-accent px-3.5 py-1.5 font-mono text-xs font-bold uppercase tracking-wider text-ink shadow-[3px_3px_0_0_var(--border,#111111)] hover:-translate-x-[1px] hover:-translate-y-[1px] active:translate-x-[1px] active:translate-y-[1px] cursor-pointer"
           >
             <span>📑</span>
             <span>Sources ({sourceCount}/10)</span>
@@ -189,13 +188,12 @@ export function Workspace({ viewportMode: overrideMode }: WorkspaceProps = {}) {
 
       {isError ? (
         <div
-          data-debug="WorkspaceError"
-          className="flex flex-col items-center justify-center px-6 py-16 border-2 border-dashed border-ink-muted dark:border-ink-muted-dark bg-surface-elevated dark:bg-surface-elevated-dark rounded-default"
+          className="flex flex-col items-center justify-center px-6 py-16 border-2 border-dashed border-border dark:border-border-dark bg-surface dark:bg-surface-dark rounded-[2px]"
         >
-          <p className="text-lg font-semibold text-ink-secondary dark:text-ink-secondary-dark">
+          <p className="text-lg font-mono font-bold text-ink dark:text-ink-dark">
             Notebook not found
           </p>
-          <p className="mt-2 text-sm text-ink-muted dark:text-ink-muted-dark">
+          <p className="mt-2 text-sm text-muted">
             It may have been deleted or you may not have access to it.
           </p>
         </div>
@@ -203,61 +201,63 @@ export function Workspace({ viewportMode: overrideMode }: WorkspaceProps = {}) {
         <WorkspaceSkeleton />
       ) : (
         <>
-          <h2
-            data-debug="WorkspaceTitle"
-            className="mb-6 text-2xl sm:text-3xl font-display text-ink dark:text-ink-dark break-words"
-          >
+          <h2 className="sr-only">
             {notebook.title}
           </h2>
 
-          {/* DESKTOP (≥1280px): Tri-Pane 3-Column Split */}
+          {/* DESKTOP (≥1280px): Tri-Pane 3-Column Split (mockup-workspace-desktop.html) */}
           {viewportMode === 'desktop' && (
             <div
-              data-debug="WorkspaceDesktopTriPane"
               data-testid="workspace-desktop-tripane"
-              className="grid grid-cols-[280px_1fr_380px] gap-5 min-h-[700px] items-start"
+              className="grid grid-cols-[26%_44%_30%] border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark shadow-[6px_6px_0_0_var(--border,#111111)] dark:shadow-[6px_6px_0_0_var(--border-dark,#E4E4E7)] divide-x-2 divide-border dark:divide-border-dark min-h-[750px] items-stretch rounded-[2px] overflow-hidden"
             >
-              {/* Pane 1: Sources (25% width / ~280px) */}
+              {/* Pane 1: Sources (26% width) */}
               <div
-                data-debug="DesktopSourcesPane"
                 data-testid="desktop-sources-pane"
-                className="flex flex-col gap-2 rounded-default border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark p-3 shadow-[4px_4px_0_0_#111111]"
+                className="flex flex-col bg-surface dark:bg-surface-dark"
               >
-                <div className="font-mono text-xs font-bold uppercase tracking-wider text-ink dark:text-ink-dark pb-2 border-b border-border dark:border-border-dark">
-                  SOURCES ({sourceCount}/10)
+                <div className="font-mono text-xs font-bold uppercase tracking-wider text-ink dark:text-ink-dark p-3.5 border-b-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark flex items-center justify-between">
+                  <span>SOURCES ({sourceCount}/10)</span>
                 </div>
-                <SourcesPanel notebookId={id} />
+                <div className="p-3.5 flex-1 overflow-y-auto">
+                  <SourcesPanel notebookId={id} />
+                </div>
               </div>
 
-              {/* Pane 2: Grounded Chat (45% width) */}
+              {/* Pane 2: Grounded Chat (44% width) */}
               <div
-                data-debug="DesktopChatPane"
                 data-testid="desktop-chat-pane"
-                className="flex flex-col rounded-default border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark p-4 shadow-[4px_4px_0_0_#111111]"
+                className="flex flex-col bg-surface dark:bg-surface-dark"
               >
-                <ChatPanel
-                  notebookId={id}
-                  onOpenCitation={handleOpenCitation}
-                  restoreFocusKey={restoreFocusKey}
-                  onFocusRestored={handleFocusRestored}
-                />
+                <div className="font-mono text-xs font-bold uppercase tracking-wider text-ink dark:text-ink-dark p-3.5 border-b-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark">
+                  GROUNDED CHAT
+                </div>
+                <div className="p-4 flex-1 flex flex-col justify-between overflow-y-auto">
+                  <ChatPanel
+                    notebookId={id}
+                    onOpenCitation={handleOpenCitation}
+                    restoreFocusKey={restoreFocusKey}
+                    onFocusRestored={handleFocusRestored}
+                  />
+                </div>
               </div>
 
               {/* Pane 3: Showcase (30% width) */}
               <div
-                data-debug="DesktopShowcasePane"
                 data-testid="desktop-showcase-pane"
-                className="flex flex-col gap-2 rounded-default border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark p-3 shadow-[4px_4px_0_0_#111111]"
+                className="flex flex-col bg-surface dark:bg-surface-dark"
               >
-                <div className="font-mono text-xs font-bold uppercase tracking-wider text-ink dark:text-ink-dark pb-2 border-b border-border dark:border-border-dark">
+                <div className="font-mono text-xs font-bold uppercase tracking-wider text-ink dark:text-ink-dark p-3.5 border-b-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark">
                   ORIGINAL VIEW SHOWCASE
                 </div>
-                <ShowcasePanel
-                  citation={openCitation}
-                  sources={sourcesQuery.data?.sources ?? []}
-                  sourcesLoading={sourcesQuery.isLoading}
-                  onEsc={handleShowcaseEsc}
-                />
+                <div className="p-3.5 flex-1 overflow-y-auto">
+                  <ShowcasePanel
+                    citation={openCitation}
+                    sources={sourcesQuery.data?.sources ?? []}
+                    sourcesLoading={sourcesQuery.isLoading}
+                    onEsc={handleShowcaseEsc}
+                  />
+                </div>
               </div>
             </div>
           )}
@@ -266,15 +266,13 @@ export function Workspace({ viewportMode: overrideMode }: WorkspaceProps = {}) {
           {viewportMode === 'tablet' && (
             <>
               <div
-                data-debug="WorkspaceTabletSplit"
                 data-testid="workspace-tablet-split"
                 className="grid grid-cols-2 gap-5 min-h-[700px] items-start"
               >
                 {/* 50% Chat */}
                 <div
-                  data-debug="TabletChatPane"
                   data-testid="tablet-chat-pane"
-                  className="flex flex-col rounded-default border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark p-4 shadow-[4px_4px_0_0_#111111]"
+                  className="flex flex-col rounded-[2px] border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark p-4 shadow-[4px_4px_0_0_var(--border,#111111)]"
                 >
                   <ChatPanel
                     notebookId={id}
@@ -286,9 +284,8 @@ export function Workspace({ viewportMode: overrideMode }: WorkspaceProps = {}) {
 
                 {/* 50% Showcase */}
                 <div
-                  data-debug="TabletShowcasePane"
                   data-testid="tablet-showcase-pane"
-                  className="flex flex-col rounded-default border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark p-4 shadow-[4px_4px_0_0_#111111]"
+                  className="flex flex-col rounded-[2px] border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark p-4 shadow-[4px_4px_0_0_var(--border,#111111)]"
                 >
                   <div className="font-mono text-xs font-bold uppercase tracking-wider text-ink dark:text-ink-dark pb-2 border-b border-border dark:border-border-dark mb-3">
                     ORIGINAL VIEW SHOWCASE
@@ -314,25 +311,24 @@ export function Workspace({ viewportMode: overrideMode }: WorkspaceProps = {}) {
 
           {/* MOBILE (<768px): 3 Top Tabs [Sources (N)] | [Chat] | [Showcase] */}
           {viewportMode === 'mobile' && (
-            <div data-debug="WorkspaceMobileTabs" data-testid="workspace-mobile-tabs">
+            <div data-testid="workspace-mobile-tabs">
               <Tabs
                 tabs={mobileTabs}
                 label="Mobile workspace sections"
-                data-debug="WorkspaceMobileTabsList"
                 activeTab={activeTab}
                 onTabChange={setActiveTab}
               >
                 {(currentTab) => {
                   if (currentTab === 'sources') {
                     return (
-                      <div data-debug="MobileSourcesView" data-testid="mobile-sources-view">
+                      <div data-testid="mobile-sources-view">
                         <SourcesPanel notebookId={id} />
                       </div>
                     );
                   }
                   if (currentTab === 'chat') {
                     return (
-                      <div data-debug="MobileChatView" data-testid="mobile-chat-view">
+                      <div data-testid="mobile-chat-view">
                         <ChatPanel
                           notebookId={id}
                           onOpenCitation={handleOpenCitation}
@@ -343,7 +339,7 @@ export function Workspace({ viewportMode: overrideMode }: WorkspaceProps = {}) {
                     );
                   }
                   return (
-                    <div data-debug="MobileShowcaseView" data-testid="mobile-showcase-view">
+                    <div data-testid="mobile-showcase-view">
                       <ShowcasePanel
                         citation={openCitation}
                         sources={sourcesQuery.data?.sources ?? []}

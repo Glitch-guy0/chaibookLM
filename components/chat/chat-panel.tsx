@@ -473,16 +473,14 @@ export function ChatPanel({
   const latestTurn = turns[turns.length - 1];
 
   return (
-    <div data-debug="ChatPanel" className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4">
       <div
         ref={listContainerRef}
         onScroll={handleListScroll}
-        data-debug="ChatMessageList"
-        className="flex min-h-[16rem] flex-col gap-4 overflow-y-auto rounded-default border-2 border-border dark:border-border-dark bg-surface-elevated dark:bg-surface-elevated-dark p-4"
+        className="flex min-h-[16rem] flex-col gap-4 overflow-y-auto rounded-[2px] border-2 border-border dark:border-border-dark bg-surface-elevated dark:bg-surface-elevated-dark p-4"
       >
         {isLoadingOlderHistory && (
           <p
-            data-debug="ChatHistoryLoadingIndicator"
             className="text-center text-xs text-ink-muted dark:text-ink-muted-dark"
           >
             Loading older messages…
@@ -490,7 +488,6 @@ export function ChatPanel({
         )}
         {historyError && (
           <div
-            data-debug="ChatHistoryError"
             className="flex items-center justify-center gap-2 text-sm text-red-600 dark:text-red-400"
           >
             <p>
@@ -500,7 +497,6 @@ export function ChatPanel({
             </p>
             <button
               type="button"
-              data-debug="ChatHistoryRetryButton"
               onClick={() => (historyError === 'initial' ? loadInitialHistory() : loadOlderHistory())}
               className="font-semibold underline underline-offset-2 hover:text-ink dark:hover:text-ink-dark focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2"
             >
@@ -516,11 +512,10 @@ export function ChatPanel({
           turns.map((turn) => (
             <div
               key={turn.id}
-              data-debug={`ChatTurn-${turn.role}`}
               className={
                 turn.role === 'user'
-                  ? 'ml-auto max-w-[85%] rounded-default bg-ink text-white dark:bg-ink-dark px-4 py-2'
-                  : 'max-w-[85%] rounded-default border-2 border-border dark:border-border-dark bg-white dark:bg-surface-dark px-4 py-2'
+                  ? 'self-start max-w-[92%] rounded-[2px] border-2 border-[var(--border,#111111)] dark:border-[var(--border-dark,#E4E4E7)] bg-[var(--accent,#FFE500)] text-[#111111] font-mono text-xs sm:text-sm font-semibold p-3.5 shadow-[4px_4px_0_0_var(--border,#111111)] dark:shadow-[4px_4px_0_0_var(--border-dark,#E4E4E7)]'
+                  : 'self-start max-w-[95%] rounded-[2px] border-2 border-[var(--border,#111111)] dark:border-[var(--border-dark,#E4E4E7)] bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark font-sans text-sm p-4 shadow-[4px_4px_0_0_var(--border,#111111)] dark:shadow-[4px_4px_0_0_var(--border-dark,#E4E4E7)]'
               }
             >
               {turn.role === 'assistant' ? (
@@ -530,26 +525,25 @@ export function ChatPanel({
                   onOpenCitation={onOpenCitation}
                 />
               ) : (
-                <p className="whitespace-pre-wrap">{turn.content}</p>
+                <p className="whitespace-pre-wrap leading-relaxed">{turn.content}</p>
               )}
               {turn.status === 'failed' && (
-                <div className="mt-2 flex items-center gap-2">
-                  <p className="text-sm text-red-600 dark:text-red-400">
+                <div className="mt-2 flex items-center gap-2 font-mono text-xs">
+                  <p className="text-red-600 dark:text-red-400 font-bold">
                     Something went wrong.
                   </p>
                   <button
                     type="button"
-                    data-debug="ChatRetryButton"
                     onClick={() => retry(turn)}
                     disabled={isStreaming}
-                    className="text-sm font-semibold underline underline-offset-2 text-ink-secondary dark:text-ink-secondary-dark hover:text-ink dark:hover:text-ink-dark focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2"
+                    className="font-bold underline underline-offset-2 text-ink dark:text-ink-dark hover:text-muted cursor-pointer focus-visible:outline-2 focus-visible:outline-[var(--citation,#00E5FF)]"
                   >
                     Retry
                   </button>
                 </div>
               )}
               {turn.refusal && turn.status === 'done' && (
-                <div data-debug="ChatFetchOnRefusal">
+                <div>
                   <RefusalCard
                     credits={credits}
                     status={turn.fetchOnRefusal?.status ?? 'idle'}
@@ -573,14 +567,13 @@ export function ChatPanel({
 
       {/* Stable aria-live region: announces only the final settled message
           (success or failure), never intermediate streaming tokens. */}
-      <div aria-live="polite" className="sr-only" data-debug="ChatAriaLive">
+      <div aria-live="polite" className="sr-only">
         {announcement}
       </div>
 
-      <div className="flex items-end gap-2">
+      <div className="flex items-end gap-2 p-2 border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark rounded-[2px] shadow-[4px_4px_0_0_var(--border,#111111)] dark:shadow-[4px_4px_0_0_var(--border-dark,#E4E4E7)]">
         <textarea
           ref={textareaRef}
-          data-debug="ChatComposer"
           data-testid="chat-composer-textarea"
           value={input}
           onChange={handleChange}
@@ -592,21 +585,20 @@ export function ChatPanel({
               : 'Ask a question about your sources...'
           }
           rows={1}
-          className="min-h-[2.75rem] flex-1 resize-none rounded-default border-2 border-border dark:border-border-dark bg-white dark:bg-surface-dark px-3 py-2 text-sm disabled:opacity-45 disabled:cursor-not-allowed focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2"
+          className="min-h-[2.5rem] flex-1 resize-none bg-transparent px-2 py-1.5 font-sans text-sm text-ink dark:text-ink-dark outline-none disabled:opacity-45 disabled:cursor-not-allowed"
         />
         <button
           type="button"
-          data-debug="ChatSendButton"
           data-testid="chat-send-button"
           onClick={send}
           disabled={isStreaming || !input.trim() || credits <= 0}
-          className="rounded-default bg-ink dark:bg-ink-dark px-4 py-2 text-sm font-semibold text-white disabled:opacity-45 disabled:cursor-not-allowed focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2"
+          className="px-4 py-2 font-mono text-xs font-bold uppercase tracking-wider bg-[var(--accent,#FFE500)] text-[#111111] border-2 border-[var(--border,#111111)] dark:border-[var(--border-dark,#E4E4E7)] rounded-[2px] shadow-[2px_2px_0_0_var(--border,#111111)] dark:shadow-[2px_2px_0_0_var(--border-dark,#E4E4E7)] hover:shadow-[3px_3px_0_0_var(--border,#111111)] active:shadow-none active:translate-x-[1px] active:translate-y-[1px] transition-all disabled:opacity-45 disabled:cursor-not-allowed cursor-pointer focus-visible:outline-3 focus-visible:outline-[var(--citation,#00E5FF)]"
         >
           {isStreaming ? 'Sending…' : 'Send'}
         </button>
       </div>
       {latestTurn?.status === 'streaming' && (
-        <p className="text-xs text-ink-muted dark:text-ink-muted-dark">
+        <p className="font-mono text-xs text-muted">
           Generating answer…
         </p>
       )}

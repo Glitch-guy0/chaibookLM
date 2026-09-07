@@ -49,21 +49,21 @@ export function TranscriptShowcase({ content, citation, title }: TranscriptShowc
 
   return (
     <div
-      data-debug="TranscriptShowcase"
       data-testid="transcript-showcase"
       className="flex flex-col gap-3"
     >
-      <div aria-live="polite" className="sr-only" data-debug="TranscriptAriaLive">
+      <div aria-live="polite" className="sr-only">
         {`Transcript Showcase: ${title}`}
       </div>
 
       <div
-        data-debug="TranscriptHeader"
         className="flex items-center justify-between gap-2 border-2 border-border dark:border-border-dark bg-surface-elevated dark:bg-surface-elevated-dark px-3 py-2 rounded-default shadow-[3px_3px_0_0_#111111]"
       >
         <div className="flex items-center gap-2 overflow-hidden">
           <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-sm border border-border dark:border-border-dark bg-[#FFE500] font-mono text-xs font-bold text-ink">
-            💬
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
           </span>
           <span className="truncate font-mono text-xs font-bold text-ink dark:text-ink-dark">
             {title}
@@ -72,7 +72,6 @@ export function TranscriptShowcase({ content, citation, title }: TranscriptShowc
       </div>
 
       <div
-        data-debug="TranscriptDialogueContainer"
         className="max-h-[30rem] overflow-y-auto rounded-default border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark p-3 shadow-[4px_4px_0_0_#111111]"
       >
         {dialogue.length === 0 ? (

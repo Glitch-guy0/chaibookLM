@@ -2,30 +2,26 @@ import type { HTMLAttributes, ReactNode } from 'react';
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
-  'data-debug'?: string;
 }
 
 /**
  * Neo-brutalist card:
- * - White fill, 2px ink border, 3px offset shadow
- * - Not slanted
+ * - Surface fill, 2px ink border, 4px/5px offset shadow
  */
 export function Card({
   children,
   className = '',
-  'data-debug': debugName = 'Card',
   ...props
 }: CardProps) {
   return (
     <div
-      data-debug={debugName}
       className={[
-        'bg-surface-elevated dark:bg-surface-elevated-dark',
-        'border-2 border-[var(--color-border)] dark:border-[var(--color-border-dark)]',
-        'shadow-[3px_3px_0_0_var(--color-ink)]',
-        'dark:shadow-[3px_3px_0_0_var(--color-ink-dark)]',
+        'bg-[var(--surface,#FFFFFF)] dark:bg-[var(--surface,#18181B)]',
+        'border-2 border-[var(--border,#111111)] dark:border-[var(--border-dark,#E4E4E7)]',
+        'shadow-[4px_4px_0_0_var(--border,#111111)]',
+        'dark:shadow-[4px_4px_0_0_var(--border-dark,#E4E4E7)]',
         'p-4',
-        'rounded-[var(--radius-default)]',
+        'rounded-[2px]',
         className,
       ]
         .filter(Boolean)

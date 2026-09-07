@@ -11,7 +11,7 @@ interface SourcesDrawerProps {
 }
 
 /**
- * Slide-over Neo-Brutalist Drawer for Tablet Viewport (Story 4.5: AC-4.5.1)
+ * Slide-over Neo-Brutalist Drawer for Tablet Viewport
  * Slides in from the left over the 50/50 split workspace, rendering the
  * complete SourcesPanel with a backdrop and keyboard accessibility (Esc closes).
  */
@@ -40,13 +40,11 @@ export function SourcesDrawer({
       role="dialog"
       aria-modal="true"
       aria-label="Sources Drawer"
-      data-debug="SourcesDrawer"
       data-testid="sources-drawer"
       className="fixed inset-0 z-50 flex"
     >
       {/* Semi-transparent backdrop */}
       <div
-        data-debug="DrawerBackdrop"
         data-testid="drawer-backdrop"
         onClick={onClose}
         className="fixed inset-0 bg-black/50 backdrop-blur-xs transition-opacity"
@@ -54,9 +52,8 @@ export function SourcesDrawer({
 
       {/* Slide-over Drawer Panel */}
       <div
-        data-debug="DrawerPanel"
         data-testid="drawer-panel"
-        className="relative z-10 flex h-full w-full max-w-md flex-col border-r-3 border-border dark:border-border-dark bg-surface dark:bg-surface-dark p-4 shadow-[8px_0_0_0_#111111] overflow-y-auto"
+        className="relative z-10 flex h-full w-full max-w-md flex-col border-r-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark p-4 shadow-[8px_0_0_0_var(--border,#111111)] overflow-y-auto"
       >
         {/* Drawer Header */}
         <div className="flex items-center justify-between border-b-2 border-border dark:border-border-dark pb-3 mb-4">
@@ -67,11 +64,10 @@ export function SourcesDrawer({
           </div>
           <button
             type="button"
-            data-debug="DrawerCloseButton"
             data-testid="drawer-close-button"
             onClick={onClose}
             aria-label="Close sources drawer"
-            className="flex h-8 w-8 items-center justify-center rounded-sm border-2 border-border dark:border-border-dark bg-[#FFE500] font-mono text-base font-bold text-ink shadow-[2px_2px_0_0_#111111] hover:translate-x-[-1px] hover:translate-y-[-1px] active:translate-x-[1px] active:translate-y-[1px] cursor-pointer"
+            className="flex h-8 w-8 items-center justify-center rounded-[2px] border-2 border-border dark:border-border-dark bg-accent font-mono text-base font-bold text-ink shadow-[2px_2px_0_0_var(--border,#111111)] hover:-translate-x-[1px] hover:-translate-y-[1px] active:translate-x-[1px] active:translate-y-[1px] cursor-pointer"
           >
             ×
           </button>

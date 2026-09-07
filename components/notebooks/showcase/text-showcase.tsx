@@ -58,13 +58,12 @@ export function TextShowcase({ content, citation, title }: TextShowcaseProps) {
   }, [text, span.start, span.end, excerpt]);
 
   return (
-    <div data-debug="TextShowcase" data-testid="text-showcase" className="flex flex-col gap-3">
-      <div aria-live="polite" className="sr-only" data-debug="TextShowcaseAriaLive">
+    <div data-testid="text-showcase" className="flex flex-col gap-3">
+      <div aria-live="polite" className="sr-only">
         {`Text Showcase: ${title} — highlighted passage: ${highlighted}`}
       </div>
 
       <div
-        data-debug="TextHeader"
         className="flex items-center justify-between gap-2 border-2 border-border dark:border-border-dark bg-surface-elevated dark:bg-surface-elevated-dark px-3 py-2 rounded-default shadow-[3px_3px_0_0_#111111]"
       >
         <div className="flex items-center gap-2 overflow-hidden">
@@ -81,14 +80,12 @@ export function TextShowcase({ content, citation, title }: TextShowcaseProps) {
       </div>
 
       <div
-        data-debug="ShowcaseTextView"
         data-testid="text-showcase-content"
         className="max-h-[32rem] overflow-y-auto whitespace-pre-wrap rounded-default border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark p-4 font-sans text-sm leading-relaxed text-ink dark:text-ink-dark shadow-[4px_4px_0_0_#111111]"
       >
         <span>{before}</span>
         <mark
           ref={markRef}
-          data-debug="ShowcaseTextHighlight"
           data-testid="text-highlight-mark"
           className="rounded-sm border-2 border-border dark:border-border-dark bg-[#00E5FF]/40 dark:bg-[#00E5FF]/50 text-ink dark:text-ink-dark px-1 py-0.5 font-medium shadow-[2px_2px_0_0_#111111]"
         >

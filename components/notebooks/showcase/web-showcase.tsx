@@ -74,14 +74,13 @@ export function WebShowcase({ content, citation, title }: WebShowcaseProps) {
   }, [readerParagraphs, excerpt]);
 
   return (
-    <div data-debug="WebShowcase" data-testid="web-showcase" className="flex flex-col gap-3">
-      <div aria-live="polite" className="sr-only" data-debug="WebAriaLive">
+    <div data-testid="web-showcase" className="flex flex-col gap-3">
+      <div aria-live="polite" className="sr-only">
         {`Web Showcase: ${title}`}
       </div>
 
       {/* Header with Title and Reader / Embed Toggle */}
       <div
-        data-debug="WebHeader"
         className="flex items-center justify-between gap-3 border-2 border-border dark:border-border-dark bg-surface-elevated dark:bg-surface-elevated-dark px-3 py-2 rounded-default shadow-[3px_3px_0_0_#111111]"
       >
         <div className="flex items-center gap-2 overflow-hidden">
@@ -97,7 +96,6 @@ export function WebShowcase({ content, citation, title }: WebShowcaseProps) {
           <div className="flex rounded-sm border-2 border-border dark:border-border-dark overflow-hidden font-mono text-xs font-bold">
             <button
               type="button"
-              data-debug="WebReaderModeBtn"
               data-testid="web-mode-reader"
               onClick={() => setViewMode('reader')}
               className={`px-2.5 py-1 ${
@@ -110,7 +108,6 @@ export function WebShowcase({ content, citation, title }: WebShowcaseProps) {
             </button>
             <button
               type="button"
-              data-debug="WebEmbedModeBtn"
               data-testid="web-mode-embed"
               onClick={() => setViewMode('embed')}
               className={`px-2.5 py-1 ${
@@ -126,7 +123,6 @@ export function WebShowcase({ content, citation, title }: WebShowcaseProps) {
             href={content.url}
             target="_blank"
             rel="noopener noreferrer"
-            data-debug="WebExternalLink"
             title="Open in new tab"
             className="flex h-7 w-7 items-center justify-center rounded-sm border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark shadow-[2px_2px_0_0_#111111] hover:translate-x-[-1px] hover:translate-y-[-1px] text-xs font-bold"
           >
@@ -138,7 +134,6 @@ export function WebShowcase({ content, citation, title }: WebShowcaseProps) {
       {/* Reader View Mode (Clean, focused article view with cyan outline) */}
       {viewMode === 'reader' ? (
         <div
-          data-debug="WebArticleReader"
           data-testid="web-article-reader"
           className="max-h-[32rem] overflow-y-auto rounded-default border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark p-5 shadow-[4px_4px_0_0_#111111]"
         >
@@ -158,7 +153,6 @@ export function WebShowcase({ content, citation, title }: WebShowcaseProps) {
                 <div
                   key={idx}
                   ref={isCited ? citedParagraphRef : null}
-                  data-debug={isCited ? 'WebCitedParagraph' : 'WebParagraph'}
                   data-testid={isCited ? 'web-cited-paragraph' : 'web-paragraph'}
                   className={`p-3 rounded-sm transition-all duration-200 ${
                     isCited
@@ -174,7 +168,7 @@ export function WebShowcase({ content, citation, title }: WebShowcaseProps) {
         </div>
       ) : (
         /* Embed Mode (Live iframe / Snapshot fallback) */
-        <div data-debug="WebEmbedContainer" className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2">
           {!iframeBlocked ? (
             <>
               {!iframeLoaded && (
@@ -184,7 +178,6 @@ export function WebShowcase({ content, citation, title }: WebShowcaseProps) {
               )}
               <iframe
                 key={content.url}
-                data-debug="WebIframe"
                 src={content.url}
                 title={title}
                 onLoad={handleIframeLoad}
@@ -193,12 +186,11 @@ export function WebShowcase({ content, citation, title }: WebShowcaseProps) {
               />
             </>
           ) : content.snapshotHtml ? (
-            <div data-debug="WebSnapshot" className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2">
               <p className="font-mono text-xs text-ink-muted dark:text-ink-muted-dark">
                 Showing saved HTML snapshot — live site could not be embedded.
               </p>
               <iframe
-                data-debug="WebSnapshotIframe"
                 srcDoc={content.snapshotHtml}
                 title={`${title} (snapshot)`}
                 sandbox=""
@@ -207,7 +199,6 @@ export function WebShowcase({ content, citation, title }: WebShowcaseProps) {
             </div>
           ) : (
             <div
-              data-debug="WebUnavailable"
               className="flex flex-col items-center justify-center gap-3 p-8 border-2 border-dashed border-border dark:border-border-dark bg-surface dark:bg-surface-dark rounded-default shadow-[3px_3px_0_0_#111111]"
             >
               <p className="font-mono text-sm font-semibold text-ink dark:text-ink-dark">

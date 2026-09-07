@@ -8,7 +8,7 @@ export default function SignInPage() {
   return (
     <AuthProvider>
       <div className="flex min-h-screen items-center justify-center bg-surface dark:bg-surface-dark px-4">
-        <div data-debug="SignInPage" className="w-full max-w-md">
+        <div className="w-full max-w-md">
           <SignIn
             appearance={{
               elements: {

@@ -18,8 +18,6 @@ interface TabsProps {
   label: string;
   /** Called with the active tab id to render the panel content. */
   children: (activeTabId: string) => ReactNode;
-  /** Override the debug label name. */
-  'data-debug'?: string;
 }
 
 /**
@@ -27,7 +25,7 @@ interface TabsProps {
  * - role="tablist" / role="tab" / role="tabpanel"
  * - aria-selected on the active tab
  * - arrow-key / Home / End navigation with roving tabindex
- * - brand fill + bold weight + filled glyph for the active state (not color-only)
+ * - accent yellow fill + bold weight for the active state
  */
 export function Tabs({
   tabs,
@@ -35,7 +33,6 @@ export function Tabs({
   onTabChange,
   label,
   children,
-  'data-debug': debugName = 'Tabs',
 }: TabsProps) {
   const [internalTab, setInternalTab] = useState(tabs[0]?.id);
   const active = activeTab ?? internalTab ?? tabs[0]?.id;
@@ -67,17 +64,11 @@ export function Tabs({
     }
   };
 
-  const activeIndex = Math.max(
-    0,
-    tabs.findIndex((t) => t.id === active),
-  );
-
   return (
-    <div data-debug={debugName}>
+    <div>
       <div
         role="tablist"
         aria-label={label}
-        data-debug={`${debugName}Tablist`}
         className="flex -space-x-1 overflow-x-auto border-b-2 border-border dark:border-border-dark"
       >
         {tabs.map((tab, index) => {
@@ -95,14 +86,13 @@ export function Tabs({
               }}
               onClick={() => selectTab(tab.id)}
               onKeyDown={(e) => handleKeyDown(e, index)}
-              data-debug={`${debugName}Tab-${tab.id}`}
               className={[
-                'whitespace-nowrap px-4 py-3 min-w-28 sm:min-w-40 text-sm font-sans uppercase tracking-wider',
-                'border-2 border-border dark:border-border-dark rounded-t-default',
-                'focus-visible:outline-3 focus-visible:outline-focus-ring focus-visible:outline-offset-2',
+                'whitespace-nowrap px-4 py-3 min-w-28 sm:min-w-40 text-xs font-mono uppercase tracking-wider',
+                'border-2 border-border dark:border-border-dark rounded-t-sm',
+                'focus-visible:outline-3 focus-visible:outline-[var(--citation,#00E5FF)] focus-visible:outline-offset-2',
                 isActive
-                  ? 'bg-brand dark:bg-brand text-ink dark:text-ink-dark font-bold'
-                  : 'bg-surface-elevated dark:bg-surface-elevated-dark text-ink-secondary dark:text-ink-secondary-dark hover:bg-surface dark:hover:bg-surface-dark font-semibold',
+                  ? 'bg-accent text-ink dark:text-ink font-bold border-b-transparent shadow-[3px_-3px_0_0_var(--border,#111111)]'
+                  : 'bg-surface dark:bg-surface-dark text-muted hover:text-ink dark:hover:text-ink-dark font-medium',
               ].join(' ')}
             >
               <span className="inline-flex items-center gap-2">
@@ -122,7 +112,6 @@ export function Tabs({
         role="tabpanel"
         id={`panel-${active}`}
         aria-labelledby={`tab-${active}`}
-        data-debug={`${debugName}Panel-${active}`}
         className="mt-6"
       >
         {children(active)}
