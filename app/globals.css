@@ -84,6 +84,7 @@
   color-scheme: light;
 }
 
+[data-theme="dark"],
 .dark {
   /* Canonical Design Tokens - Dark (DESIGN.md / AC-1.1.2) */
   --bg: #0D0D0D;
@@ -96,6 +97,8 @@
   --danger: #FF3333;
   --success: #00E575;
   --danger-deep: #CC2929;
+  --accent-hover: #FCD640;
+  --citation-hover: #33E0F5;
 
   --color-surface: var(--bg);
   --color-surface-elevated: var(--surface);
@@ -123,8 +126,18 @@
 
 /* ─── Tailwind v4 Theme ─── */
 @theme {
-  --color-surface: var(--color-surface);
-  --color-surface-elevated: var(--color-surface-elevated);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-citation: var(--citation);
+  --color-danger: var(--danger);
+  --color-success: var(--success);
+  --color-danger-deep: var(--danger-deep);
+
   --color-ink: var(--color-ink);
   --color-ink-secondary: var(--color-ink-secondary);
   --color-ink-muted: var(--color-ink-muted);
@@ -132,10 +145,8 @@
   --color-cite: var(--color-cite);
   --color-accent-yellow: var(--color-accent-yellow);
   --color-accent-pink: var(--color-accent-pink);
-  --color-success: var(--color-success);
   --color-warning: var(--color-warning);
   --color-error: var(--color-error);
-  --color-border: var(--color-border);
   --color-focus-ring: var(--color-focus-ring);
   --color-overlay-dim: var(--color-overlay-dim);
 
@@ -144,33 +155,36 @@
   --font-mono: var(--font-mono);
 
   --radius-default: var(--radius-default);
+  --radius-sm: var(--radius-sm);
   --radius-md: var(--radius-md);
   --radius-full: var(--radius-full);
 
   --shadow-card: var(--shadow-card);
+  --shadow-elevated: var(--shadow-elevated);
+  --shadow-pressed: var(--shadow-pressed);
   --shadow-dialog: var(--shadow-dialog);
   --shadow-button: var(--shadow-button);
+  --shadow-badge: var(--shadow-badge);
+  --shadow-pill: var(--shadow-pill);
 
-  /* Parallel -dark tokens for dark:*-dark utilities (static values copied
-     from the .dark {} override block, per spec-5-2 design notes). */
-  --color-surface-dark: #16130D;
-  --color-surface-elevated-dark: #201C14;
-  --color-ink-dark: #F5F0E8;
-  --color-ink-secondary-dark: #B0A898;
-  --color-ink-muted-dark: #7A7263;
-  --color-brand-dark: #FF864F;
-  --color-cite-dark: #4A9EFF;
-  --color-accent-yellow-dark: #FFE066;
+  --color-surface-dark: #18181B;
+  --color-surface-elevated-dark: #18181B;
+  --color-ink-dark: #FFFFFF;
+  --color-ink-secondary-dark: #A1A1AA;
+  --color-ink-muted-dark: #71717A;
+  --color-brand-dark: #FACC15;
+  --color-cite-dark: #22D3EE;
+  --color-accent-yellow-dark: #FACC15;
   --color-accent-pink-dark: #FF8AA5;
-  --color-success-dark: #3DAF5E;
+  --color-success-dark: #00E575;
   --color-warning-dark: #E0B830;
-  --color-error-dark: #EF5350;
-  --color-border-dark: #F5F0E8;
-  --color-focus-ring-dark: #F5F0E8;
+  --color-error-dark: #FF3333;
+  --color-border-dark: #E4E4E7;
+  --color-focus-ring-dark: #22D3EE;
 
-  --shadow-card-dark: 3px 3px 0 0 #F5F0E8;
-  --shadow-dialog-dark: 8px 8px 0 0 #F5F0E8;
-  --shadow-button-dark: 6px -6px 0 0 #F5F0E8;
+  --shadow-card-dark: 4px 4px 0 0 #E4E4E7;
+  --shadow-dialog-dark: 8px 8px 0 0 #E4E4E7;
+  --shadow-button-dark: 4px 4px 0 0 #E4E4E7;
 }
 
 /* ─── Base Styles ─── */
@@ -358,6 +372,195 @@ body {
 .card-elevate:hover {
   box-shadow: 8px 8px 0 0 var(--border);
   transform: translate(-2px, -2px);
+}
+
+/* ─── Canonical Neo-Brutalist Component Styles ─── */
+.src-item {
+  border: 2px solid var(--border);
+  background: var(--surface);
+  box-shadow: 3px 3px 0 0 var(--border);
+  padding: 0.6rem 0.7rem;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.src-item:hover {
+  box-shadow: 4px 4px 0 0 var(--border);
+  transform: translate(-1px, -1px);
+}
+
+.src-row {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.src-icon {
+  width: 22px;
+  height: 22px;
+  border: 1.5px solid var(--border);
+  border-radius: 2px;
+  display: grid;
+  place-items: center;
+  flex: none;
+  background: var(--bg);
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stat-ready {
+  color: #00E575;
+  font-weight: 700;
+}
+
+.stat-indexing {
+  color: var(--fg);
+}
+
+.stat-failed {
+  color: var(--danger);
+  font-weight: 700;
+}
+
+.badge {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 0.66rem;
+  padding: 2px 7px;
+  border: 1.5px solid var(--border);
+  border-radius: 2px;
+  background: var(--bg);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.badge.cyan {
+  background: var(--citation);
+  color: #111111;
+}
+
+.badge.yellow {
+  background: var(--accent);
+  color: #111111;
+}
+
+.badge.ink {
+  background: var(--fg);
+  color: var(--surface);
+}
+
+.expire {
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border: 1.5px solid var(--border);
+  border-radius: 2px;
+  background: var(--accent);
+  color: #111111;
+  display: inline-flex;
+  align-items: center;
+}
+
+.credit {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 0.78rem;
+  padding: 0.45rem 0.9rem;
+  border: 2px solid var(--border);
+  border-radius: 9999px;
+  background: var(--surface);
+  color: var(--fg);
+  box-shadow: 3px 3px 0 0 var(--border);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: transform 0.15s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.15s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.credit:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 0 var(--border);
+}
+
+.credit:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 0 var(--border);
+}
+
+.credit.warn {
+  background: var(--accent);
+  color: #111111;
+}
+
+.credit.locked {
+  background: var(--danger-deep);
+  color: #FFFFFF;
+}
+
+.refusal {
+  border: 2px solid var(--fg);
+  background: var(--surface);
+  padding: 1rem;
+  box-shadow: 4px 4px 0 0 var(--border);
+  border-radius: 2px;
+}
+
+.refusal .rtitle {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 0.76rem;
+  margin-bottom: 0.35rem;
+}
+
+.refusal p {
+  font-size: 0.82rem;
+  margin-bottom: 0.7rem;
+}
+
+.refusal .cost {
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  color: var(--muted);
+  margin-top: 0.6rem;
+}
+
+.msg-user {
+  background: var(--accent);
+  color: #111111;
+  border: 2px solid var(--border);
+  padding: 0.7rem 0.8rem;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  box-shadow: 4px 4px 0 0 var(--border);
+  border-radius: 2px;
+  align-self: flex-start;
+  max-width: 92%;
+}
+
+.msg-ai {
+  font-size: 0.86rem;
+  color: var(--fg);
+  line-height: 1.6;
+}
+
+.msg-ai p {
+  margin-bottom: 0.6rem;
 }
 
 /* ─── Product Tour (driver.js override) ─── */

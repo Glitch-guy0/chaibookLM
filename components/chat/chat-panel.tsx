@@ -505,7 +505,7 @@ export function ChatPanel({
           </div>
         )}
         {turns.length === 0 ? (
-          <p className="text-sm text-ink-muted dark:text-ink-muted-dark">
+          <p className="text-sm text-ink-muted dark:text-ink-muted-dark font-sans">
             Ask a question about your sources to get started.
           </p>
         ) : (
@@ -514,8 +514,8 @@ export function ChatPanel({
               key={turn.id}
               className={
                 turn.role === 'user'
-                  ? 'self-start max-w-[92%] rounded-[2px] border-2 border-[var(--border,#111111)] dark:border-[var(--border-dark,#E4E4E7)] bg-[var(--accent,#FFE500)] text-[#111111] font-mono text-xs sm:text-sm font-semibold p-3.5 shadow-[4px_4px_0_0_var(--border,#111111)] dark:shadow-[4px_4px_0_0_var(--border-dark,#E4E4E7)]'
-                  : 'self-start max-w-[95%] rounded-[2px] border-2 border-[var(--border,#111111)] dark:border-[var(--border-dark,#E4E4E7)] bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark font-sans text-sm p-4 shadow-[4px_4px_0_0_var(--border,#111111)] dark:shadow-[4px_4px_0_0_var(--border-dark,#E4E4E7)]'
+                  ? 'msg-user self-start max-w-[92%] rounded-[2px] border-2 border-border dark:border-border-dark bg-[var(--accent,#FFE500)] text-[#111111] font-mono text-xs sm:text-sm font-semibold p-3 shadow-[4px_4px_0_0_var(--border)]'
+                  : 'msg-ai self-start max-w-[95%] text-ink dark:text-ink-dark font-sans text-sm p-2 leading-relaxed'
               }
             >
               {turn.role === 'assistant' ? (
@@ -571,7 +571,7 @@ export function ChatPanel({
         {announcement}
       </div>
 
-      <div className="flex items-end gap-2 p-2 border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark rounded-[2px] shadow-[4px_4px_0_0_var(--border,#111111)] dark:shadow-[4px_4px_0_0_var(--border-dark,#E4E4E7)]">
+      <div className="composer-box flex items-end gap-2 p-2 border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark rounded-[2px] shadow-[4px_4px_0_0_var(--border)]">
         <textarea
           ref={textareaRef}
           data-testid="chat-composer-textarea"
@@ -592,7 +592,7 @@ export function ChatPanel({
           data-testid="chat-send-button"
           onClick={send}
           disabled={isStreaming || !input.trim() || credits <= 0}
-          className="px-4 py-2 font-mono text-xs font-bold uppercase tracking-wider bg-[var(--accent,#FFE500)] text-[#111111] border-2 border-[var(--border,#111111)] dark:border-[var(--border-dark,#E4E4E7)] rounded-[2px] shadow-[2px_2px_0_0_var(--border,#111111)] dark:shadow-[2px_2px_0_0_var(--border-dark,#E4E4E7)] hover:shadow-[3px_3px_0_0_var(--border,#111111)] active:shadow-none active:translate-x-[1px] active:translate-y-[1px] transition-all disabled:opacity-45 disabled:cursor-not-allowed cursor-pointer focus-visible:outline-3 focus-visible:outline-[var(--citation,#00E5FF)]"
+          className="px-4 py-2 font-mono text-xs font-bold uppercase tracking-wider bg-[var(--accent,#FFE500)] text-[#111111] border-2 border-border dark:border-border-dark rounded-[2px] shadow-[2px_2px_0_0_var(--border)] hover:shadow-[3px_3px_0_0_var(--border)] active:shadow-none active:translate-x-[4px] active:translate-y-[4px] transition-all disabled:opacity-45 disabled:cursor-not-allowed cursor-pointer focus-visible:outline-3 focus-visible:outline-[var(--citation,#00E5FF)]"
         >
           {isStreaming ? 'Sending…' : 'Send'}
         </button>

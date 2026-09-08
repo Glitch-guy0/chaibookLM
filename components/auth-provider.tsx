@@ -34,7 +34,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             href="https://dashboard.clerk.com/last-active?path=api-keys"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 border-2 border-border dark:border-border-dark bg-accent text-ink font-bold text-xs uppercase tracking-wider shadow-[3px_3px_0_0_var(--border,#111111)] hover:-translate-x-[1px] hover:-translate-y-[1px] active:translate-x-[2px] active:translate-y-[2px]"
+            className="inline-flex items-center gap-2 px-4 py-2 border-2 border-border dark:border-border-dark bg-accent text-ink font-bold text-xs uppercase tracking-wider shadow-[3px_3px_0_0_var(--border,#111111)] hover:-translate-x-[1px] hover:-translate-y-[1px] active:shadow-none active:translate-x-[4px] active:translate-y-[4px]"
           >
             Get Keys from Clerk Dashboard ↗
           </a>

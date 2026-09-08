@@ -21,6 +21,7 @@ export function WebShowcase({ content, citation, title }: WebShowcaseProps) {
   const [viewMode, setViewMode] = useState<'reader' | 'embed'>('reader');
   const [iframeBlocked, setIframeBlocked] = useState(false);
   const [iframeLoaded, setIframeLoaded] = useState(false);
+  const [fallbackNotice, setFallbackNotice] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const citedParagraphRef = useRef<HTMLDivElement>(null);
 
@@ -47,6 +48,13 @@ export function WebShowcase({ content, citation, title }: WebShowcaseProps) {
   const handleIframeLoad = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     setIframeLoaded(true);
+  };
+
+  const handleIframeError = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setIframeBlocked(true);
+    setFallbackNotice(true);
+    setViewMode('reader');
   };
 
   // Sanitized reader paragraphs from markdown or text
@@ -81,10 +89,10 @@ export function WebShowcase({ content, citation, title }: WebShowcaseProps) {
 
       {/* Header with Title and Reader / Embed Toggle */}
       <div
-        className="flex items-center justify-between gap-3 border-2 border-border dark:border-border-dark bg-surface-elevated dark:bg-surface-elevated-dark px-3 py-2 rounded-default shadow-[3px_3px_0_0_#111111]"
+        className="flex items-center justify-between gap-3 border-2 border-border dark:border-border-dark bg-surface-elevated dark:bg-surface-elevated-dark px-3 py-2 rounded-default shadow-[3px_3px_0_0_var(--border,#111111)]"
       >
         <div className="flex items-center gap-2 overflow-hidden">
-          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-sm border border-border dark:border-border-dark bg-[#00E5FF] font-mono text-xs font-bold text-ink">
+          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-sm border border-border dark:border-border-dark bg-[var(--citation,#00E5FF)] font-mono text-xs font-bold text-ink">
             ↗
           </span>
           <span className="truncate font-mono text-xs font-bold text-ink dark:text-ink-dark">
@@ -124,7 +132,7 @@ export function WebShowcase({ content, citation, title }: WebShowcaseProps) {
             target="_blank"
             rel="noopener noreferrer"
             title="Open in new tab"
-            className="flex h-7 w-7 items-center justify-center rounded-sm border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark shadow-[2px_2px_0_0_#111111] hover:translate-x-[-1px] hover:translate-y-[-1px] text-xs font-bold"
+            className="flex h-7 w-7 items-center justify-center rounded-sm border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark shadow-[2px_2px_0_0_var(--border,#111111)] hover:translate-x-[-1px] hover:translate-y-[-1px] text-xs font-bold"
           >
             ↗
           </a>
@@ -135,10 +143,17 @@ export function WebShowcase({ content, citation, title }: WebShowcaseProps) {
       {viewMode === 'reader' ? (
         <div
           data-testid="web-article-reader"
-          className="max-h-[32rem] overflow-y-auto rounded-default border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark p-5 shadow-[4px_4px_0_0_#111111]"
+          className="max-h-[32rem] overflow-y-auto rounded-default border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark p-5 shadow-[4px_4px_0_0_var(--border,#111111)]"
         >
+          {fallbackNotice && (
+            <div className="mb-4 font-mono text-xs font-bold text-[var(--danger,#FF3333)] bg-[var(--danger,#FF3333)]/10 p-2 rounded-sm border border-[var(--danger,#FF3333)] flex items-center justify-between">
+              <span>LIVE EMBED BLOCKED (X-FRAME-OPTIONS)</span>
+              <button type="button" onClick={() => setFallbackNotice(false)} className="text-[10px] underline cursor-pointer">Dismiss</button>
+            </div>
+          )}
+
           {excerpt && (
-            <div className="mb-4 font-mono text-xs font-bold text-[#00E5FF] dark:text-[#00E5FF] bg-ink dark:bg-surface-elevated-dark p-2 rounded-sm border border-border dark:border-border-dark flex items-center justify-between">
+            <div className="mb-4 font-mono text-xs font-bold text-[var(--citation,#00E5FF)] bg-ink dark:bg-surface-elevated-dark p-2 rounded-sm border border-border dark:border-border-dark flex items-center justify-between">
               <span>PROOFLINK: CITED WEB ASSERTION</span>
               <span className="text-[10px] text-ink-muted dark:text-ink-muted-dark">
                 Paragraph {matchingParaIndex + 1}
@@ -156,7 +171,7 @@ export function WebShowcase({ content, citation, title }: WebShowcaseProps) {
                   data-testid={isCited ? 'web-cited-paragraph' : 'web-paragraph'}
                   className={`p-3 rounded-sm transition-all duration-200 ${
                     isCited
-                      ? 'outline-3 outline-[#00E5FF] bg-[#00E5FF]/15 dark:bg-[#00E5FF]/20 shadow-[3px_3px_0_0_#111111] font-medium'
+                      ? 'outline-3 outline-[#00E5FF] bg-[#00E5FF]/15 dark:bg-[#00E5FF]/20 shadow-[3px_3px_0_0_var(--border,#111111)] font-medium'
                       : 'hover:bg-surface-elevated/50 dark:hover:bg-surface-elevated-dark/50'
                   }`}
                 >
@@ -181,8 +196,9 @@ export function WebShowcase({ content, citation, title }: WebShowcaseProps) {
                 src={content.url}
                 title={title}
                 onLoad={handleIframeLoad}
+                onError={handleIframeError}
                 sandbox="allow-scripts allow-popups allow-forms"
-                className="h-[30rem] w-full rounded-default border-2 border-border dark:border-border-dark bg-white shadow-[4px_4px_0_0_#111111]"
+                className="h-[30rem] w-full rounded-default border-2 border-border dark:border-border-dark bg-white shadow-[4px_4px_0_0_var(--border,#111111)]"
               />
             </>
           ) : content.snapshotHtml ? (
@@ -194,12 +210,12 @@ export function WebShowcase({ content, citation, title }: WebShowcaseProps) {
                 srcDoc={content.snapshotHtml}
                 title={`${title} (snapshot)`}
                 sandbox=""
-                className="h-[30rem] w-full rounded-default border-2 border-border dark:border-border-dark bg-white shadow-[4px_4px_0_0_#111111]"
+                className="h-[30rem] w-full rounded-default border-2 border-border dark:border-border-dark bg-white shadow-[4px_4px_0_0_var(--border,#111111)]"
               />
             </div>
           ) : (
             <div
-              className="flex flex-col items-center justify-center gap-3 p-8 border-2 border-dashed border-border dark:border-border-dark bg-surface dark:bg-surface-dark rounded-default shadow-[3px_3px_0_0_#111111]"
+              className="flex flex-col items-center justify-center gap-3 p-8 border-2 border-dashed border-border dark:border-border-dark bg-surface dark:bg-surface-dark rounded-default shadow-[3px_3px_0_0_var(--border,#111111)]"
             >
               <p className="font-mono text-sm font-semibold text-ink dark:text-ink-dark">
                 This website cannot be embedded directly.
@@ -207,7 +223,7 @@ export function WebShowcase({ content, citation, title }: WebShowcaseProps) {
               <button
                 type="button"
                 onClick={() => setViewMode('reader')}
-                className="rounded-sm border-2 border-border dark:border-border-dark bg-[#00E5FF] px-3 py-1.5 font-mono text-xs font-bold text-ink shadow-[2px_2px_0_0_#111111]"
+                className="rounded-sm border-2 border-border dark:border-border-dark bg-[var(--citation,#00E5FF)] px-3 py-1.5 font-mono text-xs font-bold text-ink shadow-[2px_2px_0_0_var(--border,#111111)]"
               >
                 Switch to Article Reader View
               </button>

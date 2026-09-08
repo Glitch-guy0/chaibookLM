@@ -57,10 +57,10 @@ export function TranscriptShowcase({ content, citation, title }: TranscriptShowc
       </div>
 
       <div
-        className="flex items-center justify-between gap-2 border-2 border-border dark:border-border-dark bg-surface-elevated dark:bg-surface-elevated-dark px-3 py-2 rounded-default shadow-[3px_3px_0_0_#111111]"
+        className="flex items-center justify-between gap-2 border-2 border-border dark:border-border-dark bg-surface-elevated dark:bg-surface-elevated-dark px-3 py-2 rounded-default shadow-[3px_3px_0_0_var(--border,#111111)]"
       >
         <div className="flex items-center gap-2 overflow-hidden">
-          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-sm border border-border dark:border-border-dark bg-[#FFE500] font-mono text-xs font-bold text-ink">
+          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-sm border border-border dark:border-border-dark bg-[var(--accent,#FFE500)] font-mono text-xs font-bold text-ink">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
             </svg>
@@ -72,7 +72,7 @@ export function TranscriptShowcase({ content, citation, title }: TranscriptShowc
       </div>
 
       <div
-        className="max-h-[30rem] overflow-y-auto rounded-default border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark p-3 shadow-[4px_4px_0_0_#111111]"
+        className="max-h-[30rem] overflow-y-auto rounded-default border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark p-3 shadow-[4px_4px_0_0_var(--border,#111111)]"
       >
         {dialogue.length === 0 ? (
           <div className="p-4 text-center font-mono text-xs text-ink-muted dark:text-ink-muted-dark">
@@ -88,7 +88,7 @@ export function TranscriptShowcase({ content, citation, title }: TranscriptShowc
                 onClick={() => setActiveSeconds(cue.timestampSeconds)}
                 className={`flex items-start gap-3 p-2.5 rounded-sm cursor-pointer transition-all duration-150 border-l-4 mb-1.5 ${
                   isActive
-                    ? 'border-[#00E5FF] bg-[#00E5FF]/20 dark:bg-[#00E5FF]/25 shadow-[2px_2px_0_0_#111111]'
+                    ? 'border-[#00E5FF] bg-[#00E5FF]/20 dark:bg-[#00E5FF]/25 shadow-[2px_2px_0_0_var(--border,#111111)]'
                     : 'border-transparent hover:bg-surface-elevated dark:hover:bg-surface-elevated-dark'
                 }`}
               >

@@ -32,11 +32,11 @@ export function CreditBadge({
   const isZero = credits <= 0;
   const isWarning = credits > 0 && credits <= 2;
 
-  let badgeColorClasses = 'bg-surface text-[var(--fg,#111111)] dark:bg-surface-dark dark:text-[var(--fg,#FFFFFF)] border-[var(--border,#111111)] dark:border-[var(--border-dark,#E4E4E7)]';
+  let badgeColorClasses = 'bg-surface text-[var(--fg,#111111)] dark:bg-surface-dark dark:text-[var(--fg,#FFFFFF)] border-[var(--border)]';
   if (isZero) {
-    badgeColorClasses = 'bg-[var(--danger,#FF3333)] text-white border-[var(--border,#111111)] dark:border-[var(--border-dark,#E4E4E7)]';
+    badgeColorClasses = 'locked bg-[var(--danger,#FF3333)] text-white border-[var(--border)]';
   } else if (isWarning) {
-    badgeColorClasses = 'bg-[var(--accent,#FFE500)] text-[var(--fg,#111111)] border-[var(--border,#111111)] dark:border-[var(--border-dark,#E4E4E7)]';
+    badgeColorClasses = 'warn bg-[var(--accent,#FFE500)] text-[var(--fg,#111111)] border-[var(--border)]';
   }
 
   return (
@@ -46,7 +46,7 @@ export function CreditBadge({
         onClick={handleOpen}
         data-testid="credit-badge"
         title="View daily credit balance and reset schedule"
-        className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-mono font-bold tracking-wider uppercase border-2 rounded-full cursor-pointer select-none transition-[transform,box-shadow,background] duration-150 ease-[cubic-bezier(0.2,0,0,1)] shadow-[3px_3px_0_0_var(--border,#111111)] dark:shadow-[3px_3px_0_0_var(--border-dark,#E4E4E7)] hover:shadow-[5px_5px_0_0_var(--border,#111111)] dark:hover:shadow-[5px_5px_0_0_var(--border-dark,#E4E4E7)] hover:-translate-x-[1px] hover:-translate-y-[1px] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none focus-visible:outline-3 focus-visible:outline-[var(--citation,#00E5FF)] focus-visible:outline-offset-2 ${badgeColorClasses} ${className}`}
+        className={`credit inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-mono font-bold tracking-wider uppercase border-2 rounded-full cursor-pointer select-none transition-[transform,box-shadow,background] duration-150 ease-[cubic-bezier(0.2,0,0,1)] shadow-[3px_3px_0_0_var(--border)] hover:shadow-[5px_5px_0_0_var(--border)] hover:-translate-x-[1px] hover:-translate-y-[1px] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none focus-visible:outline-3 focus-visible:outline-[var(--citation)] focus-visible:outline-offset-2 ${badgeColorClasses} ${className}`}
       >
         <span aria-hidden="true">{isZero ? '🔒' : '⚡'}</span>
         <span>

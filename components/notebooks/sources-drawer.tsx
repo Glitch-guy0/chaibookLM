@@ -67,7 +67,7 @@ export function SourcesDrawer({
             data-testid="drawer-close-button"
             onClick={onClose}
             aria-label="Close sources drawer"
-            className="flex h-8 w-8 items-center justify-center rounded-[2px] border-2 border-border dark:border-border-dark bg-accent font-mono text-base font-bold text-ink shadow-[2px_2px_0_0_var(--border,#111111)] hover:-translate-x-[1px] hover:-translate-y-[1px] active:translate-x-[1px] active:translate-y-[1px] cursor-pointer"
+            className="flex h-8 w-8 items-center justify-center rounded-[2px] border-2 border-border dark:border-border-dark bg-accent font-mono text-base font-bold text-ink shadow-[2px_2px_0_0_var(--border,#111111)] hover:-translate-x-[1px] hover:-translate-y-[1px] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none cursor-pointer"
           >
             ×
           </button>

@@ -96,13 +96,10 @@ export function NotebookGrid() {
       disabled={isCapReached}
       title={isCapReached ? 'Notebook limit reached (max 10 notebooks per user)' : undefined}
       data-testid="new-notebook-card"
-      className="flex min-h-[180px] flex-col items-center justify-center gap-3 p-6 border-2 border-dashed border-border dark:border-border-dark bg-transparent rounded-[2px] text-muted hover:text-ink dark:hover:text-ink-dark hover:border-ink dark:hover:border-ink-dark transition-colors cursor-pointer disabled:opacity-45 disabled:cursor-not-allowed focus-visible:outline-3 focus-visible:outline-[var(--citation,#00E5FF)] focus-visible:outline-offset-2"
+      className="card create flex min-h-[180px] flex-col items-center justify-center gap-3 p-6 border-2 border-dashed border-border dark:border-border-dark bg-transparent rounded-[2px] text-muted hover:text-ink dark:hover:text-ink-dark hover:border-ink dark:hover:border-ink-dark transition-colors cursor-pointer disabled:opacity-45 disabled:cursor-not-allowed focus-visible:outline-3 focus-visible:outline-[var(--citation)] focus-visible:outline-offset-2"
     >
-      <span aria-hidden="true" className="font-mono text-3xl font-bold leading-none">
-        +
-      </span>
-      <span className="font-mono text-xs font-bold uppercase tracking-wider">
-        {isCapReached ? 'Limit reached (10 max)' : 'New notebook'}
+      <span className="btn primary font-mono text-xs font-bold uppercase tracking-wider px-4 py-2 border-2 border-border dark:border-border-dark rounded-[2px] bg-accent text-[#111111] shadow-[3px_3px_0_0_var(--border)]">
+        {isCapReached ? 'Limit reached (10 max)' : '+ New Notebook'}
       </span>
     </button>
   );
@@ -111,16 +108,16 @@ export function NotebookGrid() {
     <section data-testid="notebook-grid">
       {/* ── Hero Strip (mockup-dashboard.html) ── */}
       <div className="mb-8 border-b-2 border-border dark:border-border-dark pb-6">
-        <span className="font-mono text-xs font-bold uppercase tracking-widest text-muted">
-          RESEARCH WORKSPACE
+        <span className="eyebrow font-mono text-xs font-bold uppercase tracking-widest text-muted">
+          Research workspace
         </span>
         <div className="mt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <h2 className="font-mono text-3xl sm:text-4xl font-bold tracking-tight text-ink dark:text-ink-dark">
-              Your Notebooks
+              Your notebooks
             </h2>
             <p className="mt-1 font-sans text-sm text-muted">
-              Each notebook is a self-contained corpus. Add up to 10 sources, ask questions across them, and verify every answer.
+              Each notebook is a self-contained corpus. Add up to 10 sources, ask questions across them, and verify every answer in the original.
             </p>
           </div>
           {!creating && (
@@ -130,12 +127,22 @@ export function NotebookGrid() {
               disabled={isCapReached}
               title={isCapReached ? 'Notebook limit reached (max 10 notebooks per user)' : undefined}
               data-testid="create-notebook-button"
-              className="inline-flex items-center gap-2 px-4 py-2 font-mono text-xs font-bold uppercase tracking-wider bg-[var(--accent,#FFE500)] text-[#111111] border-2 border-[var(--border,#111111)] dark:border-[var(--border-dark,#E4E4E7)] rounded-[2px] shadow-[4px_4px_0_0_var(--border,#111111)] dark:shadow-[4px_4px_0_0_var(--border-dark,#E4E4E7)] hover:shadow-[6px_6px_0_0_var(--border,#111111)] hover:-translate-x-[1px] hover:-translate-y-[1px] active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all cursor-pointer disabled:opacity-45 disabled:cursor-not-allowed"
+              className="inline-flex items-center gap-2 px-4 py-2 font-mono text-xs font-bold uppercase tracking-wider bg-[var(--accent,#FFE500)] text-[#111111] border-2 border-border dark:border-border-dark rounded-[2px] shadow-[4px_4px_0_0_var(--border)] hover:shadow-[6px_6px_0_0_var(--border)] hover:-translate-x-[1px] hover:-translate-y-[1px] active:shadow-none active:translate-x-[4px] active:translate-y-[4px] transition-all cursor-pointer disabled:opacity-45 disabled:cursor-not-allowed"
             >
               + New Notebook
             </button>
           )}
         </div>
+      </div>
+
+      {/* ── Grid Header (mockup-dashboard.html) ── */}
+      <div className="flex items-center justify-between gap-4 mb-5 flex-wrap">
+        <h3 className="font-mono text-sm font-bold tracking-wider uppercase text-ink dark:text-ink-dark">
+          NOTEBOOKS
+        </h3>
+        <span className="font-mono text-xs text-muted">
+          auto-delete @ 12:00 AM Asia/Kolkata
+        </span>
       </div>
 
       {/* ── Bulk toolbar ── */}
@@ -151,7 +158,7 @@ export function NotebookGrid() {
       {showExpiredNotice && (
         <div
           role="status"
-          className="mb-6 flex flex-wrap items-center justify-between gap-3 px-4 py-3 border-2 border-border dark:border-border-dark bg-accent text-ink rounded-[2px] shadow-[3px_3px_0_0_var(--border,#111111)]"
+          className="mb-6 flex flex-wrap items-center justify-between gap-3 px-4 py-3 border-2 border-border dark:border-border-dark bg-accent text-ink rounded-[2px] shadow-[3px_3px_0_0_var(--border)]"
         >
           <p className="text-sm font-mono font-bold">
             {expiredRemoved} {expiredRemoved === 1 ? 'notebook' : 'notebooks'} expired and were
@@ -160,7 +167,7 @@ export function NotebookGrid() {
           <button
             type="button"
             onClick={() => setDismissedExpired(expiredRemoved)}
-            className="min-h-11 px-3 py-1 text-xs font-bold font-mono uppercase tracking-wider underline underline-offset-2 focus-visible:outline-3 focus-visible:outline-[var(--citation,#00E5FF)] focus-visible:outline-offset-2 cursor-pointer"
+            className="min-h-11 px-3 py-1 text-xs font-bold font-mono uppercase tracking-wider underline underline-offset-2 focus-visible:outline-3 focus-visible:outline-[var(--citation)] focus-visible:outline-offset-2 cursor-pointer"
           >
             Dismiss
           </button>

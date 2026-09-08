@@ -31,9 +31,9 @@ export function NotebookCard({
       aria-label={`Notebook: ${notebook.title}`}
       className={[
         'relative flex flex-col justify-between gap-4 p-5',
-        'border-2 border-[var(--border,#111111)] dark:border-[var(--border-dark,#E4E4E7)] rounded-[2px]',
-        'shadow-[5px_5px_0_0_var(--border,#111111)] dark:shadow-[5px_5px_0_0_var(--border-dark,#E4E4E7)]',
-        'hover:shadow-[8px_8px_0_0_var(--border,#111111)] dark:hover:shadow-[8px_8px_0_0_var(--border-dark,#E4E4E7)]',
+        'border-2 border-border dark:border-border-dark rounded-[2px]',
+        'shadow-[5px_5px_0_0_var(--border)]',
+        'hover:shadow-[8px_8px_0_0_var(--border)]',
         'hover:-translate-x-[2px] hover:-translate-y-[2px]',
         'transition-[transform,box-shadow,background] duration-150 ease-[cubic-bezier(0.2,0,0,1)]',
         selected
@@ -60,26 +60,26 @@ export function NotebookCard({
       </div>
 
       <div className="space-y-2">
-        <h3 className="font-mono text-lg font-bold leading-tight break-words text-ink dark:text-ink-dark">
+        <h3 className="font-mono text-base sm:text-lg font-bold leading-tight break-words text-ink dark:text-ink-dark">
           <Link
-            href={`/notebook/${notebook.id}`}
-            className="no-underline hover:underline underline-offset-4 focus-visible:outline-3 focus-visible:outline-[var(--citation,#00E5FF)] focus-visible:outline-offset-2"
+            href={`/dashboard/notebook/${notebook.id}`}
+            className="no-underline hover:underline underline-offset-4 focus-visible:outline-3 focus-visible:outline-[var(--citation)] focus-visible:outline-offset-2"
           >
             {notebook.title}
           </Link>
         </h3>
 
+        <div className="font-mono text-xs text-muted">
+          Created {new Date(notebook.createdAt).toLocaleDateString()} · {notebook.sourceCount} sources
+        </div>
+
         {/* Badges from mockup-dashboard.html */}
-        <div className="flex flex-wrap items-center gap-2 pt-1">
-          <span
-            className="inline-flex items-center px-2 py-0.5 rounded-[2px] border border-border dark:border-border-dark bg-[var(--citation,#00E5FF)] text-[#111111] font-mono text-[11px] font-bold shadow-[1px_1px_0_0_var(--border,#111111)]"
-          >
+        <div className="badges flex flex-wrap items-center gap-2 pt-1">
+          <span className="badge cyan">
             {notebook.sourceCount} {notebook.sourceCount === 1 ? 'source' : 'sources'}
           </span>
-          <span
-            className="inline-flex items-center px-2 py-0.5 rounded-[2px] border border-border dark:border-border-dark bg-[var(--accent,#FFE500)] text-[#111111] font-mono text-[11px] font-bold shadow-[1px_1px_0_0_var(--border,#111111)]"
-          >
-            ⏳ {dayLabel} left
+          <span className="expire">
+            Deletes {days <= 1 ? 'tonight 12:00 AM IST' : `in ${days} days`}
           </span>
         </div>
       </div>
@@ -88,14 +88,14 @@ export function NotebookCard({
         <button
           type="button"
           onClick={onRename}
-          className="px-3 py-1.5 text-xs font-bold font-mono uppercase tracking-wider border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark rounded-[2px] shadow-[2px_2px_0_0_var(--border,#111111)] dark:shadow-[2px_2px_0_0_var(--border-dark,#E4E4E7)] hover:shadow-[3px_3px_0_0_var(--border,#111111)] hover:-translate-x-[1px] hover:-translate-y-[1px] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all cursor-pointer focus-visible:outline-3 focus-visible:outline-[var(--citation,#00E5FF)] focus-visible:outline-offset-2"
+          className="px-3 py-1.5 text-xs font-bold font-mono uppercase tracking-wider border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark rounded-[2px] shadow-[2px_2px_0_0_var(--border)] hover:shadow-[3px_3px_0_0_var(--border)] hover:-translate-x-[1px] hover:-translate-y-[1px] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all cursor-pointer focus-visible:outline-3 focus-visible:outline-[var(--citation)] focus-visible:outline-offset-2"
         >
           Rename
         </button>
         <button
           type="button"
           onClick={onDelete}
-          className="px-3 py-1.5 text-xs font-bold font-mono uppercase tracking-wider border-2 border-border dark:border-border-dark bg-[var(--danger,#FF3333)] text-white rounded-[2px] shadow-[2px_2px_0_0_var(--border,#111111)] dark:shadow-[2px_2px_0_0_var(--border-dark,#E4E4E7)] hover:shadow-[3px_3px_0_0_var(--border,#111111)] hover:-translate-x-[1px] hover:-translate-y-[1px] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all cursor-pointer focus-visible:outline-3 focus-visible:outline-[var(--citation,#00E5FF)] focus-visible:outline-offset-2"
+          className="px-3 py-1.5 text-xs font-bold font-mono uppercase tracking-wider border-2 border-border dark:border-border-dark bg-[var(--danger,#FF3333)] text-white rounded-[2px] shadow-[2px_2px_0_0_var(--border)] hover:shadow-[3px_3px_0_0_var(--border)] hover:-translate-x-[1px] hover:-translate-y-[1px] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all cursor-pointer focus-visible:outline-3 focus-visible:outline-[var(--citation)] focus-visible:outline-offset-2"
         >
           Delete
         </button>

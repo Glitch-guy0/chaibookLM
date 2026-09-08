@@ -9,9 +9,9 @@ export function ShowcaseEmpty() {
     <div
       data-testid="showcase-empty"
       data-od-id="showcase-empty"
-      className="flex h-full min-h-[360px] flex-col items-center justify-center gap-3 p-6 text-center border-2 border-dashed border-border dark:border-border-dark bg-surface dark:bg-surface-dark rounded-default shadow-[3px_3px_0_0_#111111]"
+      className="flex h-full min-h-[360px] flex-col items-center justify-center gap-3 p-6 text-center border-2 border-dashed border-border dark:border-border-dark bg-surface dark:bg-surface-dark rounded-default shadow-[3px_3px_0_0_var(--border,#111111)]"
     >
-      <div className="flex h-12 w-12 items-center justify-center rounded-sm border-2 border-border dark:border-border-dark bg-surface-elevated dark:bg-surface-elevated-dark shadow-[2px_2px_0_0_#111111]">
+      <div className="flex h-12 w-12 items-center justify-center rounded-sm border-2 border-border dark:border-border-dark bg-surface-elevated dark:bg-surface-elevated-dark shadow-[2px_2px_0_0_var(--border,#111111)]">
         <svg
           width="28"
           height="28"

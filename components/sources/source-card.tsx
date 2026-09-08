@@ -64,7 +64,6 @@ export function SourceCard({
   onRetry,
 }: SourceCardProps) {
   const status = STATUS_META[source.status];
-  const isIndexing = source.status === 'processing';
   const isFailed = source.status === 'failed';
   const typeIcon = TYPE_ICONS[source.type] ?? '¶';
 
@@ -73,10 +72,10 @@ export function SourceCard({
       data-testid={`source-card-${source.id}`}
       aria-label={`Source: ${source.title}`}
       className={[
-        'relative flex flex-col gap-3 p-4',
-        'border-2 rounded-[2px]',
+        'src-item relative flex flex-col gap-1.5 rounded-[2px]',
+        'border-2',
         status.borderClass,
-        'shadow-[3px_3px_0_0_var(--border,#111111)] dark:shadow-[3px_3px_0_0_var(--border-dark,#E4E4E7)]',
+        'shadow-[3px_3px_0_0_var(--border)]',
         'transition-[box-shadow,transform] duration-120 ease-out',
         selected
           ? 'bg-[var(--accent,#FFE500)] text-[#111111]'
@@ -85,85 +84,81 @@ export function SourceCard({
         .filter(Boolean)
         .join(' ')}
     >
-      <div className="flex items-start justify-between gap-3">
-        <label
-          className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-muted cursor-pointer select-none"
-        >
+      {/* Top row: Checkbox + Type Icon + Title + Remove button */}
+      <div className="src-row justify-between w-full">
+        <div className="flex items-center gap-2 min-w-0 flex-1">
           <input
             type="checkbox"
             checked={selected}
             onChange={onToggleSelect}
             aria-label={`Select ${source.title}`}
-            className="h-4 w-4 cursor-pointer accent-ink dark:accent-surface"
+            className="h-3.5 w-3.5 shrink-0 cursor-pointer accent-ink dark:accent-surface rounded-[2px]"
           />
-          Select
-        </label>
-        <span
-          data-testid={`source-type-${source.id}`}
-          className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-muted"
-        >
           <span
             aria-hidden="true"
-            className="inline-grid place-items-center h-5 w-5 border border-border dark:border-border-dark rounded-[2px] bg-bg dark:bg-surface text-[11px] leading-none"
+            data-testid={`source-type-${source.id}`}
+            className="src-icon text-[10px]"
           >
             {typeIcon}
           </span>
-          {source.type} · {formatBytes(source.size)}
-        </span>
-      </div>
-
-      <h3
-        className="font-mono text-sm font-bold leading-snug break-words text-ink dark:text-ink-dark"
-      >
-        {source.title}
-      </h3>
-
-      <p className="text-[11px] font-mono text-muted">
-        Added {new Date(source.createdAt).toLocaleDateString()}
-      </p>
-
-      <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-        <span
-          data-testid={`source-status-${source.id}`}
-          className={`inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider ${status.textClass}`}
-        >
-          <span
-            aria-hidden="true"
-            data-testid={`source-dot-${source.id}`}
-            className={status.dotClass}
-          />
-          {status.label}
-        </span>
-        {isFailed && source.failReason && (
-          <span
-            data-testid={`source-fail-reason-${source.id}`}
-            title={source.failReason}
-            className="text-xs font-mono text-danger break-words cursor-help underline decoration-dotted"
-          >
-            ⚠️ {source.failReason}
+          <span className="src-name font-mono text-xs font-bold truncate">
+            {source.title}
           </span>
-        )}
-      </div>
-
-      <div className="mt-auto flex items-center justify-end gap-2 pt-2 border-t border-border/20 dark:border-border-dark/20">
-        {isFailed && onRetry && (
-          <button
-            type="button"
-            onClick={onRetry}
-            data-testid={`source-retry-${source.id}`}
-            className="px-3 py-1 text-xs font-bold font-mono uppercase tracking-wider border-2 border-border dark:border-border-dark bg-accent text-ink rounded-[2px] shadow-[2px_2px_0_0_var(--border,#111111)] hover:shadow-[3px_3px_0_0_var(--border,#111111)] hover:-translate-x-[1px] hover:-translate-y-[1px] active:shadow-none active:translate-x-[1px] active:translate-y-[1px] cursor-pointer"
-          >
-            Retry
-          </button>
-        )}
+        </div>
         <button
           type="button"
           onClick={onRemove}
           data-testid={`source-delete-${source.id}`}
-          className="px-3 py-1 text-xs font-bold font-mono uppercase tracking-wider border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark text-muted hover:text-danger hover:border-danger rounded-[2px] shadow-[2px_2px_0_0_var(--border,#111111)] hover:shadow-[3px_3px_0_0_var(--border,#111111)] hover:-translate-x-[1px] hover:-translate-y-[1px] active:shadow-none active:translate-x-[1px] active:translate-y-[1px] cursor-pointer"
+          aria-label={`Remove ${source.title}`}
+          title="Remove source"
+          className="shrink-0 p-1 text-[11px] font-mono font-bold text-muted hover:text-danger cursor-pointer transition-colors"
         >
-          Remove
+          ×
         </button>
+      </div>
+
+      {/* Bottom row: Status Dot + Label + Meta / Retry */}
+      <div className="flex items-center justify-between gap-2 pt-0.5 text-[11px] font-mono">
+        <div className="flex items-center gap-2">
+          <span
+            data-testid={`source-status-${source.id}`}
+            className={`status ${status.textClass}`}
+          >
+            <span
+              aria-hidden="true"
+              data-testid={`source-dot-${source.id}`}
+              className={status.dotClass}
+            />
+            {status.label}
+          </span>
+          <span className="text-muted text-[10px]">
+            · {formatBytes(source.size)}
+          </span>
+        </div>
+
+        {isFailed && (
+          <div className="flex items-center gap-1.5">
+            {source.failReason && (
+              <span
+                data-testid={`source-fail-reason-${source.id}`}
+                title={source.failReason}
+                className="text-[10px] text-danger truncate max-w-[120px] cursor-help underline decoration-dotted"
+              >
+                {source.failReason}
+              </span>
+            )}
+            {onRetry && (
+              <button
+                type="button"
+                onClick={onRetry}
+                data-testid={`source-retry-${source.id}`}
+                className="px-2 py-0.5 text-[10px] font-bold font-mono uppercase tracking-wider border border-danger bg-surface dark:bg-surface-dark text-danger rounded-[2px] shadow-[1px_1px_0_0_var(--border)] hover:-translate-x-[1px] hover:-translate-y-[1px] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none cursor-pointer"
+              >
+                Retry
+              </button>
+            )}
+          </div>
+        )}
       </div>
     </article>
   );

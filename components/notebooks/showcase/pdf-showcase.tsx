@@ -86,7 +86,7 @@ export function PdfShowcase({ content, citation, title }: PdfShowcaseProps) {
               ref={highlightRef}
               data-testid="pdf-bounding-box"
               data-od-id="highlight-box"
-              className={`mb-4 p-3 rounded-sm border-3 border-[#00E5FF] bg-[#00E5FF]/20 shadow-[3px_3px_0_0_#111111] transition-all duration-300 ${
+              className={`mb-4 p-3 rounded-sm border-3 border-[#00E5FF] bg-[#00E5FF]/20 shadow-[3px_3px_0_0_var(--border,#111111)] transition-all duration-300 ${
                 highlightActive ? 'ring-2 ring-[#00E5FF]' : 'opacity-90'
               }`}
             >
@@ -124,7 +124,7 @@ export function PdfShowcase({ content, citation, title }: PdfShowcaseProps) {
           ref={highlightRef}
           data-testid="pdf-bounding-box"
           data-od-id="highlight-box"
-          className={`inline p-1 rounded-sm border-3 border-[#00E5FF] bg-[#00E5FF]/25 shadow-[2px_2px_0_0_#111111] transition-all duration-300 ${
+          className={`inline p-1 rounded-sm border-3 border-[#00E5FF] bg-[#00E5FF]/25 shadow-[2px_2px_0_0_var(--border,#111111)] transition-all duration-300 ${
             highlightActive ? 'ring-2 ring-[#00E5FF]' : 'opacity-90'
           }`}
         >
@@ -143,10 +143,10 @@ export function PdfShowcase({ content, citation, title }: PdfShowcaseProps) {
 
       {/* Header with document title and page jumper */}
       <div
-        className="flex items-center justify-between gap-3 border-2 border-border dark:border-border-dark bg-surface-elevated dark:bg-surface-elevated-dark px-3 py-2 rounded-default shadow-[3px_3px_0_0_#111111]"
+        className="flex items-center justify-between gap-3 border-2 border-border dark:border-border-dark bg-surface-elevated dark:bg-surface-elevated-dark px-3 py-2 rounded-default shadow-[3px_3px_0_0_var(--border,#111111)]"
       >
         <div className="flex items-center gap-2 overflow-hidden">
-          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-sm border border-border dark:border-border-dark bg-[#FFE500] font-mono text-xs font-bold text-ink">
+          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-sm border border-border dark:border-border-dark bg-[var(--accent,#FFE500)] font-mono text-xs font-bold text-ink">
             PDF
           </span>
           <span className="truncate font-mono text-xs font-bold text-ink dark:text-ink-dark">
@@ -163,7 +163,7 @@ export function PdfShowcase({ content, citation, title }: PdfShowcaseProps) {
             aria-label="Previous page"
             disabled={currentPage <= 1}
             onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-            className="flex h-7 w-7 items-center justify-center rounded-sm border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark shadow-[2px_2px_0_0_#111111] hover:translate-x-[-1px] hover:translate-y-[-1px] active:translate-x-[1px] active:translate-y-[1px] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
+            className="flex h-7 w-7 items-center justify-center rounded-sm border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark shadow-[2px_2px_0_0_var(--border,#111111)] hover:translate-x-[-1px] hover:translate-y-[-1px] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
           >
             ‹
           </button>
@@ -181,7 +181,7 @@ export function PdfShowcase({ content, citation, title }: PdfShowcaseProps) {
             aria-label="Next page"
             disabled={currentPage >= totalPages}
             onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-            className="flex h-7 w-7 items-center justify-center rounded-sm border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark shadow-[2px_2px_0_0_#111111] hover:translate-x-[-1px] hover:translate-y-[-1px] active:translate-x-[1px] active:translate-y-[1px] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
+            className="flex h-7 w-7 items-center justify-center rounded-sm border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark shadow-[2px_2px_0_0_var(--border,#111111)] hover:translate-x-[-1px] hover:translate-y-[-1px] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
           >
             ›
           </button>
@@ -190,14 +190,14 @@ export function PdfShowcase({ content, citation, title }: PdfShowcaseProps) {
 
       {/* PDF Page Document Sheet */}
       <div
-        className="max-h-[34rem] overflow-y-auto rounded-default border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark p-6 shadow-[4px_4px_0_0_#111111]"
+        className="max-h-[34rem] overflow-y-auto rounded-default border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark p-6 shadow-[4px_4px_0_0_var(--border,#111111)]"
       >
         <div className="mb-4 flex items-center justify-between border-b-2 border-dashed border-border/30 dark:border-border-dark/30 pb-2">
           <span className="font-mono text-xs font-semibold text-ink-muted dark:text-ink-muted-dark">
             PAGE {currentPage}
           </span>
           {highlightActive && (
-            <span className="font-mono text-[10px] font-bold text-[#00E5FF] dark:text-[#00E5FF] bg-ink dark:bg-white px-2 py-0.5 rounded-sm">
+            <span className="font-mono text-[10px] font-bold text-[var(--citation,#00E5FF)] bg-ink dark:bg-white px-2 py-0.5 rounded-sm">
               CYAN PROOF ACTIVE (2.5s)
             </span>
           )}

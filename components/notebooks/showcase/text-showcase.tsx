@@ -64,30 +64,30 @@ export function TextShowcase({ content, citation, title }: TextShowcaseProps) {
       </div>
 
       <div
-        className="flex items-center justify-between gap-2 border-2 border-border dark:border-border-dark bg-surface-elevated dark:bg-surface-elevated-dark px-3 py-2 rounded-default shadow-[3px_3px_0_0_#111111]"
+        className="flex items-center justify-between gap-2 border-2 border-border dark:border-border-dark bg-surface-elevated dark:bg-surface-elevated-dark px-3 py-2 rounded-default shadow-[3px_3px_0_0_var(--border,#111111)]"
       >
         <div className="flex items-center gap-2 overflow-hidden">
-          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-sm border border-border dark:border-border-dark bg-[#FFE500] font-mono text-xs font-bold text-ink">
+          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-sm border border-border dark:border-border-dark bg-[var(--accent,#FFE500)] font-mono text-xs font-bold text-ink">
             ¶
           </span>
           <span className="truncate font-mono text-xs font-bold text-ink dark:text-ink-dark">
             {title}
           </span>
         </div>
-        <span className="font-mono text-[10px] font-bold text-[#00E5FF] dark:text-[#00E5FF] bg-ink dark:bg-surface-dark px-2 py-0.5 rounded-sm">
+        <span className="font-mono text-[10px] font-bold text-[var(--citation,#00E5FF)] bg-ink dark:bg-surface-dark px-2 py-0.5 rounded-sm">
           CITED EXCERPT ACTIVE
         </span>
       </div>
 
       <div
         data-testid="text-showcase-content"
-        className="max-h-[32rem] overflow-y-auto whitespace-pre-wrap rounded-default border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark p-4 font-sans text-sm leading-relaxed text-ink dark:text-ink-dark shadow-[4px_4px_0_0_#111111]"
+        className="max-h-[32rem] overflow-y-auto whitespace-pre-wrap rounded-default border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark p-4 font-sans text-sm leading-relaxed text-ink dark:text-ink-dark shadow-[4px_4px_0_0_var(--border,#111111)]"
       >
         <span>{before}</span>
         <mark
           ref={markRef}
           data-testid="text-highlight-mark"
-          className="rounded-sm border-2 border-border dark:border-border-dark bg-[#00E5FF]/40 dark:bg-[#00E5FF]/50 text-ink dark:text-ink-dark px-1 py-0.5 font-medium shadow-[2px_2px_0_0_#111111]"
+          className="rounded-sm border-2 border-border dark:border-border-dark bg-[#00E5FF]/40 dark:bg-[#00E5FF]/50 text-ink dark:text-ink-dark px-1 py-0.5 font-medium shadow-[2px_2px_0_0_var(--border,#111111)]"
         >
           {highlighted}
         </mark>

@@ -28,14 +28,17 @@ export function RefusalCard({
   return (
     <div
       data-testid="refusal-card"
-      className="my-3 p-4 border-2 border-[var(--border,#111111)] dark:border-[var(--border-dark,#E4E4E7)] bg-[var(--surface,#FFFFFF)] dark:bg-[var(--surface,#18181B)] text-ink dark:text-ink-dark rounded-[2px] shadow-[4px_4px_0_0_var(--border,#111111)]"
+      className="refusal my-3 p-4 border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark rounded-[2px] shadow-[4px_4px_0_0_var(--border)]"
     >
       <div className="flex items-start gap-2.5">
         <span className="text-xl leading-none select-none" aria-hidden="true">
           ⚠️
         </span>
         <div className="space-y-1.5 flex-1">
-          <p className="font-mono font-bold text-xs uppercase tracking-wider text-ink dark:text-ink-dark">
+          <div className="rtitle font-mono font-bold text-xs uppercase tracking-wider text-ink dark:text-ink-dark">
+            ⚠ Honest refusal
+          </div>
+          <p className="font-mono font-bold text-xs text-ink dark:text-ink-dark">
             The uploaded sources do not specify the requested information.
           </p>
           <p className="text-xs text-muted font-sans leading-relaxed">
@@ -65,6 +68,9 @@ export function RefusalCard({
                 Added {addedCount ?? 3} web sources to notebook.
               </p>
             )}
+            <div className="cost text-[10px] font-mono text-muted mt-1">
+              Consumes 1 credit · Tavily search fallback
+            </div>
           </div>
 
           <button
@@ -72,7 +78,7 @@ export function RefusalCard({
             data-testid="search-web-button"
             onClick={onSearchWebAndAnswer}
             disabled={isZeroCredits || isPending || status === 'done'}
-            className="inline-flex items-center justify-center px-3.5 py-1.5 text-xs font-bold font-mono uppercase tracking-wider bg-[var(--accent,#FFE500)] text-[#111111] border-2 border-[var(--border,#111111)] dark:border-[var(--border-dark,#E4E4E7)] rounded-[2px] shadow-[3px_3px_0_0_var(--border,#111111)] dark:shadow-[3px_3px_0_0_var(--border-dark,#E4E4E7)] hover:shadow-[4px_4px_0_0_var(--border,#111111)] hover:-translate-x-[1px] hover:-translate-y-[1px] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all disabled:opacity-45 disabled:cursor-not-allowed cursor-pointer focus-visible:outline-3 focus-visible:outline-[var(--citation,#00E5FF)] focus-visible:outline-offset-2"
+            className="inline-flex items-center justify-center px-3.5 py-1.5 text-xs font-bold font-mono uppercase tracking-wider bg-[var(--accent,#FFE500)] text-[#111111] border-2 border-border dark:border-border-dark rounded-[2px] shadow-[3px_3px_0_0_var(--border)] hover:shadow-[4px_4px_0_0_var(--border)] hover:-translate-x-[1px] hover:-translate-y-[1px] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all disabled:opacity-45 disabled:cursor-not-allowed cursor-pointer focus-visible:outline-3 focus-visible:outline-[var(--citation)] focus-visible:outline-offset-2"
           >
             {isPending ? (
               <span>Searching the web via Tavily…</span>

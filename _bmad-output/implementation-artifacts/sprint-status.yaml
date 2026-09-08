@@ -81,7 +81,7 @@ action_items:
     action: "Add 30-day automated cleanup for raw telemetry_file_uploads rows in midnight
       maintenance"
     owner: "Dev / Infrastructure Team"
-    status: open
+    status: done
     ref: "_bmad-output/implementation-artifacts/epic-2-retro-09-07-2026.md"
   - id: "epic-4-retro-item-3-evaluate-supplementing-the-extracted-mar"
     epic: 4
@@ -97,5 +97,5 @@ action_items:
       detect X-Frame-Options blocking and automatically fall back to the sanitized
       Reader mode with an informative notice"
     owner: "Frontend Team"
-    status: open
+    status: done
     ref: "_bmad-output/implementation-artifacts/epic-4-retro-09-07-2026.md"

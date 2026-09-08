@@ -30,6 +30,7 @@ const THEME_INIT_SCRIPT = `
       theme = 'dark';
     }
 
+    document.documentElement.setAttribute('data-theme', theme);
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
     }

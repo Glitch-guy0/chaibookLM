@@ -39,6 +39,7 @@ function resolveTheme(): Theme {
 
 function applyThemeClass(theme: Theme): void {
   document.documentElement.classList.toggle('dark', theme === 'dark');
+  document.documentElement.setAttribute('data-theme', theme);
 }
 
 interface ThemeProviderProps {

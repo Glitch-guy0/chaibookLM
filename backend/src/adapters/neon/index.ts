@@ -734,6 +734,26 @@ export class NeonRepository {
     };
   }
 
+  /**
+   * 30-day automated cleanup for raw telemetry rows (AC-2.6.4).
+   * Deletes raw records older than the given number of days.
+   */
+  async cleanupOldTelemetry(days: number = 30): Promise<void> {
+    await this.pool
+      .query(
+        `DELETE FROM telemetry_file_uploads WHERE created_at < now() - make_interval(days => $1)`,
+        [days]
+      )
+      .catch(() => {});
+      
+    await this.pool
+      .query(
+        `DELETE FROM telemetry_chat_prompts WHERE created_at < now() - make_interval(days => $1)`,
+        [days]
+      )
+      .catch(() => {});
+  }
+
   async dispose(): Promise<void> {
     await this.pool.end();
   }

@@ -5,7 +5,7 @@ import type { StorageService } from '../../ports/StorageService';
 export interface MaintenanceCascadeDependencies {
   neonRepo: Pick<
     NeonRepository,
-    'deleteNotebook' | 'findNotebooksByUserId' | 'reconcileCounter' | 'aggregateDailyTelemetry'
+    'deleteNotebook' | 'findNotebooksByUserId' | 'reconcileCounter' | 'aggregateDailyTelemetry' | 'cleanupOldTelemetry'
   >;
   vectorStore?: Pick<VectorStore, 'deleteByNotebookId'>;
   storageService?: Pick<StorageService, 'delete'>;
@@ -66,6 +66,11 @@ export async function executeMidnightMaintenanceCascade(
     const targetDate = dateIst || new Date().toISOString().split('T')[0];
     await deps.neonRepo.aggregateDailyTelemetry(targetDate).catch(() => {});
     aggregatedTelemetry = true;
+  }
+
+  // Step 6: 30-day automated cleanup for raw telemetry rows (AC-2.6.4)
+  if (deps.neonRepo.cleanupOldTelemetry) {
+    await deps.neonRepo.cleanupOldTelemetry(30).catch(() => {});
   }
 
   return {

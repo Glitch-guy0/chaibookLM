@@ -85,7 +85,7 @@ export function ShowcasePanel({
       {sourceNotFound ? (
         <div
           data-testid="showcase-source-not-found"
-          className="flex flex-col items-center justify-center p-8 border-2 border-dashed border-border dark:border-border-dark bg-surface-elevated dark:bg-surface-elevated-dark rounded-default shadow-[3px_3px_0_0_#111111]"
+          className="flex flex-col items-center justify-center p-8 border-2 border-dashed border-border dark:border-border-dark bg-surface-elevated dark:bg-surface-elevated-dark rounded-default shadow-[3px_3px_0_0_var(--border,#111111)]"
         >
           <p className="font-mono text-sm font-semibold text-ink-secondary dark:text-ink-secondary-dark">
             This source is no longer available.
@@ -97,9 +97,9 @@ export function ShowcasePanel({
       ) : sourcesLoading || contentQuery.isLoading ? (
         <div
           data-testid="showcase-loading"
-          className="flex flex-col items-center justify-center p-12 border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark rounded-default shadow-[3px_3px_0_0_#111111]"
+          className="flex flex-col items-center justify-center p-12 border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark rounded-default shadow-[3px_3px_0_0_var(--border,#111111)]"
         >
-          <div className="h-6 w-6 animate-spin rounded-full border-2 border-border dark:border-border-dark border-t-[#00E5FF] mb-3" />
+          <div className="h-6 w-6 animate-spin rounded-full border-2 border-border dark:border-border-dark border-t-[var(--citation,#00E5FF)] mb-3" />
           <p className="font-mono text-xs font-semibold text-ink dark:text-ink-dark">
             Loading source proof…
           </p>
@@ -107,7 +107,7 @@ export function ShowcasePanel({
       ) : contentQuery.isError || !contentQuery.data ? (
         <div
           data-testid="showcase-content-error"
-          className="flex flex-col items-center justify-center p-8 border-2 border-dashed border-border dark:border-border-dark bg-surface-elevated dark:bg-surface-elevated-dark rounded-default shadow-[3px_3px_0_0_#111111]"
+          className="flex flex-col items-center justify-center p-8 border-2 border-dashed border-border dark:border-border-dark bg-surface-elevated dark:bg-surface-elevated-dark rounded-default shadow-[3px_3px_0_0_var(--border,#111111)]"
         >
           <p className="font-mono text-sm font-semibold text-ink-secondary dark:text-ink-secondary-dark">
             This source&apos;s content is no longer available.

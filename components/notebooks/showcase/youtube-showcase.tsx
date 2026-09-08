@@ -87,10 +87,10 @@ export function YouTubeShowcase({ content, citation, title }: YouTubeShowcasePro
 
       {/* Header with Title and active timestamp */}
       <div
-        className="flex items-center justify-between gap-2 border-2 border-border dark:border-border-dark bg-surface-elevated dark:bg-surface-elevated-dark px-3 py-2 rounded-default shadow-[3px_3px_0_0_#111111]"
+        className="flex items-center justify-between gap-2 border-2 border-border dark:border-border-dark bg-surface-elevated dark:bg-surface-elevated-dark px-3 py-2 rounded-default shadow-[3px_3px_0_0_var(--border,#111111)]"
       >
         <div className="flex items-center gap-2 overflow-hidden">
-          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-sm border border-border dark:border-border-dark bg-[#FF3333] font-mono text-xs font-bold text-white">
+          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-sm border border-border dark:border-border-dark bg-[var(--danger,#FF3333)] font-mono text-xs font-bold text-white">
             <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <polygon points="5 3 19 12 5 21 5 3" />
             </svg>
@@ -101,7 +101,7 @@ export function YouTubeShowcase({ content, citation, title }: YouTubeShowcasePro
         </div>
         <span
           data-testid="youtube-timestamp-badge"
-          className="shrink-0 font-mono text-xs font-bold text-[#00E5FF] dark:text-[#00E5FF] bg-ink dark:bg-surface-dark px-2 py-0.5 rounded-sm border border-border dark:border-border-dark"
+          className="shrink-0 font-mono text-xs font-bold text-[var(--citation,#00E5FF)] bg-ink dark:bg-surface-dark px-2 py-0.5 rounded-sm border border-border dark:border-border-dark"
         >
           {formattedActiveTime}
         </span>
@@ -109,7 +109,7 @@ export function YouTubeShowcase({ content, citation, title }: YouTubeShowcasePro
 
       {/* Embedded YouTube Player */}
       <div
-        className="relative w-full aspect-video overflow-hidden rounded-default border-2 border-border dark:border-border-dark bg-black shadow-[4px_4px_0_0_#111111]"
+        className="relative w-full aspect-video overflow-hidden rounded-default border-2 border-border dark:border-border-dark bg-black shadow-[4px_4px_0_0_var(--border,#111111)]"
       >
         {embedUrl ? (
           <iframe
@@ -128,7 +128,7 @@ export function YouTubeShowcase({ content, citation, title }: YouTubeShowcasePro
               href={content.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-mono text-xs text-[#00E5FF] underline"
+              className="font-mono text-xs text-[var(--citation,#00E5FF)] underline"
             >
               Open on YouTube ↗
             </a>
@@ -150,7 +150,7 @@ export function YouTubeShowcase({ content, citation, title }: YouTubeShowcasePro
         <div
           data-testid="youtube-transcript-list"
           data-od-id="transcript"
-          className="max-h-[16rem] overflow-y-auto rounded-default border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark p-2 shadow-[3px_3px_0_0_#111111]"
+          className="max-h-[16rem] overflow-y-auto rounded-default border-2 border-border dark:border-border-dark bg-surface dark:bg-surface-dark p-2 shadow-[3px_3px_0_0_var(--border,#111111)]"
         >
           {transcript.length === 0 ? (
             <div className="p-4 text-center font-mono text-xs text-ink-muted dark:text-ink-muted-dark">
@@ -168,7 +168,7 @@ export function YouTubeShowcase({ content, citation, title }: YouTubeShowcasePro
                   onClick={() => setCurrentSeconds(cue.timestampSeconds)}
                   className={`flex items-start gap-2.5 p-2 rounded-sm cursor-pointer transition-all duration-150 border-l-4 mb-1 ${
                     isActive
-                      ? 'border-[#00E5FF] bg-[#00E5FF]/20 dark:bg-[#00E5FF]/25 shadow-[2px_2px_0_0_#111111]'
+                      ? 'border-[#00E5FF] bg-[#00E5FF]/20 dark:bg-[#00E5FF]/25 shadow-[2px_2px_0_0_var(--border,#111111)]'
                       : 'border-transparent hover:bg-surface-elevated dark:hover:bg-surface-elevated-dark'
                   }`}
                 >
