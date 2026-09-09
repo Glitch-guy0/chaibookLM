@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { auth } from '@clerk/nextjs/server';
+import { getAuth } from '@clerk/nextjs/server';
 import { errorResponse } from '../../../helpers';
 import { getBackend } from '../../../lib/backend';
 import { checkRateLimit, rateLimitResponse } from '../../../lib/rate-limit';
@@ -17,7 +17,7 @@ interface RouteContext {
  * never invokes web search itself.
  */
 export async function POST(request: NextRequest, context: RouteContext) {
-  const { userId } = await auth();
+  const { userId } = getAuth(request);
   if (!userId) {
     return errorResponse('Unauthorized', 'UNAUTHORIZED', 401);
   }

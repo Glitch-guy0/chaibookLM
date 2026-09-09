@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { auth } from '@clerk/nextjs/server';
+import { getAuth } from '@clerk/nextjs/server';
 import { errorResponse, serializeSource } from '../../../helpers';
 import { getBackend } from '../../../lib/backend';
 import { checkRateLimit, rateLimitResponse } from '../../../lib/rate-limit';
@@ -21,8 +21,8 @@ function deriveTitle(content: string, fallback: string): string {
  * GET /api/notebooks/[id]/sources
  * List all sources in a notebook owned by the authenticated user.
  */
-export async function GET(_request: NextRequest, context: RouteContext) {
-  const { userId } = await auth();
+export async function GET(request: NextRequest, context: RouteContext) {
+  const { userId } = getAuth(request);
   if (!userId) {
     return errorResponse('Unauthorized', 'UNAUTHORIZED', 401);
   }
@@ -45,7 +45,7 @@ export async function GET(_request: NextRequest, context: RouteContext) {
  * 409. Returns 201 with the queued source and enqueues ingestion.
  */
 export async function POST(request: NextRequest, context: RouteContext) {
-  const { userId } = await auth();
+  const { userId } = getAuth(request);
   if (!userId) {
     return errorResponse('Unauthorized', 'UNAUTHORIZED', 401);
   }

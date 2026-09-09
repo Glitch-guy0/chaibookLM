@@ -1,15 +1,20 @@
-import { SignIn } from '@clerk/nextjs';
+import { SignUp } from '@clerk/nextjs';
 import { AuthProvider } from '@components/auth-provider';
 
 /**
- * Sign-in page with Clerk auth wrapped in AuthProvider.
+ * Sign-up page with Clerk auth wrapped in AuthProvider.
+ * Catch-all route at /sign-up/[[...rest]]/page.tsx so Clerk's internal
+ * routing (OAuth callbacks, etc.) resolves correctly.
+ *
+ * Already-authenticated users are redirected to /dashboard by the middleware
+ * so we don't trigger Next.js 16 sync-dynamic-apis warnings here.
  */
-export default function SignInPage() {
+export default function SignUpPage() {
   return (
     <AuthProvider>
       <div className="flex min-h-screen items-center justify-center bg-surface dark:bg-surface-dark px-4">
         <div className="w-full max-w-md">
-          <SignIn
+          <SignUp
             appearance={{
               elements: {
                 card: 'bg-surface-elevated dark:bg-surface-elevated-dark border-2 border-border dark:border-border-dark shadow-dialog dark:shadow-dialog-dark rounded-default p-8',

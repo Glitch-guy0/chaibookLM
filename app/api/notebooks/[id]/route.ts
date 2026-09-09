@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { auth } from '@clerk/nextjs/server';
+import { auth, getAuth } from '@clerk/nextjs/server';
 import { errorResponse, serializeNotebook } from '../../helpers';
 import { getBackend } from '../../lib/backend';
 
@@ -11,12 +11,13 @@ interface RouteContext {
  * GET /api/notebooks/[id]
  * Fetch a single notebook owned by the authenticated user.
  */
-export async function GET(_request: NextRequest, context: RouteContext) {
-  const { userId } = await auth();
+export async function GET(request: NextRequest, context: RouteContext) {
+  try {
+    const { userId } = getAuth(request);
 
-  if (!userId) {
-    return errorResponse('Unauthorized', 'UNAUTHORIZED', 401);
-  }
+    if (!userId) {
+      return errorResponse('Unauthorized', 'UNAUTHORIZED', 401);
+    }
 
   const { id } = await context.params;
   const { notebooks } = await getBackend();
@@ -27,6 +28,12 @@ export async function GET(_request: NextRequest, context: RouteContext) {
   }
 
   return NextResponse.json({ notebook: serializeNotebook(notebook) });
+  } catch (err) {
+    return NextResponse.json(
+      { message: err instanceof Error ? err.message : String(err) },
+      { status: 500 },
+    );
+  }
 }
 
 /**
@@ -35,7 +42,7 @@ export async function GET(_request: NextRequest, context: RouteContext) {
  * titles with 400 and returns 404 when the notebook is missing or not owned.
  */
 export async function PATCH(request: NextRequest, context: RouteContext) {
-  const { userId } = await auth();
+  const { userId } = getAuth(request);
 
   if (!userId) {
     return errorResponse('Unauthorized', 'UNAUTHORIZED', 401);
@@ -77,8 +84,8 @@ export async function PATCH(request: NextRequest, context: RouteContext) {
  * Delete a single notebook owned by the authenticated user, cascading its
  * sources and chat in Neon. Returns 404 when missing or not owned.
  */
-export async function DELETE(_request: NextRequest, context: RouteContext) {
-  const { userId } = await auth();
+export async function DELETE(request: NextRequest, context: RouteContext) {
+  const { userId } = getAuth(request);
 
   if (!userId) {
     return errorResponse('Unauthorized', 'UNAUTHORIZED', 401);

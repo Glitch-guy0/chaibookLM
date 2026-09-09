@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { auth } from '@clerk/nextjs/server';
+import { getAuth } from '@clerk/nextjs/server';
 import { errorResponse } from '../../helpers';
 import { getBackend } from '../../lib/backend';
 
@@ -12,8 +12,8 @@ interface RouteContext {
  * Delete a source owned by the authenticated user, cascading Qdrant → Filebase
  * → Neon. Returns 404 when the source is missing or not owned.
  */
-export async function DELETE(_request: NextRequest, context: RouteContext) {
-  const { userId } = await auth();
+export async function DELETE(request: NextRequest, context: RouteContext) {
+  const { userId } = getAuth(request);
   if (!userId) {
     return errorResponse('Unauthorized', 'UNAUTHORIZED', 401);
   }

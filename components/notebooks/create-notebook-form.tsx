@@ -12,7 +12,7 @@ interface CreateNotebookFormProps {
 
 /**
  * Inline create-notebook form. Rejects empty/whitespace names inline; surfaces
- * the notebook cap pop-up when a create is blocked server-side with 409.
+ * the notebook cap pop-up when a create is blocked server-side with 422.
  */
 export function CreateNotebookForm({
   onCreated,
@@ -33,12 +33,13 @@ export function CreateNotebookForm({
       onCreated?.(data.notebook);
     },
     onError: (err) => {
-      const e = err as Error & { code?: string; data?: { count?: number; cap?: number } };
-      if (e.code === 'NOTEBOOK_CAP_EXCEEDED') {
+      const e = err as Error & { code?: string; data?: { count?: number; cap?: number }; status?: number };
+      if (e.code === 'NOTEBOOK_CAP_EXCEEDED' || e.status === 422) {
         onCapExceeded?.(e.data?.count ?? 0, e.data?.cap ?? 0);
+        return;
       }
+      setError(e.message ?? 'Failed to create notebook');
       setTitle('');
-      setError(null);
       inputRef.current?.focus();
     },
   });

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { auth } from '@clerk/nextjs/server';
+import { getAuth } from '@clerk/nextjs/server';
 import { errorResponse, serializeSource } from '../helpers';
 import { getBackend } from '../lib/backend';
 import { checkRateLimit, rateLimitResponse } from '../lib/rate-limit';
@@ -19,7 +19,7 @@ function deriveTitle(content: string, fallback: string): string {
  * Returns HTTP 201 with status 'queued' and dispatches Inngest event in < 200ms.
  */
 export async function POST(request: NextRequest) {
-  const { userId } = await auth();
+  const { userId } = getAuth(request);
   if (!userId) {
     return errorResponse('Unauthorized', 'UNAUTHORIZED', 401);
   }

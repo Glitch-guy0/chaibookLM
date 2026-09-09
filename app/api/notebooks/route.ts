@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { auth } from '@clerk/nextjs/server';
+import { getAuth } from '@clerk/nextjs/server';
 import { errorResponse, serializeNotebook } from '../helpers';
 import { getBackend } from '../lib/backend';
 
@@ -9,67 +9,85 @@ import { getBackend } from '../lib/backend';
  * expired (TTL). Returns the surviving notebooks plus the number removed so the
  * client can announce the cleanup.
  */
-export async function GET(_request: NextRequest) {
-  const { userId } = await auth();
+export async function GET(request: NextRequest) {
+  try {
+    const { userId } = getAuth(request);
 
-  if (!userId) {
-    return errorResponse('Unauthorized', 'UNAUTHORIZED', 401);
+    if (!userId) {
+      return errorResponse('Unauthorized', 'UNAUTHORIZED', 401);
+    }
+
+    const { notebooks } = await getBackend();
+    const expiredRemoved = await notebooks.removeExpiredForUser(userId);
+    const list = await notebooks.findByUserId(userId);
+
+    return NextResponse.json({
+      notebooks: list.map(serializeNotebook),
+      expiredRemoved,
+    });
+  } catch (err) {
+    console.error('[api/notebooks GET] failed:', err);
+    return errorResponse(
+      'Could not load notebooks. Please try again later.',
+      'INTERNAL_ERROR',
+      500,
+    );
   }
-
-  const { notebooks } = await getBackend();
-  const expiredRemoved = await notebooks.removeExpiredForUser(userId);
-  const list = await notebooks.findByUserId(userId);
-
-  return NextResponse.json({
-    notebooks: list.map(serializeNotebook),
-    expiredRemoved,
-  });
 }
 
 /**
  * POST /api/notebooks
  * Create a new notebook for the authenticated user. Rejects empty/whitespace
- * titles with 400 and blocks users at their notebook cap with 409.
+ * titles with 400 and blocks users at their notebook cap with 422.
  */
 export async function POST(request: NextRequest) {
-  const { userId } = await auth();
-
-  if (!userId) {
-    return errorResponse('Unauthorized', 'UNAUTHORIZED', 401);
-  }
-
-  let body: unknown;
   try {
-    body = await request.json();
-  } catch {
-    return errorResponse('Invalid request body', 'INVALID_BODY', 400);
-  }
+    const { userId } = getAuth(request);
 
-  const title =
-    typeof (body as { title?: unknown })?.title === 'string'
-      ? (body as { title: string }).title.trim()
-      : '';
-  if (!title) {
-    return errorResponse('Title is required', 'INVALID_NAME', 400);
-  }
+    if (!userId) {
+      return errorResponse('Unauthorized', 'UNAUTHORIZED', 401);
+    }
 
-  const { notebooks, limits } = await getBackend();
-  const created = await notebooks.create(userId, title);
+    let body: unknown;
+    try {
+      body = await request.json();
+    } catch {
+      return errorResponse('Invalid request body', 'INVALID_BODY', 400);
+    }
 
-  if (!created) {
-    const counter = await limits.getNotebookCounter(userId);
-    return NextResponse.json(
-      {
-        error: {
-          message: 'Notebook limit reached (max 10 notebooks per user)',
-          code: 'NOTEBOOK_CAP_EXCEEDED',
+    const title =
+      typeof (body as { title?: unknown })?.title === 'string'
+        ? (body as { title: string }).title.trim()
+        : '';
+    if (!title) {
+      return errorResponse('Title is required', 'INVALID_NAME', 400);
+    }
+
+    const { notebooks, limits } = await getBackend();
+    const created = await notebooks.create(userId, title);
+
+    if (!created) {
+      const counter = await limits.getNotebookCounter(userId);
+      return NextResponse.json(
+        {
+          error: {
+            message: 'Notebook limit reached (max 10 notebooks per user)',
+            code: 'NOTEBOOK_CAP_EXCEEDED',
+          },
+          count: counter.count,
+          cap: counter.cap,
         },
-        count: counter.count,
-        cap: counter.cap,
-      },
-      { status: 422 },
+        { status: 422 },
+      );
+    }
+
+    return NextResponse.json({ notebook: serializeNotebook(created) }, { status: 201 });
+  } catch (err) {
+    console.error('[api/notebooks POST] failed:', err);
+    return errorResponse(
+      'Could not create notebook. Please try again later.',
+      'INTERNAL_ERROR',
+      500,
     );
   }
-
-  return NextResponse.json({ notebook: serializeNotebook(created) }, { status: 201 });
 }

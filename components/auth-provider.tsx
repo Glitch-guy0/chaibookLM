@@ -13,7 +13,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const isPlaceholderKey =
     !publishableKey ||
     publishableKey.includes('placeholder') ||
-    publishableKey.startsWith('pk_test_eyJpc3MiOiJodHRwczovL2NsZXJr');
+    publishableKey === 'pk_test_...';
 
   if (isPlaceholderKey) {
     return (

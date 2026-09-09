@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { auth } from '@clerk/nextjs/server';
+import { getAuth } from '@clerk/nextjs/server';
 import { errorResponse } from '../../../helpers';
 import { getBackend } from '../../../lib/backend';
 
@@ -16,8 +16,8 @@ interface RouteContext {
  * `Source` row) is mapped to a distinct 404-family response rather than
  * silently succeeding with empty content.
  */
-export async function GET(_request: NextRequest, context: RouteContext) {
-  const { userId } = await auth();
+export async function GET(request: NextRequest, context: RouteContext) {
+  const { userId } = getAuth(request);
   if (!userId) {
     return errorResponse('Unauthorized', 'UNAUTHORIZED', 401);
   }

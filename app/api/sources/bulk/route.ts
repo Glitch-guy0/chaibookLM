@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { auth } from '@clerk/nextjs/server';
+import { getAuth } from '@clerk/nextjs/server';
 import { errorResponse } from '../../helpers';
 import { getBackend } from '../../lib/backend';
 
@@ -10,7 +10,7 @@ import { getBackend } from '../../lib/backend';
  * count. Returns the number of sources actually deleted.
  */
 export async function DELETE(request: NextRequest) {
-  const { userId } = await auth();
+  const { userId } = getAuth(request);
   if (!userId) {
     return errorResponse('Unauthorized', 'UNAUTHORIZED', 401);
   }

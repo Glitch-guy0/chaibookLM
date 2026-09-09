@@ -24,12 +24,14 @@ export default async function DashboardLayout({
   let userId: string | null = null;
   try {
     const session = await auth();
-    userId = session.userId;
-  } catch {
+    userId = session?.userId ?? null;
+  } catch (err) {
+    console.error('[DashboardLayout] auth() error:', err);
     redirect('/sign-in');
   }
 
   if (!userId) {
+    console.log('[DashboardLayout] userId is null, redirecting to /sign-in');
     redirect('/sign-in');
   }
 
