@@ -244,6 +244,14 @@ body {
   }
 }
 
+/* ─── Button Tactile Elevation: Active Shadow Collapse ─── */
+.chai-button:active,
+.chai-button:hover:active,
+.dark .chai-button:active,
+.dark .chai-button:hover:active {
+  box-shadow: 0 0 0 0 transparent !important;
+}
+
 /* ─── Focus Ring Inversion (ink/brand-filled elements) ─── */
 .chai-button-primary:focus-visible {
   outline-color: var(--color-surface);

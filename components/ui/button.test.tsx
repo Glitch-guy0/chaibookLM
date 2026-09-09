@@ -14,22 +14,29 @@ describe('<Button /> component (AC-1.1.3, AC-1.1.4, AC-1.1.5)', () => {
     expect(html).toContain('data-testid="custom-action-btn"');
   });
 
-  it('includes elevation classes: 4px default shadow, 6px hover with -2px translate, 0px active with 4px translate', () => {
+  it('includes elevation classes: 4px default shadow, 6px hover with -2px translate, 0px active with 4px translate in light and dark mode', () => {
     const html = renderToStaticMarkup(<Button variant="primary">Elevated</Button>);
     expect(html).toContain('shadow-[4px_4px_0_0_');
     expect(html).toContain('hover:shadow-[6px_6px_0_0_');
     expect(html).toContain('hover:-translate-x-[2px]');
     expect(html).toContain('hover:-translate-y-[2px]');
     expect(html).toContain('active:shadow-none');
+    expect(html).toContain('hover:active:shadow-none');
+    expect(html).toContain('dark:active:shadow-none');
     expect(html).toContain('active:translate-x-[4px]');
     expect(html).toContain('active:translate-y-[4px]');
   });
 
-  it('includes motion-reduce classes to disable translations and apply bottom border shift', () => {
+  it('includes motion-reduce classes to disable translations and apply bottom border shift on hover', () => {
     const html = renderToStaticMarkup(<Button>Accessible Motion</Button>);
     expect(html).toContain('motion-reduce:transform-none');
     expect(html).toContain('motion-reduce:hover:transform-none');
     expect(html).toContain('motion-reduce:active:transform-none');
-    expect(html).toContain('motion-reduce:border-b-[5px]');
+    expect(html).toContain('motion-reduce:hover:border-b-[5px]');
+  });
+
+  it('inverts focus outline on primary variant for accessibility contrast', () => {
+    const html = renderToStaticMarkup(<Button variant="primary">Primary CTA</Button>);
+    expect(html).toContain('focus-visible:outline-[var(--color-surface,#FFFFFF)]');
   });
 });

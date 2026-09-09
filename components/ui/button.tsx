@@ -1,6 +1,6 @@
 'use client';
 
-import { forwardRef, type ButtonHTMLAttributes } from 'react';
+import { forwardRef, useState, type ButtonHTMLAttributes, type KeyboardEvent, type FocusEvent } from 'react';
 
 type ButtonVariant = 'primary' | 'secondary' | 'danger' | 'ghost';
 type ButtonSize = 'sm' | 'md' | 'lg';
@@ -13,7 +13,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 export const buttonVariantClasses: Record<ButtonVariant, string> = {
   primary:
-    'chai-button-primary bg-[var(--accent,#FFE500)] text-[var(--fg,#111111)] dark:bg-[var(--accent,#FACC15)] dark:text-[var(--fg,#111111)] ',
+    'chai-button-primary bg-[var(--accent,#FFE500)] text-[var(--fg,#111111)] dark:bg-[var(--accent,#FACC15)] dark:text-[var(--fg,#111111)] focus-visible:outline-[var(--color-surface,#FFFFFF)] dark:focus-visible:outline-[var(--color-surface-dark,#0D0D0D)] ',
   secondary:
     'bg-[var(--surface,#FFFFFF)] text-[var(--fg,#111111)] dark:bg-[var(--surface,#18181B)] dark:text-[var(--fg,#FFFFFF)] ',
   danger:
@@ -43,12 +43,12 @@ export const buttonBaseClasses =
   'dark:hover:shadow-[6px_6px_0_0_var(--border-dark,#E4E4E7)] ' +
   'hover:-translate-x-[2px] hover:-translate-y-[2px] ' +
   // Active/press: 0 0 0 0 shadow with translate(4px, 4px) in 0.06s ease
-  'active:shadow-none ' +
+  'active:shadow-none hover:active:shadow-none dark:active:shadow-none dark:hover:active:shadow-none ' +
   'active:translate-x-[4px] active:translate-y-[4px] ' +
   'active:duration-75 ' +
-  // Motion reduction: disable transforms and shift bottom border by 3px (2px -> 5px)
+  // Motion reduction: disable transforms and shift bottom border by 3px on hover only (2px -> 5px)
   'motion-reduce:transform-none motion-reduce:hover:transform-none motion-reduce:active:transform-none ' +
-  'motion-reduce:hover:border-b-[5px] motion-reduce:border-b-[5px] ' +
+  'motion-reduce:hover:border-b-[5px] ' +
   // Focus ring
   'focus-visible:outline-3 focus-visible:outline-[var(--citation,#00E5FF)] focus-visible:outline-offset-2 ' +
   // Disabled
@@ -62,17 +62,48 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       className = '',
       children,
       'data-testid': testId = 'button',
+      onKeyDown,
+      onKeyUp,
+      onBlur,
       ...props
     },
     ref,
   ) => {
-    const classNames = `${buttonBaseClasses} ${buttonVariantClasses[variant]} ${buttonSizeClasses[size]} ${className}`.trim();
+    const [isPressed, setIsPressed] = useState(false);
+
+    const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>) => {
+      if ((e.key === 'Enter' || e.key === ' ') && !e.repeat) {
+        setIsPressed(true);
+      }
+      onKeyDown?.(e);
+    };
+
+    const handleKeyUp = (e: KeyboardEvent<HTMLButtonElement>) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        setIsPressed(false);
+      }
+      onKeyUp?.(e);
+    };
+
+    const handleBlur = (e: FocusEvent<HTMLButtonElement>) => {
+      setIsPressed(false);
+      onBlur?.(e);
+    };
+
+    const pressedClasses = isPressed
+      ? 'translate-x-[4px] translate-y-[4px] !shadow-none '
+      : '';
+
+    const classNames = `${buttonBaseClasses} ${buttonVariantClasses[variant]} ${buttonSizeClasses[size]} ${pressedClasses} ${className}`.trim();
 
     return (
       <button
         ref={ref}
         className={classNames}
         data-testid={testId}
+        onKeyDown={handleKeyDown}
+        onKeyUp={handleKeyUp}
+        onBlur={handleBlur}
         {...props}
       >
         <span className="chai-button-label inline-flex items-center gap-2">
