@@ -95,3 +95,12 @@ patchFile(esmProvider, [
   } catch {}`
   }
 ]);
+
+// Patch server-actions.js: cookies() returns a Promise in Next.js 16
+const esmServerActions = path.join(__dirname, '..', 'node_modules', '@clerk', 'nextjs', 'dist', 'esm', 'app-router', 'server-actions.js');
+patchFile(esmServerActions, [
+  {
+    search: `return cookies().delete(`,
+    replace: `return (await cookies()).delete(`
+  }
+]);

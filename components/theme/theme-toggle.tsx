@@ -26,8 +26,9 @@ export function ThemeToggle() {
         'cursor-pointer select-none ' +
         'shadow-[3px_3px_0_0_var(--border,#111111)] dark:shadow-[3px_3px_0_0_var(--border-dark,#E4E4E7)] ' +
         'transition-[transform,box-shadow,background] duration-150 ease-[cubic-bezier(0.2,0,0,1)] ' +
-        'hover:shadow-[5px_5px_0_0_var(--border,#111111)] dark:hover:shadow-[5px_5px_0_0_var(--border-dark,#E4E4E7)] ' +
-        'hover:-translate-x-[1px] hover:-translate-y-[1px] ' +
+        (isDark
+          ? ''
+          : 'hover:shadow-[5px_5px_0_0_var(--border,#111111)] dark:hover:shadow-[5px_5px_0_0_var(--border-dark,#E4E4E7)] hover:-translate-x-[1px] hover:-translate-y-[1px] ') +
         'active:shadow-none active:translate-x-[4px] active:translate-y-[4px] active:duration-75 ' +
         'focus-visible:outline-3 focus-visible:outline-[var(--citation,#00E5FF)] focus-visible:outline-offset-2'
       }

@@ -103,7 +103,11 @@ export function Dialog({
       cancelAnimationFrame(raf);
       document.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = '';
-      lastFocusedRef.current?.focus();
+      const active = document.activeElement;
+      const isFormControl = active instanceof HTMLElement && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA' || active.tagName === 'SELECT');
+      if (!isFormControl) {
+        lastFocusedRef.current?.focus();
+      }
     };
   }, [open, handleKeyDown, initialFocusRef]);
 
