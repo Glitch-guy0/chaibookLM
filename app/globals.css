@@ -53,9 +53,9 @@
   --color-error-dark: #FF3333;
 
   /* Typography */
-  --font-display: var(--font-mono, 'Space Mono', monospace);
-  --font-sans: var(--font-sans, 'Inter', sans-serif);
-  --font-mono: var(--font-mono, 'Space Mono', monospace);
+  --font-display: 'Space Mono', monospace;
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'Space Mono', monospace;
 
   /* Spacing (4-based scale) */
   --spacing-gutter: 24px;
@@ -138,34 +138,34 @@
   --color-success: var(--success);
   --color-danger-deep: var(--danger-deep);
 
-  --color-ink: var(--color-ink);
-  --color-ink-secondary: var(--color-ink-secondary);
-  --color-ink-muted: var(--color-ink-muted);
-  --color-brand: var(--color-brand);
-  --color-cite: var(--color-cite);
-  --color-accent-yellow: var(--color-accent-yellow);
-  --color-accent-pink: var(--color-accent-pink);
-  --color-warning: var(--color-warning);
-  --color-error: var(--color-error);
-  --color-focus-ring: var(--color-focus-ring);
-  --color-overlay-dim: var(--color-overlay-dim);
+  --color-ink: var(--fg);
+  --color-ink-secondary: var(--muted);
+  --color-ink-muted: #777777;
+  --color-brand: var(--accent);
+  --color-cite: var(--citation);
+  --color-accent-yellow: var(--accent);
+  --color-accent-pink: #FF6B8A;
+  --color-warning: #D4A017;
+  --color-error: var(--danger);
+  --color-focus-ring: var(--citation);
+  --color-overlay-dim: rgba(17, 17, 17, 0.55);
 
-  --font-display: var(--font-display);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
+  --font-display: 'Space Mono', monospace;
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'Space Mono', monospace;
 
-  --radius-default: var(--radius-default);
-  --radius-sm: var(--radius-sm);
-  --radius-md: var(--radius-md);
-  --radius-full: var(--radius-full);
+  --radius-default: 2px;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-full: 9999px;
 
-  --shadow-card: var(--shadow-card);
-  --shadow-elevated: var(--shadow-elevated);
-  --shadow-pressed: var(--shadow-pressed);
-  --shadow-dialog: var(--shadow-dialog);
-  --shadow-button: var(--shadow-button);
-  --shadow-badge: var(--shadow-badge);
-  --shadow-pill: var(--shadow-pill);
+  --shadow-card: 4px 4px 0 0 var(--border);
+  --shadow-elevated: 6px 6px 0 0 var(--border);
+  --shadow-pressed: 0 0 0 0 var(--border);
+  --shadow-dialog: 8px 8px 0 0 var(--border);
+  --shadow-button: 4px 4px 0 0 var(--border);
+  --shadow-badge: 3px 3px 0 0 var(--border);
+  --shadow-pill: 2px 2px 0 0 var(--border);
 
   --color-surface-dark: #18181B;
   --color-surface-elevated-dark: #18181B;
