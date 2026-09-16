@@ -4,6 +4,7 @@ import { EmbeddingsAdapter } from '@backend/adapters/embeddings/index';
 import { CloudinaryAdapter } from '@backend/adapters/cloudinary/index';
 import { TavilyAdapter } from '@backend/adapters/tavily/index';
 import { FirecrawlAdapter } from '@backend/adapters/firecrawl/index';
+import { QStashAdapter } from '@backend/adapters/qstash/index';
 import { LimitsService } from '@backend/contexts/limits/index';
 import { NotebookService } from '@backend/contexts/notebooks/index';
 import { SourceService } from '@backend/contexts/sources/index';
@@ -24,6 +25,8 @@ interface BackendServices {
   sources: SourceService;
   chatFor: (notebookId: string, userId?: string) => ChatService;
   fetchOnRefusal: FetchOnRefusalService;
+  queue: QStashAdapter;
+  indexer: SourceIndexer;
 }
 
 let backendPromise: Promise<BackendServices> | null = null;
@@ -60,7 +63,8 @@ export function getBackend(): Promise<BackendServices> {
 
       const limits = new LimitsService(repo);
       const notebooks = new NotebookService(repo, limits);
-      const sources = new SourceService(repo, storage, limits, indexer, qdrant);
+      const queue = new QStashAdapter();
+      const sources = new SourceService(repo, storage, limits, indexer, qdrant, queue);
 
       const llm = new LlmAdapter();
       const reasoning = new GroundedAnswerReasoningStrategy();
@@ -75,7 +79,7 @@ export function getBackend(): Promise<BackendServices> {
       const webSearchTool = new WebSearchTool(search);
       const fetchOnRefusal = new FetchOnRefusalService(webSearchTool, sources, indexer);
 
-      return { repo, limits, notebooks, sources, chatFor, fetchOnRefusal };
+      return { repo, limits, notebooks, sources, chatFor, fetchOnRefusal, queue, indexer };
     })();
   }
   return backendPromise;

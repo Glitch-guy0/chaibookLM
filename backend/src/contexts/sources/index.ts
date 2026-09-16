@@ -3,6 +3,7 @@ import { LimitsService } from '../limits/index';
 import { SourceIndexer } from '../../templates/SourceIndexer';
 import type { VectorStore } from '../../ports/VectorStore';
 import type { StorageService } from '../../ports/StorageService';
+import type { QueueService } from '../../ports/QueueService';
 import type { Source } from '../../shared-kernel/types';
 
 const RAW_KEY = (sourceId: string) => `sources/${sourceId}`;
@@ -60,6 +61,7 @@ export class SourceService {
   private limits: LimitsService;
   private indexer: SourceIndexer;
   private qdrant: VectorStore;
+  private queue?: QueueService;
 
   constructor(
     repo: NeonRepository,
@@ -67,12 +69,14 @@ export class SourceService {
     limits: LimitsService,
     indexer: SourceIndexer,
     qdrant: VectorStore,
+    queue?: QueueService,
   ) {
     this.repo = repo;
     this.storage = storage;
     this.limits = limits;
     this.indexer = indexer;
     this.qdrant = qdrant;
+    this.queue = queue;
   }
 
   async create(params: CreateSourceParams): Promise<CreateSourceResult> {
@@ -132,7 +136,21 @@ export class SourceService {
         // Storage unconfigured/transient: leave queued; ingestion reports it.
       }
 
-      void this.indexer.index(source.id).catch(() => {});
+      if (this.queue?.isConfigured()) {
+        void this.queue
+          .enqueueIngestion({
+            sourceId: source.id,
+            notebookId: params.notebookId,
+            userId: params.userId,
+            type: params.type,
+          })
+          .catch(() => {
+            // Fallback to inline indexer if enqueuing fails
+            void this.indexer.index(source.id).catch(() => {});
+          });
+      } else {
+        void this.indexer.index(source.id).catch(() => {});
+      }
 
       return { ok: true, source };
     } catch (err) {

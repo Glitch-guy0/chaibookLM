@@ -6,3 +6,4 @@ export { LlmAdapter } from './llm/index';
 export { EmbeddingsAdapter } from './embeddings/index';
 export { TavilyAdapter } from './tavily/index';
 export { FirecrawlAdapter } from './firecrawl/index';
+export { QStashAdapter } from './qstash/index';
